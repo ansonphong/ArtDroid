@@ -1,0 +1,33 @@
+.page-head{
+	position:relative;
+	z-index:1;
+
+	.page-meta{
+		//.page-bounds();
+		position:absolute;
+		bottom:0px;
+		width:100%;
+	}
+
+	h1{
+		background:#fff;
+		display:inline-block;
+		position: relative;
+		z-index: 5;
+		border-radius: @meta-border-radius @meta-border-radius 0 0;
+
+		@media @tablet-and-below{
+			font-size:24px;
+			padding:10px 15px 5px;
+		}
+		@media @desktop-and-above{
+			font-size:28px;
+			padding:15px 20px 5px;
+		}
+		@media @full{
+			font-size:32px;
+			padding:20px 30px 5px;
+		}
+	}
+}
+

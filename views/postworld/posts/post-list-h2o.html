@@ -1,0 +1,8 @@
+<article>
+	<h2><a href="{{ post.post_permalink }}">{{ post.post_title }}</a></h2>
+	<time>{{ post.post_date }}</time>
+	<hr>
+	<div>
+		{{post.post_content | safe}}
+	</div>
+</article>

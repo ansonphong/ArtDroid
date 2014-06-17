@@ -1,0 +1,29 @@
+<div
+	id="scrollMe"
+	class="infinite-scroll">
+  <div
+  	infinite-scroll='getNext()'
+  	infinite-scroll-disabled='busy'
+  	infinite-scroll-parent>
+    <div
+    	ng-repeat='post in items' class="feed-item">
+    	<span
+    		feed-item post="post"
+    		class="feed-post"
+    		feed-id='args.feed_id'></span>
+    </div>
+    <div
+    	ng-show='busy'
+    	class="block text-center">
+    	<div
+    		class="loading feed">
+    		<i class="icon-spinner icon-spin"></i>
+    	</div>
+    </div>
+    <div
+    	ng-show='!busy'
+    	class="text-center">
+    	<strong><!--{{scrollMessage}}--></strong>
+    </div>
+  </div>
+</div>
