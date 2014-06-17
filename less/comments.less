@@ -1,0 +1,164 @@
+// COMMENTS
+
+.comments {
+
+  font-size:15px;
+
+  button.drop{
+    margin-top:5px;
+  }
+
+  .comment_content {
+    padding:0 0 0px 56px;
+  }
+
+  // fancy header
+  .comments-header{
+    z-index:1;
+    width:100%;
+    text-align:center;
+    height:1px;
+    // gives appropriate white space around header
+    margin:28px 0 28px;
+
+    background-color:@blue2;
+  }
+
+  // adds bullets to left & right of header
+  h4:before, h4:after {
+    content:" • "
+  }
+
+  h4{
+    z-index:2;
+
+    // offsets stream header over horizontal bar
+    .relative;
+    top:-18px;
+
+    // creates cut-out for header text
+    background-color:white;
+
+    // allows centering of text without white background covering full width
+    display:inline-block;
+
+    // makes whitespace left and right
+    padding: 0 12px;
+
+    color:@blue2;
+  }
+  // end fancy header
+
+  // removes UL padding from comment tree
+  .comments-tree {padding-left:0px;}
+
+  // comment sorting
+  .sort-comments{
+    text-align:center;
+    margin-bottom: 14px;
+    .sort-by{
+      color:#777;
+    }
+
+    .form-control{
+      display:inline-block;
+      width:auto;
+      margin: 0 10px;
+    }
+  }
+
+
+  // comment header
+  .comment-header{
+    .expand,
+    .contract,
+    .up,
+    .down {
+      .pull-left;
+      border:none;
+      background:none;
+      .font-size(21);
+      .pointer;
+    }
+
+    .expand,
+    .contract {
+      color:#ccc;
+      &:hover {
+        color:#777;
+      }
+    }
+
+    .comment-vote{
+      .pull-left;
+    }
+    .up,
+    .down {
+      height: 20px;
+      line-height:20px;
+      padding: 0 6px;
+      color:#777;
+      margin-top:-5px;
+      outline:none;
+      font-size:24px;
+
+    }
+
+    .up {
+    }
+    .down {
+      clear:left;
+    }
+
+    .up:hover, .up.selected:hover {
+      color:@blue2;
+    }
+    .up.selected {
+      color:#000;
+    }
+    .down:hover, .down.selected:hover {
+      color:@red1;
+    }
+    .down.selected {
+      color:#000;
+    }
+
+    .comment_author{
+      color:@red2;
+      .font-size(15);
+    }
+  }
+
+  // clears each post from the previous
+  .indent {
+    clear:both;
+  }
+
+  .title {
+
+  }
+
+  .comment .reply {
+    opacity:0;
+    transition:opacity 0.25s ease;
+  }
+
+  .comment:hover .reply {
+    opacity:1;
+  }
+
+  button.reply{
+    border:0;
+    background:#fff;
+    outline:none;
+    color:@gray5;
+
+    &.selected{
+      background:#000;
+      color:#fff;
+      opacity:1;
+    }
+  }
+
+}
+

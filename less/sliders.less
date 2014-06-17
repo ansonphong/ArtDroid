@@ -1,0 +1,138 @@
+
+#header-slider{
+
+	.logo-overlay{
+		position:absolute;
+		z-index:2;
+		width:100%;
+		bottom:130px;
+		transition:opacity 1s ease;
+		pointer-events:none;
+
+		&.fadeout{
+			opacity:0;
+		}
+
+		img.logo {
+			width:50%;
+			height:auto;
+			display:block;
+			margin:auto;
+			position:relative;
+		}
+	}
+
+	.carousel, .carousel-inner, .slide, .slide-frame{
+		height:100%;
+	}
+
+	.slide-frame{
+		background-repeat: none;
+		background-size: cover;
+		background-position: top;
+	}
+
+	.carousel-control{
+		opacity:0;
+		transition: opacity 0.4s ease;
+
+		&.left, &.right{
+			span:before{
+				font-size: 32px;
+				background: @slider-arrow-color;
+				line-height: 0px;
+				border-radius: 50px;
+				transition:background .2s ease;
+				border:1px solid rgba(255,255,255,0.25);
+				.i-expanse-dropshadow();
+			}
+		}
+
+		&.right{
+			span:before{
+				padding: 5px 11px 13px 11px;
+			}
+		}
+
+		&.left{
+			span:before{
+				padding: 5px 14px 11px 10px;
+			}
+		}
+
+		&:hover{
+			opacity:1;
+			.icon-next, .icon-prev{
+				&:before{
+					//background: @secondary-color-dark;
+				}
+			}
+		}
+
+	}
+
+	.carousel-control.left, .carousel-control.right{
+		background-image: none;
+	}
+
+	.carousel-indicators {
+		bottom: 90px;
+	}
+
+	.bar-bottom{
+		background:fade(@primary-color-dark, 80%);
+		position:absolute;
+		width:100%;
+		height:76px;
+		bottom:0px;
+		right:0px;
+		z-index:5;
+	}
+
+	.menu-home-slider{
+		.page-bounds();
+
+		ul.menu{
+			text-align:center;
+			list-style: none;
+			padding:0;
+			margin:0;
+
+			li{
+				display:inline-block;
+
+				a{
+					transition: all 0.1s ease;
+					background: #fff;
+					padding: 13px 20px;
+					display: inline-block;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					font-size: 18px;
+					//font-weight:bold;
+					margin: 10px 5px;
+					color:@secondary-color-medium;
+					text-decoration: none;
+					border:1px solid rgba(255,255,255,0.0);
+					border-radius: @meta-border-radius;
+
+					&:hover{
+						border:1px solid rgba(255,255,255,1);
+						background: @neutral-color-light;
+						color:@secondary-color-dark;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+

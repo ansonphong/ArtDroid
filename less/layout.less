@@ -1,0 +1,25 @@
+.page-bounds(){
+
+	@media @mobile { max-width:95%; }
+	@media @tablet-and-below { max-width:95%; }
+	@media @desktop-and-above { max-width:95%; }
+	@media @full { max-width:(@screen-lg*0.95); }
+	
+	transition:ease width @layout-transition-time;
+	margin:auto;
+}
+
+.page-bounds{ .page-bounds(); }
+
+.col-content > .media-embed{
+	padding:20px 0;
+	text-align: center;
+	iframe{
+		width:100%;
+		height:480px;
+	}
+}
+
+.col-content > .post_content{
+	margin-top: 40px;
+}

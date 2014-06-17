@@ -1,0 +1,50 @@
+<article pw-post class="post detail">
+	<header>
+
+		<!-- TITLE -->
+		<h2 class="pull-left">
+			<a ng-href="{{ post.post_permalink }}">
+				{{ post.post_title }}
+			</a>
+		</h2>
+
+		<div class="details">
+			
+			<!-- CATEGORIES -->
+			<div class="taxonomy unit" ng-repeat="term in post.taxonomy.category">
+				<a ng-href="{{ term.url }}" class="unit term"
+					tooltip="More in This Category" tooltip-placement="bottom">
+					{{ term.name }}
+				</a>
+			</div>
+
+			<!-- TIME -->
+			<div
+				class="time unit"
+				tooltip="{{ post.post_date }}" tooltip-placement="bottom">
+				<time datetime="{{ post.post_date }}">
+					<i class="icon-time"></i> {{ post.time_ago }}
+				</time>
+			</div>
+
+		</div>
+		
+		<div class="clearfix"></div>
+
+	</header>
+
+	<!-- LINK URL -->
+	<div class="link_format video" ng-show="post.link_format == 'video'">
+		<div o-embed="post.link_url" ng-bind-html="oEmbed"></div>
+		<hr>
+	</div>
+
+
+	<!-- CONTENT -->
+	<div class="post_content" ng-bind-html="post.post_content"></div>
+
+	<div class="clearfix"></div>
+
+	<hr class="thick">
+
+</article>

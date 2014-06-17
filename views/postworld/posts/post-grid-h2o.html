@@ -1,0 +1,44 @@
+<div class="feed-item">
+	
+	<div class="post grid">
+
+		<a href="{{ post.post_permalink }}" >
+
+			<div class="grid-image"
+				style="background-image:url({{ post.image.grid.url }})">
+			</div>
+
+			<div class="overlay">
+				<div class="link_format"
+					pw-modal-access>
+
+					{% if post.link_format == 'video' %}
+						<button
+							ng-click='openModal({ mode:"media", post:{{ post_json }} })'
+							class="btn"
+							prevent-default-click
+							tooltip="Play"
+							tooltip-placement="top"
+							tooltip-popup-delay="200">
+							<i class="glyphicon glyphicon-play"></i>
+						</button>
+					{% endif %}
+
+				</div>
+			</div>
+			
+			<div class="grid-info">
+				<h2>{{ post.post_title }}</h2>
+			</div>
+
+		</a>
+
+		<div class="details" ng-show="post.post_excerpt">
+			<div class="post_excerpt">
+				{{ post.post_excerpt }}
+			</div>
+		</div>
+
+	</div>
+
+</div>

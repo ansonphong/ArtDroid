@@ -1,0 +1,50 @@
+
+.infinite .tooltip{
+
+	// Color of the text and outline and arrow
+	@tooltip-primary-color: @primary-color-dark;
+
+	// Color of the background
+	@tooltip-secondary-color: #fff;
+
+	font-size:15px;
+
+	.tooltip-inner{
+		color: @tooltip-primary-color;
+		background-color: @tooltip-secondary-color;
+		padding: 10px 15px;
+		border:1px solid @tooltip-primary-color;
+		line-height:1;
+	}
+
+	&.left{
+		.tooltip-inner{
+			text-align: left;
+		}
+		.tooltip-arrow{
+			border-left-color: @tooltip-primary-color;
+		}
+	}
+
+	&.right{
+		.tooltip-inner{
+			text-align: left;
+		}
+		.tooltip-arrow{
+			border-right-color: @tooltip-primary-color;
+		}
+	}
+
+	&.top{
+		.tooltip-arrow{
+			border-top-color: @tooltip-primary-color;
+		}
+	}
+
+	&.bottom{
+		.tooltip-arrow{
+			border-bottom-color: @tooltip-primary-color;
+		}
+	}
+
+}

@@ -1,0 +1,33 @@
+h3.i-shortcode{
+	margin:20px 0;
+	position:relative;
+	text-align: center;
+	.heading-content{
+		margin: auto;
+		display: inline-block;
+		background: #fff;
+		position:relative;
+		z-index: 2;
+		text-align: center;
+		padding:0 20px;
+	}
+	.heading-line{
+		width:100%;
+		height:1px;
+		position:absolute;
+		top:50%;
+		background:#ccc;
+	}
+	&.primary-color{
+		color:@primary-color-dark;
+		.heading-line{
+			background:@primary-color-dark;
+		}
+	}
+	&.secondary-color{
+		color:@secondary-color-dark;
+		.heading-line{
+			background:@secondary-color-dark;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+// MEDIA EMBEDDING
+.post{
+
+	img{
+		max-width:100%;
+		border-radius:@meta-border-radius;
+	}
+
+	.link_format.video{
+
+		iframe{
+			width:100%;
+		}
+
+		@media @desktop-and-above{
+			@height: 420px;
+			min-height:@height;
+			iframe{
+				height:@height;
+			}
+		}
+
+		text-align: center;
+
+	}
+
+ }

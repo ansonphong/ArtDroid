@@ -1,0 +1,60 @@
+footer#footer{
+	
+	@media @desktop-and-above{
+		margin-top:160px;
+	}
+	@media @desktop-and-below{
+		margin-top:40px;
+	}
+	
+	padding:40px;
+	background: @footer-background;
+	color: @footer-color;
+
+	border-top:1px solid fade(@footer-color, 25%);
+
+	//@neutral-color-light
+
+	a{
+		text-decoration: none;
+	}
+
+	hr{
+		border-color: fade(@footer-color, 25%);
+	}
+
+	.address{
+		.info{
+			display:inline-block;
+			padding:0 2px;
+		}
+
+		.address_name{
+			font-weight:bold;
+		}
+
+	}
+
+	.menu-social{
+		float:right;
+		position: relative;
+		top: -7px;
+
+		a{
+			img{
+				-webkit-filter: grayscale(1); 
+				opacity:0.33;
+				transition:all .25s ease;
+			}
+			&:hover{
+				img{
+					-webkit-filter: grayscale(0); 
+					opacity:1;
+				}
+			}
+		}
+		
+	}
+
+}
+
