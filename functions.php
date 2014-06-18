@@ -56,10 +56,23 @@ function expanse_init() {
 }
 add_action( 'init', 'expanse_init' );
 
+
+
+
 /////////// ADD IMAGE SIZES //////////
 add_image_size( 'grid', '640', '480', true );
-//add_image_size( 'larger', '1600', '1200', true );
 add_image_size( 'widescreen', '1600', '900', true );
+
+
+add_image_size( 'thumb-square', '400', '400', true );
+
+add_image_size( 'thumb-wide', '600', '400', true );
+add_image_size( 'thumb-x-wide', '800', '400', true );
+
+add_image_size( 'thumb-tall', '400', '600', true );
+add_image_size( 'thumb-x-tall', '400', '800', true );
+
+
 
 ////////// SOCIAL MEDIA WIDGETS //////////
 global $social_settings;

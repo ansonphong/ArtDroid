@@ -1,4 +1,7 @@
 ///// FEED POST /////
+masonry{
+  display:block;
+}
 .grid.view .feed-item{
 
   transition:all 0.15s ease;
@@ -10,9 +13,11 @@
   }
 
   @margin:0.25%;
-  width:(100%/3)-(@margin*2);
-  margin:@margin;
+  //width:(100%/3)-(@margin*2);
 
+  margin:0px;
+
+  /*
   @media @desktop-and-up{
     @margin:0.25%;
     width:(100%/3)-(@margin*2);
@@ -29,6 +34,7 @@
     width:100%;
     margin:0%;
   }
+  */
 
 }
 
@@ -60,7 +66,7 @@
   .grid-image{
     position:absolute;
     width: 100%;
-    height: @grid-height;
+    height: 100%; //@grid-height;
     background-position:center;
     background-size:cover;
     //-webkit-filter: grayscale(33%);
@@ -105,7 +111,9 @@
     max-height:0px;
     position:absolute;
     z-index:3;
-    top:@grid-height;
+    //top:@grid-height;
+    //top:100%;
+    bottom:0;
     overflow:hidden;
     box-sizing:border-box;
     border:1px solid transparent;

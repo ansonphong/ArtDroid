@@ -17,11 +17,13 @@ global $i_paths;
 
 <body
 	ng-app="infinite"
-	class="infinite"
+	class="infinite">
 
+	<!--
 	pw-scrollfix
 	scrollfix-y-class="scrollfix-y"
-	scrollfix-y-offset="getIdHeight('page-head') - getIdHeight('header')">
+	scrollfix-y-offset="getIdHeight('page-head') - getIdHeight('header')"
+	-->
 
 	<?php
 		//echo "context : " . $i_context . "<br>";
