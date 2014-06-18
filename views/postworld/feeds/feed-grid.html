@@ -1,0 +1,38 @@
+<masonry column-width="300">
+<!--  masonry-options="{ transitionDuration: '0s', gutter:'0' }" -->
+
+    <div
+        infinite-scroll-parent
+        >
+      <div
+      	infinite-scroll='getNext()'
+      	infinite-scroll-disabled='busy'>
+
+        <div
+        	ng-repeat='post in items' class="feed-item masonry-brick">
+
+        	<div
+        		feed-item
+                post="post"
+        		feed-settings="args"
+                class="feed-post">
+                <!-- feed-id="args.feed_id" -->
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div
+        	ng-show='busy'
+        	class="text-center">
+        	<div
+        		class="loading feed">
+        		<i class="icon-spinner icon-spin"></i>
+        	</div>
+        </div>
+        
+      </div>
+    </div>
+
+</masonry>

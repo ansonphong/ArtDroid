@@ -11,8 +11,39 @@ global $lang;
 global $pwUniversalLanguage;
 global $template_paths;
 
+////////// INCLUDE POSTWORLD //////////
+if( function_exists( 'postworld_includes' ) ){
+	postworld_includes( array(
+		'mode' 		=> 'dev',
+		'dep' 		=> array( 'wp-less', 'font-awesome-3' ),
+	));
+}
+
 global $pwSiteGlobals;
 $pwSiteGlobals = array(
+
+	'wp_admin'	=>	array(
+		'metabox'	=>	array(
+			'link_url'	=>	array(
+				'post_types'	=>	array( 'post', 'page', ),
+				),
+			),
+		),
+
+	'db'	=>	array(
+		'wp_postmeta' => array(
+			'json_meta_keys' => array(
+				'event',
+				),
+			),
+		),
+
+	'icons'	=>	array(
+		'order'	=>	array(
+			'descending'	=>	'glyphicon-arrow-down',
+			'ascending'		=>	'glyphicon-arrow-up',
+			),
+		),
 
 	'edit_post'	=>	array(
 		'post'	=>	array(
@@ -35,6 +66,12 @@ $pwSiteGlobals = array(
 			),
 		),
 	
+	'images' => array(
+		'tags'	=>	array(
+			
+			),
+		),
+
 	'post_options'	=>	array(
 	
 		//'month'	=>	$pwUniversalLanguage['months'][$lang],
