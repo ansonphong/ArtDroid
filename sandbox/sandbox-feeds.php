@@ -50,8 +50,9 @@
 
 
 
-<!-- DEV -->
+<!-- DEV 
 <pre><code>CODE</code></pre>
+-->
 
 <!-- INFINITE FOOTER -->
 <?php i_footer(); ?>

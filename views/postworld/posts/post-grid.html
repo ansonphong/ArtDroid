@@ -1,7 +1,11 @@
 <div
 	pw-grid-item
-	class="post grid"
-	ng-style="setGridStyle()">
+	ng-cloak
+	class="post grid i-transition-fadein"
+	ng-style="setGridStyle()"
+
+    pw-timeout="{{ (post.feed.load_order * 200) }}"
+    timeout-action="addClass('fadein-on')">
 
 	<a href="{{ post.post_permalink }}" >
 
@@ -35,9 +39,20 @@
 
 	<div class="details" ng-show="post.image">
 		<div class="post_excerpt">
+			Category •
+			<span am-time-ago="post.post_timestamp" title="{{post.post_timestamp | amCalendar}}"></span> 
+
+			<span ng-show="post.post_excerpt">
+				• {{ post.post_excerpt }}
+			</span>
+			
+
+			<!--
+			Feed : {{ post.feed | json }} /////
 			Stats : {{ post.image.stats | json }} /////
 			Tags : {{ post.image.tags | json }} /////
 			$scope.feedSettings : {{ feedSettings | json }}
+			-->
 		</div>
 	</div>
 

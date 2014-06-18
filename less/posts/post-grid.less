@@ -4,7 +4,7 @@ masonry{
 }
 .grid.view .feed-item{
 
-  transition:all 0.15s ease;
+  transition:none;
   float:left;
   display:block;
   //border:1px solid transparent;
@@ -16,6 +16,7 @@ masonry{
   //width:(100%/3)-(@margin*2);
 
   margin:0px;
+  //margin-bottom:10px;
 
   /*
   @media @desktop-and-up{
@@ -48,14 +49,16 @@ masonry{
   @grid-dropshadow-off: 0px 0px 0px fade(@secondary-color-dark, 0%);
   @grid-dropshadow-on:  0px 0px 0px fade(@secondary-color-dark, 50%);
 
-  position:relative;
-
   width: @grid-width;
   height: @grid-height;
-  
-  display:block;
 
-  transition: all @transition-time ease;
+  position:relative;
+
+  display:block;
+  transition: none;
+
+  border: 2px solid transparent;  // Make this a theme variable
+  transition:opacity 1s ease;     // Make this a theme variable
 
   box-shadow: @grid-dropshadow-off;
   &:hover{
@@ -70,6 +73,7 @@ masonry{
     background-position:center;
     background-size:cover;
     //-webkit-filter: grayscale(33%);
+
   }
 
   &:hover{
@@ -86,7 +90,7 @@ masonry{
     width:100%;
     padding:15px 30px;
     color:#fff;
-    transition:all @transition-time ease;
+    //transition:all @transition-time ease;
   }
 
   &:hover{
@@ -98,6 +102,7 @@ masonry{
   h2{
     padding:0;
     margin:0;
+    font-size:18px;
   }
 
   a{
@@ -106,7 +111,8 @@ masonry{
 
   .details{
     transition:@transition-time ease all;
-    background:#fff;
+    background:fade( @primary-color-dark, 100% );
+    color:#fff;
     width:100%;
     max-height:0px;
     position:absolute;
@@ -116,14 +122,14 @@ masonry{
     bottom:0;
     overflow:hidden;
     box-sizing:border-box;
-    border:1px solid transparent;
+    //border:1px solid transparent;
     border-top:none;
     box-shadow: @grid-dropshadow-off;
   }
   &:hover{
     .details{
       max-height:@grid-height;
-      border:1px solid @secondary-color-medium;
+      //border:1px solid @secondary-color-medium;
       border-top:none;
       box-shadow: @grid-dropshadow-on;
     }
