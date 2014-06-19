@@ -1,13 +1,12 @@
 <div
-	pw-grid-item
 	pw-modal-access
 	ng-cloak
 	class="post grid i-transition-fadein"
-	ng-style="setGridStyle()"
+	pw-grid-item
 
     pw-timeout="{{ (post.feed.load_order * 200) }}"
     timeout-action="addClass('fadein-on')">
-
+    
 	<a
 		href="{{ post.post_permalink }}"
 		ng-click="openModal({ mode:'feed', post:post })"
@@ -28,7 +27,7 @@
 						prevent-default-click
 						tooltip="Play"
 						tooltip-placement="top"
-						tooltip-popup-delay="200">
+						tooltip-popup-delay="1000">
 						<i class="glyphicon glyphicon-play"></i>
 					</button>
 				</div>

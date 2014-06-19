@@ -1,39 +1,42 @@
 <masonry
-    column-width="300"
-    masonry-options='{ "gutter": 0, "transitionDuration":0 }'>
+	column-width=".grid-sizer"
+	masonry-options='{ "gutter": 0, "transitionDuration":0 }'>
 
-    <div
-        infinite-scroll-parent
-        >
-      <div
-      	infinite-scroll='getNext()'
-      	infinite-scroll-disabled='busy'>
+	<div
+		infinite-scroll='getNext()'
+		infinite-scroll-disabled='busy'>
+	   
+		<div class="grid-sizer"></div>
 
-        <div
-        	ng-repeat='post in posts' class="feed-item masonry-brick">
+		<div
+			ng-repeat="post in posts"
+			class="feed-item masonry-brick"
 
-        	<div
-        		feed-item
-                post="post"
-        		feed-settings="args"
-                class="feed-post">
-                <!-- feed-id="args.feed_id" -->
-            </div>
+			pw-grid
+			ng-class="setGridClass()"
+			ng-style="setGridStyle()">
 
-        </div>
+			<div
+				feed-item
+				post="post"
+				feed-settings="args"
+				class="feed-post">
+				<!-- feed-id="args.feed_id" -->
+			</div>
 
-        <div class="clearfix"></div>
+		</div>
 
-        <div
-        	ng-show='busy'
-        	class="text-center">
-        	<div
-        		class="loading feed">
-        		<i class="icon-spinner icon-spin"></i>
-        	</div>
-        </div>
-        
-      </div>
-    </div>
+		<div class="clearfix"></div>
+
+		<div
+			ng-show='busy'
+			class="text-center">
+			<div
+				class="loading feed">
+				<i class="icon-spinner icon-spin"></i>
+			</div>
+		</div>
+		
+	</div>
 
 </masonry>
