@@ -2,6 +2,31 @@
 masonry{
   display:block;
 }
+
+///// GRID SIZER /////
+.grid-sizer-mix( @grid-width ){
+  .grid-sizer( @grid-width );
+  .grid-sizer{ width:@grid-width; }
+  .masonry-brick{
+    &.square, &.wide, &.tall, &.x-tall { width:@grid-width !important; }
+    &.x-wide{ width: (@grid-width*2) !important; }
+  }
+}
+
+
+@media @desktop-and-above { .grid-sizer-mix( 100%/4 ); }
+@media @desktop-and-below { .grid-sizer-mix( 100%/3 ); }
+@media @tablet-and-below {  .grid-sizer-mix( 100%/2 ); }
+@media @mobile {            .grid-sizer-mix( 100%/1 ); }
+@media @full {              .grid-sizer-mix( 100%/5 ); }
+
+.masonry-brick{
+  .feed-post, .post{
+    height:100%;
+  }
+}
+
+
 .grid.view .feed-item{
 
   transition:none;
@@ -40,7 +65,7 @@ masonry{
 }
 
 ///// GRID & HORIZONTAL GRID /////
-.post.grid, .post.grid-horizontal{
+.post.grid {
   @transition-time: .2s;
 
   @grid-width: 100%;
@@ -49,8 +74,8 @@ masonry{
   @grid-dropshadow-off: 0px 0px 0px fade(@secondary-color-dark, 0%);
   @grid-dropshadow-on:  0px 0px 0px fade(@secondary-color-dark, 50%);
 
-  width: @grid-width;
-  height: @grid-height;
+  //width: @grid-width;
+  //height: @grid-height;
 
   position:relative;
 
@@ -59,6 +84,7 @@ masonry{
 
   border: 2px solid transparent;  // Make this a theme variable
   transition:opacity 1s ease;     // Make this a theme variable
+
 
   box-shadow: @grid-dropshadow-off;
   &:hover{
@@ -110,7 +136,7 @@ masonry{
   }
 
   .details{
-    transition:@transition-time ease all;
+    transition:@transition-time ease max-height;
     background:fade( @primary-color-dark, 100% );
     color:#fff;
     width:100%;
@@ -146,7 +172,7 @@ masonry{
     width:100%;
     height:100%;
     text-align: center;
-    transition:all ease @transition-time;
+    transition:opacity ease @transition-time;
   }
 
   &:hover{

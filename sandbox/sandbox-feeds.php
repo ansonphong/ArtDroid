@@ -8,8 +8,7 @@
 ?>
 
 <!-- SPACER -->
-<div class="well" style="color:#000; margin-top:150px;"></div>
-
+<div style="color:#000; margin-top:170px;"></div>
 
 <!-- ////////// FEED ////////// -->
 <script>
@@ -48,11 +47,8 @@
 <div live-feed='blog-posts' class="grid feed view"></div>
 <!-- ////////// END FEED ////////// -->
 
-
-
 <!-- DEV -->
 <pre><code><?php echo json_encode( $pwSiteGlobals['images'] ); ?></code></pre>
-
 
 <!-- INFINITE FOOTER -->
 <?php i_footer(); ?>
