@@ -45,7 +45,6 @@ $i_child_style_model = array(
 			"border-radius"		=>	"0px",
 			"box-shadow"		=>	"none",
 			"border"			=>	"none",
-			"overflow"			=>	"inherit",
 			"padding"			=>	"0px",
 			"margin"			=>	"0px"
 			),

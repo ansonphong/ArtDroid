@@ -10,15 +10,12 @@ global $i_paths;
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title><?php wp_title(' | ', true, 'right'); ?></title>
 	<link rel="icon" type="image/png" href="<?php echo i_site_favicon(); ?>">
-
 	<?php wp_head(); ?>
-
 </head>
-
 <body
 	ng-app="infinite"
-	class="infinite">
-
+	class="infinite <?php foreach( get_body_class() as $class ){ echo " " . $class; } ?>">
+	
 	<!--
 	pw-scrollfix
 	scrollfix-y-class="scrollfix-y"

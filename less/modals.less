@@ -1,7 +1,14 @@
 
+// Prevent the modal from overlapping WP Admin Bar when logged in
+body.admin-bar{
+	.modal-dialog{
+		padding-top: 32px;
+	}
+}
+
 .modal-media {
 	.modal-dialog{
-		width:80%;
+		width:90%;
 		height:100%;
 		padding:5% 0;
 		.modal-content{
@@ -12,6 +19,16 @@
 		}
 		.post .media-embed.video iframe{
 			height:100%;
+		}
+	}
+}
+
+.modal-view-post{
+	.modal-dialog{
+		min-height:100%;
+		padding:0;
+		.modal-content{
+			min-height:100%;
 		}
 	}
 }

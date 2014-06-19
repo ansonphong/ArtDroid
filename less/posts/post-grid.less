@@ -155,14 +155,58 @@ masonry{
     }
   }
 
+
+  .link_format{
+    &.standard{
+      opacity:0;
+      transition:.33s ease opacity;
+    }
+
+  }
+
+  &:hover .link_format{
+      &.standard{
+        opacity:1;
+      }
+    }
+
+  .post-controls{
+    display:block;
+    margin:auto;
+    position:absolute;
+    z-index:5;
+    top:0;
+    right:0;
+    button{
+      background:transparent;
+      font-size:17px;
+      padding:3px 5px;
+      color:rgba(255,255,255,0.5);
+    }
+  }
+
   .link_format{
     display:inline-block;
     margin:auto;
     position:relative;
-    top:30%;
+    z-index:5;
+    
+    &.video{
+      top:30%;
+      //left:0%;
+      button{
+        font-size:40px;
+      }
+    }
+    &.standard{
+      bottom:0;
+      right:0;
+     
+    }
+    
 
     button{
-      font-size:40px;
+      
       color:#fff;
       background:transparent;
       line-height: 1;
