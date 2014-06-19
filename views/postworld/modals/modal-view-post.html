@@ -9,11 +9,27 @@
 	</div>
 	-->
 
+	<div class="media-viewer" window-height="85%">
+		
+		<!-- IMAGE -->
+		<div
+			class="view-image"
+			ng-style="backgroundImage( post.image.full.url )">
+			
+		</div>
+
+
+		<!-- EMBED -->
+
+	</div>
+	
+	<hr>
+
 	<div
-		ng-show="feed"
-		>
+		ng-show="feed">
 		<button ng-click="previousPost()"> ‹‹ Previous </button>
 		<button ng-click="nextPost()"> Next ›› </button>
+		tag : {{ selectImageTag() }}
 	</div>
 
 	<hr>
