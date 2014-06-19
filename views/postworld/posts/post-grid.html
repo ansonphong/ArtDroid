@@ -1,5 +1,6 @@
 <div
 	pw-grid-item
+	pw-modal-access
 	ng-cloak
 	class="post grid i-transition-fadein"
 	ng-style="setGridStyle()"
@@ -7,20 +8,23 @@
     pw-timeout="{{ (post.feed.load_order * 200) }}"
     timeout-action="addClass('fadein-on')">
 
-	<a href="{{ post.post_permalink }}" >
+	<a
+		href="{{ post.post_permalink }}"
+		ng-click="openModal({ mode:'feed', post:post })"
+		prevent-default-click>
 
 		<div class="grid-image"
-			style="background-image:url({{ post.image[ getImageSize() ].url }})">
+			style="background-image:url({{ post.image[ getImageSize('thumb-') ].url }})">
 		</div>
 
 		<div class="overlay">
-			<div class="link_format"
-				pw-modal-access>
-
+			<div
+				class="link_format"
+				ng-class="post.link_format">
 				<div ng-show="post.link_format == 'video'">
 					<button
 						ng-click="openModal({ mode:'media', post:post })"
-						class="btn"
+						class="btn video"
 						prevent-default-click
 						tooltip="Play"
 						tooltip-placement="top"
@@ -41,13 +45,26 @@
 		<div class="post_excerpt">
 			Category •
 			<span am-time-ago="post.post_timestamp" title="{{post.post_timestamp | amCalendar}}"></span> 
+			• {{ post.feed | json }}
 
 			<span ng-show="post.post_excerpt">
 				• {{ post.post_excerpt }}
 			</span>
 			
-
+			<div class="post-controls">
+				<button
+					ng-click="openModal({ mode:'media', post:post })"
+					class="btn image"
+					prevent-default-click
+					tooltip="Permalink"
+					tooltip-placement="top"
+					tooltip-popup-delay="333">
+					<i class="glyphicon glyphicon-plus"></i>
+				</button>
+			</div>
+			
 			<!--
+			<div style="font-size:9px; line-height:1.2em;">{{ post.image }}</div>
 			Feed : {{ post.feed | json }} /////
 			Stats : {{ post.image.stats | json }} /////
 			Tags : {{ post.image.tags | json }} /////

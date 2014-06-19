@@ -34,6 +34,7 @@ $pwSiteGlobals = array(
 		'wp_postmeta' => array(
 			'json_meta_keys' => array(
 				'event',
+				'i-meta',
 				),
 			),
 		),
@@ -68,7 +69,7 @@ $pwSiteGlobals = array(
 	
 	'images' => array(
 		'tags'	=>	array(
-			
+
 			),
 		),
 
@@ -370,5 +371,6 @@ $pwSiteGlobals = array(
 		),
 
 	);
+
 
 ?>
