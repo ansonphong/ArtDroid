@@ -22,9 +22,20 @@ include "php/metaboxes.php";
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
+// ADD LESS SUPPORT
+require_once( get_template_directory().'/packages/wp-less/wp-less.php' );
+
 ////////// POST FORMATS //////////
 add_theme_support( 'post-formats', array( 'image', 'link' ) );
 
+////////// INCLUDE POSTWORLD //////////
+if( function_exists( 'postworld_includes' ) ){
+  postworld_includes( array(
+    'mode'    => 'dev',
+    'angular_version' =>  'angular-1.3.0-beta.13',
+    'inject'  => array( 'wp-less', 'font-awesome-3' ),
+  ));
+}
 
 ////////// CHILD THEME //////////
 
