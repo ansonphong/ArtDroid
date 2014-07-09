@@ -11,14 +11,6 @@ global $lang;
 global $pwUniversalLanguage;
 global $template_paths;
 
-////////// INCLUDE POSTWORLD //////////
-if( function_exists( 'postworld_includes' ) ){
-	postworld_includes( array(
-		'mode' 		=> 'dev',
-		'dep' 		=> array( 'wp-less', 'font-awesome-3' ),
-	));
-}
-
 global $pwSiteGlobals;
 $pwSiteGlobals = array(
 
