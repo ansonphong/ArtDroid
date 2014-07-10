@@ -32,6 +32,7 @@
 		query_args : {
 			post_type:['post'],
 			post_status:'publish',
+			fields: 'preview',
 			// category_name: 'home-page-feature',
 			// post_parent: <?php echo $post_id; ?>,
 		},

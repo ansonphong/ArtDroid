@@ -32,7 +32,7 @@ add_theme_support( 'post-formats', array( 'image', 'link' ) );
 if( function_exists( 'postworld_includes' ) ){
   postworld_includes( array(
     'mode'    => 'dev',
-    'angular_version' =>  'angular-1.3.0-beta.13',
+    'angular_version' => 'angular-1.3.0-beta.13', //'angular-1.2.9', //'angular-1.3.0-beta.13',
     'inject'  => array( 'wp-less', 'font-awesome-3' ),
   ));
 }
