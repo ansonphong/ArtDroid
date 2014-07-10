@@ -1,0 +1,46 @@
+<article pw-post class="post block blog">
+	<header>
+		<!-- TIME -->
+		<div
+			class="time unit pull-right"
+			tooltip="{{ post.post_date }}" tooltip-placement="bottom">
+			<time datetime="{{ post.post_date }}">
+				<i class="icon-time"></i> {{ post.time_ago }}
+			</time>
+		</div>
+
+		<!-- CATEGORIES -->
+		<div class="taxonomy pull-left">
+			{% for term in post.taxonomy.category %}
+			    <a href="{{ term.url }}" class="unit term"
+					tooltip="More in This Category" tooltip-placement="bottom">{{ term.name }}</a>
+			{% endfor %} 
+		</div>
+
+		<!-- TITLE -->
+		<!--
+		<h2 class="pull-left">
+			<a ng-href="{{ post.post_permalink }}">
+				{{ post.post_title }}
+			</a>
+		</h2>
+		-->
+		
+		<div class="clearfix"></div>
+	</header>
+
+	<hr>
+		Download in Various Sizes
+	<hr>
+
+	<!-- CONTENT -->
+	<div class="post_content">{{ post.post_content | safe }}</div>
+
+	<div class="clearfix"></div>
+
+	<!-- SOCIAL WIDGETS -->
+	<div class="social-widgets">
+		SOCIAL WIDGETS<!--{{ post.social_widgets | safe }}-->
+	</div>
+	<hr class="thick">
+</article>

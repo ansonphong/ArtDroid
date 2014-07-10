@@ -25,3 +25,44 @@
 	}
 
  }
+
+.media-viewer{
+	height:90%;
+	border:1px solid #fff;
+
+	.view-image{
+		width:100%;
+		height:100%;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.view-gallery-horizontal{
+		width:100%;
+		height:100%;
+		
+		.infinite-h-scroll{
+			overflow: auto;
+			overflow-x: scroll;
+			overflow-y: hidden;
+			height:100%;
+			> .scroll-inner{
+				height:100%;
+			}
+		}
+
+		.gallery-image {
+			display:inline;
+			white-space:nowrap;
+
+			img{
+				height:100%;
+				width:auto;
+				max-width:none;
+			}
+		}
+
+	}
+
+}
