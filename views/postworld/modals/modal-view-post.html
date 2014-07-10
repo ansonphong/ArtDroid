@@ -1,11 +1,11 @@
 <div
 	pw-post
 	post-required-fields="['gallery(ids,posts)']"
-
 	art-post
-
 	pw-language
-	class="post"  tabindex="0" ng-keypress="keyPress()">
+	class="post"
+
+	ng-keypress="keyPress()">
 
 	<!-- LOADING 
 	<div ng-show="status=='loading'" class="loading">
@@ -22,35 +22,32 @@
 		</div>-->
 		
 		<!-- INFINITE GALLERY -->
+		<!-- Handles the Gallery Data -->
 		<div
-
 			pw-infinite-gallery
-			gallery-preload="2"
+			gallery-preload="4"
 			gallery-scroll="galleryGetNext(3)"
 			gallery-scroll-direction="horizontal"
-
 			class="view-gallery-horizontal">
-
-			<button ng-click="galleryGetNext( 2 )" style="position:absolute;">
-				Get Next ›› {{ galleryDisplayedCount() }} / {{ galleryPostCount() }}
-			</button>
-
-			<div class="scrolls"
-			
-				infinite-h-scroll
-
-			>
-				<div
-					class="gallery-image"
-					ng-repeat="galleryPost in galleryDisplayedPosts()">
-					<!--{{ galleryPost.ID }} // {{ galleryPost.post_title }}-->
-
-					<img ng-src="{{galleryPost.image.sizes.full.url}}">
-
+				<!-- INFINITE SCROLL -->
+				<div class="infinite-h-scroll" id="scrolls">
+					<div
+						class="scroll-inner"
+						infinite-h-scroll
+						scroll-action="galleryGetNext( 2 )"
+						scroll-distance="1000"
+						scroll-parent>
+						<!-- GALLERY IMAGE -->
+						<div
+							class="gallery-image"
+							ng-repeat="galleryPost in galleryDisplayedPosts()">
+							<a href="{{galleryPost.post_permalink}}">
+								<img ng-src="{{galleryPost.image.sizes.full.url}}">
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-
-
 		</div>
 
 		<!-- EMBED -->

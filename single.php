@@ -15,17 +15,13 @@ include locate_template( 'views/modules/page-head.php' ); ?>
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">
 	
-
-
 	<?php	
 		////////// PRINT THE POST IN TEMPLATE //////////
 		// Set Globals
 		global $post;
-		//global $pw_globals;
-		
 		// Social Media Widgets
-		//global $social_settings;
-		//$social_settings['meta']['url'] = get_permalink();
+		global $social_settings;
+		$social_settings['meta']['url'] = get_permalink();
 
 		$fields = array(
 			'ID',
@@ -61,7 +57,7 @@ include locate_template( 'views/modules/page-head.php' ); ?>
 			//'template'	=>	pw_get_post_template ( $post->ID, 'full-h2o', 'dir', true ),
 			'vars'	=> array(
 				//'language'		=>	$pwSiteLanguage,
-				//'social_widgets'	=>	pw_social_widgets($social_settings),
+				'social_widgets'	=>	pw_social_widgets($social_settings),
 				),
 			//'js_vars'	=>	array('post'),
 			);
