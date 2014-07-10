@@ -3,6 +3,7 @@
 	post-required-fields="['gallery(ids,posts)']"
 
 	art-post
+
 	class="post"
 	ng-keypress="keyPress()">
 
@@ -12,17 +13,29 @@
 	</div>
 	-->
 
-	<div class="media-viewer" window-height="85%" >
+	<div class="media-viewer" window-height="50%" >
 	
 		<!-- IMAGE -->
-		<!--<div
+		<div
+			ng-show="showView('image')"
 			class="view-image"
 			ng-style="backgroundImage( post.image.sizes.full.url )">
-		</div>-->
+		</div>
 		
+		<!-- EMBED -->
+		<div
+			ng-show="showView('embed')"
+			class="view-embed"
+			o-embed="post.link_url"
+			autoplay="true">
+			<div class="o-embed" ng-bind-html="post.link_url_embed"></div>
+			<!--<div ng-bind="oEmbedCode | json"></div>-->
+		</div>
+
 		<!-- INFINITE GALLERY -->
 		<!-- Handles the Gallery Data -->
 		<div
+			ng-show="showView('gallery')"
 			pw-infinite-gallery
 			gallery-preload="4"
 			gallery-scroll="galleryGetNext(3)"
@@ -68,8 +81,11 @@
 
 	<hr>
 	POST GALLERY IDS : {{ post.gallery.ids | json }}
-	
-
+	INFINITE GALLERY DISPLAYED : {{ infiniteGallery.displayed | json }}
+	<hr>
+	<!--
+	galleryDisplayedPosts() : {{ galleryDisplayedPosts() }}
+	-->
 	<!--
 	<hr>
 
