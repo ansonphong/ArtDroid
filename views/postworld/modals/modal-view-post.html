@@ -1,10 +1,9 @@
 <div
 	pw-post
 	post-required-fields="['gallery(ids,posts)']"
-	art-post
-	pw-language
-	class="post"
 
+	art-post
+	class="post"
 	ng-keypress="keyPress()">
 
 	<!-- LOADING 
@@ -56,6 +55,10 @@
 	
 	<hr>
 
+	<h2>{{ post.post_title }} // {{ post.ID }} // {{ selectImageTag() }}</h2>
+
+	<hr>
+
 	<div
 		ng-show="feed">
 		<button ng-click="previousPost()"> ‹‹ Previous </button>
@@ -64,12 +67,19 @@
 	</div>
 
 	<hr>
+	POST GALLERY IDS : {{ post.gallery.ids | json }}
+	
 
-	POST : {{ post | json }}
+	<!--
+	<hr>
+
+	
 
 	<hr>
 
 	FEED : {{ feed | json }}
+	-->
+
 
 	<!-- WRAPPER (Cloak until loaded) -->
 	<div
