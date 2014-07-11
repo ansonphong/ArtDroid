@@ -13,8 +13,8 @@
 			class="feed-item masonry-brick"
 
 			pw-grid
-			ng-class="setGridClass()"
-			ng-style="setGridStyle()">
+			ng-class="setGridClass( post.image.tags )"
+			ng-style="setGridStyle( post.image.tags )">
 
 			<div
 				feed-item
