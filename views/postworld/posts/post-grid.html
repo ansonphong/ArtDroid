@@ -21,13 +21,7 @@
 				class="link_format"
 				ng-class="post.link_format">
 				<div ng-show="post.link_format == 'video'">
-					<button
-						ng-click="openModal({ mode:'media', post:post })"
-						class="btn video"
-						prevent-default-click
-						tooltip="Play"
-						tooltip-placement="top"
-						tooltip-popup-delay="1000">
+					<button class="btn video">
 						<i class="glyphicon glyphicon-play"></i>
 					</button>
 				</div>
