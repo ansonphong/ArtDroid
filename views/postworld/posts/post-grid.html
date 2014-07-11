@@ -13,7 +13,7 @@
 		prevent-default-click>
 
 		<div class="grid-image"
-			style="background-image:url({{ post.image.sizes[ getImageSize('thumb-') ].url }})">
+			style="background-image:url({{ post.image.sizes[ getImageSize('thumb-', post.image.tags ) ].url }})">
 		</div>
 
 		<div class="overlay">
