@@ -5,69 +5,40 @@ masonry{
 
 
 
- 
-
-
-///// GRID & HORIZONTAL GRID /////
-.pw-gallery-shortcode .gallery-post {
-
-   /*
+.pw-gallery-shortcode{
   @media @desktop-and-above { .grid-sizer-mix( 100%/4 ); }
   @media @desktop-and-below { .grid-sizer-mix( 100%/3 ); }
   @media @tablet-and-below {  .grid-sizer-mix( 100%/2 ); }
   @media @mobile {            .grid-sizer-mix( 100%/1 ); }
   @media @full {              .grid-sizer-mix( 100%/5 ); }
-  */
+}
+
+
+///// GRID & HORIZONTAL GRID /////
+.pw-gallery-shortcode .gallery-post {
+
+  cursor: pointer;
 
   // Re-suit this to work inner area
   .feed-post, .post{
     height:100%;
   }
-  
 
+  margin:0px;
   transition:none;
   float:left;
   display:block;
   //border:1px solid transparent;
+
   &:hover{
     //border:1px solid @secondary-color-medium;
   }
 
-  @margin:0.25%;
-  //width:(100%/3)-(@margin*2);
-
-  margin:0px;
-  //margin-bottom:10px;
-
-  /*
-  @media @desktop-and-up{
-    @margin:0.25%;
-    width:(100%/3)-(@margin*2);
-    margin:@margin;
-  }
-
-  @media @tablet-and-below{
-    @margin:0.25%;
-    width:(100%/2)-(@margin*2);
-    margin:@margin;
-  }
-
-  @media @mobile{
-    width:100%;
-    margin:0%;
-  }
-  */
-
   @transition-time: .2s;
-
   @grid-width: 100%;
   @grid-height: 240px;
-
   @grid-dropshadow-off: 0px 0px 0px fade(@secondary-color-dark, 0%);
   @grid-dropshadow-on:  0px 0px 0px fade(@secondary-color-dark, 50%);
-
-  //width: @grid-width;
-  //height: @grid-height;
 
   position:relative;
 
@@ -77,12 +48,10 @@ masonry{
   border: 2px solid transparent;  // Make this a theme variable
   transition:opacity 1s ease;     // Make this a theme variable
 
-
   box-shadow: @grid-dropshadow-off;
   &:hover{
     box-shadow: @grid-dropshadow-on;
   }
-
 
   .gallery-image{
     position:absolute;
@@ -91,12 +60,11 @@ masonry{
     background-position:center;
     background-size:cover;
     //-webkit-filter: grayscale(33%);
-
   }
 
   &:hover{
-    .grid-image{
-      //-webkit-filter: grayscale(0%);
+    .gallery-post-image{
+      .inset-border( 2px, #fff );
     }
   }
 
@@ -165,14 +133,18 @@ masonry{
     height:100%;
     text-align: center;
     transition:opacity ease @transition-time;
+    z-index:2;
+    opacity:0;
+    transition:opacity .33s ease;
   }
 
   &:hover{
     .overlay{
       background-color:fade( @primary-color-dark, 33% );
+      opacity:1;
+
     }
   }
-
 
   .link_format{
     &.standard{
