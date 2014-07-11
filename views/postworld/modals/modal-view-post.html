@@ -26,11 +26,13 @@
 		<div
 			ng-show="showView('embed')"
 			class="view-embed"
-			o-embed="post.link_url"
+			o-embed="{{post.link_url}}"
 			autoplay="true">
 			<div class="o-embed" ng-bind-html="post.link_url_embed"></div>
 			<!--<div ng-bind="oEmbedCode | json"></div>-->
 		</div>
+
+		{{ post.link_url_embed }}
 
 		<!-- INFINITE GALLERY -->
 		<!-- Handles the Gallery Data -->
