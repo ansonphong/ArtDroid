@@ -1,11 +1,15 @@
 <div
 	pw-post
-	post-required-fields="['gallery(ids,posts)']"
+	post-required-fields="['gallery(ids,posts)', 'post_content']"
 
 	art-post
+	
+	ng-keypress="keyPress()"
 
-	class="post"
-	ng-keypress="keyPress()">
+	class="post i-transition-fadein wrapper"
+
+	pw-timeout="200"
+	timeout-action="addClass('fadein-on')">
 
 	<!-- LOADING 
 	<div ng-show="status=='loading'" class="loading">
@@ -13,7 +17,7 @@
 	</div>
 	-->
 
-	<div class="media-viewer" window-height="80%" >
+	<div class="media-viewer" window-height="50%" >
 	
 		<!-- IMAGE -->
 		<div
@@ -61,42 +65,27 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- EMBED -->
-
 	</div>
 	
 	<hr>
-
 	<h2>{{ post.post_title }}</h2>
-
 	<hr>
 
 	<div
 		ng-show="feed">
 		<button ng-click="previousPost()"> ‹‹ Previous </button>
 		<button ng-click="nextPost()"> Next ›› </button>
-		tag : {{ selectImageTag() }} // tags : {{ post.image.tags }} // stats : {{ post.image.stats }}
 	</div>
 
 	<hr>
-	POST GALLERY IDS : {{ post.gallery.ids | json }}
-	INFINITE GALLERY DISPLAYED : {{ infiniteGallery.displayed | json }}
-	<hr>
-	<!--
-	galleryDisplayedPosts() : {{ galleryDisplayedPosts() }}
-	-->
-	<!--
-	<hr>
-
-	
+	<div
+		pw-compile
+		class="post_content"
+		my-compile-unsafe="post.post_content">
+	</div>
 
 	<hr>
-
-	FEED : {{ feed | json }}
-	-->
-
-
 	<!-- WRAPPER (Cloak until loaded) -->
 	<div
 		ng-cloak ng-hide="status=='loading'"
@@ -104,29 +93,11 @@
 		pw-timeout="333"
 		timeout-action="addClass('fadein-on')">
 
-			<!-- MEDIA 
-			<div
-				class="media-embed layer-2"
-				ng-class="post.link_format"
-				ng-show="post.link_format == 'video' || post.link_format == 'audio'">
-				<div
-					class="o-embed"
-					o-embed="post.link_url"
-					autoplay="true"
-					run="post.link_format == 'video' || post.link_format == 'audio'">
-					<div class="o-embed" ng-bind-html="oEmbed"></div>
-				</div>
-			</div>
-			-->
-
 	</div>
 	<!-- END WRAPPER -->
 	<!--
 	STATUS : {{ status }} <br>
 	MODE : {{ mode }} <br>
-	POST : <pre>{{ post | json }}</pre>
-	<hr>
-	<pre>{{ post | json }}</pre>
 	-->
 	
-</div><!-- END CONTROLLER -->
+</div><!-- END POST -->
