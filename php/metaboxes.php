@@ -2,7 +2,7 @@
 
 function i_admin_child_metabox_templates(){
 
-	include 'metaboxes/header.php';
+	include 'metaboxes/post-options.php';
 
 }
 

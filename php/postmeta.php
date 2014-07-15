@@ -33,7 +33,13 @@ $i_child_postmeta_model = array(
 			"no_pause"		=>	true,
 			"transition"	=>	'fade',
 			),
-		)
+		),
+	"galleries"	=>	array(
+		"template"	=>	"inline",
+		"height"	=>	80,
+		"x_scroll_distance"	=>	1500,
+		"y_scroll_distance"	=>	1000,
+		),
 	);
 
 ?>
