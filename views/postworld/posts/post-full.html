@@ -71,7 +71,10 @@
 	</header>
 
 	<!-- CONTENT -->
-	<div class="post_content" ng-bind-html="post.post_content"></div>
+	<div
+		class="post_content"
+		pw-compile-code="post.post_content">
+	</div>
 
 	<div class="clearfix"></div>
 
