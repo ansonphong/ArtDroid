@@ -26,7 +26,7 @@ $pwSiteGlobals = array(
 		'wp_postmeta' => array(
 			'json_meta_keys' => array(
 				'event',
-				'i-meta',
+				'i_meta',
 				),
 			),
 		),

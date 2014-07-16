@@ -3,7 +3,9 @@
 	art-post
 	class="post">
 
-	<div class="media-viewer" window-height="75%" >
+	<!--{{ post.post_meta.i_meta | json }}-->
+
+	<div class="media-viewer" window-height="66%">
 	
 		<!-- IMAGE -->
 		<!--<div
@@ -14,6 +16,7 @@
 		<!-- INFINITE GALLERY -->
 		<!-- Handles the Gallery Data -->
 		<div
+			ng-show="showView('galleryHorizontal')"
 			pw-infinite-gallery
 			gallery-preload="4"
 			gallery-scroll="galleryGetNext(3)"
@@ -39,7 +42,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<!-- EMBED -->
 
@@ -77,5 +79,7 @@
 	</div>
 
 	<div class="clearfix"></div>
+
+	<pre>{{ post.post_meta | json }}</pre>
 
 </article>

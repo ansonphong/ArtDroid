@@ -26,8 +26,14 @@ infinite.controller( 'artPostCtrl',
 			true : false;
 
 		// GALLERY
-		var hasGallery = ( !_.isEmpty( $_.getObj( $scope, 'post.gallery.posts' ) ) ) ?
-			true : false;
+		var galleryTemplate = $_.getObj( $scope, 'post.post_meta.i_meta.gallery.template' );
+
+		var hasGallery = ( !_.isEmpty( $_.getObj( $scope, 'post.gallery.posts' ) ) );
+		
+		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
+		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
+		var galleryHorizontalInline = ( galleryTemplate == 'horizontal-inline' );
+		var galleryVertical = ( galleryTemplate == 'vertical' );
 
 		// EMBED
 		var hasEmbed = (
@@ -36,8 +42,13 @@ infinite.controller( 'artPostCtrl',
 			true : false;
 
 		// IMAGE
-		var hasImage = ( $_.objExists( $scope, 'post.image.sizes' ) ) ?
-			true : false;
+		var hasImage = ( $_.objExists( $scope, 'post.image.sizes' ) );
+
+		var hasImageAndNoGallery = ( hasImage && !galleryHorizontal );
+
+		var hasImageAndNoMedia = ( !hasEmbed && hasImage );
+
+		
 
 
 		// SWITCH VIEWS
@@ -59,7 +70,7 @@ infinite.controller( 'artPostCtrl',
 				break;
 
 			case 'image':
-				if( !loading && !hasGallery && !hasEmbed && hasImage )
+				if( !loading && hasImageAndNoMedia )
 					return true;
 				break;
 
@@ -68,6 +79,15 @@ infinite.controller( 'artPostCtrl',
 					return true;
 				break;
 
+			case 'mediaViewer':
+				if( hasImage || hasGallery || hasEmbed  )
+					return true;
+				break;
+
+			case 'galleryHorizontal':
+				if( hasGallery && galleryHorizontal )
+					return true;
+				break;
 		}
 
 		return false;

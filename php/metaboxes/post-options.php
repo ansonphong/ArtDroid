@@ -21,8 +21,8 @@
 	<h2 class="left"><b>Galleries</b></h2>
 	<div class="btn-group">
 		<label
-			ng-repeat="template in options.galleries.template"
-			class="btn" ng-model="iMeta.galleries.template" btn-radio="template.slug">
+			ng-repeat="template in options.gallery.template"
+			class="btn" ng-model="iMeta.gallery.template" btn-radio="template.slug">
 			{{ template.name }}
 		</label>
 	</div>
