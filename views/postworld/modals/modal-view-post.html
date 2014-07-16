@@ -1,6 +1,8 @@
 <div
 	pw-post
-	post-required-fields="['gallery(ids,posts)', 'post_content']"
+
+	post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)']"
+	require-required="false"
 
 	art-post
 	
@@ -17,7 +19,7 @@
 	</div>
 	-->
 
-	<div class="media-viewer" window-height="90%" >
+	<div class="media-viewer" window-height="66%" ng-show="showView('mediaViewer')">
 	
 		<!-- IMAGE -->
 		<div
@@ -36,12 +38,10 @@
 			<!--<div ng-bind="oEmbedCode | json"></div>-->
 		</div>
 
-		<!-- GALLERY -->
+		<!-- GALLERY : HORIZONTAL -->
 		<div
-			ng-show="showView('gallery')"
+			ng-show="showView('galleryHorizontal')"
 			style="height:100%;">
-
-			<!-- HORIZONTAL INFINITE SCROLLING -->
 			<div
 				pw-infinite-gallery
 				gallery-preload="4"
@@ -69,7 +69,6 @@
 				</div>
 			</div>
 
-
 		</div>
 		
 		<!-- INFINITE GALLERY -->
@@ -90,6 +89,10 @@
 
 	<hr>
 
+	{{ post.post_meta.i_meta | json }}
+
+	<hr>
+
 	<!-- FIND A WAY TO REGISTER/COMPILE/PROCESS THE INLINE JAVASCRIPT -->
 	<div
 		class="post_content"
@@ -98,14 +101,13 @@
 
 	<hr>
 
+	<!--
 	<div
 		class="post_content"
 		ng-bind-html="post.post_content_html">
 	</div>
+	-->
 
-	<!-- pw-compile -->
-
-	<hr>
 	<!-- WRAPPER (Cloak until loaded) -->
 	<div
 		ng-cloak ng-hide="status=='loading'"
@@ -118,6 +120,9 @@
 	<!--
 	STATUS : {{ status }} <br>
 	MODE : {{ mode }} <br>
+	POST.DEV : {{ post.dev |  }}
 	-->
 	
+
+
 </div><!-- END POST -->

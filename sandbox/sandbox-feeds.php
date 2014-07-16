@@ -10,6 +10,18 @@
 <!-- SPACER -->
 <div style="color:#000; margin-top:170px;"></div>
 
+pw_get_wp_postmeta : 
+<?php
+
+	echo json_encode( pw_get_wp_postmeta( array(
+				"post_id" =>  53,
+				"meta_key"  =>  'i_meta',
+				"sub_key" =>  'gallery.template',
+				)
+			));
+
+?>
+
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////

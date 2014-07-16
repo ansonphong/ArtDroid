@@ -34,7 +34,7 @@ $i_child_postmeta_model = array(
 			"transition"	=>	'fade',
 			),
 		),
-	"galleries"	=>	array(
+	"gallery"	=>	array(
 		"template"	=>	"inline",
 		"height"	=>	80,
 		"x_scroll_distance"	=>	1500,
