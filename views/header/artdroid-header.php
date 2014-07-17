@@ -70,7 +70,7 @@ global $i_paths;
 			<div id="main-menu" class="header-col-menu">
 
 				<?php include locate_template( 'views/menus/main-menu.php' ); ?>
-				<?php include locate_template( 'views/menus/menu-social.php' ); ?>
+				
 
 			</div>
 

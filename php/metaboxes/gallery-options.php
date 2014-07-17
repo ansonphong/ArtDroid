@@ -5,12 +5,13 @@
 
 <hr>
 
-<div ng-show="showView(['horizontal', 'horizontal-inline'])">
+<div ng-show="showView('horizontal')">
 	Horizontal
 	- Number of pixels on the right before load more images (default: 1500)
 	<input type="number" ng-model="iMeta.gallery.x_scroll_distance">
 	- Percentage height of the window to size the horizontal scroll gallery
 	<input type="number" ng-model="iMeta.gallery.height">
+	- Include the Featured Image as the first image in the gallery (default : false)
 </div>
 
 <div ng-show="showView('vertical')">

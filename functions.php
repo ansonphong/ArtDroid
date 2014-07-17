@@ -67,15 +67,17 @@ add_action( 'init', 'expanse_init' );
 
 
 
-////////// GALLERIES //////////
+//////////////////// GALLERIES ////////////////////
 
 // Remove the default Gallery shortcode
 remove_shortcode('gallery');
 // Replace it with the Postworld Gallery shortcode
 add_shortcode( 'gallery', 'pw_gallery_shortcode' );
 
-
 function i_should_omit_gallery( $vars ){
+	// Function which detects whether or not to
+	// omit the gallery shortcode based on conditions
+
 	$omit_galleries_in = array(
 		'horizontal',
 		'vertical'
@@ -101,8 +103,8 @@ function i_should_omit_gallery( $vars ){
 // BEFORE POST CONTENT PROCESSING
 function i_pw_get_post_content_action( $vars ){
 	// DEV VAR
-	global $dev;
-	$dev = $vars;
+	//global $dev;
+	//$dev = $vars;
 
 	// If the gallery template is to be ommitted, disable the gallery shortcode
 	if( i_should_omit_gallery($vars) ){
@@ -123,11 +125,9 @@ function i_pw_get_post_complete_action( $vars ){
 add_action( 'pw_get_post_complete', 'i_pw_get_post_complete_action' );
 
 
-
 /////////// ADD IMAGE SIZES //////////
 add_image_size( 'grid', '640', '480', true );
 add_image_size( 'widescreen', '1600', '900', true );
-
 
 add_image_size( 'thumb-square', '400', '400', true );
 
@@ -136,7 +136,6 @@ add_image_size( 'thumb-x-wide', '800', '400', true );
 
 add_image_size( 'thumb-tall', '400', '600', true );
 add_image_size( 'thumb-x-tall', '400', '800', true );
-
 
 
 ////////// SOCIAL MEDIA WIDGETS //////////

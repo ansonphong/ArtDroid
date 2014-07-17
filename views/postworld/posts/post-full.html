@@ -5,13 +5,14 @@
 
 	<!--{{ post.post_meta.i_meta | json }}-->
 
-	<div class="media-viewer" window-height="66%">
+	<div class="media-viewer" window-height="10%" ng-show="showView('mediaViewer')">
 	
 		<!-- IMAGE -->
-		<!--<div
+		<div
+			ng-show="showView('image')"
 			class="view-image"
 			ng-style="backgroundImage( post.image.sizes.full.url )">
-		</div>-->
+		</div>
 		
 		<!-- INFINITE GALLERY -->
 		<!-- Handles the Gallery Data -->
@@ -20,10 +21,9 @@
 			pw-infinite-gallery
 			gallery-preload="4"
 			gallery-scroll="galleryGetNext(3)"
-			gallery-scroll-direction="horizontal"
 			class="view-gallery-horizontal">
 				<!-- INFINITE SCROLL -->
-				<div class="infinite-h-scroll" id="scrolls">
+				<div class="infinite-h-scroll" id="scrolls-x">
 					<div
 						class="scroll-inner"
 						infinite-h-scroll
@@ -76,6 +76,36 @@
 	<div
 		class="post_content"
 		pw-compile-code="post.post_content">
+	</div>
+
+
+	<!-- VERTICAL SCROLL GALLERY -->
+	<div class="media-viewer">
+		<div
+			ng-show="showView('galleryVertical')"
+			pw-infinite-gallery
+			gallery-preload="3"
+			gallery-scroll="galleryGetNext(2)"
+			class="view-gallery-vertical">
+				<!-- INFINITE SCROLL -->
+				<div class="infinite-v-scroll" id="scrolls-y">
+					<div
+						class="scroll-inner"
+						infinite-v-scroll
+						scroll-action="galleryGetNext( 2 )"
+						scroll-distance="1000">
+						<!-- GALLERY IMAGE -->
+						<div
+							class="gallery-image"
+							ng-repeat="galleryPost in galleryDisplayedPosts()">
+							<a href="{{galleryPost.post_permalink}}">
+								<img ng-src="{{galleryPost.image.sizes.full.url}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="clearfix"></div>

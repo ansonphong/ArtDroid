@@ -32,7 +32,6 @@ infinite.controller( 'artPostCtrl',
 		
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
-		var galleryHorizontalInline = ( galleryTemplate == 'horizontal-inline' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
 
 		// EMBED
@@ -46,9 +45,7 @@ infinite.controller( 'artPostCtrl',
 
 		var hasImageAndNoGallery = ( hasImage && !galleryHorizontal );
 
-		var hasImageAndNoMedia = ( !hasEmbed && hasImage );
-
-		
+		var hasImageAndNoMedia = ( !hasEmbed && hasImage && !galleryHorizontal );
 
 
 		// SWITCH VIEWS
@@ -86,6 +83,11 @@ infinite.controller( 'artPostCtrl',
 
 			case 'galleryHorizontal':
 				if( hasGallery && galleryHorizontal )
+					return true;
+				break;
+
+			case 'galleryVertical':
+				if( hasGallery && galleryVertical )
 					return true;
 				break;
 		}

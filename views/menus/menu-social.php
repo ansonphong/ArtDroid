@@ -1,4 +1,3 @@
-
 <div
 	class="module menu-social">
 	<div class="inner">
