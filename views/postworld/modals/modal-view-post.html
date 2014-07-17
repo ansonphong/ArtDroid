@@ -19,7 +19,7 @@
 	</div>
 	-->
 
-	<div class="media-viewer" window-height="66%" ng-show="showView('mediaViewer')">
+	<div class="media-viewer" window-height="90%" ng-show="showView('mediaViewer')">
 	
 		<!-- IMAGE -->
 		<div
@@ -46,7 +46,6 @@
 				pw-infinite-gallery
 				gallery-preload="4"
 				gallery-scroll="galleryGetNext(3)"
-				gallery-scroll-direction="horizontal"
 				class="view-gallery-horizontal">
 					<!-- INFINITE SCROLL -->
 					<div class="infinite-h-scroll" id="scrolls">
@@ -93,10 +92,41 @@
 
 	<hr>
 
-	<!-- FIND A WAY TO REGISTER/COMPILE/PROCESS THE INLINE JAVASCRIPT -->
 	<div
 		class="post_content"
 		pw-compile-code="post.post_content">
+	</div>
+
+	<hr>
+
+	<!-- VERTICAL SCROLL GALLERY -->
+	<div class="media-viewer">
+		<div
+			ng-show="showView('galleryVertical')"
+			pw-infinite-gallery
+			gallery-preload="2"
+			gallery-scroll="galleryGetNext(1)"
+			class="view-gallery-vertical">
+				<!-- INFINITE SCROLL -->
+				<div class="infinite-v-scroll" id="scrolls-y">
+					<div
+						class="scroll-inner"
+						infinite-v-scroll
+						scroll-parent-id="modal-view-post"
+						scroll-action="galleryGetNext( 2 )"
+						scroll-distance="1000">
+						<!-- GALLERY IMAGE -->
+						<div
+							class="gallery-image"
+							ng-repeat="galleryPost in galleryDisplayedPosts()">
+							<a href="{{galleryPost.post_permalink}}">
+								<img ng-src="{{galleryPost.image.sizes.full.url}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<hr>

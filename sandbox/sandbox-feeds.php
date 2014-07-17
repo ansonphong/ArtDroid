@@ -8,20 +8,10 @@
 ?>
 
 <!-- SPACER -->
-<div style="color:#000; margin-top:170px;"></div>
-
-pw_get_wp_postmeta : 
-<?php
-
-	echo json_encode( pw_get_wp_postmeta( array(
-				"post_id" =>  53,
-				"meta_key"  =>  'i_meta',
-				"sub_key" =>  'gallery.template',
-				)
-			));
-
-?>
-
+<div class="header-spacer"></div>
+<hr>
+<h1><?php echo $post->post_title; ?></h1>
+<hr>
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////

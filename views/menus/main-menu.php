@@ -21,5 +21,6 @@
 		);
 		wp_nav_menu( $defaults );
 	?>
+	<?php include locate_template( 'views/menus/menu-social.php' ); ?>
 	<div class="clearfix"></div>
 </div>

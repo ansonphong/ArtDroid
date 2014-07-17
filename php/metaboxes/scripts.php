@@ -55,11 +55,6 @@
 							description: 'All galleries in the post are merged into a single horizontal infinite scrolling gallery.',
 						},
 						{
-							slug: 'horizontal-inline',
-							name: 'Inline Horizontal',
-							description: 'Galleries appear inline with the post content as horizontal infinite scroll.',
-						},
-						{
 							slug: 'vertical',
 							name: 'Vertical',
 							description: 'All galleries in the post are merged into a single vertical infinite scrolling gallery.',
@@ -85,7 +80,6 @@
 				switch( view ){
 					case 'inline' :
 					case 'horizontal' :
-					case 'horizontal-inline' :
 					case 'vertical' :
 						if( $scope.iMeta.gallery.template == view )
 							return true;
