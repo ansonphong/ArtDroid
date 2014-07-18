@@ -151,6 +151,12 @@ masonry{
       box-shadow: @grid-dropshadow-on;
     }
   }
+  .post-wrapper.hover{
+    .details{
+      // Allow overflow for dropdown menus
+      overflow:visible;
+    }
+  }
 
   .post_excerpt{
     padding:20px 30px;
@@ -173,16 +179,16 @@ masonry{
   }
 
 
-  .link_format{
-    &.standard{
-      opacity:0;
+  .link-format-indicator{
+    &.standard, &.video{
+      opacity:0.75;
       transition:.33s ease opacity;
     }
 
   }
 
-  &:hover .link_format{
-      &.standard{
+  &:hover .link-format-indicator{
+      &.standard, &.video{
         opacity:1;
       }
     }
@@ -202,7 +208,7 @@ masonry{
     }
   }
 
-  .link_format{
+  .link-format-indicator{
     display:inline-block;
     margin:auto;
     position:relative;
@@ -227,7 +233,7 @@ masonry{
       color:#fff;
       background:transparent;
       line-height: 1;
-      background:fade(@secondary-color-dark, 80%);
+      background:fade(@secondary-color-dark, 100%);
       padding:5px 10px 8px;
       transition: .33s ease all;
       &:hover{
