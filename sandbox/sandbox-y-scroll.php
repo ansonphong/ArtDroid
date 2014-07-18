@@ -1,4 +1,4 @@
-<?php // Template Name: Sandbox [Galleries] ?>
+<?php // Template Name: Sandbox [ Y SCROLL ] ?>
 
 <!-- INFINITE HEADER -->
 <?php

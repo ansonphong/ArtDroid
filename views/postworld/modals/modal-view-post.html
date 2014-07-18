@@ -48,10 +48,10 @@
 				gallery-scroll="galleryGetNext(3)"
 				class="view-gallery-horizontal">
 					<!-- INFINITE SCROLL -->
-					<div class="infinite-h-scroll" id="scrolls">
+					<div class="infinite-x-scroll" id="scrolls">
 						<div
 							class="scroll-inner"
-							infinite-h-scroll
+							infinite-x-scroll
 							scroll-action="galleryGetNext( 2 )"
 							scroll-distance="1000"
 							scroll-parent>
@@ -108,11 +108,11 @@
 			gallery-scroll="galleryGetNext(1)"
 			class="view-gallery-vertical">
 				<!-- INFINITE SCROLL -->
-				<div class="infinite-v-scroll" id="scrolls-y">
+				<div class="infinite-y-scroll" id="scrolls-y">
 					<div
 						class="scroll-inner"
-						infinite-v-scroll
-						scroll-parent-id="modal-view-post"
+						infinite-y-scroll
+						scroll-container=".modal"
 						scroll-action="galleryGetNext( 2 )"
 						scroll-distance="1000">
 						<!-- GALLERY IMAGE -->
