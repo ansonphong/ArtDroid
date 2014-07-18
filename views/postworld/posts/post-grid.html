@@ -28,6 +28,7 @@
 			</div>
 		</div>
 		
+
 		<div class="grid-info">
 			<h2>{{ post.post_title }}</h2>
 		</div>
@@ -36,9 +37,14 @@
 
 	<div class="details" ng-show="post.image">
 		<div class="post_excerpt">
-			Category •
+			<!-- TOPIC & SUBTOPIC -->
+			<span ng-repeat="term in post.taxonomy.category">
+				<a href="{{term.url}}" ng-class="term.slug" class="topic">{{term.name}}</a>
+	      		<span ng-show="!$last"> + </span>
+	      		<span ng-show="$last"> • </span>
+			</span>
+
 			<span am-time-ago="post.post_timestamp" title="{{post.post_timestamp | amCalendar}}"></span> 
-			• {{ post.feed | json }}
 
 			<span ng-show="post.post_excerpt">
 				• {{ post.post_excerpt }}
@@ -54,6 +60,22 @@
 					tooltip-popup-delay="333">
 					<i class="glyphicon glyphicon-plus"></i>
 				</button>
+
+				<!-- DROPDOWN -->
+				<span
+					pw-admin-post-menu
+					ng-show="userOptions != 0"
+					class="admin-menu dropdown">
+					<button prevent-default-click dropdown-toggle class="view_later edit" style="border:none">
+						<i class="glyphicon glyphicon-pencil"></i>
+					</button>
+					<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+						<li prevent-default-click ng-repeat="item in userOptions">
+							<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+						</li>
+					</ul>
+				</span>
+
 			</div>
 			
 			<!--
