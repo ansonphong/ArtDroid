@@ -5,7 +5,7 @@
 
 	<!--{{ post.post_meta.i_meta | json }}-->
 
-	<div class="media-viewer" window-height="10%" ng-show="showView('mediaViewer')">
+	<div class="media-viewer" window-height="50%" ng-show="showView('mediaViewer')">
 	
 		<!-- IMAGE -->
 		<div
@@ -23,10 +23,10 @@
 			gallery-scroll="galleryGetNext(3)"
 			class="view-gallery-horizontal">
 				<!-- INFINITE SCROLL -->
-				<div class="infinite-h-scroll" id="scrolls-x">
+				<div class="infinite-x-scroll" id="scrolls-x">
 					<div
 						class="scroll-inner"
-						infinite-h-scroll
+						infinite-x-scroll
 						scroll-action="galleryGetNext( 2 )"
 						scroll-distance="1000"
 						scroll-parent>
@@ -88,10 +88,11 @@
 			gallery-scroll="galleryGetNext(2)"
 			class="view-gallery-vertical">
 				<!-- INFINITE SCROLL -->
-				<div class="infinite-v-scroll" id="scrolls-y">
+				<div class="infinite-y-scroll" id="scrolls-y">
 					<div
 						class="scroll-inner"
-						infinite-v-scroll
+						infinite-y-scroll
+
 						scroll-action="galleryGetNext( 2 )"
 						scroll-distance="1000">
 						<!-- GALLERY IMAGE -->
