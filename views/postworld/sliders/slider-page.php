@@ -1,3 +1,8 @@
+<?php
+	$home_menu_id = i_get_option( array( 'option_name' => 'i-options', 'key' => 'menus.home' ) );
+	$home_slider_has_menu = !empty($home_menu_id);
+	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
+?>
 <script>
 	function <?php echo $slider['instance']; ?>($scope) {
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
@@ -7,7 +12,7 @@
 
 <div
 	id="<?php echo $slider['id']; ?>"
-	class="<?php echo $slider['class']; ?>"
+	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
 	ng-controller="<?php echo $slider['instance']; ?>"
 	window-height="<?php echo $slider['height']; ?>">
 
@@ -39,14 +44,11 @@
 			</div>
 		<?php } ?>
 		
-
-
 		<slide class="slide" ng-repeat="slide in slides" active="slide.active">
-
 			<!--<a ng-href="{{slide.post_permalink}}">-->
 				<div
 					class="slide-frame"
-					style="background-image: url( {{slide.image.widescreen.url}}); "
+					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
 					parallax-background
 					parallax-ratio="-0.6">
 					<!--
@@ -57,17 +59,20 @@
 					-->
 				</div>
 			<!--</a>-->
-
 		</slide>
 
 		<?php
 		///// FRONT PAGE /////
-		if( is_front_page() ){?>
+		// If a Home Menu ID is specified
+		if( $slider_has_menu ){
+			?>
 			<!-- MENU BAR -->
 			<div class="bar-bottom">
 				<?php include locate_template( 'views/menus/menu-home-slider.php' ); ?>
 			</div>
-		<?php } ?>
+			<?php
+		}
+		?>
 
 	</carousel>
 

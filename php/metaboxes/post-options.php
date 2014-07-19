@@ -1,5 +1,10 @@
 <div ng-controller="iMetaboxPostOptionsCtrl">
 	
+	<?php
+		if( is_home() )
+			echo "IS HOME";
+	?>
+
 	<!-- HEADER -->
 	<h2 class="left"><b>Header</b></h2>
 	<div class="btn-group">

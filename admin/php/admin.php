@@ -6,13 +6,13 @@ $theme_admin_menu_name = 'theme-options';
 global $child_admin;
 $child_admin = array(
 
-	'expanse' => array(
+	'child' => array(
 		'parent_slug' => $theme_admin_menu_name,
-		'page_title' => 'Expanse',
-		'menu_title' => 'Expanse',
+		'page_title' => 'Child Theme',
+		'menu_title' => 'Child Theme',
 		'capability' => 'manage_options',
-		'menu_slug' => $theme_admin_menu_name.'-expanse',
-		'function' => 'infinite_options_expanse',
+		'menu_slug' => $theme_admin_menu_name.'-child',
+		'function' => 'infinite_options_child',
 		),
 	
 	);
@@ -25,28 +25,27 @@ function child_theme_admin_menu(){
 	//$page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position
 	
     add_submenu_page(
-    	$child_admin['expanse']['parent_slug'],
-    	$child_admin['expanse']['page_title'],
-    	$child_admin['expanse']['menu_title'],
-    	$child_admin['expanse']['capability'],
-    	$child_admin['expanse']['menu_slug'],
-    	$child_admin['expanse']['function'],
-    	$child_admin['expanse']['icon_url']
+    	$child_admin['child']['parent_slug'],
+    	$child_admin['child']['page_title'],
+    	$child_admin['child']['menu_title'],
+    	$child_admin['child']['capability'],
+    	$child_admin['child']['menu_slug'],
+    	$child_admin['child']['function'],
+    	$child_admin['child']['icon_url']
     	);
 
 }
 
-
 ///// SOCIAL SCREEN /////
-function infinite_options_expanse(){
+function infinite_options_child(){
 	global $child_admin;
 	include_admin_styles();
 	i_include_scripts();
 	?>
-	<div id="infinite_admin" ng-app="infinite" class="expanse">
-		<h1><i class="icon-heart"></i> <?php echo $child_admin['expanse']['page_title']; ?></h1>
+	<div id="infinite_admin" ng-app="infinite" class="child">
+		<h1><i class="icon-heart"></i> <?php echo $child_admin['child']['page_title']; ?></h1>
 		<?php
-			include 'page-expanse.php';
+			include 'page-child.php';
 		?>
 	</div>
 <?php }
