@@ -1,14 +1,15 @@
 <div
 	class="module menu-main">
 	<?
+		$main_menu_id = i_get_option( array( 'option_name' => 'i-options', 'key' => 'menus.main' ) );
 		$defaults = array(
 			'theme_location'  => '',
-			'menu'            => 'Main Menu',
+			'menu'            => $main_menu_id,
 			'container'       => 'div',
 			'container_class' => 'menu-container',
 			'container_id'    => '',
 			'menu_class'      => 'menu',
-			//'menu_id'         => 'main-menu',
+			'menu_id'         => 'main-menu',
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
 			'before'          => '',
@@ -21,6 +22,14 @@
 		);
 		wp_nav_menu( $defaults );
 	?>
-	<?php include locate_template( 'views/menus/menu-social.php' ); ?>
+
+	<?php
+
+	// Show Social Menu
+	if( i_get_option( array( 'option_name' => 'i-options', 'key' => 'social.in_main_menu' ) ) )
+		include locate_template( 'views/menus/menu-social.php' );
+
+	?>
+	
 	<div class="clearfix"></div>
 </div>

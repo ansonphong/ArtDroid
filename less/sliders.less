@@ -1,5 +1,10 @@
 
+.slider-wrapper{
+	height:100%;
+}
+
 #header-slider{
+	height:100%;
 
 	.logo-overlay{
 		position:absolute;
@@ -30,6 +35,12 @@
 		background-repeat: none;
 		background-size: cover;
 		background-position: top;
+	}
+
+	&.slider-with-menu{
+		.carousel-indicators{
+			bottom: 90px;
+		}
 	}
 
 	.carousel-control{
@@ -75,9 +86,7 @@
 		background-image: none;
 	}
 
-	.carousel-indicators {
-		bottom: 90px;
-	}
+	
 
 	.bar-bottom{
 		background:fade(@primary-color-dark, 80%);

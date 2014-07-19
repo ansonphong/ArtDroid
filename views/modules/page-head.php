@@ -29,7 +29,7 @@
 		<?php
 			///// HOME /////
 			if( is_home() ){?>
-				<h1>Blog</h1>
+				<h1>Home</h1>
 			<?php }
 
 			///// ARCHIVE /////

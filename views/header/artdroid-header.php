@@ -1,5 +1,5 @@
 <?php
-// Template Name: EXPANSE Main Header
+// Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
 global $i_paths;
 ?>

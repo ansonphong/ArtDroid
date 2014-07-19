@@ -3,7 +3,7 @@
 	<?
 		$defaults = array(
 			'theme_location'  => '',
-			'menu'            => 'Home Specials',
+			'menu'            => $home_menu_id,
 			'container'       => 'div',
 			'container_class' => 'menu-container',
 			'container_id'    => '',
