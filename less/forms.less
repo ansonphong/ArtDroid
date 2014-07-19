@@ -1,0 +1,129 @@
+
+///// LABELED INPUT FIELDS /////
+
+.labeled{
+  position:relative;
+  select{
+    width:100%;
+    box-sizing:border-box;
+    background:#fff;
+    -webkit-appearance: none;
+    appearance:none;
+    padding:24px 10px 5px;
+    .round(3px);
+    outline:0;
+    border:2px solid #ccc;
+    margin-bottom:4px;
+    &.has-focus{
+      border-bottom-color:#000;
+    }
+  }
+  .select-arrow{
+    position:absolute;
+    right:15px;
+    top:25px;
+    .font-size(21);
+  }
+}
+
+label.inner, .labeled label{
+  position:absolute;
+  z-index: 5;
+  padding:5px 10px;
+  color:#999;
+  font-size: 13px;
+  letter-spacing:1px;
+  text-transform: uppercase;
+  .description{
+    text-transform: none;
+    font-weight:lighter;
+    display:inline-block;
+    margin-left:10px;
+  }
+}
+
+.inner{
+  //position:relative;
+  display:block;
+  &.pull-right{
+    right:0px;
+  }
+  &.pull-top{
+    top:0px;
+  }
+}
+
+input.labeled, textarea.labeled, div.labeled,
+.labeled input{
+  font-size:18px;
+  width:100%;
+  box-sizing:border-box;
+  //border:2px solid @gray2;
+  margin:0 4px 0px 0;
+}
+
+input.labeled, textarea.labeled,
+.labeled input{
+  padding:25px 15px 8px 10px;
+  &.icon_right{
+    padding-right:50px;
+  };
+}
+
+
+div.labeled{
+  
+  &.module{
+    background:@gray1;
+  }
+  
+  display: block;
+  clear: both;
+
+  div.inner{
+    padding:22px 15px 8px 10px;
+    //text-align: center;
+    select, input{
+      width:100%;
+      box-sizing:border-box;
+      background:#fff;
+      -webkit-appearance: none;
+      border:0;
+      appearance:none;
+      padding:5px 10px;
+      margin-top:5px;
+    }
+  }
+}
+
+.content-edge{
+	margin:0;
+	padding:1px;
+}
+.search .row{
+	display:block;
+	margin:0;
+}
+
+.label_icon {
+  position:relative;
+  z-index: 3;
+  &.pull_right{
+    float:right; 
+  }
+}
+
+.labeled.left{
+	//border-right:0;
+}
+
+input.large, textarea.large{
+  font-size:24px;
+  padding:25px 15px 8px 10px;
+  font-family:Roboto;
+  font-weight:lighter;
+  outline:none;
+  border:2px solid @gray2;
+  margin-bottom:-2px;
+
+}

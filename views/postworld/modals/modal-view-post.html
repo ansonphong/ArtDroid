@@ -75,30 +75,20 @@
 		
 		<!-- EMBED -->
 	</div>
-	
 	<hr>
 	<h2>{{ post.post_title }}</h2>
 	<hr>
-
 	<div
 		ng-show="feed">
 		<button ng-click="previousPost()"> ‹‹ Previous </button>
 		<button ng-click="nextPost()"> Next ›› </button>
 	</div>
-
 	<hr>
-
-	{{ post.post_meta.i_meta | json }}
-
-	<hr>
-
 	<div
 		class="post_content"
 		pw-compile-code="post.post_content">
 	</div>
-
 	<hr>
-
 	<!-- VERTICAL SCROLL GALLERY -->
 	<div class="media-viewer">
 		<div
@@ -114,6 +104,7 @@
 						infinite-y-scroll
 						scroll-container=".modal"
 						scroll-action="galleryGetNext( 2 )"
+						scroll-disabled=" post.post_meta.i_meta.gallery.template != 'vertical' "
 						scroll-distance="1000">
 						<!-- GALLERY IMAGE -->
 						<div
@@ -128,7 +119,6 @@
 			</div>
 		</div>
 	</div>
-
 	<hr>
 
 	<!--

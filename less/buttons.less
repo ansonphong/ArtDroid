@@ -1,0 +1,43 @@
+
+.make-art-button( @background-color; @text-color; @background-color-hover; @text-color-hover; ){
+	transition: 0.2s all ease;
+	background: @background-color;
+	color: @text-color;
+	border: 1px solid @background-color;
+	border-radius:3px;
+
+	&:hover, &:focus{
+		background: @background-color-hover;
+		color: @text-color-hover;
+		//border: 1px solid @background-color;
+	}
+
+}
+
+button{
+	padding:6px 12px;
+
+
+	&.btn-primary-color{
+		.make-art-button( @primary-color-dark, @primary-color-light, @primary-color-medium, #fff );
+	}
+
+	&.btn-secondary-color{
+		.make-art-button( @secondary-color-dark, @secondary-color-light, @secondary-color-medium, #fff );
+	}
+
+	&.btn-neutral-color{
+		.make-art-button( @neutral-color-dark, @neutral-color-light, @neutral-color-medium, #fff );
+	}
+
+	&.btn-full{
+		width:100%;
+		padding:10px;
+	}
+
+	&.btn-lg{
+		font-size:1.25em;
+		padding:10px;
+	}
+
+}

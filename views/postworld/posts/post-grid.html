@@ -1,11 +1,12 @@
 <div
+	pw-feed-post
 	pw-modal-access
 	ng-cloak
 	class="post grid i-transition-fadein"
 	pw-grid-item
-
     pw-timeout="{{ (post.feed.loadOrder * 200) }}"
-    timeout-action="addClass('fadein-on')">
+    timeout-action="addClass('fadein-on')"
+    ng-hide="post.post_status == 'trash'">
     <div
     	class="post-wrapper"
     	pw-hover-class="hover"
@@ -43,6 +44,7 @@
 		<div
 			class="details">
 			<div class="post_excerpt">
+				status : {{ post.post_status }} •
 				<!-- TOPIC & SUBTOPIC -->
 				<span ng-repeat="term in post.taxonomy.category">
 					<a href="{{term.url}}" ng-class="term.slug" class="topic">{{term.name}}</a>
@@ -57,23 +59,30 @@
 				</span>
 				
 				<div class="post-controls">
-					<button
-						ng-click="openModal({ mode:'media', post:post })"
-						class="btn image"
-						prevent-default-click
-						tooltip="Permalink"
-						tooltip-placement="top"
-						tooltip-popup-delay="333">
-						<i class="glyphicon glyphicon-plus"></i>
-					</button>
+						<a
+							ng-href="{{ post.post_permalink }}"
+							class="btn image"
+							stop-propagation-click
+							tooltip="link"
+							tooltip-placement="top"
+							tooltip-popup-delay="500">
+							<i class="glyphicon glyphicon-link"></i>
+						</a>
 
 					<!-- DROPDOWN -->
 					<span
 						pw-admin-post-menu
 						ng-show="userOptions != 0"
 						class="admin-menu dropdown">
-						<button prevent-default-click dropdown-toggle class="view_later edit" style="border:none">
-							<i class="glyphicon glyphicon-pencil"></i>
+						<button
+							prevent-default-click
+							dropdown-toggle
+							class="view_later edit"
+							style="border:none"
+							tooltip="edit"
+							tooltip-placement="top"
+							tooltip-popup-delay="500">
+							<i class="icon-x-merkaba"></i>
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
 							<li prevent-default-click ng-repeat="item in userOptions">
