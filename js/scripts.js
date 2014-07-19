@@ -99,3 +99,56 @@ infinite.controller( 'artPostCtrl',
 
 }]);
 
+
+
+infinite.directive( 'artFeed', [ function( $scope ){
+	return {
+		restrict: 'AE',
+		controller: 'artFeedCtrl',
+		link: function( $scope, element, attrs ){
+			// OBSERVE Attribute
+			//attrs.$observe('postRequiredFields', function( value ) {
+			//	$scope.postRequiredFields = $scope.$eval( value );
+			//});
+		}
+	};
+}]);
+
+
+infinite.controller( 'artFeedCtrl',
+	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts',
+	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
+
+	///// UNIVERSALS /////
+	$scope.customTagMapping = [
+    	{
+    		name: 'square',
+    		width: 1,
+    		height: 1,
+    	},
+    	{
+    		name: 'wide',
+    		width: 1,
+    		height: 1,
+    	},
+    	{
+    		name: 'x-wide',
+    		width: 2,
+    		height: 1,
+    	},
+    	{
+    		name: 'tall',
+    		width: 1,
+    		height: 1,
+    	},
+    	{
+    		name: 'x-tall',
+    		width: 1,
+    		height: 2,
+    	},
+    ];
+
+
+}]);
+
+

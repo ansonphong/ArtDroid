@@ -178,24 +178,46 @@ $pwSiteGlobals = array(
 		'post'	=>	array(
 			'role_access'	=>	array(
 				'administrator' => array(
-					  'own' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
-					'other' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
+					  'own' => array( 'quick-edit', 'wp-edit', 'trash' ), // 'pw-edit',
+					'other' => array( 'quick-edit', 'wp-edit', 'trash' ),
 					),
 				'editor' => array(
-					  'own' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
-					'other' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
+					  'own' => array( 'quick-edit', 'wp-edit', 'trash' ),
+					'other' => array( 'quick-edit','wp-edit', 'trash' ),
 					),
 				'author' => array(
-					  'own' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
+					  'own' => array( 'quick-edit', 'wp-edit', 'trash' ),
 					'other' => array(  ),
 					),
 				'contributor' => array(
-					  'own' => array( 'quick-edit', 'pw-edit', 'wp-edit', 'trash' ),
+					  'own' => array( 'quick-edit', 'wp-edit', 'trash' ),
 					'other' => array(  ),
 					),
 				'guest' => array(
 					  'own' => array(  ),
 					'other' => array(  ),
+					),
+				),
+			'menu_options'	=>	array(
+				array(
+					"name" => 	"Quick Edit",
+		            "icon" => 	"glyphicon glyphicon-edit",
+		            "action" => "quick-edit"
+					),
+				array(
+					"name" => 	"PW Edit",
+		            "icon" => 	"icon-edit",
+		            "action" => "pw-edit"
+					),
+				array(
+					"name" => 	"Edit",
+		            "icon" => 	"glyphicon glyphicon-pencil",
+		            "action" => "wp-edit"
+					),
+				array(
+					"name" => 	"Trash",
+		            "icon" => 	"glyphicon glyphicon-trash",
+		            "action" => "trash"
 					),
 				),
 			),

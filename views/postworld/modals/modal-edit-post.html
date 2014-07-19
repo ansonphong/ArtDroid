@@ -1,5 +1,6 @@
 <div
   pw-edit-post
+  save-success-callback="close()"
   edit-mode="quick"
   ng-init="mode='quick-edit'"
   class="edit-post quick edit">
@@ -15,12 +16,8 @@
     <!--//////////////////// HEADER ////////////////////-->
     <div class="modal-body">
     
-      <header class="edit_post-menu module">
-        <div class="col-sm-3">
-        
-        </div>
-
-        <div class="col-sm-3">
+      <header class="edit_post-menu module row">
+        <div class="col-sm-4">
           
         </div>
 
@@ -28,27 +25,24 @@
          
         </div>
 
-
         <!-- BUTTONS -->
-        <div class="col-sm-2 last">
-
-          <button type="submit" ng-click="savePost()" class="aqua save">
+        <div class="col-sm-4 last">
+          <button type="submit" ng-click="savePost()" class="btn btn-primary-color btn-full btn-lg save">
             <span ng-switch="status">
-              <i ng-switch-default class="icon-save"></i>
-              <i ng-switch-when="saving" class="icon-spinner icon-spin"></i>
-              <i ng-switch-when="success" class="icon-ok"></i>
-              <i ng-switch-when="error" class="icon-warning-sign"></i>
+              <i ng-switch-default class="icon-x-merkaba"></i>
+              <i ng-switch-when="saving" class="icon-x-merkaba icon-spin"></i>
+              <i ng-switch-when="success" class="icon-x-merkaba"></i>
+              <i ng-switch-when="error" class="glyphicon glyphicon-remove"></i>
             </span>
             Save
           </button>
 
 
         </div>
-
         <div class="clearfix"></div>
       </header>
 
-
+      <hr class="thin">
 
       <!--//////////////////// EDIT FIELDS ////////////////////-->
 
@@ -76,7 +70,7 @@
               <input class="labeled" type="url" ng-model="post.link_url" placeholder="http://">
             
             <!-- POST FORMAT -->
-            <div class="link_format">
+            <div class="link-format">
               <span ng-repeat="format in link_format_meta" class="row-fluid">
                   <input type="radio" name="link_format" value="{{format.slug}}" ng-model="post.link_format" disabled />
                   <label>
@@ -92,10 +86,13 @@
             <hr>
 
             <!-- TRASH -->
-            <button class="red" ng-click="trashPost()"><i class="icon-trash"></i> Trash</button>
+            <button class="btn-secondary-color" ng-click="trashPost()">
+              <i class="glyphicon glyphicon-trash"></i>
+              Trash
+            </button>
 
             <!-- CANCEL -->
-            <button class="gray" ng-click="close()">
+            <button class="btn-neutral-color" ng-click="close()">
               <i class="icon-remove"></i> Cancel
             </button>
           
@@ -127,11 +124,12 @@
 
           <div class="clearfix"></div>
           
-
         </div>
 
     </div><!-- END MODAL BODY -->
 
   </div><!-- END WRAPPER -->
+
+  <!--<pre>{{ post | json }}</pre>-->
 
 </div><!-- END CONTROLLER -->

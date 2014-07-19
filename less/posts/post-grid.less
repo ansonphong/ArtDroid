@@ -3,8 +3,6 @@ masonry{
   display:block;
 }
 
-
-
 @media @desktop-and-above { .grid-sizer-mix( 100%/4 ); }
 @media @desktop-and-below { .grid-sizer-mix( 100%/3 ); }
 @media @tablet-and-below {  .grid-sizer-mix( 100%/2 ); }
@@ -178,7 +176,6 @@ masonry{
     }
   }
 
-
   .link-format-indicator{
     &.standard, &.video{
       opacity:0.75;
@@ -190,6 +187,9 @@ masonry{
   &:hover .link-format-indicator{
       &.standard, &.video{
         opacity:1;
+        button{
+          background:fade(@secondary-color-medium, 100%);
+        }
       }
     }
 
@@ -236,9 +236,7 @@ masonry{
       background:fade(@secondary-color-dark, 100%);
       padding:5px 10px 8px;
       transition: .33s ease all;
-      &:hover{
-        background:fade(@secondary-color-medium, 100%);
-      }
+      
 
     }
     
