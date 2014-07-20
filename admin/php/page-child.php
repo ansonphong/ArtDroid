@@ -26,14 +26,15 @@
 
 	<!--///// MENUS /////-->
 	<h1><i class="icon-cog"></i> Menus</h1>
-	<!-- Show Social Menu -->
+	<h3>Main Menu</h3>
+	<!-- Main Menu -->
 	<input type="checkbox" ng-model="iOptions.social.in_main_menu" id="social_menu">
-	<label for="social_menu">Show Social Menu in Main Menu</label>
+	<label for="social_menu">Show Social Menu</label>
 
 	<div ng-show="iOptions.social.in_main_menu" style="margin-left:20px;">
 		<hr>
 		<input type="checkbox" ng-model="iOptions.social.in_main_menu_gray" id="social_menu_gray">
-		<label for="social_menu_gray">Show Main Menu Social Menu in Grayscale</label>
+		<label for="social_menu_gray">Grayscale Icons</label>
 	</div>
 	
 
@@ -45,17 +46,29 @@
 
 	<!--///// HOME /////-->
 	<h1><i class="icon-home"></i> Home Page</h1>
-	<h3>Home Page Secondary Menu</h3>
+	<h3>Secondary Menu</h3>
 	<?php
 		i_select_menus( array(
 			'options_model'	=>	'options.menus',
-			'ng_model'	=>	'iOptions.menus.home',
+			'ng_model'	=>	'iOptions.home.secondary_menu',
 			'null_option'	=>	'No Menu',
 			));
 	?>
 	<?php i_save_option_button('i-options','iOptions'); ?>
+	<hr>
 
-
+	<h3>Slider</h3>
+	<b>Slider Height </b> <input type="number" size="2" ng-model="iOptions.home.slider.height">%
+	<hr>
+	<b>Slider Menu</b>
+	<?php
+		i_select_menus( array(
+			'options_model'	=>	'options.menus',
+			'ng_model'	=>	'iOptions.home.slider.menu',
+			'null_option'	=>	'No Menu',
+			));
+	?>
+	The pages and posts on the selected menu will be used as slides.
 
 	<hr>
 

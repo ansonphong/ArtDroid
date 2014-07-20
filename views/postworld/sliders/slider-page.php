@@ -1,5 +1,5 @@
 <?php
-	$home_menu_id = i_get_option( array( 'option_name' => 'i-options', 'key' => 'menus.home' ) );
+	$home_menu_id = i_get_option( array( 'option_name' => 'i-options', 'key' => 'home.secondary_menu' ) );
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
 ?>

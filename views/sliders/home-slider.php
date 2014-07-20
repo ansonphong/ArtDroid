@@ -6,21 +6,28 @@
 <div class="slider-wrapper">
 	<?php
 
-		$slider_menu = "Home Slider";
+		// Slider
+		if( !isset($slider) )
+			$slider = array();
+
+		$slider_menu = i_get_option( array( 'option_name' => 'i-options', 'key' => 'home.slider.menu' ) );
 		$fields = "all";
-		$slider_posts = pw_get_menu_posts( $slider_menu, $fields );
+		$slider['posts'] = pw_get_menu_posts( $slider_menu, $fields );
+
+		$slider['height'] = i_get_option( array( 'option_name' => 'i-options', 'key' => 'home.slider.height' ) );
+
 		//echo json_encode($slider_posts);
 		//$slider = $i_meta_header['slider'];
 		$page_slider_vars = array(
 			//'query' 		=> 	$home_slider_query,
-			'posts'			=>	$slider_posts,
+			'posts'			=>	$slider['posts'],
 			'template' 		=> 	'slider-page',
 			'id'			=> 	'header-slider',
 			'class'			=> 	'slider',
 			'transition'	=> 	$slider['transition'],
 			'no_pause'		=> 	$slider['no_pause'],
 			'interval'		=>	$slider['interval'],
-			'height'		=>	$slider['height'],
+			'height'		=>	$slider['height'], 
 			'query_vars'	=>	$slider['query_vars'],
 			//'meta'			=>	$i_meta_header['slider']
 			);

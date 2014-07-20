@@ -8,7 +8,7 @@
 ?>
 
 <!-- SPACER -->
-<div window-height="80%" style="background:#ccc;">
+<div style="background:#ccc;"> <!-- window-height="80%" -->
 	<?php
 		////////// HEAD //////////
 		//include locate_template( 'views/modules/page-head.php' );
