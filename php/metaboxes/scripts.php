@@ -1,6 +1,6 @@
 <script>
 	///// CONTROLLER /////
-	infiniteMetabox.controller('iMetaboxPostOptionsCtrl',
+	infiniteMetabox.controller('iMetaboxOptionsCtrl',
 		['$scope', 'pwPostOptions', '_',
 			function( $scope, $pwPostOptions, $_ ) {
 			//$scope.iMeta = <?php echo json_encode($i_meta); ?>;

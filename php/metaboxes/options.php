@@ -1,4 +1,4 @@
-<div ng-controller="iMetaboxPostOptionsCtrl">
+<div ng-controller="iMetaboxOptionsCtrl">
 	
 	<?php
 		if( is_home() )
@@ -17,7 +17,8 @@
 	<div ng-show="iMeta.header.type == 'slider'">
 		<div class="well">
 			<h3>Slider Options</h3>
-			<?php include 'slider-options.php'; ?>
+			<?php echo i_admin_slider_options(); ?>
+			<?php //include 'options-slider.php'; ?>
 		</div>
 	</div>
 	<hr>
@@ -33,7 +34,7 @@
 	</div>
 	<div class="well">
 		<h3>Gallery Options</h3>
-		<?php include 'gallery-options.php'; ?>
+		<?php include 'options-gallery.php'; ?>
 		<div style="clear:both;"></div>
 	</div>
 

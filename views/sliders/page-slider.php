@@ -7,6 +7,7 @@
 		$slider = $i_meta_header['slider'];
 		$page_slider_vars = array(
 			//'query' 		=> 	$home_slider_query,
+			'mode' 			=> 	$slider['mode'],
 			'template' 		=> 	'slider-page',
 			'id'			=> 	'header-slider',
 			'class'			=> 	'slider',
@@ -15,6 +16,7 @@
 			'interval'		=>	$slider['interval'],
 			'height'		=>	$slider['height'],
 			'query_vars'	=>	$slider['query_vars'],
+			'menu_vars'		=>	$slider['menu_vars'],
 			//'meta'			=>	$i_meta_header['slider']
 			);
 		echo pw_print_slider( $page_slider_vars );
