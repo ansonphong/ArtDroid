@@ -27,12 +27,16 @@ infinite.controller( 'artPostCtrl',
 
 		// GALLERY
 		var galleryTemplate = $_.getObj( $scope, 'post.post_meta.i_meta.gallery.template' );
-
 		var hasGallery = ( !_.isEmpty( $_.getObj( $scope, 'post.gallery.posts' ) ) );
-		
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
+
+		// HEADER
+		var header = $_.getObj( $scope, 'post.post_meta.i_meta.header.type' );
+		var headerDefault = ( header == 'default' || header == false );
+		var headerImage = ( header == 'featured_image' );
+		var headerSlider = ( header == 'headerSlider' );
 
 		// EMBED
 		var hasEmbed = (
@@ -42,54 +46,52 @@ infinite.controller( 'artPostCtrl',
 
 		// IMAGE
 		var hasImage = ( $_.objExists( $scope, 'post.image.sizes' ) );
-
-		var hasImageAndNoGallery = ( hasImage && !galleryHorizontal );
-
-		var hasImageAndNoMedia = ( !hasEmbed && hasImage && !galleryHorizontal );
+		var hasImageAndNoEmbed = ( !hasEmbed && hasImage );
 
 
-		// SWITCH VIEWS
+		///// SWITCH : VIEWS : LOGIC /////
 		switch( view ){
-
 			case 'loading':
 				if( loading )
 					return true;
 				break;
 
-			case 'gallery':
-				if( !loading && hasGallery )
+			case 'singleImage':		// For use in Single Post View
+				if( ( hasImageAndNoEmbed && !galleryHorizontal ) || ( headerImage && hasImage ) )
 					return true;
 				break;
 
-			case 'embed':
-				if( !loading && hasEmbed )
+			case 'modalImage': 		// For use in Modal Viewer
+				if( hasImageAndNoEmbed && !galleryHorizontal && !hasGallery )
 					return true;
 				break;
 
-			case 'image':
-				if( !loading && hasImageAndNoMedia )
+			case 'singleEmbed': 	// For use in Single Post View
+				if( hasEmbed )
 					return true;
 				break;
 
-			case 'standard':
-				if( !loading && !hasGallery && !hasEmbed && !hasImage )
+			case 'modalEmbed': 		// For use in Modal Viewer
+				if( hasEmbed )
 					return true;
 				break;
 
-			case 'mediaViewer':
-				if( hasImage || hasGallery || hasEmbed  )
+			case 'autoplayEmbed':
+				if( hasEmbed && !galleryHorizontal )
 					return true;
 				break;
 
 			case 'galleryHorizontal':
-				if( hasGallery && galleryHorizontal )
+				if( galleryHorizontal && hasGallery )
 					return true;
 				break;
 
 			case 'galleryVertical':
-				if( hasGallery && galleryVertical )
+				if( galleryVertical && hasGallery )
 					return true;
 				break;
+	
+
 		}
 
 		return false;

@@ -19,28 +19,17 @@
 	</div>
 	-->
 
-	<div class="media-viewer" window-height="90%" ng-show="showView('mediaViewer')">
-	
-		<!-- IMAGE -->
+	<!-- IMAGE -->
+	<div class="media-viewer" window-height="90%" ng-show="showView('modalImage')">
 		<div
-			ng-show="showView('image')"
 			class="view-image"
 			ng-style="backgroundImage( post.image.sizes.full.url )">
 		</div>
-		
-		<!-- EMBED -->
-		<div
-			ng-show="showView('embed')"
-			class="view-embed"
-			o-embed="{{post.link_url}}"
-			autoplay>
-			<div class="o-embed" ng-bind-html="post.link_url_embed"></div>
-			<!--<div ng-bind="oEmbedCode | json"></div>-->
-		</div>
+	</div>
 
-		<!-- GALLERY : HORIZONTAL -->
+	<!-- GALLERY : HORIZONTAL -->
+	<div class="media-viewer" window-height="90%" ng-show="showView('galleryHorizontal')">
 		<div
-			ng-show="showView('galleryHorizontal')"
 			style="height:100%;">
 			<div
 				pw-infinite-gallery
@@ -54,27 +43,34 @@
 							infinite-x-scroll
 							scroll-action="galleryGetNext( 4 )"
 							scroll-distance="1000"
+							scroll-disabled="!showView('galleryHorizontal')"
 							scroll-parent>
 							<!-- GALLERY IMAGE -->
 							<div
 								class="gallery-image"
 								ng-repeat="galleryPost in galleryDisplayedPosts()">
-								<a href="{{galleryPost.post_permalink}}">
-									<img ng-src="{{galleryPost.image.sizes.full.url}}">
-								</a>
+									<img pw-src="galleryPost.image.sizes.full.url">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
-		
-		<!-- INFINITE GALLERY -->
-		<!-- Handles the Gallery Data -->
-		
-		<!-- EMBED -->
 	</div>
+
+
+
+	<!-- EMBED -->
+	<div class="media-viewer" window-height="90%" ng-show="showView('modalEmbed')">
+		<div
+			class="view-embed"
+			o-embed="post.link_url"
+			autoplay="showView('autoplayEmbed')">
+			<div class="o-embed" pw-compile-code="post.link_url_embed"></div>
+		</div>
+	</div>
+
+
 	<hr>
 	<h2>{{ post.post_title }}</h2>
 	<hr>
@@ -89,10 +85,10 @@
 		pw-compile-code="post.post_content">
 	</div>
 	<hr>
-	<!-- VERTICAL SCROLL GALLERY -->
-	<div class="media-viewer">
+
+	<!-- GALLERY : VERTICAL SCROLL -->
+	<div class="media-viewer" ng-show="showView('galleryVertical')">
 		<div
-			ng-show="showView('galleryVertical')"
 			pw-infinite-gallery
 			gallery-preload="4"
 			gallery-scroll="galleryGetNext(1)"
@@ -104,7 +100,7 @@
 						infinite-y-scroll
 						scroll-container=".modal"
 						scroll-action="galleryGetNext( 2 )"
-						scroll-disabled=" post.post_meta.i_meta.gallery.template != 'vertical' "
+						scroll-disabled="!showView('galleryVertical')"
 						scroll-distance="1000">
 						<!-- GALLERY IMAGE -->
 						<div
