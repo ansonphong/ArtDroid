@@ -1,4 +1,3 @@
-<?php // Template Name: Home Page ?>
 <!-- INFINITE HEADER -->
 <?php
 	i_header();
@@ -10,7 +9,13 @@
 
 <?php
 ////////// HEAD //////////
-include locate_template( 'views/modules/page-head.php' ); ?>
+if( is_page() )
+	include locate_template( 'views/modules/page-head.php' ); 
+else if( is_single() ){
+	include locate_template( 'views/modules/post-head.php' ); 
+
+}
+?>
 <?php
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">
@@ -42,12 +47,14 @@ include locate_template( 'views/modules/page-head.php' ); ?>
 			'link_url',
 			'related_post',
 			'post_parent',
-			//'image(full)',
 			'image(all)',
+			'image(tags)',
+			'image(stats)',
 			'time_ago',
-			'taxonomy(all)'
+			'taxonomy(all)',
+			'post_meta(all)',
+			'gallery(ids,posts)'
 			);
-
 
 		///// PRINT POST /////
 		$post_settings = array(
@@ -56,10 +63,9 @@ include locate_template( 'views/modules/page-head.php' ); ?>
 			'view'		=>	'full-h2o',
 			//'template'	=>	pw_get_post_template ( $post->ID, 'full-h2o', 'dir', true ),
 			'vars'	=> array(
-				//'language'		=>	$pwSiteLanguage,
 				'social_widgets'	=>	pw_social_widgets($social_settings),
 				),
-			//'js_vars'	=>	array('post'),
+			'js_vars'	=>	array('post'),
 			);
 
 		// Get and Print the Post in Template
@@ -67,23 +73,13 @@ include locate_template( 'views/modules/page-head.php' ); ?>
 
 	?>
 
-
 	<?php
 		///////// INFINITE LAYOUT /////////
 		// Callback function for the page content (optional)
 		function page_content_function(){
 			global $post;
 			///// EMBED MEDIA /////
-			$embed_link_url = pw_embed_link_url( $post->ID );
-			if( $embed_link_url ){
-				?>
-				<div class="media-embed">
-					<?php
-						echo $embed_link_url;
-					?>
-				</div>
-				<?php
-			}
+			//$embed_link_url = pw_embed_link_url( $post->ID );
 		}
 		///// MAIN LAYOUT /////
 		global $iGlobals;

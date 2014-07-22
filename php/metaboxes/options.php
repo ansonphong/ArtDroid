@@ -14,11 +14,18 @@
 			{{ type.name }}
 		</label>
 	</div>
+	
+	<div ng-show="iMeta.header.type == 'featured_image'">
+		<div class="well">
+			<h3>Featured Image Options</h3>
+			<?php echo i_select_featured_image_options( array( 'ng_model' => 'iMeta.header.image' ) ); ?>
+		</div>
+	</div>
+
 	<div ng-show="iMeta.header.type == 'slider'">
 		<div class="well">
 			<h3>Slider Options</h3>
 			<?php echo i_admin_slider_options(); ?>
-			<?php //include 'options-slider.php'; ?>
 		</div>
 	</div>
 	<hr>

@@ -14,7 +14,7 @@
 					'type':[
 						{
 							slug: 'default',
-							name: 'Default Image',
+							name: 'Default',
 						},
 						{
 							slug: 'featured_image',

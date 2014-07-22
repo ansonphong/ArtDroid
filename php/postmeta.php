@@ -4,6 +4,9 @@ global $i_child_postmeta_model;
 $i_child_postmeta_model = array(
 	"header" => array(
 		"type"		=>	"default",
+		"image"		=>	array(
+			"height"	=>	"50",
+			),
 		"slider"	=>	array(
 			"query_vars"	=> 	array(
 
@@ -21,9 +24,7 @@ $i_child_postmeta_model = array(
 				
 				"max_posts"			=>	20,		// Alias for posts_per_page
 				"has_image"			=>	true,	// Only show posts with an image
-				
 				),
-
 			"orderby"		=> 	"",
 			"show_title"	=>	false,
 			"show_excerpt"	=>	false,
