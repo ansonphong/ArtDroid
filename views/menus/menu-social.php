@@ -1,5 +1,6 @@
 <?php
-	$social_menu_grayscale = i_get_option( array( 'option_name' => 'i-options', 'key' => 'social.in_main_menu_gray' ) );
+	global $iGlobals;
+	$social_menu_grayscale = i_get_obj( $iGlobals, 'options.social.in_main_menu_gray' );
 ?>
 <div
 	class="module menu-social <?php if( $social_menu_grayscale ) echo 'grayscale'; ?>">

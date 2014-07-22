@@ -17,10 +17,11 @@
 		// H2O
 		global $pw_globals;
 		global $post;
+		global $iGlobals;
 
 		// Import Data
 		$footer_data = array();
-		$i_social = i_get_option( array( 'option_name'	=> "i-social" ));
+		$i_social = $iGlobals['social'];
 		$footer_data['contact'] = $i_social['contact'];
 
 		$footer_data['url'] = array();

@@ -2,6 +2,7 @@
 	// Enable Media Library
 	wp_enqueue_media();
 	///// GET OPTIONS /////
+	// TODO : Make API for setting default option values per infinite global and child theme
 	// Logo Image
 	$i_options = get_option('i-options', array() );
 ?>
@@ -58,9 +59,7 @@
 	<hr>
 
 	<h3>Slider</h3>
-	<b>Slider Height </b> <input type="number" size="2" ng-model="iOptions.home.slider.height">%
-	<hr>
-	<b>Slider Menu</b>
+	<b>Menu</b>
 	<?php
 		i_select_menus( array(
 			'options_model'	=>	'options.menus',
@@ -69,8 +68,19 @@
 			));
 	?>
 	The pages and posts on the selected menu will be used as slides.
-
 	<hr>
+	<b>Settings</b>
+	<hr>
+	<?php
+		i_select_slider_settings( array(
+			'ng_model' 	=>	'iOptions.home.slider',
+			'show'		=>	array( 'height', 'interval', 'no_pause' ),
+			) );
+	?>
+
+
+	
+
 
 
 	<pre>iOptions: {{ iOptions | json }}</pre>
