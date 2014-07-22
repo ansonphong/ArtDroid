@@ -1,7 +1,8 @@
+<?php global $iGlobals; ?>
 <div
 	class="module menu-main">
 	<?
-		$main_menu_id = i_get_option( array( 'option_name' => 'i-options', 'key' => 'menus.main' ) );
+		$main_menu_id = i_get_obj( $iGlobals, 'options.menus.main' );
 		$defaults = array(
 			'theme_location'  => '',
 			'menu'            => $main_menu_id,
@@ -20,15 +21,15 @@
 			'depth'           => 0,
 			'walker'          => ''
 		);
-		wp_nav_menu( $defaults );
+		if( $main_menu_id )
+			wp_nav_menu( $defaults );
 	?>
 
 	<?php
 
 	// Show Social Menu
-	if( i_get_option( array( 'option_name' => 'i-options', 'key' => 'social.in_main_menu' ) ) )
+	if( i_get_obj( $iGlobals, 'options.social.in_main_menu' ) == true )
 		include locate_template( 'views/menus/menu-social.php' );
-
 	?>
 	
 	<div class="clearfix"></div>
