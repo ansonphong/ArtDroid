@@ -15,7 +15,7 @@
 		
 		<?php
 		// H2O
-		global $pw_globals;
+		global $pw;
 		global $post;
 		global $iGlobals;
 
@@ -39,7 +39,7 @@
 			)->posts;
 
 		// Run H2O
-		require_once $pw_globals['paths']['postworld_dir'].'/lib/h2o/h2o.php';
+		require_once $pw['paths']['postworld_dir'].'/lib/h2o/h2o.php';
 		$h2o = new h2o( locate_template( "views/modules/page-foot.php" ) );
 		$footer_html = $h2o->render($footer_data);
 		echo $footer_html;

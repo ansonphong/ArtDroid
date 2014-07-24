@@ -1,4 +1,5 @@
 <?php
+	global $pw;
 	global $i_paths;
 	$child_theme_url = $i_paths['child_theme']['url'];
 	$i_meta_header = i_get_postmeta_key( array( "key" => "header" ));
@@ -30,8 +31,15 @@
 			///// ARCHIVE /////
 			else if( is_archive() ){
 				$blog_url = get_permalink( get_option('page_for_posts' ) );
-				$queried_object = get_queried_object();?>
-				<h1><a href='<?php echo $blog_url; ?>'>Blog</a> / <?php echo $queried_object->name; ?></h1>
+				?>
+				<h1>
+					<a href='<?php echo $blog_url; ?>'>Blog</a> /
+					<?php echo $pw['view']['taxonomy']['labels']['singular_name']; ?> /
+					<a href="<?php echo $pw['view']['term']['term_link']; ?>">
+						<?php echo $pw['view']['term']['name']; ?>
+					</a>
+
+				</h1>
 			<?php }
 			///// FRONT PAGE /////
 			else if( is_front_page() ){
