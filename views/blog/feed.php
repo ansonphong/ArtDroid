@@ -2,6 +2,7 @@
 	global $pw;
 ?>
 
+
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////
@@ -21,7 +22,7 @@
 			fields: 'preview',
 			<?php
 				// Add taxonomy query
-				if( $pw['view']['type'] == 'archive' ){ ?>
+				if( $pw['view']['type'] == 'term_archive' ){ ?>
 					tax_query:[
 						{
 							taxonomy: '<?php echo $pw['view']['term']['taxonomy']; ?>',
@@ -29,6 +30,13 @@
 							terms: <?php echo $pw['view']['term']['term_id']; ?>,
 						}
 					],
+				<?
+				}
+			?>
+			<?php
+				// Add year query
+				if( $pw['view']['type'] == 'year_archive' ){ ?>
+					year: <?php echo $pw['view']['query']['year']; ?>,
 				<?
 				}
 			?>
