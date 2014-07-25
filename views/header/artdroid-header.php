@@ -2,6 +2,9 @@
 // Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
 global $i_paths;
+global $pw;
+//echo json_encode($pw);
+
 ?>
 <!DOCTYPE html>
 <html  <?php language_attributes(); ?>>

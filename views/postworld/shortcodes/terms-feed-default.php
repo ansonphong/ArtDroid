@@ -24,25 +24,24 @@
 
 <div class="terms-feed pw-shortcode" ng-controller="<?php echo $instance; ?>">
 
-	<div
-		class="feed-term"
-		ng-repeat="feedTerm in termsFeed">
-
-		<div class="feed-term-posts">
+	<div class="terms-row">
+		<div class="terms-col" ng-repeat="feedTerm in termsFeed">
 			<div
-				class="feed-term-post"
-				ng-repeat="post in feedTerm.posts"
-				ng-style="backgroundImage( post.image.sizes.thumbnail.url )">
+				class="feed-term">
+				<a ng-href="{{feedTerm.term.url}}">
+					<div class="feed-term-posts">
+						<div
+							class="feed-term-post"
+							ng-repeat="post in feedTerm.posts"
+							ng-style="backgroundImage( post.image.sizes.thumbnail.url )">
+						</div>
+					</div>
+					<h2>
+						{{ feedTerm.term.name }} <span class="number">{{ feedTerm.term.count }}</span>
+					</h2>
+				</a>
 			</div>
 		</div>
-		
-
-		<a ng-href="{{feedTerm.term.url}}">
-			<h2>
-				{{ feedTerm.term.name }} <span class="number">{{ feedTerm.term.count }}</span>
-			</h2>
-		</a>
-		
 	</div>
 </div>
 
