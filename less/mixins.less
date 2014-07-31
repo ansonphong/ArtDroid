@@ -9,6 +9,10 @@
   
 }
 
-.i-expanse-dropshadow( @distance: 5px; @blur: 25px; ){
-	box-shadow: @distance @distance @blur fade(@primary-color-dark, 25%);
+.dropshadow( @distance: 5px; @blur: 25px; ){
+	box-shadow: @distance @distance @blur fade(@global-background-color, 25%);
+}
+
+.transition( @transition-time: @global-transition-time; ){
+	transition: all @transition-time ease;
 }

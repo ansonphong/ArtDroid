@@ -67,8 +67,8 @@
 		// If a Home Menu ID is specified
 		if( $slider_has_menu ){
 			?>
-			<!-- MENU BAR -->
-			<div class="bar-bottom">
+			<!-- SLIDER BOTTOM BAR -->
+			<div class="slider-bottom-bar">
 				<?php include locate_template( 'views/menus/menu-home-slider.php' ); ?>
 			</div>
 			<?php

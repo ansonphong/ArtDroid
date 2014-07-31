@@ -1,5 +1,5 @@
 <div
-	class="menu-home-slider">
+	class="slider-bottom-bar-inner">
 	<?
 		$defaults = array(
 			'theme_location'  => '',
@@ -8,7 +8,7 @@
 			'container_class' => 'menu-container',
 			'container_id'    => '',
 			'menu_class'      => 'menu',
-			//'menu_id'         => 'main-menu',
+			'menu_id'         => 'secondary-menu',
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
 			'before'          => '',

@@ -18,12 +18,9 @@
 			}
 			return style;
 		}
-
 	}]);
 </script>
-
 <div class="terms-feed pw-shortcode" ng-controller="<?php echo $instance; ?>">
-
 	<div class="terms-row">
 		<div class="terms-col" ng-repeat="feedTerm in termsFeed">
 			<div
@@ -44,6 +41,4 @@
 		</div>
 	</div>
 </div>
-
 <div class="clearfix"></div>
-<hr>

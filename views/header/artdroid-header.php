@@ -44,42 +44,30 @@ global $pw;
 	inactive-delay="3000"
 	-->
 
-	<div class="page-bounds">
-
-		<div class="header-row">
-
-			<div id="logo" class="header-col-logo">
-
-				<?php
-				// Link to home page
-				if( !is_front_page() ){ ?>
-					<a
-						href="<?php echo get_home_url();?>"
-						tooltip="Go to Home Page"
-						tooltip-placement="bottom"
-						tooltip-popup-delay="1000">
-				<?php } ?>
-
-					<img src="<?php echo i_site_logo(); ?>">
-
-				<?php
-				// End link to home page
-				if( !is_front_page() ){ ?>
-					</a>
-				<?php } ?>
-
-			</div>
-
-			<div id="main-menu" class="header-col-menu">
-
-				<?php include locate_template( 'views/menus/main-menu.php' ); ?>
-				
-
-			</div>
-
+	<div class="header-row">
+		<div id="logo" class="header-col-logo">
+			<?php
+			// Link to home page
+			if( !is_front_page() ){ ?>
+				<a
+					href="<?php echo get_home_url();?>"
+					tooltip="Go to Home Page"
+					tooltip-placement="bottom"
+					tooltip-popup-delay="1000">
+			<?php } ?>
+				<img src="<?php echo i_site_logo(); ?>">
+			<?php
+			// End link to home page
+			if( !is_front_page() ){ ?>
+				</a>
+			<?php } ?>
+		</div>
+		<div id="main-menu" class="header-col-menu">
+			<?php include locate_template( 'views/menus/main-menu.php' ); ?>
 		</div>
 
 	</div>
+
 
 	<div class="clearfix"></div>
 

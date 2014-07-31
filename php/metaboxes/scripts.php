@@ -60,7 +60,170 @@
 							description: 'All galleries in the post are merged into a single vertical infinite scrolling gallery.',
 						},
 					],
-				}
+				},
+				'post_content':{
+					columns:[
+						{
+							value: 3,
+							name: '3 Columns',
+						},
+						{
+							value: 2,
+							name: '2 Columns',
+						},
+						{
+							value: 1,
+							name: '1 Column',
+						},
+					],
+				},
+				'icon':{
+					'iconx':[
+						{
+							class: "icon-x-merkaba",
+						},
+						{
+							class: "icon-x-cloud",
+						},
+						{
+							class: "icon-x-home",
+						},
+						{
+							class: "icon-x-globe",
+						},
+						{
+							class: "icon-x-atom",
+						},
+						{
+							class: "icon-x-seedoflife",
+						},
+						{
+							class: "icon-x-lightbulb",
+						},
+						{
+							class: "icon-x-group",
+						},
+						{
+							class: "icon-x-info",
+						},
+						{
+							class: "icon-x-mail",
+						},
+						{
+							class: "icon-x-stream",
+						},
+						{
+							class: "icon-x-location3d",
+						},
+					],
+					'glyphicons':[
+						{
+							class: "glyphicon glyphicon-star",
+						},
+						{
+							class: "glyphicon glyphicon-film",
+						},
+						{
+							class: "glyphicon glyphicon-cog",
+						},
+						{
+							class: "glyphicon glyphicon-home",
+						},
+						{
+							class: "glyphicon glyphicon-file",
+						},
+						{
+							class: "glyphicon glyphicon-time",
+						},
+						{
+							class: "glyphicon glyphicon-flag",
+						},
+						{
+							class: "glyphicon glyphicon-tag",
+						},
+						{
+							class: "glyphicon glyphicon-tags",
+						},
+						{
+							class: "glyphicon glyphicon-book",
+						},
+						{
+							class: "glyphicon glyphicon-bookmark",
+						},
+						{
+							class: "glyphicon glyphicon-camera",
+						},
+						{
+							class: "glyphicon glyphicon-font",
+						},
+						{
+							class: "glyphicon glyphicon-picture",
+						},
+						{
+							class: "glyphicon glyphicon-facetime-video",
+						},
+						{
+							class: "glyphicon glyphicon-tint",
+						},
+						{
+							class: "glyphicon glyphicon-screenshot",
+						},
+						{
+							class: "glyphicon glyphicon-gift",
+						},
+						{
+							class: "glyphicon glyphicon-calendar",
+						},
+						{
+							class: "glyphicon glyphicon-eye-open",
+						},
+						{
+							class: "glyphicon glyphicon-fire",
+						},
+						{
+							class: "glyphicon glyphicon-leaf",
+						},
+						{
+							class: "glyphicon glyphicon-globe",
+						},
+						{
+							class: "glyphicon glyphicon-bell",
+						},
+						{
+							class: "glyphicon glyphicon-bullhorn",
+						},
+						{
+							class: "glyphicon glyphicon-link",
+						},
+						{
+							class: "glyphicon glyphicon-pushpin",
+						},
+						{
+							class: "glyphicon glyphicon-phone",
+						},
+						{
+							class: "glyphicon glyphicon-usd",
+						},
+						{
+							class: "glyphicon glyphicon-gbp",
+						},
+						{
+							class: "glyphicon glyphicon-flash",
+						},
+						{
+							class: "glyphicon glyphicon-stats",
+						},
+						{
+							class: "glyphicon glyphicon-tree-conifer",
+						},
+						{
+							class: "glyphicon glyphicon-tree-deciduous",
+						},
+						{
+							class: "glyphicon glyphicon-warning-sign",
+						},
+					],
+				},
 			};
 
 			$scope.getSelectedOption = function( objectPath ){

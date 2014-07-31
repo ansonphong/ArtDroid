@@ -87,8 +87,8 @@ else if( is_single() ){
 			'layout'			=>	$iGlobals['layout']['layout'],
 			'function'			=>	'page_content_function',
 			'content'			=>	$post_html, //apply_filters( 'the_content', $post->post_content ),
-			'before_content' 	=>	'<div class="post_content">',
-			'after_content' 	=>	'</div>',
+			//'before_content' 	=>	'<div>',
+			//'after_content' 	=>	'</div>',
 			
 			);
 		i_print_layout( $layout_args );
