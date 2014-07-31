@@ -1,8 +1,60 @@
 <article
 	pw-post
 	art-post
-	class="post block blog">
-	<header>
+	class="post full block">
+
+	<!-- GALLERY : HORIZONTAL -->
+	<div class="media-viewer" window-height="{{ post.post_meta.i_meta.gallery.height }}" ng-show="showView('galleryHorizontal')">
+		<div
+			style="height:100%;">
+			<div
+				pw-infinite-gallery
+				gallery-preload="4"
+				gallery-scroll="galleryGetNext(3)"
+				class="view-gallery-horizontal">
+
+				<!-- INFINITE SCROLL -->
+				<div class="infinite-x-scroll" id="scrolls">
+					<div
+						class="scroll-inner"
+						infinite-x-scroll
+						scroll-action="galleryGetNext( 4 )"
+						scroll-distance="{{ post.post_meta.i_meta.gallery.x_scroll_distance }}"
+						scroll-disabled="!showView('galleryHorizontal')"
+						scroll-parent>
+						<!-- GALLERY IMAGE -->
+						<div
+							class="gallery-image"
+							ng-repeat="galleryPost in galleryDisplayedPosts()">
+								<img pw-src="galleryPost.image.sizes.full.url">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% if post.post_meta.i_meta.header.type == 'featured_image' %}
+	<!--//// HEADER TYPE : FEATURED IMAGE /////
+		<img
+			pw-src="post.image.sizes.full.url"
+			style="width:100%; height:auto;">
+		<hr>-->
+	{% endif %}
+	
+	{% if post.post_type == 'post' %}
+		<!-- IMAGE -->
+		<div class="media-viewer" window-height="90%" ng-show="showView('singleImage')">
+			<div
+				class="view-image"
+				ng-style="backgroundImage( post.image.sizes.full.url )">
+			</div>
+		</div>
+	{% endif %}
+
+	<header class="{{ post.post_type }}-head post-head">
+
+		{% if post.post_type == 'post' %}
 		<!-- TIME -->
 		<div
 			class="time unit pull-right"
@@ -11,6 +63,24 @@
 				<i class="icon-time"></i> {{ post.time_ago }}
 			</time>
 		</div>
+		{% endif %}
+
+		<h1>
+			<span class="icon">
+				{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
+					<i class="glyphicon glyphicon-arrow-down"></i>
+				{% endif %} 
+				{% if post.post_meta.i_meta.gallery.template == 'horizontal' %}
+					<i class="glyphicon glyphicon-arrow-right"></i>
+				{% endif %}
+				{% if post.post_meta.i_meta.icon.class %}
+					<i class="{{post.post_meta.i_meta.icon.class}}"></i>
+				{% endif %}
+			</span> 
+			{{ post.post_title }}
+		</h1>
+
+		
 
 		<!-- CATEGORIES -->
 		<div class="taxonomy pull-left">
@@ -29,58 +99,10 @@
 	<span ng-bind="post.post_meta.i_meta | json"></span>
 	-->
 
-	{% if post.post_meta.i_meta.header.type == 'featured_image' %}
-	<!--//// HEADER TYPE : FEATURED IMAGE /////
-		<img
-			pw-src="post.image.sizes.full.url"
-			style="width:100%; height:auto;">
-		<hr>-->
-	{% endif %}
 	
 
-
-
-	<!-- IMAGE -->
-	<div class="media-viewer" window-height="90%" ng-show="showView('modalImage')">
-		<div
-			class="view-image"
-			ng-style="backgroundImage( post.image.sizes.full.url )">
-		</div>
-	</div>
-
-	<!-- GALLERY : HORIZONTAL -->
-	<div class="media-viewer" window-height="90%" ng-show="showView('galleryHorizontal')">
-		<div
-			style="height:100%;">
-			<div
-				pw-infinite-gallery
-				gallery-preload="4"
-				gallery-scroll="galleryGetNext(3)"
-				class="view-gallery-horizontal">
-					<!-- INFINITE SCROLL -->
-					<div class="infinite-x-scroll" id="scrolls">
-						<div
-							class="scroll-inner"
-							infinite-x-scroll
-							scroll-action="galleryGetNext( 4 )"
-							scroll-distance="1000"
-							scroll-disabled="!showView('galleryHorizontal')"
-							scroll-parent>
-							<!-- GALLERY IMAGE -->
-							<div
-								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()">
-									<img pw-src="galleryPost.image.sizes.full.url">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- EMBED -->
-	<div class="media-viewer" window-height="90%" ng-show="showView('modalEmbed')">
+	<div class="media-viewer" window-height="90%" ng-show="showView('singleEmbed')">
 		<div
 			class="view-embed"
 			o-embed="post.link_url"
@@ -91,9 +113,10 @@
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post_content">{{ post.post_content | safe }}</div>
+		<div class="post_content columns-{{post.post_meta.i_meta.post_content.columns}}">
+			{{ post.post_content | safe }}
+		</div>
 	{% endif %}
-
 
 	{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
 		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
@@ -111,7 +134,7 @@
 							infinite-y-scroll
 							scroll-action="galleryGetNext( 2 )"
 							scroll-disabled=" post.post_meta.i_meta.gallery.template != 'vertical' "
-							scroll-distance="1000">
+							scroll-distance="{{ post.post_meta.i_meta.gallery.y_scroll_distance }}">
 							<!-- GALLERY IMAGE -->
 							<div
 								class="gallery-image"
@@ -126,12 +149,11 @@
 		</div>
 	{% endif %}
 
-
 	<div class="clearfix"></div>
 
 	<!-- SOCIAL WIDGETS -->
 	<div class="social-widgets">
 		<!--{{ social_widgets | safe }}-->
 	</div>
-	<hr class="thick">
+	<!--<hr class="thick">-->
 </article>

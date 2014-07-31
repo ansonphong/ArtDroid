@@ -41,6 +41,12 @@ $i_child_postmeta_model = array(
 		"x_scroll_distance"	=>	1500,
 		"y_scroll_distance"	=>	1000,
 		),
+	"post_content"	=>	array(
+		"columns"	=>	3,
+		),
+	"icon"	=>	array(
+		"class"	=>	"",
+		),
 	);
 
 ?>

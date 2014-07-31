@@ -5,7 +5,7 @@
 
 body.scrollfix-y{
 	header#header{
-		background:fade(#fff, 100%);
+		background:fade( @global-background-color, 100%);
 		.module{
 			box-shadow: none;
 		}
@@ -22,14 +22,21 @@ header#header{
 	position:fixed;
 	z-index:10;
 	width:100%;
-	//background:rgba(200,200,200,0.2);
+	background:@global-background-color;
 	height:@header-height;
 	transition: background .66s ease;
 
+
+	@media @desktop-and-above{
+		height:64px;
+	}
+
+
 	#logo{
-		float:left;
+		text-align: center;
+		background:@global-background-color;
 		a{
-			.transition(0.2s);
+			.transition(@global-transition-time);
 			display:inline-block;
 			height:@header-height;
 			padding:0px;
@@ -38,19 +45,12 @@ header#header{
 			}
 		}
 		img{
-			@media @desktop-and-below{
-				width:100%;
-				height:auto;
-				max-width:300px;
-			}
-			@media @desktop-and-above{
-				width:100%;
-				height:auto;
-			}
-
+			width:auto;
+			height:64px;
 			transition:all ease 1s;
 			border-radius:0 0 3px 3px;
-
+			@media @desktop-and-below{ max-width:300px; }
+			@media @desktop-and-above{}
 		}
 	}
 
@@ -72,6 +72,7 @@ header#header{
 	///// HEADER LAYOUT /////
 	.header-row{
 		.make-row( 0px );
+		height:100%;
 	}
 
 	.header-col-logo{

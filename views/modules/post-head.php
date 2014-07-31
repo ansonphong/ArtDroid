@@ -3,7 +3,7 @@
 	$child_theme_url = $i_paths['child_theme']['url'];
 	$i_meta_header = i_get_postmeta_key( array( "key" => "header" ));
 ?>
-<div id="page-head" class="page-head">
+<header>
 	<!-- SLIDER -->
 	<?php
 	///// SWTICH HEADER TYPE /////
@@ -19,4 +19,4 @@
 			break;
 	}
 	?>
-</div>
+</header>

@@ -7,8 +7,8 @@
 <script>
 	///// LIVE FEED /////
 	feed_settings['primaryFeed'] = {
-		preload : 9,
-		load_increment : 3,
+		preload : 10,
+		load_increment : 10,
 		offset: 0,
 		max_posts:200,
 		order_by : '-post_date',
@@ -49,6 +49,7 @@
 <!-- ////////// END FEED ////////// -->
 
 <?php
+	///// DEV /////
 	//echo $pw['view']['term'];
-	echo "<pre>pw : " . json_encode( $pw, JSON_PRETTY_PRINT ) . "</pre>";
+	//echo "<pre>pw : " . json_encode( $pw, JSON_PRETTY_PRINT ) . "</pre>";
 ?>

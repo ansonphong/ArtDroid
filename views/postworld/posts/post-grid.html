@@ -51,7 +51,7 @@
 		      		<span ng-show="$last"> • </span>
 				</span>
 
-				<span am-time-ago="post.post_timestamp" title="{{post.post_timestamp | amCalendar}}"></span> 
+				<span>{{ post.time_ago }}</span> 
 
 				<span ng-show="post.post_excerpt">
 					• {{ post.post_excerpt }}
