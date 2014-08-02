@@ -6,7 +6,7 @@ body.admin-bar{
 	}
 }
 
-.modal.quick_edit .modal-content,
+.modal.modal-edit-post .modal-content,
 .modal.modal-view-post .modal-content{
   background:@global-background-color;
 }
@@ -17,6 +17,22 @@ body.admin-bar{
      transform: translate(0, 0);
      opacity:1;
 }
+
+///// EDIT POST MODAL /////
+
+.modal-edit-post{
+	.modal-content{
+		border:1px solid @global-foreground-color;
+		.dropshadow( 5px, 0px );
+
+		hr{
+			border-top-color:@neutral-color-dark;
+		}
+
+
+	}	
+}
+
 
 ///// MODAL /////
 .modal{
