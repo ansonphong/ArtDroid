@@ -1,10 +1,16 @@
 .edit-post{
   color: @neutral-color-dark;
 
+  .input-area{
+
+  }
+
   .link-format{
+    margin-top:5px;
     label{
       padding:5px 10px;
       display: inline-block;
+      color: @neutral-color-medium;
     }
     input[type="radio"]{
       display:none;
@@ -14,4 +20,28 @@
       color:#fff;
     }
   }
+
+  .taxonomy{
+      .tags{
+        .tag{
+          color: @global-foreground-color;
+          border:1px solid @neutral-color-dark;
+          padding:0px;
+          margin-bottom:5px;
+          span{
+            display: inline-block;
+            margin: 7px 10px 0 10px;
+            i{
+              color: @neutral-color-medium;
+              display: inline-block;
+              margin-right:5px;
+            }
+          }
+          button{
+            border-radius: 0px;
+          }
+        }
+      }
+    }
+
 }

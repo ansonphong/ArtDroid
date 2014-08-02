@@ -7,7 +7,7 @@
 
   <!-- LOADING -->
   <div ng-show="status=='loading'" style="text-align:center;">
-    <i class="icon-spinner icon-spin icon-large" style="font-size:48px;"></i>
+    <i class="icon-spinner icon-spin icon-large loading-animation"></i>
   </div>
 
 <!-- WRAPPER (Cloak until loaded) -->
@@ -16,7 +16,7 @@
     <!--//////////////////// HEADER ////////////////////-->
     <div class="modal-body">
     
-      <header class="edit_post-menu module row">
+      <header class="edit-post-menu row">
         <div class="col-sm-4">
           
         </div>
@@ -47,11 +47,15 @@
       <!--//////////////////// EDIT FIELDS ////////////////////-->
 
         <!-- POST TITLE -->
-        <label class="inner">Title</label>
-        <input class="labeled title" type="text" ng-model="post.post_title" placeholder="Post Title">
+        <div class="input-area">
+          <label class="inner">Title</label>
+          <input class="labeled title" type="text" ng-model="post.post_title" placeholder="Post Title">
+        </div>
+
+        <hr class="thin">
 
         <!-- POST EXCERPT -->
-        <div class="post_excerpt">
+        <div class="post-excerpt input-area">
           <label class="inner">Post Excerpt</label>
           <textarea id="post_excerpt" class="labeled" msd-elastic ng-textarea-filter data-maxlength="500" data-readmore="..."
             name="post_excerpt" ng-model="post.post_excerpt"></textarea>
@@ -98,16 +102,20 @@
           
           </div>
 
+          <!--/// SPACER COLUMN ///-->
+          <div class="col-md-1"></div>
+
           <!--/// RIGHT COLUMN ///-->
-          <div class="col-md-6">
+          <div class="col-md-5">
             <!-- TAXONOMY : TAGS -->
             <div class="post-details module taxonomy">
               <div ng-controller="tagsAutocomplete" class="tags">
                   <div ng-repeat="tag in tags_input_obj" class="tag">
-                      <b>{{tag.name}}</b>
-                      <button ng-click="removeTag(tag)" class="gray">
+                      <span><i class="glyphicon glyphicon-tag"></i> {{tag.name}}</span>
+                      <button ng-click="removeTag(tag)" class="btn-neutral-color pull-right">
                       <i class="icon-remove"></i>
                     </button>
+                    <div class="clearfix"></div>
                   </div>
                   <div class="input-group">
                     <input type="text" typeahead-min-length="1" typeahead-loading="status" typeahead-wait-ms="500"
@@ -115,7 +123,7 @@
                       typeahead="tag.slug as tag.name for tag in tagOptions | filter:$viewValue | limitTo:20"
                       typeahead-on-select="addTag()" class="form-control blue">
                     <span class="input-group-btn">
-                      <button class="btn btn-default blue" ng-click="newTag()"><i class="icon-plus"></i> New Tag</button>
+                      <button class="btn btn-primary-color" ng-click="newTag()"><i class="icon-plus"></i> New Tag</button>
                     </span>
                   </div>
               </div>
