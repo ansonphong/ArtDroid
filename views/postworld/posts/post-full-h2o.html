@@ -54,7 +54,7 @@
 	
 	{% if post.post_type == 'post' %}
 		<!-- IMAGE -->
-		<div class="media-viewer" window-height="90%" ng-show="showView('singleImage')">
+		<div class="media-viewer" window-height="75%" ng-show="showView('singleImage')">
 			<div
 				class="view-image"
 				ng-style="backgroundImage( post.image.sizes.full.url )">
@@ -63,6 +63,31 @@
 	{% endif %}
 
 	<header class="{{ post.post_type }}-head post-head">
+
+		<!--///// POST CONTROLS /////-->
+		<div class="post-controls pull-right">
+			<!-- DROPDOWN -->
+			<span
+				pw-admin-post-menu
+				ng-show="userOptions != 0"
+				class="admin-menu dropdown">
+				<button
+					prevent-default-click
+					dropdown-toggle
+					class="edit-post"
+					style="border:none"
+					tooltip="edit"
+					tooltip-placement="top"
+					tooltip-popup-delay="500">
+					<i class="icon-x-merkaba"></i>
+				</button>
+				<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+					<li prevent-default-click ng-repeat="item in userOptions">
+						<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+					</li>
+				</ul>
+			</span>
+		</div>
 
 		{% if post.post_type == 'post' %}
 		<!-- TIME -->
@@ -91,17 +116,22 @@
 		</h1>
 
 		
-
-		<!-- CATEGORIES -->
-		<div class="taxonomy pull-left">
-			<i class="glyphicon glyphicon-tags"></i>
-			{% for term in post.taxonomy.post_tag %}
-			    <a href="{{ term.url }}" class="unit term"
-					tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
-					{{ term.name }}
-					</a>
-			{% endfor %} 
-		</div>
+		{% if post.post_type == 'post' %}
+			{% if post.taxonomy.post_tag %}
+				<!-- TAGS -->
+				<div class="taxonomy pull-left">
+					<div class="tags">
+						<i class="icon glyphicon glyphicon-tags"></i>
+						{% for term in post.taxonomy.post_tag %}
+						    <a href="{{ term.url }}" class="term tag"
+								tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
+								{{ term.name }}
+								</a>
+						{% endfor %} 
+					</div>
+				</div>
+			{% endif %}
+		{% endif %}
 		
 		<div class="clearfix"></div>
 	</header>

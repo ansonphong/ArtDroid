@@ -29,7 +29,7 @@ $i_child_postmeta_model = array(
 			"show_title"	=>	false,
 			"show_excerpt"	=>	false,
 			"hotlink"		=>	false,
-			"height"		=>	"80%",
+			"height"		=>	"75%",
 			"interval"		=>	"5000",
 			"no_pause"		=>	true,
 			"transition"	=>	'fade',
@@ -37,12 +37,12 @@ $i_child_postmeta_model = array(
 		),
 	"gallery"	=>	array(
 		"template"	=>	"inline",
-		"height"	=>	80,
+		"height"	=>	75,
 		"x_scroll_distance"	=>	1500,
 		"y_scroll_distance"	=>	1000,
 		),
 	"post_content"	=>	array(
-		"columns"	=>	3,
+		"columns"	=>	1,
 		),
 	"icon"	=>	array(
 		"class"	=>	"",
