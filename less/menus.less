@@ -260,6 +260,64 @@ ul.pw-shortcode.menu{
 
 
 
+///// EDIT POST DROPDOWN MENU /////
+.post .post-controls{
+
+	ul.dropdown-menu{
+		border-radius: 0;
+		.dropshadow(5px);
+		background: @global-background-color;
+		padding:0;
+		border: 1px solid @global-foreground-color;
+		button{
+			padding: 8px 3px;
+			width:100%;
+			text-align: left;
+			border:none;
+			color: @global-foreground-color;
+			background: @global-background-color;
+			i{
+				display:inline-block;
+				text-align: center;
+				width:28px;
+			}
+			&:hover{
+				background: @primary-color-dark;
+				color:#fff;
+			}
+		}
+	}
+ 
+	button, a.btn{
+		display:inline-block;
+		background:transparent;
+		font-size:17px;
+		padding:5px 0px;
+		color: #fff;
+		width:32px;
+		line-height:1;
+		//.appearance( button );
+		text-align: center;
+		vertical-align: middle;
+		height:100%;
+		outline:0;
+		border-radius:0;
+	}
+
+	button:hover, a.btn:hover,
+	.dropdown.open button, .dropdown.open a.btn{
+		color: @global-background-color;
+		background: @global-foreground-color;
+	}
+
+	button.edit-post{
+		cursor:crosshair;
+		i, i:before{
+			cursor:crosshair;
+		}
+	}
+
+}
 
 
 

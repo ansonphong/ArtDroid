@@ -89,6 +89,42 @@
 	</div>
 
 	<div class="post-head">
+
+		<!--///// POST CONTROLS /////-->
+		<div class="post-controls pull-right">
+			<!-- LINK -->
+			<a
+				ng-href="{{ post.post_permalink }}"
+				class="btn"
+				stop-propagation-click
+				tooltip="link"
+				tooltip-placement="top"
+				tooltip-popup-delay="500">
+				<i class="glyphicon glyphicon-link"></i>
+			</a>
+			<!-- DROPDOWN -->
+			<span
+				pw-admin-post-menu
+				ng-show="userOptions != 0"
+				class="admin-menu dropdown">
+				<button
+					prevent-default-click
+					dropdown-toggle
+					class="edit-post"
+					style="border:none"
+					tooltip="edit"
+					tooltip-placement="top"
+					tooltip-popup-delay="500">
+					<i class="icon-x-merkaba"></i>
+				</button>
+				<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+					<li prevent-default-click ng-repeat="item in userOptions">
+						<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+					</li>
+				</ul>
+			</span>
+		</div>
+
 		<!-- TIME -->
 		<div
 			class="time unit pull-right"

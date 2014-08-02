@@ -57,17 +57,18 @@
 					• {{ post.post_excerpt }}
 				</span>
 				
+				<!--///// POST CONTROLS /////-->
 				<div class="post-controls">
-						<a
-							ng-href="{{ post.post_permalink }}"
-							class="btn image"
-							stop-propagation-click
-							tooltip="link"
-							tooltip-placement="top"
-							tooltip-popup-delay="500">
-							<i class="glyphicon glyphicon-link"></i>
-						</a>
-
+					<!-- LINK -->
+					<a
+						ng-href="{{ post.post_permalink }}"
+						class="btn"
+						stop-propagation-click
+						tooltip="link"
+						tooltip-placement="top"
+						tooltip-popup-delay="500">
+						<i class="glyphicon glyphicon-link"></i>
+					</a>
 					<!-- DROPDOWN -->
 					<span
 						pw-admin-post-menu
@@ -76,7 +77,7 @@
 						<button
 							prevent-default-click
 							dropdown-toggle
-							class="view_later edit"
+							class="edit-post"
 							style="border:none"
 							tooltip="edit"
 							tooltip-placement="top"
@@ -89,7 +90,6 @@
 							</li>
 						</ul>
 					</span>
-
 				</div>
 				
 				<!--
