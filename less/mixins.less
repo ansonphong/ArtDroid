@@ -16,3 +16,9 @@
 .transition( @transition-time: @global-transition-time; ){
 	transition: all @transition-time ease;
 }
+
+.appearance( @value ){
+	appearance:@value;
+	-moz-appearance:@value; /* Firefox */
+	-webkit-appearance:@value; /* Safari and Chrome */
+}
