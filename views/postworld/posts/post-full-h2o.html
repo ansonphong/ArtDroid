@@ -34,8 +34,18 @@
 		</div>
 	</div>
 
+	<!-- EMBED -->
+	<div class="media-viewer" window-height="75%" ng-show="showView('singleEmbed')">
+		<div
+			class="view-embed"
+			o-embed="post.link_url"
+			autoplay="showView('autoplayEmbed')">
+			<div class="o-embed" pw-compile-code="post.link_url_embed"></div>
+		</div>
+	</div>
+
 	{% if post.post_meta.i_meta.header.type == 'featured_image' %}
-	<!--//// HEADER TYPE : FEATURED IMAGE /////
+		<!--//// HEADER TYPE : FEATURED IMAGE /////
 		<img
 			pw-src="post.image.sizes.full.url"
 			style="width:100%; height:auto;">
@@ -84,9 +94,12 @@
 
 		<!-- CATEGORIES -->
 		<div class="taxonomy pull-left">
-			{% for term in post.taxonomy.category %}
+			<i class="glyphicon glyphicon-tags"></i>
+			{% for term in post.taxonomy.post_tag %}
 			    <a href="{{ term.url }}" class="unit term"
-					tooltip="More in This Category" tooltip-placement="bottom">{{ term.name }}</a>
+					tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
+					{{ term.name }}
+					</a>
 			{% endfor %} 
 		</div>
 		
@@ -99,17 +112,6 @@
 	<span ng-bind="post.post_meta.i_meta | json"></span>
 	-->
 
-	
-
-	<!-- EMBED -->
-	<div class="media-viewer" window-height="90%" ng-show="showView('singleEmbed')">
-		<div
-			class="view-embed"
-			o-embed="post.link_url"
-			autoplay="showView('autoplayEmbed')">
-			<div class="o-embed" ng-bind-html="post.link_url_embed"></div>
-		</div>
-	</div>
 
 	{% if post.post_content %}
 		<!-- CONTENT -->

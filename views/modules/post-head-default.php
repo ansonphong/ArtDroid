@@ -1,3 +1,1 @@
-<div style="height:120px;">
-	
-</div>
+<div class="header-spacer"></div>
