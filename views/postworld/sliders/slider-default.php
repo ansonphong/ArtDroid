@@ -87,4 +87,4 @@
 
 </div>
 
-<?php echo json_encode($slider); ?>
+<?php //echo json_encode($slider); ?>
