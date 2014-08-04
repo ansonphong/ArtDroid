@@ -17,7 +17,6 @@ $child_admin = array(
 	
 	);
 
-
 ///// ADD ADMIN MENU PAGE /////
 add_action( 'admin_menu', 'child_theme_admin_menu', 11 );
 function child_theme_admin_menu(){
