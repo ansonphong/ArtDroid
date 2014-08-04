@@ -49,7 +49,10 @@
 	</div>
 
 	<!-- GALLERY : HORIZONTAL -->
-	<div class="media-viewer" window-height="{{post.post_meta.i_meta.gallery.height}}" ng-show="showView('galleryHorizontal')">
+	<div
+		class="media-viewer"
+		window-height="{{post.post_meta.i_meta.gallery.height}}"
+		ng-show="showView('galleryHorizontal')">
 		<div
 			style="height:100%;">
 			<div
@@ -63,7 +66,7 @@
 						class="scroll-inner"
 						infinite-x-scroll
 						scroll-action="galleryGetNext( 4 )"
-						scroll-distance="1000"
+						scroll-distance="{{post.post_meta.i_meta.gallery.x_scroll_distance}}"
 						scroll-disabled="!showView('galleryHorizontal')"
 						scroll-parent>
 						<!-- GALLERY IMAGE -->
@@ -156,7 +159,10 @@
 
 
 	<!-- GALLERY : VERTICAL SCROLL -->
-	<div class="media-viewer" ng-show="showView('galleryVertical')">
+	<div
+		class="media-viewer"
+		window-width="{{post.post_meta.i_meta.gallery.width}}"
+		ng-show="showView('galleryVertical')">
 		<div
 			pw-infinite-gallery
 			gallery-preload="4"
@@ -170,7 +176,7 @@
 						scroll-container=".modal"
 						scroll-action="galleryGetNext( 2 )"
 						scroll-disabled="!showView('galleryVertical')"
-						scroll-distance="1000">
+						scroll-distance="{{post.post_meta.i_meta.gallery.y_scroll_distance}}">
 						<!-- GALLERY IMAGE -->
 						<div
 							class="gallery-image"
@@ -207,6 +213,6 @@
 	POST.DEV : {{ post.dev |  }}
 	-->
 	
-
+<div class="clearfix"></div>
 
 </div><!-- END POST -->

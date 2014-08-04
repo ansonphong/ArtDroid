@@ -71,7 +71,7 @@ $pwSiteGlobals = array(
 
 		'year'	=>	array( '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', ),
 
-		'taxonomies'	=>	array( 'category', 'post_tag', 'i-feature' ),
+		'taxonomies'	=>	array( 'category', 'post_tag' ),
 
 		'taxonomy_outline'	=>	array(
 			'category' => array(
@@ -82,15 +82,6 @@ $pwSiteGlobals = array(
 					'slug'
 					),
 				//'filter' => 'label_group'
-				),
-			'i-feature' => array(
-				'max_depth' => 2,
-				'fields' => array(
-					'term_id',
-					'name',
-					'slug'
-					),
-				'filter' => 'label_group'
 				),
 			),
 

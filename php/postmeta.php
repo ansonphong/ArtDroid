@@ -1,5 +1,5 @@
 <?php
-
+// Child Postmeta Model
 global $i_child_postmeta_model;
 $i_child_postmeta_model = array(
 	"header" => array(
@@ -26,9 +26,9 @@ $i_child_postmeta_model = array(
 				"has_image"			=>	true,	// Only show posts with an image
 				),
 			"orderby"		=> 	"",
-			"show_title"	=>	false,
-			"show_excerpt"	=>	false,
-			"hotlink"		=>	false,
+			"show_title"	=>	true,
+			"show_excerpt"	=>	true,
+			"hyperlink"		=>	true,
 			"height"		=>	"75%",
 			"interval"		=>	"5000",
 			"no_pause"		=>	true,
@@ -37,6 +37,7 @@ $i_child_postmeta_model = array(
 		),
 	"gallery"	=>	array(
 		"template"	=>	"inline",
+		"width"		=>	100,
 		"height"	=>	75,
 		"x_scroll_distance"	=>	1500,
 		"y_scroll_distance"	=>	1000,
@@ -48,5 +49,14 @@ $i_child_postmeta_model = array(
 		"class"	=>	"",
 		),
 	);
+
+// Make filter to merge the child model
+function i_child_postmeta_model_filter( $i_postmeta_model ){
+	global $i_child_postmeta_model; 
+	$i_postmeta_model = array_replace_recursive( $i_postmeta_model, $i_child_postmeta_model );
+	
+	return $i_postmeta_model;
+}
+add_filter( 'i_postmeta_model', 'i_child_postmeta_model_filter' );
 
 ?>
