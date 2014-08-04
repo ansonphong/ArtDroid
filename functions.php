@@ -31,12 +31,11 @@ add_theme_support( 'post-formats', array( 'image', 'link' ) );
 ////////// INCLUDE POSTWORLD //////////
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
-		'mode'    => 'deploy',
+		'mode'    => 'dev',
 		'angular_version' => 'angular-1.3.0-beta.13', //'angular-1.2.9', //'angular-1.3.0-beta.13',
 		'inject'  => array( 'wp-less', 'font-awesome-3', 'icon-x', 'glyphicons-halflings' ),
 	));
 }
-
 ////////// CHILD THEME //////////
 add_action( 'wp_enqueue_scripts', 'include_child_styles' );
 function include_child_styles(){
