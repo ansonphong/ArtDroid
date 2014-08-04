@@ -64,16 +64,16 @@
 				'post_content':{
 					columns:[
 						{
-							value: 3,
-							name: '3 Columns',
+							value: 1,
+							name: '1 Column',
 						},
 						{
 							value: 2,
 							name: '2 Columns',
 						},
 						{
-							value: 1,
-							name: '1 Column',
+							value: 3,
+							name: '3 Columns',
 						},
 					],
 				},

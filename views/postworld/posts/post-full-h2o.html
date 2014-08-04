@@ -18,7 +18,7 @@
 					<div
 						class="scroll-inner"
 						infinite-x-scroll
-						scroll-action="galleryGetNext( 4 )"
+						scroll-action="galleryGetNext( 2 )"
 						scroll-distance="{{ post.post_meta.i_meta.gallery.x_scroll_distance }}"
 						scroll-disabled="!showView('galleryHorizontal')"
 						scroll-parent>
@@ -152,12 +152,14 @@
 
 	{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
 		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
-		<div class="media-viewer">
+		<div
+			ng-show="showView('galleryVertical')"
+			class="media-viewer"
+			window-width="{{post.post_meta.i_meta.gallery.width}}">
 			<div
-				ng-show="showView('galleryVertical')"
 				pw-infinite-gallery
 				gallery-preload="2"
-				gallery-scroll="galleryGetNext(1)"
+				gallery-scroll="galleryGetNext(2)"
 				class="view-gallery-vertical">
 					<!-- INFINITE SCROLL -->
 					<div class="infinite-y-scroll" id="scrolls-y">

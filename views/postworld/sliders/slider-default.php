@@ -46,7 +46,11 @@
 		<?php } ?>
 		
 		<slide class="slide" ng-repeat="slide in slides" active="slide.active">
-			<!--<a ng-href="{{slide.post_permalink}}">-->
+			
+			<?php if( $slider['hyperlink'] == true ){ ?>
+				<a ng-href="{{slide.post_permalink}}">
+			<?php } ?>
+
 				<div
 					class="slide-frame"
 					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
@@ -59,7 +63,11 @@
 					</div>
 					-->
 				</div>
-			<!--</a>-->
+
+			<?php if( $slider['hyperlink'] == true ){ ?>
+				</a>
+			<?php } ?>
+
 		</slide>
 
 		<?php
@@ -79,3 +87,4 @@
 
 </div>
 
+<?php echo json_encode($slider); ?>

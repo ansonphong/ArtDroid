@@ -44,7 +44,7 @@
 			{{ template.name }}
 		</label>
 	</div>
-	<div class="well">
+	<div class="well" ng-show="iMeta.gallery.template != 'inline'">
 		<h3>Gallery Options</h3>
 		<?php include 'options-gallery.php'; ?>
 		<div style="clear:both;"></div>
@@ -65,7 +65,7 @@
 
 	<!-- ICON -->
 	<h2 class="left"><b>Icon</b></h2>
-	<div class="btn-group btn-lg">
+	<div class="btn-group">
 		<label
 			class="btn" ng-model="iMeta.icon.class" btn-radio="''">
 			None
@@ -93,9 +93,8 @@
 	</div>
 	<hr>
 
-
 	<!-- DEV -->
 	<hr>
 	<pre>{{ iMeta | json }}</pre>
-
+	
 </div>

@@ -17,15 +17,19 @@
 	i-admin-options
 	ng-controller="optionsDataCtrl">
 
+	<?php /*
+	<hr class="thick">
 	<h3>Select Transparent Logo</h3>
 	<?php include locate_template('admin/modules/select-image-logo-transparent.php'); ?>
-	<hr>
-
+	
+	<hr class="thick">
 	<h3>Select Default Header Image</h3>
 	<?php include locate_template('admin/modules/select-image-header.php'); ?>
-	<hr>
+	*/ ?>
 
 	<!--///// MENUS /////-->
+	<hr class="thick">
+	<div class="save-right"><?php i_save_option_button('i-options','iOptions'); ?></div>
 	<h1><i class="icon-cog"></i> Menus</h1>
 	<h3>Main Menu</h3>
 	<!-- Main Menu -->
@@ -38,16 +42,14 @@
 		<label for="social_menu_gray">Grayscale Icons</label>
 	</div>
 	
-
-	<hr>
-
-	<?php i_save_option_button('i-options','iOptions'); ?>
-
-	<hr>
-
+	
 	<!--///// HOME /////-->
+	<hr class="thick">
+	<div class="save-right"><?php i_save_option_button('i-options','iOptions'); ?></div>
 	<h1><i class="icon-home"></i> Home Page</h1>
-	<h3>Secondary Menu</h3>
+	<b>Secondary Menu</b> - <small>This menu will appear under the slider.</small>
+	<br>
+	<span class="icon-md"><i class="icon-th-list"></i></span>
 	<?php
 		i_select_menus( array(
 			'options_model'	=>	'options.menus',
@@ -55,11 +57,12 @@
 			'null_option'	=>	'No Menu',
 			));
 	?>
-	<?php i_save_option_button('i-options','iOptions'); ?>
 	<hr>
 
 	<h3>Slider</h3>
-	<b>Menu</b>
+	<b>Menu</b> - <small>The pages and posts on the selected menu will be used as slides.</small>
+	<br>
+	<span class="icon-md"><i class="icon-th-list"></i></span>
 	<?php
 		i_select_menus( array(
 			'options_model'	=>	'options.menus',
@@ -67,14 +70,14 @@
 			'null_option'	=>	'No Menu',
 			));
 	?>
-	The pages and posts on the selected menu will be used as slides.
+
 	<hr>
 	<b>Settings</b>
 	<hr>
 	<?php
 		i_select_slider_settings( array(
 			'ng_model' 	=>	'iOptions.home.slider',
-			'show'		=>	array( 'height', 'interval', 'no_pause' ),
+			'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink' ),
 			'defaults'	=>	array(
 					'interval'		=>	5000,
 					'mode'			=>	'menu',
@@ -84,9 +87,7 @@
 	?>
 
 
-	
-
-
+	<hr class="thick">
 
 	<pre>iOptions: {{ iOptions | json }}</pre>
 

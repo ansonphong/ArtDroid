@@ -13,7 +13,7 @@
 			//'query' 		=> 	$home_slider_query,
 			//'posts'			=>	$slider['posts'],
 			'mode'			=>	'menu',
-			'template' 		=> 	'slider-page',
+			'template' 		=> 	'slider-default',
 			'id'			=> 	'header-slider',
 			'class'			=> 	'slider',
 			'transition'	=> 	$slider['transition'],
@@ -22,6 +22,9 @@
 			'height'		=>	i_get_obj( $iGlobals, 'options.home.slider.height' ), 
 			'query_vars'	=>	$slider['query_vars'],
 			'menu_vars'		=>	$slider['menu_vars'],
+			'hyperlink'		=>	$slider['hyperlink'],
+			'show_title'	=>	$slider['show_title'],
+			'show_excerpt'	=>	$slider['show_excerpt'],
 			//'meta'			=>	$i_meta_header['slider']
 			);
 		echo pw_print_slider( $page_slider_vars );

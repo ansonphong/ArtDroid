@@ -8,8 +8,8 @@ $child_admin = array(
 
 	'child' => array(
 		'parent_slug' => $theme_admin_menu_name,
-		'page_title' => 'Child Theme',
-		'menu_title' => 'Child Theme',
+		'page_title' => 'Settings',
+		'menu_title' => 'Settings',
 		'capability' => 'manage_options',
 		'menu_slug' => $theme_admin_menu_name.'-child',
 		'function' => 'infinite_options_child',
