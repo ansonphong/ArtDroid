@@ -77,7 +77,7 @@
 	<?php
 		i_select_slider_settings( array(
 			'ng_model' 	=>	'iOptions.home.slider',
-			'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink' ),
+			'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
 			'defaults'	=>	array(
 					'interval'		=>	5000,
 					'mode'			=>	'menu',

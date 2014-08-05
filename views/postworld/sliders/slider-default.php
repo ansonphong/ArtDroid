@@ -6,17 +6,16 @@
 ?>
 <script>
 	function <?php echo $slider['instance']; ?>($scope) {
+		$scope.slider = <?php echo json_encode($slider); ?>;
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
 		$scope.slides = <?php echo json_encode($posts); ?>;
 	}
 </script>
-
 <div
 	id="<?php echo $slider['id']; ?>"
 	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
 	ng-controller="<?php echo $slider['instance']; ?>"
 	window-height="<?php echo $slider['height']; ?>">
-
 	<carousel
 		interval="sliderInterval"
 		<?php
@@ -28,7 +27,6 @@
 				echo ' no-transition="true" ';
 		?>
 		ng-cloak>
-
 		<?php
 		///// FRONT PAGE /////
 		if( is_front_page() ){?>
@@ -46,28 +44,32 @@
 		<?php } ?>
 		
 		<slide class="slide" ng-repeat="slide in slides" active="slide.active">
-			
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}">
 			<?php } ?>
-
 				<div
 					class="slide-frame"
 					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
 					parallax-background
 					parallax-ratio="-0.6">
-					<!--
-					<div class="carousel-caption">
-						<h4>{{slide.post_title}}</h4>
-						<p>{{slide.post_excerpt}}</p>
+					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
+						<h2 ng-show="slider.show_title">
+							<span class="post-format-icon" ng-show="slide.link_format == 'video'">
+								<i class="glyphicon glyphicon-play"></i>
+							</span>
+							<span class="post-format-icon" ng-show="slide.link_format == 'audio'">
+								<i class="glyphicon glyphicon-headphones"></i>
+							</span>
+							{{slide.post_title}}
+						</h2>
+						<p ng-show="slider.show_excerpt && slide.post_excerpt">
+							{{slide.post_excerpt}}
+						</p>
 					</div>
-					-->
 				</div>
-
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				</a>
 			<?php } ?>
-
 		</slide>
 
 		<?php
@@ -82,9 +84,9 @@
 			<?php
 		}
 		?>
-
 	</carousel>
-
 </div>
 
-<?php //echo json_encode($slider); ?>
+<!--
+<pre><?php // echo json_encode($slider); ?></pre>
+-->
