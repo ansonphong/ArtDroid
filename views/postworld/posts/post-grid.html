@@ -43,19 +43,23 @@
 
 		<div
 			class="details">
-			<div class="post_excerpt">
-				<!-- TOPIC & SUBTOPIC -->
-				<span ng-repeat="term in post.taxonomy.category">
-					<a href="{{term.url}}" ng-class="term.slug" class="topic">{{term.name}}</a>
-		      		<span ng-show="!$last"> + </span>
-		      		<span ng-show="$last"> • </span>
+			<div class="details-inner">
+
+				<span class="time">{{ post.time_ago }}</span> 
+				<span class="post-excerpt" ng-show="post.post_excerpt">
+					<span class="span-spacer"> • </span>
+					{{ post.post_excerpt }}
 				</span>
 
-				<span>{{ post.time_ago }}</span> 
-
-				<span ng-show="post.post_excerpt">
-					• {{ post.post_excerpt }}
-				</span>
+				<!-- TAGS -->
+				<div class="taxonomy" ng-show="post.taxonomy.post_tag">
+					<span class="tags">
+						<i class="icon glyphicon glyphicon-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+							<a href="{{term.url}}" ng-class="term.slug" class="tag">{{term.name}}</a>
+						</span>
+					</span>
+				</div>
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls">

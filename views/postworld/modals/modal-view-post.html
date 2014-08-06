@@ -150,6 +150,19 @@
 			{{ post.post_title }}
 		</h1>
 		
+		<!-- TAGS -->
+		<div class="taxonomy">
+			<div class="tags" ng-show="post.taxonomy.post_tag">
+				<i class="icon glyphicon glyphicon-tags"></i>
+				<span ng-repeat="term in post.taxonomy.post_tag">
+				    <a href="{{ term.url }}" class="term tag"
+						tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
+						{{ term.name }}
+					</a>
+				</span>
+			</div>
+		</div>
+
 	</div>
 	
 	<div

@@ -1,8 +1,11 @@
 <?php
 
 global $i_child_style_model;
-$i_child_style_model = array(
 
+
+// TODO : Make this into 'default values' named array
+
+$i_child_style_model = array(
 	'var'	=>	array(
 		'colors' =>	array(
 			'primary-color-light'		=>	'#bcd5e3',
@@ -17,10 +20,17 @@ $i_child_style_model = array(
 			'neutral-color-medium'		=>	'#8f877b',
 			'neutral-color-dark'		=>	'#4f422f',
 
+			'global-foreground-color'	=>	'#ffffff',
+			'global-background-color'	=>	'#000000',
+
+			'highlight-color-light'		=>	'#ffac7f',
+			'highlight-color-medium'	=>	'#ff5a00',
+			'highlight-color-dark'		=>	'#802d00',
+
 			),
 
 		'bootstrap'	=>	array(
-			'grid-gutter-width'	=>	'40px',
+			'grid-gutter-width'	=>	'0px',
 			),
 
 		'header'=>	array(
@@ -36,11 +46,40 @@ $i_child_style_model = array(
 			'slider-arrow-color'	=>	'@secondary-color-dark',
 			),
 
+		//'galleries'
+			// Add default width for vertical scroll galleries
+			// Add default height for horizontal scroll galleries
 		),
+
 	);
 	
 
+////////// STYLE ADMIN //////////
+// TODO : Make this the essential structure which iterates and creates the admin UI
+// 	And maps the values to the i-styles structure
+
+$i_child_style_admin = array(
+	array(
+		"name"	=>	"Variables",
+		"key"	=>	"var",
+		"values"	=>	array(
+			array(
+				"name"		=>	"Colors",
+				"key"		=>	"colors",
+				"values"	=>	array(
+					array(
+						"key"	=>	"primary-color-light",
+						"value"	=>	"#bcd5e3",
+						),
+					),
+				),
+			),
+		),
+	);
+
+
 ////////// CHILD STYLE LANGUAGE //////////
+
 global $i_child_style_language;
 $i_child_style_language = array(
 	"var"	=>	array(

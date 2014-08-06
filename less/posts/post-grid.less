@@ -98,7 +98,7 @@ masonry{
   }
 
   .grid-info{
-    background:fade( @primary-color-dark, 80% );
+    background:fade( @neutral-color-dark, 80% );
     display:block;
     position:absolute;
     bottom:0;
@@ -127,7 +127,7 @@ masonry{
 
   .details{
     transition:@transition-time ease max-height;
-    background:fade( @primary-color-dark, 100% );
+    background:fade( @neutral-color-dark, 100% );
     color:#fff;
     width:100%;
     max-height:0px;
@@ -150,6 +150,11 @@ masonry{
       box-shadow: @grid-dropshadow-on;
     }
   }
+
+  .post-excerpt{
+    color:@neutral-color-light;
+  }
+
   .post-wrapper.hover{
     .details{
       // Allow overflow for dropdown menus
@@ -157,10 +162,43 @@ masonry{
     }
   }
 
-  .post_excerpt{
+  .details-inner{
     padding:20px 40px 20px 30px;
     overflow: hidden;
     //transition:all 0.33s ease;
+  }
+
+  .time{
+    font-weight:100;
+    color:@neutral-color-light;
+  }
+
+  .span-spacer{
+    color: @neutral-color-medium;
+    display:inline-block;
+    margin: 0 2px;
+  }
+
+  .taxonomy .tags{
+    position:relative;
+    top:7px;
+    a.tag{
+      display:inline-block;
+      text-decoration: none;
+      //background: @neutral-color-medium;
+      color: @neutral-color-light;
+      border-bottom:1px solid @neutral-color-medium;
+      padding: 0 3px;
+      margin:0 3px 3px 0;
+      &:hover{
+        color: #fff;
+        border-bottom:1px solid @global-foreground-color;
+      }
+    }
+    i{
+      display:inline-block;
+      margin-right:5px;
+    }
   }
 
   .overlay{
