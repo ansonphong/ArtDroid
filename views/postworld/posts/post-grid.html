@@ -8,8 +8,6 @@
     timeout-action="addClass('fadein-on')"
     ng-hide="post.post_status == 'trash'">
 
-    
-
     <div
     	class="post-wrapper"
     	pw-hover-class="hover"
@@ -22,7 +20,7 @@
 			prevent-default-click>
 
 			<div class="grid-image"
-				style="background-image:url({{ post.image.sizes[ getImageSize('thumb-', post.image.tags ) ].url }})">
+				ng-style="gridImageStyle('thumb-', post.image.tags)">
 			</div>
 
 			<div class="overlay">
