@@ -91,25 +91,23 @@
 							<i class="{{post.post_meta.i_meta.icon.class}}"></i>
 						{% endif %}
 					</span> 
-					{{ post.post_title }}
+					<span ng-bind="post.post_title">{{ post.post_title }}</span>
 				</h1>
-
 				
 				{% if post.post_type == 'post' %}
-					{% if post.taxonomy.post_tag %}
-						<!-- TAGS -->
-						<div class="taxonomy pull-left">
-							<div class="tags">
-								<i class="icon glyphicon glyphicon-tags"></i>
-								{% for term in post.taxonomy.post_tag %}
-								    <a href="{{ term.url }}" class="term tag"
-										tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
-										{{ term.name }}
-										</a>
-								{% endfor %} 
-							</div>
+					
+					<!-- TAGS -->
+					<div class="taxonomy" ng-show="post.taxonomy.post_tag">
+						<div class="tags">
+							<i class="icon glyphicon glyphicon-tags"></i>
+							<span ng-repeat="term in post.taxonomy.post_tag">
+							    <a pw-href="term.url" class="term tag">
+									<span ng-bind="term.name"></span>
+								</a>
+							</span>
 						</div>
-					{% endif %}
+					</div>
+					
 				{% endif %}
 
 			</div>
