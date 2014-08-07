@@ -7,6 +7,7 @@
 <?php
 ////////// PAGE ////////// ?>
 
+
 <?php
 ////////// HEAD //////////
 if( is_page() )
@@ -16,6 +17,13 @@ else if( is_single() ){
 
 }
 ?>
+
+<!-- DEV
+<pre>CAPS:<?php
+	//echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
+?></pre>
+-->
+
 <?php
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">
@@ -51,6 +59,8 @@ else if( is_single() ){
 			'image(tags)',
 			'image(stats)',
 			'time_ago',
+			'author(ID)',
+			'edit_post_link',
 			'taxonomy(all)',
 			'post_meta(all)',
 			'gallery(ids,posts)'
