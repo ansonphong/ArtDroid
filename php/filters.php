@@ -21,7 +21,6 @@ function i_meta_postmeta_defaults( $post ){
 			$post['post_meta']['i_meta']
 			);
 		
-
 		///// SET DEFAULT VALUES /////
 		
 		// DOWNLOAD IMAGE
@@ -30,7 +29,6 @@ function i_meta_postmeta_defaults( $post ){
 		if( $post_value == null )
 			$post['post_meta']['i_meta']['image']['download'] = $default_i_meta['image']['download'];
 		
-
 	}
 	
 	//$post = i_set_obj( $post, "post_meta.i_meta.defaults", $default_i_meta );

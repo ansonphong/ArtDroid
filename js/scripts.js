@@ -62,6 +62,7 @@ infinite.controller( 'artPostCtrl',
 		// IMAGE
 		var hasImage = ( $_.objExists( $scope, 'post.image.sizes' ) );
 		var hasImageAndNoEmbed = ( !hasEmbed && hasImage );
+		var hasImageAndNoGallery = ( !hasGallery && hasImage );
 
 
 		///// SWITCH : VIEWS : LOGIC /////
@@ -72,12 +73,17 @@ infinite.controller( 'artPostCtrl',
 				break;
 
 			case 'singleImage':		// For use in Single Post View
-				if( ( hasImageAndNoEmbed && !galleryHorizontal ) || ( headerImage && hasImage ) )
+				if( ( hasImageAndNoEmbed && !galleryHorizontal ) || ( headerImage && hasImage && !galleryHorizontal ) )
 					return true;
 				break;
 
 			case 'modalImage': 		// For use in Modal Viewer
 				if( hasImageAndNoEmbed && !galleryHorizontal )
+					return true;
+				break;
+
+			case 'horizontalScrollImage': 	// When is single image with horizontal gallery
+				if( hasImageAndNoGallery && galleryHorizontal )
 					return true;
 				break;
 
@@ -97,7 +103,7 @@ infinite.controller( 'artPostCtrl',
 				break;
 
 			case 'galleryHorizontal':
-				if( galleryHorizontal && hasGallery )
+				if( galleryHorizontal )
 					return true;
 				break;
 
