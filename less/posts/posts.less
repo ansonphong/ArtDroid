@@ -82,10 +82,28 @@
 
 	.post-head{
 		.unit{
-			padding:6px 12px 0 0;
+
 			i{
 				display:inline-block;
-				padding:0 5px;	
+				padding:0 3px 0 0;	
+			}
+
+			time, a {
+				display:inline-block;
+				padding:5px 10px;
+				border:1px solid transparent;
+				color: @neutral-color-light;
+				opacity: .5;
+				&:hover{
+					opacity:1;
+				}
+			}
+
+			a{
+				text-decoration:none;
+				&:hover{
+					border: 1px solid @global-foreground-color;
+				}
 			}
 		}
 	}

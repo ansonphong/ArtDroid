@@ -93,75 +93,96 @@
 
 	<div class="post-head">
 
-		<!--///// POST CONTROLS /////-->
-		<div class="post-controls pull-right">
-			<!-- LINK -->
-			<a
-				ng-href="{{ post.post_permalink }}"
-				class="btn"
-				stop-propagation-click
-				tooltip="link"
-				tooltip-placement="top"
-				tooltip-popup-delay="500">
-				<i class="glyphicon glyphicon-link"></i>
-			</a>
-			<!-- DROPDOWN -->
-			<span
-				pw-admin-post-menu
-				ng-show="userOptions != 0"
-				class="admin-menu dropdown">
-				<button
-					prevent-default-click
-					dropdown-toggle
-					class="edit-post"
-					style="border:none"
-					tooltip="edit"
-					tooltip-placement="top"
-					tooltip-popup-delay="500">
-					<i class="icon-x-merkaba"></i>
-				</button>
-				<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
-					<li prevent-default-click ng-repeat="item in userOptions">
-						<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
-					</li>
-				</ul>
-			</span>
-		</div>
+		<div class="row">
+			<div class="col-md-8">
+				
+				<!-- TITLE -->
+				<h1>
+					<span class="icon">
+						<i
+							ng-show="post.post_meta.i_meta.gallery.template == 'vertical'"
+							class="glyphicon glyphicon-arrow-down"></i>
+						<i
+							ng-show="post.post_meta.i_meta.gallery.template == 'horizontal'"
+							class="glyphicon glyphicon-arrow-right"></i>
+					</span> 
+					{{ post.post_title }}
+				</h1>
+				
+				<!-- TAGS -->
+				<div class="taxonomy">
+					<div class="tags" ng-show="post.taxonomy.post_tag">
+						<i class="icon glyphicon glyphicon-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a href="{{ term.url }}" class="term tag"
+								tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
+								{{ term.name }}
+							</a>
+						</span>
+					</div>
+				</div>
 
-		<!-- TIME -->
-		<div
-			class="time unit pull-right"
-			tooltip="{{ post.post_date }}" tooltip-placement="bottom">
-			<time datetime="{{ post.post_date }}">
-				<i class="icon-time"></i> {{ post.time_ago }}
-			</time>
-		</div>
+			</div>
 
-		<!-- TITLE -->
-		<h1>
-			<span class="icon">
-				<i
-					ng-show="post.post_meta.i_meta.gallery.template == 'vertical'"
-					class="glyphicon glyphicon-arrow-down"></i>
-				<i
-					ng-show="post.post_meta.i_meta.gallery.template == 'horizontal'"
-					class="glyphicon glyphicon-arrow-right"></i>
-			</span> 
-			{{ post.post_title }}
-		</h1>
-		
-		<!-- TAGS -->
-		<div class="taxonomy">
-			<div class="tags" ng-show="post.taxonomy.post_tag">
-				<i class="icon glyphicon glyphicon-tags"></i>
-				<span ng-repeat="term in post.taxonomy.post_tag">
-				    <a href="{{ term.url }}" class="term tag"
-						tooltip="more with this tag" tooltip-placement="bottom" tooltip-popup-delay="500">
-						{{ term.name }}
+			<div class="col-md-4">
+				
+				<!--///// POST CONTROLS /////-->
+				<div class="post-controls pull-right">
+					<!-- LINK -->
+					<a
+						ng-href="{{ post.post_permalink }}"
+						class="btn"
+						stop-propagation-click
+						tooltip="link"
+						tooltip-placement="top"
+						tooltip-popup-delay="500">
+						<i class="glyphicon glyphicon-link"></i>
 					</a>
-				</span>
+					<!-- DROPDOWN -->
+					<span
+						pw-admin-post-menu
+						ng-show="userOptions != 0"
+						class="admin-menu dropdown">
+						<button
+							prevent-default-click
+							dropdown-toggle
+							class="edit-post"
+							style="border:none"
+							tooltip="edit"
+							tooltip-placement="top"
+							tooltip-popup-delay="500">
+							<i class="icon-x-merkaba"></i>
+						</button>
+						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+							<li prevent-default-click ng-repeat="item in userOptions">
+								<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+							</li>
+						</ul>
+					</span>
+				</div>
+
+				<!-- TIME -->
+				<div
+					class="time unit pull-right"
+					tooltip="{{ post.post_timestamp | amDateFormat:'MMMM Do YYYY, h:mm a' }}"
+					tooltip-placement="bottom">
+					<time datetime="{{ post.post_date }}">
+						<i class="icon-time"></i> {{ post.time_ago }}
+					</time>
+				</div>
+
+				<!-- DOWNLOAD -->
+				<div class="download unit pull-right" ng-show="post.post_meta.i_meta.image.download">
+					<a download pw-href="post.image.sizes.full.url">
+						<i class="icon-download"></i>
+						download
+					</a>
+				</div>
+
 			</div>
 		</div>
+
+
 
 	</div>
 	
