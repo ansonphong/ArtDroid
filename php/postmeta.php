@@ -48,6 +48,9 @@ $i_child_postmeta_model = array(
 	"icon"	=>	array(
 		"class"	=>	"",
 		),
+	"image"	=>	array(
+		"download"	=>	null,
+		),
 	);
 
 // Make filter to merge the child model
