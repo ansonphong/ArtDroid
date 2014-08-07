@@ -1,4 +1,6 @@
 <?php
+///// METABOXES /////
+include "metaboxes.php";
 
 global $theme_admin_menu_name;
 $theme_admin_menu_name = 'theme-options';

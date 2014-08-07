@@ -61,6 +61,13 @@
 			{{ option.name }}
 		</label>
 	</div>
+	<div style="clear:both"></div>
+
+	<hr>
+
+	<!-- Download Image Option -->
+	<?php i_download_image_option( 'postAdmin' ); ?>
+
 	<hr>
 
 	<!-- ICON -->

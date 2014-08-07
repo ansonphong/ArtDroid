@@ -16,8 +16,8 @@ include "php/taxonomies.php";
 ////////// POSTMETA //////////
 include "php/postmeta.php";
 
-////////// ADMIN METABOXES //////////
-include "php/metaboxes.php";
+////////// FILTERS //////////
+include "php/filters.php";
 
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
