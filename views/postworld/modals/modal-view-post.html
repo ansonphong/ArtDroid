@@ -62,6 +62,13 @@
 				class="view-gallery-horizontal">
 				<!-- INFINITE SCROLL -->
 				<div class="infinite-x-scroll" id="scrolls">
+					<!-- SINGLE WIDE IMAGE -->
+					<div ng-show="showView('horizontalScrollImage')">
+						<div class="gallery-image">
+							<img pw-src="post.image.sizes.full.url">
+						</div>
+					</div>
+					<!-- GALLERY IMAGES -->
 					<div
 						class="scroll-inner"
 						infinite-x-scroll
