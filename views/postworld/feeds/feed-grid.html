@@ -1,11 +1,13 @@
 <masonry
 	column-width=".grid-sizer"
-	masonry-options='{ "gutter": 0, "transitionDuration":0 }'>
+	masonry-options='{ "gutter": 0, "transitionDuration":0 }'
+	infinite-scroll='getNext()'
+		infinite-scroll-disabled='busy'
+		infinite-scroll-use-document-bottom="true">
 
 	<div
 		art-feed
-		infinite-scroll='getNext()'
-		infinite-scroll-disabled='busy'>
+		>
 		<div class="grid-sizer"></div>
 		<div
 			ng-repeat="post in posts"
