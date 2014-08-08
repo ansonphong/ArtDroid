@@ -1,6 +1,9 @@
 <?php
 
 ////////// ADMIN //////////
+include_once get_template_directory().'/php/options.php';
+
+////////// ADMIN //////////
 include_once 'admin/php/admin.php';
 
 ////////// POSTWORLD //////////

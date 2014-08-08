@@ -8,7 +8,9 @@
 ?>
 
 <div class="well" style="color:#000; margin-top:200px;">
-	test	
+	<?php
+		call_user_func( 'i_download_image_option', 'postAdmin' )
+	?>
 </div>
 
 

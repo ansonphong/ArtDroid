@@ -39,6 +39,10 @@
 		<div class="save-right"><?php i_save_option_button('i-options','iOptions'); ?></div>
 		<h1><i class="icon-pushpin"></i> Posts</h1>
 
+		<!-- Columns Option -->
+		New posts will be created with default: <br>
+		<?php i_post_content_columns_option( 'siteAdmin' ); ?>
+		<hr>
 		<!-- Download Image Option -->
 		<?php i_download_image_option( 'siteAdmin' ); ?>
 
