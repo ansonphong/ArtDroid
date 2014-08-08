@@ -2,7 +2,6 @@
 
 function i_meta_postmeta_defaults( $post ){
 
-	
 	// Return early if no i_meta object
 	if( !isset( $post['post_meta']['i_meta'] ) )
 		return $post;
