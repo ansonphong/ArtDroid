@@ -43,7 +43,7 @@ $i_child_postmeta_model = array(
 		"y_scroll_distance"	=>	1000,
 		),
 	"post_content"	=>	array(
-		"columns"	=>	1,
+		"columns"	=> i_get_option( array( 'key' => 'posts.post.post_meta.i_meta.post_content.columns' ) ),	//1,
 		),
 	"icon"	=>	array(
 		"class"	=>	"",

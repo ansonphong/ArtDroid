@@ -1,8 +1,5 @@
 <script>
 
-
-
-
 	///// CONTROLLER /////
 	infiniteMetabox.controller('iMetaboxOptionsCtrl',
 		['$scope', 'pwPostOptions', '_', 'iOptionsData',

@@ -51,16 +51,10 @@
 	</div>
 	<hr>
 
-
 	<!-- POST CONTENT -->
 	<h2 class="left"><b>Post Content</b></h2>
-	<div class="btn-group">
-		<label
-			ng-repeat="option in options.post_content.columns"
-			class="btn" ng-model="iMeta.post_content.columns" btn-radio="option.value">
-			{{ option.name }}
-		</label>
-	</div>
+	<?php i_post_content_columns_option( 'postAdmin' ); ?>
+	
 	<div style="clear:both"></div>
 
 	<hr>
