@@ -20,6 +20,17 @@
 			<header class="edit-post-menu row">
 				<div class="col-sm-4">
 					
+					<!-- TRASH -->
+					<button class="btn-secondary-color" ng-click="trashPost()">
+						<i class="glyphicon glyphicon-trash"></i>
+						Trash
+					</button>
+
+					<!-- CANCEL -->
+					<button class="btn-neutral-color" ng-click="close()">
+						<i class="icon-remove"></i> Cancel
+					</button>
+
 				</div>
 
 				<div class="col-sm-4">
@@ -89,29 +100,19 @@
 								</span>
 							</div>
 							<div class="clearfix"></div>
+
+							<hr>
+
+							<!-- POST COLUMNS OPTION -->
+							<div pw-compile-code="getTemplatePartial({ partial:'editPost.iMeta.post_content.columns'})"></div>
+
 							<hr>
 
 							<!-- DOWNLOAD IMAGE OPTION -->
-							<div pw-compile-code="pwTemplatePartial('editPost.iMeta.image.download')"></div>
-							<hr class="thin">
-							<!-- POST COLUMNS OPTION -->
-							<div pw-compile-code="pwTemplatePartial('editPost.iMeta.post_content.columns')"></div>
-							<hr class="thin">
-
+							<div pw-compile-code="getTemplatePartial({ partial:'editPost.iMeta.image.download'})"></div>
 
 						</div>
 					 
-						<!-- TRASH -->
-						<button class="btn-secondary-color" ng-click="trashPost()">
-							<i class="glyphicon glyphicon-trash"></i>
-							Trash
-						</button>
-
-						<!-- CANCEL -->
-						<button class="btn-neutral-color" ng-click="close()">
-							<i class="icon-remove"></i> Cancel
-						</button>
-					
 					</div>
 
 					<!--/// SPACER COLUMN ///-->
@@ -145,6 +146,16 @@
 					<div class="clearfix"></div>
 					
 				</div>
+
+				<div ng-hide="post.post_type == 'attachment'">
+					<hr>
+					<!-- GALLERY OPTIONS -->
+					<h3>Gallery</h3>
+					<div pw-compile-code="getTemplatePartial({ partial:'editPost.iMeta.gallery'})"></div>
+					<hr class="thin">
+				</div>
+				
+
 
 		</div><!-- END MODAL BODY -->
 
