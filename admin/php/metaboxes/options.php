@@ -4,11 +4,6 @@
 ?>
 
 <div ng-controller="iMetaboxOptionsCtrl">
-	
-	<?php
-		if( is_home() )
-			echo "IS HOME";
-	?>
 
 	<!-- HEADER -->
 	<h2 class="left"><b>Header</b></h2>
@@ -20,6 +15,7 @@
 		</label>
 	</div>
 	
+	<!-- FEATURED IMAGE -->
 	<div ng-show="iMeta.header.type == 'featured_image'">
 		<div class="well">
 			<h3>Featured Image Options</h3>
@@ -27,6 +23,7 @@
 		</div>
 	</div>
 
+	<!-- SLIDER -->
 	<div ng-show="iMeta.header.type == 'slider'">
 		<div class="well">
 			<h3>Slider Options</h3>
@@ -37,31 +34,19 @@
 
 	<!-- GALLERIES -->
 	<h2 class="left"><b>Galleries</b></h2>
-	<div class="btn-group">
-		<label
-			ng-repeat="template in options.gallery.template"
-			class="btn" ng-model="iMeta.gallery.template" btn-radio="template.slug">
-			{{ template.name }}
-		</label>
-	</div>
-	<div class="well" ng-show="iMeta.gallery.template != 'inline'">
-		<h3>Gallery Options</h3>
-		<?php include 'options-gallery.php'; ?>
-		<div style="clear:both;"></div>
-	</div>
+	<?php echo i_gallery_options( array( 'context' => 'postAdmin' ) ); ?>
+	<div style="clear:both"></div>
 	<hr>
 
 	<!-- POST CONTENT -->
 	<h2 class="left"><b>Post Content</b></h2>
-	<?php i_post_content_columns_option( 'postAdmin' ); ?>
-	
+	<?php echo i_content_columns_option( array( 'context' => 'postAdmin' ) ); ?>
 	<div style="clear:both"></div>
-
 	<hr>
 
-	<!-- Download Image Option -->
-	<?php i_download_image_option( 'postAdmin' ); ?>
-
+	<!-- DOWNLOAD IMAGE -->
+	<?php echo i_download_image_option( array( 'context' => 'postAdmin' ) ); ?>
+	<div style="clear:both"></div>
 	<hr>
 
 	<!-- ICON -->

@@ -33,7 +33,6 @@
 		<?php include locate_template('admin/modules/select-image-header.php'); ?>
 		*/ ?>
 
-
 		<!--///// POSTS /////-->
 		<hr class="thick">
 		<div class="save-right"><?php i_save_option_button('i-options','iOptions'); ?></div>
@@ -41,10 +40,10 @@
 
 		<!-- Columns Option -->
 		New posts will be created with default: <br>
-		<?php i_post_content_columns_option( 'siteAdmin' ); ?>
+		<?php echo i_content_columns_option( array( "context" => "siteAdmin" ) ); ?>
 		<hr>
 		<!-- Download Image Option -->
-		<?php i_download_image_option( 'siteAdmin' ); ?>
+		<?php echo i_download_image_option( array( "context" => "siteAdmin" ) ); ?>
 
 		<!--///// MENUS /////-->
 		<hr class="thick">
@@ -70,7 +69,7 @@
 		<br>
 		<span class="icon-md"><i class="icon-th-list"></i></span>
 		<?php
-			i_select_menus( array(
+			echo i_select_menus( array(
 				'options_model'	=>	'options.menus',
 				'ng_model'	=>	'iOptions.home.secondary_menu',
 				'null_option'	=>	'No Menu',
@@ -83,7 +82,7 @@
 		<br>
 		<span class="icon-md"><i class="icon-th-list"></i></span>
 		<?php
-			i_select_menus( array(
+			echo i_select_menus( array(
 				'options_model'	=>	'options.menus',
 				'ng_model'	=>	'iOptions.home.slider.menu',
 				'null_option'	=>	'No Menu',
@@ -94,7 +93,7 @@
 		<b>Settings</b>
 		<hr>
 		<?php
-			i_select_slider_settings( array(
+			echo i_select_slider_settings( array(
 				'ng_model' 	=>	'iOptions.home.slider',
 				'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
 				'defaults'	=>	array(
