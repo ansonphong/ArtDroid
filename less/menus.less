@@ -42,34 +42,6 @@
 // FULL MENU
 #main-menu {
 
-	.assign-menu-symbol( @symbol-code ){
-		.symbol-target{
-			font-family: "IconX";
-			font-style: normal;
-			&:before{
-				content: @symbol-code;
-			}
-			opacity:.5;
-			position: relative;
-			display: inline-block;
-			width:30px;
-			text-align: center;
-		}
-	}
-
-	li{
-		&.symbol-circle{
-			.assign-menu-symbol( "\E411" );
-		}
-		&.symbol-triangle-down{
-			.assign-menu-symbol( "\E531" );
-		}
-		&.symbol-hexagon{
-			.assign-menu-symbol( "\E461" );
-		}
-	}
-
-
 	.main-menu-item-description{
 		font-size:11px;
 		letter-spacing:1;
@@ -155,7 +127,13 @@
 			margin:5px 10px 0px 0px;
 			font-weight:100 !important;
 			letter-spacing:-1px;
-
+			border: 1px solid transparent;
+			.main-menu-icon{
+				color:@neutral-color-medium;
+				//opacity:.5;
+				width:30px;
+				text-align: center;
+			}
 			@media @desktop-and-above {
 				padding:8px 25px 8px 15px;
 				font-size:25px;
@@ -171,6 +149,10 @@
 		&:hover > a {
 				background:@neutral-color-light;
 				color:@neutral-color-dark;
+		}
+
+		&.current-menu-item > a, &.current-page-parent > a{
+			border:1px solid @neutral-color-light;
 		}
 
 		// DISPLAY DROPDOWN ON HOVER
