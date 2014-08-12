@@ -2,6 +2,7 @@
 <div
 	class="module menu-main">
 	<?
+		$menu_walker = new PW_Menu_With_Description;
 		$main_menu_id = i_get_obj( $iGlobals, 'options.menus.main' );
 		$defaults = array(
 			'theme_location'  => '',
@@ -19,7 +20,10 @@
 			'link_after'      => '',
 			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'depth'           => 0,
-			'walker'          => ''
+			'walker'          => $menu_walker,
+			'walker_vars'	  => array(
+				'item_template_path' => dirname( __FILE__ ) . "/main-menu-item.php",	
+				),
 		);
 		if( $main_menu_id )
 			wp_nav_menu( $defaults );

@@ -41,6 +41,40 @@
 
 // FULL MENU
 #main-menu {
+
+	.assign-menu-symbol( @symbol-code ){
+		.symbol-target{
+			font-family: "IconX";
+			font-style: normal;
+			&:before{
+				content: @symbol-code;
+			}
+			opacity:.5;
+			position: relative;
+			display: inline-block;
+			width:30px;
+			text-align: center;
+		}
+	}
+
+	li{
+		&.symbol-circle{
+			.assign-menu-symbol( "\E411" );
+		}
+		&.symbol-triangle-down{
+			.assign-menu-symbol( "\E531" );
+		}
+		&.symbol-hexagon{
+			.assign-menu-symbol( "\E461" );
+		}
+	}
+
+
+	.main-menu-item-description{
+		font-size:11px;
+		letter-spacing:1;
+	}
+
 	// Spacing around the menu module
 	.module.menu-main{
 		@media @desktop-and-above{
@@ -123,7 +157,7 @@
 			letter-spacing:-1px;
 
 			@media @desktop-and-above {
-				padding:8px 25px;
+				padding:8px 25px 8px 15px;
 				font-size:25px;
 			}
 

@@ -197,11 +197,10 @@
 		pw-compile-code="post.post_content">
 	</div>
 
-
 	<!-- GALLERY : VERTICAL SCROLL -->
 	<div
 		class="media-viewer"
-		window-width="{{post.post_meta.i_meta.gallery.width}}"
+		style="width:{{post.post_meta.i_meta.gallery.width}}%"
 		ng-show="showView('galleryVertical')">
 		<div
 			pw-infinite-gallery
@@ -253,7 +252,6 @@
 	POST.DEV : {{ post.dev |  }}
 	-->
 	
-<div class="clearfix"></div>
-
+	<div class="clearfix"></div>
 
 </div><!-- END POST -->

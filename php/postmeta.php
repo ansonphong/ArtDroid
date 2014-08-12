@@ -49,7 +49,7 @@ $i_child_postmeta_model = array(
 		"class"	=>	"",
 		),
 	"image"	=>	array(
-		"download"	=>	null,
+		"download"	=>	"default",
 		),
 	);
 

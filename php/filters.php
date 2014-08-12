@@ -25,7 +25,7 @@ function i_meta_postmeta_defaults( $post ){
 		// DOWNLOAD IMAGE
 		$post_value = $post['post_meta']['i_meta']['image']['download'];
 		// Override null value with default value
-		if( $post_value == null )
+		if( $post_value == 'default' && $post['mode'] != 'edit' )
 			$post['post_meta']['i_meta']['image']['download'] = $default_i_meta['image']['download'];
 		
 	}
