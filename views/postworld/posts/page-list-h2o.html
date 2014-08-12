@@ -4,21 +4,21 @@
 	pw-timeout="{{ post.feed.order }}"
 	timeout-multiplier="333"
     timeout-action="addClass('fadein-on')">
-    
-    <div
-    	class="background-image"
-    	style="background-image:url({{ post.image.sizes.widescreen.url }});">
-    	<a href="{{ post.post_permalink }}">
-			<h2>
-				<i class="{{ post.post_meta.i_meta.icon.class }}"></i>
-				{{ post.post_title }}
-			</h2>
-		</a>
+    <a href="{{ post.post_permalink }}">
+	    <div
+	    	class="background-image"
+	    	style="background-image:url({{ post.image.sizes.widescreen.url }});">
+				<h2>
+					<i class="{{ post.post_meta.i_meta.icon.class }}"></i>
+					{{ post.post_title }}
+				</h2>
 
-		<div>
-			{{ post.post_excerpt }}
-		</div>
-    </div>
-
-  
+			{% if post.post_excerpt %}
+				<br>
+				<div class="post-excerpt">
+					{{ post.post_excerpt }}
+				</div>
+			{% endif %}
+	    </div>
+    </a>
 </article>
