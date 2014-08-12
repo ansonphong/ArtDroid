@@ -1,0 +1,24 @@
+<article
+	pw-feed-post
+	class="post list i-transition-fadein"
+	pw-timeout="{{ post.feed.order }}"
+	timeout-multiplier="333"
+    timeout-action="addClass('fadein-on')">
+    
+    <div
+    	class="background-image"
+    	style="background-image:url({{ post.image.sizes.widescreen.url }});">
+    	<a href="{{ post.post_permalink }}">
+			<h2>
+				<i class="{{ post.post_meta.i_meta.icon.class }}"></i>
+				{{ post.post_title }}
+			</h2>
+		</a>
+
+		<div>
+			{{ post.post_excerpt }}
+		</div>
+    </div>
+
+  
+</article>

@@ -1,0 +1,24 @@
+.assign-symbol( @symbol-code ){
+	.symbol-target{
+		font-family: "IconX";
+		font-style: normal;
+		&:before{
+			content: @symbol-code;
+		}
+		position: relative;
+		display: inline-block;
+	}
+}
+
+.symbol-circle{
+	.assign-symbol( "\E412" );
+}
+.symbol-triangle{
+	.assign-symbol( "\E532" );
+}
+.symbol-hexagon{
+	.assign-symbol( "\E462" );
+}
+.symbol-square{
+	.assign-symbol( "\E442" );
+}
