@@ -18,6 +18,8 @@
 			'query_vars'	=>	$slider['query_vars'],
 			'menu_vars'		=>	$slider['menu_vars'],
 			'hyperlink'		=>	$slider['hyperlink'],
+			'show_title'	=>	$slider['show_title'],
+			'show_excerpt'	=>	$slider['show_excerpt'],
 			//'meta'			=>	$i_meta_header['slider']
 			);
 		echo pw_print_slider( $page_slider_vars );
