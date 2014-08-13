@@ -22,7 +22,7 @@
 			$layout_args = array(
 				'layout'			=>	$iGlobals['layout']['layout'],
 				'function'			=>	'page_content_function',
-				'content'			=>	pw_ob_include_template('views/blog/feed.php'),
+				'content'			=>	pw_ob_include_template('views/archive/feed.php'),
 				'before_content' 	=>	'<div class="post_content">',
 				'after_content' 	=>	'</div>',
 				

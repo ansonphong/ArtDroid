@@ -8,6 +8,14 @@ html {
 body{
 	overflow-x: hidden;
 	background-color: @global-background-color;
+
+	a{
+		color: mix( @primary-color-medium, @global-foreground-color, 80% );
+		&:hover{
+			color: mix( @primary-color-medium, @global-foreground-color, 50% );
+		}
+	}
+
 }
 
 @font-face {

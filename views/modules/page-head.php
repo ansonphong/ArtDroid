@@ -29,7 +29,18 @@
 					?>
 						<div class="page-head">
 							<h1>
-								<?php echo $pw['view']['taxonomy']['labels']['singular_name']; ?> :
+								<?php
+									// Show Tag Icon
+									if( $pw['view']['taxonomy']['name'] == 'post_tag' ){?>
+										<i class="glyphicon glyphicon-tag" tooltip="tag" tooltip-placement="bottom"></i> 
+									<?php
+									}
+									// Show Name of the Taxonomy
+									else{ ?>
+										<?php echo $pw['view']['taxonomy']['labels']['singular_name']; ?> :
+									<?php
+									}
+								?>
 								<a href="<?php echo $pw['view']['term']['term_link']; ?>">
 									<?php echo $pw['view']['term']['name']; ?>
 								</a>

@@ -3,8 +3,6 @@ masonry{
   display:block;
 }
 
-
-
 .pw-gallery-shortcode{
   @media @desktop-and-above { .grid-sizer-mix( 100%/4 ); }
   @media @desktop-and-below { .grid-sizer-mix( 100%/3 ); }
@@ -81,7 +79,7 @@ masonry{
 
   &:hover{
     .grid-info{
-      background:fade( @primary-color-dark, 60% );
+      //background:fade( @neutral-color-light, 60% );
     }
   }
 
@@ -136,11 +134,20 @@ masonry{
     z-index:2;
     opacity:0;
     transition:opacity .33s ease;
+    h2{
+      color: @neutral-color-dark;
+      position:absolute;
+      bottom:20px;
+      left:20px;
+      background: fade( @neutral-color-light, 100% );
+      padding: 10px 20px;
+      font-weight:300;
+    }
   }
 
   &:hover{
     .overlay{
-      background-color:fade( @primary-color-dark, 33% );
+      background-color:fade( @neutral-color-light, 5% );
       opacity:1;
 
     }
