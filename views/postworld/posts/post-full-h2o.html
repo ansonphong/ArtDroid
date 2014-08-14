@@ -164,7 +164,9 @@
 						class="link unit pull-right"
 						ng-class="{ 'highlight-color': post.post_meta.i_meta.link_url.label.highlight }"
 						ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'">
-						<a pw-href="post.link_url">
+						<a
+							pw-href="post.link_url"
+							pw-target="post.post_meta.i_meta.link_url.new_target">
 							<i class="icon-screenshot"></i>
 							{{ post.post_meta.i_meta.link_url.label.custom }}
 						</a>
@@ -172,7 +174,7 @@
 
 				{% endif %}
 
-				<!--<span ng-bind="post.post_meta.i_meta.link_url | json"></span>-->
+				<span ng-bind="post.post_meta.i_meta.link_url | json"></span>
 
 			</div>
 
