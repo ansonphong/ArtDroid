@@ -44,6 +44,12 @@
 	<div style="clear:both"></div>
 	<hr>
 
+	<!-- LINK URL -->
+	<h2 class="left"><b>Link Label</b></h2>
+	<?php echo i_link_url_options( array( 'context' => 'postAdmin' ) ); ?>
+	<div style="clear:both"></div>
+	<hr>
+
 	<!-- DOWNLOAD IMAGE -->
 	<?php echo i_download_image_option( array( 'context' => 'postAdmin' ) ); ?>
 	<div style="clear:both"></div>

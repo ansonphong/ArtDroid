@@ -10,6 +10,7 @@ body{
 	background-color: @global-background-color;
 
 	a{
+		.transition();
 		color: mix( @primary-color-medium, @global-foreground-color, 80% );
 		&:hover{
 			color: mix( @primary-color-medium, @global-foreground-color, 50% );
@@ -44,4 +45,20 @@ body, body.infinite{
 	font-size: 48px;
 	display: inline-block;
 	padding: 20px;
+}
+
+body{
+	.highlight-color{
+		a{
+			opacity:1 !important;
+			background: @highlight-color-dark;
+			color: @highlight-color-light !important;
+			//border:none !important;
+			&:hover{
+				background: @highlight-color-medium;
+				color: #fff !important;
+				border-color: @highlight-color-medium !important;
+			}
+		}
+	}
 }

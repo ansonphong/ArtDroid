@@ -142,7 +142,7 @@
 					<!-- TIME -->
 					<div
 						class="time unit pull-right"
-						tooltip="{{ post.post_timestamp | amDateFormat:'MMMM Do YYYY, h:mm a' }}"
+						tooltip="{{ post.post_date_gmt }}"
 						tooltip-placement="bottom">
 						<time datetime="{{ post.post_date }}">
 							<i class="icon-time"></i> {{ post.time_ago }}
@@ -158,7 +158,21 @@
 							download
 						</a>
 					</div>
+
+					<!-- LINK -->
+					<div
+						class="link unit pull-right"
+						ng-class="{ 'highlight-color': post.post_meta.i_meta.link_url.label.highlight }"
+						ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'">
+						<a pw-href="post.link_url">
+							<i class="icon-screenshot"></i>
+							{{ post.post_meta.i_meta.link_url.label.custom }}
+						</a>
+					</div>
+
 				{% endif %}
+
+				<!--<span ng-bind="post.post_meta.i_meta.link_url | json"></span>-->
 
 			</div>
 

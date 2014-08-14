@@ -29,7 +29,7 @@
 		ng-cloak>
 		<?php
 		///// FRONT PAGE /////
-		if( is_front_page() ){?>
+		if( is_front_page() && 0 ){?>
 			<!-- LOGO OVERLAY -->
 			<div
 				class="logo-overlay"
