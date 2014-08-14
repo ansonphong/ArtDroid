@@ -47,7 +47,7 @@
 		<hr>
 
 		<!-- LINK URL -->
-		<h3><b>Link Label</b></h3>
+		<h3> <span class="icon-md"><i class="glyphicon glyphicon-link"></i></span> <b>Link Label</b></h3>
 		<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 		<div style="clear:both"></div>
 
