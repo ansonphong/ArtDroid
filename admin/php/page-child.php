@@ -44,6 +44,13 @@
 		<hr>
 		<!-- Download Image Option -->
 		<?php echo i_download_image_option( array( "context" => "siteAdmin" ) ); ?>
+		<hr>
+
+		<!-- LINK URL -->
+		<h3><b>Link Label</b></h3>
+		<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
+		<div style="clear:both"></div>
+
 
 		<!--///// MENUS /////-->
 		<hr class="thick">

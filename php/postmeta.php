@@ -51,6 +51,13 @@ $i_child_postmeta_model = array(
 	"image"	=>	array(
 		"download"	=>	"default",
 		),
+	"link_url"	=>	array(
+		"label"	=>	array(
+			"show"	=>	"default",
+			"highlight"	=>	"default",
+			"custom"	=>	""
+			),
+		),
 	);
 
 // Make filter to merge the child model
