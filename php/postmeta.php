@@ -53,10 +53,15 @@ $i_child_postmeta_model = array(
 		),
 	"link_url"	=>	array(
 		"label"	=>	array(
-			"show"	=>	"default",
-			"highlight"	=>	"default",
-			"custom"	=>	""
+			"show"				=>	"default",
+			"custom"			=>	"",
+			"highlight"			=>	"default",
+			"tooltip"	=>	array(
+				"show"		=>	"default",
+				"custom"	=>	""
+				),
 			),
+		"new_target"	=>	"default",
 		),
 	);
 

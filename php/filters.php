@@ -70,9 +70,15 @@ function i_meta_postmeta_defaults( $post ){
 			break;
 	}
 
-	///// NEW TARGET /////
-	$new_obj['new_target'] = $post_obj['new_target'];
+	///// LABEL : TOOLTIP /////
+	switch( $post_obj['label']['tooltip']['show'] ){
+		case 'default':
+			// Use the site default value
+			$new_obj['label']['tooltip']['custom'] = $site_obj['label']['tooltip']['custom'];
+			break;
+	}
 
+	///// NEW TARGET /////
 	switch( $post_obj['new_target'] ){
 		case 'default':
 			// Use the site default value
