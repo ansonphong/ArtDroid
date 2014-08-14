@@ -143,7 +143,8 @@
 					<div
 						class="time unit pull-right"
 						tooltip="{{ post.post_date_gmt }}"
-						tooltip-placement="bottom">
+						tooltip-placement="bottom"
+						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
 							<i class="icon-time"></i> {{ post.time_ago }}
 						</time>
@@ -152,8 +153,13 @@
 					<!-- DOWNLOAD -->
 					<div
 						class="download unit pull-right"
-						ng-show="post.post_meta.i_meta.image.download">
-						<a download pw-href="post.image.sizes.full.url">
+						ng-show="post.post_meta.i_meta.image.download"
+						tooltip="Download Image"
+						tooltip-placement="bottom"
+						tooltip-popup-delay="333">
+						<a
+							download
+							pw-href="post.image.sizes.full.url">
 							<i class="icon-download"></i>
 							download
 						</a>
@@ -163,7 +169,10 @@
 					<div
 						class="link unit pull-right"
 						ng-class="{ 'highlight-color': post.post_meta.i_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'">
+						ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						tooltip="{{ post.post_meta.i_meta.link_url.label.tooltip.custom }}"
+						tooltip-placement="bottom"
+						tooltip-popup-delay="333">
 						<a
 							pw-href="post.link_url"
 							pw-target="post.post_meta.i_meta.link_url.new_target">
@@ -173,8 +182,6 @@
 					</div>
 
 				{% endif %}
-
-				<span ng-bind="post.post_meta.i_meta.link_url | json"></span>
 
 			</div>
 
