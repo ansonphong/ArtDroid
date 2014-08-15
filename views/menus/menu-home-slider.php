@@ -1,6 +1,6 @@
 <div
 	class="slider-bottom-bar-inner">
-	<?
+	<?php
 		$defaults = array(
 			'theme_location'  => '',
 			'menu'            => $home_menu_id,
