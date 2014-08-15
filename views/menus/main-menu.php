@@ -1,7 +1,7 @@
 <?php global $iGlobals; ?>
 <div
 	class="module menu-main">
-	<?
+	<?php
 		$menu_walker = new PW_Menu_With_Description;
 		$main_menu_id = i_get_obj( $iGlobals, 'options.menus.main' );
 		$defaults = array(
