@@ -11,7 +11,7 @@ global $pw;
 <head>
 	<base href="/">
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, , maximum-scale=1" />
 	<title><?php wp_title(' | ', true, 'right'); ?></title>
 	<link rel="icon" type="image/png" href="<?php echo i_site_favicon(); ?>">
 	<?php wp_head(); ?>
@@ -80,7 +80,6 @@ global $pw;
 		</div>
 
 	</div>
-
 
 	<div class="clearfix"></div>
 

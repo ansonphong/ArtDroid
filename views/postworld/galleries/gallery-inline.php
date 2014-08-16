@@ -29,7 +29,6 @@
 				class="gallery-post masonry-brick"
 				ng-repeat="galleryPost in feed.posts"
 				ng-class="setGridClass( galleryPost.image.tags )"
-				ng-style="setGridStyle( 333, galleryPost.image.tags )"
 				ng-click="openModal({ mode:'feed', post:galleryPost })">
 
 				<div class="overlay">

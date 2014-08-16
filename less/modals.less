@@ -9,7 +9,6 @@ body.admin-bar{
 
 html{
 	max-width:100%;
-	overflow-x:hidden;
 }
 body{
 	max-width:100%;
@@ -26,15 +25,8 @@ body{
   background:@global-background-color;
 }
 
-.modal.modal-view-post .modal-dialog {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-     transform: translate(0, 0);
-     opacity:1;
-}
 
 ///// EDIT POST MODAL /////
-
 .modal-edit-post{
 	.modal-content{
 		border:1px solid @global-foreground-color;
@@ -47,7 +39,6 @@ body{
 
 	}	
 }
-
 
 ///// MODAL /////
 .modal{
@@ -65,10 +56,14 @@ body{
 ///// VIEW POST /////
 .modal.modal-view-post {
 	.modal-dialog{
-		 
-	}
-	.modal-dialog{
-		@media @desktop-and-above{ width:100% };
+
+		-webkit-transform: translate(0, 0);
+		-ms-transform: translate(0, 0);
+		transform: translate(0, 0);
+		opacity:1;
+
+		width:100%;
+		min-height:100%;
 		//@media @full{ width:66%; };
 
 		min-height:100%;
@@ -82,6 +77,29 @@ body{
 
 			hr{
 				border-top-color:@neutral-color-light;
+			}
+
+			h1{
+				padding-right:40px;
+			}
+
+			.post-head{
+				position:relative;
+				padding: 0 20px;
+				@media @desktop-and-above{
+					padding: 0 60px 0 40px;
+				}
+			}
+
+			.modal-controls{
+				display:block;
+				position:absolute;
+				top:0;
+				right:0;
+				padding: 0 10px;
+				button{
+
+				}
 			}
 
 		}

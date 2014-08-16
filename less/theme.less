@@ -3,6 +3,9 @@
 ///// ELEMENTS & CLASSES /////
 html {
 	//overflow-y: scroll;
+	@media @mobile{
+		//overflow-x: hidden;
+	}
 }
 
 body{
@@ -16,7 +19,6 @@ body{
 			color: mix( @primary-color-medium, @global-foreground-color, 50% );
 		}
 	}
-
 }
 
 @font-face {

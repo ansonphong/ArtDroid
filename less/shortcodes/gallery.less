@@ -4,11 +4,11 @@ masonry{
 }
 
 .pw-gallery-shortcode{
-  @media @desktop-and-above { .grid-sizer-mix( 100%/4 ); }
-  @media @desktop-and-below { .grid-sizer-mix( 100%/3 ); }
-  @media @tablet-and-below {  .grid-sizer-mix( 100%/2 ); }
-  @media @mobile {            .grid-sizer-mix( 100%/1 ); }
-  @media @full {              .grid-sizer-mix( 100%/5 ); }
+  @media @desktop-and-above { .grid-sizer-mix( 100%/4, 2, 333px ); }
+  @media @full {              .grid-sizer-mix( 100%/5, 2, 333px ); }
+  @media @desktop-and-below { .grid-sizer-mix( 100%/3, 2, 300px ); }
+  @media @tablet-and-below {  .grid-sizer-mix( 100%/2, 2, 275px ); }
+  @media @mobile {            .grid-sizer-mix( 100%/1, 1, 225px ); }
 }
 
 

@@ -54,34 +54,31 @@
 		window-height="{{post.post_meta.i_meta.gallery.height}}"
 		ng-show="showView('galleryHorizontal')">
 		<div
-			style="height:100%;">
-			<div
-				pw-infinite-gallery
-				gallery-preload="4"
-				gallery-scroll="galleryGetNext(3)"
-				class="view-gallery-horizontal">
-				<!-- INFINITE SCROLL -->
-				<div class="infinite-x-scroll" id="scrolls">
-					<!-- SINGLE WIDE IMAGE -->
-					<div ng-show="showView('horizontalScrollImage')">
-						<div class="gallery-image">
-							<img pw-src="post.image.sizes.full.url">
-						</div>
+			pw-infinite-gallery
+			gallery-preload="4"
+			gallery-scroll="galleryGetNext(3)"
+			class="view-gallery-horizontal">
+			<!-- INFINITE SCROLL -->
+			<div class="infinite-x-scroll" id="scrolls">
+				<!-- SINGLE WIDE IMAGE -->
+				<div ng-show="showView('horizontalScrollImage')" style="height:100%;">
+					<div class="gallery-image">
+						<img pw-src="post.image.sizes.full.url">
 					</div>
-					<!-- GALLERY IMAGES -->
+				</div>
+				<!-- GALLERY IMAGES -->
+				<div
+					class="scroll-inner"
+					infinite-x-scroll
+					scroll-action="galleryGetNext( 4 )"
+					scroll-distance="{{post.post_meta.i_meta.gallery.x_scroll_distance}}"
+					scroll-disabled="!showView('galleryHorizontal')"
+					scroll-parent>
+					<!-- GALLERY IMAGE -->
 					<div
-						class="scroll-inner"
-						infinite-x-scroll
-						scroll-action="galleryGetNext( 4 )"
-						scroll-distance="{{post.post_meta.i_meta.gallery.x_scroll_distance}}"
-						scroll-disabled="!showView('galleryHorizontal')"
-						scroll-parent>
-						<!-- GALLERY IMAGE -->
-						<div
-							class="gallery-image"
-							ng-repeat="galleryPost in galleryDisplayedPosts()">
-								<img pw-src="galleryPost.image.sizes.full.url">
-						</div>
+						class="gallery-image"
+						ng-repeat="galleryPost in galleryDisplayedPosts()">
+							<img pw-src="galleryPost.image.sizes.full.url">
 					</div>
 				</div>
 			</div>
@@ -97,9 +94,11 @@
 			<div class="o-embed" pw-compile-code="post.link_url_embed"></div>
 		</div>
 	</div>
-
+	
 	<div class="post-head">
-
+		<div class="modal-controls" ng-click="close()">
+			<button class="btn-neutral-color"><i class="icon-remove"></i></button>
+		</div>
 		<div class="row">
 			<div class="col-md-8">
 				
