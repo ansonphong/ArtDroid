@@ -1,13 +1,17 @@
 ///// GRID SIZER /////
-.grid-sizer-mix( @grid-width ){
+.grid-sizer-mix( @grid-width; @width-multiplier: 2; @height: 300px ){
   .grid-sizer( @grid-width );
   .grid-sizer{ width:@grid-width; }
+
   .masonry-brick{
-    &.square, &.wide, &.tall, &.x-tall, &.no-image { width:@grid-width !important; }
-    &.x-wide, &.xx-wide{ width: (@grid-width*2) !important; }
+    height:@height;
+    &.square, &.wide, &.tall, &.x-tall, &.no-image { width: @grid-width; }
+    &.x-wide, &.xx-wide{ width: (@grid-width * @width-multiplier); }
   }
   
 }
+
+
 
 .dropshadow( @distance: 5px; @blur: 0px; ){
 	box-shadow: @distance @distance @blur fade(@global-background-color, 50%);
