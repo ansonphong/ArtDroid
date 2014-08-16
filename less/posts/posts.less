@@ -1,6 +1,4 @@
 ///// POST STYLES /////
-
-
 .post.page{
 	border-top:none;
 	.post_content{
@@ -12,7 +10,12 @@
 	position:relative;
 	z-index:1;
 	background:@neutral-color-dark;
-	padding: 20px 30px 20px 40px;
+	padding: 20px;
+
+	@media @desktop-and-above{
+		padding: 20px 40px;
+	}
+
 	.page-meta{
 		//.page-bounds();
 		position:absolute;
@@ -50,10 +53,6 @@
 }
 
 
-.post-head, .page-head{
-		padding-left:40px;
-		padding-right:40px;
-}
 
 .page-head{
 	//padding-top:10px;
@@ -472,7 +471,7 @@
 .post.full {
 
 	.post_content{
-		padding:40px;
+		padding:20px;
 		font-size:18px;
 		line-height:26px;
 		font-weight:200;
@@ -480,6 +479,16 @@
 		
 		img{
 			border-radius:@meta-border-radius;
+		}
+
+		@media @tablet-and-below{
+			.pw-gallery-shortcode{
+				margin:0 -20px;
+			}
+		}
+
+		@media @desktop-and-above{
+			padding:40px;
 		}
 
 	}
