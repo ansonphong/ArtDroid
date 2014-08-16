@@ -3,6 +3,21 @@
 body.admin-bar{
 	.modal{
 		margin-top: 32px !important;
+
+	}
+}
+
+html{
+	max-width:100%;
+	overflow-x:hidden;
+}
+body{
+	max-width:100%;
+	overflow-x:hidden;
+	.modal{
+		@media @mobile{
+			overflow-x: hidden;
+		}
 	}
 }
 

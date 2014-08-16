@@ -1,6 +1,7 @@
 <?php global $iGlobals; ?>
+
 <div
-	class="module menu-main">
+	class="menu-main">
 	<?php
 		$menu_walker = new PW_Menu_With_Description;
 		$main_menu_id = i_get_obj( $iGlobals, 'options.menus.main' );
@@ -11,7 +12,7 @@
 			'container_class' => 'menu-container',
 			'container_id'    => '',
 			'menu_class'      => 'menu',
-			'menu_id'         => 'main-menu',
+			'menu_id'         => 'main-menu-container',
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
 			'before'          => '',

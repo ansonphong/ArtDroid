@@ -6,18 +6,16 @@
 	global $post;
 	global $pwSiteGlobals;
 ?>
-
+<meta name="viewport" content="width=device-width; initial-scale = 1.0;" />
 <!-- SPACER -->
-<div style="background:#ccc;"> <!-- window-height="80%" -->
+<div> <!-- window-height="80%" -->
 	<?php
 		////////// HEAD //////////
 		//include locate_template( 'views/modules/page-head.php' );
 
 		///// HEADER SLIDER /////
-			include locate_template("views/sliders/home-slider.php");
-			// TODO : DEAFULT : Display all items in a "Home Slider" menu
-
-		?>
+		include locate_template("views/sliders/home-slider.php");
+	?>
 </div>
 
 <!-- ////////// FEED ////////// -->

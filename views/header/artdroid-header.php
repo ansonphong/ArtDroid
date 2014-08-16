@@ -62,8 +62,21 @@ global $pw;
 				</a>
 			<?php } ?>
 		</div>
+		
 		<div id="main-menu" class="header-col-menu">
 			<?php include locate_template( 'views/menus/main-menu.php' ); ?>
+		</div>
+
+		<div id="mobile-menu">
+
+			<button
+				class="mobile-menu"
+				pw-click-toggle-display="#main-menu"
+				pw-click-toggle-class="#mobile-menu .mobile-menu"
+				toggle-class="selected">
+				<i class="icon-reorder"></i>
+			</button>
+
 		</div>
 
 	</div>
