@@ -10,17 +10,15 @@
 
 <div id="page" class="page-home page-bounds" style="margin-top:20px;padding:40px">
 
-FONT AWESOME
-
-	<h2>
-		<i class="icon-circle-blank"></i>
-	</h2>
 
 ICON X
 	<h2>
-		Test:
-		<i class="icon-x-test"></i>
-		<span style="font-family:IconX">&#xf10c</span>
+		Triadic:
+		<i class="icon-triadic-1"></i>
+		<i class="icon-triadic-2"></i>
+		<i class="icon-triadic-3"></i>
+		<i class="icon-triadic-4"></i>
+		<i class="icon-triadic-5 icon-spin"></i>
 		<hr>
 		Circles:
 		<i class="icon-x-circle-fill"></i>
