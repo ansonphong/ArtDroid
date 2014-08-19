@@ -102,7 +102,7 @@ $pwSiteGlobals = array(
 					'name'		=>	'',
 					'slug'		=>	'standard',
 					'domains'	=>	array(),
-					'icon'		=> 'icon-circle-blank'
+					'icon'		=> 'icon-circle-thick'
 				),
 				array(
 					'name'		=>	'Link',
@@ -114,7 +114,7 @@ $pwSiteGlobals = array(
 					'name'		=>	'Video',
 					'slug'		=>	'video',
 					'domains'	=>	array('youtube.com/','youtu.be/','vimeo.com/','hulu.com/','ted.com/','sapo.pt/','dailymotion.com','blip.tv/','ustream.tv/',),
-					'icon'		=>	'icon-youtube-play'
+					'icon'		=>	'icon-triangle-right-fill'
 				),
 				array(
 					'name'		=>	'Audio',
