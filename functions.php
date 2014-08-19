@@ -29,7 +29,7 @@ include "php/activate.php";
 require_once( get_template_directory().'/packages/wp-less/wp-less.php' );
 
 ////////// POST FORMATS //////////
-add_theme_support( 'post-formats', array( 'image', 'link' ) );
+//add_theme_support( 'post-formats', array( 'image', 'link' ) );
 
 ////////// INCLUDE POSTWORLD //////////
 if( function_exists( 'postworld_includes' ) ){
@@ -58,6 +58,8 @@ function include_child_scripts(){
 function expanse_init() {  
 	// Add tag metabox to pages
 	register_taxonomy_for_object_type('post_tag', 'page'); 
+	// Add tag metabox to pages
+	register_taxonomy_for_object_type('post_tag', 'attachment'); 
 	// Add category metabox to pages
 	register_taxonomy_for_object_type('category', 'page');
 	// Post Type Suport
@@ -137,6 +139,15 @@ add_image_size( 'thumb-x-wide', '800', '400', true );
 add_image_size( 'thumb-tall', '400', '600', true );
 add_image_size( 'thumb-x-tall', '400', '800', true );
 
+////////// REMOVE FILTERS //////////
+remove_filter( 'the_content', 'prepend_attachment', 10 );
+
+
+////////// SOCIAL SHARE //////////
+
+function i_share_social( $vars ){
+	return pw_ob_include_template('views/modules/share-social.php', $vars);
+}
 
 ////////// SOCIAL MEDIA WIDGETS //////////
 global $social_settings;
@@ -170,9 +181,9 @@ $social_settings = array(
 			"widget"      =>  "share",
 			"include_script"=>  true,
 			"settings"    =>  array(
-				"via"       =>  "twitter_user",
-				"related"   =>  "twitter_user",
-				"hashtags"  =>  "twitter_user",
+				"via"       =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter' ) ), //"twitter_user",
+				"related"   =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter' ) ),
+				"hashtags"  =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter_hashtags' ) ), //"twitter_user",
 				"size"      =>  "small",
 				"lang"      =>  "en",
 				"dnt"       =>  "true",
