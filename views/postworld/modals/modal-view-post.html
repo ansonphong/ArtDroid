@@ -28,7 +28,7 @@
 				tooltip="Previous (Left Arrow on Keyboard)"
 				tooltip-placement="right"
 				tooltip-popup-delay="333">
-				<i class="glyphicon glyphicon-chevron-left"></i>
+				<i class="icon-triangle-left-thin"></i>
 			</button>
 		</div>
 		<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="feed">
@@ -37,7 +37,7 @@
 				tooltip="Next (Right Arrow on Keyboard)"
 				tooltip-placement="left"
 				tooltip-popup-delay="333">
-				<i class="glyphicon glyphicon-chevron-right"></i>
+				<i class="icon-triangle-right-thin"></i>
 			</button>
 		</div>
 
@@ -97,7 +97,7 @@
 	
 	<div class="post-head">
 		<div class="modal-controls" ng-click="close()">
-			<button class="btn-neutral-color"><i class="icon-remove"></i></button>
+			<button class="btn-neutral-color"><i class="icon-close"></i></button>
 		</div>
 		<div class="row">
 			<div class="col-md-8">
@@ -118,7 +118,7 @@
 				<!-- TAGS -->
 				<div class="taxonomy" ng-show="post.taxonomy.post_tag">
 					<div class="tags">
-						<i class="icon glyphicon glyphicon-tags"></i>
+						<i class="icon-tags"></i>
 						<span ng-repeat="term in post.taxonomy.post_tag">
 						    <a pw-href="term.url" class="term tag">
 								<span ng-bind="term.name"></span>
@@ -141,7 +141,7 @@
 						tooltip="link"
 						tooltip-placement="top"
 						tooltip-popup-delay="500">
-						<i class="glyphicon glyphicon-link"></i>
+						<i class="icon-link"></i>
 					</a>
 					<!-- DROPDOWN -->
 					<span
@@ -172,7 +172,7 @@
 					tooltip="{{ post.post_timestamp | amDateFormat:'MMMM Do YYYY, h:mm a' }}"
 					tooltip-placement="bottom">
 					<time datetime="{{ post.post_date }}">
-						<i class="icon-time"></i> {{ post.time_ago }}
+						<i class="icon-clock-o"></i> {{ post.time_ago }}
 					</time>
 				</div>
 
@@ -181,7 +181,7 @@
 					class="download unit pull-right"
 					ng-show="post.post_meta.i_meta.image.download">
 					<a download pw-href="post.image.sizes.full.url">
-						<i class="icon-download"></i>
+						<i class="icon-arrow-down-thin"></i>
 						download
 					</a>
 				</div>
@@ -197,7 +197,7 @@
 					<a
 						pw-href="post.link_url"
 						pw-target="post.post_meta.i_meta.link_url.new_target">
-						<i class="icon-screenshot"></i>
+						<i class="icon-crosshairs"></i>
 						{{ post.post_meta.i_meta.link_url.label.custom }}
 					</a>
 				</div>

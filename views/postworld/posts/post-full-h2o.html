@@ -99,7 +99,7 @@
 					<!-- TAGS -->
 					<div class="taxonomy" ng-show="post.taxonomy.post_tag">
 						<div class="tags">
-							<i class="icon glyphicon glyphicon-tags"></i>
+							<i class="icon-tags"></i>
 							<span ng-repeat="term in post.taxonomy.post_tag">
 							    <a pw-href="term.url" class="term tag">
 									<span ng-bind="term.name"></span>
@@ -146,7 +146,7 @@
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
-							<i class="icon-time"></i> {{ post.time_ago }}
+							<i class="icon-clock"></i> {{ post.time_ago }}
 						</time>
 					</div>
 
@@ -160,7 +160,7 @@
 						<a
 							download
 							pw-href="post.image.sizes.full.url">
-							<i class="icon-download"></i>
+							<i class="icon-arrow-down-thin"></i>
 							download
 						</a>
 					</div>
@@ -176,7 +176,7 @@
 						<a
 							pw-href="post.link_url"
 							pw-target="post.post_meta.i_meta.link_url.new_target">
-							<i class="icon-screenshot"></i>
+							<i class="icon-crosshairs"></i>
 							{{ post.post_meta.i_meta.link_url.label.custom }}
 						</a>
 					</div>
