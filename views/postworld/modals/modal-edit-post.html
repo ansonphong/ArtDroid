@@ -22,13 +22,13 @@
 					
 					<!-- TRASH -->
 					<button class="btn-secondary-color" ng-click="trashPost()">
-						<i class="glyphicon glyphicon-trash"></i>
+						<i class="icon-trash"></i>
 						Trash
 					</button>
 
 					<!-- CANCEL -->
 					<button class="btn-neutral-color" ng-click="close()">
-						<i class="icon-remove"></i> Cancel
+						<i class="icon-close"></i> Cancel
 					</button>
 
 				</div>
@@ -41,10 +41,10 @@
 				<div class="col-sm-4 last">
 					<button type="submit" ng-click="savePost()" class="btn btn-primary-color btn-full btn-lg save">
 						<span ng-switch="status">
-							<i ng-switch-default class="icon-x-merkaba"></i>
+							<i ng-switch-default class="icon-merkaba"></i>
 							<i ng-switch-when="saving" class="icon-x-triadic-4 icon-x-spin"></i>
-							<i ng-switch-when="success" class="icon-x-merkaba"></i>
-							<i ng-switch-when="error" class="glyphicon glyphicon-remove"></i>
+							<i ng-switch-when="success" class="icon-merkaba"></i>
+							<i ng-switch-when="error" class="icon-close"></i>
 						</span>
 						Save
 					</button>
@@ -126,7 +126,7 @@
 									<div ng-repeat="tag in tags_input_obj" class="tag">
 											<span><i class="glyphicon glyphicon-tag"></i> {{tag.name}}</span>
 											<button ng-click="removeTag(tag)" class="btn-neutral-color pull-right">
-											<i class="icon-remove"></i>
+											<i class="icon-close"></i>
 										</button>
 										<div class="clearfix"></div>
 									</div>

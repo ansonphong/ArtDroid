@@ -74,7 +74,7 @@ global $pw;
 				pw-click-toggle-display="#main-menu"
 				pw-click-toggle-class="#mobile-menu .mobile-menu"
 				toggle-class="selected">
-				<i class="icon-reorder"></i>
+				<i class="icon-nav"></i>
 			</button>
 
 		</div>
