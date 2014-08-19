@@ -64,7 +64,7 @@
 		<hr>-->
 	{% endif %}
 	
-	{% if post.post_type == 'post' %}
+	{% if post.post_type != 'page' %}
 		<!-- IMAGE -->
 		<div class="media-viewer" window-height="75%" ng-show="showView('singleImage')">
 			<div
@@ -74,7 +74,7 @@
 		</div>
 	{% endif %}
 
-	<header class="{{ post.post_type }}-head post-head">
+	<header class="{{ post.post_type }}-head">
 
 		<div class="row">
 			<div class="col-md-8">
@@ -94,7 +94,7 @@
 					<span ng-bind="post.post_title">{{ post.post_title }}</span>
 				</h1>
 				
-				{% if post.post_type == 'post' %}
+				{% if post.post_type != 'page' %}
 					
 					<!-- TAGS -->
 					<div class="taxonomy" ng-show="post.taxonomy.post_tag">
@@ -138,7 +138,7 @@
 					</span>
 				</div>
 
-				{% if post.post_type == 'post' %}
+				{% if post.post_type != 'page' %}
 					<!-- TIME -->
 					<div
 						class="time unit pull-right"
@@ -150,10 +150,12 @@
 						</time>
 					</div>
 
+
+
 					<!-- DOWNLOAD -->
 					<div
 						class="download unit pull-right"
-						ng-show="post.post_meta.i_meta.image.download"
+						ng-show="post.post_meta.i_meta.image.download || post.post_type == 'attachment'"
 						tooltip="Download Image"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
@@ -164,6 +166,8 @@
 							download
 						</a>
 					</div>
+
+
 
 					<!-- LINK -->
 					<div
@@ -180,6 +184,10 @@
 							{{ post.post_meta.i_meta.link_url.label.custom }}
 						</a>
 					</div>
+
+
+					<!-- SOCIAL SHARE -->
+					{{ social_share | safe }}
 
 				{% endif %}
 
@@ -241,7 +249,7 @@
 
 	<!-- SOCIAL WIDGETS -->
 	<div class="social-widgets">
-		<!--{{ social_widgets | safe }}-->
+		{{ social_widgets | safe }}
 	</div>
 	<!--<hr class="thick">-->
 </article>

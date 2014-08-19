@@ -4,6 +4,7 @@
 function i_expanse_taxonomies() {
 	
 	///// TAXONOMY : FEATURE /////
+	/*
 	$features_tax = "i-feature";
 	register_taxonomy(
 		$features_tax,
@@ -27,10 +28,11 @@ function i_expanse_taxonomies() {
 			)
 		)
 	);
+	*/
 
 }
 
-add_action( 'init', 'i_expanse_taxonomies', 10 );
+//add_action( 'init', 'i_expanse_taxonomies', 10 );
 
 
 ?>

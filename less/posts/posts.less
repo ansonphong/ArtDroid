@@ -23,8 +23,9 @@
 		width:100%;
 	}
 
+
 	h1{
-		padding:0;
+		padding:10px 0px;
 		margin: 0;
 		display:block;
 		position: relative;
@@ -54,15 +55,9 @@
 
 
 
-.page-head{
-	//padding-top:10px;
-	//padding-bottom:20px;
-	h1{
-		padding:10px 0px;
-	}
-}
-
 .post{
+
+
 	///// COLUMNS /////
 	.columns-3, .columns-2{
 		margin-bottom:30px;
@@ -83,7 +78,14 @@
 		@media @tablet-and-below { 	.column-count(1); }
 	}
 
-	.post-head{
+	.post-head, .attachment-head{
+		position:relative;
+		padding: 0 20px;
+
+		@media @desktop-and-above{
+			padding: 0 60px 0 40px;
+		}
+
 		.unit{
 
 			i{
@@ -491,6 +493,13 @@
 			padding:40px;
 		}
 
+	}
+
+	.social-widgets{
+		padding:0 20px;
+		@media @desktop-and-above{
+			padding:0 40px;
+		}
 	}
 
 }

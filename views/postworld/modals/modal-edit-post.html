@@ -42,7 +42,7 @@
 					<button type="submit" ng-click="savePost()" class="btn btn-primary-color btn-full btn-lg save">
 						<span ng-switch="status">
 							<i ng-switch-default class="icon-merkaba"></i>
-							<i ng-switch-when="saving" class="icon-x-triadic-4 icon-x-spin"></i>
+							<i ng-switch-when="saving" class="icon-triadic-4 icon-spin"></i>
 							<i ng-switch-when="success" class="icon-merkaba"></i>
 							<i ng-switch-when="error" class="icon-close"></i>
 						</span>
@@ -124,7 +124,7 @@
 						<div class="post-details module taxonomy">
 							<div ng-controller="tagsAutocomplete" class="tags">
 									<div ng-repeat="tag in tags_input_obj" class="tag">
-											<span><i class="glyphicon glyphicon-tag"></i> {{tag.name}}</span>
+											<span><i class="icon-tag"></i> {{tag.name}}</span>
 											<button ng-click="removeTag(tag)" class="btn-neutral-color pull-right">
 											<i class="icon-close"></i>
 										</button>

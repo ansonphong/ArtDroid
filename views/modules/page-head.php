@@ -32,7 +32,7 @@
 								<?php
 									// Show Tag Icon
 									if( $pw['view']['taxonomy']['name'] == 'post_tag' ){?>
-										<i class="glyphicon glyphicon-tag" tooltip="tag" tooltip-placement="bottom"></i> 
+										<i class="icon-tag" tooltip="tag" tooltip-placement="bottom"></i> 
 									<?php
 									}
 									// Show Name of the Taxonomy
