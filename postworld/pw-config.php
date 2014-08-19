@@ -192,22 +192,22 @@ $pwSiteGlobals = array(
 			'menu_options'	=>	array(
 				array(
 					"name" => 	"Quick Edit",
-		            "icon" => 	"glyphicon glyphicon-edit",
+		            "icon" => 	"icon-quick-edit",
 		            "action" => "quick-edit"
 					),
 				array(
 					"name" => 	"PW Edit",
-		            "icon" => 	"icon-edit",
+		            "icon" => 	"icon-edit-square",
 		            "action" => "pw-edit"
 					),
 				array(
 					"name" => 	"Edit",
-		            "icon" => 	"glyphicon glyphicon-pencil",
+		            "icon" => 	"icon-edit",
 		            "action" => "wp-edit"
 					),
 				array(
 					"name" => 	"Trash",
-		            "icon" => 	"glyphicon glyphicon-trash",
+		            "icon" => 	"icon-trash-o",
 		            "action" => "trash"
 					),
 				),

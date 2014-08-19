@@ -29,7 +29,7 @@
 					ng-class="post.link_format">
 					<div ng-show="post.link_format == 'video'">
 						<button class="btn video">
-							<i class="glyphicon glyphicon-play"></i>
+							<i class="icon-triangle-right-fill"></i>
 						</button>
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 				<!-- TAGS -->
 				<div class="taxonomy" ng-show="post.taxonomy.post_tag">
 					<span class="tags">
-						<i class="icon glyphicon glyphicon-tags"></i>
+						<i class="icon-tags"></i>
 						<span ng-repeat="term in post.taxonomy.post_tag">
 							<a href="{{term.url}}" ng-class="term.slug" class="tag">{{term.name}}</a>
 						</span>
@@ -73,7 +73,7 @@
 						tooltip="link"
 						tooltip-placement="top"
 						tooltip-popup-delay="500">
-						<i class="glyphicon glyphicon-link"></i>
+						<i class="icon-link"></i>
 					</a>
 					<br>
 					<!-- DROPDOWN -->

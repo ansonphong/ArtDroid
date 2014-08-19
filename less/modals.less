@@ -132,6 +132,12 @@ body{
 				top: 46%
 			}
 		}
+		button.btn-next i{
+			left:3px;
+		}
+		button.btn-previous i{
+			right:3px;
+		}
 		button.btn-next, button.btn-previous{
 			.transition();
 			border:1px solid transparent;
@@ -144,11 +150,15 @@ body{
 			height:50px;
 			font-size:30px;
 			line-height:0;
+			
 			&:hover{
 				border:1px solid @global-foreground-color;
 			}
 			.glyphicon{
 				margin-bottom: 7px;
+			}
+			i{
+				position:relative;
 			}
 		}
 		&:hover{
