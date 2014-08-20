@@ -74,7 +74,7 @@ else if( is_single() ){
 			//'template'	=>	pw_get_post_template ( $post->ID, 'full-h2o', 'dir', true ),
 			'vars'	=> array(
 				'social_widgets'	=>	pw_social_widgets($social_settings),
-				'social_share'		=>	i_share_social( array( 'post_permalink' => get_permalink() ) ),
+				'social_share'		=>	i_share_social( $post ),
 				),
 			'js_vars'	=>	array('post'),
 			);
