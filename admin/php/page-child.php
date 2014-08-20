@@ -51,6 +51,11 @@
 		<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 		<div style="clear:both"></div>
 
+		<!-- SHARE SOCIAL -->
+		<h3> <span class="icon-md"><i class="glyphicon glyphicon-share"></i></span> <b>Share Social</b></h3>
+		<?php echo i_share_social_options( array( 'context' => 'siteAdmin' ) ); ?>
+		<div style="clear:both"></div>
+
 
 		<!--///// MENUS /////-->
 		<hr class="thick">
