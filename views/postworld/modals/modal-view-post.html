@@ -100,7 +100,7 @@
 			<button class="btn-neutral-color"><i class="icon-close"></i></button>
 		</div>
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-6">
 				
 				<!-- TITLE -->
 				<h1>
@@ -129,7 +129,7 @@
 
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-6">
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls pull-right">
@@ -201,6 +201,10 @@
 						{{ post.post_meta.i_meta.link_url.label.custom }}
 					</a>
 				</div>
+
+
+				<!-- SHARE SOCIAL -->
+				<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
 
 			</div>
 		</div>
