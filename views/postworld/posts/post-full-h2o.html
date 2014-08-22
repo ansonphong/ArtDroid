@@ -1,6 +1,7 @@
 <article
 	pw-post
 	art-post
+	pw-modal-access
 	class="post full block">
 
 	<!-- GALLERY : HORIZONTAL -->
@@ -35,12 +36,11 @@
 						<!-- GALLERY IMAGE -->
 						<div
 							class="gallery-image"
-							ng-repeat="galleryPost in galleryDisplayedPosts()">
+							ng-repeat="galleryPost in galleryDisplayedPosts()"
+							ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
 								<img pw-src="galleryPost.image.sizes.full.url">
 						</div>
 					</div>
-
-
 				</div>
 			</div>
 		</div>
@@ -49,10 +49,12 @@
 	<!-- EMBED -->
 	<div class="media-viewer" window-height="75%" ng-show="showView('singleEmbed')">
 		<div
-			class="view-embed"
-			o-embed="post.link_url"
-			autoplay="showView('autoplayEmbed')">
-			<div class="o-embed" pw-compile-code="post.link_url_embed"></div>
+			class="view-embed">
+			<div
+				class="o-embed"
+				o-embed
+				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), showView('singleEmbed') )">
+			</div>
 		</div>
 	</div>
 
@@ -112,7 +114,7 @@
 
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6 head-details">
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls pull-right">
 					<!-- DROPDOWN -->
@@ -136,6 +138,11 @@
 							</li>
 						</ul>
 					</span>
+				</div>
+
+				<!-- SOCIAL SHARE -->
+				<div class="module share-social pull-right">
+					{{ social_share | safe }}
 				</div>
 
 				{% if post.post_type != 'page' %}
@@ -181,10 +188,9 @@
 						</a>
 					</div>
 
-					<!-- SOCIAL SHARE -->
-					{{ social_share | safe }}
-
 				{% endif %}
+
+
 
 			</div>
 
@@ -229,7 +235,8 @@
 							<!-- GALLERY IMAGE -->
 							<div
 								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()">
+								ng-repeat="galleryPost in galleryDisplayedPosts()"
+								ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
 									<img pw-src="galleryPost.image.sizes.full.url">
 							</div>
 						</div>

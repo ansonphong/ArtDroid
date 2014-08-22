@@ -2,28 +2,18 @@
 <?php
 	i_header();
 	global $post;
+	// echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
 ?>
 
 <?php
 ////////// PAGE ////////// ?>
-
-
 <?php
 ////////// HEAD //////////
 if( is_page() )
 	include locate_template( 'views/modules/page-head.php' ); 
-else if( is_single() ){
+else if( is_single() )
 	include locate_template( 'views/modules/post-head.php' ); 
-
-}
 ?>
-
-<!-- DEV
-<pre>CAPS:<?php
-	//echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
-?></pre>
--->
-
 <?php
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">
@@ -75,6 +65,7 @@ else if( is_single() ){
 			'vars'	=> array(
 				'social_widgets'	=>	pw_social_widgets( $social_settings ),
 				'social_share'		=>	i_share_social( $post ),
+				//'tester'			=>	"works",
 				),
 			'js_vars'	=>	array('post'),
 			);
