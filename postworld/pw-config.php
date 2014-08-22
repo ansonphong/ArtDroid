@@ -17,7 +17,7 @@ $pwSiteGlobals = array(
 	'wp_admin'	=>	array(
 		'metabox'	=>	array(
 			'link_url'	=>	array(
-				'post_types'	=>	array( 'post', 'page', ),
+				'post_types'	=>	array( 'post', 'page', 'attachment' ),
 				),
 			),
 		),
@@ -114,7 +114,7 @@ $pwSiteGlobals = array(
 					'name'		=>	'Video',
 					'slug'		=>	'video',
 					'domains'	=>	array('youtube.com/','youtu.be/','vimeo.com/','hulu.com/','ted.com/','sapo.pt/','dailymotion.com','blip.tv/','ustream.tv/',),
-					'icon'		=>	'icon-triangle-right-fill'
+					'icon'		=>	'icon-play-fill'
 				),
 				array(
 					'name'		=>	'Audio',
