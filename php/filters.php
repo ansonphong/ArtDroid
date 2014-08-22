@@ -50,8 +50,6 @@ function i_meta_postmeta_defaults( $post ){
 	$post_obj = i_get_obj( $post, 'post_meta.i_meta.link_url' );
 	$site_obj = i_get_obj( $default_i_meta, 'link_url' );
 
-	$post['test'] = "333";
-
 	if( $post_obj == false && $site_obj != false ){
 
 		$post = i_set_obj( $post, 'post_meta.i_meta.link_url', $site_obj );
