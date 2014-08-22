@@ -88,10 +88,13 @@
 	<!-- EMBED -->
 	<div class="media-viewer" window-height="90%" ng-show="showView('modalEmbed')">
 		<div
-			class="view-embed"
-			o-embed="post.link_url"
-			autoplay="showView('autoplayEmbed')">
-			<div class="o-embed" pw-compile-code="post.link_url_embed"></div>
+			class="view-embed">
+			<div
+				class="o-embed"
+				o-embed
+				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), true )">
+				<!-- MAKE RUN FALSE UNLESS VIDEO OR AUDIO -->
+			</div>
 		</div>
 	</div>
 	
@@ -169,7 +172,7 @@
 				<!-- TIME -->
 				<div
 					class="time unit pull-right"
-					tooltip="{{ post.post_timestamp | amDateFormat:'MMMM Do YYYY, h:mm a' }}"
+					tooltip="{{ post.post_timestamp }}"
 					tooltip-placement="bottom">
 					<time datetime="{{ post.post_date }}">
 						<i class="icon-clock-o"></i> {{ post.time_ago }}

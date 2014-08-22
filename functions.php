@@ -34,9 +34,9 @@ require_once( get_template_directory().'/packages/wp-less/wp-less.php' );
 ////////// INCLUDE POSTWORLD //////////
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
-		'mode'    => 'dev',
+		'mode'    => 'deploy',
 		'angular_version' => 'angular-1.3.0-beta.13', //'angular-1.2.9', //'angular-1.3.0-beta.13',
-		'inject'  => array( 'wp-less', 'icomoon', 'icon-x', 'glyphicons-halflings' ),
+		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x', 'glyphicons-halflings' ),
 	));
 }
 ////////// CHILD THEME //////////
