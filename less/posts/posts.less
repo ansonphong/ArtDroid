@@ -23,6 +23,10 @@
 		width:100%;
 	}
 
+	.head-details{
+		margin-top:16px;
+	}
+
 
 	h1{
 		padding:10px 0px;
@@ -498,7 +502,18 @@
 	}
 
 	.social-widgets{
+		display:inline-block;
 		padding:5px 20px;
+		opacity:.5;
+		filter:grayscale(1);
+		-webkit-filter:grayscale(1);
+
+		&:hover{
+			opacity:1;
+			filter:grayscale(0);
+			-webkit-filter:grayscale(0);
+		}
+
 		@media @desktop-and-above{
 			padding:5px 40px;
 		}

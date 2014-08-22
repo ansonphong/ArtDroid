@@ -1,7 +1,7 @@
 <div
 	pw-post
 
-	post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)']"
+	post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)', 'time_ago', 'edit_post_link']"
 	require-required="false"
 
 	art-post
@@ -92,15 +92,14 @@
 			<div
 				class="o-embed"
 				o-embed
-				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), true )">
-				<!-- MAKE RUN FALSE UNLESS VIDEO OR AUDIO -->
+				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), showView('modalEmbed') )">
 			</div>
 		</div>
 	</div>
 	
 	<div class="post-head">
 		<div class="modal-controls" ng-click="close()">
-			<button class="btn-neutral-color"><i class="icon-close"></i></button>
+			<button class="btn-neutral-color" tooltip="ESC" tooltip-popup-delay="333"><i class="icon-close"></i></button>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
@@ -205,9 +204,10 @@
 					</a>
 				</div>
 
-
 				<!-- SHARE SOCIAL -->
-				<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+				<div class="module share-social pull-right">
+					<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+				</div>
 
 			</div>
 		</div>
