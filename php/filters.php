@@ -2,7 +2,6 @@
 
 function i_meta_postmeta_defaults( $post ){
 
-
 	// If no iMeta, set special var
 	$has_i_meta = ( isset( $post['post_meta']['i_meta'] ) ) ?
 		true : false ;

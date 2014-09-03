@@ -50,18 +50,24 @@
 		<h3> <span class="icon-md"><i class="glyphicon glyphicon-link"></i></span> <b>Link Label</b></h3>
 		<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 		<div style="clear:both"></div>
+		<hr>
 
 		<!-- SHARE SOCIAL -->
-		<h3> <span class="icon-md"><i class="glyphicon glyphicon-share"></i></span> <b>Share Social</b></h3>
+		<h3>
+			<span class="icon-md"><i class="glyphicon glyphicon-share"></i></span>
+			<b>Share Social</b>
+		</h3>
 		<?php echo i_share_social_options( array( 'context' => 'siteAdmin' ) ); ?>
 		<div style="clear:both"></div>
-
 
 		<!--///// MENUS /////-->
 		<hr class="thick">
 		<div class="save-right"><?php i_save_option_button('i-options','iOptions'); ?></div>
-		<h1><i class="icon-cog"></i> Menus</h1>
-		<h3>Main Menu</h3>
+		<h1><i class="icon-gear"></i> Menus</h1>
+		<h3>
+			<span class="icon-md"><i class="icon-nav"></i></span>
+			Main Menu
+		</h3>
 		<!-- Main Menu -->
 		<input type="checkbox" ng-model="iOptions.social.in_main_menu" id="social_menu">
 		<label for="social_menu">Show Social Menu</label>
@@ -79,7 +85,7 @@
 		<h1><i class="icon-home"></i> Home Page</h1>
 		<b>Secondary Menu</b> - <small>This menu will appear under the slider.</small>
 		<br>
-		<span class="icon-md"><i class="icon-th-list"></i></span>
+		<span class="icon-md"><i class="icon-nav"></i></span>
 		<?php
 			echo i_select_menus( array(
 				'options_model'	=>	'options.menus',
@@ -89,10 +95,13 @@
 		?>
 		<hr>
 
-		<h3>Slider</h3>
+		<h3>
+			<span class="icon-md"><i class="icon-image"></i></span>
+			Slider
+		</h3>
 		<b>Menu</b> - <small>The pages and posts on the selected menu will be used as slides.</small>
 		<br>
-		<span class="icon-md"><i class="icon-th-list"></i></span>
+		<span class="icon-md"><i class="icon-nav"></i></span>
 		<?php
 			echo i_select_menus( array(
 				'options_model'	=>	'options.menus',
