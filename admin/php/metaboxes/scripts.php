@@ -4,7 +4,7 @@
 	infiniteMetabox.controller('iMetaboxOptionsCtrl',
 		['$scope', 'pwPostOptions', '_', 'iOptionsData',
 			function( $scope, $pwPostOptions, $_, $iOptionsData ) {
-			//$scope.iMeta = <?php echo json_encode($i_meta); ?>;
+			//$scope.iMeta = <?php echo json_encode($iMeta); ?>;
 			
 			// Get tax outline by AJAX
 			$pwPostOptions.getTaxTerms( $scope, 'tax_terms' );

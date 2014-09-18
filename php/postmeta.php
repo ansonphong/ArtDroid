@@ -1,7 +1,7 @@
 <?php
 // Child Postmeta Model
-global $i_child_postmeta_model;
-$i_child_postmeta_model = array(
+global $i_theme_postmeta_model;
+$i_theme_postmeta_model = array(
 	"header" => array(
 		"type"		=>	"default",
 		"image"		=>	array(
@@ -9,7 +9,6 @@ $i_child_postmeta_model = array(
 			),
 		"slider"	=>	array(
 			"query_vars"	=> 	array(
-
 				"this_post"			=>	true,	// Include this post
 				"this_post_only"	=>	true,	// Include only this post
 
@@ -66,12 +65,12 @@ $i_child_postmeta_model = array(
 	);
 
 // Make filter to merge the child model
-function i_child_postmeta_model_filter( $i_postmeta_model ){
-	global $i_child_postmeta_model; 
-	$i_postmeta_model = array_replace_recursive( $i_postmeta_model, $i_child_postmeta_model );
+function i_theme_postmeta_model_filter( $i_postmeta_model ){
+	global $i_theme_postmeta_model; 
+	$i_postmeta_model = array_replace_recursive( $i_postmeta_model, $i_theme_postmeta_model );
 	
 	return $i_postmeta_model;
 }
-add_filter( 'i_postmeta_model', 'i_child_postmeta_model_filter' );
+add_filter( 'i_postmeta_model', 'i_theme_postmeta_model_filter' );
 
 ?>
