@@ -18,7 +18,7 @@ global $pw;
 </head>
 <body
 	ng-app="infinite"
-	class="infinite <?php foreach( get_body_class() as $class ){ echo " " . $class; } ?>">
+	class="infinite <?php echo pw_body_classes(); ?>">
 	
 	<!--
 	pw-scrollfix

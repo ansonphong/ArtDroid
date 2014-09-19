@@ -36,7 +36,7 @@ if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
 		'mode'    => 'deploy',
 		'angular_version' => 'angular-1.3.0-beta.13', //'angular-1.2.9', //'angular-1.3.0-beta.13',
-		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x', 'glyphicons-halflings' ),
+		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
 }
 ////////// CHILD THEME //////////
@@ -68,7 +68,6 @@ function expanse_init() {
 add_action( 'init', 'expanse_init' );
 
 
-
 //////////////////// GALLERIES ////////////////////
 
 // Remove the default Gallery shortcode
@@ -80,6 +79,7 @@ function i_should_omit_gallery( $vars ){
 	// Function which detects whether or not to
 	// omit the gallery shortcode based on conditions
 
+	// Omit the gallery shortcode where the gallery.template is any of these values
 	$omit_galleries_in = array(
 		'horizontal',
 		'vertical'
@@ -87,9 +87,9 @@ function i_should_omit_gallery( $vars ){
 	$gallery_template = pw_get_obj( $vars, 'post.post_meta.i_meta.gallery.template' );
 	if( $gallery_template == false ){
 		$gallery_template = pw_get_wp_postmeta( array(
-				"post_id" =>  $vars['post_id'],
+				"post_id" 	=>  $vars['post_id'],
 				"meta_key"  =>  'i_meta',
-				"sub_key" =>  'gallery.template',
+				"sub_key"	=>  'gallery.template',
 				)
 			);
 	}
@@ -100,7 +100,6 @@ function i_should_omit_gallery( $vars ){
 	else
 		return false;
 }
-
 
 // BEFORE POST CONTENT PROCESSING
 function i_pw_get_post_content_action( $vars ){
@@ -175,7 +174,6 @@ $social_settings = array(
 				"colorscheme" 	=> 	"light",
 				),
 			),
-
 		array(
 			"network"     =>  "twitter",
 			"widget"      =>  "share",
@@ -193,7 +191,5 @@ $social_settings = array(
 		),
 
 	);
-
-
 
 ?>
