@@ -22,9 +22,6 @@
 	else
 		$image_url = urlencode($image_url);
 
-	///// SITE NAME /////
-	$site_name = get_bloginfo( 'name' );
-
 	///// PERMALINK /////
 	$permalink = pw_get_obj( $post, 'post_permalink' );
 	if( $permalink == false )
@@ -34,6 +31,9 @@
 	///// TITLE & EXCERPT /////
 	$title = urlencode($post['post_title']);
 	$excerpt = urlencode($post['post_excerpt']);
+	
+	$site_name = urlencode( get_bloginfo( 'name' ) );
+	$title_and_site_name = $title . urlencode(" | ") . $site_name;
 
 	///// FACEBOOK LINK /////
 	$facebook_link = "https://www.facebook.com/sharer/sharer.php?u=".$permalink;
@@ -71,7 +71,7 @@
 	//https://plus.google.com/share?url=http://phong.com
 
 	///// PINTEREST LINK /////
-	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$permalink.'&media='.$image_url.'&description='.$title." | ".$site_name;
+	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$permalink.'&media='.$image_url.'&description='.$title_and_site_name;
 	//https://pinterest.com/pin/create/button/?url=http://phong.com/image.jpg&media=Image%20Title&description=Description
 
 ?>
