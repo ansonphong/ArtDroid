@@ -1,7 +1,6 @@
 <?php
 	// TODO : Refactor in foreach
 
-
 	// Post from vars
 	$post = pw_to_array($vars);
 
@@ -22,6 +21,9 @@
 		$image_url = '';
 	else
 		$image_url = urlencode($image_url);
+
+	///// SITE NAME /////
+	$site_name = get_bloginfo( 'name' );
 
 	///// PERMALINK /////
 	$permalink = pw_get_obj( $post, 'post_permalink' );
@@ -69,7 +71,7 @@
 	//https://plus.google.com/share?url=http://phong.com
 
 	///// PINTEREST LINK /////
-	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$permalink.'&media='.$image_url.'&description='.$title;
+	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$permalink.'&media='.$image_url.'&description='.$title." | ".$site_name;
 	//https://pinterest.com/pin/create/button/?url=http://phong.com/image.jpg&media=Image%20Title&description=Description
 
 ?>
