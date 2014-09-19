@@ -69,7 +69,7 @@
 	//https://plus.google.com/share?url=http://phong.com
 
 	///// PINTEREST LINK /////
-	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$image_url.'&media='.$title.'&description='.$excerpt;
+	$pinterest_link = 'https://pinterest.com/pin/create/button/?url='.$permalink.'&media='.$image_url.'&description='.$title;
 	//https://pinterest.com/pin/create/button/?url=http://phong.com/image.jpg&media=Image%20Title&description=Description
 
 ?>
