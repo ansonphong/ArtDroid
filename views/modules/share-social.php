@@ -20,6 +20,8 @@
 		pw_get_featured_image_obj( $post['ID'] )['url'];
 	if( $image_url == null )
 		$image_url = '';
+	else
+		$image_url = urlencode($image_url);
 
 	///// PERMALINK /////
 	$permalink = pw_get_obj( $post, 'post_permalink' );
