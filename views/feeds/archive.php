@@ -1,21 +1,6 @@
 <!-- ////////// FEED ////////// -->
 <?php
 	global $iGlobals;
-	/*
-	if( get_current_user_id() ){
-		///// NEW POST BUTTON /////
-		include locate_template( 'views/edit/modules/button-post-new.php' );
-		$vars = array(
-			"post_type"		=>	"event-post",
-			"post_parent"	=>	$post->ID,
-			);
-		unify_button_post_new( $vars );
-		// Required for the Media Uploader
-			wp_enqueue_media();
-	}
-	*/
-	//echo $post_type;
-
 ?>
 
 <script>

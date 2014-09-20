@@ -1,7 +1,10 @@
 <?php
 
+////////// INFINITE //////////
+include_once "infinite/functions.php";
+
 ////////// ADMIN //////////
-include_once get_template_directory().'/php/options.php';
+include_once get_infinite_directory().'/php/options.php';
 
 ////////// ADMIN //////////
 include_once 'admin/php/admin.php';
@@ -26,7 +29,7 @@ include "php/filters.php";
 include "php/activate.php";
 
 // ADD LESS SUPPORT
-require_once( get_template_directory().'/packages/wp-less/wp-less.php' );
+require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
 
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
