@@ -2,7 +2,8 @@
 	i-edit-post
 	pw-edit-post
 	save-success-callback="close()"
-	edit-mode="quick"
+	edit-auto-reload="false"
+	edit-routing="false"
 	ng-init="mode='quick-edit'"
 	class="edit-post quick edit">
 
@@ -162,6 +163,6 @@
 
 	</div><!-- END WRAPPER -->
 
-	<!--<pre>{{post.ID}} : {{ post.post_meta.i_meta | json }}</pre>-->
+	<pre>{{ post | json }}</pre>
 
 </div><!-- END CONTROLLER -->
