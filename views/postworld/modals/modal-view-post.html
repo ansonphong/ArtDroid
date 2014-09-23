@@ -5,7 +5,6 @@
 	require-required="false"
 
 	art-post
-	
 	ng-keypress="keyPress()"
 
 	class="post full i-transition-fadein wrapper"
@@ -61,7 +60,9 @@
 			<!-- INFINITE SCROLL -->
 			<div class="infinite-x-scroll" id="scrolls">
 				<!-- SINGLE WIDE IMAGE -->
-				<div ng-show="showView('horizontalScrollImage')" style="height:100%;">
+				<div
+					ng-show="showView('horizontalScrollImage')"
+					style="height:100%;">
 					<div class="gallery-image">
 						<img pw-src="post.image.sizes.full.url">
 					</div>
@@ -82,6 +83,8 @@
 					</div>
 				</div>
 			</div>
+
+			<!--<pre>{{ galleryDisplayedPosts() | json }}</pre>-->
 		</div>
 	</div>
 

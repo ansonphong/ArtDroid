@@ -6,7 +6,6 @@
 	global $post;
 	global $pwSiteGlobals;
 ?>
-<meta name="viewport" content="width=device-width; initial-scale = 1.0;" />
 <!-- SPACER -->
 <div> <!-- window-height="80%" -->
 	<?php
