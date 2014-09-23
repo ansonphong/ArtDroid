@@ -1,3 +1,6 @@
 [submodule "infinite"]
 	path = infinite
 	url = git@github.com:phongmedia/infinite.git
+[submodule "postworld"]
+	path = postworld
+	url = git@github.com:phongmedia/postworld.git

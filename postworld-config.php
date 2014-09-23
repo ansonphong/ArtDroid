@@ -366,15 +366,20 @@ $pwSiteGlobals = array(
 
 	'templates'	=>	array(
 		'dir'	=>	array(
-			'default'	=>	ABSPATH . 'wp-content/plugins/postworld/templates/' ,
+			'default'	=>	get_stylesheet_directory() . '/postworld/templates/' ,
 			'override'	=>	get_stylesheet_directory().'/views/postworld/',
 			),
 		'url'	=>	array(
-			'default'	=>	plugins_url().'/postworld/templates/',
+			'default'	=>	get_stylesheet_directory_uri().'/postworld/templates/',
 			'override'	=>	get_stylesheet_directory_uri().'/views/postworld/',
 			),
 		),
 
+	'paths'	=>	array(
+		'postworld' => array(
+			'url'	=>	get_stylesheet_directory_uri().'/postworld',
+			)
+		),
 	);
 
 

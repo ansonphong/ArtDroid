@@ -10,8 +10,8 @@ include_once get_infinite_directory().'/php/options.php';
 include_once 'admin/php/admin.php';
 
 ////////// POSTWORLD //////////
-include "postworld/pw-config.php";
-include "postworld/pw-language.php";
+include "postworld-config.php";
+include "postworld-language.php";
 
 ////////// CHILD STYLE MODEL //////////
 include "php/child-style-model.php";
@@ -34,6 +34,10 @@ require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
 
+
+////////// POSTWORLD //////////
+include "postworld/postworld.php";
+
 ////////// INCLUDE POSTWORLD //////////
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
@@ -42,6 +46,9 @@ if( function_exists( 'postworld_includes' ) ){
 		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
 }
+
+
+
 ////////// CHILD THEME //////////
 add_action( 'wp_enqueue_scripts', 'include_child_styles' );
 function include_child_styles(){
