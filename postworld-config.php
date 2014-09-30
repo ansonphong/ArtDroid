@@ -366,18 +366,18 @@ $pwSiteGlobals = array(
 
 	'templates'	=>	array(
 		'dir'	=>	array(
-			'default'	=>	get_stylesheet_directory() . '/postworld/templates/' ,
-			'override'	=>	get_stylesheet_directory().'/views/postworld/',
+			'default'	=>	get_template_directory_uri() . '/postworld/templates/' ,
+			'override'	=>	get_stylesheet_directory().'/views/',
 			),
 		'url'	=>	array(
-			'default'	=>	get_stylesheet_directory_uri().'/postworld/templates/',
-			'override'	=>	get_stylesheet_directory_uri().'/views/postworld/',
+			'default'	=>	get_template_directory_uri().'/postworld/templates/',
+			'override'	=>	get_stylesheet_directory_uri().'/views/',
 			),
 		),
 
 	'paths'	=>	array(
 		'postworld' => array(
-			'url'	=>	get_stylesheet_directory_uri().'/postworld',
+			'url'	=>	get_template_directory_uri().'/postworld',
 			)
 		),
 	);
