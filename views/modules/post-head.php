@@ -9,7 +9,7 @@
 	///// SWTICH HEADER TYPE /////
 	switch( $i_meta_header['type'] ){
 		case 'slider':
-			include locate_template("views/sliders/page-slider.php");
+			include locate_template("views/modules/slider-page.php");
 			break;
 		//case 'featured_image':
 		//	include locate_template("views/modules/page-head-image.php");

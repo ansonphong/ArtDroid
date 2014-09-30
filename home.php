@@ -13,7 +13,7 @@
 		//include locate_template( 'views/modules/page-head.php' );
 
 		///// HEADER SLIDER /////
-		include locate_template("views/sliders/home-slider.php");
+		include locate_template("views/modules/slider-home.php");
 	?>
 </div>
 
