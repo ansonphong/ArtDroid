@@ -14,16 +14,16 @@ include "postworld-config.php";
 include "postworld-language.php";
 
 ////////// CHILD STYLE MODEL //////////
-include "php/child-style-model.php";
+include "php/infinite-style-model.php";
 
 ////////// TAXONOMIES //////////
 include "php/taxonomies.php";
 
 ////////// POSTMETA //////////
-include "php/postmeta.php";
+include "php/infinite-postmeta.php";
 
 ////////// FILTERS //////////
-include "php/filters.php";
+include "php/infinite-filters.php";
 
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
@@ -42,7 +42,7 @@ include "postworld/postworld.php";
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
 		'mode'    => 'deploy',
-		'angular_version' => 'angular-1.3.0-beta.13', //'angular-1.2.9', //'angular-1.3.0-beta.13',
+		'angular_version' => 'angular-1.2.25', //'angular-1.2.9', //'angular-1.3.0-beta.13',
 		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
 }
