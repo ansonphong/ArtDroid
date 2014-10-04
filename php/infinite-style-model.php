@@ -124,6 +124,25 @@ function theme_i_styles_structure( $structure = array() ){
 							),
 						array( 'line' ),
 						array(
+							"name"			=>	"Neutral Light",
+							"key"			=>	"neutral-color-light",
+							"input"			=>	"color",
+							"description"	=>	"Used for accents"
+							),
+						array(
+							"name"			=>	"Neutral Medium",
+							"key"			=>	"neutral-color-medium",
+							"input"			=>	"color",
+							"description"	=>	"Used for mid tones"
+							),
+						array(
+							"name"			=>	"Neutral Dark",
+							"key"			=>	"neutral-color-dark",
+							"input"			=>	"color",
+							"description"	=>	"Used for deep shades"
+							),
+						array( 'line' ),
+						array(
 							"name"			=>	"Highlight Light",
 							"key"			=>	"highlight-color-light",
 							"input"			=>	"color",
