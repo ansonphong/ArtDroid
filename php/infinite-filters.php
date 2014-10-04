@@ -10,6 +10,10 @@ function i_meta_postmeta_defaults( $post ){
 	if( $post['mode'] == 'edit' )
 		return $post;
 
+	// If it had no initial i_meta object, return early
+	if( !$has_i_meta )
+		return $post;
+
 	// Check for Defaults
 	$iOptions = i_get_option( array( 'option_name'	=>	'i-options' ) );
 	$default_i_meta = i_get_obj( $iOptions, 'posts.post.post_meta.i_meta' );
@@ -25,12 +29,7 @@ function i_meta_postmeta_defaults( $post ){
 		$post['post_meta']['i_meta']
 		);
 	
-	// If it had no initial i_meta object, return early
-	if( !$has_i_meta )
-		return $post;
-
 	//////////////////// SET DEFAULT VALUES ////////////////////
-	
 	////////// DOWNLOAD IMAGE //////////
 	$post_value = i_get_obj( $post, 'post_meta.i_meta.image.download' ); // $post['post_meta']['i_meta']['image']['download'];
 	$site_value = i_get_obj( $default_i_meta, 'image.download' );
