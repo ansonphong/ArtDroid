@@ -20,7 +20,7 @@
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////
-	feed_settings['blog-posts'] = {
+	pw.feeds['blog-posts'] = {
 		preload : 10,
 		load_increment : 10,
 		offset: 0,

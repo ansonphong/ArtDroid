@@ -1,17 +1,5 @@
 <?php
 
-////////// INFINITE //////////
-include_once "infinite/functions.php";
-
-////////// ADMIN //////////
-include_once get_infinite_directory().'/php/options.php';
-
-////////// ADMIN //////////
-include_once 'admin/php/admin.php';
-
-////////// POSTWORLD //////////
-include "postworld-config.php";
-include "postworld-language.php";
 
 ////////// CHILD STYLE MODEL //////////
 include "php/infinite-style-model.php";
@@ -29,23 +17,36 @@ include "php/infinite-filters.php";
 include "php/activate.php";
 
 // ADD LESS SUPPORT
-require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
+//require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
 
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
 
 
 ////////// POSTWORLD //////////
+/// POSTWORLD CONFIG ///
+include "postworld-config.php";
+include "postworld-language.php";
+
+/// POSTWORLD CORE ///
 include "postworld/postworld.php";
 
-////////// INCLUDE POSTWORLD //////////
+/// INCLUDE POSTWORLD ///
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
-		'mode'    => 'deploy',
+		'mode'    => 'dev',
 		'angular_version' => 'angular-1.2.25', //'angular-1.2.9', //'angular-1.3.0-beta.13',
-		'inject'  => array( 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
+		'inject'  => array( 'infinite', 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
 }
+
+
+
+////////// ADMIN //////////
+//include_once get_infinite_directory().'/php/options.php';
+
+////////// ADMIN //////////
+include_once 'admin/php/admin.php';
 
 
 
