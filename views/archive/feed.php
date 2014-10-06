@@ -6,7 +6,7 @@
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////
-	feed_settings['primaryFeed'] = {
+	pw.feeds['primaryFeed'] = {
 		preload : 10,
 		load_increment : 10,
 		offset: 0,

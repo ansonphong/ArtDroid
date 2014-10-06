@@ -40,7 +40,7 @@ function child_theme_admin_menu(){
 ///// SOCIAL SCREEN /////
 function infinite_options_child(){
 	global $child_admin;
-	include_admin_styles();
+	i_include_admin_styles();
 	i_include_scripts();
 	?>
 	<div id="infinite_admin" ng-app="infinite" class="child">
