@@ -15,7 +15,7 @@
 			current : 'grid',
 			options : ['grid']
 		},
-		query_args : {
+		query : {
 			post_type:'<?php echo $query["post_type"];?>',
 			post_status:'publish',
 			<?php
