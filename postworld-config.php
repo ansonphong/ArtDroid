@@ -366,7 +366,7 @@ $pwSiteGlobals = array(
 
 	'templates'	=>	array(
 		'dir'	=>	array(
-			'default'	=>	get_template_directory_uri() . '/postworld/templates/' ,
+			'default'	=>	get_template_directory() . '/postworld/templates/' ,
 			'override'	=>	get_stylesheet_directory().'/views/',
 			),
 		'url'	=>	array(
