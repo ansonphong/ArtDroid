@@ -32,6 +32,7 @@
 	// Setup Feed
 	$feed_vars = array(
 		'directive'	=>	'live-feed',
+		'aux_feed'	=>	'seo-list',
 		'feed'	=>	array(
 			'feed_template'	=>	'feed-grid',
 			'view'	=>	array(
