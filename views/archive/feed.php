@@ -3,48 +3,49 @@
 ?>
 
 <!-- ////////// FEED ////////// -->
-<script>
-	///// LIVE FEED /////
-	pw.feeds['primaryFeed'] = {
-		preload : 10,
-		load_increment : 10,
-		offset: 0,
-		max_posts:200,
-		order_by : '-post_date',
-		view : {
-			current : 'grid',
-			options : ['detail', 'grid','grid-horizontal']
-		},
-		query_args : {
-			post_type:[ 'post' ],
-			post_status:'publish',
-			fields: 'preview',
-			<?php
-				// Add taxonomy query
-				if( $pw['view']['type'] == 'term_archive' ){ ?>
-					tax_query:[
-						{
-							taxonomy: '<?php echo $pw['view']['term']['taxonomy']; ?>',
-							field: 'id',
-							terms: <?php echo $pw['view']['term']['term_id']; ?>,
-						}
-					],
-				<?
-				}
-			?>
-			<?php
-				// Add year query
-				if( $pw['view']['type'] == 'year_archive' ){ ?>
-					year: <?php echo $pw['view']['query']['year']; ?>,
-				<?
-				}
-			?>
-		},
-		feed_template: 'feed-grid',	// Optional, needed in case of different widgets [having different panels for example] 
-	};	
-</script>
+<?php
 
-<div live-feed='primaryFeed' class="feed"></div>
+	// Setup Query
+	$feed_query = array(
+		'post_type'			=>	'post',
+		'post_status'		=>	'publish',
+		'fields'			=>	'preview',
+		'posts_per_page'	=>	500,
+		);
+
+	// Add taxonomy query
+	if( $pw['view']['type'] == 'term_archive' ){
+		$feed_query['tax_query'] = array(
+			array(
+				'taxonomy'	=>	$pw['view']['term']['taxonomy'],
+				'field'		=>	'id',
+				'terms'		=>	$pw['view']['term']['term_id']
+				)
+			);
+	}
+
+	// Add year query
+	if( $pw['view']['type'] == 'year_archive' ){ 
+		$feed_query['year'] = $pw['view']['query']['year'];
+	}
+
+	// Setup Feed
+	$feed_vars = array(
+		'directive'	=>	'live-feed',
+		'feed'	=>	array(
+			'feed_template'	=>	'feed-grid',
+			'view'	=>	array(
+				'current'	=>	'grid',
+				),
+			'query'	=>	$feed_query,
+			),
+		);
+
+	// Insert Live Feed
+	pw_live_feed( $feed_vars );
+?>
+
+
 <!-- ////////// END FEED ////////// -->
 
 <?php
