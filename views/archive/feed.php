@@ -2,7 +2,6 @@
 	global $pw;
 ?>
 
-
 <!-- ////////// FEED ////////// -->
 <script>
 	///// LIVE FEED /////
