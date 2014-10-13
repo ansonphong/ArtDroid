@@ -21,9 +21,8 @@
 	?>
 </div>
 
-
 <!-- DEV 
-<pre><code><?php echo json_encode( $pwSiteGlobals['images'] ); ?></code></pre>
+<pre><code><?php // echo json_encode( $pwSiteGlobals['images'] ); ?></code></pre>
 -->
 
 <!-- INFINITE FOOTER -->
