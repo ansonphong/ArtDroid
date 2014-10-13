@@ -2,43 +2,24 @@
 ///// METABOXES /////
 include "metaboxes.php";
 
-global $theme_admin_menu_name;
-$theme_admin_menu_name = 'theme-options';
-
-global $child_admin;
-$child_admin = array(
-
-	'child' => array(
-		'parent_slug' => $theme_admin_menu_name,
-		'page_title' => 'Settings',
-		'menu_title' => 'Settings',
-		'capability' => 'manage_options',
-		'menu_slug' => $theme_admin_menu_name.'-child',
-		'function' => 'infinite_options_child',
-		),
-	
-	);
-
-///// ADD ADMIN MENU PAGE /////
-add_action( 'admin_menu', 'child_theme_admin_menu', 11 );
-function child_theme_admin_menu(){
-	global $child_admin;
-	//$page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position
-	
-    add_submenu_page(
-    	$child_admin['child']['parent_slug'],
-    	$child_admin['child']['page_title'],
-    	$child_admin['child']['menu_title'],
-    	$child_admin['child']['capability'],
-    	$child_admin['child']['menu_slug'],
-    	$child_admin['child']['function'],
-    	$child_admin['child']['icon_url']
-    	);
-
+function postworld_theme_submenu( $submenu ){
+	global $pw;
+	$submenu['child'] = array(
+		'parent_slug'	=> $pw['slug'],
+		'page_title' 	=> 'Theme Settings',
+		'menu_title' 	=> 'Theme Settings',
+		'capability' 	=> 'manage_options',
+		'menu_slug' 	=> $pw['slug'].'-child',
+		'function' 		=> 'postworld_admin_theme_page',
+		'icon_url'		=> '',
+		);
+	return $submenu;
 }
+add_filter( 'pw_admin_submenu', 'postworld_theme_submenu' );
+
 
 ///// SOCIAL SCREEN /////
-function infinite_options_child(){
+function postworld_admin_theme_page(){
 	global $child_admin;
 	i_include_admin_styles();
 	i_include_scripts();
