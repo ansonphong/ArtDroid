@@ -5,11 +5,9 @@
 
    		///// IMAGE FUNCTIONS /////
 		$scope.backgroundImage = function( imageUrl, properties ){
-
 			// Set the Image URL
 			//var imageUrl = $scope.post.image[imageHandle].url;
 			var style = { 'background-image': "url(" + imageUrl + ")" };
-
 			// Add additional properties
 			if( !_.isUndefined( properties ) ){
 				angular.forEach( properties, function(value, key){
