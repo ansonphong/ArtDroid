@@ -202,4 +202,8 @@ $social_settings = array(
 
 	);
 
+
+///// ADD EDITOR STYLE /////
+add_editor_style( "/css/editor-style.css" );
+
 ?>

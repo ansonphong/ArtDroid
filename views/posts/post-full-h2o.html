@@ -94,8 +94,16 @@
 						{% if post.post_meta.i_meta.icon.class %}
 							<i class="{{post.post_meta.i_meta.icon.class}}"></i>
 						{% endif %}
-					</span> 
-					<span ng-bind="post.post_title">{{ post.post_title }}</span>
+					</span>
+					{% if post.parent_post.ID %}
+						<a href="{{ post.parent_post.post_permalink }}">
+							{{ post.parent_post.post_title }}
+							›
+						</a>
+					{% endif %}
+					<span ng-bind="post.post_title">
+						{{ post.post_title }}
+					</span>
 				</h1>
 				
 				{% if post.post_type != 'page' %}

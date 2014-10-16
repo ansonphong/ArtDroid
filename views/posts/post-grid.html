@@ -7,22 +7,18 @@
     pw-timeout="{{ (post.feed.loadOrder * 200) }}"
     timeout-action="addClass('fadein-on')"
     ng-hide="post.post_status == 'trash'">
-
     <div
     	class="post-wrapper"
     	pw-hover-class="hover"
 		hover-on-delay="100"
 		hover-off-delay="0">
-    	
 		<a
 			href="{{ post.post_permalink }}"
 			ng-click="openModal({ mode:'feed', post:post })"
 			prevent-default-click>
-
 			<div class="grid-image"
 				ng-style="gridImageStyle('thumb-', post.image.tags)">
 			</div>
-
 			<div class="overlay">
 				<div
 					class="link-format-indicator"
@@ -34,15 +30,10 @@
 					</div>
 				</div>
 			</div>
-			
-
 			<div class="grid-info">
 				<h2>{{ post.post_title }}</h2>
-
 			</div>
-
 		</a>
-
 		<div
 			class="details">
 			<div class="details-inner">
