@@ -42,7 +42,7 @@
 
 		<div
 			class="view-image"
-			ng-style="backgroundImage( post.image.sizes.full.url )">
+			ng-style="backgroundImage( post.image.sizes.xlarge.url )">
 		</div>
 
 	</div>
@@ -64,7 +64,7 @@
 					ng-show="showView('horizontalScrollImage')"
 					style="height:100%;">
 					<div class="gallery-image">
-						<img pw-src="post.image.sizes.full.url">
+						<img pw-src="post.image.sizes.xlarge.url">
 					</div>
 				</div>
 				<!-- GALLERY IMAGES -->
@@ -79,7 +79,7 @@
 					<div
 						class="gallery-image"
 						ng-repeat="galleryPost in galleryDisplayedPosts()">
-							<img pw-src="galleryPost.image.sizes.full.url">
+							<img pw-src="galleryPost.image.sizes.xlarge.url">
 					</div>
 				</div>
 			</div>
@@ -92,11 +92,14 @@
 	<div class="media-viewer" window-height="90%" ng-show="showView('modalEmbed')">
 		<div
 			class="view-embed">
+
 			<div
 				class="o-embed"
-				o-embed
-				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), showView('modalEmbed') )">
+				o-embed="{{ post.link_url }}"
+				embed-autoplay="showView('autoplayEmbed')"
+				embed-run="showView('modalEmbed')">
 			</div>
+
 		</div>
 	</div>
 	
@@ -246,7 +249,7 @@
 							class="gallery-image"
 							ng-repeat="galleryPost in galleryDisplayedPosts()">
 							<a href="{{galleryPost.post_permalink}}">
-								<img ng-src="{{galleryPost.image.sizes.full.url}}">
+								<img ng-src="{{galleryPost.image.sizes.xlarge.url}}">
 							</a>
 						</div>
 					</div>

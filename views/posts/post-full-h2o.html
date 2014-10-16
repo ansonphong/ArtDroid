@@ -24,7 +24,7 @@
 						ng-show="showView('horizontalScrollImage')"
 						style="height:100%">
 						<div class="gallery-image">
-							<img pw-src="post.image.sizes.full.url">
+							<img pw-src="post.image.sizes.xlarge.url">
 						</div>
 					</div>
 					<!-- GALLERY IMAGES -->
@@ -40,7 +40,7 @@
 							class="gallery-image"
 							ng-repeat="galleryPost in galleryDisplayedPosts()"
 							ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
-								<img pw-src="galleryPost.image.sizes.full.url">
+								<img pw-src="galleryPost.image.sizes.xlarge.url">
 						</div>
 					</div>
 				</div>
@@ -52,18 +52,23 @@
 	<div class="media-viewer" window-height="75%" ng-show="showView('singleEmbed')">
 		<div
 			class="view-embed">
+
+
+
 			<div
 				class="o-embed"
-				o-embed
-				pw-compile-code="getEmbedCode( post.link_url, showView('autoplayEmbed'), showView('singleEmbed') )">
+				o-embed="{{ post.link_url }}"
+				embed-autoplay="false"
+				embed-run="showView('singleEmbed')">
 			</div>
+
 		</div>
 	</div>
 
 	{% if post.post_meta.i_meta.header.type == 'featured_image' %}
 		<!--//// HEADER TYPE : FEATURED IMAGE /////
 		<img
-			pw-src="post.image.sizes.full.url"
+			pw-src="post.image.sizes.xlarge.url"
 			style="width:100%; height:auto;">
 		<hr>-->
 	{% endif %}
@@ -73,7 +78,7 @@
 		<div class="media-viewer" window-height="75%" ng-show="showView('singleImage')">
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes.full.url )">
+				ng-style="backgroundImage( post.image.sizes.xlarge.url )">
 			</div>
 		</div>
 	{% endif %}
@@ -247,7 +252,7 @@
 								class="gallery-image"
 								ng-repeat="galleryPost in galleryDisplayedPosts()"
 								ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
-									<img pw-src="galleryPost.image.sizes.full.url">
+									<img pw-src="galleryPost.image.sizes.xlarge.url">
 							</div>
 						</div>
 					</div>

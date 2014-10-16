@@ -35,7 +35,7 @@ include "postworld/postworld.php";
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
 		'mode'    => 'deploy',
-		'angular_version' => 'angular-1.2.25', //'angular-1.2.9', //'angular-1.3.0-beta.13',
+		'angular_version' => 'angular-1.2.25',
 		'inject'  => array( 'infinite', 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
 }
@@ -139,6 +139,7 @@ add_action( 'pw_get_post_complete', 'i_pw_get_post_complete_action' );
 /////////// ADD IMAGE SIZES //////////
 add_image_size( 'grid', '640', '480', true );
 add_image_size( 'widescreen', '1600', '900', true );
+add_image_size( 'xlarge', '2400', '2400', false );
 
 add_image_size( 'thumb-square', '400', '400', true );
 
@@ -147,6 +148,7 @@ add_image_size( 'thumb-x-wide', '800', '400', true );
 
 add_image_size( 'thumb-tall', '400', '600', true );
 add_image_size( 'thumb-x-tall', '400', '800', true );
+
 
 ////////// REMOVE FILTERS //////////
 remove_filter( 'the_content', 'prepend_attachment', 10 );
