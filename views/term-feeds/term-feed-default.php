@@ -1,15 +1,13 @@
 <script>
 	postworld.controller( '<?php echo $instance; ?>', [ '$scope', function( $scope ){
 		$scope.vars = <?php echo json_encode($vars); ?>;
-   		$scope.termsFeed = <?php echo json_encode($terms_feed); ?>;
+   		$scope.termFeed = <?php echo json_encode($term_feed); ?>;
 
    		///// IMAGE FUNCTIONS /////
 		$scope.backgroundImage = function( imageUrl, properties ){
-
 			// Set the Image URL
 			//var imageUrl = $scope.post.image[imageHandle].url;
 			var style = { 'background-image': "url(" + imageUrl + ")" };
-
 			// Add additional properties
 			if( !_.isUndefined( properties ) ){
 				angular.forEach( properties, function(value, key){
@@ -22,7 +20,7 @@
 </script>
 <div class="terms-feed pw-shortcode" ng-controller="<?php echo $instance; ?>">
 	<div class="terms-row">
-		<div class="terms-col" ng-repeat="feedTerm in termsFeed">
+		<div class="terms-col" ng-repeat="feedTerm in termFeed">
 			<div
 				class="feed-term">
 				<a ng-href="{{feedTerm.term.url}}">
