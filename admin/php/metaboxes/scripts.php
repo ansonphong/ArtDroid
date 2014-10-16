@@ -7,7 +7,7 @@
 			//$scope.iMeta = <?php echo json_encode($iMeta); ?>;
 			
 			// Get tax outline by AJAX
-			$pwPostOptions.getTaxTerms( $scope, 'tax_terms' );
+			$pwPostOptions.taxTerms( $scope, 'tax_terms' );
 
 			// Define Options
 			$scope['options'] = $iOptionsData['options'];
