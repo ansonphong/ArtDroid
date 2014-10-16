@@ -52,10 +52,25 @@
 				case 'year_archive':
 					?>
 						<div class="page-head">
+							
 							<h1>
 								<i class="glyphicon glyphicon-calendar"></i>
 								<?php echo $pw['view']['query']['year']; ?>
 							</h1>
+
+							<div class="archives-yearly">
+								<ul>
+								<?php
+									$yearly_archives = array(
+										'type' 		=> 'yearly',
+										'format'	=>	'html',
+										);
+									wp_get_archives( $yearly_archives );
+								?>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+
 						</div>
 					<?php
 					break;

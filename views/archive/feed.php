@@ -34,6 +34,7 @@
 		'directive'	=>	'live-feed',
 		'aux_template'	=>	'seo-list',
 		'feed'	=>	array(
+			'preload'	=>	16,
 			'feed_template'	=>	'feed-grid',
 			'view'	=>	array(
 				'current'	=>	'grid',

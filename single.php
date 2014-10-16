@@ -45,6 +45,7 @@ else if( is_single() )
 			'link_url',
 			'related_post',
 			'post_parent',
+			'parent_post(preview)',
 			'image(all)',
 			'image(tags)',
 			'image(stats)',
