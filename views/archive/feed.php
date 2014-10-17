@@ -14,7 +14,7 @@
 		);
 
 	// Add taxonomy query
-	if( $pw['view']['type'] == 'term_archive' ){
+	if( $pw['view']['type'] == 'archive-term' ){
 		$feed_query['tax_query'] = array(
 			array(
 				'taxonomy'	=>	$pw['view']['term']['taxonomy'],
@@ -25,7 +25,7 @@
 	}
 
 	// Add year query
-	if( $pw['view']['type'] == 'year_archive' ){ 
+	if( $pw['view']['type'] == 'archive-year' ){ 
 		$feed_query['year'] = $pw['view']['query']['year'];
 	}
 

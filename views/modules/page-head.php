@@ -25,7 +25,7 @@
 		<?php
 			///// SWITCH LABELS /////
 			switch( $pw['view']['type'] ){
-				case 'term_archive':
+				case 'archive-term':
 					?>
 						<div class="page-head">
 							<h1>
@@ -49,7 +49,7 @@
 					<?php
 					break;
 
-				case 'year_archive':
+				case 'archive-year':
 					?>
 						<div class="page-head">
 							
