@@ -177,7 +177,7 @@
 				<!-- TIME -->
 				<div
 					class="time unit pull-right"
-					tooltip="{{ post.post_timestamp }}"
+					tooltip="{{ post.post_date_gmt }}"
 					tooltip-placement="bottom">
 					<time datetime="{{ post.post_date }}">
 						<i class="icon-clock-o"></i> {{ post.time_ago }}
@@ -219,10 +219,19 @@
 		</div>
 
 	</div>
-	
+
+	<!-- POST CONTENT -->
 	<div
+		ng-show="post.post_content && post.post_content != ' '"
 		class="post_content columns-{{ post.post_meta.i_meta.post_content.columns }}"
 		pw-compile-code="post.post_content">
+	</div>
+
+	<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
+	<div
+		ng-show="!post.post_content || post.post_content == ' '"
+		class="post_content columns-{{ post.post_meta.i_meta.post_content.columns }}"
+		ng-bind="post.post_excerpt">
 	</div>
 
 	<!-- GALLERY : VERTICAL SCROLL -->
