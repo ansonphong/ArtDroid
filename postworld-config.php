@@ -19,6 +19,21 @@ $pwSiteGlobals = array(
 			'link_url'	=>	array(
 				'post_types'	=>	array( 'post', 'page', 'attachment' ),
 				),
+			'post_parent'	=>	array(
+				array(
+					'labels'	=>	array(
+						'title'		=>	'Parent Page',
+						'search'	=>	'Search pages...'
+						),
+					'post_types' 	=> array( 'page' ),
+					'query'	=>	array(
+						'post_type'			=>	'page',
+						),
+					),
+				),
+			'layout'	=>	array(
+				'post_types'	=>	array( 'page' ),
+				),
 			),
 		),
 

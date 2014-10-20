@@ -4,7 +4,6 @@
 	global $post;
 	// echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
 ?>
-
 <?php
 ////////// PAGE ////////// ?>
 <?php
@@ -17,7 +16,7 @@ else if( is_single() )
 <?php
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">
-	
+
 	<?php	
 		////////// PRINT THE POST IN TEMPLATE //////////
 		// Set Globals
@@ -87,7 +86,7 @@ else if( is_single() )
 		///// MAIN LAYOUT /////
 		global $iGlobals;
 		$layout_args = array(
-			'layout'			=>	$iGlobals['layout']['layout'],
+			//'layout'			=>	$iGlobals['layout']['layout'],
 			'function'			=>	'page_content_function',
 			'content'			=>	$post_html, //apply_filters( 'the_content', $post->post_content ),
 			//'before_content' 	=>	'<div>',

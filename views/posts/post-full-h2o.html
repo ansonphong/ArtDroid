@@ -227,6 +227,13 @@
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
+	{% if !post.post_content %}
+		<!-- CONTENT -->
+		<div class="post_content columns-{{post.post_meta.i_meta.post_content.columns}}">
+			{{ post.post_excerpt | safe }}
+		</div>
+	{% endif %}
+
 
 	{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
 		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
