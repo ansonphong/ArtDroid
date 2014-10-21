@@ -2,7 +2,6 @@
 
 </div> <!-- END #content -->
 
-
 <div class="clearfix"></div>
 
 <!-- FOOTER -->
@@ -47,6 +46,8 @@
 
 	</div>
 </footer>
+
+<!--<pre><?php //echo json_encode( $pw['layout'], JSON_PRETTY_PRINT ); ?></pre>-->
 
 <?php wp_footer(); ?>
 </body>

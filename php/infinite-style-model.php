@@ -42,6 +42,12 @@ function theme_i_styles_model( $value ){
 				'slider-arrow-color'	=>	'@secondary-color-dark',
 				),
 
+			'widgets'	=>	array(
+				'widget-base-color'			=>	'@primary-color-dark',
+				'widget-text-color'			=>	'@primary-color-medium',
+				'widget-highlight-color'	=>	'@primary-color-light',
+				),
+
 			//'galleries'
 				// Add default width for vertical scroll galleries
 				// Add default height for horizontal scroll galleries
@@ -190,6 +196,34 @@ function theme_i_styles_structure( $structure = array() ){
 							"key"			=>	"slider-arrow-color",
 							"input"			=>	"color",
 							"description"	=>	"Color of the slider arrows"
+							),
+						),
+					),
+
+
+				///// WIDGETS /////
+				array(
+					'name'	=>	'Widgets',
+					'key'	=>	'widgets',
+					'icon'	=>	'icon-dashboard',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Base Color",
+							"key"			=>	"widget-base-color",
+							"input"			=>	"color",
+							"description"	=>	"General Color of widgets"
+							),
+						array(
+							"name"			=>	"Text Color",
+							"key"			=>	"widget-text-color",
+							"input"			=>	"color",
+							"description"	=>	"Color of text in widgets"
+							),
+						array(
+							"name"			=>	"Base Color",
+							"key"			=>	"widget-highlight-color",
+							"input"			=>	"color",
+							"description"	=>	"Highlighted and selected items"
 							),
 						),
 					),

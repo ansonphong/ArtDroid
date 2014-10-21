@@ -20,8 +20,7 @@
 			///// MAIN LAYOUT /////
 			global $iGlobals;
 			$layout_args = array(
-				'layout'			=>	$iGlobals['layout']['layout'],
-				'function'			=>	'page_content_function',
+				//'function'			=>	'page_content_function',
 				'content'			=>	pw_ob_include_template('views/archive/feed.php'),
 				'before_content' 	=>	'<div class="post_content">',
 				'after_content' 	=>	'</div>',
@@ -29,6 +28,7 @@
 				);
 			i_print_layout( $layout_args );
 		?>
+
 	</div>
 </div>
 <!-- INFINITE FOOTER -->

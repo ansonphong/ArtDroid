@@ -86,7 +86,7 @@
 	<header class="{{ post.post_type }}-head">
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-7">
 
 				<h1>
 					<span class="icon">
@@ -103,8 +103,8 @@
 					{% if post.parent_post.ID %}
 						<a href="{{ post.parent_post.post_permalink }}">
 							{{ post.parent_post.post_title }}
-							›
 						</a>
+						&rsaquo;
 					{% endif %}
 					<span ng-bind="post.post_title">
 						{{ post.post_title }}
@@ -129,7 +129,7 @@
 
 			</div>
 
-			<div class="col-md-6 head-details">
+			<div class="col-md-5 head-details">
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls pull-right">
 					<!-- DROPDOWN -->
