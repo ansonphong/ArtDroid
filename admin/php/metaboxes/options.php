@@ -2,11 +2,10 @@
 	global $pw;
 	$pwInject = $pw['inject'];
 ?>
-
-<div ng-controller="iMetaboxOptionsCtrl">
+<div ng-controller="iMetaboxOptionsCtrl" class="pw-metabox">
 
 	<!-- HEADER -->
-	<h2 class="left"><b>Header</b></h2>
+	<div class="option-title">Header</div>
 	<div class="btn-group">
 		<label
 			ng-repeat="type in options.header.type"
@@ -33,19 +32,19 @@
 	<hr>
 
 	<!-- GALLERIES -->
-	<h2 class="left"><b>Galleries</b></h2>
+	<div class="option-title">Galleries</div>
 	<?php echo i_gallery_options( array( 'context' => 'postAdmin' ) ); ?>
 	<div style="clear:both"></div>
 	<hr>
 
 	<!-- POST CONTENT -->
-	<h2 class="left"><b>Post Content</b></h2>
+	<div class="option-title">Post Content</div>
 	<?php echo i_content_columns_option( array( 'context' => 'postAdmin' ) ); ?>
 	<div style="clear:both"></div>
 	<hr>
 
 	<!-- LINK URL -->
-	<h2 class="left"><b>Link Label</b></h2>
+	<div class="option-title">Link Label</div>
 	<?php echo i_link_url_options( array( 'context' => 'postAdmin' ) ); ?>
 	<div style="clear:both"></div>
 	<hr>
@@ -56,37 +55,49 @@
 	<hr>
 
 	<!-- ICON -->
-	<h2 class="left"><b>Icon</b></h2>
-	<div class="btn-group">
-		<label
-			class="btn" ng-model="iMeta.icon.class" btn-radio="''">
-			None
-		</label>
+	<div class="option-title">Icon</div>
 
-		<?php ///// ICON X /////
-		if( in_array( 'icon-x', $pwInject ) ){ ?>
-			<label
-				ng-repeat="option in options.icon.iconx"
-				class="btn" ng-model="iMeta.icon.class" btn-radio="option.class">
-				<i class="{{ option.class }}"></i>
-			</label>
-		<?php } ?>
+	<!-- DROPDOWN -->
+	<span
+		class="dropdown">
+		<!-- SELECTED ITEM -->
+		<span
+			dropdown-toggle
+			class="area-select area-select-icon">
+			<i ng-show="iMeta.icon.class" class="{{ iMeta.icon.class }}"></i>
+			<span ng-hide="iMeta.icon.class">None</span>
+		</span>
+		<!-- MENU -->
+		<ul class="dropdown-menu grid" role="menu" aria-labelledby="dLabel" >
 
-		<?php ///// GLYPICONS /////
-		if( in_array( 'glyphicons-halflings', $pwInject ) ){ ?>
-			<label
-				ng-repeat="option in options.icon.glyphicons"
-				class="btn" ng-model="iMeta.icon.class" btn-radio="option.class">
-				<i class="{{ option.class }}"></i>
-			</label>
-		<?php } ?>
+			<?php ///// ICOMOON /////
+				if( in_array( 'icomoon', $pwInject ) ){ ?>
+					<li
+						class="select-icon"
+						ng-repeat="icon in options.icon.icomoon"
+						ng-click="iMeta.icon.class = icon.class">
+						<i
+							class="{{ icon.class }}"></i>
+					</li>
+			<?php } ?>
 
+			<?php ///// GLYPHICONS /////
+				if( in_array( 'glyphicons-halflings', $pwInject ) ){ ?>
+					<li
+						class="select-icon"
+						ng-repeat="icon in options.icon.glyphicons"
+						ng-click="iMeta.icon.class = icon.class">
+						<i
+							class="{{ icon.class }}"></i>
+					</li>
+			<?php } ?>
 
-	</div>
-	<hr>
-
-	<!-- DEV -->
-	<hr>
+		</ul>
+	</span>
+	
+	<!-- DEV 
+	<hr><hr>
 	<pre>{{ iMeta | json }}</pre>
+	-->
 	
 </div>

@@ -26,6 +26,8 @@
 			///// SWITCH LABELS /////
 			switch( $pw['view']['type'] ){
 				case 'archive-term':
+				case 'tag':
+				case 'category':
 					?>
 						<div class="page-head">
 							<h1>
@@ -50,12 +52,23 @@
 					break;
 
 				case 'archive-year':
+				case 'archive-month':
+				case 'archive-day':
 					?>
 						<div class="page-head">
 							
 							<h1>
 								<i class="glyphicon glyphicon-calendar"></i>
-								<?php echo $pw['view']['query']['year']; ?>
+								<?php
+									// YEAR
+									echo $pw['view']['query']['year'];
+									// MONTH
+									if( !empty( $pw['view']['query']['monthnum'] ) )
+										echo " / " . $pw['view']['query']['monthnum'];
+									// DAY
+									if( !empty( $pw['view']['query']['day'] ) )
+										echo " / " . $pw['view']['query']['day'];
+									?>
 							</h1>
 
 							<div class="archives-yearly">
@@ -70,7 +83,7 @@
 								</ul>
 							</div>
 							<div class="clearfix"></div>
-
+							<?php //echo json_encode($pw['view']);?>
 						</div>
 					<?php
 					break;

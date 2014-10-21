@@ -2,6 +2,13 @@
 .page-head{
 	h1{
 		display:inline-block;
+		a{
+			border-bottom:1px solid transparent;
+			text-decoration: none;
+			&:hover{
+				border-bottom-color:@global-foreground-color;
+			}
+		}
 	}
 	.archives-yearly{
 		float:right;

@@ -13,21 +13,30 @@
 		'posts_per_page'	=>	500,
 		);
 
-	// Add taxonomy query
-	if( $pw['view']['type'] == 'archive-term' ){
-		$feed_query['tax_query'] = array(
-			array(
-				'taxonomy'	=>	$pw['view']['term']['taxonomy'],
-				'field'		=>	'id',
-				'terms'		=>	$pw['view']['term']['term_id']
-				)
-			);
+	switch( $pw['view']['type'] ){
+
+		// Add taxonomy query
+		// MAYBE OBSOLETE ---
+		case 'archive-term':
+			$feed_query['tax_query'] = array(
+				array(
+					'taxonomy'	=>	$pw['view']['term']['taxonomy'],
+					'field'		=>	'id',
+					'terms'		=>	$pw['view']['term']['term_id']
+					)
+				);
+			break;
+
+		// Add date query
+		case 'archive-year';
+		case 'archive-month';
+		case 'archive-day';
+			$feed_query = array_replace_recursive($pw['view']['query'], $feed_query);
+			break;
+
 	}
 
-	// Add year query
-	if( $pw['view']['type'] == 'archive-year' ){ 
-		$feed_query['year'] = $pw['view']['query']['year'];
-	}
+	//echo json_encode($feed_query);
 
 	// Setup Feed
 	$feed_vars = array(
@@ -40,6 +49,7 @@
 				'current'	=>	'grid',
 				),
 			'query'	=>	$feed_query,
+			//'query'	=>	$feed_query = $pw['view']['query'],
 			),
 		);
 
