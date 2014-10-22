@@ -47,7 +47,7 @@
 	</div>
 </footer>
 
-<!--<pre><?php //echo json_encode( $pw['layout'], JSON_PRETTY_PRINT ); ?></pre>-->
+<pre><?php echo json_encode( $pw['layout'], JSON_PRETTY_PRINT ); ?></pre>
 
 <?php wp_footer(); ?>
 </body>

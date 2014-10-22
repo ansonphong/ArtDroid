@@ -1,29 +1,20 @@
 <?php // Template Name: Home Page ?>
 
-<!-- INFINITE HEADER -->
-<?php
-	i_header();
-	global $post;
-	global $pwSiteGlobals;
-?>
-<!-- SPACER -->
-<div> <!-- window-height="80%" -->
+<?php i_header(); ?>
+
+<div id="page" class="page-home">
 	<?php
-		////////// HEAD //////////
-		//include locate_template( 'views/modules/page-head.php' );
-
-		///// HEADER SLIDER /////
-		include locate_template("views/modules/slider-home.php");
-
-		///// FEED /////
-		include locate_template("views/archive/feed.php");
-
-	?>
+	include locate_template( 'views/modules/slider-home.php' ); ?>
+	<div id="content" class="layout full page-bounds">
+		<?php
+			$layout_args = array(
+				'content'			=>	pw_ob_include_template('views/archive/feed.php'),
+				//'before_content' 	=>	'<div>',
+				//'after_content' 	=>	'</div>',
+				);
+			i_print_layout( $layout_args );
+		?>
+	</div>
 </div>
 
-<!-- DEV 
-<pre><code><?php // echo json_encode( $pwSiteGlobals['images'] ); ?></code></pre>
--->
-
-<!-- INFINITE FOOTER -->
 <?php i_footer(); ?>
