@@ -147,8 +147,7 @@
 						class="btn"
 						stop-propagation-click
 						tooltip="link"
-						tooltip-placement="top"
-						tooltip-popup-delay="500">
+						tooltip-popup-delay="333">
 						<i class="icon-link"></i>
 					</a>
 					<!-- DROPDOWN -->
@@ -162,8 +161,7 @@
 							class="edit-post"
 							style="border:none"
 							tooltip="edit"
-							tooltip-placement="top"
-							tooltip-popup-delay="500">
+							tooltip-popup-delay="333">
 							<i class="icon-merkaba"></i>
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
@@ -178,7 +176,7 @@
 				<div
 					class="time unit pull-right"
 					tooltip="{{ post.post_date_gmt }}"
-					tooltip-placement="bottom">
+					tooltip-popup-delay="333">
 					<time datetime="{{ post.post_date }}">
 						<i class="icon-clock-o"></i> {{ post.time_ago }}
 					</time>
@@ -200,7 +198,6 @@
 					ng-class="{ 'highlight-color': post.post_meta.i_meta.link_url.label.highlight }"
 					ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
 					tooltip="{{ post.post_meta.i_meta.link_url.label.tooltip.custom }}"
-					tooltip-placement="bottom"
 					tooltip-popup-delay="333">
 					<a
 						pw-href="post.link_url"
