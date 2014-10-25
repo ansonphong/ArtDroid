@@ -56,44 +56,9 @@
 
 	<!-- ICON -->
 	<div class="option-title">Icon</div>
-
-	<!-- DROPDOWN -->
-	<span
-		class="dropdown">
-		<!-- SELECTED ITEM -->
-		<span
-			dropdown-toggle
-			class="area-select area-select-icon">
-			<i ng-show="iMeta.icon.class" class="{{ iMeta.icon.class }}"></i>
-			<span ng-hide="iMeta.icon.class">None</span>
-		</span>
-		<!-- MENU -->
-		<ul class="dropdown-menu grid" role="menu" aria-labelledby="dLabel" >
-
-			<?php ///// ICOMOON /////
-				if( in_array( 'icomoon', $pwInject ) ){ ?>
-					<li
-						class="select-icon"
-						ng-repeat="icon in options.icon.icomoon"
-						ng-click="iMeta.icon.class = icon.class">
-						<i
-							class="{{ icon.class }}"></i>
-					</li>
-			<?php } ?>
-
-			<?php ///// GLYPHICONS /////
-				if( in_array( 'glyphicons-halflings', $pwInject ) ){ ?>
-					<li
-						class="select-icon"
-						ng-repeat="icon in options.icon.glyphicons"
-						ng-click="iMeta.icon.class = icon.class">
-						<i
-							class="{{ icon.class }}"></i>
-					</li>
-			<?php } ?>
-
-		</ul>
-	</span>
+	<?php echo i_select_icon_options( array( 'ng_model' => 'iMeta.icon.class' ) ); ?>
+	<div style="clear:both"></div>
+	<hr>
 	
 	<!-- DEV 
 	<hr><hr>
