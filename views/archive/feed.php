@@ -17,7 +17,7 @@
 
 		// Add taxonomy query
 		// MAYBE OBSOLETE ---
-		case 'archive-term':
+		case 'archive-taxonomy':
 			$feed_query['tax_query'] = array(
 				array(
 					'taxonomy'	=>	$pw['view']['term']['taxonomy'],
