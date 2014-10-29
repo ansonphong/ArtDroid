@@ -154,12 +154,6 @@ add_image_size( 'thumb-x-tall', '400', '800', true );
 remove_filter( 'the_content', 'prepend_attachment', 10 );
 
 
-////////// SOCIAL SHARE //////////
-
-function i_share_social( $post ){
-	return pw_ob_include_template('views/modules/share-social.php', $post);
-}
-
 ////////// SOCIAL MEDIA WIDGETS //////////
 global $social_settings;
 $social_settings = array(

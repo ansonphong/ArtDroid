@@ -64,7 +64,7 @@ else if( is_single() )
 			//'template'	=>	pw_get_post_template ( $post->ID, 'full-h2o', 'dir', true ),
 			'vars'	=> array(
 				'social_widgets'	=>	pw_social_widgets( $social_settings ),
-				'social_share'		=>	i_share_social( $post ),
+				'social_share'		=>	pw_social_share( $post ),
 				//'tester'			=>	"works",
 				),
 			'js_vars'	=>	array('post'),

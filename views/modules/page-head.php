@@ -25,7 +25,7 @@
 		<?php
 			///// SWITCH LABELS /////
 			switch( $pw['view']['type'] ){
-				case 'archive-term':
+				case 'archive-taxonomy':
 				case 'tag':
 				case 'category':
 					?>
