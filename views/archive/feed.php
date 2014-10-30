@@ -53,6 +53,14 @@
 			),
 		);
 
+		$feed_vars['feed']['blocks'] = array(
+			'offset'	=>	5,
+			'increment'	=>	6,
+			'max' 		=> 	50,
+			'template' 	=> 	'ad-block-grid',
+			'classes'	=>	'x-wide',
+		);
+
 	// Insert Live Feed
 	pw_live_feed( $feed_vars );
 ?>
