@@ -59,7 +59,7 @@ function theme_pw_styles_model( $value ){
 	return $value;
 
 }
-add_filter( 'pwGetOption-i-styles', 'theme_pw_styles_model' );
+add_filter( 'pwGetOption-'.PW_OPTIONS_STYLES, 'theme_pw_styles_model' );
 
 
 ////////// STYLE ADMIN //////////
