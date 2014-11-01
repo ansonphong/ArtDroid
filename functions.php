@@ -1,6 +1,9 @@
 <?php
 
+
 define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
+define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
+
 
 
 ////////// CHILD STYLE MODEL //////////
