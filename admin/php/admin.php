@@ -4,12 +4,12 @@ include "metaboxes.php";
 
 function postworld_theme_submenu( $submenu ){
 	global $pw;
-	$submenu['child'] = array(
+	$submenu['theme'] = array(
 		'parent_slug'	=> $pw['slug'],
 		'page_title' 	=> 'Theme Settings',
 		'menu_title' 	=> 'Theme Settings',
 		'capability' 	=> 'manage_options',
-		'menu_slug' 	=> $pw['slug'].'-child',
+		'menu_slug' 	=> $pw['slug'].'-theme',
 		'function' 		=> 'postworld_admin_theme_page',
 		'icon_url'		=> '',
 		);
@@ -21,13 +21,11 @@ add_filter( 'pw_admin_submenu', 'postworld_theme_submenu' );
 ///// SOCIAL SCREEN /////
 function postworld_admin_theme_page(){
 	global $child_admin;
-	i_include_admin_styles();
 	i_include_scripts();
 	?>
-	<div id="infinite_admin" ng-app="infinite" class="child">
-		<h1><i class="icon-heart"></i> <?php echo $child_admin['child']['page_title']; ?></h1>
+	<div id="infinite_admin" ng-app="infinite" class="theme">
 		<?php
-			include 'page-child.php';
+			include 'page-theme.php';
 		?>
 	</div>
 <?php }

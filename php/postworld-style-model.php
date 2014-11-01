@@ -1,6 +1,6 @@
 <?php
 
-function theme_i_styles_model( $value ){
+function theme_pw_styles_model( $value ){
 	$style_model = array(
 		'var'	=>	array(
 			'colors' =>	array(
@@ -59,11 +59,11 @@ function theme_i_styles_model( $value ){
 	return $value;
 
 }
-add_filter( 'iOptions-i-styles', 'theme_i_styles_model' );
+add_filter( 'pwGetOption-i-styles', 'theme_pw_styles_model' );
 
 
 ////////// STYLE ADMIN //////////
-function theme_i_styles_structure( $structure = array() ){
+function theme_pw_styles_structure( $structure = array() ){
 
 	$theme_structure = array(
 		array(
@@ -241,7 +241,12 @@ function theme_i_styles_structure( $structure = array() ){
 
 }
 
-add_filter( 'iOptions-i-styles-structure', 'theme_i_styles_structure' );
+// Hook in the style structure to the filter
+add_filter( 'pwOptions-styles-structure', 'theme_pw_styles_structure' );
+
+// Depreciated
+add_filter( 'iOptions-i-styles-structure', 'theme_pw_styles_structure' );
+
 
 
 ?>

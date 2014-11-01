@@ -4,7 +4,7 @@
 	class="menu-main">
 	<?php
 		$menu_walker = new PW_Menu_With_Description;
-		$main_menu_id = i_get_obj( $iGlobals, 'options.menus.main' );
+		$main_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_SITE, 'key' => 'menus.main' ) );
 		$defaults = array(
 			'theme_location'  => '',
 			'menu'            => $main_menu_id,

@@ -55,7 +55,7 @@ global $pw;
 					tooltip-placement="bottom"
 					tooltip-popup-delay="1000">
 			<?php } ?>
-				<img src="<?php echo i_site_logo(); ?>">
+				<img src="<?php echo pw_site_logo(); ?>">
 			<?php
 			// End link to home page
 			if( !is_front_page() ){ ?>

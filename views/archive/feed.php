@@ -1,5 +1,6 @@
 <?php
 	global $pw;
+	//echo json_encode( $pw['view']['context'] );
 ?>
 
 <!-- ////////// FEED ////////// -->
@@ -52,15 +53,10 @@
 			//'query'	=>	$feed_query = $pw['view']['query'],
 			),
 		);
-
-		$feed_vars['feed']['blocks'] = array(
-			'offset'	=>	5,
-			'increment'	=>	6,
-			'max' 		=> 	50,
-			'template' 	=> 	'ad-block-grid',
-			'classes'	=>	'x-wide',
-		);
-
+		
+	// Apply theme filters to the feed
+	$feed_vars = apply_filters( 'theme-feed-archive', $feed_vars );
+	
 	// Insert Live Feed
 	pw_live_feed( $feed_vars );
 ?>
