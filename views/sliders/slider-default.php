@@ -1,6 +1,6 @@
 <?php
 	global $iGlobals;
-	$home_menu_id = i_get_obj( $iGlobals, 'options.home.secondary_menu' );
+	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
 ?>

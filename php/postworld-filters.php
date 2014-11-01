@@ -1,6 +1,108 @@
 <?php
 
-function i_meta_postmeta_defaults( $post ){
+////////// DEFAULT THEME OPTIONS //////////
+function pw_theme_options_filter( $options ){
+	// Set the default postworld theme options
+
+	$defaultOptions = array(
+		'posts'	=>	array(
+			'post'	=>	array(
+				'post_meta'	=>	array(
+					'i_meta'	=>	array(
+						'post_content'	=>	array(
+							'columns'	=>	2,
+							),
+						'link_url'	=>	array(
+							'label'	=>	array(
+								'show'	=>	'custom',
+								'highlight'	=>	true,
+								'tooltip'	=>	array(
+									'custom' => "Buy this Art",
+									),
+								'custom' => 'Buy Now',
+								),
+							'new_target' => true,
+							),
+						'image'	=>	array(
+							'download'	=>	true,
+							),
+						),
+					),
+				),
+			),
+		'social'	=>	array(
+			'share'	=>	array(
+				'networks'	=>	array(
+					'facebook',
+					'twitter',
+					'reddit',
+					'google_plus',
+					'pinterest',
+					),
+				),
+			'in_main_menu'		=>	true,
+			'in_main_menu_gray'	=>	true,
+			),
+		'home'	=>	array(
+			'feed'	=>	array(
+				'blocks'	=>	array(
+					'offset' => 3,
+					'increment' => 6,
+					'max' => 20,
+					'classes' => 'view-grid block-widget x-wide',
+					'template' => 'widget-grid',
+					'widgets' => array(
+						'sidebar' => null,
+						),	
+					),
+				),
+			'slider' => array(
+				'menu' =>	null,
+				'height' => 70,
+				'interval' => 5000,
+				'hyperlink' => true,
+				'no_pause' => true,
+				'show_title' => true,
+				'show_excerpt' => true,
+				),
+			),
+		);
+
+	$options = array_replace_recursive( $defaultOptions, $options );
+	return $options;
+}
+
+add_filter( 'pwGetOption-'.PW_OPTIONS_THEME, 'pw_theme_options_filter' );
+
+
+
+function theme_feed_archive_filter( $feed_vars ){
+	global $pw;
+
+	///// HOME PAGE /////
+	if( in_array( 'home', $pw['view']['context'] ) ){
+
+		///// BLOCKS : WIDGETS /////
+		// Add Feed blocks
+		$feed_vars['feed']['blocks'] = array(
+			'offset'	=>	2,
+			'increment'	=>	8,
+			'max' 		=> 	50,
+			'template' 	=> 	'widget-grid',
+			'classes'	=>	'view-grid block-widget x-wide',
+			'widgets'	=>	array(
+				'sidebar'	=>	'home-page-sidebar',
+				),
+		);
+	}
+
+	return $feed_vars;
+	
+}
+add_filter( 'theme-feed-archive', 'theme_feed_archive_filter' );
+
+
+function theme_postmeta_defaults( $post ){
 
 	// If no iMeta, set special var
 	$has_i_meta = ( isset( $post['post_meta']['i_meta'] ) ) ?
@@ -116,6 +218,6 @@ function i_meta_postmeta_defaults( $post ){
 
 }
 
-add_filter( 'pw_get_post_complete_filter', 'i_meta_postmeta_defaults' );
+add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
 ?>

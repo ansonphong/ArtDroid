@@ -1,17 +1,19 @@
 <?php
 
+define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
+
 
 ////////// CHILD STYLE MODEL //////////
-include "php/infinite-style-model.php";
+include "php/postworld-style-model.php";
 
 ////////// TAXONOMIES //////////
 include "php/taxonomies.php";
 
 ////////// POSTMETA //////////
-include "php/infinite-postmeta.php";
+include "php/postworld-postmeta.php";
 
 ////////// FILTERS //////////
-include "php/infinite-filters.php";
+include "php/postworld-filters.php";
 
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
