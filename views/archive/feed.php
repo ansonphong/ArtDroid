@@ -54,9 +54,6 @@
 			),
 		);
 		
-	// Apply theme filters to the feed
-	$feed_vars = apply_filters( 'theme-feed-archive', $feed_vars );
-	
 	// Insert Live Feed
 	pw_live_feed( $feed_vars );
 ?>

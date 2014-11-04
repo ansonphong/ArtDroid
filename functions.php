@@ -173,7 +173,7 @@ $social_settings = array(
 		array(
 			"network"     =>  "facebook",
 			"widget"      =>  "like-button",
-			"appId"       =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.facebook_app_id' ) ),
+			"appId"       =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.facebook_app_id' ) ),
 			"include_sdk" =>  true,
 			"settings"  =>  array(
 				"layout"    	=>  "button_count",
@@ -190,9 +190,9 @@ $social_settings = array(
 			"widget"      =>  "share",
 			"include_script"=>  true,
 			"settings"    =>  array(
-				"via"       =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter' ) ), //"twitter_user",
-				"related"   =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter' ) ),
-				"hashtags"  =>  i_get_option( array( 'option_name' => 'i-social', 'key' => 'networks.twitter_hashtags' ) ), //"twitter_user",
+				"via"       =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter' ) ), //"twitter_user",
+				"related"   =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter' ) ),
+				"hashtags"  =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter_hashtags' ) ), //"twitter_user",
 				"size"      =>  "small",
 				"lang"      =>  "en",
 				"dnt"       =>  "true",

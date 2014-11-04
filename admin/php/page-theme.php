@@ -28,6 +28,25 @@
 	<div class="row">
 		<div class="col-lg-6 pad-col-lg">
 
+			<!--///// LOGO /////-->
+			<div class="well">
+				<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
+				<h2>
+					<span class="icon-md"><i class="icon-image"></i></span>
+					Logo
+				</h2>
+				<div class="well">
+					<?php
+						echo pw_select_image_id( array( 
+							'option_var'	=>	'iOptions',
+							'option_key'	=>	'images.logo',
+							'slug'			=>	'logo',
+							'label'			=>	'Logo',
+							'width'			=>	'400px',
+						 	));?>
+				</div>
+			</div>
+
 			<!--///// POSTS /////-->
 			<div class="well">
 				
@@ -63,16 +82,6 @@
 					<div style="clear:both"></div>
 				</div>
 
-				<!-- SHARE SOCIAL -->
-				<div class="well">
-					<h3>
-						<span class="icon-md"><i class="icon-heart"></i></span>
-						Share Social
-					</h3>
-					<small>Include share links on each post for the following networks:</small>
-					<?php echo i_share_social_options( array( 'context' => 'siteAdmin' ) ); ?>
-					<div style="clear:both"></div>
-				</div>
 			</div>
 
 		</div>
@@ -81,18 +90,27 @@
 			<!--///// MENUS /////-->
 			<div class="well">
 				
-				<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME,'iOptions'); ?></div>
+				<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
 				<h2>
-					<i class="icon-gear"></i>
+					<i class="icon-nav-thin"></i>
 					Menus
 				</h2>
 				
 				<div class="well">
 					<!-- Main Menu -->
 					<h3>
-						<span class="icon-md"><i class="icon-nav-thin"></i></span>
 						Main Menu
 					</h3>
+
+					<span class="icon-md"><i class="icon-nav"></i></span>
+					<?php
+						echo i_select_menus( array(
+							'options_model'	=>	'options.menus',
+							'ng_model'	=>	'iOptions.menus.main',
+							));?>
+
+					<hr class="thin">
+
 					<input type="checkbox" ng-model="iOptions.social.in_main_menu" id="social_menu">
 					<label for="social_menu">Show Social Menu</label>
 
@@ -124,8 +142,7 @@
 							'options_model'	=>	'options.menus',
 							'ng_model'	=>	'iOptions.home.slider.menu',
 							'null_option'	=>	'No Menu',
-							));
-					?>
+							));?>
 
 					<div ng-hide="!iOptions.home.slider.menu">
 						<hr class="thin">
@@ -139,8 +156,7 @@
 										'mode'			=>	'menu',
 										'no_pause'		=>	true,
 										),
-								) );
-						?>
+								));?>
 					</div>
 				</div>
 
@@ -159,8 +175,7 @@
 								'options_model'	=>	'options.menus',
 								'ng_model'	=>	'iOptions.home.secondary_menu',
 								'null_option'	=>	'No Menu',
-								));
-						?>
+								));?>
 					</div>
 				</div>
 
@@ -170,9 +185,16 @@
 						<span class="icon-md"><i class="icon-grid"></i></span>
 						Blocks
 					</h3>
+					<small>
+						Blocks appear in-line the feed, and can be used to place widgets, promotional material, newsletter signups, Facebook like buttons, Twitter tweet buttons, etc.
+					</small>
+					<hr class="thin">
+					<?php
+						echo i_select_blocks_settings( array(
+							'option_var' 	=> 'iOptions',
+							'option_key'	=>	'home.feed.blocks',
 
-					<?php echo i_select_blocks_settings( array( 'ng_model' => 'iOptions.home.feed.blocks' ) ); ?>
-
+							));?>
 				</div>
 
 			</div>
