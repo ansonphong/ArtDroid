@@ -17,7 +17,7 @@ global $pw;
 	<?php wp_head(); ?>
 </head>
 <body
-	ng-app="infinite"
+	ng-app="postworld"
 	class="infinite <?php echo pw_body_classes(); ?>">
 
 	<!--
