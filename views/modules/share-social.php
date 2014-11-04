@@ -40,7 +40,7 @@
 	//https://www.facebook.com/sharer/sharer.php?u=http://phong.com
 
 	///// TWITTER LINK /////
-	$twitter_user = i_get_option(array( 'option_name' => 'i-social', 'key' => 'networks.twitter' ));
+	$twitter_user = pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter' ));
 	
 	$twitter_via = ( $twitter_user ) ?
 		'via='.urlencode($twitter_user).'&' : '';
@@ -48,7 +48,7 @@
 	$twitter_related = ( $twitter_user ) ?
 		'related='.urlencode($twitter_user).'&' : '';
 
-	$twitter_hashtags = i_get_option(array( 'option_name' => 'i-social', 'key' => 'networks.twitter_hashtags' ));
+	$twitter_hashtags = i_get_option(array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter_hashtags' ));
 	$twitter_hashtags = ( $twitter_hashtags ) ?
 		'hashtags='.urlencode($twitter_hashtags) . '&' : '';
 

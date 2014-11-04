@@ -4,7 +4,7 @@
 	class="menu-main">
 	<?php
 		$menu_walker = new PW_Menu_With_Description;
-		$main_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_SITE, 'key' => 'menus.main' ) );
+		$main_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.main' ) );
 		$defaults = array(
 			'theme_location'  => '',
 			'menu'            => $main_menu_id,
@@ -33,7 +33,7 @@
 	<?php
 
 	// Show Social Menu
-	if( i_get_obj( $iGlobals, 'options.social.in_main_menu' ) == true )
+	if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'social.in_main_menu' ) ) == true )
 		include locate_template( 'views/menus/menu-social.php' );
 	?>
 	

@@ -1,6 +1,6 @@
 <?php
 	global $iGlobals;
-	$social_menu_grayscale = i_get_obj( $iGlobals, 'options.social.in_main_menu_gray' );
+	$social_menu_grayscale = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'social.in_main_menu_gray' ) );
 ?>
 <div
 	class="module menu-social <?php if( $social_menu_grayscale ) echo 'grayscale'; ?>">

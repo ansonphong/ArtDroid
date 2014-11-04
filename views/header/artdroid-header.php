@@ -13,25 +13,18 @@ global $pw;
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
 	<title><?php wp_title(' | ', true, 'right'); ?></title>
-	<link rel="icon" type="image/png" href="<?php echo i_site_favicon(); ?>">
+	<link rel="icon" type="image/png" href="<?php echo pw_site_favicon()['url']; ?>">
 	<?php wp_head(); ?>
 </head>
 <body
 	ng-app="infinite"
 	class="infinite <?php echo pw_body_classes(); ?>">
-	
+
 	<!--
 	pw-scrollfix
 	scrollfix-y-class="scrollfix-y"
 	scrollfix-y-offset="getIdHeight('page-head') - getIdHeight('header')"
 	-->
-
-	<?php
-		//echo "context : " . $i_context . "<br>";
-		//echo "<pre>layout : " . json_encode($i_layout , JSON_PRETTY_PRINT) . "<br></pre>";
-		//echo "sidebars : " . json_encode($i_sidebars) . "<br>";
-		//echo "templates : " . json_encode( i_get_templates() , JSON_PRETTY_PRINT);
-	?>
 
 <div id="background"></div>
 
@@ -55,7 +48,7 @@ global $pw;
 					tooltip-placement="bottom"
 					tooltip-popup-delay="1000">
 			<?php } ?>
-				<img src="<?php echo pw_site_logo(); ?>">
+				<img src="<?php echo pw_get_image_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'images.logo', 'size' => 'full' ) )['url']; ?>">
 			<?php
 			// End link to home page
 			if( !is_front_page() ){ ?>
