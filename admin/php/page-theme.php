@@ -205,6 +205,7 @@
 
 	<hr class="thick">
 
+	<!--
 	<pre>iOptions: {{ iOptions | json }}</pre>
-
+	-->
 </div>
