@@ -14,7 +14,7 @@ s.parentNode.insertBefore(wf, s);
 
 
 
-infinite.directive( 'artPost', [ function( $scope ){
+postworld.directive( 'artPost', [ function( $scope ){
 	return {
 		restrict: 'AE',
 		controller: 'artPostCtrl',
@@ -28,7 +28,7 @@ infinite.directive( 'artPost', [ function( $scope ){
 }]);
 
 
-infinite.controller( 'artPostCtrl',
+postworld.controller( 'artPostCtrl',
 	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
 
@@ -124,7 +124,7 @@ infinite.controller( 'artPostCtrl',
 
 
 
-infinite.directive( 'artFeed', [ function( $scope ){
+postworld.directive( 'artFeed', [ function( $scope ){
 	return {
 		restrict: 'AE',
 		controller: 'artFeedCtrl',
@@ -138,7 +138,7 @@ infinite.directive( 'artFeed', [ function( $scope ){
 }]);
 
 
-infinite.controller( 'artFeedCtrl',
+postworld.controller( 'artFeedCtrl',
 	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
 
