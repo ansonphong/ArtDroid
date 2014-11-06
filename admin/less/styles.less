@@ -1,0 +1,49 @@
+.theme-brand{
+	@brand-primary-color:#c24b1f;
+
+	background: #000;
+	color:#bbb;
+	font-family:Roboto;
+	font-weight: 100;
+
+	a{
+		color:@brand-primary-color;
+		&:hover{
+			color: mix( @brand-primary-color, #fff, 75% );
+		}
+	}
+
+	.theme-info{
+		padding:45px 30px 10px;
+		font-size:16px;
+		opacity:.75;
+	}
+
+	h1{
+		margin-bottom:0;
+		.subhead{
+			display:inline-block;
+			font-size:24px;
+			font-family:Roboto;
+			font-weight:100;
+			margin-left:5px;
+			color: @brand-primary-color;
+		}
+	}
+
+	.artdroid-brand{
+		display:inline-block;
+		padding:20px 20px;
+		background:@brand-primary-color;
+		color:#fff;
+		font-family:Roboto;
+		font-weight:100;
+		font-size:24px;
+		letter-spacing:2px;
+		i{
+			position:relative;
+			top:1px;
+		}
+	}
+
+}
