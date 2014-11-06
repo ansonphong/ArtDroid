@@ -13,7 +13,6 @@ s.parentNode.insertBefore(wf, s);
 })();
 
 
-
 postworld.directive( 'artPost', [ function( $scope ){
 	return {
 		restrict: 'AE',

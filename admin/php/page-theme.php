@@ -21,30 +21,27 @@
 		class="postworld">
 
 	
-		<div class="pw-row">
-			<div class="pw-col-6">
-				<h1
-					style="margin-bottom:0;">
-					<span
-						style="display:inline-block; padding:10px 20px; background:#000; color:#fff; font-family:Roboto; font-weight:200; font-size:24px;">
-						<i
-							style="position:relative; top:1px;"
-							class="icon-merkaba"></i>
-						ArtDroid 
-					</span>
-					<span
-						style="display:inline-block; font-size:24px; margin-left:5px;">
-						Theme Settings
-					</span>
-				</h1>
-			</div>
-			<div class="pw-col-6">
-				<div
-					style="padding-top:30px; font-family:Roboto; font-weight: 200; font-size:16px; opacity:.75;">
-					Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a> • Designed by <a href="http://phong.com" target="_blank">Phong</a>
+		<div class="theme-brand">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>
+						<span class="artdroid-brand">
+							<i class="icon-merkaba"></i>
+							ArtDroid 
+						</span>
+						<span class="subhead">
+							Theme Settings
+						</span>
+					</h1>
+				</div>
+				<div class="col-md-6" style="text-align:right;">
+					<div class="theme-info">
+						Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a> • Designed by <a href="http://phong.com" target="_blank">Phong</a>
+					</div>
 				</div>
 			</div>
 		</div>
+		
 
 
 		<hr class="thick">
@@ -76,6 +73,7 @@
 				<div class="well">
 					
 					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
+					
 					<h2>
 						<i class="icon-pushpin"></i>
 						Posts

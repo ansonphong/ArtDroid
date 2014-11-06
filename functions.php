@@ -208,4 +208,14 @@ $social_settings = array(
 ///// ADD EDITOR STYLE /////
 add_editor_style( "/css/editor-style.css" );
 
+
+///// ADD ADMIN STYLES /////
+
+function theme_admin_enqueue() {
+	wp_enqueue_style( 'Theme-Admin-Styles', get_template_directory_uri() . '/admin/less/styles.less' );
+}
+add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
+
+
+
 ?>
