@@ -76,7 +76,7 @@ function pw_theme_options_filter( $options ){
 	return $options;
 }
 
-add_filter( 'pwGetOption-'.PW_OPTIONS_THEME, 'pw_theme_options_filter' );
+add_filter( PW_OPTIONS_THEME, 'pw_theme_options_filter' );
 
 
 

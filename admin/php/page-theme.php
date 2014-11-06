@@ -38,11 +38,11 @@
 				<div class="well">
 					<?php
 						echo pw_select_image_id( array( 
-							'option_var'	=>	'iOptions',
-							'option_key'	=>	'images.logo',
+							'ng_model'		=>	'iOptions.images.logo',
 							'slug'			=>	'logo',
 							'label'			=>	'Logo',
 							'width'			=>	'400px',
+							'display'		=>	true,
 						 	));?>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 				<div class="well">
 					<h3>
 						<span class="icon-md"><i class="icon-link"></i></span>
-						<b>Link Label</b>
+						Link Label
 					</h3>
 					<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 					<div style="clear:both"></div>

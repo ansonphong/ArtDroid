@@ -1,6 +1,6 @@
 <?php
 
-function theme_pw_styles_model( $value ){
+function theme_pw_styles_defaults( $value ){
 	$style_model = array(
 		'var'	=>	array(
 			'colors' =>	array(
@@ -59,7 +59,7 @@ function theme_pw_styles_model( $value ){
 	return $value;
 
 }
-add_filter( 'pwGetOption-'.PW_OPTIONS_STYLES, 'theme_pw_styles_model' );
+add_filter( PW_OPTIONS_STYLES, 'theme_pw_styles_defaults' );
 
 
 ////////// STYLE ADMIN //////////
@@ -242,7 +242,7 @@ function theme_pw_styles_structure( $structure = array() ){
 }
 
 // Hook in the style structure to the filter
-add_filter( 'pwOptions-styles-structure', 'theme_pw_styles_structure' );
+add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 
 // Depreciated
 add_filter( 'iOptions-i-styles-structure', 'theme_pw_styles_structure' );
