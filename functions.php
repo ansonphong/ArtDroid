@@ -5,22 +5,6 @@ define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
 define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
 
-
-////////// CHILD STYLE MODEL //////////
-include "php/postworld-style-model.php";
-
-////////// TAXONOMIES //////////
-include "php/taxonomies.php";
-
-////////// POSTMETA //////////
-include "php/postworld-postmeta.php";
-
-////////// FILTERS //////////
-include "php/postworld-filters.php";
-
-////////// ON THEME ACTIVATION //////////
-include "php/activate.php";
-
 // ADD LESS SUPPORT
 //require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
 
@@ -39,7 +23,7 @@ include "postworld/postworld.php";
 /// INCLUDE POSTWORLD ///
 if( function_exists( 'postworld_includes' ) ){
 	postworld_includes( array(
-		'mode'    => 'deploy',
+		'mode'    => 'dev',
 		'angular_version' => 'angular-1.2.25',
 		'inject'  => array( 'infinite', 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
@@ -51,6 +35,23 @@ if( function_exists( 'postworld_includes' ) ){
 
 ////////// ADMIN //////////
 include_once 'admin/php/admin.php';
+
+
+////////// CHILD STYLE MODEL //////////
+include "php/postworld-style-model.php";
+
+////////// TAXONOMIES //////////
+include "php/taxonomies.php";
+
+////////// POSTMETA //////////
+include "php/postworld-postmeta.php";
+
+////////// FILTERS //////////
+include "php/postworld-filters.php";
+
+////////// ON THEME ACTIVATION //////////
+include "php/activate.php";
+
 
 
 

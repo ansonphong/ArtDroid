@@ -22,13 +22,7 @@ add_filter( 'pw_admin_submenu', 'postworld_theme_submenu' );
 function postworld_admin_theme_page(){
 	global $child_admin;
 	i_include_scripts();
-	?>
-	<div id="infinite_admin" ng-app="infinite" class="theme">
-		<?php
-			include 'page-theme.php';
-		?>
-	</div>
-<?php }
-
+	include 'page-theme.php';
+}
 
 ?>
