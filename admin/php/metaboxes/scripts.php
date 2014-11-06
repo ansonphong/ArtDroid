@@ -1,11 +1,10 @@
 <script>
 
 	///// CONTROLLER /////
-	infiniteMetabox.controller('iMetaboxOptionsCtrl',
+	postworldMetabox.controller('pwMetaboxOptionsCtrl',
 		['$scope', 'pwPostOptions', '_', 'iOptionsData',
 			function( $scope, $pwPostOptions, $_, $iOptionsData ) {
-			//$scope.iMeta = <?php echo json_encode($iMeta); ?>;
-			
+
 			// Get tax outline by AJAX
 			$pwPostOptions.taxTerms( $scope, 'tax_terms' );
 
@@ -14,11 +13,11 @@
 
 			$scope.getSelectedOption = function( objectPath ){
 				/* objectPath = 'galleries.template'
-				 * Checks the current value of the given object path in iMeta
+				 * Checks the current value of the given object path in pwMeta
 				 * And returns the option value from $scope.options with the same slug
 				 */
 				 // Get the value of the selected option
-				 var selectedOptionSlug = $_.getObj( $scope.iMeta, objectPath );
+				 var selectedOptionSlug = $_.getObj( $scope.pwMeta, objectPath );
 				 // Get the array of options
 				 var options = $_.getObj( $scope['options'], objectPath );
 				 // Return the option where the slug equals the selected value
@@ -30,7 +29,7 @@
 					case 'inline' :
 					case 'horizontal' :
 					case 'vertical' :
-						if( $scope.iMeta.gallery.template == view )
+						if( $scope.pwMeta.gallery.template == view )
 							return true;
 						break;
 				}

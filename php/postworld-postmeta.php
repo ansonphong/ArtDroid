@@ -1,13 +1,14 @@
 <?php
 // Make filter to merge the child model
-function i_theme_postmeta_model_filter( $i_postmeta_model ){
-	$i_theme_postmeta_model = array(
+function theme_postmeta_model_filter( $pwMeta ){
+	$defaultPwMeta = array(
 		"header" => array(
 			"type"		=>	"default",
 			"image"		=>	array(
 				"height"	=>	"50",
 				),
 			"slider"	=>	array(
+				"mode" 			=> "this_post",
 				"query_vars"	=> 	array(
 					"this_post"			=>	true,	// Include this post
 					"this_post_only"	=>	true,	// Include only this post
@@ -28,8 +29,8 @@ function i_theme_postmeta_model_filter( $i_postmeta_model ){
 				"show_title"	=>	true,
 				"show_excerpt"	=>	true,
 				"hyperlink"		=>	true,
-				"height"		=>	"75%",
-				"interval"		=>	"5000",
+				"height"		=>	75,		// Percent
+				"interval"		=>	5000,	// Milliseconds
 				"no_pause"		=>	true,
 				"transition"	=>	'fade',
 				),
@@ -42,7 +43,7 @@ function i_theme_postmeta_model_filter( $i_postmeta_model ){
 			"y_scroll_distance"	=>	1000,
 			),
 		"post_content"	=>	array(
-			"columns"	=> i_get_option( array( 'key' => 'posts.post.post_meta.i_meta.post_content.columns' ) ),	//1,
+			"columns"	=> pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'posts.post.post_meta.'.PW_POSTMETA_KEY.'.post_content.columns' ) ),	//1,
 			),
 		"icon"	=>	array(
 			"class"	=>	"",
@@ -63,10 +64,10 @@ function i_theme_postmeta_model_filter( $i_postmeta_model ){
 			"new_target"	=>	"default",
 			),
 		);
-	$i_postmeta_model = array_replace_recursive( $i_postmeta_model, $i_theme_postmeta_model );
 
-	return $i_postmeta_model;
+	return array_replace_recursive( $defaultPwMeta, $pwMeta );
+	
 }
-add_filter( 'i_postmeta_model', 'i_theme_postmeta_model_filter' );
+add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );
 
 ?>

@@ -100,11 +100,11 @@ function i_should_omit_gallery( $vars ){
 		'horizontal',
 		'vertical'
 		);
-	$gallery_template = pw_get_obj( $vars, 'post.post_meta.i_meta.gallery.template' );
+	$gallery_template = pw_get_obj( $vars, 'post.post_meta.'.PW_POSTMETA_KEY.'.gallery.template' );
 	if( $gallery_template == false ){
 		$gallery_template = pw_get_wp_postmeta( array(
 				"post_id" 	=>  $vars['post_id'],
-				"meta_key"  =>  'i_meta',
+				"meta_key"  =>  PW_POSTMETA_KEY,
 				"sub_key"	=>  'gallery.template',
 				)
 			);

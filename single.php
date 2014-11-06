@@ -8,11 +8,13 @@
 ////////// PAGE ////////// ?>
 <?php
 ////////// HEAD //////////
+
 if( is_page() )
 	include locate_template( 'views/modules/page-head.php' ); 
 else if( is_single() )
 	include locate_template( 'views/modules/post-head.php' ); 
 ?>
+
 <?php
 ////////// CONTENT ////////// ?>
 <div class="page-bounds">

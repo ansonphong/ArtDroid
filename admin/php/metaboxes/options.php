@@ -2,28 +2,28 @@
 	global $pw;
 	$pwInject = $pw['inject'];
 ?>
-<div ng-controller="iMetaboxOptionsCtrl" class="pw-metabox">
+<div ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
 
 	<!-- HEADER -->
 	<div class="option-title">Header</div>
 	<div class="btn-group">
 		<label
 			ng-repeat="type in options.header.type"
-			class="btn" ng-model="iMeta.header.type" btn-radio="type.slug">
+			class="btn" ng-model="pwMeta.header.type" btn-radio="type.slug">
 			{{ type.name }}
 		</label>
 	</div>
 	
 	<!-- FEATURED IMAGE -->
-	<div ng-show="iMeta.header.type == 'featured_image'">
+	<div ng-show="pwMeta.header.type == 'featured_image'">
 		<div class="well">
 			<h3>Featured Image Options</h3>
-			<?php echo i_select_featured_image_options( array( 'ng_model' => 'iMeta.header.image' ) ); ?>
+			<?php echo i_select_featured_image_options( array( 'ng_model' => 'pwMeta.header.image' ) ); ?>
 		</div>
 	</div>
 
 	<!-- SLIDER -->
-	<div ng-show="iMeta.header.type == 'slider'">
+	<div ng-show="pwMeta.header.type == 'slider'">
 		<div class="well">
 			<h3>Slider Options</h3>
 			<?php echo i_admin_slider_options(); ?>
@@ -56,13 +56,13 @@
 
 	<!-- ICON -->
 	<div class="option-title">Icon</div>
-	<?php echo i_select_icon_options( array( 'ng_model' => 'iMeta.icon.class' ) ); ?>
+	<?php echo i_select_icon_options( array( 'ng_model' => 'pwMeta.icon.class' ) ); ?>
 	<div style="clear:both"></div>
 	<hr>
 	
 	<!-- DEV 
 	<hr><hr>
-	<pre>{{ iMeta | json }}</pre>
+	<pre>{{ pwMeta | json }}</pre>
 	-->
 	
 </div>

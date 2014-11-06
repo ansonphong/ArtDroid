@@ -40,14 +40,14 @@ postworld.controller( 'artPostCtrl',
 			true : false;
 
 		// GALLERY
-		var galleryTemplate = $_.getObj( $scope, 'post.post_meta.i_meta.gallery.template' );
+		var galleryTemplate = $_.getObj( $scope, 'post.post_meta.pw_meta.gallery.template' );
 		var hasGallery = ( !_.isEmpty( $_.getObj( $scope, 'post.gallery.posts' ) ) );
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
 
 		// HEADER
-		var header = $_.getObj( $scope, 'post.post_meta.i_meta.header.type' );
+		var header = $_.getObj( $scope, 'post.post_meta.pw_meta.header.type' );
 		var headerDefault = ( header == 'default' || header == false );
 		var headerImage = ( header == 'featured_image' );
 		var headerSlider = ( header == 'headerSlider' );
