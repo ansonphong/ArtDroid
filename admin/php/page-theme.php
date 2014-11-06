@@ -20,34 +20,31 @@
 		ng-cloak
 		class="postworld">
 
-		
-			<div class="pw-row">
-				<div class="pw-col-6">
-					<h1
-						style="margin-bottom:0;">
-						<span
-							style="display:inline-block; padding:10px 20px; background:#000; color:#fff; font-family:Roboto; font-weight:200; font-size:24px;">
-							<i
-								style="position:relative; top:1px;"
-								class="icon-merkaba"></i>
-							ArtDroid 
-						</span>
-						
-						<span
-							style="display:inline-block; font-size:24px; margin-left:5px;">
-							Theme Settings
-						</span>
-					</h1>
-				</div>
-				<div class="pw-col-6">
-					<div
-						style="padding-top:30px; font-family:Roboto; font-weight: 200; font-size:16px; opacity:.75;">
-						Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a> • Designed by <a href="http://phong.com" target="_blank">Phong</a>
-					</div>
+	
+		<div class="pw-row">
+			<div class="pw-col-6">
+				<h1
+					style="margin-bottom:0;">
+					<span
+						style="display:inline-block; padding:10px 20px; background:#000; color:#fff; font-family:Roboto; font-weight:200; font-size:24px;">
+						<i
+							style="position:relative; top:1px;"
+							class="icon-merkaba"></i>
+						ArtDroid 
+					</span>
+					<span
+						style="display:inline-block; font-size:24px; margin-left:5px;">
+						Theme Settings
+					</span>
+				</h1>
+			</div>
+			<div class="pw-col-6">
+				<div
+					style="padding-top:30px; font-family:Roboto; font-weight: 200; font-size:16px; opacity:.75;">
+					Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a> • Designed by <a href="http://phong.com" target="_blank">Phong</a>
 				</div>
 			</div>
-	
-
+		</div>
 
 
 		<hr class="thick">
@@ -71,7 +68,9 @@
 								'width'			=>	'400px',
 							 	));?>
 					</div>
+
 				</div>
+
 
 				<!--///// POSTS /////-->
 				<div class="well">
@@ -102,7 +101,7 @@
 					<div class="well">
 						<h3>
 							<span class="icon-md"><i class="icon-link"></i></span>
-							<b>Link Label</b>
+							Link Label
 						</h3>
 						<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 						<div style="clear:both"></div>
