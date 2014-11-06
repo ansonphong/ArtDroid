@@ -8,7 +8,7 @@ function pw_theme_options_filter( $options ){
 		'posts'	=>	array(
 			'post'	=>	array(
 				'post_meta'	=>	array(
-					'i_meta'	=>	array(
+					'pw_meta'	=>	array(
 						'post_content'	=>	array(
 							'columns'	=>	2,
 							),
@@ -142,41 +142,41 @@ add_filter( 'theme_feed_preprocess', 'theme_feed_preprocess_blocks_background_im
 
 function theme_postmeta_defaults( $post ){
 
-	// If no iMeta, set special var
-	$has_i_meta = ( isset( $post['post_meta']['i_meta'] ) ) ?
+	// If no pwMeta, set special var
+	$has_pw_meta = ( isset( $post['post_meta'][PW_POSTMETA_KEY] ) ) ?
 		true : false ;
 
 	// Return early if  in edit mode
 	if( $post['mode'] == 'edit' )
 		return $post;
 
-	// If it had no initial i_meta object, return early
-	if( !$has_i_meta )
+	// If it had no initial pw_meta object, return early
+	if( !$has_pw_meta )
 		return $post;
 
 	// Check for Defaults
 	$iOptions = i_get_option( array( 'option_name'	=>	'i-options' ) );
-	$default_i_meta = i_get_obj( $iOptions, 'posts.post.post_meta.i_meta' );
+	$default_pw_meta = _get( $iOptions, 'posts.post.post_meta.'.PW_POSTMETA_KEY );
 
-	// If default i_meta is not set
-	if( empty( $default_i_meta ) )
+	// If default pw_meta is not set
+	if( empty( $default_pw_meta ) )
 		return $post;
 	
 	// Use default meta as default values
-	$post = i_set_obj( $post, 'post_meta.i_meta', array() );
-	$post['post_meta']['i_meta'] = array_replace_recursive(
-		$default_i_meta,
-		$post['post_meta']['i_meta']
+	$post = _set( $post, 'post_meta.'.PW_POSTMETA_KEY, array() );
+	$post['post_meta'][PW_POSTMETA_KEY] = array_replace_recursive(
+		$default_pw_meta,
+		$post['post_meta'][PW_POSTMETA_KEY]
 		);
 	
 	//////////////////// SET DEFAULT VALUES ////////////////////
 	////////// DOWNLOAD IMAGE //////////
-	$post_value = i_get_obj( $post, 'post_meta.i_meta.image.download' ); // $post['post_meta']['i_meta']['image']['download'];
-	$site_value = i_get_obj( $default_i_meta, 'image.download' );
+	$post_value = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.image.download' ); // $post['post_meta'][PW_POSTMETA_KEY]['image']['download'];
+	$site_value = _get( $default_pw_meta, 'image.download' );
 	// Override 'default' value with the default value
 	if( $post_value == 'default' && $mode != 'edit' ){
 		// Set in post
-		$post['post_meta']['i_meta']['image']['download'] = $site_value;
+		$post['post_meta'][PW_POSTMETA_KEY]['image']['download'] = $site_value;
 	}
 	
 	////////// LINK URL //////////
@@ -185,12 +185,12 @@ function theme_postmeta_defaults( $post ){
 	// ENABLE ATTACHMENTS TO SAVE IMETA
 
 	///// LABEL : SHOW /////
-	$post_obj = i_get_obj( $post, 'post_meta.i_meta.link_url' );
-	$site_obj = i_get_obj( $default_i_meta, 'link_url' );
+	$post_obj = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url' );
+	$site_obj = _get( $default_pw_meta, 'link_url' );
 
 	if( $post_obj == false && $site_obj != false ){
 
-		$post = i_set_obj( $post, 'post_meta.i_meta.link_url', $site_obj );
+		$post = i_set_obj( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url', $site_obj );
 
 	} else{
 		$new_obj = $post_obj;
@@ -246,12 +246,12 @@ function theme_postmeta_defaults( $post ){
 		}
 
 		// Set values into the post
-		$post['post_meta']['i_meta']['link_url'] = $new_obj;
+		$post['post_meta'][PW_POSTMETA_KEY]['link_url'] = $new_obj;
 	}
 
 
 	///// RETURN /////	
-	//$post = i_set_obj( $post, "post_meta.i_meta.defaults", $default_i_meta );
+	//$post = i_set_obj( $post, "post_meta.pw_meta.defaults", $default_pw_meta );
 	return $post;	
 
 }

@@ -2,7 +2,7 @@
 	global $pw;
 	global $i_paths;
 	$child_theme_url = $i_paths['child_theme']['url'];
-	$i_meta_header = i_get_postmeta_key( array( "key" => "header" ));
+	$i_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
 ?>
 
 <header>

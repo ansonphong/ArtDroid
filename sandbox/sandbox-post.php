@@ -15,7 +15,7 @@
 	$post = array(
 		"ID"	=>	309,
 		"post_meta"	=>	array(
-			"i_meta"	=>	array( "one" => "two" ),
+			"pw_meta"	=>	array( "one" => "two" ),
 			),
 		);
 

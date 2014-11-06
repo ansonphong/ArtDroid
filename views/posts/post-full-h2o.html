@@ -7,7 +7,7 @@
 	<!-- GALLERY : HORIZONTAL -->
 	<div
 		class="media-viewer"
-		window-height="{{ post.post_meta.i_meta.gallery.height }}"
+		window-height="{{ post.post_meta.pw_meta.gallery.height }}"
 		ng-show="showView('galleryHorizontal')">
 		<div
 			style="height:100%;">
@@ -32,7 +32,7 @@
 						class="scroll-inner"
 						infinite-x-scroll
 						scroll-action="galleryGetNext( 2 )"
-						scroll-distance="{{ post.post_meta.i_meta.gallery.x_scroll_distance }}"
+						scroll-distance="{{ post.post_meta.pw_meta.gallery.x_scroll_distance }}"
 						scroll-disabled="!showView('galleryHorizontal')"
 						scroll-parent>
 						<!-- GALLERY IMAGE -->
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 
-	{% if post.post_meta.i_meta.header.type == 'featured_image' %}
+	{% if post.post_meta.pw_meta.header.type == 'featured_image' %}
 		<!--//// HEADER TYPE : FEATURED IMAGE /////
 		<img
 			pw-src="post.image.sizes.xlarge.url"
@@ -90,14 +90,14 @@
 
 				<h1>
 					<span class="icon">
-						{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
+						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
 							<i class="glyphicon glyphicon-arrow-down"></i>
 						{% endif %} 
-						{% if post.post_meta.i_meta.gallery.template == 'horizontal' %}
+						{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
 							<i class="glyphicon glyphicon-arrow-right"></i>
 						{% endif %}
-						{% if post.post_meta.i_meta.icon.class %}
-							<i class="{{post.post_meta.i_meta.icon.class}}"></i>
+						{% if post.post_meta.pw_meta.icon.class %}
+							<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}
@@ -175,7 +175,7 @@
 					<!-- DOWNLOAD -->
 					<div
 						class="download unit pull-right"
-						ng-show="post.post_meta.i_meta.image.download || post.post_type == 'attachment'"
+						ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
 						tooltip="Download Image"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
@@ -190,16 +190,16 @@
 					<!-- LINK -->
 					<div
 						class="link unit pull-right"
-						ng-class="{ 'highlight-color': post.post_meta.i_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.i_meta.link_url.label.show == true || post.post_meta.i_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-						tooltip="{{ post.post_meta.i_meta.link_url.label.tooltip.custom }}"
+						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
+						ng-show="post.post_meta.pw_meta.link_url.label.show == true || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
 						<a
 							pw-href="post.link_url"
-							pw-target="post.post_meta.i_meta.link_url.new_target">
+							pw-target="post.post_meta.pw_meta.link_url.new_target">
 							<i class="icon-crosshairs"></i>
-							{{ post.post_meta.i_meta.link_url.label.custom }}
+							{{ post.post_meta.pw_meta.link_url.label.custom }}
 						</a>
 					</div>
 
@@ -218,29 +218,29 @@
 	<!--
 	<hr>
 	<span ng-bind="showView('galleryHorizontal')"></span> // 
-	<span ng-bind="post.post_meta.i_meta | json"></span>
+	<span ng-bind="post.post_meta.pw_meta | json"></span>
 	-->
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post_content columns-{{post.post_meta.i_meta.post_content.columns}}">
+		<div class="post_content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
 	{% if !post.post_content %}
 		<!-- CONTENT -->
-		<div class="post_content columns-{{post.post_meta.i_meta.post_content.columns}}">
+		<div class="post_content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_excerpt | safe }}
 		</div>
 	{% endif %}
 
 
-	{% if post.post_meta.i_meta.gallery.template == 'vertical' %}
+	{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
 		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
 		<div
 			ng-show="showView('galleryVertical')"
 			class="media-viewer"
-			window-width="{{post.post_meta.i_meta.gallery.width}}">
+			window-width="{{post.post_meta.pw_meta.gallery.width}}">
 			<div
 				pw-infinite-gallery
 				gallery-preload="2"
@@ -252,8 +252,8 @@
 							class="scroll-inner"
 							infinite-y-scroll
 							scroll-action="galleryGetNext( 2 )"
-							scroll-disabled=" post.post_meta.i_meta.gallery.template != 'vertical' "
-							scroll-distance="{{ post.post_meta.i_meta.gallery.y_scroll_distance }}">
+							scroll-disabled=" post.post_meta.pw_meta.gallery.template != 'vertical' "
+							scroll-distance="{{ post.post_meta.pw_meta.gallery.y_scroll_distance }}">
 							<!-- GALLERY IMAGE -->
 							<div
 								class="gallery-image"
