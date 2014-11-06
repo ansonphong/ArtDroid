@@ -12,9 +12,9 @@ function theme_pw_styles_model( $value ){
 				'secondary-color-medium'	=>	'#ad4200',
 				'secondary-color-dark'		=>	'#812c00',
 
-				'neutral-color-light'		=>	'#e4ded2',
-				'neutral-color-medium'		=>	'#8f877b',
-				'neutral-color-dark'		=>	'#4f422f',
+				'neutral-color-light'		=>	'#dfdfdf',
+				'neutral-color-medium'		=>	'#808080',
+				'neutral-color-dark'		=>	'#2d2d2d',
 
 				'global-foreground-color'	=>	'#ffffff',
 				'global-background-color'	=>	'#000000',
@@ -59,7 +59,7 @@ function theme_pw_styles_model( $value ){
 	return $value;
 
 }
-add_filter( 'pwGetOption-'.PW_OPTIONS_STYLES, 'theme_pw_styles_model' );
+add_filter( PW_OPTIONS_STYLES, 'theme_pw_styles_model' );
 
 
 ////////// STYLE ADMIN //////////
@@ -242,7 +242,7 @@ function theme_pw_styles_structure( $structure = array() ){
 }
 
 // Hook in the style structure to the filter
-add_filter( 'pwOptions-styles-structure', 'theme_pw_styles_structure' );
+add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 
 // Depreciated
 add_filter( 'iOptions-i-styles-structure', 'theme_pw_styles_structure' );
