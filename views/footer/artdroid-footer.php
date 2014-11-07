@@ -10,7 +10,7 @@
 	class="i-transition-fadein"
 	pw-timeout="2000"
 	timeout-action="addClass('fadein-on')">
-	<div class="page-bounds">
+	<div class="page-width">
 		
 		<?php
 		// H2O

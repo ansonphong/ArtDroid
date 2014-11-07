@@ -61,7 +61,11 @@ function theme_pw_styles_defaults( $value ){
 		'posts'	=>	array(
 
 			'grid'	=>	array(
-				'grid-background-size'	=>	'cover',
+				'grid-image-size'		=>	'cover',
+				'grid-unit-padding'		=>	'1px',
+				'grid-unit-border'		=>	'1px solid transparent',
+				'grid-title-background'	=>	'fade( @neutral-color-dark, 80% )',
+				'grid-title-align'		=>	'left',
 				),
 
 			),
@@ -86,7 +90,6 @@ function theme_pw_styles_defaults( $value ){
 }
 
 add_filter( PW_OPTIONS_STYLES, 'theme_pw_styles_defaults' );
-
 
 ////////// STYLE ADMIN //////////
 function theme_pw_styles_structure( $structure = array() ){
@@ -261,7 +264,7 @@ function theme_pw_styles_structure( $structure = array() ){
 						array(
 							"name"			=>	"Grid Gutter Width",
 							"key"			=>	"grid-gutter-width",
-							"input"			=>	"pixels",
+							"input"			=>	"text",
 							"description"	=>	"Space between columns"
 							),
 						),
@@ -326,6 +329,7 @@ function theme_pw_styles_structure( $structure = array() ){
 			"key"	=>	"posts",
 			"icon"	=>	"icon-circle-medium",
 			"values"	=>	array(
+
 				///// BOOTSTRAP /////
 				array(
 					'name'	=>	'Grid',
@@ -333,14 +337,43 @@ function theme_pw_styles_structure( $structure = array() ){
 					'icon'	=>	'icon-th',
 					'values'	=>	array(
 						array(
-							"name"			=>	"Grid Background Size",
-							"key"			=>	"grid-background-size",
-							"input"			=>	"pixels",
+							"name"			=>	"Grid Image Size",
+							"key"			=>	"grid-image-size",
+							"input"			=>	"select",
+							"ng_options"	=>	"options.style.backgroundSize",
 							"description"	=>	"How the images are sized in the grid"
+							),
+						array(
+							"name"			=>	"Grid Unit Padding",
+							"key"			=>	"grid-unit-padding",
+							"input"			=>	"text",
+							"description"	=>	"How much space around each grid unit"
+							),
+						array(
+							"name"			=>	"Grid Unit Border",
+							"key"			=>	"grid-unit-border",
+							"input"			=>	"text",
+							"description"	=>	"The border around each grid unit"
+							),
+						array(
+							"name"			=>	"Grid Title Background",
+							"key"			=>	"grid-title-background",
+							"input"			=>	"text",
+							"description"	=>	"The backgroud color of the title"
+							),
+						array(
+							"name"			=>	"Grid Title Align",
+							"key"			=>	"grid-title-align",
+							"input"			=>	"select",
+							"ng_options"	=>	"options.style.textAlign",
+							"description"	=>	"The alignment of the title text"
 							),
 						),
 					),
+
+
 				),
+
 			),
 
 
