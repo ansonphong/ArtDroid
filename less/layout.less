@@ -1,18 +1,16 @@
-.page-bounds(){
-
-	/*
-	@media @mobile { max-width:95%; }
-	@media @tablet-and-below { max-width:95%; }
-	@media @desktop-and-above { max-width:95%; }
-	@media @full { max-width:(@screen-lg*0.95); }
-	*/
-	max-width:100%;
-	transition:ease width @layout-transition-time;
+.page-width(){
+	@media @full { width:@page-lg-width; }
+	@media @desktop-and-above { width:@page-md-width; }
+	@media @tablet-and-below { width:@page-sm-width; }
+	@media @mobile { width:@page-xs-width; }
+	
+	max-width:@page-max-width;
+	transition:linear width .33s;
 	margin:auto;
-
 }
 
-.page-bounds{ .page-bounds(); }
+.page-width{ .page-width(); }
+
 
 .col-content > .media-embed{
 	padding:20px 0;
