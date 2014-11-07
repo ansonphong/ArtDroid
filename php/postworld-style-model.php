@@ -2,35 +2,26 @@
 
 function theme_pw_styles_defaults( $value ){
 	$style_model = array(
-		'var'	=>	array(
-			'colors' =>	array(
-				'primary-color-light'		=>	'#bcd5e3',
-				'primary-color-medium'		=>	'#5a84ba',
-				'primary-color-dark'		=>	'#28538a',
-
-				'secondary-color-light'		=>	'#d8b883',
-				'secondary-color-medium'	=>	'#ad4200',
-				'secondary-color-dark'		=>	'#812c00',
-
-				'neutral-color-light'		=>	'#dfdfdf',
-				'neutral-color-medium'		=>	'#808080',
-				'neutral-color-dark'		=>	'#2d2d2d',
-
-				'global-foreground-color'	=>	'#ffffff',
+		'colors'	=>	array(
+			'core' =>	array(
 				'global-background-color'	=>	'#000000',
+				'global-foreground-color'	=>	'#ffffff',
+				
+				'primary-color-light'		=>	'#d8b883',
+				'primary-color-medium'		=>	'#ad4200',
+				'primary-color-dark'		=>	'#812c00',
+
+				'secondary-color-light'		=>	'@primary-color-light',
+				'secondary-color-medium'	=>	'@primary-color-medium',
+				'secondary-color-dark'		=>	'@primary-color-dark',
+
+				'neutral-color-light'		=>	'#e4ded2',
+				'neutral-color-medium'		=>	'#7a6357',
+				'neutral-color-dark'		=>	'#2e2c24',
 
 				'highlight-color-light'		=>	'#ffac7f',
 				'highlight-color-medium'	=>	'#ff5a00',
 				'highlight-color-dark'		=>	'#802d00',
-
-				),
-
-			'bootstrap'	=>	array(
-				'grid-gutter-width'	=>	'0px',
-				),
-
-			'header'=>	array(
-				'header-image-height'	=>	'260px',
 				),
 
 			'footer'=>	array(
@@ -48,12 +39,46 @@ function theme_pw_styles_defaults( $value ){
 				'widget-highlight-color'	=>	'@primary-color-light',
 				),
 
-			//'galleries'
-				// Add default width for vertical scroll galleries
-				// Add default height for horizontal scroll galleries
+			
+			),
+
+		'layout'	=>	array(
+
+			'bootstrap'	=>	array(
+				'grid-gutter-width'	=>	'0px',
+				),
+
+			'page'	=>	array(
+				'page-xs-width'		=>	'100%',
+				'page-sm-width'		=>	'95%',
+				'page-md-width'		=>	'90%',
+				'page-lg-width'		=>	'85%',
+				'page-max-width'	=>	'1200px',
+				),
+
+			),
+
+		'posts'	=>	array(
+
+			'grid'	=>	array(
+				'grid-background-size'	=>	'cover',
+				),
+
 			),
 
 		);
+
+
+	//'galleries'
+	// Add default width for vertical scroll galleries
+	// Add default height for horizontal scroll galleries
+
+
+	/*
+	'grid'	=>	array(
+				'grid-background-size'	=>	'cover',
+				),
+	*/
 
 	$value = array_replace_recursive( $style_model, $value ); 
 	return $value;
@@ -68,16 +93,16 @@ function theme_pw_styles_structure( $structure = array() ){
 
 	$theme_structure = array(
 		array(
-			"name"	=>	"Variables",
-			"key"	=>	"var",
-			"icon"	=>	"icon-code",
+			"name"	=>	"Colors",
+			"key"	=>	"colors",
+			"icon"	=>	"icon-droplet",
 			"values"	=>	array(
 
 				///// COLORS /////
 				array(
-					"name"		=>	"Colors",
-					"key"		=>	"colors",
-					"icon"		=>	"icon-droplet",
+					"name"		=>	"Core",
+					"key"		=>	"core",
+					"icon"		=>	"icon-triadic-2",
 					"values"	=>	array(
 						array(
 							"name"			=>	"Background Color",
@@ -170,21 +195,6 @@ function theme_pw_styles_structure( $structure = array() ){
 						),
 					),
 
-				///// BOOTSTRAP /////
-				array(
-					'name'	=>	'Bootstrap',
-					'key'	=>	'bootstrap',
-					'icon'	=>	'icon-grid-2',
-					'values'	=>	array(
-						array(
-							"name"			=>	"Grid Gutter Width",
-							"key"			=>	"grid-gutter-width",
-							"input"			=>	"pixels",
-							"description"	=>	"Space between columns"
-							),
-						),
-					),
-
 
 				///// SLIDERS /////
 				array(
@@ -232,7 +242,108 @@ function theme_pw_styles_structure( $structure = array() ){
 
 
 				),
+
 			),
+
+		array(
+			"name"	=>	"Layout",
+			"key"	=>	"layout",
+			"icon"	=>	"icon-th-large-2",
+			"values"	=>	array(
+
+
+				///// BOOTSTRAP /////
+				array(
+					'name'	=>	'Bootstrap',
+					'key'	=>	'bootstrap',
+					'icon'	=>	'icon-grid-2',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Grid Gutter Width",
+							"key"			=>	"grid-gutter-width",
+							"input"			=>	"pixels",
+							"description"	=>	"Space between columns"
+							),
+						),
+					),
+
+
+				///// PAGE /////
+				array(
+					'name'	=>	'Page',
+					'key'	=>	'page',
+					'icon'	=>	'icon-th-large',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Width (Extra Small)",
+							"key"			=>	"page-xs-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the layout on mobile devices",
+							"icon"			=>	"icon-mobile"
+							),
+						array(
+							"name"			=>	"Width (Small)",
+							"key"			=>	"page-sm-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the layout on larger mobile devices",
+							"icon"			=>	"icon-mobile-wide"
+							),
+						array(
+							"name"			=>	"Width (Medium)",
+							"key"			=>	"page-md-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the layout on wide tablets",
+							"icon"			=>	"icon-tablet"
+							),
+						array(
+							"name"			=>	"Width (Large)",
+							"key"			=>	"page-lg-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the layout on desktop and laptops",
+							"icon"			=>	"icon-laptop"
+							),
+						array(
+							"name"			=>	"Maximum Width",
+							"key"			=>	"page-max-width",
+							"input"			=>	"text",
+							"description"	=>	"The maximum width of the page layout",
+							"icon"			=>	"icon-arrows-h"
+							),
+
+						),
+					),
+
+
+
+
+
+				),
+			),
+
+
+		array(
+			"name"	=>	"Posts",
+			"key"	=>	"posts",
+			"icon"	=>	"icon-circle-medium",
+			"values"	=>	array(
+				///// BOOTSTRAP /////
+				array(
+					'name'	=>	'Grid',
+					'key'	=>	'grid',
+					'icon'	=>	'icon-th',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Grid Background Size",
+							"key"			=>	"grid-background-size",
+							"input"			=>	"pixels",
+							"description"	=>	"How the images are sized in the grid"
+							),
+						),
+					),
+				),
+			),
+
+
 		);
 
 
