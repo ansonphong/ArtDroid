@@ -16,8 +16,6 @@
 
 	switch( $pw['view']['type'] ){
 
-		// Add taxonomy query
-		// MAYBE OBSOLETE ---
 		case 'archive-taxonomy':
 			$feed_query['tax_query'] = array(
 				array(
