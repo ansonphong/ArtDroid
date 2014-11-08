@@ -22,8 +22,12 @@ include "postworld/postworld.php";
 
 /// INCLUDE POSTWORLD ///
 if( function_exists( 'postworld_includes' ) ){
+
+	$postworld_mode = ( defined('POSTWORLD_MODE') ) ?
+		POSTWORLD_MODE : 'deploy';
+
 	postworld_includes( array(
-		'mode'    => 'dev',
+		'mode'    => $postworld_mode,
 		'angular_version' => 'angular-1.2.25',
 		'inject'  => array( 'infinite', 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
 	));
