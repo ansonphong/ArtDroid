@@ -51,7 +51,7 @@ $pwSiteGlobals = array(
 		'wp_postmeta' => array(
 			'json_meta_keys' => array(
 				'event',
-				PW_POSTMETA_KEY,
+				'pw_meta',
 				),
 			),
 		),
