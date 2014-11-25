@@ -217,6 +217,4 @@ function theme_admin_enqueue() {
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
-
-
 ?>
