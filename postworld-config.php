@@ -14,6 +14,16 @@ global $template_paths;
 global $pwSiteGlobals;
 $pwSiteGlobals = array(
 
+	'modules'	=>	array(
+		'site',
+		'layouts',
+		'sidebars',
+		'styles',
+		'social',
+		'feeds',
+		'backgrounds',
+		),
+
 	'wp_admin'	=>	array(
 		'metabox'	=>	array(
 			'link_url'	=>	array(
