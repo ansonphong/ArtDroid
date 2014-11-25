@@ -3,8 +3,6 @@
 ///// INSTALL POSTWORLD /////
 add_action("after_switch_theme", "postworld_install", 10 , 2);  
 
-
-
 function i_activate_expanse($oldname, $oldtheme=false) {
 
 	///// ADD FEATURE TERMS /////
@@ -42,6 +40,7 @@ function i_activate_expanse($oldname, $oldtheme=false) {
 
 }
 
+// DISABLED FOR NOW
 //add_action("after_switch_theme", "i_activate_expanse", 10 ,  2);  
 
 

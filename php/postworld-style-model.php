@@ -389,9 +389,4 @@ function theme_pw_styles_structure( $structure = array() ){
 // Hook in the style structure to the filter
 add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 
-// Depreciated
-add_filter( 'iOptions-i-styles-structure', 'theme_pw_styles_structure' );
-
-
-
 ?>

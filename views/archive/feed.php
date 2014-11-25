@@ -6,7 +6,7 @@
 	//////////// FEED //////////
 	// Setup Query
 	$feed_query = array(
-		'post_type'			=>	'any',
+		'post_type'			=>	'post',
 		'post_status'		=>	'publish',
 		'fields'			=>	'preview',
 		'posts_per_page'	=>	500,
