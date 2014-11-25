@@ -155,7 +155,7 @@ function theme_postmeta_defaults( $post ){
 		return $post;
 
 	// Check for Defaults
-	$iOptions = i_get_option( array( 'option_name'	=>	'i-options' ) );
+	$iOptions = pw_get_option( array( 'option_name'	=>	PW_OPTIONS_THEME ) );
 	$default_pw_meta = _get( $iOptions, 'posts.post.post_meta.'.PW_POSTMETA_KEY );
 
 	// If default pw_meta is not set
@@ -190,7 +190,7 @@ function theme_postmeta_defaults( $post ){
 
 	if( $post_obj == false && $site_obj != false ){
 
-		$post = i_set_obj( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url', $site_obj );
+		$post = _set( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url', $site_obj );
 
 	} else{
 		$new_obj = $post_obj;
@@ -251,7 +251,7 @@ function theme_postmeta_defaults( $post ){
 
 
 	///// RETURN /////	
-	//$post = i_set_obj( $post, "post_meta.pw_meta.defaults", $default_pw_meta );
+	//$post = _set( $post, "post_meta.pw_meta.defaults", $default_pw_meta );
 	return $post;	
 
 }
