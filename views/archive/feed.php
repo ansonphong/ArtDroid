@@ -1,7 +1,5 @@
 <?php
 	global $pw;
-	//echo json_encode( $pw['view']['context'] );
-	$view_context = $pw['view']['context'];
 
 	//////////// FEED //////////
 	// Setup Query
@@ -13,11 +11,11 @@
 		);
 
 	/// DATE ARCHIVE ///
-	if( in_array( 'archive-date', $view_context ) ){
+	if( in_array( 'archive-date', $pw['view']['context'] ) ){
 		$feed_query = array_replace_recursive($pw['view']['query'], $feed_query);
 	}
 	/// TAXONOMY ARCHIVE ///
-	else if( in_array( 'archive-taxonomy', $view_context ) ){
+	else if( in_array( 'archive-taxonomy', $pw['view']['context'] ) ){
 		$feed_query['tax_query'] = array(
 			array(
 				'taxonomy'	=>	$pw['view']['term']['taxonomy'],
