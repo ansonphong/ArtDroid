@@ -55,13 +55,13 @@
 						<i class="glyphicon glyphicon-calendar"></i>
 						<?php
 							// YEAR
-							echo $pw['view']['query']['year'];
+							//echo $pw['query']['year'];
 							// MONTH
-							if( !empty( $pw['view']['query']['monthnum'] ) )
-								echo " / " . $pw['view']['query']['monthnum'];
+							if( !empty( $pw['query']['monthnum'] ) )
+								echo " / " . $pw['query']['monthnum'];
 							// DAY
-							if( !empty( $pw['view']['query']['day'] ) )
-								echo " / " . $pw['view']['query']['day'];
+							if( !empty( $pw['query']['day'] ) )
+								echo " / " . $pw['query']['day'];
 							?>
 					</h1>
 
