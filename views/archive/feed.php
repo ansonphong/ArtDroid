@@ -12,7 +12,7 @@
 
 	/// DATE ARCHIVE ///
 	if( in_array( 'archive-date', $pw['view']['context'] ) ){
-		$feed_query = array_replace_recursive($pw['view']['query'], $feed_query);
+		$feed_query = array_replace_recursive($pw['query'], $feed_query);
 	}
 	/// TAXONOMY ARCHIVE ///
 	else if( in_array( 'archive-taxonomy', $pw['view']['context'] ) ){
@@ -36,7 +36,7 @@
 				'current'	=>	'grid',
 				),
 			'query'	=>	$feed_query,
-			//'query'	=>	$feed_query = $pw['view']['query'],
+			//'query'	=>	$feed_query = $pw['query'],
 			),
 		);
 		
