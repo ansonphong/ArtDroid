@@ -1,5 +1,4 @@
 
-
 </div> <!-- END #content -->
 
 <div class="clearfix"></div>
@@ -16,32 +15,38 @@
 		// H2O
 		global $pw;
 		global $post;
-		global $iGlobals;
 
 		// Import Data
 		$footer_data = array();
-		$i_social = $iGlobals['social'];
-		$footer_data['contact'] = $i_social['contact'];
+		$pw_social = pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL ) );
+		$footer_data['contact'] = $pw_social['contact'];
 
 		$footer_data['url'] = array();
 		$footer_data['url']['site_url'] = get_site_url();
 		
-		$footer_data['social_menu'] = i_social_menu( array( 'size' => 32, 'style' => 'default' , 'meta' => array( 'tooltip-placement' => 'top' ) ) );
+		$footer_data['social_menu'] = i_social_menu(
+			array(
+				'size' => 32,
+				'style' => 'default',
+				'meta' => array(
+					'tooltip-placement' => 'top'
+					)
+				)
+			);
 
 		// Get sub-pages of current page
 		$footer_data['subpages'] = (array) pw_query(
 			array(
 				"post_parent" => $post->ID,
-				"post_type"	=>	"any",
+				"post_type"	=>	"page",
 				"fields" => array( "ID", "post_title", "post_permalink")
 				)
 			)->posts;
 
 		// Run H2O
-		//require_once $pw['paths']['postworld_dir'].'/lib/h2o/h2o.php';
-		$h2o = new h2o( locate_template( "views/modules/page-foot.php" ) );
-		$footer_html = $h2o->render($footer_data);
-		echo $footer_html;
+		$h2o = new h2o( locate_template( 'views/modules/page-foot.php' ) );
+		echo $h2o->render($footer_data);
+		
 		?>
 
 	</div>

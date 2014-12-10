@@ -5,7 +5,7 @@ include "metaboxes.php";
 function postworld_theme_submenu( $submenu ){
 	global $pw;
 	$submenu['theme'] = array(
-		'parent_slug'	=> $pw['slug'],
+		'parent_slug'	=> $pw['info']['slug'],
 		'page_title' 	=> 'Theme Settings',
 		'menu_title' 	=> 'Theme Settings',
 		'capability' 	=> 'manage_options',

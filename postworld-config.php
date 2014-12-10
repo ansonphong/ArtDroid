@@ -183,7 +183,7 @@ $pwSiteGlobals = array(
 				),
 			),
 
-	'post_views'	=> array( 'detail', 'grid', 'grid-horizontal', 'full' ),
+	'post_views'	=> array( 'modal', 'detail', 'grid', 'grid-horizontal', 'full' ),
 
 	'language'	=>	array(
 		
