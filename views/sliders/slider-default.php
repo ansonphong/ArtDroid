@@ -1,15 +1,14 @@
 <?php
-	global $iGlobals;
 	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
 ?>
 <script>
-	function <?php echo $slider['instance']; ?>($scope) {
+	postworld.controller( '<?php echo $slider['instance']; ?>', [ '$scope', function( $scope ){
 		$scope.slider = <?php echo json_encode($slider); ?>;
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
 		$scope.slides = <?php echo json_encode($posts); ?>;
-	}
+	}]);
 </script>
 <div
 	id="<?php echo $slider['id']; ?>"
@@ -27,21 +26,6 @@
 				echo ' no-transition="true" ';
 		?>
 		ng-cloak>
-		<?php
-		///// FRONT PAGE /////
-		if( is_front_page() && 0 ){?>
-			<!-- LOGO OVERLAY -->
-			<div
-				class="logo-overlay"
-				pw-timeout="<?php echo $slider['interval']; ?>"
-				timeout-action="addClass('fadeout')">
-				<img
-					src="<?php echo i_site_logo_overlay(); ?>"
-					class="logo"
-					parallax
-					parallax-ratio="0.5">
-			</div>
-		<?php } ?>
 		
 		<slide class="slide" ng-repeat="slide in slides" active="slide.active">
 			<?php if( $slider['hyperlink'] == true ){ ?>
@@ -49,7 +33,7 @@
 			<?php } ?>
 				<div
 					class="slide-frame"
-					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
+					style="background-image: url( {{slide.image.sizes.xwide.url}}); "
 					parallax-background
 					parallax-ratio="-0.6">
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
