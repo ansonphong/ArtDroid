@@ -1,6 +1,6 @@
 <!-- INFINITE HEADER -->
 <?php
-	i_header();
+	pw_header();
 	global $post;
 ?>
 
@@ -18,19 +18,19 @@
 	}
 	
 	// Create the main layout
-	global $iGlobals;
+	global $pw;
 	$layout_args = array(
-		'layout'			=>	$iGlobals['layout']['layout'],
+		'layout'			=>	$pw['layout']['layout'],
 		'function'			=>	'page_content_function',
 		'content'			=>	apply_filters( 'the_content', $post->post_content ),
 		'before_content' 	=> "<div class='post page block'><div class='post_content'>",
 		'after_content' 	=> "</div></div>",
 		
 		);
-	i_print_layout( $layout_args );
+	pw_print_layout( $layout_args );
 ?>
 
 <!--<pre><code><?php //echo json_encode($iGlobals, JSON_PRETTY_PRINT); ?></code></pre>-->
 
 <!-- INFINITE FOOTER -->
-<?php i_footer(); ?>
+<?php pw_footer(); ?>
