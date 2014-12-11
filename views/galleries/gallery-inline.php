@@ -1,30 +1,33 @@
-<!-- POSTWORLD GALLERY SHORTCODE : <?php echo $gallery['instance']; ?> -->
+
+
+<!-- POSTWORLD GALLERY SHORTCODE : <?php echo $vars['instance']; ?> -->
 <script>
-	postworld.controller( '<?php echo $gallery['instance']; ?>',
+	postworld.controller( '<?php echo $vars['instance']; ?>',
 		[ '$scope', '_', '$pw', 'pwImages', 'pwPosts', 'pwModal',
 		function( $scope, $_, $pw, $pwImages, $pwPosts, $pwModal ){
-		var instance = "<?php echo $gallery['instance']; ?>";
+		var instance = "<?php echo $vars['instance']; ?>";
 		var galleryInstance = "gallery-" + instance;
-		var galleryPosts = <?php echo json_encode( $gallery['posts'] ); ?>;
+		var galleryPosts = <?php echo json_encode( $vars['posts'] ); ?>;
 
 		$pwPosts.insertFeed( galleryInstance, { posts: galleryPosts } );
 		$scope.feed = $pwPosts.getFeed( galleryInstance );
 
 	}]);
-	pwRegisterController( "<?php echo $gallery['instance']; ?>" );
+	pwRegisterController( "<?php echo $vars['instance']; ?>" );
 </script>
 
 <div
 	class="pw-gallery-shortcode"
 	ng-cloak
-	ng-controller="<?php echo $gallery['instance']; ?>">
+	ng-controller="<?php echo $vars['instance']; ?>">
 	<masonry
-		column-width=".grid-sizer"
-		masonry-options='{ "gutter": 0, "transitionDuration":0 }'>
+		column-width=".grid-width-controller"
+		masonry-options='{ "gutter": 0, "transitionDuration":0 }'
+		class="grid-columns-<?php echo $vars['columns']; ?>">
 		<div
 			pw-grid
 			pw-modal-access>
-			<div class="grid-sizer"></div>
+			<div class="grid-width-controller"></div>
 			<div
 				class="gallery-post masonry-brick"
 				ng-repeat="galleryPost in feed.posts"

@@ -6,7 +6,8 @@
 	pw-grid-item
     pw-timeout="{{ (post.feed.loadOrder * 200) }}"
     timeout-action="addClass('fadein-on')"
-    ng-hide="post.post_status == 'trash'">
+    ng-hide="post.post_status == 'trash'"
+    pw-ui>
     <div
     	class="post-wrapper"
     	pw-hover-class="hover"
@@ -45,7 +46,7 @@
 				</span>
 
 				<!-- TAGS -->
-				<div class="taxonomy" ng-show="post.taxonomy.post_tag">
+				<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 					<span class="tags">
 						<i class="icon-tags"></i>
 						<span ng-repeat="term in post.taxonomy.post_tag">
@@ -69,6 +70,7 @@
 					<br>
 					<!-- DROPDOWN -->
 					<span
+						dropdown
 						pw-admin-post-menu
 						ng-show="userOptions != 0"
 						class="admin-menu dropdown">

@@ -1,6 +1,6 @@
 <?php // Template Name: Home Page ?>
 
-<?php i_header(); ?>
+<?php pw_header(); ?>
 
 <div id="page" class="page-home">
 	<?php
@@ -12,9 +12,9 @@
 				//'before_content' 	=>	'<div>',
 				//'after_content' 	=>	'</div>',
 				);
-			i_print_layout( $layout_args );
+			pw_print_layout( $layout_args );
 		?>
 	</div>
 </div>
 
-<?php i_footer(); ?>
+<?php pw_footer(); ?>

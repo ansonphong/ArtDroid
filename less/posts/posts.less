@@ -1,7 +1,7 @@
 ///// POST STYLES /////
 .post.page{
 	border-top:none;
-	.post_content{
+	.post-content{
 		//white-space: pre-wrap;
 	}
 }
@@ -476,50 +476,6 @@
 
 
 
-.post.full {
-
-	.post_content{
-		padding:20px;
-		font-size:18px;
-		line-height:26px;
-		font-weight:200;
-		color: neutral-color-light;
-		
-		img{
-			border-radius:@meta-border-radius;
-		}
-
-		@media @tablet-and-below{
-			.pw-gallery-shortcode{
-				margin:0 -20px;
-			}
-		}
-
-		@media @desktop-and-above{
-			padding:40px;
-		}
-
-	}
-
-	.social-widgets{
-		display:inline-block;
-		padding:5px 20px;
-		opacity:.5;
-		filter:grayscale(1);
-		-webkit-filter:grayscale(1);
-
-		&:hover{
-			opacity:1;
-			filter:grayscale(0);
-			-webkit-filter:grayscale(0);
-		}
-
-		@media @desktop-and-above{
-			padding:5px 40px;
-		}
-	}
-
-}
 
 @event_block_height : 100px;
 

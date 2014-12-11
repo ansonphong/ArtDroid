@@ -13,6 +13,7 @@ body{
 	background-color: @global-background-color;
 
 	a{
+		outline:none !important;
 		.transition();
 		color: mix( @primary-color-medium, @global-foreground-color, 80% );
 		&:hover{
@@ -35,6 +36,8 @@ body, body.infinite{
 
 .icon{
 	color:@neutral-color-medium;
+	display: inline-block;
+	margin-right:10px;
 }
 
 .icon-md{
