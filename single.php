@@ -1,6 +1,6 @@
 <!-- INFINITE HEADER -->
 <?php
-	i_header();
+	pw_header();
 	global $post;
 	// echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
 ?>
@@ -88,17 +88,13 @@ else if( is_single() )
 		///// MAIN LAYOUT /////
 		global $iGlobals;
 		$layout_args = array(
-			//'layout'			=>	$iGlobals['layout']['layout'],
 			'function'			=>	'page_content_function',
 			'content'			=>	$post_html, //apply_filters( 'the_content', $post->post_content ),
 			//'before_content' 	=>	'<div>',
 			//'after_content' 	=>	'</div>',
-			
 			);
-		i_print_layout( $layout_args );
+		pw_print_layout( $layout_args );
 	?>
 
-
-
 <!-- INFINITE FOOTER -->
-<?php i_footer(); ?>
+<?php pw_footer(); ?>
