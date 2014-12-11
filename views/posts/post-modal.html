@@ -252,14 +252,14 @@
 		<!-- POST CONTENT -->
 		<div
 			ng-show="post.post_content && post.post_content != ' '"
-			class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
+			class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
 			pw-compile-code="post.post_content">
 		</div>
 
 		<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
 		<div
 			ng-show="!post.post_content || post.post_content == ' '"
-			class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
+			class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
 			ng-bind="post.post_excerpt">
 		</div>
 
