@@ -103,12 +103,39 @@
 		</div>
 	</div>
 	
-	<div class="post-head">
-		<div class="modal-controls" ng-click="close()">
-			<button class="btn-neutral-color" tooltip="ESC" tooltip-popup-delay="333"><i class="icon-close"></i></button>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
+
+
+
+	<!-- PAGE -->
+	<div class="page-width">
+
+		<div class="post-head">
+			<div class="modal-controls pull-right">
+				<button
+					class="btn-neutral-color"
+					tooltip="Previous"
+					tooltip-popup-delay="333"
+					ng-click="previousPost()">
+					<i class="icon-arrow-left-thin"></i>
+				</button>
+				<button
+					class="btn-neutral-color"
+					tooltip="Next"
+					tooltip-popup-delay="333"
+					ng-click="nextPost()">
+					<i class="icon-arrow-right-thin"></i>
+				</button>
+				<button
+					class="btn-neutral-color"
+					tooltip="Close"
+					tooltip-popup-delay="333"
+					ng-click="close()">
+					<i class="icon-close"></i>
+				</button>
+			</div>
+
+
+			<div class="pull-left">
 				
 				<!-- TITLE -->
 				<h1>
@@ -137,7 +164,9 @@
 
 			</div>
 
-			<div class="col-md-6">
+
+
+			<div class="pull-right">
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls pull-right">
@@ -152,6 +181,7 @@
 					</a>
 					<!-- DROPDOWN -->
 					<span
+						dropdown
 						pw-admin-post-menu
 						ng-show="userOptions != 0"
 						class="admin-menu dropdown">
@@ -213,23 +243,30 @@
 				</div>
 
 			</div>
+
 		</div>
 
+		<div class="clearfix"></div>
+
+
+		<!-- POST CONTENT -->
+		<div
+			ng-show="post.post_content && post.post_content != ' '"
+			class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
+			pw-compile-code="post.post_content">
+		</div>
+
+		<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
+		<div
+			ng-show="!post.post_content || post.post_content == ' '"
+			class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
+			ng-bind="post.post_excerpt">
+		</div>
+
+
 	</div>
 
-	<!-- POST CONTENT -->
-	<div
-		ng-show="post.post_content && post.post_content != ' '"
-		class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-		pw-compile-code="post.post_content">
-	</div>
 
-	<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
-	<div
-		ng-show="!post.post_content || post.post_content == ' '"
-		class="post_content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-		ng-bind="post.post_excerpt">
-	</div>
 
 	<!-- GALLERY : VERTICAL SCROLL -->
 	<div
@@ -287,5 +324,7 @@
 	-->
 	
 	<div class="clearfix"></div>
+
+	<div class="space-8"></div>
 
 </div><!-- END POST -->

@@ -216,9 +216,9 @@
 							echo i_select_blocks_settings( array(
 								'option_var' 	=> 'iOptions',
 								'option_key'	=>	'home.feed.blocks',
-
 								));?>
 					</div>
+
 
 				</div>
 

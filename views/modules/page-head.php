@@ -22,66 +22,22 @@
 	?>
 	<!-- LABEL -->
 	<div class="page-meta">
-		<?php
-			///// SWITCH LABELS /////
-			if( in_array( 'archive-taxonomy', $pw['view']['context'] ) ){
-			?>
-				<div class="page-head">
-					<h1>
-						<?php
-							// Show Tag Icon
-							if( $pw['view']['taxonomy']['name'] == 'post_tag' ){?>
-								<i class="icon-tag" tooltip="tag" tooltip-placement="bottom"></i> 
-							<?php
-							}
-							// Show Name of the Taxonomy
-							else{ ?>
-								<?php echo $pw['view']['taxonomy']['labels']['singular_name']; ?> :
-							<?php
-							}
-						?>
-						<a href="<?php echo $pw['view']['term']['term_link']; ?>">
-							<?php echo $pw['view']['term']['name']; ?>
-						</a>
-					</h1>
-				</div>
-			<?php
-			}
-			if( in_array( 'archive-date', $pw['view']['context'] ) ){
-			?>
-				<div class="page-head">
-					
-					<h1>
-						<i class="glyphicon glyphicon-calendar"></i>
-						<?php
-							// YEAR
-							//echo $pw['query']['year'];
-							// MONTH
-							if( !empty( $pw['query']['monthnum'] ) )
-								echo " / " . $pw['query']['monthnum'];
-							// DAY
-							if( !empty( $pw['query']['day'] ) )
-								echo " / " . $pw['query']['day'];
-							?>
-					</h1>
 
-					<div class="archives-yearly">
-						<ul>
-						<?php
-							$yearly_archives = array(
-								'type' 		=> 'yearly',
-								'format'	=>	'html',
-								);
-							wp_get_archives( $yearly_archives );
-						?>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
-					<?php //echo json_encode($pw['view']);?>
-				</div>
-			<?php
-			}
+
+
+		<?php
+			///// SWITCH HEADER TEMPLATES /////
+			if( in_array( 'archive-taxonomy', $pw['view']['context'] ) )
+				include 'page-head-archive-taxonomy.php';
+
+			else if( in_array( 'archive-date', $pw['view']['context'] ) )
+				include 'page-head-archive-date.php';
+
+			else if( in_array( 'archive-post-type', $pw['view']['context'] ) )
+				include 'page-head-archive-post-type.php';
 		?>
+
+
 	</div>
 </header>
 

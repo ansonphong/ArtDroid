@@ -20,8 +20,7 @@ body{
 	}
 }
 
-.modal.modal-edit-post .modal-content,
-.modal.modal-view-post .modal-content{
+.modal .modal-content {
   background:@global-background-color;
 }
 
@@ -55,8 +54,8 @@ body{
 
 ///// VIEW POST /////
 .modal.modal-view-post {
-	.modal-dialog{
 
+	.modal-dialog{
 		-webkit-transform: translate(0, 0);
 		-ms-transform: translate(0, 0);
 		transform: translate(0, 0);
@@ -68,6 +67,7 @@ body{
 
 		min-height:100%;
 		padding:0;
+
 		.modal-content{
 			min-height:100%;
 			background:rgba(0,0,0,0.8);
@@ -83,13 +83,20 @@ body{
 				padding-right:40px;
 			}
 
+			.post-head{
+				@media @desktop-and-above{
+					padding: 0 10px 0 40px;
+				}
+			}
+
+			
 			
 
 			.modal-controls{
 				display:block;
-				position:absolute;
-				top:0;
-				right:0;
+				//position:absolute;
+				//top:0;
+				//right:0;
 				padding: 0 10px;
 				button{
 
@@ -101,19 +108,21 @@ body{
 
 }
 
-
 .modal{
 	.nav-btn-area{
 		.transition();
 		opacity:0;
 		position:absolute;
+		outline:none !important;
+		user-select:none;
+		
 		&.area-left{
-			cursor: w-resize !important;
+			cursor: crosshair !important;
 			left:0;
 			text-align: left;
 		}
 		&.area-right{
-			cursor: e-resize !important;
+			cursor: crosshair !important;
 			right:0;
 			text-align: right;
 		}
@@ -188,7 +197,7 @@ body{
 			padding:0 30px 30px ;
 		}
 
-		.post_content, .post_excerpt{
+		.post-content, .post_excerpt{
 			//color:@blue1;
 		}
 	}

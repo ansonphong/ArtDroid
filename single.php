@@ -17,7 +17,7 @@ else if( is_single() )
 
 <?php
 ////////// CONTENT ////////// ?>
-<div class="page-bounds">
+
 
 	<?php	
 		////////// PRINT THE POST IN TEMPLATE //////////
@@ -97,7 +97,7 @@ else if( is_single() )
 			);
 		i_print_layout( $layout_args );
 	?>
-</div>
+
 
 
 <!-- INFINITE FOOTER -->

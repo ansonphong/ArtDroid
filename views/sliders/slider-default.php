@@ -33,7 +33,7 @@
 			<?php } ?>
 				<div
 					class="slide-frame"
-					style="background-image: url( {{slide.image.sizes.xwide.url}}); "
+					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
 					parallax-background
 					parallax-ratio="-0.6">
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">

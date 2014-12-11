@@ -1,5 +1,14 @@
 <?php
 
+////////// DEFAULT FEED OPTIONS //////////
+function pw_theme_feed_defaults_filter( $feed ){
+	// Set the default number of columns in the grid view
+	$feed = _set( $feed, 'options.views.grid.columns', 4 );
+	return $feed;
+}
+add_filter( PW_FEED_DEFAULT, 'pw_theme_feed_defaults_filter' );
+
+
 ////////// DEFAULT THEME OPTIONS //////////
 function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options

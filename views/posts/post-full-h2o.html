@@ -2,7 +2,8 @@
 	pw-post
 	art-post
 	pw-modal-access
-	class="post full block">
+	class="post full block"
+	pw-ui>
 
 	<!-- GALLERY : HORIZONTAL -->
 	<div
@@ -114,7 +115,7 @@
 				{% if post.post_type != 'page' %}
 					
 					<!-- TAGS -->
-					<div class="taxonomy" ng-show="post.taxonomy.post_tag">
+					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 						<div class="tags">
 							<i class="icon-tags"></i>
 							<span ng-repeat="term in post.taxonomy.post_tag">
@@ -134,6 +135,7 @@
 				<div class="post-controls pull-right">
 					<!-- DROPDOWN -->
 					<span
+						dropdown
 						pw-admin-post-menu
 						ng-show="userOptions != 0"
 						class="admin-menu dropdown">
@@ -175,7 +177,7 @@
 					<!-- DOWNLOAD -->
 					<div
 						class="download unit pull-right"
-						ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
+						ng-show="uiBoolean(post.post_meta.pw_meta.image.download) || post.post_type == 'attachment'"
 						tooltip="Download Image"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
@@ -191,7 +193,7 @@
 					<div
 						class="link unit pull-right"
 						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.pw_meta.link_url.label.show == true || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
 						tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
@@ -223,13 +225,13 @@
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post_content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
 	{% if !post.post_content %}
 		<!-- CONTENT -->
-		<div class="post_content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_excerpt | safe }}
 		</div>
 	{% endif %}
