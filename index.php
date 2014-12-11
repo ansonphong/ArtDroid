@@ -20,7 +20,6 @@
 	// Create the main layout
 	global $pw;
 	$layout_args = array(
-		'layout'			=>	$pw['layout']['layout'],
 		'function'			=>	'page_content_function',
 		'content'			=>	apply_filters( 'the_content', $post->post_content ),
 		'before_content' 	=> "<div class='post page block'><div class='post_content'>",
