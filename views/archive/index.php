@@ -6,7 +6,7 @@
 		<?php
 			$layout_args = array(
 				'content'			=>	pw_ob_include_template('views/archive/feed.php'),
-				'before_content' 	=>	'<div class="post_content">',
+				'before_content' 	=>	'<div>',
 				'after_content' 	=>	'</div>',
 				);
 			i_print_layout( $layout_args );

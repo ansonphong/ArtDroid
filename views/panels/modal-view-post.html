@@ -2,7 +2,8 @@
 	pw-post
 	pw-language
 	unify-post
-	class="view-post post post-modal">
+	class="view-post post post-modal"
+	pw-ui>
 
 	<!-- LOADING -->
 	<div ng-show="status=='loading'" class="module loading">
@@ -108,8 +109,8 @@
 			</header>
 
 			<!-- POST FORMAT : STANDARD -->
-			<div ng-show="post.post_content"
-				class="post_content">
+			<div ng-show="uiBoolean(post.post_content)"
+				class="post-content">
 				<hr>
 				<img
 					ng-hide="post.post_format == 'image' || post.link_format == 'video' || post.link_format == 'audio'"
