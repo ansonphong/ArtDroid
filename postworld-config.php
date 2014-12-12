@@ -15,21 +15,17 @@ global $pwSiteGlobals;
 $pwSiteGlobals = array(
 
 	'modules'	=>	array(
-		'site',
-		'layouts',
-		'sidebars',
-		'styles',
-		'social',
-		'feeds',
-		'backgrounds',
-		),
-
-	'modules_new_model'	=>	array(
 		'required'	=>	array(
-			
+			'layouts',
+			'styles',
 			),
-		'default'	=>	array(
-			
+		'supported'	=>	array(
+			'site',
+			'layouts',
+			'sidebars',
+			'styles',
+			'social',
+			'feeds',
 			),
 		),
 
