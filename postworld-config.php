@@ -24,6 +24,15 @@ $pwSiteGlobals = array(
 		'backgrounds',
 		),
 
+	'modules_new_model'	=>	array(
+		'required'	=>	array(
+			
+			),
+		'default'	=>	array(
+			
+			),
+		),
+
 	'wp_admin'	=>	array(
 		'metabox'	=>	array(
 			'link_url'	=>	array(
@@ -183,12 +192,9 @@ $pwSiteGlobals = array(
 				),
 			),
 
-	'post_views'	=> array( 'modal', 'detail', 'grid', 'grid-horizontal', 'full' ),
+	'post_views'	=> array( 'list', 'modal', 'detail', 'grid', 'full' ),
 
-	'language'	=>	array(
-		
-		),
-
+	'language'	=>	array(),
 
 	'controls'	=>	array(
 		'post'	=>	array(
