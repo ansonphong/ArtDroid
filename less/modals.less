@@ -49,6 +49,42 @@ body{
 
 
 	}
+
+	.modal-head{
+		height:64px;
+		//background: @neutral-color-dark;
+		padding: 13px 15px;
+		padding-left: 5px;
+
+		.icon-angle-left-thin{
+			position:relative;
+			top: 2px;
+		}
+
+		@media @sm-down{
+			.close-compact{ display:inline-block; }
+			.close-full{ display:none; }
+		}
+		@media @md-up{
+			.close-compact{ display:none; }
+			.close-full{ display:inline-block; }
+		}
+
+		button{
+			outline:none;
+			display:inline-block;
+			font-weight: 200;
+			@media @lg-up{ 	font-size:@font-size-md; }
+			@media @md{ 	font-size:@font-size-md; }
+			@media @sm{ 	font-size:@font-size-md; }
+			@media @xs{ 	font-size:@font-size-sm; }
+			&:hover{
+				color: @global-foreground-color;
+			}
+		}
+
+	}
+
 }
 
 
