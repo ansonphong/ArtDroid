@@ -1,4 +1,59 @@
 <div
+	pw-ui
+	pw-globals="pw"
+	class="modal-head">
+	<div
+		class="pull-left">
+		<!-- TITLE -->
+		<button
+			class="transparent"
+			ng-click="close()">
+			<span>
+				<i class="icon-angle-left-thin"></i>
+			</span>
+			<span class="close-compact">Back</span>
+			<span class="close-full">{{ pw.view.title }}</span>
+		</button>
+	</div>
+	<div
+		class="pull-right">
+		<!-- PREVIOUS POST -->
+		<button
+			ng-click="previousPost()"
+			class="btn-previous transparent"
+			tooltip="Previous"
+			tooltip-placement="bottom"
+			tooltip-popup-delay="1000"
+			ng-mouseover="uiToggleView('prevPost')"
+			ng-mouseout="uiToggleView('prevPost')">
+			<i
+				ng-show="!uiShowView('prevPost')"
+				class="icon-triangle-left-thin"></i>
+			<i
+				ng-show="uiShowView('prevPost')"
+				class="icon-triangle-left-fill"></i>
+		</button>
+		<!-- NEXT POST -->
+		<button
+			ng-click="nextPost()"
+			class="btn-next transparent"
+			tooltip="Next"
+			tooltip-placement="bottom"
+			tooltip-popup-delay="1000"
+			ng-mouseover="uiToggleView('nextPost')"
+			ng-mouseout="uiToggleView('nextPost')">
+			<i
+				ng-show="!uiShowView('nextPost')"
+				class="icon-triangle-right-thin"></i>
+			<i
+				ng-show="uiShowView('nextPost')"
+				class="icon-triangle-right-fill"></i>
+		</button>
+	</div>
+</div>
+
+
+<div
 	pw-post
 
 	post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)', 'time_ago', 'edit_post_link']"
