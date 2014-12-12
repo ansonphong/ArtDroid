@@ -10,18 +10,14 @@
 	class="post full i-transition-fadein wrapper"
 
 	pw-timeout="200"
-	timeout-action="addClass('fadein-on')">
+	timeout-action="addClass('fadein-on')"
 
-	<!-- LOADING 
-	<div ng-show="status=='loading'" class="loading">
-		<i class="icon-spinner icon-spin icon-large"></i>
-	</div>
-	-->
+	pw-ui>
 
 	<!-- IMAGE -->
 	<div class="media-viewer" window-height="90%" ng-show="showView('modalImage')">
 
-		<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="feed">
+		<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="uiBoolean(feed)">
 			<button
 				class="btn-previous"
 				tooltip="Previous (Left Arrow on Keyboard)"
@@ -30,7 +26,7 @@
 				<i class="icon-triangle-left-thin"></i>
 			</button>
 		</div>
-		<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="feed">
+		<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="uiBoolean(feed)">
 			<button
 				class="btn-next"
 				tooltip="Next (Right Arrow on Keyboard)"
@@ -151,7 +147,7 @@
 				</h1>
 				
 				<!-- TAGS -->
-				<div class="taxonomy" ng-show="post.taxonomy.post_tag">
+				<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 					<div class="tags">
 						<i class="icon-tags"></i>
 						<span ng-repeat="term in post.taxonomy.post_tag">
@@ -215,7 +211,7 @@
 				<!-- DOWNLOAD -->
 				<div
 					class="download unit pull-right"
-					ng-show="post.post_meta.pw_meta.image.download">
+					ng-show="uiBoolean(post.post_meta.pw_meta.image.download)">
 					<a download pw-href="post.image.sizes.full.url">
 						<i class="icon-arrow-down-thin"></i>
 						download

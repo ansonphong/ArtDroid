@@ -1,0 +1,24 @@
+<article
+	ng-cloak
+	class="post list i-transition-fadein"
+	pw-timeout="{{ ::(post.feed.loadOrder * 200) }}"
+    timeout-action="addClass('fadein-on')">
+    <a
+		href="{{ ::post.post_permalink }}">
+			<div class="wrap" style="display:table; min-height:64px;">
+				<div
+					style="display:table-cell;">
+					<img
+						class="thumb"
+						ng-show="{{ ::post.image.sizes.thumbnail.url != null }}"
+						ng-src="{{ ::post.image.sizes.thumbnail.url }}">
+				</div>
+				<div
+					style="display:table-cell; height:100%; vertical-align:middle;">
+					<h3>{{ ::post.post_title }}</h3>
+				</div>
+			</div>
+		<div class="clearfix"></div>
+	</a>
+</article>
+
