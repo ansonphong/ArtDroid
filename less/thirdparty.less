@@ -1,4 +1,5 @@
 // Wordpress Contact Form 7 Styles
+// https://wordpress.org/plugins/contact-form-7/
 .wpcf7{
 
 	@media @lg-up 	{ width:50%; }
@@ -47,6 +48,49 @@
 
 	}
 
-	
+}
+
+
+// Wordpress Instragram Widget Plugin
+// https://wordpress.org/plugins/wp-instagram-widget/
+.sidebar-widget{
+
+	///// WP Instragram Widget Plugin /////
+	// https://wordpress.org/plugins/wp-instagram-widget/
+	ul.instagram-pics{
+		width:100%;
+		margin:0;
+		height:0;
+		display:table;
+		li{
+			display:block;
+			max-width:50%;
+			float:left;
+		}
+		a{
+			display:block;
+			padding:0;
+			marign:0;
+			opacity:.75;
+			&:hover{
+				opacity:1;
+			}
+		}
+		img{
+			display:block;
+			padding:0;
+			marign:0;
+			width:100%;
+			height:auto;
+			border:1px solid @global-background-color;
+		}
+	}
+	a[rel="me"]{
+		display:block;
+		padding: 16px 16px;
+		text-align: center;
+		text-decoration: none;
+	}
 
 }
+
