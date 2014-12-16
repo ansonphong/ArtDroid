@@ -3,13 +3,21 @@
 }
 
 .feed-block-widget{
-	display:table;
+	display:block;
+	overflow: hidden;
 	width:100%;
 	background: mix( @neutral-color-medium, @global-background-color, 30% );
 	height:100%;
 	position:relative;
 	z-index:10;
 	border:2px solid @global-background-color;
+	
+	.feed-block-wrapper{
+		display:table;
+		width:100%;
+		height:100%;
+	}
+
 	.widget{
 		display:table-cell;
 		vertical-align: middle;
