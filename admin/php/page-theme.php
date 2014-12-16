@@ -176,11 +176,14 @@
 						<input type="checkbox" ng-model="pwOptions.social.in_main_menu" id="social_menu">
 						<label for="social_menu">Show Social Menu</label>
 
+						<!--
 						<div ng-show="pwOptions.social.in_main_menu" style="margin-left:20px;">
 							<hr class="thin">
 							<input type="checkbox" ng-model="pwOptions.social.in_main_menu_gray" id="social_menu_gray">
 							<label for="social_menu_gray">Grayscale Icons</label>
 						</div>
+						-->
+
 					</div>
 				</div>
 				
