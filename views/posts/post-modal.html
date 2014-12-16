@@ -164,7 +164,10 @@
 		<div class="page-width">
 
 			<div class="post-head">
-				<div class="modal-controls pull-right">
+
+				<div
+					ng-show="!pw.options.theme.modals.header.show"
+					class="modal-controls pull-right">
 					<button
 						class="btn-neutral-color"
 						tooltip="Previous"

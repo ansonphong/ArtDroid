@@ -23,6 +23,7 @@ else if( is_single() )
 		////////// PRINT THE POST IN TEMPLATE //////////
 		// Set Globals
 		global $post;
+		global $pw;
 		// Social Media Widgets
 		global $social_settings;
 		$social_settings['meta']['url'] = get_permalink();
@@ -67,7 +68,7 @@ else if( is_single() )
 			'vars'	=> array(
 				'social_widgets'	=>	pw_social_widgets( $social_settings ),
 				'social_share'		=>	pw_social_share( $post ),
-				//'tester'			=>	"works",
+				'pw'				=>	$pw,
 				),
 			'js_vars'	=>	array('post'),
 			);
