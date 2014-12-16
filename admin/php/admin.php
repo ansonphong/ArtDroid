@@ -9,7 +9,7 @@ function postworld_theme_submenu( $submenu ){
 		'page_title' 	=> 'Theme Settings',
 		'menu_title' 	=> 'Theme Settings',
 		'capability' 	=> 'manage_options',
-		'menu_slug' 	=> $pw['slug'].'-theme',
+		'menu_slug' 	=> $pw['info']['slug'].'-theme',
 		'function' 		=> 'postworld_admin_theme_page',
 		'icon_url'		=> '',
 		);
