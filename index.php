@@ -1,6 +1,6 @@
 <!-- INFINITE HEADER -->
 <?php
-	pw_header();
+	pw_header('index');
 	global $post;
 ?>
 

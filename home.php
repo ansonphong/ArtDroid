@@ -1,6 +1,6 @@
 <?php // Template Name: Home Page ?>
 
-<?php pw_header(); ?>
+<?php pw_header('home'); ?>
 
 <div id="page" class="page-home">
 	<?php

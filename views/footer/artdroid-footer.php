@@ -24,7 +24,9 @@
 		$footer_data['url'] = array();
 		$footer_data['url']['site_url'] = get_site_url();
 		
-		$footer_data['social_menu'] = i_social_menu(
+		$footer_data['social_menu'] = 0;
+
+		/*pw_social_menu(
 			array(
 				'size' => 32,
 				'style' => 'default',
@@ -33,6 +35,7 @@
 					)
 				)
 			);
+		*/
 
 		// Get sub-pages of current page
 		$footer_data['subpages'] = (array) pw_query(
