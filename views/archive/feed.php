@@ -32,9 +32,6 @@
 		'feed'	=>	array(
 			'preload'	=>	16,
 			'feed_template'	=>	'feed-grid',
-			'view'	=>	array(
-				'current'	=>	'grid',
-				),
 			'query'	=>	$feed_query,
 			//'query'	=>	$feed_query = $pw['query'],
 			),
@@ -42,4 +39,5 @@
 		
 	// Insert Live Feed
 	pw_live_feed( $feed_vars );
+	
 ?>
