@@ -6,7 +6,7 @@
 	postworldAdmin.controller( 'optionsDataCtrl',
 		[ '$scope', 'iOptionsData',
 		function( $scope, iOptionsData ){
-			$scope.iOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
+			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
 			$scope['images'] = {};
 			$scope['options'] = iOptionsData['options'];
 	}]);
@@ -51,7 +51,7 @@
 
 				<!--///// LOGO /////-->
 				<div class="well">
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
+					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
 						<span class="icon-md"><i class="icon-image"></i></span>
 						Logo
@@ -59,7 +59,7 @@
 					<div class="well">
 						<?php
 							echo pw_select_image_id( array( 
-								'ng_model'	=>	'iOptions.images.logo',
+								'ng_model'	=>	'pwOptions.images.logo',
 								'slug'			=>	'logo',
 								'label'			=>	'Logo',
 								'width'			=>	'400px',
@@ -72,7 +72,7 @@
 				<!--///// POSTS /////-->
 				<div class="well">
 					
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
+					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					
 					<h2>
 						<i class="icon-pushpin"></i>
@@ -105,6 +105,45 @@
 						<div style="clear:both"></div>
 					</div>
 
+
+					<!-- MODALS -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="icon-layers-2"></i></span>
+							Modals
+						</h3>
+						<small>
+							Modals hover above the page, to view a sequence of posts without leaving the page.
+						</small>
+						<hr class="thin">
+						<label>
+							<input
+								type="checkbox"
+								ng-model="pwOptions.modals.header.show">
+							Show Header
+						</label>
+						<div style="clear:both"></div>
+					</div>
+
+					<!-- MEDIA -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="icon-image"></i></span>
+							Media
+						</h3>
+						<label>
+							<input
+								type="number"
+								class="short"
+								ng-model="pwOptions.posts.media.style.height"> % 
+							Height
+							<small>
+								How tall to size the images and media.
+							</small>
+						</label>
+						<div style="clear:both"></div>
+					</div>
+
 				</div>
 
 			</div>
@@ -113,7 +152,7 @@
 				<!--///// MENUS /////-->
 				<div class="well">
 					
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'iOptions'); ?></div>
+					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
 						<i class="icon-nav-thin"></i>
 						Menus
@@ -129,17 +168,17 @@
 						<?php
 							echo i_select_menus( array(
 								'options_model'	=>	'options.menus',
-								'ng_model'	=>	'iOptions.menus.main',
+								'ng_model'	=>	'pwOptions.menus.main',
 								));?>
 
 						<hr class="thin">
 
-						<input type="checkbox" ng-model="iOptions.social.in_main_menu" id="social_menu">
+						<input type="checkbox" ng-model="pwOptions.social.in_main_menu" id="social_menu">
 						<label for="social_menu">Show Social Menu</label>
 
-						<div ng-show="iOptions.social.in_main_menu" style="margin-left:20px;">
+						<div ng-show="pwOptions.social.in_main_menu" style="margin-left:20px;">
 							<hr class="thin">
-							<input type="checkbox" ng-model="iOptions.social.in_main_menu_gray" id="social_menu_gray">
+							<input type="checkbox" ng-model="pwOptions.social.in_main_menu_gray" id="social_menu_gray">
 							<label for="social_menu_gray">Grayscale Icons</label>
 						</div>
 					</div>
@@ -148,7 +187,7 @@
 				
 				<!--///// HOME /////-->
 				<div class="well">
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME,'iOptions'); ?></div>
+					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
 					<h2><i class="icon-home"></i> Home Page</h2>
 
 					<!-- SLIDER -->
@@ -163,16 +202,16 @@
 						<?php
 							echo i_select_menus( array(
 								'options_model'	=>	'options.menus',
-								'ng_model'	=>	'iOptions.home.slider.menu',
+								'ng_model'	=>	'pwOptions.home.slider.menu',
 								'null_option'	=>	'No Menu',
 								));?>
 
-						<div ng-hide="!iOptions.home.slider.menu">
+						<div ng-hide="!pwOptions.home.slider.menu">
 							<hr class="thin">
 							<h4>Settings</h4>
 							<?php
 								echo i_select_slider_settings( array(
-									'ng_model' 	=>	'iOptions.home.slider',
+									'ng_model' 	=>	'pwOptions.home.slider',
 									'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
 									'defaults'	=>	array(
 											'interval'		=>	5000,
@@ -196,7 +235,7 @@
 							<?php
 								echo i_select_menus( array(
 									'options_model'	=>	'options.menus',
-									'ng_model'	=>	'iOptions.home.secondary_menu',
+									'ng_model'	=>	'pwOptions.home.secondary_menu',
 									'null_option'	=>	'No Menu',
 									));?>
 						</div>
@@ -214,7 +253,7 @@
 						<hr class="thin">
 						<?php
 							echo i_select_blocks_settings( array(
-								'option_var' 	=> 'iOptions',
+								'option_var' 	=> 'pwOptions',
 								'option_key'	=>	'home.feed.blocks',
 								));?>
 					</div>
@@ -229,7 +268,7 @@
 		<hr class="thick">		
 
 		<!--
-		<pre>iOptions: {{ iOptions | json }}</pre>
+		<pre>pwOptions: {{ pwOptions | json }}</pre>
 		-->
 	</div>
 </div>

@@ -1,5 +1,13 @@
 <?php
 
+////////// PRINT OPTIONS //////////
+function pw_theme_global_options( $options = array() ){
+	// Print these options for access in Javascript context
+	$options['theme'] = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) );
+	return $options;
+}
+add_filter( PW_GLOBAL_OPTIONS, 'pw_theme_global_options' );
+
 ////////// DEFAULT FEED OPTIONS //////////
 function pw_theme_feed_defaults_filter( $feed ){
 	// Set the default number of columns in the grid view
@@ -15,6 +23,11 @@ function pw_theme_options_filter( $options ){
 
 	$defaultOptions = array(
 		'posts'	=>	array(
+			'media'	=>	array(
+				'style'	=>	array(
+					'height'	=>	66,
+					),
+				),
 			'post'	=>	array(
 				'post_meta'	=>	array(
 					'pw_meta'	=>	array(
@@ -77,6 +90,11 @@ function pw_theme_options_filter( $options ){
 				'no_pause' => true,
 				'show_title' => true,
 				'show_excerpt' => true,
+				),
+			),
+		'modals'	=>	array(
+			'header'	=>	array(
+				'show'	=>	true,
 				),
 			),
 		);
