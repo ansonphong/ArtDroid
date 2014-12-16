@@ -1,6 +1,6 @@
 <!-- INFINITE HEADER -->
 <?php
-	pw_header();
+	pw_header('single');
 	global $post;
 	// echo json_encode( get_post_type_object( 'attachment' ), JSON_PRETTY_PRINT );
 ?>

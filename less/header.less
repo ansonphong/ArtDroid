@@ -60,10 +60,8 @@ header#header{
 	}
 
 	.menu-social{
-		//.i-expanse-dropshadow();
 		position:absolute;
 		right:0px;
-		//margin:10px 0 0 0;
 		opacity:1;
 		transition: all ease .33s;
 		.inner{
@@ -71,10 +69,15 @@ header#header{
 		}
 		a{
 			text-decoration: none;
+			padding: 0px;
+			color: @secondary-color-dark;
+			&:hover{
+				color:@global-foreground-color;
+			}
 		}
-	
-		@media @tablet-and-below { display:none; }
-
+		@media @tablet-and-below {
+			display:none;
+		}
 	}
 
 	///// HEADER LAYOUT /////
