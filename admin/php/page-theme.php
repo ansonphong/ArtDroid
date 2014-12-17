@@ -199,34 +199,54 @@
 							<span class="icon-md"><i class="icon-image"></i></span>
 							Slider
 						</h3>
-						<b>Menu</b> - <small>The pages and posts on the selected menu will be used as slides.</small>
-						<br>
-						<span class="icon-md"><i class="icon-nav"></i></span>
-						<?php
-							echo i_select_menus( array(
-								'options_model'	=>	'options.menus',
-								'ng_model'	=>	'pwOptions.home.slider.menu',
-								'null_option'	=>	'No Menu',
-								));?>
 
-						<div ng-hide="!pwOptions.home.slider.menu">
+						<label>
+						<input
+							type="checkbox"
+							ng-model="pwOptions.home.slider.show_slider">
+							Display a slideshow on the home page
+						</label>
+						
+						<div
+							ng-show="pwOptions.home.slider.show_slider">
+
 							<hr class="thin">
-							<h4>Settings</h4>
+							<b>Menu</b> - <small>The pages and posts on the selected menu will be used as slides.</small>
+							<br>
+							<span class="icon-md"><i class="icon-nav"></i></span>
 							<?php
-								echo i_select_slider_settings( array(
-									'ng_model' 	=>	'pwOptions.home.slider',
-									'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
-									'defaults'	=>	array(
-											'interval'		=>	5000,
-											'mode'			=>	'menu',
-											'no_pause'		=>	true,
-											),
+								echo i_select_menus( array(
+									'options_model'	=>	'options.menus',
+									'ng_model'	=>	'pwOptions.home.slider.menu',
+									'null_option'	=>	'No Menu',
 									));?>
+
+							<div ng-hide="!pwOptions.home.slider.menu">
+								<hr class="thin">
+								<h4>Settings</h4>
+								<?php
+									echo i_select_slider_settings( array(
+										'ng_model' 	=>	'pwOptions.home.slider',
+										'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
+										'defaults'	=>	array(
+												'interval'		=>	5000,
+												'mode'			=>	'menu',
+												'no_pause'		=>	true,
+												),
+										));?>
+							</div>
+
+
+
 						</div>
+
+						
 					</div>
 
 					<!-- SECONDARY MENU -->
-					<div class="well">
+					<div
+						class="well"
+						ng-show="pwOptions.home.slider.show_slider">
 						<h3>
 							<span class="icon-md"><i class="icon-nav-thin"></i></span>
 							Secondary Menu

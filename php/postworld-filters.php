@@ -83,6 +83,7 @@ function pw_theme_options_filter( $options ){
 					),
 				),
 			'slider' => array(
+				'show_slider'	=>	true,
 				'menu' =>	null,
 				'height' => 70,
 				'interval' => 5000,
