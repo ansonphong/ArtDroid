@@ -30,7 +30,8 @@ global $pw;
 
 <!-- HEADER / NAVIGATION -->
 <header
-	id="header">
+	id="header"
+	pw-ui>
 
 	<!--
 	i-pointer-activate="addClass('active')"
@@ -65,9 +66,7 @@ global $pw;
 
 				<button
 					class="mobile-menu"
-					pw-click-toggle-display="#main-menu"
-					pw-click-toggle-class="#mobile-menu .mobile-menu"
-					toggle-class="selected">
+					ng-click="uiToggleElementDisplay('#main-menu'); uiToggleElementClass('selected', $event)">
 					<i class="icon-nav"></i>
 				</button>
 
