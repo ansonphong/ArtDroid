@@ -177,7 +177,7 @@
 					<!-- DOWNLOAD -->
 					<div
 						class="download unit pull-right"
-						ng-show="uiBoolean(post.post_meta.pw_meta.image.download) || post.post_type == 'attachment'"
+						ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
 						tooltip="Download Image"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
@@ -188,6 +188,7 @@
 							download
 						</a>
 					</div>
+
 
 					<!-- LINK -->
 					<div
