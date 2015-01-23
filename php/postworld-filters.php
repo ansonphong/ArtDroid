@@ -97,7 +97,7 @@ function pw_theme_options_filter( $options ){
 					),
 				),
 			'slider' => array(
-				'show_slider'	=>	true,
+				'show_slider'	=>	false,
 				'menu' =>	null,
 				'height' => 70,
 				'interval' => 5000,
