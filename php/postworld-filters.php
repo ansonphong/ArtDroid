@@ -112,6 +112,33 @@ function pw_theme_options_filter( $options ){
 				'show'	=>	true,
 				),
 			),
+		'media'	=>	array(
+			'embeds'	=>	array(
+				'height'	=>	50,
+				),
+			/*
+			'images'	=>	array(
+				'height'	=>	75,
+				),
+			*/
+			),
+		'embeds'	=>	array(
+			'autoplay'	=>	true,
+			'youtube'	=>	array(
+				'theme'		=>	'light',
+				'color'		=>	'red',
+				'controls'	=>	2,
+				),
+			),
+		'feeds'	=>	array(
+			'loading'	=>	array(
+				'icon'	=>	'icon-spinner-2'
+				),
+			'settings'	=>	array(
+				'preload'			=>	10,
+				'load_increment'	=>	10,
+				),
+			),
 		);
 
 	$options = array_replace_recursive( $defaultOptions, $options );
@@ -155,16 +182,37 @@ function theme_feed_archive_filter( $feed_vars ){
 		}
 	}
 
+	////////// GLOBAL //////////
+	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
+	$feed_vars['feed'] = array_replace_recursive( $feed_vars['feed'], $feed_settings );
+
 	// Pre-process the theme feed vars
 	$feed_vars = apply_filters( 'theme_feed_preprocess', $feed_vars );
 
 	return $feed_vars;
 	
 }
-
 add_filter( 'pw_feed', 'theme_feed_archive_filter' );
 
 
+////// DEFAULT FEED SETTINGS /////
+function theme_default_feeds( $feed ){
+	$theme_default_feed = array(
+		'view'	=>	array(
+			'current' 	=> 'grid',
+			),
+		'options'	=>	array(
+			'views'	=>	array(
+				'grid'	=>	array(
+					'columns'	=>	4,
+					),
+				),
+			)
+		);
+	$feed = array_replace_recursive($feed, $theme_default_feed);
+	return $feed;
+}
+add_filter( PW_FEED_DEFAULT, 'theme_default_feeds' );
 
 function theme_feed_preprocess_blocks_background_image( $feed_vars ){
 	// Define the key where the background image is
@@ -299,5 +347,35 @@ function theme_postmeta_defaults( $post ){
 }
 
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
+
+
+function theme_get_loading_icon_options(){
+	$icons = array(
+		'icon-spinner-1',
+		'icon-spinner-2',
+		'icon-spinner-3',
+		'icon-spinner-4',
+		'icon-spinner-5',
+		'icon-spinner-6',
+		'icon-seal-1',
+		'icon-triadic-1',
+		'icon-triadic-2',
+		'icon-triadic-3',
+		'icon-triadic-4',
+		'icon-triadic-5',
+		'icon-seed-of-life',
+		'icon-seed-of-life-fill',
+		'icon-merkaba',
+		'icon-target',
+		'icon-sun',
+		'icon-contrast',
+		'icon-loop',
+		'icon-hexagon-thick',
+		'icon-hexagon-medium',
+		'icon-hexagon-thin',
+		'icon-arrow-down-circle',
+		);
+	return $icons;
+}
 
 ?>
