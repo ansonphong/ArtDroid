@@ -10,13 +10,13 @@
 	///// SWITCH HEADER TYPE /////
 	switch( $i_meta_header['type'] ){
 		case 'slider':
-			include locate_template("views/modules/slider-page.php");
+			include locate_template("views/theme/slider-page.php");
 			break;
 		case 'featured_image':
-			include locate_template("views/modules/page-head-image.php");
+			include locate_template("views/theme/page-head-image.php");
 			break;
 		default:
-			include locate_template("views/modules/page-head-default.php");
+			include locate_template("views/theme/page-head-default.php");
 			break;
 	}
 	?>

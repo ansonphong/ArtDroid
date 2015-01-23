@@ -8,7 +8,7 @@
 	///// HOME PAGE SLIDER /////
 	$show_slider = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.slider.show_slider' ) );
 	if($show_slider)
-		include locate_template( 'views/modules/slider-home.php' );
+		include locate_template( 'views/theme/slider-home.php' );
 	else
 		echo "<div class='header-spacer'></div>";
 	?>
