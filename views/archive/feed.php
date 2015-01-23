@@ -30,7 +30,6 @@
 		'directive'	=>	'live-feed',
 		'aux_template'	=>	'seo-list',
 		'feed'	=>	array(
-			'preload'	=>	16,
 			'feed_template'	=>	'feed-grid',
 			'query'	=>	$feed_query,
 			//'query'	=>	$feed_query = $pw['query'],
