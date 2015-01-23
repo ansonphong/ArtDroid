@@ -9,6 +9,7 @@ function theme_pw_default_layout( $default_layout = array() ){
 		'footer'	=>	array(
 			'id'	=>	'artdroid-footer',
 			),
+		'template'	=>	'full-width',
 		);
 	return $default_layout;
 }

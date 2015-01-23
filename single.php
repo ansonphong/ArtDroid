@@ -95,6 +95,7 @@ else if( is_single() )
 			//'after_content' 	=>	'</div>',
 			);
 		pw_print_layout( $layout_args );
+
 	?>
 
 <!-- INFINITE FOOTER -->
