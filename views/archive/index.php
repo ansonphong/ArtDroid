@@ -1,7 +1,7 @@
 <?php i_header(); ?>
 <div id="page" class="page-home">
 	<?php
-	include locate_template( 'views/modules/page-head.php' ); ?>
+	include locate_template( 'views/theme/page-head.php' ); ?>
 	<div id="content" class="layout full page-bounds">
 		<?php
 			$layout_args = array(

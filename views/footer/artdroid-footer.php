@@ -47,7 +47,7 @@
 			)->posts;
 
 		// Run H2O
-		$h2o = new h2o( locate_template( 'views/modules/page-foot.php' ) );
+		$h2o = new h2o( locate_template( 'views/theme/page-foot.php' ) );
 		echo $h2o->render($footer_data);
 		
 		?>

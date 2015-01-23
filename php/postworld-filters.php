@@ -1,4 +1,17 @@
 <?php
+////////// DEFAULT HEADER ID //////////
+add_filter( 'pw_default_layout', 'theme_pw_default_layout' );
+function theme_pw_default_layout( $default_layout = array() ){
+	$default_layout = array(
+		'header'	=>	array(
+			'id'	=>	'artdroid-header',
+			),
+		'footer'	=>	array(
+			'id'	=>	'artdroid-footer',
+			),
+		);
+	return $default_layout;
+}
 
 ////////// PRINT OPTIONS //////////
 function pw_theme_global_options( $options = array() ){
