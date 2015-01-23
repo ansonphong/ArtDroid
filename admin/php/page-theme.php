@@ -51,7 +51,7 @@
 
 				<!--///// LOGO /////-->
 				<div class="well">
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
 						<span class="icon-md"><i class="icon-image"></i></span>
 						Logo
@@ -72,7 +72,7 @@
 				<!--///// POSTS /////-->
 				<div class="well">
 					
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					
 					<h2>
 						<i class="icon-pushpin"></i>
@@ -152,7 +152,7 @@
 				<!--///// MENUS /////-->
 				<div class="well">
 					
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
 						<i class="icon-nav-thin"></i>
 						Menus
@@ -190,7 +190,7 @@
 				
 				<!--///// HOME /////-->
 				<div class="well">
-					<div class="save-right"><?php i_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
 					<h2><i class="icon-home"></i> Home Page</h2>
 
 					<!-- SLIDER -->
@@ -236,11 +236,8 @@
 										));?>
 							</div>
 
-
-
 						</div>
 
-						
 					</div>
 
 					<!-- SECONDARY MENU -->
