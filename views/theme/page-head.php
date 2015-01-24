@@ -1,14 +1,11 @@
 <?php
 	global $pw;
-	global $i_paths;
-	$child_theme_url = $i_paths['child_theme']['url'];
-	$i_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
+	$pw_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
 ?>
-
 <header>
 	<?php
 	///// SWITCH HEADER TYPE /////
-	switch( $i_meta_header['type'] ){
+	switch( $pw_meta_header['type'] ){
 		case 'slider':
 			include locate_template("views/theme/slider-page.php");
 			break;
@@ -22,9 +19,6 @@
 	?>
 	<!-- LABEL -->
 	<div class="page-meta">
-
-
-
 		<?php
 			///// SWITCH HEADER TEMPLATES /////
 			if( in_array( 'archive-taxonomy', $pw['view']['context'] ) )
@@ -36,8 +30,5 @@
 			else if( in_array( 'archive-post-type', $pw['view']['context'] ) )
 				include 'page-head-archive-post-type.php';
 		?>
-
-
 	</div>
 </header>
-

@@ -11,8 +11,8 @@
 
 if( is_page() )
 	include locate_template( 'views/theme/page-head.php' ); 
-else if( is_single() )
-	include locate_template( 'views/theme/post-head.php' ); 
+//else if( is_single() )
+//	include locate_template( 'views/theme/post-head.php' ); 
 ?>
 
 <?php

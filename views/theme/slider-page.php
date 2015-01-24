@@ -1,7 +1,3 @@
-<?php
-	global $i_paths;
-	$child_theme_url = $i_paths['child_theme']['url'];
-?>
 <div class="slider">
 	<?php
 		$slider = $i_meta_header['slider'];

@@ -1,6 +1,6 @@
 <?php
-	//global $i_paths;
-	//$child_theme_url = $i_paths['child_theme']['url'];
+	///////// FILE OBSOLETE /////////
+
 	$pw_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
 ?>
 <header>
