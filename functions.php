@@ -1,9 +1,4 @@
 <?php
-
-
-define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
-define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
-
 // ADD LESS SUPPORT
 //require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
 

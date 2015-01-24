@@ -1,11 +1,14 @@
 <?php
-/*____  _ _          ____ _       _           _     
- / ___|(_) |_ ___   / ___| | ___ | |__   __ _| |___ 
- \___ \| | __/ _ \ | |  _| |/ _ \| '_ \ / _` | / __|
-  ___) | | ||  __/ | |_| | | (_) | |_) | (_| | \__ \
- |____/|_|\__\___|  \____|_|\___/|_.__/ \__,_|_|___/
-													
-////// ----- CUSTOM SITE CONFIGURATIONS ----- //////*/
+/*____           _                      _     _    ____             __ _       
+ |  _ \ ___  ___| |___      _____  _ __| | __| |  / ___|___  _ __  / _(_) __ _ 
+ | |_) / _ \/ __| __\ \ /\ / / _ \| '__| |/ _` | | |   / _ \| '_ \| |_| |/ _` |
+ |  __/ (_) \__ \ |_ \ V  V / (_) | |  | | (_| | | |__| (_) | | | |  _| | (_| |
+ |_|   \___/|___/\__| \_/\_/ \___/|_|  |_|\__,_|  \____\___/|_| |_|_| |_|\__, |
+                                                                         |___/ 
+/////////////////// ----- GLOBAL SITE CONFIGURATIONS ----- ///////////////////*/
+
+define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
+define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
 global $lang;
 global $pwUniversalLanguage;
@@ -49,6 +52,31 @@ $pwSiteGlobals = array(
 			'layout'	=>	array(
 				'post_types'	=>	array( 'page' ),
 				),
+
+			// Adds inputs for additional custom WordPress postmeta fields
+			'wp_postmeta'		=>	array(
+				///// POST META /////
+				array(
+					'post_types'	=>	array( 'post', 'page' ),
+					'metabox'		=>	array(
+						'title'		=>	'Post Meta',
+						'context'	=>	'normal',
+						),
+					'fields'	=>	array(
+						array(
+							'type'				=>	'image-id',
+							'label'				=>	'Alternative Featured Image',
+							'description'		=>	'Used for the slider',
+							'meta_key'			=>	'alt_image',
+							'icon'				=>	'icon-image',
+							),
+
+						),
+
+					),
+
+				),
+
 			),
 		),
 
