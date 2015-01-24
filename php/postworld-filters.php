@@ -147,8 +147,26 @@ function pw_theme_options_filter( $options ){
 
 add_filter( PW_OPTIONS_THEME, 'pw_theme_options_filter' );
 
+////////// LOAD GLOBAL OPTIONS //////////
+// Shared in Javascript as $pw.options
+function theme_pw_global_options( $options ){
+	// Adds to Javascript $pw.options
+	$theme_options = pw_get_option(array('option_name'=>PW_OPTIONS_THEME));
+	$add_options = array(
+		'media',
+		'embeds',
+		'feeds',
+		'paths'
+		);
+	foreach( $add_options as $option ){
+		$options[$option] = _get( $theme_options, $option );
+	}
+	return $options;
+}
+add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
 
 
+////////// THEME FEED ARCHIVE FILTER //////////
 function theme_feed_archive_filter( $feed_vars ){
 	global $pw;
 

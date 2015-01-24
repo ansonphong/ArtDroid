@@ -18,14 +18,23 @@ include "postworld-language.php";
 /// POSTWORLD CORE ///
 include "postworld/postworld.php";
 
-/// INCLUDE POSTWORLD ///
-if( function_exists( 'postworld_includes' ) ){
+////////// INIT POSTWORLD //////////
+function theme_postworld_includes(){
+	$postworld_inject = array(
+		'infinite',
+		'wp-less',
+		'masonry.js',
+		'icomoon',
+		'icon-x',
+		);
 
 	postworld_includes( array(
-		'angular_version' => 'angular-1.3.4',
-		'inject'  => array( 'infinite', 'wp-less', 'masonry.js', 'icomoon', 'icon-x' ),
+		'angular_version' => 'angular-1.3.8',	// 'angular-1.2.25',
+		'inject'  => $postworld_inject,
 	));
 }
+add_action( 'wp_enqueue_scripts', 'theme_postworld_includes' );
+add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ////////// ADMIN //////////
 //include_once get_infinite_directory().'/php/options.php';

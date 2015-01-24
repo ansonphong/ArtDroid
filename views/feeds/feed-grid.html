@@ -31,7 +31,8 @@
 	ng-show='busy'
 	class="text-center">
 	<div
-		class="loading loading-animation">
-		<i class="icon-triadic-4 icon-spin"></i>
+		class="loading loading-animation"
+		pw-globals="pw">
+		<i class="{{ ::pw.options.feeds.loading.icon }} icon-spin"></i>
 	</div>
 </div>
