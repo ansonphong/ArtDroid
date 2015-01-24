@@ -366,6 +366,18 @@ function theme_postmeta_defaults( $post ){
 
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
+////////// GET ALTERNATIVE IMAGE FROM POST META ID //////////
+function theme_postmeta_alt_image( $post ){
+	// The theme has the option to select an alternative image for each post
+	// This is tored inthe postmeta as alt_image, in the form of a thumbnail_id
+	$alt_image_id = _get( $post, 'post_meta.alt_image' );
+	if( is_numeric( $alt_image_id ) ){
+		$post = _set( $post, 'image.alt', pw_get_post_image( $post, array( 'image(all)', 'image(post,micro)' ), $alt_image_id ) );
+		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
+	}
+	return $post;
+}
+add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 
 function theme_get_loading_icon_options(){
 	$icons = array(

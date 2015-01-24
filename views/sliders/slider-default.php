@@ -4,10 +4,19 @@
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
 ?>
 <script>
-	postworld.controller( '<?php echo $slider['instance']; ?>', [ '$scope', function( $scope ){
+	postworld.controller( '<?php echo $slider['instance']; ?>',
+		[ '$scope', '_', function( $scope, $_ ){
 		$scope.slider = <?php echo json_encode($slider); ?>;
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
 		$scope.slides = <?php echo json_encode($posts); ?>;
+		$scope.slideImageUrl = function( slide ){
+			// Return the alternative image URL if it's available
+			var imgExp = 'sizes.widescreen.url';
+			var altImgUrl = $_.get( slide, 'image.alt.'+imgExp );
+			if( !_.isEmpty( altImgUrl ) )
+				return altImgUrl;
+			return $_.get( slide, 'image.'+imgExp );
+		}
 	}]);
 </script>
 <div
@@ -33,7 +42,7 @@
 			<?php } ?>
 				<div
 					class="slide-frame"
-					style="background-image: url( {{slide.image.sizes.widescreen.url}}); "
+					style="background-image: url( {{ slideImageUrl(slide) }}); "
 					parallax-background
 					parallax-ratio="-0.6">
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
