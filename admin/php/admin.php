@@ -35,7 +35,6 @@ function artdroid_admin_menu(){
 
 		'submenu' => array(),
 		);
-
 	add_menu_page(
     	$admin['menu']['page_title'],
     	$admin['menu']['menu_title'],
@@ -44,7 +43,6 @@ function artdroid_admin_menu(){
     	$admin['menu']['function'],
     	$admin['menu']['menu_icon']
     	);
-
 }
 
 ///// ADMIN STYLES /////
@@ -63,8 +61,8 @@ function theme_admin_icon_styles(){
 
 ///// SOCIAL SCREEN /////
 function postworld_admin_theme_page(){
-	global $child_admin;
-	i_include_scripts();
+	//global $child_admin;
+	//i_include_scripts();
 	include 'page-theme.php';
 }
 
