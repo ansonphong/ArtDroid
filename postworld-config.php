@@ -21,6 +21,9 @@ $pwSiteGlobals = array(
 		'required'	=>	array(
 			'layouts',
 			'styles',
+			'social',
+			'feeds',
+			'iconsets',
 			),
 		'supported'	=>	array(
 			'site',
@@ -30,6 +33,7 @@ $pwSiteGlobals = array(
 			'social',
 			'feeds',
 			'backgrounds',
+			'iconsets',
 			),
 		),
 
@@ -92,6 +96,13 @@ $pwSiteGlobals = array(
 				'event',
 				'pw_meta',
 				),
+			),
+		),
+
+	'iconsets'	=>	array(
+		'required'	=>	array(
+			'icomoon',
+			'glyphicon-halflings',
 			),
 		),
 
