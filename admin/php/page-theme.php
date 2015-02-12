@@ -193,10 +193,21 @@
 								Show Icons in Submenus
 							</label>
 						</div>
+					</div>
+					<!-- SECRET LOGIN -->
+					<div
+						class="well">
+						<h3>
+							Login
+						</h3>
 
+						<label>
+							<input type="checkbox" ng-model="pwOptions.menus.login.secret_login">
+							Enable Secret login
+							<small>: A &pi; symbol will appear when hovering over the bottom-right of the page when not logged in. Clicking the &pi; button will prompt login. </small> 
+						</label>
 					</div>
 				</div>
-				
 				
 				<!--///// HOME /////-->
 				<div class="well">
