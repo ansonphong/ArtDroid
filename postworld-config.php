@@ -102,7 +102,7 @@ $pwSiteGlobals = array(
 	'iconsets'	=>	array(
 		'required'	=>	array(
 			'icomoon',
-			'glyphicon-halflings',
+			'glyphicons-halflings',
 			),
 		),
 
