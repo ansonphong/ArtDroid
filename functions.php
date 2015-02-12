@@ -20,7 +20,6 @@ function theme_postworld_includes(){
 		'wp-less',
 		'masonry.js',
 		'icomoon',
-		'icon-x',
 		);
 
 	postworld_includes( array(
