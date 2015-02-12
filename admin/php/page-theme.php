@@ -158,31 +158,41 @@
 						Menus
 					</h2>
 					
+					<!-- PRIMARY MENU -->
 					<div class="well">
-						<!-- Main Menu -->
 						<h3>
-							Main Menu
+							Primary Menu
 						</h3>
 
 						<span class="icon-md"><i class="icon-nav"></i></span>
 						<?php
-							echo i_select_menus( array(
+							echo pw_select_menus( array(
 								'options_model'	=>	'options.menus',
-								'ng_model'	=>	'pwOptions.menus.main',
+								'ng_model'	=>	'pwOptions.menus.primary.id',
+								'null_option'	=>	'No Menu',
 								));?>
 
 						<hr class="thin">
 
-						<input type="checkbox" ng-model="pwOptions.social.in_main_menu" id="social_menu">
-						<label for="social_menu">Show Social Menu</label>
+						<label>
+							<input type="checkbox" ng-model="pwOptions.menus.primary.show_social">
+							Show Social Menu
+						</label>
 
-						<!--
-						<div ng-show="pwOptions.social.in_main_menu" style="margin-left:20px;">
+						<hr class="thin">
+
+						<label>
+							<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_top">
+							Show Icons at Top Level
+						</label>
+
+						<div class="indent">
 							<hr class="thin">
-							<input type="checkbox" ng-model="pwOptions.social.in_main_menu_gray" id="social_menu_gray">
-							<label for="social_menu_gray">Grayscale Icons</label>
+							<label>
+								<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_sub">
+								Show Icons in Submenus
+							</label>
 						</div>
-						-->
 
 					</div>
 				</div>
@@ -325,19 +335,16 @@
 
 					</div>
 
-
-
-
 				</div>
 
 			</div>
 
 		</div>
 
-		<hr class="thick">		
-
-		<!--
-		<pre>pwOptions: {{ pwOptions | json }}</pre>
-		-->
+		<?php if( pw_dev_mode() ) : ?>
+			<hr class="thick">		
+			<pre>pwOptions: {{ pwOptions | json }}</pre>
+		<?php endif; ?>
+		
 	</div>
 </div>
