@@ -100,14 +100,18 @@ masonry{
   }
 
   .grid-info{
-    background:@grid-title-background;
+    background: @grid-title-background;
     display:block;
     position:absolute;
     bottom:0;
     width:100%;
     padding:15px 30px;
-    color:@global-foreground-color;
     text-align: @grid-title-align;
+    h2{
+       color: @grid-title-foreground;
+       text-shadow: @grid-title-shadow;
+       font-weight: @grid-title-font-weight;
+    }
     //transition:all @transition-time ease;
   }
 
@@ -125,13 +129,40 @@ masonry{
   }
 
   a{
-    color:@global-foreground-color;
+    color:@grid-details-foreground;
   }
+
+  
+  .post-controls button, .post-controls a{
+    color:@grid-details-foreground;
+    background:transparent;
+    &:hover{
+      color:@grid-details-background;
+      background:@grid-details-foreground;
+    }
+  }
+  /*
+  .admin-menu.dropdown.open{
+    button{
+      color:@grid-details-background;
+      background:@grid-details-foreground;
+    }
+  }
+  .dropdown{
+    .dropdown-menu{
+       color:@grid-details-foreground;
+      background:@grid-details-background;
+    }
+    &.open{
+
+    }
+  }
+  */
 
   .details{
     transition:@transition-time ease max-height;
-    background:fade( @neutral-color-dark, 100% );
-    color:#fff;
+    background:@grid-details-background;
+    color:@grid-details-foreground;
     width:100%;
     max-height:0px;
     position:absolute;
@@ -155,7 +186,7 @@ masonry{
   }
 
   .post-excerpt{
-    color:@neutral-color-light;
+    color:@grid-details-foreground;
   }
 
   .post-wrapper.hover{
@@ -173,11 +204,11 @@ masonry{
 
   .time{
     font-weight:100;
-    color:@neutral-color-light;
+    color:@grid-details-foreground;
   }
 
   .span-spacer{
-    color: @neutral-color-medium;
+    color: fade(@grid-details-foreground, 50%);
     display:inline-block;
     margin: 0 2px;
   }
@@ -189,14 +220,14 @@ masonry{
       display:inline-block;
       text-decoration: none;
       //background: @neutral-color-medium;
-      color: @neutral-color-light;
-      border-bottom:1px solid @neutral-color-medium;
+      color: @grid-details-foreground;
+      border-bottom:1px solid fade(@grid-details-foreground, 50%);
       padding: 0 3px;
       margin:0 3px 3px 0;
       font-size:@font-size-xs;
       &:hover{
         color: #fff;
-        border-bottom:1px solid @global-foreground-color;
+        border-bottom:1px solid @grid-details-foreground;
       }
     }
     i{
@@ -278,13 +309,11 @@ masonry{
 
     button{
 
-      color:#fff;
-      background:transparent;
+      color:@grid-details-foreground;
+      background:@grid-details-background;
       line-height: 1;
-      background:fade(@secondary-color-dark, 100%);
       padding:8px 10px;
       transition: .33s ease all;
-      
 
     }
     

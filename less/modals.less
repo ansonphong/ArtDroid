@@ -21,7 +21,7 @@ body{
 }
 
 .modal .modal-content {
-  background:@global-background-color;
+  background:@modal-background-color;
 }
 
 
@@ -32,7 +32,7 @@ body{
 		.dropshadow( 5px, 0px );
 
 		hr{
-			border-top-color:@neutral-color-dark;
+			border-top-color:@neutral-color-medium;
 		}
 
 
@@ -41,18 +41,20 @@ body{
 
 ///// MODAL /////
 .modal{
+	color: @modal-foreground-color;
+	//background: @modal-background-color;
+
 	.modal-dialog{
 		@media @full{ width:50% };
 		@media @desktop-and-below{ width:66% };
 		@media @tablet{ width:100% };
 		@media @mobile{ width:100% };
 
-
 	}
 
 	.modal-head{
+
 		height:64px;
-		//background: @neutral-color-dark;
 		padding: 13px 15px;
 		padding-left: 5px;
 
@@ -74,12 +76,20 @@ body{
 			outline:none;
 			display:inline-block;
 			font-weight: 200;
+			&.transparent{
+				.transition();
+				color: fade(@modal-foreground-color, 80%);
+				background: transparent;
+				&:hover{
+					color: fade(@modal-foreground-color, 100%);
+				}
+			}
 			@media @lg-up{ 	font-size:@font-size-md; }
 			@media @md{ 	font-size:@font-size-md; }
 			@media @sm{ 	font-size:@font-size-md; }
 			@media @xs{ 	font-size:@font-size-sm; }
 			&:hover{
-				color: @global-foreground-color;
+				color: @modal-foreground-color;
 			}
 		}
 
@@ -107,12 +117,12 @@ body{
 		.modal-content{
 			min-height:100%;
 			background:rgba(0,0,0,0.8);
-			color:@neutral-color-light;
+			color:@modal-foreground-color;
 			border-radius:0;
 			transition:none;
 
 			hr{
-				border-top-color:@neutral-color-light;
+				border-top-color:@neutral-color-medium;
 			}
 
 			h1{
@@ -182,8 +192,8 @@ body{
 			border:1px solid transparent;
 			padding:10px;
 			border-radius:80px;
-			background:@global-background-color;
-			color:@global-foreground-color;
+			background:@modal-background-color;
+			color:@modal-foreground-color;
 			margin:20px;
 			width:50px;
 			height:50px;
@@ -191,7 +201,7 @@ body{
 			line-height:0;
 			
 			&:hover{
-				border:1px solid @global-foreground-color;
+				border:1px solid @modal-foreground-color;
 			}
 			.glyphicon{
 				margin-bottom: 7px;
@@ -258,7 +268,7 @@ body{
 		height:100%;
 		padding:5% 0;
 		.modal-content{
-			background:fade( #000, 80% );
+			background:fade( @modal-background-color, 80% );
 		}
 		.modal-content, .post, .wrapper, .media-embed, .o-embed, iframe{
 			height:100%;

@@ -21,23 +21,6 @@
 	box-shadow:2px 2px 20px @blue1;
 }
 
-/*
-#main-menu{
-	.topMenuModule();
-	display: block;
-	text-align: center;
-}
-*/
-
-	/*
-	.menu-container{
-		display: inline-block;
-		position: relative;
-		z-index:10;
-		height:@header-height;
-	}
-	*/
-
 #mobile-menu{
 	display:none;
 	@media @tablet-and-below {
@@ -88,7 +71,7 @@
 	}
 
 	///// MOBILE /////
-	@media @tablet-and-below {
+	@media @sm-down{
 		display:none;
 
 		right:0;
@@ -113,13 +96,13 @@
 		ul.menu > li > a {
 			display: block;
 			//height:48px;
-			color:#fff;
+			color:@main-menu-foreground;
 			padding:8px 20px;
 			text-align:right;
 			font-size: 24px;
 			text-decoration: none;
 			border-top:1px solid fade(@neutral-color-medium, 25%);
-			background:@neutral-color-dark;
+			background:@main-menu-background;
 			&:hover{
 				background: @neutral-color-light;
 				color: #000;
@@ -139,7 +122,7 @@
 
 
 	///// TABLET AND ABOVE /////
-	@media @desktop-and-above{
+	@media @md-up{
 		
 		// Prevent toggling off mobile menu from removing
 		display:block !important;
@@ -188,15 +171,15 @@
 				position:relative;
 				top: 0px; //(@main-menu-slide-down * -1);
 				//height: ( @header-height - 15px + @main-menu-slide-down );
-				color: mix( @neutral-color-light, #fff, 50% );
-				background:@neutral-color-dark;
+				color: @main-menu-foreground;
+				background:@main-menu-background;
 				transition:@transition-time/2 all ease;
 				margin:5px 10px 0px 0px;
 				font-weight:100 !important;
 				letter-spacing:-1px;
-				border: 1px solid transparent;
+				//border: 1px solid transparent;
 				.main-menu-icon{
-					color:@neutral-color-medium;
+					color:@primary-color-medium;
 					//opacity:.5;
 					width:30px;
 					text-align: center;
@@ -209,15 +192,16 @@
 			}
 
 			&:hover > a {
-					background:@neutral-color-light;
-					color:@neutral-color-dark;
+					background:@highlight-background-color;
+					color:@highlight-foreground-color;
 			}
 
 			&.current-menu-item > a, &.current-page-parent > a{
 				.main-menu-icon{
 					color: @primary-color-medium;
 				}
-				border:1px solid @primary-color-medium;
+				box-shadow: inset 0 -4px 0 @primary-color-medium;
+				//border:1px solid @primary-color-medium;
 			}
 
 			// DISPLAY DROPDOWN ON HOVER

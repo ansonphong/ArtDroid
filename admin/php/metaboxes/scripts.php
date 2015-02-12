@@ -1,7 +1,7 @@
 <script>
 
 	///// CONTROLLER /////
-	postworldMetabox.controller('pwMetaboxOptionsCtrl',
+	postworldAdmin.controller('pwMetaboxOptionsCtrl',
 		['$scope', 'pwPostOptions', '_', 'iOptionsData',
 			function( $scope, $pwPostOptions, $_, $iOptionsData ) {
 

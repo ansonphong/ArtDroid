@@ -10,19 +10,19 @@
 
 	.sidebar-widget{
 		background: fade(@widget-base-color, 20%);
-		color: @widget-text-color;
+		color: @widget-foreground;
 
 		margin:2px 0px 4px 1px;
 
 		a{
-			color: mix( @widget-text-color, @widget-highlight-color, 66%);
+			color: mix( @widget-foreground, @widget-highlight-color, 66%);
 			background-color: fade( @widget-base-color, @fade*2 );
 			&:hover{
 				color:@widget-highlight-color;
 				background-color: fade( @widget-base-color, @fade*3 );
 			}
 			&:active{
-				background-color: fade( @widget-text-color, @fade*3 );
+				background-color: fade( @widget-foreground, @fade*3 );
 			}
 		}
 
@@ -53,7 +53,7 @@
 	.sidebar-widget{
 		.menu-kit{
 			@menu-base-color: @widget-base-color;
-			@menu-text-color: @widget-text-color;
+			@menu-text-color: @widget-foreground;
 			@menu-highlight-color: @widget-highlight-color;
 
 			@border-left-color: fade( @menu-base-color, 100% );

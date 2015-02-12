@@ -29,10 +29,15 @@ $pwSiteGlobals = array(
 			'styles',
 			'social',
 			'feeds',
+			'backgrounds',
 			),
 		),
 
 	'wp_admin'	=>	array(
+
+		'user_meta'	=>	array(
+			'pw_avatar'	=>	true,
+			),
 		'metabox'	=>	array(
 			'link_url'	=>	array(
 				'post_types'	=>	array( 'post', 'page', 'attachment' ),
@@ -52,6 +57,7 @@ $pwSiteGlobals = array(
 			'layout'	=>	array(
 				'post_types'	=>	array( 'page' ),
 				),
+
 
 			// Adds inputs for additional custom WordPress postmeta fields
 			'wp_postmeta'		=>	array(

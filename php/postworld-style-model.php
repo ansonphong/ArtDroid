@@ -4,24 +4,40 @@ function theme_pw_styles_defaults( $value ){
 	$style_model = array(
 		'colors'	=>	array(
 			'core' =>	array(
-				'global-background-color'	=>	'#000000',
-				'global-foreground-color'	=>	'#ffffff',
+				'global-background-color'		=>	'#000000',
+				'global-foreground-color'		=>	'#ffffff',
 				
-				'primary-color-light'		=>	'#d8b883',
-				'primary-color-medium'		=>	'#ad4200',
-				'primary-color-dark'		=>	'#812c00',
+				'primary-color-light'			=>	'#d8b883',
+				'primary-color-medium'			=>	'#ad4200',
+				'primary-color-dark'			=>	'#812c00',
 
-				'secondary-color-light'		=>	'@primary-color-light',
-				'secondary-color-medium'	=>	'@primary-color-medium',
-				'secondary-color-dark'		=>	'@primary-color-dark',
+				'secondary-color-light'			=>	'@primary-color-light',
+				'secondary-color-medium'		=>	'@primary-color-medium',
+				'secondary-color-dark'			=>	'@primary-color-dark',
 
-				'neutral-color-light'		=>	'#e4ded2',
-				'neutral-color-medium'		=>	'#7a6357',
-				'neutral-color-dark'		=>	'#2e2c24',
+				'neutral-color-light'			=>	'#e4ded2',
+				'neutral-color-medium'			=>	'#7a6357',
+				'neutral-color-dark'			=>	'#2e2c24',
 
-				'highlight-color-light'		=>	'#ffac7f',
-				'highlight-color-medium'	=>	'#ff5a00',
-				'highlight-color-dark'		=>	'#802d00',
+				'highlight-foreground-color'	=>	'@primary-color-medium',
+				'highlight-background-color'	=>	'#fff',
+
+				'modal-foreground-color'	=>	'#fff',
+				'modal-background-color'	=>	'#000',
+
+				'highlight-color-light'			=>	'#ffac7f',
+				'highlight-color-medium'		=>	'#ff5a00',
+				'highlight-color-dark'			=>	'#802d00',
+				),
+
+			'header'	=>	array(
+				'header-background'			=>	'@global-background-color',
+				'logo-background'			=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
+				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 66%)',
+				'main-menu-background'		=>	'@neutral-color-dark',
+				'main-menu-foreground'		=>	'@global-foreground-color',
+				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
+				'secondary-menu-foreground'	=>	'@global-foreground-color',
 				),
 
 			'footer'=>	array(
@@ -35,7 +51,7 @@ function theme_pw_styles_defaults( $value ){
 
 			'widgets'	=>	array(
 				'widget-base-color'			=>	'@primary-color-dark',
-				'widget-text-color'			=>	'@primary-color-medium',
+				'widget-foreground'			=>	'@primary-color-medium',
 				'widget-highlight-color'	=>	'@primary-color-light',
 				),
 
@@ -61,11 +77,16 @@ function theme_pw_styles_defaults( $value ){
 		'posts'	=>	array(
 
 			'grid'	=>	array(
-				'grid-image-size'		=>	'cover',
-				'grid-unit-padding'		=>	'1px',
-				'grid-unit-border'		=>	'1px solid transparent',
-				'grid-title-background'	=>	'fade( @neutral-color-dark, 80% )',
-				'grid-title-align'		=>	'left',
+				'grid-image-size'			=>	'cover',
+				'grid-unit-padding'			=>	'1px',
+				'grid-unit-border'			=>	'1px solid transparent',
+				'grid-title-foreground'		=>	'@global-foreground-color',
+				'grid-title-background'		=>	'fade( @neutral-color-dark, 80% )',
+				'grid-title-shadow'			=>	'none',
+				'grid-title-font-weight'	=>	'normal',
+				'grid-details-foreground'	=>	'#fff',
+				'grid-details-background'	=>	'@neutral-color-dark',
+				'grid-title-align'			=>	'left',
 				),
 
 			),
@@ -178,6 +199,32 @@ function theme_pw_styles_structure( $structure = array() ){
 							),
 						array( 'line' ),
 						array(
+							"name"			=>	"Highlight Foreground",
+							"key"			=>	"highlight-foreground-color",
+							"input"			=>	"color",
+							"description"	=>	"The foreground (text) color used for mouseovers"
+							),
+						array(
+							"name"			=>	"Highlight Background",
+							"key"			=>	"highlight-background-color",
+							"input"			=>	"color",
+							"description"	=>	"The background color used for mouseovers"
+							),
+						array( 'line' ),
+						array(
+							"name"			=>	"Modal Foreground",
+							"key"			=>	"modal-foreground-color",
+							"input"			=>	"color",
+							"description"	=>	"The foreground (text) color used for modal windows"
+							),
+						array(
+							"name"			=>	"Modal Background",
+							"key"			=>	"modal-background-color",
+							"input"			=>	"color",
+							"description"	=>	"The background color used for modal windows"
+							),
+						array( 'line' ),
+						array(
 							"name"			=>	"Highlight Light",
 							"key"			=>	"highlight-color-light",
 							"input"			=>	"color",
@@ -198,6 +245,58 @@ function theme_pw_styles_structure( $structure = array() ){
 						),
 					),
 
+
+				///// HEADER /////
+				array(
+					'name'	=>	'Header',
+					'key'	=>	'header',
+					'icon'	=>	'icon-nav',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Header Background",
+							"key"			=>	"header-background",
+							"input"			=>	"color",
+							"description"	=>	"Background color of the header"
+							),
+						array(
+							"name"			=>	"Logo Background",
+							"key"			=>	"logo-background",
+							"input"			=>	"color",
+							"description"	=>	"Color of the logo background"
+							),
+						array(
+							"name"			=>	"Logo Background Hover",
+							"key"			=>	"logo-background-hover",
+							"input"			=>	"color",
+							"description"	=>	"Color of the logo background on mouse hover"
+							),
+						array(
+							"name"			=>	"Main Menu Background",
+							"key"			=>	"main-menu-background",
+							"input"			=>	"color",
+							"description"	=>	"Background color of the main menu items"
+							),
+						array(
+							"name"			=>	"Main Menu Text Color",
+							"key"			=>	"main-menu-foreground",
+							"input"			=>	"color",
+							"description"	=>	"Color of the main menu items text"
+							),
+						array(
+							"name"			=>	"Secondary Menu Background",
+							"key"			=>	"secondary-menu-background",
+							"input"			=>	"color",
+							"description"	=>	"Background color of the secondary menu"
+							),
+						array(
+							"name"			=>	"Secondary Menu Text Color",
+							"key"			=>	"secondary-menu-foreground",
+							"input"			=>	"color",
+							"description"	=>	"Color of the secondary menu text"
+							),
+						),
+					),
+				
 
 				///// SLIDERS /////
 				array(
@@ -229,7 +328,7 @@ function theme_pw_styles_structure( $structure = array() ){
 							),
 						array(
 							"name"			=>	"Text Color",
-							"key"			=>	"widget-text-color",
+							"key"			=>	"widget-foreground",
 							"input"			=>	"color",
 							"description"	=>	"Color of text in widgets"
 							),
@@ -355,11 +454,30 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"text",
 							"description"	=>	"The border around each grid unit"
 							),
+						array( 'line' ),
 						array(
 							"name"			=>	"Grid Title Background",
 							"key"			=>	"grid-title-background",
-							"input"			=>	"text",
+							"input"			=>	"color",
 							"description"	=>	"The backgroud color of the title"
+							),
+						array(
+							"name"			=>	"Grid Title Foreground",
+							"key"			=>	"grid-title-foreground",
+							"input"			=>	"color",
+							"description"	=>	"The color of the title text"
+							),
+						array(
+							"name"			=>	"Grid Title Shadow",
+							"key"			=>	"grid-title-shadow",
+							"input"			=>	"text",
+							"description"	=>	"The text-shadow on the title text"
+							),
+						array(
+							"name"			=>	"Grid Title Font Weight",
+							"key"			=>	"grid-title-font-weight",
+							"input"			=>	"text",
+							"description"	=>	"The font weight of the grid title (lighter,normal,bold)"
 							),
 						array(
 							"name"			=>	"Grid Title Align",
@@ -367,6 +485,19 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"select",
 							"ng_options"	=>	"options.style.textAlign",
 							"description"	=>	"The alignment of the title text"
+							),
+						array( 'line' ),
+						array(
+							"name"			=>	"Grid Details Background",
+							"key"			=>	"grid-details-background",
+							"input"			=>	"color",
+							"description"	=>	"The backgroud color of the grid details"
+							),
+						array(
+							"name"			=>	"Grid Details Foreground",
+							"key"			=>	"grid-details-foreground",
+							"input"			=>	"color",
+							"description"	=>	"The color of the grid details text"
 							),
 						),
 					),
