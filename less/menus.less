@@ -106,11 +106,11 @@
 			&:hover{
 				background: @neutral-color-light;
 				color: #000;
-				.main-menu-icon{
+				.menu-icon{
 					//color:#fff;
 				}
 			}
-			.main-menu-icon{
+			.menu-icon{
 				color: @neutral-color-medium;
 				float:right;
 				display:inline-block;
@@ -178,13 +178,15 @@
 				font-weight:100 !important;
 				letter-spacing:-1px;
 				//border: 1px solid transparent;
-				.main-menu-icon{
+				.menu-icon{
 					color:@primary-color-medium;
 					//opacity:.5;
 					width:30px;
 					text-align: center;
+					margin-right:5px;
+					margin-left:-5px;
 				}
-				padding:8px 25px 8px 15px;
+				padding:10px 20px 8px;
 				font-size:25px;
 
 			}
@@ -195,7 +197,7 @@
 			}
 
 			&.current-menu-item > a, &.current-page-parent > a{
-				.main-menu-icon{
+				.menu-icon{
 					color: @primary-color-medium;
 				}
 				box-shadow: inset 0 -4px 0 @primary-color-medium;

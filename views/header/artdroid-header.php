@@ -54,7 +54,7 @@ global $pw;
 			</div>
 			
 			<div id="main-menu" class="header-col-menu">
-				<?php include locate_template( 'views/menus/main-menu.php' ); ?>
+				<?php include locate_template( 'views/theme/menu-primary.php' ); ?>
 			</div>
 
 			<div id="mobile-menu">
