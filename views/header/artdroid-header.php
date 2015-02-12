@@ -18,29 +18,24 @@ global $pw;
 </head>
 <body
 	ng-app="postworld"
-	class="infinite <?php echo pw_body_classes(); ?>">
+	class="<?php echo pw_body_classes(); ?>"
+	pw-background="primary">
 
-	<!--
-	pw-scrollfix
-	scrollfix-y-class="scrollfix-y"
-	scrollfix-y-offset="getIdHeight('page-head') - getIdHeight('header')"
-	-->
-
+<!-- SECONDARY BACKGROUND LAYER -->
+<div
+	id="pw-background-secondary"
+	document-height="100"
+	pw-background="secondary"></div>
+	
 <div id="background"></div>
-
 <!-- HEADER / NAVIGATION -->
 <header
 	id="header"
 	pw-ui>
-
-	<!--
-	i-pointer-activate="addClass('active')"
-	inactive-delay="3000"
-	-->
 	<div class="page-width">
 
 		<div class="header-row">
-			<div id="logo" class="header-col-logo">
+			<div id="logo" class="header-col-logo <?php if( is_front_page() ) echo 'is-front-page' ?>">
 				<?php
 				// Link to home page
 				if( !is_front_page() ){ ?>

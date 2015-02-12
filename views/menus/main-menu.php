@@ -1,5 +1,3 @@
-<?php global $iGlobals; ?>
-
 <div
 	class="menu-main">
 	<?php

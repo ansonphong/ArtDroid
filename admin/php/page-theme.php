@@ -12,7 +12,7 @@
 	}]);
 </script>
 
-<div ng-app="postworldAdmin" class="theme">
+<div class="theme">
 
 	<div
 		pw-admin-options

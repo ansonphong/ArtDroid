@@ -24,7 +24,7 @@ header#header{
 	position:fixed;
 	z-index:100;
 	width:100%;
-	background:@global-background-color;
+	background:@header-background;
 	height:@header-height-fixed;
 	transition: background .66s ease;
 
@@ -33,15 +33,19 @@ header#header{
 	}
 
 	#logo{
-		
-		@media @desktop-and-above { text-align: center; }
-		@media @tablet-and-below { text-align: left; }
-		
-		background:@global-background-color;
+		height:@primary-menu-height;
+		.transition();
+
+		background:@logo-background;
+		&:hover{
+			background:@logo-background-hover;
+		}
+		&.is-front-page:hover{
+			background:@logo-background;
+		}
 		a{
 			.transition(@global-transition-time);
 			display:inline-block;
-			height:@header-height-fixed;
 			padding:0px;
 			&:hover{
 				
@@ -49,13 +53,27 @@ header#header{
 		}
 		img{
 			width:auto;
-			height:@header-height-fixed;
+			max-width: 100%;
+			height:@header-height-fixed - 1px;
+			max-height:100%;
 			transition:all ease 1s;
 			border-radius:0 0 3px 3px;
-			@media @desktop-and-below{ max-width:300px; }
-			@media @desktop-and-above{}
+		}
+		@media @md-up 	{ text-align: center; }
+		@media @sm-down {
+			text-align: left;
+		}
+		@media @xs{
+			img{
+				width:auto;
+				max-width: 100%;
+				height: auto;
+				max-height:100%;
+			}
 		}
 	}
+
+	
 	.menu-social{
 		position:absolute;
 		right:0px;
