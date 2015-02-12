@@ -392,6 +392,28 @@ ul.pw-shortcode.menu{
 
 
 
-
+#secret-login{
+	position:fixed;
+	right:0;
+	bottom:0;
+	button{
+		.transition();
+		opacity:0;
+		font-family: serif;
+		font-style: italic;
+		font-size: @font-size-md;
+		background-color: fade(@global-background-color, 25%);
+		color: fade(@global-foreground-color, 15%);
+		height: @primary-menu-height;
+		outline:none;
+		border:none;
+		@media @lg-up{ padding:0 15px; }
+		@media @md{ padding:0 10px; }
+		@media @sm-down{ display:none; }
+		&:hover{
+			opacity:1;
+		}
+	}
+}
 
 

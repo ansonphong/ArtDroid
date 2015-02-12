@@ -1,7 +1,6 @@
 <?php
 // Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
-global $i_paths;
 global $pw;
 //echo json_encode($pw);
 ?>
@@ -20,6 +19,10 @@ global $pw;
 	ng-app="postworld"
 	class="<?php echo pw_body_classes(); ?>"
 	pw-background="primary">
+
+<?php
+	///// SECRET LOGIN /////
+	include locate_template( 'views/theme/menu-login-secret.php' );?>
 
 <!-- SECONDARY BACKGROUND LAYER -->
 <div
