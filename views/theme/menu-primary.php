@@ -2,10 +2,11 @@
 	class="menu-main">
 	<?php
 		$menu_walker = new PW_Menu_With_Description;
-		$primary_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.id' ) );
+		$primary_menu = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary' ) );
+
 		$primary_menu_settings = array(
 			'theme_location'  => '',
-			'menu'            => $primary_menu_id,
+			'menu'            => $primary_menu['id'],
 			'container'       => 'div',
 			'container_class' => 'menu-container',
 			'container_id'    => '',
@@ -21,16 +22,18 @@
 			'depth'           => 0,
 			'walker'          => $menu_walker,
 			'walker_vars'	  => array(
-				'item_template_path' => dirname( __FILE__ ) . "/main-menu-item.php",	
+				'item_template_path'=> dirname( __FILE__ ) . "/menu-walker-item.php",
+				'show_icons_top'	=>	$primary_menu['show_icons_top'],
+				'show_icons_sub'	=>	$primary_menu['show_icons_sub'],
 				),
 		);
-		if( $primary_menu_id )
+		if( $primary_menu['id'] )
 			wp_nav_menu( $primary_menu_settings );
 	?>
 	<?php
 	// Show Social Menu
 	if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.show_social' ) ) )
-		include locate_template( 'views/menus/menu-social.php' );
+		include locate_template( 'views/theme/menu-social.php' );
 	?>
 	
 	<div class="clearfix"></div>

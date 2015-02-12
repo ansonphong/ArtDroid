@@ -72,7 +72,7 @@
 			?>
 			<!-- SLIDER BOTTOM BAR -->
 			<div class="slider-bottom-bar">
-				<?php include locate_template( 'views/menus/menu-home-slider.php' ); ?>
+				<?php include locate_template( 'views/theme/menu-home-slider.php' ); ?>
 			</div>
 			<?php
 		}
