@@ -2,10 +2,10 @@
 	class="menu-main">
 	<?php
 		$menu_walker = new PW_Menu_With_Description;
-		$main_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.main' ) );
-		$defaults = array(
+		$primary_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.id' ) );
+		$primary_menu_settings = array(
 			'theme_location'  => '',
-			'menu'            => $main_menu_id,
+			'menu'            => $primary_menu_id,
 			'container'       => 'div',
 			'container_class' => 'menu-container',
 			'container_id'    => '',
@@ -24,14 +24,12 @@
 				'item_template_path' => dirname( __FILE__ ) . "/main-menu-item.php",	
 				),
 		);
-		if( $main_menu_id )
-			wp_nav_menu( $defaults );
+		if( $primary_menu_id )
+			wp_nav_menu( $primary_menu_settings );
 	?>
-
 	<?php
-
 	// Show Social Menu
-	if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'social.in_main_menu' ) ) == true )
+	if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.show_social' ) ) )
 		include locate_template( 'views/menus/menu-social.php' );
 	?>
 	

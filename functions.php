@@ -50,10 +50,11 @@ include "php/postworld-postmeta.php";
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
 
+////////// THEME OPTIONS //////////
+include "php/postworld-theme-options.php";
+
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
-
-
 
 
 ////////// CHILD THEME //////////
