@@ -83,7 +83,7 @@ global $pw;
 
 <div
 	id="content"
-	class="page-content i-transition-fadein page-width"
+	class="page-content pw-transition-fadein page-width"
 	pw-timeout="100"
 	timeout-action="addClass('fadein-on')">
 	

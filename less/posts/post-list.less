@@ -72,3 +72,38 @@
 
 }
 
+.post.list-h2o{
+  width:100%;
+
+  a{
+    .transition();
+    display:block;
+    margin: 0 10px 10px 0;
+    border:1px solid transparent;
+    &:hover{
+      border:1px solid @global-foreground-color;
+      h2{
+        background: fade( @global-foreground-color, 80% );
+        color: @global-background-color;
+      }
+    }
+  }
+  .background-image{
+    min-height:200px;
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+  }
+  h2, .post-excerpt{
+    .transition();
+    display:inline-block;
+    padding: 10px 20px;
+    margin: 20px 10px 0;
+    background: fade( @global-background-color, 50% );
+    color: @global-foreground-color;
+  }
+  .post-excerpt{
+    margin-top: 0;
+    padding: 5px 20px;
+  }
+}
