@@ -48,6 +48,18 @@ function theme_pw_global_options( $options ){
 }
 add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
 
+////////// FILTER OEMBED OPTIONS //////////
+function theme_filter_pw_oembed_get( $vars ){
+	// Takes the theme embed options
+	// And sets them as the default options for embeds
+	$embed_options = pw_get_option(array(
+		'option_name'	=>	PW_OPTIONS_THEME,
+		'key'			=>	'embeds',
+		));
+	$vars = array_replace_recursive( $vars, $embed_options );
+	return $vars;
+}
+add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 
 ////////// THEME FEED ARCHIVE FILTER //////////
 function theme_feed_archive_filter( $feed_vars ){

@@ -262,7 +262,7 @@
 					<!-- TIME -->
 					<div
 						class="time unit pull-right"
-						tooltip="{{ post.post_date_gmt }}"
+						tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
 						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
 							<i class="icon-clock-o"></i> {{ post.time_ago }}

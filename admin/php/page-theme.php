@@ -299,51 +299,113 @@
 								));?>
 					</div>
 
+				</div>
 
 
+				<!--///// MEDIA EMBEDS /////-->
+				<div class="well">
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
+					<h2><i class="icon-embed"></i> Media Embeds</h2>
 
-					<!--///// FEEDS /////-->
+					<!-- GENERAL -->
 					<div class="well">
-						<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
-						<h2><i class="icon-th-list"></i> Feeds</h2>
+						<h3>
+							<span class="icon-md"><i class="icon-gear"></i></span>
+							General
+						</h3>
 
-						<!-- LOADING ICONS -->
-						<div class="well">
-							<h3>
-								<span class="icon-md"><i class="icon-circle-medium"></i></span>
-								<?php ___('feeds.settings.loading_icon') ?>
-							</h3>
-							<?php
-								$loading_icon_options = theme_get_loading_icon_options();
-								echo pw_select_icon_options(
-									array(
-										'ng_model' => 'pwOptions.feeds.loading.icon',
-										'icons'	=>	$loading_icon_options,
-										'icon_spin' => true,
-										)); ?>
-						</div>
+						<select
+							ng-options="val.value as val.name for val in options.general.doubleSwitch"
+							ng-model="pwOptions.embeds.autoplay">
+						</select>
+						autoplay
+						<small>
+							: play the media automatically
+						</small>
 
-						<!-- SETTINGS -->
-						<div class="well">
-							<h3>
-								<span class="icon-md"><i class="icon-gear"></i></span>
-								Settings
-							</h3>
+					</div>
 
-							<input
-								type="number"
-								class="short"
-								ng-model="pwOptions.feeds.settings.preload">
-							preload : <small>number of posts to preload on page load</small>
+					<!-- YOUTUBE -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="icon-play-youtube"></i></span>
+							YouTube
+						</h3>
 
-							<hr class="thin">
-							<input
-								type="number"
-								class="short"
-								ng-model="pwOptions.feeds.settings.load_increment">
-							load increment : <small>number of posts to load each infinite scroll</small>				
-						</div>
+						<select
+							ng-model="pwOptions.embeds.youtube.theme">
+							<option value="dark">Dark</option>
+							<option value="light">Light</option>
+						</select>
+						theme
+						<small> : the backdrop of the player controls</small>
 
+						<hr class="thin">
+
+						<select
+							ng-model="pwOptions.embeds.youtube.color">
+							<option value="red">Red</option>
+							<option value="white">White</option>
+						</select>
+						color
+						<small> : used to highlight the video progress</small>
+
+						<hr class="thin">
+
+						<select
+							ng-model="pwOptions.embeds.youtube.controls">
+							<option value="0">Hide controls, show title</option>
+							<option value="1">Show controls, show title</option>
+							<option value="2">Hide controls, hide title</option>
+						</select>
+						controls
+						<small> : before playing the video</small>
+
+					</div>
+
+				</div>
+
+
+				<!--///// FEEDS /////-->
+				<div class="well">
+					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
+					<h2><i class="icon-th-list"></i> Feeds</h2>
+
+					<!-- LOADING ICONS -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="icon-circle-medium"></i></span>
+							<?php ___('feeds.settings.loading_icon') ?>
+						</h3>
+						<?php
+							$loading_icon_options = theme_get_loading_icon_options();
+							echo pw_select_icon_options(
+								array(
+									'ng_model' => 'pwOptions.feeds.loading.icon',
+									'icons'	=>	$loading_icon_options,
+									'icon_spin' => true,
+									)); ?>
+					</div>
+
+					<!-- SETTINGS -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="icon-gear"></i></span>
+							Settings
+						</h3>
+
+						<input
+							type="number"
+							class="short"
+							ng-model="pwOptions.feeds.settings.preload">
+						preload : <small>number of posts to preload on page load</small>
+
+						<hr class="thin">
+						<input
+							type="number"
+							class="short"
+							ng-model="pwOptions.feeds.settings.load_increment">
+						load increment : <small>number of posts to load each infinite scroll</small>				
 					</div>
 
 				</div>

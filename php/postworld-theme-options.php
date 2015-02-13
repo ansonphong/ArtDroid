@@ -83,10 +83,11 @@ function pw_theme_options_filter( $options ){
 				),
 			),
 		'media'	=>	array(
+			/*
 			'embeds'	=>	array(
 				'height'	=>	50,
 				),
-			/*
+			
 			'images'	=>	array(
 				'height'	=>	75,
 				),
