@@ -53,16 +53,11 @@
 	<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleEmbed')">
 		<div
 			class="view-embed">
-
-
-
 			<div
 				class="o-embed"
 				o-embed="{{ post.link_url }}"
-				embed-autoplay="false"
 				embed-run="showView('singleEmbed')">
 			</div>
-
 		</div>
 	</div>
 
@@ -89,7 +84,7 @@
 		<div class="row">
 			<div class="col-md-7">
 
-				<h1>
+				<h1 class="post-title">
 					<span class="icon">
 						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
 							<i class="glyphicon glyphicon-arrow-down"></i>

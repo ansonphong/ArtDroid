@@ -73,8 +73,13 @@ global $pw;
 		</div>
 	</div>
 	<div class="clearfix"></div>
-
 </header>
+
+<!-- PRIMARY MENU SPACER -->
+<div id="primary-menu-spacer"></div>
+
+<!-- LINE -->
+<div id="header-border"></div>
 
 <div
 	id="content"

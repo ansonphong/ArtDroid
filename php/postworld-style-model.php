@@ -32,6 +32,7 @@ function theme_pw_styles_defaults( $value ){
 
 			'header'	=>	array(
 				'header-background'			=>	'@global-background-color',
+				'header-line-color'			=>	'@global-background-color',
 				'logo-background'			=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
 				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 66%)',
 				'main-menu-background'		=>	'@neutral-color-dark',
@@ -75,7 +76,6 @@ function theme_pw_styles_defaults( $value ){
 			),
 
 		'posts'	=>	array(
-
 			'grid'	=>	array(
 				'grid-image-size'			=>	'cover',
 				'grid-unit-padding'			=>	'1px',
@@ -88,11 +88,15 @@ function theme_pw_styles_defaults( $value ){
 				'grid-details-background'	=>	'@neutral-color-dark',
 				'grid-title-align'			=>	'left',
 				),
-
 			),
 
+		'pages'	=>	array(
+			'single'	=>	array(
+				'page-header-background'	=>	'@neutral-color-dark',
+				'page-header-foreground'	=>	'@neutral-color-light',
+				),
+			),
 		);
-
 
 	//'galleries'
 	// Add default width for vertical scroll galleries
@@ -245,7 +249,6 @@ function theme_pw_styles_structure( $structure = array() ){
 						),
 					),
 
-
 				///// HEADER /////
 				array(
 					'name'	=>	'Header',
@@ -257,6 +260,12 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"header-background",
 							"input"			=>	"color",
 							"description"	=>	"Background color of the header"
+							),
+						array(
+							"name"			=>	"Header Line",
+							"key"			=>	"header-line-color",
+							"input"			=>	"color",
+							"description"	=>	"The color of the line under the header"
 							),
 						array(
 							"name"			=>	"Logo Background",
@@ -426,7 +435,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Posts",
 			"key"	=>	"posts",
-			"icon"	=>	"icon-circle-medium",
+			"icon"	=>	"icon-pushpin",
 			"values"	=>	array(
 
 				///// BOOTSTRAP /////
@@ -499,6 +508,39 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"color",
 							"description"	=>	"The color of the grid details text"
 							),
+						),
+					),
+
+
+				),
+
+			),
+
+		array(
+			"name"	=>	"Pages",
+			"key"	=>	"pages",
+			"icon"	=>	"icon-file",
+			"values"	=>	array(
+
+				///// BOOTSTRAP /////
+				array(
+					'name'	=>	'Single',
+					'key'	=>	'single',
+					'icon'	=>	'icon-circle-medium',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Header Background",
+							"key"			=>	"page-header-background",
+							"input"			=>	"color",
+							"description"	=>	"The header background color on single pages"
+							),
+						array(
+							"name"			=>	"Header Foreground",
+							"key"			=>	"page-header-foreground",
+							"input"			=>	"color",
+							"description"	=>	"The header text color on single pages"
+							),
+						
 						),
 					),
 

@@ -98,6 +98,19 @@ body{
 
 	}
 
+	.post-controls{
+
+		button, a.btn{
+			color:@modal-foreground-color;
+			background:transparent;
+			&:hover{
+				color:@modal-background-color;
+				background:@modal-foreground-color;
+			}
+		}
+
+	}
+
 }
 
 
@@ -133,13 +146,14 @@ body{
 			}
 
 			.post-head{
+				background:transparent;
 				@media @desktop-and-above{
-					padding: 0 10px 0 40px;
+					padding: 30px 10px 20px 40px;
 				}
 			}
-
-			
-			
+			.post-content{
+				background:transparent;
+			}
 
 			.modal-controls{
 				display:block;

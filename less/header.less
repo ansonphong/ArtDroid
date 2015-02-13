@@ -1,8 +1,20 @@
 
-
-
 .header-spacer{
 	height:@header-height-fixed;
+}
+
+#primary-menu-spacer{
+	height:@header-height-fixed;
+}
+
+#header-border{
+	border-bottom:1px solid @header-line-color;
+	position: fixed;
+	width:100%;
+	z-index:5;
+	@media @wp-sm{
+		position:absolute;
+	}
 }
 
 body.scrollfix-y{
@@ -67,7 +79,7 @@ header#header{
 			img{
 				width:auto;
 				max-width: 100%;
-				height: auto;
+				//height: auto;
 				max-height:100%;
 			}
 		}
