@@ -1,0 +1,62 @@
+.theme-h2-mixin(
+		@text-color: @global-foreground-color;
+		@line-color: fade(@primary-color-medium, 33%);  ){
+		color:@text-color;
+		h2{
+			color:@text-color;
+			text-decoration: none;
+			padding:10px 10px;
+			//border: 1px solid @line-color;
+			//border-bottom: 4px solid @line-color;
+			//background: @line-color;
+			/*&:hover{
+				color:@text-color;
+				border: 1px solid @line-color;
+			}
+			*/
+		}
+		.heading-line{
+			background: @line-color ;
+		}
+}
+
+.heading{
+	margin:10px 0 30px;
+	position:relative;
+	text-align: center;
+
+	h2{
+		margin: auto;
+		display: inline-block;
+		background: @global-background-color;
+		position:relative;
+		z-index: 2;
+		text-align: center;
+		padding:0 10px;
+		font-size:24px;
+		font-weight: 100;
+		line-height:24px;
+		&:before, &:after {
+		//	content:" • "
+		}
+	}
+	h3{
+		margin-top:0;
+		font-size:18px;
+	}
+
+	.heading-line{
+		width:100%;
+		height:1px;
+		position:absolute;
+		top:22px; //50%;
+	}
+
+
+	///// COLORS /////  
+	.theme-h2-mixin( @primary-color-medium, fade(@primary-color-medium, 100%) );
+
+	&.primary-color-light{ 	.theme-h2-mixin( @primary-color-light, fade(@primary-color-medium, 50%) ); }
+	&.secondary-color-light{ .theme-h2-mixin( @secondary-color-light, fade(@secondary-color-medium, 50%) ); }
+
+}

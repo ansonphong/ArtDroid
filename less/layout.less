@@ -28,3 +28,37 @@
 hr.thin{
 	margin: 5px 0;
 }
+
+
+
+///// FOOTER WIDGETS /////
+@footer-widgets-gutter: 40px;
+.footer-widgets-row{
+
+	//background-color: @global-background-color;
+
+	.make-row( @footer-widgets-gutter );
+	&.footer-columns-1{
+		.widget-column{
+			.make-xs-column( 12, @footer-widgets-gutter );
+		}
+	}
+	&.footer-columns-2{
+		.widget-column{
+			.make-xs-column( 12, @footer-widgets-gutter );
+			.make-sm-column( 6, @footer-widgets-gutter );
+		}
+	}
+	&.footer-columns-3{
+		.widget-column{
+			.make-xs-column( 12, @footer-widgets-gutter );
+			.make-sm-column( 6, @footer-widgets-gutter );
+			.make-md-column( 4, @footer-widgets-gutter );
+		}
+	}
+
+	.widget-column{
+		margin-bottom: 20px;
+	}
+
+}

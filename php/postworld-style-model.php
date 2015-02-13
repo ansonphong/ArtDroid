@@ -33,8 +33,8 @@ function theme_pw_styles_defaults( $value ){
 			'header'	=>	array(
 				'header-background'			=>	'@global-background-color',
 				'header-line-color'			=>	'@global-background-color',
-				'logo-background'			=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
-				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 66%)',
+				'logo-background'			=>	'@global-background-color',
+				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
 				'main-menu-background'		=>	'@neutral-color-dark',
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',

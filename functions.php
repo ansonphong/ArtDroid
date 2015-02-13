@@ -52,6 +52,9 @@ include "php/postworld-filters.php";
 ////////// THEME OPTIONS //////////
 include "php/postworld-theme-options.php";
 
+////////// SIDEBARS //////////
+include "php/sidebars.php";
+
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
