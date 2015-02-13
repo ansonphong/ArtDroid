@@ -35,6 +35,8 @@
 	///// ICON /////
 	if( !empty($icon) ){ ?>
 		<i class="icon symbol-target menu-icon <?php echo $icon ?>"></i>
+	<?php } else{ ?>
+		<i class="icon symbol-target menu-icon"></i>
 	<?php } ?>
 
 	<span class="menu-label">
