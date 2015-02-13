@@ -1,7 +1,14 @@
 <div
 	class="menu-social">
 	<div class="inner">
-	<?php echo pw_social_menu( array( 'size' => 32, 'style' => 'default', 'meta' => array( 'tooltip-placement' => 'bottom' ) ) );?>
+		<?php echo pw_social_menu(
+			array(
+				'meta' => array(
+					'classes'			=>	'',
+					'tooltip_placement' => 'bottom',
+					)
+				)
+			);?>
 	</div>
 </div>
 
