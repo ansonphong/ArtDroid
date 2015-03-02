@@ -37,7 +37,7 @@ header#header{
 	z-index:100;
 	width:100%;
 	background:@header-background;
-	height:@header-height-fixed;
+	height:@primary-menu-height;
 	transition: background .66s ease;
 
 	@media @desktop-and-above{
@@ -45,7 +45,7 @@ header#header{
 	}
 
 	#logo{
-		height:@primary-menu-height;
+		height:(@primary-menu-height - 1px);
 		.transition();
 
 		background:@logo-background;
