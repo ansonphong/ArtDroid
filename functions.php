@@ -213,6 +213,12 @@ $social_settings = array(
 ///// ADD EDITOR STYLE /////
 add_editor_style( "/css/editor-style.css" );
 
+///// BOOTSTRAP ANGULAR APP TO BLOGOSPHERE OPTIONS PAGE /////
+add_filter( 'pw_admin_bootstrap_angular', 'theme_admin_boostrap_angular' );
+function theme_admin_boostrap_angular( $bootstrap ){
+	$bootstrap['base_substring'][] = 'artdroid';
+	return $bootstrap;
+}
 
 ///// ADD ADMIN STYLES /////
 
