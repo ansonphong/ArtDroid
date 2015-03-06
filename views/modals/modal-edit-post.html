@@ -1,5 +1,4 @@
 <div
-	i-edit-post
 	pw-edit-post
 	save-success-callback="close()"
 	edit-auto-reload="false"
@@ -126,21 +125,35 @@
 					<div class="col-md-5">
 						<!-- TAXONOMY : TAGS -->
 						<div class="post-details module taxonomy">
-							<div ng-controller="tagsAutocomplete" class="tags">
-									<div ng-repeat="tag in tags_input_obj" class="tag">
+							<div pw-autocomplete-tags class="tags">
+									<div ng-repeat="tag in tagsInput" class="tag">
 											<span><i class="icon-tag"></i> {{tag.name}}</span>
-											<button ng-click="removeTag(tag)" class="btn-neutral-color pull-right">
+											<button
+												ng-click="removeTag(tag)"
+												class="btn-neutral-color pull-right">
 											<i class="icon-close"></i>
 										</button>
 										<div class="clearfix"></div>
 									</div>
 									<div class="input-group">
-										<input type="text" typeahead-min-length="1" typeahead-loading="status" typeahead-wait-ms="500"
-											ng-change="queryTags()" typeahead-editable="1" ng-model="queryTag"
-											typeahead="tag.slug as tag.name for tag in tagOptions | filter:$viewValue | limitTo:20"
-											typeahead-on-select="addTag()" class="form-control blue">
+										<input
+											type="text"
+											typeahead-min-length="1"
+											typeahead-loading="loadingTagsAutocomplete"
+											typeahead-wait-ms="200"
+											typeahead-editable="1"
+											ng-model="queryTag"
+											typeahead="tag.slug as tag.name for tag in queryTags($viewValue) | filter:$viewValue | limitTo:20"
+											typeahead-on-select="addTag($item);queryTag=''"
+											class="form-control blue">
 										<span class="input-group-btn">
-											<button class="btn btn-primary-color" ng-click="newTag()"><i class="icon-plus"></i> New Tag</button>
+											<button
+												class="btn btn-primary-color"
+												ng-click="newTag(queryTag);queryTag=''">
+												<i ng-show="!loadingTagsAutocomplete" class="icon-plus"></i>
+												<i ng-show="loadingTagsAutocomplete" class="icon-spin icon-spinner-2"></i>
+												New Tag
+											</button>
 										</span>
 									</div>
 							</div>
@@ -163,6 +176,7 @@
 
 	</div><!-- END WRAPPER -->
 
-	<!--<pre>{{ post | json }}</pre>-->
+	<pre>{{ post.tax_input | json }}</pre>
+	<pre>{{ post.link_url | json }}</pre>
 
 </div><!-- END CONTROLLER -->

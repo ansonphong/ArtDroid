@@ -3,7 +3,7 @@
 	global $post;
 	$pwInject = $pw['inject'];
 ?>
-<div ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
+<div ng-cloak ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
 
 	<table>
 
