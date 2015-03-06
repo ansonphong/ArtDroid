@@ -4,12 +4,12 @@
 	infinite-scroll='getNext()'
 	infinite-scroll-disabled='busy'
 	infinite-scroll-use-document-bottom="true"
-	class="grid-columns-{{ feed.options.views.grid.columns }}">
+	class="grid-columns-{{ feed().options.views.grid.columns }}">
 	<div
 		art-feed>
 		<div class="grid-width-controller"></div>
 		<div
-			ng-repeat="post in posts"
+			ng-repeat="post in posts()"
 			class="feed-item masonry-brick"
 			pw-grid
 			ng-class="setGridClass( post.image.tags )">
