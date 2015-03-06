@@ -1,0 +1,30 @@
+<div
+	infinite-scroll='getNext()'
+	infinite-scroll-disabled='busy'
+	infinite-scroll-use-document-bottom="true">
+
+	<div
+		ng-repeat="post in posts()"
+		class="feed-item">
+		<div
+			feed-item
+			post="post"
+			feed-settings="args"
+			class="feed-post">
+			<!-- feed-id="args.feed_id" -->
+		</div>
+	</div>
+	<div class="clearfix"></div>
+
+</div>
+
+<div class="clearfix"></div>
+
+<div
+	ng-show='busy'
+	class="text-center">
+	<div
+		class="loading loading-animation">
+		<i class="icon-triadic-4 icon-spin"></i>
+	</div>
+</div>
