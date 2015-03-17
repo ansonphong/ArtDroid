@@ -1,0 +1,35 @@
+<div
+	id="image-info"
+	pw-ui
+	ng-hide="!uiBool(post)">
+	<div
+		class="image-title"
+		ng-show="uiBool(post.post_title)">
+		<a href="{{ post.post_permalink }}">
+			<h4>
+				{{ post.post_title }}
+			</h4>
+		</a>
+	</div>
+	<div
+		class="image-caption"
+		ng-show="uiBool(post.post_excerpt)">
+		{{ post.post_excerpt }}
+	</div>
+	
+	<div class="image-links">
+		<span ng-show="uiBool(post.link_url)">
+			<a href="uiBool(post.link_url" target="_blank">
+				<i class="icon pwi-link"></i>
+				link	
+			</a>
+		</span>
+		<span>
+			<a href="{{ post.image.sizes.full.url }}" download>
+				<i class="icon pwi-arrow-down-thin"></i>
+				download
+			</a>
+		</span>
+	</div>
+
+</div>
