@@ -1,0 +1,62 @@
+<div
+	pw-gallery-viewer gallery-posts="meta.posts"
+	gallery-keybind="false"
+	class="gallery-viewer post-format-gallery"
+	pw-ui>
+
+	<!-- INDEX IS BEING RESET CONSTANTLY DUE TO OBJECT INEQUALITY - WHY? FIND ANOTHER WAY TO SWITCH - LISTEN TO MODAL $ON - POST CHANGED -->
+
+	<!-- DEVELOP HYBRID KEYBINDING WITH MODAL CONTROLLER - LISTEN $ON FOR ENABLE / DISABLE KEYBINDINGS ON THE TOP MODAL WINDOW, GALLERY CONTROLLER INTERACTS WITH THAT -->
+	<!-- SUPPORT FOR PANORAMA SCROLLING / VERTICAL SCROLLING -->
+	<!-- INCLUDE VARS FOR WHETHER OR NOT TO SHOW DOWNLOAD IMAGE LINK AND KEYBIND -->
+	<!-- ADD FULL SCREEN SUPPORT -->
+
+	<div class="gallery-image">
+		<div
+			class="image-viewer image-hover-area"
+			window-height='75'
+			ng-style="thumbnailImageBg(selectedImage(),'xlarge')">
+			<div class="loading-outer" ng-show="!galleryLoaded()">
+				<div class="loading-inner">
+					<i class="icon pwi-spinner-2 icon-spin"></i>
+				</div>
+			</div>
+
+			<!-- IMAGE INFO -->
+			<div load-panel="image-info" panel-post="selectedImage()"></div>
+
+		</div>
+	</div>
+
+	<table class="gallery-menu">
+		<tr>
+			<td
+				class="menu-cell menu-cell-previous">
+				<button type="button" ng-click="previousImage()">
+					<i class="pwi-triangle-left-fill"></i>
+				</button>
+			</td>
+			<td
+				ng-repeat="imagePost in gallery.posts track by trackingPosts(imagePost)"
+				class="menu-cell menu-cell-thumbnail">
+				<button
+					type="button"
+					class="thumbnail-button"
+					ng-click="gotoImage(imagePost)"
+					ng-class="imageIsSelected(imagePost)"
+					ng-style="thumbnailImageBg(imagePost,'medium')">
+					<div class="thumbnail-overlay"></div>
+				</button>
+			</td>
+			<td
+				class="menu-cell menu-cell-next">
+				<button type="button" ng-click="nextImage()">
+					<i class="pwi-triangle-right-fill"></i>
+				</button>
+			</td>
+		</tr>
+	</table>
+
+	<!--<pre>INDEX : <span ng-bind="gallery.index"></span> // COUNT : <span ng-bind="gallery.count"></span> // META : <span ng-bind="gallery | json"></span></pre>-->
+
+</div>

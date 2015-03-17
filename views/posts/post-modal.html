@@ -73,7 +73,10 @@
 		pw-ui>
 
 		<!-- IMAGE -->
-		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('modalImage')">
+		<div
+			class="media-viewer"
+			window-height="{{pw.options.theme.posts.media.style.height}}"
+			ng-show="showView('modalImage')">
 
 			<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="uiBoolean(feed)">
 				<button
@@ -100,6 +103,13 @@
 			</div>
 
 		</div>
+
+		<!-- GALLERY : FRAME -->
+		<div
+			ng-show="showView('galleryFrame')"
+			load-panel="gallery-viewer"
+			panel-post="post"
+			panel-meta="post.gallery"></div>
 
 		<!-- GALLERY : HORIZONTAL -->
 		<div
@@ -146,7 +156,6 @@
 		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('modalEmbed')">
 			<div
 				class="view-embed">
-
 				<div
 					class="o-embed"
 					o-embed="{{ post.link_url }}"
@@ -157,9 +166,6 @@
 			</div>
 		</div>
 		
-
-
-
 		<!-- PAGE -->
 		<div class="page-width">
 
