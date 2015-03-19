@@ -101,7 +101,7 @@ $pwSiteGlobals = array(
 
 	'iconsets'	=>	array(
 		'required'	=>	array(
-			'icomoon',
+			'postworld-icons',
 			'glyphicons-halflings',
 			),
 		),
