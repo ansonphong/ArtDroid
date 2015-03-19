@@ -41,6 +41,10 @@ function theme_pw_styles_defaults( $value ){
 				'secondary-menu-foreground'	=>	'@global-foreground-color',
 				),
 
+			'media'	=>	array(
+				'media-viewer-background'			=>	'#000',
+				),
+
 			'footer'=>	array(
 				'footer-background'	=>	'transparent',
 				'footer-color'		=>	'@neutral-color-medium',
@@ -302,6 +306,21 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"secondary-menu-foreground",
 							"input"			=>	"color",
 							"description"	=>	"Color of the secondary menu text"
+							),
+						),
+					),
+
+				///// MEDIA /////
+				array(
+					'name'	=>	'Media',
+					'key'	=>	'media',
+					'icon'	=>	'icon-play',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Media Viewer Background",
+							"key"			=>	"media-viewer-background",
+							"input"			=>	"color",
+							"description"	=>	"Background color behind media embeds"
 							),
 						),
 					),

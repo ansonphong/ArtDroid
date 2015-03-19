@@ -40,22 +40,23 @@ postworld.controller( 'artPostCtrl',
 			true : false;
 
 		// GALLERY
-		var galleryTemplate = $_.getObj( $scope, 'post.post_meta.pw_meta.gallery.template' );
-		var hasGallery = ( !_.isEmpty( $_.getObj( $scope, 'post.gallery.posts' ) ) );
+		var galleryTemplate = $_.get( $scope, 'post.post_meta.pw_meta.gallery.template' );
+		var hasGallery = ( !_.isEmpty( $_.get( $scope, 'post.gallery.posts' ) ) );
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
+		var galleryFrame = ( galleryTemplate == 'frame' );
 
 		// HEADER
-		var header = $_.getObj( $scope, 'post.post_meta.pw_meta.header.type' );
+		var header = $_.get( $scope, 'post.post_meta.pw_meta.header.type' );
 		var headerDefault = ( header == 'default' || header == false );
 		var headerImage = ( header == 'featured_image' );
 		var headerSlider = ( header == 'headerSlider' );
 
 		// EMBED
 		var hasEmbed = (
-			$_.getObj( $scope, 'post.link_format' ) == 'video' ||
-			$_.getObj( $scope, 'post.link_format' ) == 'audio' ) ?
+			$_.get( $scope, 'post.link_format' ) == 'video' ||
+			$_.get( $scope, 'post.link_format' ) == 'audio' ) ?
 			true : false;
 
 		// IMAGE
@@ -72,12 +73,13 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'singleImage':		// For use in Single Post View
-				if( ( hasImageAndNoEmbed && !galleryHorizontal ) || ( headerImage && hasImage && !galleryHorizontal ) )
+				if( ( hasImageAndNoEmbed && !galleryHorizontal && !galleryFrame ) ||
+					( headerImage && hasImage && !galleryHorizontal && !galleryFrame ) )
 					return true;
 				break;
 
 			case 'modalImage': 		// For use in Modal Viewer
-				if( hasImageAndNoEmbed && !galleryHorizontal )
+				if( hasImageAndNoEmbed && !galleryHorizontal && !galleryFrame )
 					return true;
 				break;
 
@@ -107,11 +109,15 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'galleryVertical':
-				if( galleryVertical && hasGallery )
+				if( galleryVertical ) // && hasGallery
+					return true;
+				break;
+
+			case 'galleryFrame':
+				if( galleryFrame ) // && hasGallery
 					return true;
 				break;
 	
-
 		}
 
 		return false;
