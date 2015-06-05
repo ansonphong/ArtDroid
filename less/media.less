@@ -75,21 +75,24 @@
 			.scroll-indicator{
 				//display:block;
 				opacity:1;
+				right:20px;
 			}
 			&.pw-x-scrolled{
 				.scroll-indicator{
 					opacity:0;
-					right:60px;
+					right:80px;
 				}
 			}
 		}
 
 		.scroll-indicator{
+			opacity:0;
+			right:60px;
+
 			transition:opacity .5s ease, right .5s ease;
 			height:44px;
 			opacity:0;
 			position: absolute;
-			right:20px;
 			top:45%;
 			background: fade( @global-foreground-color, 85% );
 			border-radius: 80px;
@@ -98,6 +101,8 @@
 			padding: 10px 8px;
 			font-size:@font-size-md;
 			text-transform: uppercase;
+			box-shadow: 5px 5px 10px fade(@neutral-color-dark, 66%);
+
 			.text{
 				display: inline-block;
 				padding: 0 50px 0 15px;
