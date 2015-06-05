@@ -16,7 +16,7 @@ function theme_sidebars_init(){
 			'after_title'   => $title_after
 			),
 		array(
-			'name'          => "Post Foot",
+			'name'          => "Post Footer",
 			'id'            => 'post-foot',
 			'description'   => 'At the footer of a single post.',
 			'class'         => '',
@@ -26,9 +26,20 @@ function theme_sidebars_init(){
 			'after_title'   => $title_after
 			),
 		array(
-			'name'          => "Page Foot",
+			'name'          => "Page Footer",
 			'id'            => 'page-foot',
 			'description'   => 'At the footer of a single page.',
+			'class'         => '',
+			'before_widget' => '<div class="widget-column"><div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
+
+		array(
+			'name'          => "Error Footer",
+			'id'            => 'error-foot',
+			'description'   => 'At the footer of error (404) pages. Add content here to keep mis-guided visitors engaged.',
 			'class'         => '',
 			'before_widget' => '<div class="widget-column"><div id="%1$s" class="sidebar-widget %2$s">',
 			'after_widget'  => '</div></div>',

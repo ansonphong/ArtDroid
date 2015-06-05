@@ -6,12 +6,18 @@
 
 <?php
 ///// SINGLE POST FOOTER /////
-if( is_single() || is_page() ){
+if( is_single() || is_page() || is_404() ){
 
 	global $post;
+
+	if( is_404() )
+		$sidebar_prefix = 'error';
+	else
+		$sidebar_prefix = $post->post_type;
+
 	///// POST WIDGETS /////
 	$foot_widgets = pw_print_widgets( array(
-		'sidebar'		=>	$post->post_type.'-foot',
+		'sidebar'		=>	$sidebar_prefix.'-foot',
 		'before'		=>	'<div class="sidebar">',
 		'after'			=>	'</div>',
 		'echo'			=>	false,
