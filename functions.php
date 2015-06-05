@@ -1,10 +1,4 @@
 <?php
-// ADD LESS SUPPORT
-//require_once( get_infinite_directory().'/packages/wp-less/wp-less.php' );
-
-////////// POST FORMATS //////////
-//add_theme_support( 'post-formats', array( 'image', 'link' ) );
-
 ////////// POSTWORLD //////////
 /// POSTWORLD CONFIG ///
 include "postworld-config.php";
@@ -19,12 +13,9 @@ function theme_postworld_includes(){
 		'infinite',
 		'wp-less',
 		'masonry.js',
-		'icomoon',
-		'bootstrap',
 		);
-
 	postworld_includes( array(
-		'angular_version' => 'angular-1.3.8',	// 'angular-1.2.25',
+		'angular_version' => 'angular-1.3.13',	// 'angular-1.2.25',
 		'inject'  => $postworld_inject,
 	));
 }
@@ -36,7 +27,6 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ////////// ADMIN //////////
 include_once 'admin/php/admin.php';
-
 
 ////////// CHILD STYLE MODEL //////////
 include "php/postworld-style-model.php";
@@ -62,15 +52,14 @@ include "php/sidebars.php";
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
-
 ////////// CHILD THEME //////////
-add_action( 'wp_enqueue_scripts', 'include_child_styles' );
-function include_child_styles(){
+add_action( 'wp_enqueue_scripts', 'theme_include_styles' );
+function theme_include_styles(){
 	// CHILD LESS
-	wp_enqueue_style( 'Child-Styles', get_stylesheet_directory_uri() . '/less/style.less' );
+	wp_enqueue_style( 'Theme-Styles', get_stylesheet_directory_uri() . '/less/style.less' );
 }
-add_action( 'wp_enqueue_scripts', 'include_child_scripts' );
-function include_child_scripts(){
+add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
+function theme_include_scripts(){
 	///// JQUERY /////
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
@@ -104,10 +93,8 @@ add_image_size( 'thumb-x-wide', '800', '400', true );
 add_image_size( 'thumb-tall', '400', '600', true );
 add_image_size( 'thumb-x-tall', '400', '800', true );
 
-
 ////////// REMOVE FILTERS //////////
 remove_filter( 'the_content', 'prepend_attachment', 10 );
-
 
 ////////// SOCIAL MEDIA WIDGETS //////////
 global $social_settings;
@@ -165,10 +152,14 @@ function theme_admin_boostrap_angular( $bootstrap ){
 }
 
 ///// ADD ADMIN STYLES /////
-
 function theme_admin_enqueue() {
 	wp_enqueue_style( 'Theme-Admin-Styles', get_template_directory_uri() . '/admin/less/styles.less' );
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
+
+
+////////// POST FORMATS //////////
+//add_theme_support( 'post-formats', array( 'image', 'link' ) );
+
 
 ?>

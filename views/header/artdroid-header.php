@@ -12,7 +12,7 @@ global $pw;
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
 	<title><?php wp_title(' | ', true, 'left'); ?></title>
-	<link rel="icon" type="image/png" href="<?php echo pw_site_favicon()['url']; ?>">
+	<link rel="icon" type="image/png" href="<?php $favicon = pw_site_favicon(); echo $favicon['url']; ?>">
 	<?php wp_head(); ?>
 </head>
 <body
@@ -65,7 +65,7 @@ global $pw;
 				<button
 					class="mobile-menu"
 					ng-click="uiToggleElementDisplay('#main-menu'); uiToggleElementClass('selected', $event)">
-					<i class="icon-nav"></i>
+					<i class="pwi-nav"></i>
 				</button>
 
 			</div>

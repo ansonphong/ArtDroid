@@ -62,8 +62,9 @@ function theme_filter_pw_oembed_get( $vars ){
 add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 
 ////////// THEME FEED ARCHIVE FILTER //////////
-function theme_feed_archive_filter( $feed_vars ){
+function theme_feed_archive_filter( $feed ){
 	global $pw;
+	pw_log( $feed );
 
 	////////// HOME PAGE //////////
 	if( in_array( 'home', $pw['view']['context'] ) ){
@@ -90,22 +91,23 @@ function theme_feed_archive_filter( $feed_vars ){
 				// Overwrite the default blocks settings with the saved settings
 				$blocks = array_replace_recursive( $default_blocks, $blocks );
 				// Set the blocks settings into the feed variables
-				$feed_vars = _set( $feed_vars, 'feed.blocks', $blocks );
+				$feed = _set( $feed, 'feed.blocks', $blocks );
 			}
 		}
 	}
 
 	////////// GLOBAL //////////
 	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
-	$feed_vars['feed'] = array_replace_recursive( $feed_vars['feed'], $feed_settings );
+	if( is_array( $feed_settings ) )
+		$feed = array_replace_recursive( $feed, $feed_settings );
 
 	// Pre-process the theme feed vars
-	$feed_vars = apply_filters( 'theme_feed_preprocess', $feed_vars );
+	$feed_vars = apply_filters( 'theme_feed_preprocess', $feed );
 
-	return $feed_vars;
+	return $feed;
 	
 }
-add_filter( 'pw_feed', 'theme_feed_archive_filter' );
+add_filter( PW_FEED_DEFAULT, 'theme_feed_archive_filter' );
 
 
 ////// DEFAULT FEED SETTINGS /////
@@ -276,29 +278,29 @@ add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 
 function theme_get_loading_icon_options(){
 	$icons = array(
-		'icon-spinner-1',
-		'icon-spinner-2',
-		'icon-spinner-3',
-		'icon-spinner-4',
-		'icon-spinner-5',
-		'icon-spinner-6',
-		'icon-seal-1',
-		'icon-triadic-1',
-		'icon-triadic-2',
-		'icon-triadic-3',
-		'icon-triadic-4',
-		'icon-triadic-5',
-		'icon-seed-of-life',
-		'icon-seed-of-life-fill',
-		'icon-merkaba',
-		'icon-target',
-		'icon-sun',
-		'icon-contrast',
-		'icon-loop',
-		'icon-hexagon-thick',
-		'icon-hexagon-medium',
-		'icon-hexagon-thin',
-		'icon-arrow-down-circle',
+		'pwi-spinner-1',
+		'pwi-spinner-2',
+		'pwi-spinner-3',
+		'pwi-spinner-4',
+		'pwi-spinner-5',
+		'pwi-spinner-6',
+		'pwi-seal-1',
+		'pwi-triadic-1',
+		'pwi-triadic-2',
+		'pwi-triadic-3',
+		'pwi-triadic-4',
+		'pwi-triadic-5',
+		'pwi-seed-of-life',
+		'pwi-seed-of-life-fill',
+		'pwi-merkaba',
+		'pwi-target',
+		'pwi-sun',
+		'pwi-contrast',
+		'pwi-loop',
+		'pwi-hexagon-thick',
+		'pwi-hexagon-medium',
+		'pwi-hexagon-thin',
+		'pwi-arrow-down-circle',
 		);
 	return $icons;
 }

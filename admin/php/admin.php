@@ -2,6 +2,11 @@
 ///// METABOXES /////
 include "metaboxes.php";
 
+function theme_pw_admin_submenu_slug( $slug ){
+	return 'artdroid';
+}
+add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');
+
 /*
 function postworld_theme_submenu( $submenu ){
 	global $pw;
@@ -32,7 +37,6 @@ function artdroid_admin_menu(){
 			//'menu_icon'	=>	'dashicons-art',
 			'position' => ''
 			),
-
 		'submenu' => array(),
 		);
 	add_menu_page(
@@ -52,7 +56,7 @@ function theme_admin_icon_styles(){
 	<style>
 		#toplevel_page_artdroid .dashicons-before:before{
 			content: "\e701";
-			font-family: "icomoon"
+			font-family: "Postworld-Icons"
 		}
 	</style>
 	<?

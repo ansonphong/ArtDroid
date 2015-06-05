@@ -94,10 +94,10 @@
 				<h1 class="post-title">
 					<span class="icon">
 						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-							<i class="glyphicon glyphicon-arrow-down"></i>
+							<i class="pwi-arrow-down"></i>
 						{% endif %} 
 						{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-							<i class="glyphicon glyphicon-arrow-right"></i>
+							<i class="pwi-arrow-right"></i>
 						{% endif %}
 						{% if post.post_meta.pw_meta.icon.class %}
 							<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
@@ -119,7 +119,7 @@
 					<!-- TAGS -->
 					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 						<div class="tags">
-							<i class="icon-tags"></i>
+							<i class="pwi-tags"></i>
 							<span ng-repeat="term in post.taxonomy.post_tag">
 							    <a pw-href="term.url" class="term tag">
 									<span ng-bind="term.name"></span>
@@ -149,7 +149,7 @@
 							tooltip="edit"
 							tooltip-placement="top"
 							tooltip-popup-delay="500">
-							<i class="icon-merkaba"></i>
+							<i class="pwi-merkaba"></i>
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
 							<li prevent-default-click ng-repeat="item in userOptions">
@@ -172,7 +172,7 @@
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
-							<i class="icon-clock"></i> {{ post.time_ago }}
+							<i class="pwi-clock"></i> {{ post.time_ago }}
 						</time>
 					</div>
 
@@ -186,7 +186,7 @@
 						<a
 							download
 							pw-href="post.image.sizes.full.url">
-							<i class="icon-arrow-down-thin"></i>
+							<i class="pwi-arrow-down-thin"></i>
 							download
 						</a>
 					</div>
@@ -203,7 +203,7 @@
 						<a
 							pw-href="post.link_url"
 							pw-target="post.post_meta.pw_meta.link_url.new_target">
-							<i class="icon-crosshairs"></i>
+							<i class="pwi-crosshairs"></i>
 							{{ post.post_meta.pw_meta.link_url.label.custom }}
 						</a>
 					</div>

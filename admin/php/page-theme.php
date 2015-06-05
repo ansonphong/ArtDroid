@@ -26,7 +26,7 @@
 				<div class="col-md-6">
 					<h1>
 						<span class="artdroid-brand">
-							<i class="icon-merkaba"></i>
+							<i class="pwi-merkaba"></i>
 							ArtDroid 
 						</span>
 						<span class="subhead">
@@ -53,7 +53,7 @@
 				<div class="well">
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
-						<span class="icon-md"><i class="icon-image"></i></span>
+						<span class="icon-md"><i class="pwi-image"></i></span>
 						Logo
 					</h2>
 					<div class="well">
@@ -75,7 +75,7 @@
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					
 					<h2>
-						<i class="icon-pushpin"></i>
+						<i class="pwi-pushpin"></i>
 						Posts
 					</h2>
 
@@ -83,25 +83,25 @@
 					<div class="well">
 						<small>New posts will be created with default: </small>
 						<hr class="thin">
-						<?php echo i_content_columns_option( array( "context" => "siteAdmin" ) ); ?>
+						<?php echo pw_content_columns_option( array( "context" => "siteAdmin" ) ); ?>
 					</div>
 
 					<!-- DOWNLOAD IMAGE -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-arrow-down-thin"></i></span>
+							<span class="icon-md"><i class="pwi-arrow-down-thin"></i></span>
 							Download Image
 						</h3>
-						<?php echo i_download_image_option( array( "context" => "siteAdmin" ) ); ?>
+						<?php echo pw_download_image_option( array( "context" => "siteAdmin" ) ); ?>
 					</div>
 
 					<!-- LINK URL -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-link"></i></span>
+							<span class="icon-md"><i class="pwi-link"></i></span>
 							Link Label
 						</h3>
-						<?php echo i_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
+						<?php echo pw_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
 						<div style="clear:both"></div>
 					</div>
 
@@ -109,7 +109,7 @@
 					<!-- MODALS -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-layers-2"></i></span>
+							<span class="icon-md"><i class="pwi-layers-2"></i></span>
 							Modals
 						</h3>
 						<small>
@@ -128,7 +128,7 @@
 					<!-- MEDIA -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-image"></i></span>
+							<span class="icon-md"><i class="pwi-image"></i></span>
 							Media
 						</h3>
 						<label>
@@ -154,7 +154,7 @@
 					
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 					<h2>
-						<i class="icon-nav-thin"></i>
+						<i class="pwi-nav-thin"></i>
 						Menus
 					</h2>
 					
@@ -164,7 +164,7 @@
 							Primary Menu
 						</h3>
 
-						<span class="icon-md"><i class="icon-nav"></i></span>
+						<span class="icon-md"><i class="pwi-nav"></i></span>
 						<?php
 							echo pw_select_menus( array(
 								'options_model'	=>	'options.menus',
@@ -212,12 +212,12 @@
 				<!--///// HOME /////-->
 				<div class="well">
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
-					<h2><i class="icon-home"></i> Home Page</h2>
+					<h2><i class="pwi-home"></i> Home Page</h2>
 
 					<!-- SLIDER -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-image"></i></span>
+							<span class="icon-md"><i class="pwi-image"></i></span>
 							Slider
 						</h3>
 
@@ -234,9 +234,9 @@
 							<hr class="thin">
 							<b>Menu</b> - <small>The pages and posts on the selected menu will be used as slides.</small>
 							<br>
-							<span class="icon-md"><i class="icon-nav"></i></span>
+							<span class="icon-md"><i class="pwi-nav"></i></span>
 							<?php
-								echo i_select_menus( array(
+								echo pw_select_menus( array(
 									'options_model'	=>	'options.menus',
 									'ng_model'	=>	'pwOptions.home.slider.menu',
 									'null_option'	=>	'No Menu',
@@ -246,7 +246,7 @@
 								<hr class="thin">
 								<h4>Settings</h4>
 								<?php
-									echo i_select_slider_settings( array(
+									echo pw_select_slider_settings( array(
 										'ng_model' 	=>	'pwOptions.home.slider',
 										'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
 										'defaults'	=>	array(
@@ -266,15 +266,15 @@
 						class="well"
 						ng-show="pwOptions.home.slider.show_slider">
 						<h3>
-							<span class="icon-md"><i class="icon-nav-thin"></i></span>
+							<span class="icon-md"><i class="pwi-nav-thin"></i></span>
 							Secondary Menu
 						</h3>
 						<small>This menu will appear under the slider.</small>
 						<hr class="thin">
 						<div>
-							<span class="icon-md"><i class="icon-nav"></i></span>
+							<span class="icon-md"><i class="pwi-nav"></i></span>
 							<?php
-								echo i_select_menus( array(
+								echo pw_select_menus( array(
 									'options_model'	=>	'options.menus',
 									'ng_model'	=>	'pwOptions.home.secondary_menu',
 									'null_option'	=>	'No Menu',
@@ -285,7 +285,7 @@
 					<!-- BLOCKS -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-grid"></i></span>
+							<span class="icon-md"><i class="pwi-grid"></i></span>
 							Blocks
 						</h3>
 						<small>
@@ -293,7 +293,7 @@
 						</small>
 						<hr class="thin">
 						<?php
-							echo i_select_blocks_settings( array(
+							echo pw_select_blocks_settings( array(
 								'option_var' 	=> 'pwOptions',
 								'option_key'	=>	'home.feed.blocks',
 								));?>
@@ -305,12 +305,12 @@
 				<!--///// MEDIA EMBEDS /////-->
 				<div class="well">
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
-					<h2><i class="icon-embed"></i> Media Embeds</h2>
+					<h2><i class="pwi-embed"></i> Media Embeds</h2>
 
 					<!-- GENERAL -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-gear"></i></span>
+							<span class="icon-md"><i class="pwi-gear"></i></span>
 							General
 						</h3>
 
@@ -328,7 +328,7 @@
 					<!-- YOUTUBE -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-play-youtube"></i></span>
+							<span class="icon-md"><i class="pwi-play-youtube"></i></span>
 							YouTube
 						</h3>
 
@@ -369,12 +369,12 @@
 				<!--///// FEEDS /////-->
 				<div class="well">
 					<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
-					<h2><i class="icon-th-list"></i> Feeds</h2>
+					<h2><i class="pwi-th-list"></i> Feeds</h2>
 
 					<!-- LOADING ICONS -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-circle-medium"></i></span>
+							<span class="icon-md"><i class="pwi-circle-medium"></i></span>
 							<?php ___('feeds.settings.loading_icon') ?>
 						</h3>
 						<?php
@@ -390,7 +390,7 @@
 					<!-- SETTINGS -->
 					<div class="well">
 						<h3>
-							<span class="icon-md"><i class="icon-gear"></i></span>
+							<span class="icon-md"><i class="pwi-gear"></i></span>
 							Settings
 						</h3>
 
@@ -416,7 +416,10 @@
 
 		<?php if( pw_dev_mode() ) : ?>
 			<hr class="thick">		
-			<pre>pwOptions: {{ pwOptions | json }}</pre>
+			<div class="well">
+				<h3>$scope.pwOptions</h3>
+				<pre><code>{{ pwOptions | json }}</code></pre>
+			</div>
 		<?php endif; ?>
 		
 	</div>

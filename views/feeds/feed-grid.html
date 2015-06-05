@@ -4,7 +4,7 @@
 	infinite-scroll='getNext()'
 	infinite-scroll-disabled='busy'
 	infinite-scroll-use-document-bottom="true"
-	class="grid-columns-{{ feed().options.views.grid.columns }}">
+	class="grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
 	<div
 		art-feed>
 		<div class="grid-width-controller"></div>

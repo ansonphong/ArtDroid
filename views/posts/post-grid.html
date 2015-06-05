@@ -26,7 +26,7 @@
 					ng-class="post.link_format">
 					<div ng-show="post.link_format == 'video'">
 						<button class="btn video">
-							<i class="icon-triangle-right-fill"></i>
+							<i class="pwi-triangle-right-fill"></i>
 						</button>
 					</div>
 				</div>
@@ -48,7 +48,7 @@
 				<!-- TAGS 
 				<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 					<span class="tags">
-						<i class="icon-tags"></i>
+						<i class="pwi-tags"></i>
 						<span ng-repeat="term in post.taxonomy.post_tag">
 							<a href="{{term.url}}" ng-class="term.slug" class="tag">{{term.name}}</a>
 						</span>
@@ -66,7 +66,7 @@
 						tooltip="link"
 						tooltip-placement="top"
 						tooltip-popup-delay="500">
-						<i class="icon-link"></i>
+						<i class="pwi-link"></i>
 					</a>
 					<br>
 					<!-- DROPDOWN -->
@@ -83,7 +83,7 @@
 							tooltip="edit"
 							tooltip-placement="top"
 							tooltip-popup-delay="500">
-							<i class="icon-merkaba"></i>
+							<i class="pwi-merkaba"></i>
 						</button>
 						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
 							<li prevent-default-click ng-repeat="item in userOptions">
