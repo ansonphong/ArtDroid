@@ -75,7 +75,7 @@
 		<!-- IMAGE -->
 		<div
 			class="media-viewer"
-			window-height="{{pw.options.theme.posts.media.style.height}}"
+			style="height:{{pw.options.theme.posts.media.style.height}}vh"
 			ng-show="showView('modalImage')">
 
 			<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="uiBoolean(feed)">
@@ -112,48 +112,18 @@
 			panel-meta="post.gallery"></div>
 
 		<!-- GALLERY : HORIZONTAL -->
+		<!-- HORIZONTAL GALLERY -->
 		<div
-			class="media-viewer"
-			window-height="{{post.post_meta.pw_meta.gallery.height}}"
-			ng-show="showView('galleryHorizontal')">
-			<div
-				pw-infinite-gallery
-				gallery-preload="4"
-				gallery-scroll="galleryGetNext(3)"
-				class="view-gallery-horizontal">
-				<!-- INFINITE SCROLL -->
-				<div class="infinite-x-scroll" id="scrolls">
-					<!-- SINGLE WIDE IMAGE -->
-					<div
-						ng-show="showView('horizontalScrollImage')"
-						style="height:100%;">
-						<div class="gallery-image">
-							<img pw-src="post.image.sizes.xlarge.url">
-						</div>
-					</div>
-					<!-- GALLERY IMAGES -->
-					<div
-						class="scroll-inner"
-						infinite-x-scroll
-						scroll-action="galleryGetNext( 4 )"
-						scroll-distance="{{post.post_meta.pw_meta.gallery.x_scroll_distance}}"
-						scroll-disabled="!showView('galleryHorizontal')"
-						scroll-parent>
-						<!-- GALLERY IMAGE -->
-						<div
-							class="gallery-image"
-							ng-repeat="galleryPost in galleryDisplayedPosts()">
-								<img pw-src="galleryPost.image.sizes.xlarge.url">
-						</div>
-					</div>
-				</div>
-
-				<!--<pre>{{ galleryDisplayedPosts() | json }}</pre>-->
-			</div>
-		</div>
+			pw-include="galleries/gallery-horizontal"
+			include-post="post"
+			include-enable="showView('galleryHorizontal')"
+			class="full-page-width"></div>
 
 		<!-- EMBED -->
-		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('modalEmbed')">
+		<div
+			class="media-viewer"
+			style="height:{{pw.options.theme.posts.media.style.height}}vh"
+			ng-show="showView('modalEmbed')">
 			<div
 				class="view-embed">
 				<div
@@ -201,16 +171,18 @@
 				<div class="pull-left">
 					
 					<!-- TITLE -->
-					<h1>
-						<span class="icon">
-							<i
-								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
-								class="pwi-arrow-down"></i>
-							<i
-								ng-show="post.post_meta.pw_meta.gallery.template == 'horizontal'"
-								class="pwi-arrow-right"></i>
-						</span> 
-						{{ post.post_title }}
+					<h1 class="post-title">
+						<a ng-href="{{ post.post_permalink }}">
+							<span class="icon">
+								<i
+									ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
+									class="pwi-arrow-down"></i>
+								<i
+									ng-show="post.post_meta.pw_meta.gallery.template == 'horizontal'"
+									class="pwi-arrow-right"></i>
+							</span> 
+							{{ post.post_title }}
+						</a>
 					</h1>
 					
 					<!-- TAGS -->

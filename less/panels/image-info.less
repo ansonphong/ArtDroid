@@ -1,4 +1,14 @@
-#image-info{
+.image-info-include{
+	position: absolute;
+	bottom:0;
+	left:0;
+	.image-info{
+		position: relative;
+	}
+	//z-index: 3;
+}
+
+.image-info{
 	.transition();
 	font-family: @font-family-body;
 	font-size: @font-size-sm;
@@ -10,6 +20,7 @@
 	padding:15px 20px;
 	background: fade(@neutral-color-dark, 80%);
 	max-width:100%;
+	text-align: left;
 
 	h4{
 		margin: 0;
@@ -49,11 +60,31 @@
 			margin-right:10px;
 		}
 	}
+	
+	.download{
+			a{
+				padding: 0 10px;
+				text-decoration: none;
+				.transition();
+				&:hover{
+					text-decoration: none;
+					border:none;
+					border-bottom:0;
+					background: @primary-color-light;
+					color: @primary-color-dark;
+					border-radius: 3px;
+				}
+			}
+			.icon{
+				padding:0;
+				margin:0;
+			}
+		}
 }
 
 .image-hover-area{
 	&:hover{
-		#image-info{
+		.image-info{
 			opacity: 1;
 		}
 	}

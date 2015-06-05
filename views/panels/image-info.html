@@ -1,5 +1,5 @@
 <div
-	id="image-info"
+	class="image-info"
 	pw-ui
 	ng-hide="!uiBool(post)">
 	<div
@@ -10,6 +10,15 @@
 				{{ post.post_title }}
 			</h4>
 		</a>
+		<span ng-show="vars.download" class="download">
+			<a
+				href="{{ post.image.sizes.full.url }}"
+				download
+				tooltip="download"
+				tooltip-popup-delay="1000">
+				<i class="icon pwi-arrow-down-thin"></i>
+			</a>
+		</span>
 	</div>
 	<div
 		class="image-caption"
@@ -18,16 +27,11 @@
 	</div>
 	
 	<div class="image-links">
-		<span ng-show="uiBool(post.link_url)">
-			<a href="uiBool(post.link_url" target="_blank">
+
+		<span class="link-label" ng-show="uiBool(post.link_url)">
+			<a ng-href="{{post.link_url}}" target="_blank">
 				<i class="icon pwi-link"></i>
-				link	
-			</a>
-		</span>
-		<span>
-			<a href="{{ post.image.sizes.full.url }}" download>
-				<i class="icon pwi-arrow-down-thin"></i>
-				download
+				{{ vars.link_label.label.custom }}	
 			</a>
 		</span>
 	</div>
