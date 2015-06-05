@@ -8,7 +8,7 @@
 
 	<!-- LOADING -->
 	<div ng-show="status=='loading'" style="text-align:center;">
-		<i class="icon-triadic-5 icon-spin icon-large loading-animation"></i>
+		<i class="pwi-triadic-5 icon-spin icon-large loading-animation"></i>
 	</div>
 
 	<!-- WRAPPER (Cloak until loaded) -->
@@ -22,13 +22,13 @@
 					
 					<!-- TRASH -->
 					<button class="btn-secondary-color" ng-click="trashPost()">
-						<i class="icon-trash"></i>
+						<i class="pwi-trash"></i>
 						Trash
 					</button>
 
 					<!-- CANCEL -->
 					<button class="btn-neutral-color" ng-click="close()">
-						<i class="icon-close"></i> Cancel
+						<i class="pwi-close"></i> Cancel
 					</button>
 
 				</div>
@@ -41,10 +41,10 @@
 				<div class="col-sm-4 last">
 					<button type="submit" ng-click="savePost()" class="btn btn-primary-color btn-full btn-lg save">
 						<span ng-switch="status">
-							<i ng-switch-default class="icon-merkaba"></i>
-							<i ng-switch-when="saving" class="icon-triadic-4 icon-spin"></i>
-							<i ng-switch-when="success" class="icon-merkaba"></i>
-							<i ng-switch-when="error" class="icon-close"></i>
+							<i ng-switch-default class="pwi-merkaba"></i>
+							<i ng-switch-when="saving" class="pwi-triadic-4 icon-spin"></i>
+							<i ng-switch-when="success" class="pwi-merkaba"></i>
+							<i ng-switch-when="error" class="pwi-close"></i>
 						</span>
 						Save
 					</button>
@@ -94,7 +94,7 @@
 									</label>
 							</span>
 							<span ng-show="post.link_url.length">
-								<span  style="float:right; padding:5px 10px;"><a href="{{post.link_url}}" target="_blank">View <i class="icon-external-link"></i></a></span>
+								<span  style="float:right; padding:5px 10px;"><a href="{{post.link_url}}" target="_blank">View <i class="pwi-external-link"></i></a></span>
 							</span>
 						</div>
 						<div class="clearfix"></div>
@@ -127,11 +127,11 @@
 						<div class="post-details module taxonomy">
 							<div pw-autocomplete-tags class="tags">
 									<div ng-repeat="tag in tagsInput" class="tag">
-											<span><i class="icon-tag"></i> {{tag.name}}</span>
+											<span><i class="pwi-tag"></i> {{tag.name}}</span>
 											<button
 												ng-click="removeTag(tag)"
 												class="btn-neutral-color pull-right">
-											<i class="icon-close"></i>
+											<i class="pwi-close"></i>
 										</button>
 										<div class="clearfix"></div>
 									</div>
@@ -150,8 +150,8 @@
 											<button
 												class="btn btn-primary-color"
 												ng-click="newTag(queryTag);queryTag=''">
-												<i ng-show="!loadingTagsAutocomplete" class="icon-plus"></i>
-												<i ng-show="loadingTagsAutocomplete" class="icon-spin icon-spinner-2"></i>
+												<i ng-show="!loadingTagsAutocomplete" class="pwi-plus"></i>
+												<i ng-show="loadingTagsAutocomplete" class="icon-spin pwi-spinner-2"></i>
 												New Tag
 											</button>
 										</span>

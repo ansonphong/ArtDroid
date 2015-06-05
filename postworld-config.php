@@ -19,11 +19,14 @@ $pwSiteGlobals = array(
 
 	'modules'	=>	array(
 		'required'	=>	array(
+			'site',
 			'layouts',
 			'styles',
 			'social',
 			'feeds',
 			'iconsets',
+			'shortcodes',
+			'devices',
 			),
 		'supported'	=>	array(
 			'site',
@@ -34,6 +37,9 @@ $pwSiteGlobals = array(
 			'feeds',
 			'backgrounds',
 			'iconsets',
+			'shortcodes',
+			'devices',
+			'post_cache'
 			),
 		),
 
@@ -78,7 +84,7 @@ $pwSiteGlobals = array(
 							'label'				=>	'Alternative Featured Image',
 							'description'		=>	'Used for the slider',
 							'meta_key'			=>	'alt_image',
-							'icon'				=>	'icon-image',
+							'icon'				=>	'pwi-image',
 							),
 
 						),
@@ -102,14 +108,7 @@ $pwSiteGlobals = array(
 	'iconsets'	=>	array(
 		'required'	=>	array(
 			'postworld-icons',
-			'glyphicons-halflings',
-			),
-		),
-
-	'icons'	=>	array(
-		'order'	=>	array(
-			'descending'	=>	'glyphicon-arrow-down',
-			'ascending'		=>	'glyphicon-arrow-up',
+			//'glyphicons-halflings',
 			),
 		),
 
@@ -124,13 +123,6 @@ $pwSiteGlobals = array(
 					'link_format'	=>	'standard',
 					),
 				),
-			),
-		),
-
-	'icons'	=>	array(
-		'order'	=>	array(
-			'descending'	=>	'glyphicon-arrow-down',
-			'ascending'		=>	'glyphicon-arrow-up',
 			),
 		),
 	
@@ -185,25 +177,25 @@ $pwSiteGlobals = array(
 					'name'		=>	'',
 					'slug'		=>	'standard',
 					'domains'	=>	array(),
-					'icon'		=> 'icon-circle-thick'
+					'icon'		=> 'pwi-circle-thick'
 				),
 				array(
 					'name'		=>	'Link',
 					'slug'		=>	'link',
 					'domains'	=>	array(),
-					'icon'		=>	'icon-link'
+					'icon'		=>	'pwi-link'
 				),
 				array(
 					'name'		=>	'Video',
 					'slug'		=>	'video',
 					'domains'	=>	array('youtube.com/','youtu.be/','vimeo.com/','hulu.com/','ted.com/','sapo.pt/','dailymotion.com','blip.tv/','ustream.tv/',),
-					'icon'		=>	'icon-play-fill'
+					'icon'		=>	'pwi-play-circle'
 				),
 				array(
 					'name'		=>	'Audio',
 					'slug'		=>	'audio',
 					'domains'	=>	array('soundcloud.com/','mixcloud.com/','official.fm/','shoudio.com/','rdio.com/'),
-					'icon'		=>	'icon-headphones'
+					'icon'		=>	'pwi-headphones'
 				),
 			),
 
@@ -272,22 +264,22 @@ $pwSiteGlobals = array(
 			'menu_options'	=>	array(
 				array(
 					"name" => 	"Quick Edit",
-		            "icon" => 	"icon-quick-edit",
+		            "icon" => 	"pwi-quick-edit",
 		            "action" => "quick-edit"
 					),
 				array(
 					"name" => 	"PW Edit",
-		            "icon" => 	"icon-edit-square",
+		            "icon" => 	"pwi-edit-square",
 		            "action" => "pw-edit"
 					),
 				array(
 					"name" => 	"Edit",
-		            "icon" => 	"icon-edit",
+		            "icon" => 	"pwi-edit",
 		            "action" => "wp-edit"
 					),
 				array(
 					"name" => 	"Trash",
-		            "icon" => 	"icon-trash-o",
+		            "icon" => 	"pwi-trash-o",
 		            "action" => "trash"
 					),
 				),

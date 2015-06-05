@@ -7,7 +7,7 @@
 
 	<!-- LOADING -->
 	<div ng-show="status=='loading'" class="module loading">
-		<i class="icon-spinner icon-spin icon-large"></i>
+		<i class="pwi-spinner icon-spin icon-large"></i>
 	</div>
 
 	<!-- WRAPPER (Cloak until loaded) -->
@@ -35,7 +35,7 @@
 					autoplay="true"
 					run="post.link_format == 'video' || post.link_format == 'audio'">
 					<div class="loading" ng-show="oEmbedStatus[post.link_url] == 'loading'">
-						<i class="icon-spinner icon-spin"></i>
+						<i class="pwi-spinner pwi-spin"></i>
 					</div>
 					<div class="o-embed" ng-bind-html="oEmbed"></div>
 				</div>
@@ -49,8 +49,8 @@
 			ng-show="current_user_id">
 			<!-- FAVORITE -->
 			<button prevent-default-click ng-click="setFavorite()" ng-class="isFavorite" class="favorites">
-				<i ng-show="favoriteStatus=='busy'" class="icon-spinner" ng-class="spinnerClass"></i>
-				<i ng-show="favoriteStatus!='busy'" class="icon-heart"></i>
+				<i ng-show="favoriteStatus=='busy'" class="pwi-spinner" ng-class="spinnerClass"></i>
+				<i ng-show="favoriteStatus!='busy'" class="pwi-heart"></i>
 			</button>
 			<!-- DROPDOWN -->
 			<span
@@ -59,7 +59,7 @@
 				ng-show="userOptions != 0"
 				class="admin_menu dropdown">
 				<button prevent-default-click dropdown-toggle class="view_later edit">
-					<i class="icon-caret-down"></i>
+					<i class="pwi-caret-down"></i>
 				</button>
 				<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
 					<li prevent-default-click ng-repeat="item in userOptions">
@@ -78,16 +78,16 @@
 				<h1>
 					<!-- ICON -->
 					<span ng-show="post.post_format == 'link'">
-						<i ng-show="post.link_format == 'video'" class="icon-youtube-play"></i>
-						<i ng-show="post.link_format == 'audio'" class="icon-headphones"></i>
-						<i ng-show="post.link_format == 'link'" class="icon-link"></i>
+						<i ng-show="post.link_format == 'video'" class="pwi-youtube-play"></i>
+						<i ng-show="post.link_format == 'audio'" class="pwi-headphones"></i>
+						<i ng-show="post.link_format == 'link'" class="pwi-link"></i>
 					</span>
 					<!-- TITLE -->
 					<a ng-href="{{post.post_permalink}}">{{post.post_title}}</a>
 					<!-- VISIT LINK -->
 					<span ng-show="post.post_format == 'link'">
 						<a ng-href="{{post.link_url}}" target="_blank" class="btn btn-blue">
-							Visit Link <i class="icon-external-link"></i>
+							Visit Link <i class="pwi-external-link"></i>
 						</a>
 					</span>
 				</h1>

@@ -48,10 +48,10 @@
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
 						<h2 ng-show="slider.show_title">
 							<span class="post-format-icon" ng-show="slide.link_format == 'video'">
-								<i class="glyphicon glyphicon-play"></i>
+								<i class="pwi-play"></i>
 							</span>
 							<span class="post-format-icon" ng-show="slide.link_format == 'audio'">
-								<i class="glyphicon glyphicon-headphones"></i>
+								<i class="pwi-headphones"></i>
 							</span>
 							{{slide.post_title}}
 						</h2>

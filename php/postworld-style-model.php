@@ -127,14 +127,14 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Colors",
 			"key"	=>	"colors",
-			"icon"	=>	"icon-droplet",
+			"icon"	=>	"pwi-droplet",
 			"values"	=>	array(
 
 				///// COLORS /////
 				array(
 					"name"		=>	"Core",
 					"key"		=>	"core",
-					"icon"		=>	"icon-triadic-2",
+					"icon"		=>	"pwi-triadic-2",
 					"values"	=>	array(
 						array(
 							"name"			=>	"Background Color",
@@ -257,7 +257,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Header',
 					'key'	=>	'header',
-					'icon'	=>	'icon-nav',
+					'icon'	=>	'pwi-nav',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Header Background",
@@ -314,7 +314,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Media',
 					'key'	=>	'media',
-					'icon'	=>	'icon-play',
+					'icon'	=>	'pwi-play',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Media Viewer Background",
@@ -330,7 +330,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Sliders',
 					'key'	=>	'slider',
-					'icon'	=>	'icon-layers-2',
+					'icon'	=>	'pwi-layers-2',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Slider Arrow Color",
@@ -346,7 +346,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Widgets',
 					'key'	=>	'widgets',
-					'icon'	=>	'icon-dashboard',
+					'icon'	=>	'pwi-dashboard',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Base Color",
@@ -378,7 +378,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Layout",
 			"key"	=>	"layout",
-			"icon"	=>	"icon-th-large-2",
+			"icon"	=>	"pwi-th-large-2",
 			"values"	=>	array(
 
 
@@ -386,7 +386,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Bootstrap',
 					'key'	=>	'bootstrap',
-					'icon'	=>	'icon-grid-2',
+					'icon'	=>	'pwi-grid-2',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Grid Gutter Width",
@@ -402,42 +402,42 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Page',
 					'key'	=>	'page',
-					'icon'	=>	'icon-th-large',
+					'icon'	=>	'pwi-th-large',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Width (Extra Small)",
 							"key"			=>	"page-xs-width",
 							"input"			=>	"text",
 							"description"	=>	"The width of the layout on mobile devices",
-							"icon"			=>	"icon-mobile"
+							"icon"			=>	"pwi-mobile"
 							),
 						array(
 							"name"			=>	"Width (Small)",
 							"key"			=>	"page-sm-width",
 							"input"			=>	"text",
 							"description"	=>	"The width of the layout on larger mobile devices",
-							"icon"			=>	"icon-mobile-wide"
+							"icon"			=>	"pwi-mobile-wide"
 							),
 						array(
 							"name"			=>	"Width (Medium)",
 							"key"			=>	"page-md-width",
 							"input"			=>	"text",
 							"description"	=>	"The width of the layout on wide tablets",
-							"icon"			=>	"icon-tablet"
+							"icon"			=>	"pwi-tablet"
 							),
 						array(
 							"name"			=>	"Width (Large)",
 							"key"			=>	"page-lg-width",
 							"input"			=>	"text",
 							"description"	=>	"The width of the layout on desktop and laptops",
-							"icon"			=>	"icon-laptop"
+							"icon"			=>	"pwi-laptop"
 							),
 						array(
 							"name"			=>	"Maximum Width",
 							"key"			=>	"page-max-width",
 							"input"			=>	"text",
 							"description"	=>	"The maximum width of the page layout",
-							"icon"			=>	"icon-arrows-h"
+							"icon"			=>	"pwi-arrows-h"
 							),
 
 						),
@@ -454,14 +454,14 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Posts",
 			"key"	=>	"posts",
-			"icon"	=>	"icon-pushpin",
+			"icon"	=>	"pwi-pushpin",
 			"values"	=>	array(
 
 				///// BOOTSTRAP /////
 				array(
 					'name'	=>	'Grid',
 					'key'	=>	'grid',
-					'icon'	=>	'icon-th',
+					'icon'	=>	'pwi-th',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Grid Image Size",
@@ -538,14 +538,14 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Pages",
 			"key"	=>	"pages",
-			"icon"	=>	"icon-file",
+			"icon"	=>	"pwi-file",
 			"values"	=>	array(
 
 				///// BOOTSTRAP /////
 				array(
 					'name'	=>	'Single',
 					'key'	=>	'single',
-					'icon'	=>	'icon-circle-medium',
+					'icon'	=>	'pwi-circle-medium',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Header Background",

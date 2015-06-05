@@ -1,7 +1,7 @@
 <div class="page-head">
 					
 	<h1>
-		<i class="glyphicon glyphicon-calendar"></i>
+		<i class="pwi-calendar"></i>
 		<?php
 			// YEAR
 			echo $pw['query']['year'];

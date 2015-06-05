@@ -12,7 +12,7 @@
 				class="transparent"
 				ng-click="close()">
 				<span>
-					<i class="icon-angle-left-thin"></i>
+					<i class="pwi-angle-left-thin"></i>
 				</span>
 				<span class="close-compact">Back</span>
 				<span class="close-full">{{ pw.view.title }}</span>
@@ -31,10 +31,10 @@
 				ng-mouseout="uiToggleView('prevPost')">
 				<i
 					ng-show="!uiShowView('prevPost')"
-					class="icon-triangle-left-thin"></i>
+					class="pwi-triangle-left-thin"></i>
 				<i
 					ng-show="uiShowView('prevPost')"
-					class="icon-triangle-left-fill"></i>
+					class="pwi-triangle-left-fill"></i>
 			</button>
 			<!-- NEXT POST -->
 			<button
@@ -47,10 +47,10 @@
 				ng-mouseout="uiToggleView('nextPost')">
 				<i
 					ng-show="!uiShowView('nextPost')"
-					class="icon-triangle-right-thin"></i>
+					class="pwi-triangle-right-thin"></i>
 				<i
 					ng-show="uiShowView('nextPost')"
-					class="icon-triangle-right-fill"></i>
+					class="pwi-triangle-right-fill"></i>
 			</button>
 		</div>
 	</div>
@@ -84,7 +84,7 @@
 					tooltip="Previous (Left Arrow on Keyboard)"
 					tooltip-placement="right"
 					tooltip-popup-delay="333">
-					<i class="icon-triangle-left-thin"></i>
+					<i class="pwi-triangle-left-thin"></i>
 				</button>
 			</div>
 			<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="uiBoolean(feed)">
@@ -93,7 +93,7 @@
 					tooltip="Next (Right Arrow on Keyboard)"
 					tooltip-placement="left"
 					tooltip-popup-delay="333">
-					<i class="icon-triangle-right-thin"></i>
+					<i class="pwi-triangle-right-thin"></i>
 				</button>
 			</div>
 
@@ -179,21 +179,21 @@
 						tooltip="Previous"
 						tooltip-popup-delay="333"
 						ng-click="previousPost()">
-						<i class="icon-arrow-left-thin"></i>
+						<i class="pwi-arrow-left-thin"></i>
 					</button>
 					<button
 						class="btn-neutral-color"
 						tooltip="Next"
 						tooltip-popup-delay="333"
 						ng-click="nextPost()">
-						<i class="icon-arrow-right-thin"></i>
+						<i class="pwi-arrow-right-thin"></i>
 					</button>
 					<button
 						class="btn-neutral-color"
 						tooltip="Close"
 						tooltip-popup-delay="333"
 						ng-click="close()">
-						<i class="icon-close"></i>
+						<i class="pwi-close"></i>
 					</button>
 				</div>
 
@@ -205,10 +205,10 @@
 						<span class="icon">
 							<i
 								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
-								class="glyphicon glyphicon-arrow-down"></i>
+								class="pwi-arrow-down"></i>
 							<i
 								ng-show="post.post_meta.pw_meta.gallery.template == 'horizontal'"
-								class="glyphicon glyphicon-arrow-right"></i>
+								class="pwi-arrow-right"></i>
 						</span> 
 						{{ post.post_title }}
 					</h1>
@@ -216,7 +216,7 @@
 					<!-- TAGS -->
 					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
 						<div class="tags">
-							<i class="icon-tags"></i>
+							<i class="pwi-tags"></i>
 							<span ng-repeat="term in post.taxonomy.post_tag">
 							    <a pw-href="term.url" class="term tag">
 									<span ng-bind="term.name"></span>
@@ -240,7 +240,7 @@
 							stop-propagation-click
 							tooltip="link"
 							tooltip-popup-delay="333">
-							<i class="icon-link"></i>
+							<i class="pwi-link"></i>
 						</a>
 						<!-- DROPDOWN -->
 						<span
@@ -255,7 +255,7 @@
 								style="border:none"
 								tooltip="edit"
 								tooltip-popup-delay="333">
-								<i class="icon-merkaba"></i>
+								<i class="pwi-merkaba"></i>
 							</button>
 							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
 								<li prevent-default-click ng-repeat="item in userOptions">
@@ -271,7 +271,7 @@
 						tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
 						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
-							<i class="icon-clock-o"></i> {{ post.time_ago }}
+							<i class="pwi-clock-o"></i> {{ post.time_ago }}
 						</time>
 					</div>
 
@@ -280,7 +280,7 @@
 						class="download unit pull-right"
 						ng-show="post.post_meta.pw_meta.image.download">
 						<a download pw-href="post.image.sizes.full.url">
-							<i class="icon-arrow-down-thin"></i>
+							<i class="pwi-arrow-down-thin"></i>
 							download
 						</a>
 					</div>
@@ -295,7 +295,7 @@
 						<a
 							pw-href="post.link_url"
 							pw-target="post.post_meta.pw_meta.link_url.new_target">
-							<i class="icon-crosshairs"></i>
+							<i class="pwi-crosshairs"></i>
 							{{ post.post_meta.pw_meta.link_url.label.custom }}
 						</a>
 					</div>

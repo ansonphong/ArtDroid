@@ -79,7 +79,7 @@
 <?php if( in_array( 'facebook', $share_networks ) ){ ?> 
 	<span class="pull-left" tooltip="Share on Facebook" tooltip-popup-delay="500">
 		<a href="<?php echo $facebook_link; ?>" target="_blank">
-			<i class="icon icon-facebook-square"></i>
+			<i class="icon pwi-facebook-square"></i>
 		</a>
 	</span>
 <?php } ?>
@@ -87,7 +87,7 @@
 <?php if( in_array( 'twitter', $share_networks ) ){ ?> 
 	<span class="pull-left" tooltip="Share on Twitter" tooltip-popup-delay="500">
 		<a href="<?php echo $twitter_link; ?>" target="_blank">
-			<i class="icon icon-twitter-square"></i>
+			<i class="icon pwi-twitter-square"></i>
 		</a>
 	</span>
 <?php } ?>
@@ -95,7 +95,7 @@
 <?php if( in_array( 'reddit', $share_networks ) ){ ?> 
 	<span class="pull-left" tooltip="Share on Reddit" tooltip-popup-delay="500">
 		<a href="<?php echo $reddit_link; ?>" target="_blank">
-			<i class="icon icon-reddit-square"></i>
+			<i class="icon pwi-reddit-square"></i>
 		</a>
 	</span>
 <?php } ?>
@@ -103,7 +103,7 @@
 <?php if( in_array( 'google_plus', $share_networks ) ){ ?> 
 	<span class="pull-left" tooltip="Share on Google Plus" tooltip-popup-delay="500">
 		<a href="<?php echo $google_plus_link; ?>" target="_blank">
-			<i class="icon icon-google-plus-square"></i>
+			<i class="icon pwi-google-plus-square"></i>
 		</a>
 	</span>
 <?php } ?>
@@ -111,7 +111,7 @@
 <?php if( in_array( 'pinterest', $share_networks ) ){ ?> 
 	<span class="pull-left" tooltip="Share on Pinterest" tooltip-popup-delay="500">
 		<a href="<?php echo $pinterest_link; ?>" target="_blank">
-			<i class="icon icon-pinterest-square"></i>
+			<i class="icon pwi-pinterest-square"></i>
 		</a>
 	</span>
 <?php } ?>
