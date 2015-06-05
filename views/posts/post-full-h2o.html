@@ -11,53 +11,19 @@
 	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-		<!-- GALLERY : HORIZONTAL -->
+		<!-- HORIZONTAL GALLERY -->
 		<div
-			class="media-viewer"
-			window-height="{{ post.post_meta.pw_meta.gallery.height }}"
-			ng-show="showView('galleryHorizontal')">
-			<div
-				style="height:100%;">
-				<div
-					pw-infinite-gallery
-					gallery-preload="4"
-					gallery-scroll="galleryGetNext(3)"
-					class="view-gallery-horizontal">
-
-					<!-- INFINITE SCROLL -->
-					<div class="infinite-x-scroll" id="scrolls">
-						<!-- SINGLE WIDE IMAGE -->
-						<div
-							ng-show="showView('horizontalScrollImage')"
-							style="height:100%">
-							<div class="gallery-image">
-								<img pw-src="post.image.sizes.xlarge.url">
-							</div>
-						</div>
-						<!-- GALLERY IMAGES -->
-						<div
-							class="scroll-inner"
-							infinite-x-scroll
-							scroll-action="galleryGetNext( 2 )"
-							scroll-distance="{{ post.post_meta.pw_meta.gallery.x_scroll_distance }}"
-							scroll-disabled="!showView('galleryHorizontal')"
-							scroll-parent>
-							<!-- GALLERY IMAGE -->
-							<div
-								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()"
-								ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
-									<img pw-src="galleryPost.image.sizes.xlarge.url">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			pw-include="galleries/gallery-horizontal"
+			include-post="post"
+			include-enable="showView('galleryHorizontal')"
+			class="full-page-width"></div>
 	{% endif %}
 
 	<!-- EMBED -->
-	<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleEmbed')">
+	<div
+		class="media-viewer"
+		style="height:{{pw.options.theme.posts.media.style.height}}vh"
+		ng-show="showView('singleEmbed')">
 		<div
 			class="view-embed">
 			<div
