@@ -10,7 +10,7 @@
 				{{ post.post_title }}
 			</h4>
 		</a>
-		<span ng-show="vars.download" class="download">
+		<span ng-show="vars.download" class="links-inline-button">
 			<a
 				href="{{ post.image.sizes.full.url }}"
 				download
@@ -26,9 +26,8 @@
 		{{ post.post_excerpt }}
 	</div>
 	
-	<div class="image-links">
-
-		<span class="link-label" ng-show="uiBool(post.link_url)">
+	<div class="image-links" ng-show="uiBool(post.link_url)">
+		<span class="link-label">
 			<a ng-href="{{post.link_url}}" target="_blank">
 				<i class="icon pwi-link"></i>
 				{{ vars.link_label.label.custom }}	

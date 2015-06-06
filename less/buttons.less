@@ -56,4 +56,26 @@ button{
 
 }
 
+.links-inline-button{
+	a{
+		display: inline-block;
+		margin:0 2px;
+		padding: 0 10px;
+		text-decoration: none;
+		.transition();
+		border:none !important;
+		border-bottom:0 !important;
+		&:hover{
+			text-decoration: none;
+			background: @primary-color-light;
+			color: @primary-color-dark;
+			border-radius: 3px;
+		}
+	}
+	.icon{
+		padding:0;
+		margin:0;
+	}
+}
+
 
