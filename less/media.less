@@ -71,75 +71,6 @@
 			}
 		}
 
-		.pw-x-scrollable{
-			.scroll-indicator{
-				//display:block;
-				opacity:1;
-				right:20px;
-			}
-			&.pw-x-scrolled{
-				.scroll-indicator{
-					opacity:0;
-					right:80px;
-				}
-			}
-		}
-
-		.scroll-indicator{
-			opacity:0;
-			right:60px;
-
-			transition:opacity .5s ease, right .5s ease;
-			height:44px;
-			opacity:0;
-			position: absolute;
-			top:45%;
-			background: fade( @global-foreground-color, 85% );
-			border-radius: 80px;
-			color: @global-background-color;
-			z-index: 3;
-			padding: 10px 8px;
-			font-size:@font-size-md;
-			text-transform: uppercase;
-			box-shadow: 5px 5px 10px fade(@neutral-color-dark, 66%);
-
-			.text{
-				display: inline-block;
-				padding: 0 50px 0 15px;
-				letter-spacing: 1px;
-				-webkit-font-smoothing: antialiased;
-			}
-			.icon{
-				display: block;
-				position: absolute;
-				margin:0;
-				right:2px;
-				top:2px;
-				height:40px;
-				width: 40px;
-				background: @global-background-color;
-				color: @global-foreground-color;
-				border-radius: 32px;
-				line-height: 0;
-				&:before{
-					line-height: 0;
-					position: relative;
-					top: 50%;
-				}
-			}
-
-			&.device-input-pointer{
-				.message-scroll{ display: block; }
-				.message-slide{ display: none; }
-			}
-			&.device-input-touch{
-				.message-scroll{ display: none; }
-				.message-slide{ display: block; }
-			}
-
-		}
-
-
 		.gallery-image {
 			height:100%;
 			position: relative;
@@ -175,7 +106,74 @@
 		}
 	}
 
+}
 
-	
+.pw-x-scrollable{
+	.scroll-indicator{
+		//display:block;
+		opacity:1;
+		right:20px;
+	}
+	&.pw-x-scrolled{
+		.scroll-indicator{
+			opacity:0;
+			right:80px;
+		}
+	}
+}
+
+.scroll-indicator{
+	opacity:0;
+	right:60px;
+
+	transition:opacity .5s ease, right .5s ease;
+	height:44px;
+	opacity:0;
+	position: absolute;
+	top:45%;
+	background: fade( @global-foreground-color, 85% );
+	border-radius: 80px;
+	color: @global-background-color;
+	z-index: 3;
+	padding: 10px 8px;
+	font-size:@font-size-md;
+	text-transform: uppercase;
+	box-shadow: 5px 5px 10px fade(@neutral-color-dark, 66%);
+
+	.text{
+		display: inline-block;
+		padding: 0 50px 0 15px;
+		letter-spacing: 1px;
+		-webkit-font-smoothing: antialiased;
+	}
+	.icon{
+		display: block;
+		position: absolute;
+		margin:0;
+		right:2px;
+		top:2px;
+		height:40px;
+		width: 40px;
+		background: @global-background-color;
+		color: @global-foreground-color;
+		border-radius: 32px;
+		line-height: 0;
+		opacity: 1 !important;
+		text-align: center;
+		&:before{
+			line-height: 0;
+			position: relative;
+			top: 50%;
+		}
+	}
+
+	&.device-input-pointer{
+		.message-scroll{ display: block; }
+		.message-slide{ display: none; }
+	}
+	&.device-input-touch{
+		.message-scroll{ display: none; }
+		.message-slide{ display: block; }
+	}
 
 }
