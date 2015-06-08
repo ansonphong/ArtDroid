@@ -35,7 +35,7 @@ global $pw;
 <header
 	id="header"
 	pw-ui>
-	<div class="page-width">
+	<div class="header-inner page-width">
 
 		<div class="header-row">
 			<div id="logo" class="header-col-logo <?php if( is_front_page() ) echo 'is-front-page' ?>">
@@ -48,7 +48,29 @@ global $pw;
 						tooltip-placement="bottom"
 						tooltip-popup-delay="1000">
 				<?php } ?>
-					<img src="<?php echo pw_get_image_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'images.logo', 'size' => 'full' ) )['url']; ?>">
+					
+					<?php
+						$logo_image = pw_get_image_option( array(
+							'option_name' => PW_OPTIONS_THEME,
+							'key' => 'images.logo',
+							'size' => 'full' )
+							);
+					?>
+
+					<?php if( !empty($logo_image['url']) ): ?>
+						<!-- LOGO -->
+						<img src="<?php echo $logo_image['url']; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
+					<?php endif; ?>
+
+					<?php if( empty($logo_image['url']) ): ?>
+						<!-- SITE NAME -->
+						<div class="site-name-wrapper">
+							<div class="site-name">
+								<?php echo get_bloginfo( 'name' ); ?>
+							</div>
+						</div>
+					<?php endif; ?>
+
 				<?php
 				// End link to home page
 				if( !is_front_page() ){ ?>

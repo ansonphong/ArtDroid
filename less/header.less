@@ -44,6 +44,10 @@ header#header{
 		height:@header-height-fixed;
 	}
 
+	.header-inner{
+		height:100%;
+	}
+
 	#logo{
 		height:(@primary-menu-height - 1px);
 		.transition();
@@ -85,7 +89,21 @@ header#header{
 		}
 	}
 
-	
+	.site-name-wrapper{
+		border:1px solid @primary-color-medium;
+		background: @primary-color-medium;
+		height:100%;
+		.center-vertical-parent();
+		
+		.site-name{
+			.center-vertical();
+			line-height:.8em;
+			font-size: @font-size-lg;
+			padding: 10px;
+			color: #fff;
+		}
+	}
+
 	.menu-social{
 		position:absolute;
 		right:0px;

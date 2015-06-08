@@ -39,7 +39,7 @@ else{
 }
 
 ?>
-<?php if( $widget_count > 0 ): ?>
+<?php if( isset( $widget_count ) && $widget_count > 0 ): ?>
 	<!-- FOOTER -->
 	<footer
 		id="footer"
