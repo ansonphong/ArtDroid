@@ -64,7 +64,7 @@ add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 ////////// THEME FEED ARCHIVE FILTER //////////
 function theme_feed_archive_filter( $feed ){
 	global $pw;
-	pw_log( $feed );
+	//pw_log( $feed );
 
 	////////// HOME PAGE //////////
 	if( in_array( 'home', $pw['view']['context'] ) ){
