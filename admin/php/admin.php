@@ -34,7 +34,7 @@ function artdroid_admin_menu(){
 			'menu_slug' => 'artdroid',
 			'function' => 'postworld_admin_theme_page',
 			//'icon_url' => '',//plugins_url( $migration_admin_folder.'/images/logo/pw_symbol-16.png' ),
-			//'menu_icon'	=>	'dashicons-art',
+			'menu_icon'	=>	'dashicons-art',
 			'position' => ''
 			),
 		'submenu' => array(),
