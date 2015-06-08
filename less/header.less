@@ -51,7 +51,6 @@ header#header{
 	#logo{
 		height:(@primary-menu-height - 1px);
 		.transition();
-
 		background:@logo-background;
 		&:hover{
 			background:@logo-background-hover;
@@ -63,9 +62,9 @@ header#header{
 			.transition(@global-transition-time);
 			display:inline-block;
 			padding:0px;
-			&:hover{
-				
-			}
+			height:100%;
+			text-decoration: none;
+			color: @global-foreground-color;
 		}
 		img{
 			width:auto;
@@ -91,7 +90,7 @@ header#header{
 
 	.site-name-wrapper{
 		border:1px solid @primary-color-medium;
-		background: @primary-color-medium;
+		//background: @primary-color-medium;
 		height:100%;
 		.center-vertical-parent();
 		
@@ -100,7 +99,7 @@ header#header{
 			line-height:.8em;
 			font-size: @font-size-lg;
 			padding: 10px;
-			color: #fff;
+			//color: #fff;
 		}
 	}
 
