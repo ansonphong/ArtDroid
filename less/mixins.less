@@ -1,14 +1,29 @@
+.center-vertical-parent(){
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.center-vertical(){
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+
 ///// GRID SIZER /////
 .grid-sizer-mix( @grid-width; @width-multiplier: 2; @height: 300px ){
-  .grid-sizer( @grid-width );
-  .grid-sizer{ width:@grid-width; }
+	.grid-sizer( @grid-width );
+	.grid-sizer{ width:@grid-width; }
 
-  .masonry-brick{
-    height:@height;
-    &.square, &.wide, &.tall, &.x-tall, &.no-image { width: @grid-width; }
-    &.x-wide, &.xx-wide{ width: (@grid-width * @width-multiplier); }
-  }
-  
+	.masonry-brick{
+		height:@height;
+		&.square, &.wide, &.tall, &.x-tall, &.no-image { width: @grid-width; }
+		&.x-wide, &.xx-wide{ width: (@grid-width * @width-multiplier); }
+	}
+	
 }
 
 
@@ -28,15 +43,15 @@
 }
 
 .depth-shadow( @dropshadow: 10px, @color ){
-  box-shadow:
-    ( @dropshadow * .1 ) ( @dropshadow * .1 ) 0 @color,
-    ( @dropshadow * .2 ) ( @dropshadow * .2 ) 0 @color,
-    ( @dropshadow * .3 ) ( @dropshadow * .3 ) 0 @color,
-    ( @dropshadow * .4 ) ( @dropshadow * .4 ) 0 @color,
-    ( @dropshadow * .5 ) ( @dropshadow * .5 ) 0 @color,
-    ( @dropshadow * .6 ) ( @dropshadow * .6 ) 0 @color,
-    ( @dropshadow * .7 ) ( @dropshadow * .7 ) 0 @color,
-    ( @dropshadow * .8 ) ( @dropshadow * .8 ) 0 @color,
-    ( @dropshadow * .9 ) ( @dropshadow * .9 ) 0 @color,
-    @dropshadow @dropshadow 0 @border-color;
+	box-shadow:
+		( @dropshadow * .1 ) ( @dropshadow * .1 ) 0 @color,
+		( @dropshadow * .2 ) ( @dropshadow * .2 ) 0 @color,
+		( @dropshadow * .3 ) ( @dropshadow * .3 ) 0 @color,
+		( @dropshadow * .4 ) ( @dropshadow * .4 ) 0 @color,
+		( @dropshadow * .5 ) ( @dropshadow * .5 ) 0 @color,
+		( @dropshadow * .6 ) ( @dropshadow * .6 ) 0 @color,
+		( @dropshadow * .7 ) ( @dropshadow * .7 ) 0 @color,
+		( @dropshadow * .8 ) ( @dropshadow * .8 ) 0 @color,
+		( @dropshadow * .9 ) ( @dropshadow * .9 ) 0 @color,
+		@dropshadow @dropshadow 0 @border-color;
 };
