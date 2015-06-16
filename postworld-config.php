@@ -189,7 +189,7 @@ $pwSiteGlobals = array(
 					'name'		=>	'Video',
 					'slug'		=>	'video',
 					'domains'	=>	array('youtube.com/','youtu.be/','vimeo.com/','hulu.com/','ted.com/','sapo.pt/','dailymotion.com','blip.tv/','ustream.tv/',),
-					'icon'		=>	'pwi-play-circle'
+					'icon'		=>	'pwi-play-fill'
 				),
 				array(
 					'name'		=>	'Audio',
