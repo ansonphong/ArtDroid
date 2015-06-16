@@ -1,6 +1,5 @@
 <div
 	pw-globals="pw">
-
 	<div
 		pw-ui
 		class="modal-head"
@@ -55,21 +54,15 @@
 		</div>
 	</div>
 
-
 	<div
 		pw-post
-
 		post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)', 'time_ago', 'edit_post_link']"
 		require-required="false"
-
 		art-post
 		ng-keypress="keyPress()"
-
 		class="post full pw-transition-fadein wrapper"
-
 		pw-timeout="200"
 		timeout-action="addClass('fadein-on')"
-
 		pw-ui>
 
 		<!-- IMAGE -->
@@ -101,15 +94,16 @@
 				class="view-image"
 				ng-style="backgroundImage( post.image.sizes.xlarge.url )">
 			</div>
-
 		</div>
 
-		<!-- GALLERY : FRAME -->
+		<!-- FRAME GALLERY -->
 		<div
+			pw-include="galleries/gallery-frame"
+			include-post="post"
+			include-vars="{keybind:showView('galleryFrame')}"
 			ng-show="showView('galleryFrame')"
-			load-panel="gallery-viewer"
-			panel-post="post"
-			panel-meta="post.gallery"></div>
+			class="full-page-width">
+		</div>
 
 		<!-- GALLERY : HORIZONTAL -->
 		<!-- HORIZONTAL GALLERY -->

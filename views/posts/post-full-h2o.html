@@ -6,8 +6,14 @@
 	pw-ui>
 
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
-		<!-- POST FORMAT : GALLERY -->
-		<div load-panel="gallery-viewer" panel-meta="post.gallery"></div>
+		<!-- FRAME GALLERY -->
+		<div
+			pw-include="galleries/gallery-frame"
+			include-post="post"
+			include-vars="{keybind:showView('galleryFrame')}"
+			ng-show="showView('galleryFrame')"
+			class="full-page-width">
+		</div>
 	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
