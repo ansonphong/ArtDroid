@@ -21,10 +21,7 @@
 	<div class="page-meta">
 		<?php
 			///// SWITCH HEADER TEMPLATES /////
-			if( in_array( 'archive-taxonomy', $pw['view']['context'] ) )
-				include 'page-head-archive-taxonomy.php';
-
-			else if( in_array( 'archive-date', $pw['view']['context'] ) )
+			if( in_array( 'archive-date', $pw['view']['context'] ) )
 				include 'page-head-archive-date.php';
 
 			else if( in_array( 'archive-post-type', $pw['view']['context'] ) )

@@ -92,7 +92,7 @@
 
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes.xlarge.url )">
+				ng-style="backgroundImage( post.image.sizes['x-large'].url )">
 			</div>
 		</div>
 
@@ -321,7 +321,7 @@
 								class="gallery-image"
 								ng-repeat="galleryPost in galleryDisplayedPosts()">
 								<a href="{{galleryPost.post_permalink}}">
-									<img ng-src="{{galleryPost.image.sizes.xlarge.url}}">
+									<img ng-src="{{galleryPost.image.sizes['x-large'].url}}">
 								</a>
 							</div>
 						</div>
