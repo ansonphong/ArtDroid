@@ -13,6 +13,7 @@ function theme_postworld_includes(){
 		'infinite',
 		'wp-less',
 		'masonry.js',
+		'jquery',
 		);
 	postworld_includes( array(
 		'angular_version' => 'angular-1.3.13',	// 'angular-1.2.25',
@@ -56,6 +57,9 @@ include "php/postworld-filters.php";
 ////////// THEME OPTIONS //////////
 include "php/postworld-theme-options.php";
 
+////////// TERM DATA //////////
+include "php/term-data.php";
+
 ////////// SIDEBARS //////////
 include "php/sidebars.php";
 
@@ -92,8 +96,8 @@ add_action( 'init', 'expanse_init' );
 
 /////////// ADD IMAGE SIZES //////////
 add_image_size( 'grid', '640', '480', true );
-add_image_size( 'widescreen', '1600', '900', true );
-add_image_size( 'xlarge', '2400', '2400', false );
+add_image_size( 'x-wide', '1600', '800', true );
+add_image_size( 'x-large', '2400', '2400', false );
 
 add_image_size( 'thumb-square', '400', '400', true );
 

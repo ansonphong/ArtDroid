@@ -6,8 +6,32 @@
 	}
 }
 
+.post-content{
 
-.post{
+	font-size:@font-size-md;
+	line-height:1.66;
+	font-weight:200;
+	color: neutral-color-light;
+	
+	img{
+		border-radius:@meta-border-radius;
+	}
+
+	@media @tablet-and-below{
+		.pw-gallery-shortcode{
+			margin:0 -20px;
+		}
+	}
+
+	@media @desktop-and-above{
+		padding:40px 40px;
+	}
+
+	.block{
+		.icon{
+
+		}
+	}
 
 	.pw-css-columns-shortcode-row{
 		width:100%;
@@ -69,8 +93,39 @@
 		}
 	}
 
+	ul{
+		list-style: none;
+		margin:0;
+		padding:0;
+		li{
+			padding: 14px 0;
+			border-top: 1px solid fade(@secondary-color-medium, 33%);
+		}
+	}
 
-	
+	.wp-caption{
+		//background:fade(@neutral-color-light, 50%);
+		border-radius:@meta-border-radius;
+		border:1px solid @primary-color-light;
+		max-width:100%;
+		img{
+			position:relative;
+			left:-1px;
+			top:-1px;
+			max-width:99%;
+			height:auto;
+		}
+		.wp-caption-text{
+			text-align:center;
+			padding:2px 5px 7px;
+			color:@primary-color-dark;
+		}
+	}
+
+}
+
+.post{
+
 
 	&.full .taxonomy .tags{
 		.icon{
@@ -113,69 +168,39 @@
 	}
 
 
-	.wp-caption{
-		//background:fade(@neutral-color-light, 50%);
-		border-radius:@meta-border-radius;
-		border:1px solid @primary-color-light;
-		max-width:100%;
-		img{
-			position:relative;
-			left:-1px;
-			top:-1px;
-			max-width:99%;
-			height:auto;
-		}
-		.wp-caption-text{
-			text-align:center;
-			padding:2px 5px 7px;
-			color:@primary-color-dark;
-		}
-	}
 
-	.post-content{
-		ul{
-			list-style: none;
-			margin:0;
-			padding:0;
-			li{
-				padding: 14px 0;
-				border-top: 1px solid fade(@secondary-color-medium, 33%);
-			}
-		}
-	}
-	
 
 }
 
 
 ///// AVATARS /////
 .avatar-sm{
-		@avatar-size:24px;
-		@outline-size:1px;
-		@full-height: (@avatar-size + ( @outline-size * 2 ));
+	@avatar-size:24px;
+	@outline-size:1px;
+	@full-height: (@avatar-size + ( @outline-size * 2 ));
 
+	height:@full-height;
+
+	a{
+		display: inline-block;
+		border:@outline-size solid transparent;
+		border-radius:@meta-border-radius;
 		height:@full-height;
-
-		a{
-			display: inline-block;
-			border:@outline-size solid transparent;
-			border-radius:@meta-border-radius;
-			height:@full-height;
-			text-decoration: none;
-			&:hover{
-				background:@blue3;
-				color: #fff;
-			}
-		}
-		img.avatar-image{
-			width:@avatar-size;
-			height:@avatar-size;
-		}
-		span{
-			display: inline-block;
-			padding:2px 10px 2px 6px;
+		text-decoration: none;
+		&:hover{
+			background:@blue3;
+			color: #fff;
 		}
 	}
+	img.avatar-image{
+		width:@avatar-size;
+		height:@avatar-size;
+	}
+	span{
+		display: inline-block;
+		padding:2px 10px 2px 6px;
+	}
+}
 
 
 

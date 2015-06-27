@@ -17,11 +17,16 @@
 		<div
 			class="image-viewer image-hover-area"
 			style="height:75vh;"
-			ng-style="thumbnailImageBg(selectedImage(),'xlarge')">
+			ng-style="thumbnailImageBg(selectedImage(),'x-large')">
 			<div class="loading-outer" ng-show="!galleryLoaded()">
 				<div class="loading-inner">
 					<i class="icon pwi-spinner-2 icon-spin"></i>
 				</div>
+			</div>
+
+			<div
+				class="image-overlay"
+				ng-click="nextImage()">
 			</div>
 
 			<!-- IMAGE INFO -->

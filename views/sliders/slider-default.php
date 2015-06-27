@@ -1,4 +1,5 @@
 <?php
+	$slider = $vars;
 	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
@@ -11,7 +12,7 @@
 		$scope.slides = <?php echo json_encode($posts); ?>;
 		$scope.slideImageUrl = function( slide ){
 			// Return the alternative image URL if it's available
-			var imgExp = 'sizes.widescreen.url';
+			var imgExp = 'sizes.x-wide.url';
 			var altImgUrl = $_.get( slide, 'image.alt.'+imgExp );
 			if( !_.isEmpty( altImgUrl ) )
 				return altImgUrl;
