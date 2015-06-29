@@ -75,6 +75,8 @@ function pw_theme_options_filter( $options ){
 				'no_pause' => true,
 				'show_title' => true,
 				'show_excerpt' => true,
+				'transition' => 'fade',
+				'proportion' => false,
 				),
 			),
 		'modals'	=>	array(
