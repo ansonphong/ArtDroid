@@ -248,12 +248,22 @@
 								<?php
 									echo pw_select_slider_settings( array(
 										'ng_model' 	=>	'pwOptions.home.slider',
-										'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
+										'show'		=>	array(
+											'height',
+											'interval',
+											'no_pause',
+											'hyperlink',
+											'show_title',
+											'show_excerpt',
+											'transition',
+											),
 										'defaults'	=>	array(
-												'interval'		=>	5000,
-												'mode'			=>	'menu',
-												'no_pause'		=>	true,
-												),
+											'interval'		=>	5000,
+											'mode'			=>	'menu',
+											'no_pause'		=>	true,
+											'transition'	=>	'fade',
+											),
+										
 										));?>
 							</div>
 
