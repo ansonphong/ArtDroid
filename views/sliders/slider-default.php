@@ -9,7 +9,6 @@
 		[ '$scope', '_', function( $scope, $_ ){
 		$scope.slider = <?php echo json_encode($slider); ?>;
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
-		$scope.slides = <?php echo json_encode($posts); ?>;
 		$scope.slideImageUrl = function( slide ){
 			// Return the alternative image URL if it's available
 			var imgExp = 'sizes.x-wide.url';
@@ -24,7 +23,7 @@
 	id="<?php echo $slider['id']; ?>"
 	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
 	ng-controller="<?php echo $slider['instance']; ?>"
-	window-height="<?php echo $slider['height']; ?>">
+	style="height:<?php echo $slider['height'] ?>vh;">
 	<carousel
 		interval="sliderInterval"
 		<?php
@@ -37,7 +36,7 @@
 		?>
 		ng-cloak>
 		
-		<slide class="slide" ng-repeat="slide in slides" active="slide.active">
+		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}">
 			<?php } ?>
@@ -80,7 +79,3 @@
 		?>
 	</carousel>
 </div>
-
-<!--
-<pre><?php // echo json_encode($slider); ?></pre>
--->
