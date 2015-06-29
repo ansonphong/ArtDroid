@@ -1,6 +1,56 @@
 <?php
 	// Enable Media Library
 	wp_enqueue_media();
+
+	$home_slider_settings = array(
+		'ng_model' 	=>	'pwOptions.home.slider',
+		'show'		=>	array(
+			'height',
+			'interval',
+			'no_pause',
+			'hyperlink',
+			'show_title',
+			'show_excerpt',
+			'transition',
+			'proportion'
+			),
+		'defaults'	=>	array(
+			'interval'		=>	5000,
+			'mode'			=>	'menu',
+			'no_pause'		=>	true,
+			'transition'	=>	'fade',
+			),
+		'options' => array(
+			'proportion' => array(
+				array(
+					'value' => false,
+					'name' => 'Flexible',
+					),
+				array(
+					'value' => 2,
+					'name' => '2 : 1',
+					),
+				array(
+					'value' => 2.5,
+					'name' => '2.5 : 1',
+					),
+				array(
+					'value' => 3,
+					'name' => '3 : 1',
+					),
+				array(
+					'value' => 3.5,
+					'name' => '3.5 : 1',
+					),
+				array(
+					'value' => 4,
+					'name' => '4 : 1',
+					),
+				),
+			),
+
+		);
+
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
@@ -246,25 +296,7 @@
 								<hr class="thin">
 								<h4>Settings</h4>
 								<?php
-									echo pw_select_slider_settings( array(
-										'ng_model' 	=>	'pwOptions.home.slider',
-										'show'		=>	array(
-											'height',
-											'interval',
-											'no_pause',
-											'hyperlink',
-											'show_title',
-											'show_excerpt',
-											'transition',
-											),
-										'defaults'	=>	array(
-											'interval'		=>	5000,
-											'mode'			=>	'menu',
-											'no_pause'		=>	true,
-											'transition'	=>	'fade',
-											),
-										
-										));?>
+									echo pw_select_slider_settings( $home_slider_settings );?>
 							</div>
 
 						</div>

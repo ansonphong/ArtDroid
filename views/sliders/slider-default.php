@@ -23,17 +23,21 @@
 	id="<?php echo $slider['id']; ?>"
 	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
 	ng-controller="<?php echo $slider['instance']; ?>"
-	style="height:<?php echo $slider['height'] ?>vh;">
+	<?php if( empty($proportion) ):?>
+		style="height:<?php echo $slider['height'] ?>vh;"
+	<?php endif ?>
+	>
 	<carousel
 		interval="sliderInterval"
-		<?php
-			// NO PAUSE SETTING
-			if( $slider['no_pause'] == true )
-				echo ' no-pause="true" ';
-			// NO TRANSITION SETTING
-			if( $slider['transition'] == false || $slider['transition'] == 'false' )
-				echo ' no-transition="true" ';
-		?>
+
+		<?php if( $slider['no_pause'] == true ):?>
+			no-pause="true"
+		<?php endif ?>
+
+		<?php if( $slider['transition'] == false || $slider['transition'] == 'false' ):?>
+			no-transition="true"
+		<?php endif ?>
+
 		ng-cloak>
 		
 		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">

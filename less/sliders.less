@@ -4,7 +4,47 @@
 }
 
 #header-slider{
+	width: 100%;
 	height:100%;
+	position: relative;
+
+	&.proportion-2:before{
+		content: "";
+		display: block;
+		padding-top: 50%;
+	}
+
+	&.proportion-2_5:before{
+		content: "";
+		display: block;
+		padding-top: 40%;
+	}
+
+	&.proportion-3:before{
+		content: "";
+		display: block;
+		padding-top: 33.33%;
+	}
+
+	&.proportion-3_5:before{
+		content: "";
+		display: block;
+		padding-top: 28.6%;
+	}
+
+	&.proportion-4:before{
+		content: "";
+		display: block;
+		padding-top: 25%;
+	}
+
+	.carousel{
+		position: absolute;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+	}
 
 	.logo-overlay{
 		position:absolute;
