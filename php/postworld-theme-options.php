@@ -1,11 +1,15 @@
 <?php
 
-
 ////////// DEFAULT THEME OPTIONS //////////
 function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+		'fonts'	=>	array(
+			'body'		=>	'Roboto',
+			'title'		=>	'Roboto',
+			'content'	=>	'Roboto Slab',
+			),
 		'posts'	=>	array(
 			'media'	=>	array(
 				'style'	=>	array(
