@@ -167,7 +167,9 @@
 					<!-- TITLE -->
 					<h1 class="post-title">
 						<a ng-href="{{ post.post_permalink }}">
-							<span class="icon">
+							<span
+								class="icon"
+								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
 								<i
 									ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
 									class="pwi-arrow-down"></i>

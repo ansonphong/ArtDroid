@@ -1,7 +1,6 @@
 <?php
 ///// FONT OPTIONS /////
 function theme_get_font_options(){
-
 	$fonts = array(
 		array(
 			'name'	=>	'Roboto',
@@ -99,7 +98,7 @@ function theme_get_font_options(){
 			'code'	=>	'Anonymous+Pro:400,700,400italic',
 			),
 		array(
-			'name'	=>	'Ubuntu+Mono',
+			'name'	=>	'Ubuntu Mono',
 			'style'	=>	array('serif','monospace'),
 			'code'	=>	'Ubuntu+Mono:400,700,400italic',
 			),
@@ -113,10 +112,35 @@ function theme_get_font_options(){
 			'style'	=>	array('serif','monospace'),
 			'code'	=>	'Source+Code+Pro:200,300,400,700',
 			),
-
+		array(
+			'name'	=>	'Oswald',
+			'style'	=>	array('sans-serif','condensed'),
+			'code'	=>	'Oswald:300,400,700',
+			),
+		array(
+			'name'	=>	'Lobster',
+			'style'	=>	array('serif','handwriting'),
+			'code'	=>	'Lobster',
+			),
+		array(
+			'name'	=>	'Cinzel',
+			'style'	=>	array('serif'),
+			'code'	=>	'Cinzel:700,400',
+			),
+		array(
+			'name'	=>	'Cinzel Decorative',
+			'style'	=>	array('serif'),
+			'code'	=>	'Cinzel+Decorative:400,700',
+			),
+		array(
+			'name'	=>	'Alfa Slab One',
+			'style'	=>	array('serif'),
+			'code'	=>	'Alfa+Slab+One',
+			),
 		);
 
 	return $fonts;
+
 }
 
 ///// INCLUDE SELECTED FONTS /////
@@ -129,7 +153,7 @@ function theme_include_google_fonts( $fonts ){
 	
 	///// ADMIN /////
 	// Return all the font options in the admin for previews
-	if( is_admin() && _get( $_GET, 'page' ) == PW_OPTIONS_THEME )
+	if( is_admin() && _get( $_GET, 'page' ) == theme_pw_admin_submenu_slug() )
 		return $font_options;
 	// Return empty if on other admin pages
 	elseif( is_admin() )
@@ -168,6 +192,7 @@ function theme_less_vars( $vars, $handle ) {
 		'font-family-body'		=>	'"'._get( $theme_options, 'fonts.body' ).'"',
 		'font-family-title'		=>	'"'._get( $theme_options, 'fonts.title' ).'"',
 		'font-family-content'	=>	'"'._get( $theme_options, 'fonts.content' ).'"',
+		'font-family-menu'		=>	'"'._get( $theme_options, 'fonts.menu' ).'"',
 		);
 	$vars = array_replace_recursive( $vars, $theme_vars);
 	return $vars;

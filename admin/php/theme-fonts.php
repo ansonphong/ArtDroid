@@ -113,6 +113,41 @@
 					</small>
 				</td>
 			</tr>
+			<tr>
+				<td align="right">
+					Menu :
+				</td>
+				<td>
+					<!-- DROPDOWN -->
+					<span
+						dropdown
+						class="dropdown">
+						<!-- SELECTED ITEM -->
+						<span dropdown-toggle
+							class="area-select area-select-font"
+							ng-style="{'font-family': pwOptions.fonts.menu }">
+							{{ pwOptions.fonts.menu }}
+						</span>
+						<!-- MENU -->
+						<ul
+							class="dropdown-menu grid"
+							role="menu">
+							<li
+								class="select-font"
+								ng-repeat="font in fontOptions"
+								ng-click="pwOptions.fonts.menu = font.name"
+								ng-style="{'font-family': font.name }">
+								{{ font.name }}
+							</li>
+						</ul>
+					</span>
+				</td>
+				<td>
+					<small>
+						The menu font.
+					</small>
+				</td>
+			</tr>
 		</table>
 
 
