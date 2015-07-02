@@ -64,15 +64,21 @@
 			<div class="col-md-7">
 
 				<h1 class="post-title">
-					<span class="icon">
+					
 						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-							<i class="pwi-arrow-down"></i>
+							<span class="icon">
+								<i class="pwi-arrow-down"></i>
+							</span>
 						{% endif %} 
 						{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-							<i class="pwi-arrow-right"></i>
+							<span class="icon">
+								<i class="pwi-arrow-right"></i>
+							</span>
 						{% endif %}
 						{% if post.post_meta.pw_meta.icon.class %}
-							<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
+							<span class="icon">
+								<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
+							</span>
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}

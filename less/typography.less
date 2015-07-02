@@ -1,8 +1,12 @@
-
 html{
+	body{
+		font-family: @font-family-body;
+	}
+
 	h1,h2,h3,h4,h5,h6{
-		font-family:"Roboto";
+		font-family: @font-family-title;
 		font-weight:200;
+		-webkit-font-smoothing: antialiased;
 	}
 
 	h1{
@@ -19,4 +23,14 @@ html{
 	label{
 		font-weight:normal;
 	}
+
+	.post-content{
+		font-family: @font-family-content;
+	}
+
+	.menu{
+		font-family: @font-family-menu;
+		-webkit-font-smoothing: antialiased;
+	}
+
 }

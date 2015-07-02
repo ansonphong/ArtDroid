@@ -9,6 +9,7 @@ function pw_theme_options_filter( $options ){
 			'body'		=>	'Roboto',
 			'title'		=>	'Roboto',
 			'content'	=>	'Roboto Slab',
+			'menu'		=>	'Roboto',
 			),
 		'posts'	=>	array(
 			'media'	=>	array(
