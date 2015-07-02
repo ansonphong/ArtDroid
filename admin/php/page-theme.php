@@ -48,9 +48,7 @@
 					),
 				),
 			),
-
 		);
-
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
@@ -59,6 +57,7 @@
 			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
 			$scope['images'] = {};
 			$scope['options'] = iOptionsData['options'];
+			$scope.fontOptions = <?php echo json_encode( theme_get_font_options() ); ?>;
 	}]);
 </script>
 
@@ -91,13 +90,14 @@
 				</div>
 			</div>
 		</div>
-		
-
 
 		<hr class="thick">
 
 		<div class="row">
 			<div class="col-lg-6 pad-col-lg">
+
+				<!--///// FONTS /////-->
+				<?php include 'theme-fonts.php' ?>
 
 				<!--///// LOGO /////-->
 				<div class="well">
