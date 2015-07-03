@@ -75,27 +75,14 @@ if( is_page() )
 
 		// Get and Print the Post in Template
 		$post_html = pw_print_post( $post_settings );
-
 	?>
 
 	<?php
-		///////// INFINITE LAYOUT /////////
-		// Callback function for the page content (optional)
-		function page_content_function(){
-			global $post;
-			///// EMBED MEDIA /////
-			//$embed_link_url = pw_embed_link_url( $post->ID );
-		}
 		///// MAIN LAYOUT /////
-		global $iGlobals;
 		$layout_args = array(
-			'function'			=>	'page_content_function',
 			'content'			=>	$post_html, //apply_filters( 'the_content', $post->post_content ),
-			//'before_content' 	=>	'<div>',
-			//'after_content' 	=>	'</div>',
 			);
 		pw_print_layout( $layout_args );
-
 	?>
 
 <!-- INFINITE FOOTER -->
