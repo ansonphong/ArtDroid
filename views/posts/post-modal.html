@@ -181,17 +181,26 @@
 						</a>
 					</h1>
 					
-					<!-- TAGS -->
-					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<div class="tags">
-							<i class="pwi-tags"></i>
-							<span ng-repeat="term in post.taxonomy.post_tag">
-							    <a pw-href="term.url" class="term tag">
-									<span ng-bind="term.name"></span>
-								</a>
-							</span>
-						</div>
+
+					<!-- CATEGORIES -->
+					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+						<span ng-repeat="term in post.taxonomy.category">
+						    <a pw-href="term.url" class="term category">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
 					</div>
+
+					<!-- TAGS -->
+					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+						<i class="pwi-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
+					</div>
+					
 
 				</div>
 
@@ -274,6 +283,8 @@
 					</div>
 
 				</div>
+
+				<div class="clearfix"></div>
 
 			</div>
 
