@@ -53,7 +53,7 @@
 		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleImage')">
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes['xlarge'].url )">
+				ng-style="backgroundImage( post.image.sizes['x-large'].url )">
 			</div>
 		</div>
 	{% endif %}
@@ -94,16 +94,23 @@
 				
 				{% if post.post_type != 'page' %}
 					
+					<!-- CATEGORIES -->
+					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+						<span ng-repeat="term in post.taxonomy.category">
+						    <a pw-href="term.url" class="term category">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
+					</div>
+
 					<!-- TAGS -->
-					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<div class="tags">
-							<i class="pwi-tags"></i>
-							<span ng-repeat="term in post.taxonomy.post_tag">
-							    <a pw-href="term.url" class="term tag">
-									<span ng-bind="term.name"></span>
-								</a>
-							</span>
-						</div>
+					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+						<i class="pwi-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
 					</div>
 					
 				{% endif %}
@@ -188,8 +195,6 @@
 
 				{% endif %}
 
-
-
 			</div>
 
 		</div>
@@ -198,25 +203,19 @@
 
 	</header>
 
-	<!--
-	<hr>
-	<span ng-bind="showView('galleryHorizontal')"></span> // 
-	<span ng-bind="post.post_meta.pw_meta | json"></span>
-	-->
-
 	{% if post.post_content %}
 		<!-- CONTENT -->
 		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
+
 	{% if !post.post_content %}
 		<!-- CONTENT -->
 		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_excerpt | safe }}
 		</div>
 	{% endif %}
-
 
 	{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
 		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
@@ -258,5 +257,5 @@
 	<div class="social-widgets">
 		{{ social_widgets | safe }}
 	</div>
-	<!--<hr class="thick">-->
+
 </article>
