@@ -18,7 +18,7 @@
 		}
 	}]);
 </script>
-<div class="terms-feed pw-shortcode" ng-controller="<?php echo $instance; ?>">
+<div class="term-feed grid pw-shortcode" ng-controller="<?php echo $instance; ?>">
 	<div class="terms-row">
 		<div class="terms-col" ng-repeat="feedTerm in termFeed">
 			<div
