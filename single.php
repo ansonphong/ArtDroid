@@ -64,7 +64,6 @@ if( is_page() )
 			'post_id'	=>	$post->ID,
 			'fields'	=>	$fields,
 			'view'		=>	'full-h2o',
-			//'template'	=>	pw_get_post_template ( $post->ID, 'full-h2o', 'dir', true ),
 			'vars'	=> array(
 				'social_widgets'	=>	pw_social_widgets( $social_settings ),
 				'social_share'		=>	pw_social_share( $post ),
@@ -75,6 +74,7 @@ if( is_page() )
 
 		// Get and Print the Post in Template
 		$post_html = pw_print_post( $post_settings );
+
 	?>
 
 	<?php
