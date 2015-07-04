@@ -62,6 +62,10 @@
 		ng-cloak>
 		
 		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
+			
+			<!-- TEST IMAGE -->
+			<img pw-smart-src="slide.image" style="width:200px;height:150px;">
+
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}">
 			<?php } ?>
