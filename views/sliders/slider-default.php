@@ -10,8 +10,16 @@
 		$scope.slider = <?php echo json_encode($slider); ?>;
 		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
 		$scope.slideImageUrl = function( slide ){
+			
+			/**
+			 * At Single image request level, request conditional proportions
+			 * Based on the set proportions. Here switch between 3 images
+			 * 1- Retina, 2- Normal and 3- Mobile images.
+			 */
+
 			// Return the alternative image URL if it's available
-			var imgExp = 'sizes.x-wide.url';
+			var imgExp = 'sizes.full.url';
+
 			var altImgUrl = $_.get( slide, 'image.alt.'+imgExp );
 			if( !_.isEmpty( altImgUrl ) )
 				return altImgUrl;

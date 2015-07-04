@@ -263,19 +263,80 @@ function theme_postmeta_defaults( $post ){
 
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
-////////// GET ALTERNATIVE IMAGE FROM POST META ID //////////
+
+/**
+ * GET ALTERNATIVE IMAGE FROM POST META ID
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 function theme_postmeta_alt_image( $post ){
 	// The theme has the option to select an alternative image for each post
 	// This is tored inthe postmeta as alt_image, in the form of a thumbnail_id
 	$alt_image_id = _get( $post, 'post_meta.alt_image' );
 	if( is_numeric( $alt_image_id ) ){
+
+		/**
+		 * Get all the 'fields' with image in it from the post
+		 * And retreive the same image fields for the alt image
+		 */
+
 		$post = _set( $post, 'image.alt', pw_get_post_image( $post, array( 'image(all)', 'image(post,micro)' ), $alt_image_id ) );
 		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
 	return $post;
 }
-add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 
+
+/**
+ * PREPROCESS SLIDERS
+ */
+add_filter( 'pw_slider_preprocess', 'theme_slider_preprocess' );
+function theme_slider_preprocess( $slider ){
+
+	/**
+	 * Add image fields based on the proportions
+	 */
+	$fields = array(
+		'ID',
+		'post_title',
+		'post_type',
+		'post_meta(all)',
+		'post_excerpt',
+		'post_permalink',
+		'link_url',
+		'link_format',
+		'fields',
+		);
+
+	$image_fields = array(
+		'image(id)',
+		'image(meta)',
+		'image(stats)',
+		);
+
+	// Get the slider proportion
+	$proportion = _get( $slider, 'proportion' );
+
+	// If it's a set / fixed numeric proportion
+	if( $proportion !== false ){
+		$proportion = (int) $proportion;
+
+	}
+	else{
+
+
+	}
+
+
+	pw_log( 'process slider', $slider );
+
+	return $slider;
+
+}
+
+
+/**
+ * LOADING ICON OPTIONS
+ */
 function theme_get_loading_icon_options(){
 	$icons = array(
 		'pwi-spinner-1',
