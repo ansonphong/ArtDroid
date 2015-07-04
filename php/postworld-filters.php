@@ -264,6 +264,7 @@ function theme_postmeta_defaults( $post ){
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
 
+
 /**
  * GET ALTERNATIVE IMAGE FROM POST META ID
  */
@@ -276,10 +277,17 @@ function theme_postmeta_alt_image( $post ){
 
 		/**
 		 * Get all the 'fields' with image in it from the post
-		 * And retreive the same image fields for the alt image
+		 * And get the same image fields for the alt image
 		 */
+		$image_fields = pw_fields_where( 'image', $post['fields'] );
+		//array( 'image(all)', 'image(post,micro)' );
 
-		$post = _set( $post, 'image.alt', pw_get_post_image( $post, array( 'image(all)', 'image(post,micro)' ), $alt_image_id ) );
+		$post_image = pw_get_post_image( $alt_image_id, $image_fields, true );
+		
+		$post = _set(
+			$post,
+			'image.alt',
+			$post_image );
 		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
 	return $post;
@@ -287,14 +295,12 @@ function theme_postmeta_alt_image( $post ){
 
 
 /**
- * PREPROCESS SLIDERS
+ * PREPROCESS SLIDER IMAGE FIELDS
+ * Add image fields based on the proportions
  */
-add_filter( 'pw_slider_preprocess', 'theme_slider_preprocess' );
-function theme_slider_preprocess( $slider ){
+add_filter( 'pw_slider_preprocess', 'theme_slider_preprocess_image_fields' );
+function theme_slider_preprocess_image_fields( $slider ){
 
-	/**
-	 * Add image fields based on the proportions
-	 */
 	$fields = array(
 		'ID',
 		'post_title',
@@ -309,25 +315,55 @@ function theme_slider_preprocess( $slider ){
 
 	$image_fields = array(
 		'image(id)',
-		'image(meta)',
+		//'image(meta)',
 		'image(stats)',
 		);
 
 	// Get the slider proportion
-	$proportion = _get( $slider, 'proportion' );
+	$proportion = (int) _get( $slider, 'proportion' );
+	// Set the default proportion, also used for 'flex'
+	if( empty( $proportion ) )
+		$proportion = 2;
 
-	// If it's a set / fixed numeric proportion
-	if( $proportion !== false ){
-		$proportion = (int) $proportion;
+	// Define image sizes
+	$image_sizes = array(
+		array(
+			'name' 	=> 'xxl',
+			'width' => 3200,
+			),
+		array(
+			'name' => 'xl',
+			'width' => 2400,
+			),
+		array(
+			'name' => 'lg',
+			'width' => 1600,
+			),
+		array(
+			'name' => 'md',
+			'width' => 1000,
+			),
+		array(
+			'name' => 'sm',
+			'width' => 640,
+			),
+		);
 
+	// Generate the custom image field values
+	$custom_image_fields = array();
+	foreach( $image_sizes as $i ){
+		$i['height'] = intval( $i['width'] / $proportion );
+		$custom_image_fields[] = 'image('.$i['name'].','.$i['width'].','.$i['height'].',1)';
 	}
-	else{
 
+	// Merge all the fields together
+	$fields = array_merge( $fields, $image_fields, $custom_image_fields );
 
-	}
+	// Inject the fields into the slider
+	$slider = _set( $slider, 'query.fields', $fields );
 
-
-	pw_log( 'process slider', $slider );
+	//pw_log( 'process slider', $slider );
+	//pw_log( 'process slider : fields', $fields );
 
 	return $slider;
 

@@ -6,25 +6,38 @@
 ?>
 <script>
 	postworld.controller( '<?php echo $slider['instance']; ?>',
-		[ '$scope', '_', function( $scope, $_ ){
+		[ '$scope', '_', '$log', '$window', function( $scope, $_, $log, $window ){
 		$scope.slider = <?php echo json_encode($slider); ?>;
-		$scope.sliderInterval = <?php echo $slider['interval']; ?>;
+
 		$scope.slideImageUrl = function( slide ){
-			
-			/**
-			 * At Single image request level, request conditional proportions
-			 * Based on the set proportions. Here switch between 3 images
-			 * 1- Retina, 2- Normal and 3- Mobile images.
-			 */
+			// The ID of the slider
+			var sliderId = '<?php echo $slider['id']; ?>';
+			// The width of the slider element
+			var elementWidth = angular.element( '#'+sliderId )[0].offsetWidth;
+			// The current device's pixel ratio
+			var devicePixelRatio = $window.devicePixelRatio;
+			// The number of pixels wide the image area is
+			var pixelWidth = elementWidth * devicePixelRatio;
 
-			// Return the alternative image URL if it's available
-			var imgExp = 'sizes.full.url';
+			// Set the image in use
+			var image = ( !_.isUndefined( slide.image['alt'] ) ) ?
+				slide.image['alt'] : slide.image;
 
-			var altImgUrl = $_.get( slide, 'image.alt.'+imgExp );
-			if( !_.isEmpty( altImgUrl ) )
-				return altImgUrl;
-			return $_.get( slide, 'image.'+imgExp );
+			// Get the correct image URL
+			// NOTE : Image sizes must be in descending order, with largest first
+			var imageUrl = '';
+			angular.forEach( image.sizes, function( value, key ){
+				if( value.width >  pixelWidth )
+					imageUrl = value.url;
+			});
+
+			return imageUrl;
+
 		}
+
+
+
+
 	}]);
 </script>
 <div
@@ -36,7 +49,7 @@
 	<?php endif ?>
 	>
 	<carousel
-		interval="sliderInterval"
+		interval="slider.interval"
 
 		<?php if( $slider['no_pause'] == true ):?>
 			no-pause="true"
