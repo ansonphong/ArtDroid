@@ -6,16 +6,38 @@
 	width:100%;
 
 	form{
-		color:@primary-color-medium;
+		color: mix( @primary-color-medium, @global-foreground-color, 66%);
 		
-		input, textarea{
+		input[type="text"],
+		input[type="number"],
+		input[type="date"],
+		input[type="email"],
+		textarea,
+		select.wpcf7-select{
 			font-weight:200;
 			padding: 5px 10px;
 			color: @global-foreground-color;
-			border: 1px solid @primary-color-medium;
+			border: 1px solid fade(@secondary-color-medium, 33%);
+			border-bottom: 1px solid @secondary-color-medium;
 			background: @global-background-color;
 			max-width:100%;
 			width:100%;
+			outline:none;
+			&:focus{
+				border-bottom: 1px solid @global-foreground-color;
+			}
+		}
+
+		input[type="radio"]{
+			margin:0 5px 0 0;
+		}
+
+		.wpcf7-list-item-label{
+			margin-right:20px;
+		}
+
+		select.wpcf7-select{
+
 		}
 
 		input[type="submit"]{
@@ -23,6 +45,8 @@
 			width:100%;
 			.transition();
 			background: fade(@primary-color-medium, 50%);
+			border:none;
+			color: @global-foreground-color;
 			&:hover{
 				background: fade(@primary-color-medium, 100%);
 			}
@@ -44,6 +68,11 @@
 			border-radius: 40px !important;
 			margin: 20px auto;
 			display: block;
+		}
+
+		small{
+			color: mix( @neutral-color-medium, @global-foreground-color, 66%);
+			font-style: italic;
 		}
 
 	}
