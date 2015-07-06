@@ -17,8 +17,10 @@
 			href="{{ post.post_permalink }}"
 			ng-click="openModal({ mode:'feed', post:post })"
 			prevent-default-click>
-			<div class="grid-image"
-				ng-style="gridImageStyle('thumb-', post.image.tags)">
+			<div
+				class="grid-image"
+				pw-smart-src="::post.image"
+				smart-src-override="::post.image.alt">
 			</div>
 			<div class="overlay">
 				<div
@@ -45,16 +47,15 @@
 					{{ post.post_excerpt }}
 				</span>
 
-				<!-- TAGS 
-				<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-					<span class="tags">
-						<i class="pwi-tags"></i>
-						<span ng-repeat="term in post.taxonomy.post_tag">
-							<a href="{{term.url}}" ng-class="term.slug" class="tag">{{term.name}}</a>
-						</span>
+				<!-- TAGS -->
+				<div
+					class="taxonomy category"
+					ng-show="uiBoolean(post.taxonomy.category)">
+					<span ng-repeat="term in post.taxonomy.post_tag">
+						<a href="{{term.url}}" ng-class="term.slug" class="term category">{{term.name}}</a>
 					</span>
 				</div>
-				-->
+				
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls">
@@ -92,14 +93,6 @@
 						</ul>
 					</span>
 				</div>
-				
-				<!--
-				<div style="font-size:9px; line-height:1.2em;">{{ post.image }}</div>
-				Feed : {{ post.feed | json }} /////
-				Stats : {{ post.image.stats | json }} /////
-				Tags : {{ post.image.tags | json }} /////
-				$scope.feedSettings : {{ feedSettings | json }}
-				-->
 			</div>
 		</div>
 	</div>

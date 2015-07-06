@@ -16,38 +16,6 @@
 		}
 	}
 
-	&.full .taxonomy{
-		float: left;
-		margin-right:20px;
-		margin-top:15px;
-		.icon{
-			display:inline-block;
-			margin-right:8px;
-		}
-		a.term{
-			display:inline-block;
-			margin-right:5px;
-			.transition();
-			padding: 5px 10px;
-			border:1px solid transparent;
-			border-bottom: 1px solid @neutral-color-dark;
-			color:@neutral-color-light;
-			text-decoration: none;
-			&:hover{
-				border:1px solid @global-foreground-color;
-				color: @global-foreground-color;
-			}
-		}
-
-		a.term.category{
-			background: mix( @global-background-color, @primary-color-medium, 66% );
-			&:hover{
-				background: mix( @global-background-color, @primary-color-medium, 33% );
-			}
-		}
-
-	}
-
 	.post-content{
 		background: @global-background-color;
 		padding:20px;

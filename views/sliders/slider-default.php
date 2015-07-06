@@ -7,37 +7,7 @@
 <script>
 	postworld.controller( '<?php echo $slider['instance']; ?>',
 		[ '$scope', '_', '$log', '$window', function( $scope, $_, $log, $window ){
-		$scope.slider = <?php echo json_encode($slider); ?>;
-
-		$scope.slideImageUrl = function( slide ){
-			// The ID of the slider
-			var sliderId = '<?php echo $slider['id']; ?>';
-			// The width of the slider element
-			var elementWidth = angular.element( '#'+sliderId )[0].offsetWidth;
-			// The current device's pixel ratio
-			var devicePixelRatio = $window.devicePixelRatio;
-			// The number of pixels wide the image area is
-			var pixelWidth = elementWidth * devicePixelRatio;
-
-			// Set the image in use
-			var image = ( !_.isUndefined( slide.image['alt'] ) ) ?
-				slide.image['alt'] : slide.image;
-
-			// Get the correct image URL
-			// NOTE : Image sizes must be in descending order, with largest first
-			var imageUrl = '';
-			angular.forEach( image.sizes, function( value, key ){
-				if( value.width >  pixelWidth )
-					imageUrl = value.url;
-			});
-
-			return imageUrl;
-
-		}
-
-
-
-
+		$scope.slider = <?php echo json_encode($slider, JSON_PRETTY_PRINT); ?>;
 	}]);
 </script>
 <div
@@ -62,16 +32,13 @@
 		ng-cloak>
 		
 		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
-			
-			<!-- TEST IMAGE -->
-			<img pw-smart-src="slide.image" style="width:200px;height:150px;">
-
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}">
 			<?php } ?>
 				<div
 					class="slide-frame"
-					style="background-image: url( {{ slideImageUrl(slide) }}); "
+					pw-smart-src="::slide.image"
+					smart-src-override="::slide.image.alt"
 					parallax-background
 					parallax-ratio="-0.6">
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
