@@ -82,10 +82,12 @@
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}
-						<a href="{{ post.parent_post.post_permalink }}">
-							{{ post.parent_post.post_title }}
-						</a>
-						&rsaquo;
+						<span class="parent-post-link">
+							<a href="{{ post.parent_post.post_permalink }}">
+								{{ post.parent_post.post_title }}
+							</a>
+							&rsaquo;
+						</span>
 					{% endif %}
 					<span ng-bind="post.post_title">
 						{{ post.post_title }}
