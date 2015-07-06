@@ -1,4 +1,3 @@
-
 .header-spacer{
 	height:@header-height-fixed;
 }
@@ -41,7 +40,11 @@ header#header{
 	transition: background .66s ease;
 
 	@media @desktop-and-above{
-		height:@header-height-fixed;
+		//height:@header-height-fixed;
+	}
+
+	@media @wp-sm{
+		position:absolute;
 	}
 
 	.header-inner{
@@ -156,4 +159,3 @@ header#header{
 	height:@header-image-height; // 260px
 	
 }
-
