@@ -55,28 +55,25 @@ function theme_pw_styles_defaults( $value ){
 				),
 
 			'widgets'	=>	array(
-				'widget-base-color'			=>	'@primary-color-dark',
-				'widget-foreground'			=>	'@primary-color-medium',
-				'widget-highlight-color'	=>	'@primary-color-light',
+				'widget-base-color'			=>	'@neutral-color-dark',
+				'widget-foreground'			=>	'@neutral-color-medium',
+				'widget-highlight-color'	=>	'@neutral-color-light',
 				),
 
 			
 			),
 
 		'layout'	=>	array(
-
 			'bootstrap'	=>	array(
 				'grid-gutter-width'	=>	'0px',
 				),
-
 			'page'	=>	array(
 				'page-xs-width'		=>	'100%',
-				'page-sm-width'		=>	'95%',
-				'page-md-width'		=>	'90%',
-				'page-lg-width'		=>	'85%',
-				'page-max-width'	=>	'1200px',
+				'page-sm-width'		=>	'100%',
+				'page-md-width'		=>	'100%',
+				'page-lg-width'		=>	'100%',
+				'page-max-width'	=>	'1600px',
 				),
-
 			),
 
 		'posts'	=>	array(
@@ -100,6 +97,13 @@ function theme_pw_styles_defaults( $value ){
 				'page-header-foreground'	=>	'@neutral-color-light',
 				),
 			),
+
+		'thirdparty' =>	array(
+			'wpcf7'	=> array(
+				'wpcf7-primary-color' => '@neutral-color-medium',
+				),
+			),
+
 		);
 
 	//'galleries'
@@ -677,6 +681,27 @@ function theme_pw_styles_structure( $structure = array() ){
 
 				),
 
+			),
+
+		array(
+			"name"	=>	"Third Party Plugins",
+			"key"	=>	"thirdparty",
+			"icon"	=>	"pwi-gear",
+			"values"	=>	array(
+				array(
+					'name'	=>	'Contact Form 7',
+					'key'	=>	'wpcf7',
+					'icon'	=>	'pwi-circle-medium',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Primary Color",
+							"key"			=>	"wpcf7-primary-color",
+							"input"			=>	"color",
+							"description"	=>	"The main color for WordPress Contact Form 7 Plugin"
+							),
+						),
+					),
+				),
 			),
 
 

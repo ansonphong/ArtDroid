@@ -12,18 +12,32 @@
 	font-weight:200;
 	color: @neutral-color-light;
 	
+	h1,h2,h3,h4,h5,h6{
+		color: @primary-color-medium;
+	}
+
+	h1{
+		background: fade( @neutral-color-medium, 25% );
+		padding: 20px;
+		margin: 0 -20px 15px;
+	}
+
+	h2{
+		padding-bottom:10px;
+		border-bottom: 1px solid @neutral-color-medium;
+	}
 
 	img{
 		border-radius:@meta-border-radius;
 	}
 
-	@media @tablet-and-below{
+	@media @md-down{
 		.pw-gallery-shortcode{
 			margin:0 -20px;
 		}
 	}
 
-	@media @desktop-and-above{
+	@media @lg-up{
 		padding:40px 40px;
 	}
 
@@ -38,8 +52,40 @@
 		margin:0;
 		padding:0;
 		li{
-			padding: 14px 0;
+			padding: 14px 5px;
 			border-top: 1px solid fade(@secondary-color-medium, 33%);
+		}
+	}
+
+	ol{
+		//list-style-type: decimal-leading-zero; //upper-roman;
+		//content: counter(my-counter, lower-roman);
+		//list-style: symbols("*" "\2020" "\2021" "\A7"); 
+		list-style-type: none;
+		margin:0;
+		padding:0;
+		li{
+			position: relative;
+			counter-increment: step-counter;
+			padding-left: 44px;
+			padding-top:2px;
+  			margin-bottom: 10px;
+			&::before{
+				content: counter(step-counter); // ,upper-roman;
+				width:32px;
+				height:32px;
+				line-height:1;
+				text-align: center;
+				display: inline-block;
+				position: absolute;
+				left:0;
+				top:0;
+				background: fade(@neutral-color-medium, 25%);
+				color: @primary-color-medium;
+				padding-top:6px;
+				margin-bottom:2px;
+				border-radius: 32px;
+			}
 		}
 	}
 
