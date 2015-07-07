@@ -3,10 +3,12 @@
 .wpcf7{
 	//@media @lg-up 	{ width:50%; }
 
+	@wpcf7-color: @wpcf7-primary-color;
+
 	width:100%;
 
 	form{
-		color: mix( @primary-color-medium, @global-foreground-color, 66%);
+		color: mix( @wpcf7-color, @global-foreground-color, 66%);
 		
 		input[type="text"],
 		input[type="number"],
@@ -17,8 +19,8 @@
 			font-weight:200;
 			padding: 5px 10px;
 			color: @global-foreground-color;
-			border: 1px solid fade(@secondary-color-medium, 33%);
-			border-bottom: 1px solid @secondary-color-medium;
+			border: 1px solid fade(@wpcf7-color, 33%);
+			border-bottom: 1px solid @wpcf7-color;
 			background: @global-background-color;
 			max-width:100%;
 			width:100%;
@@ -37,41 +39,41 @@
 		}
 
 		select.wpcf7-select{
-
 		}
 
 		input[type="submit"]{
 			padding: 10px 20px;
 			width:100%;
 			.transition();
-			background: fade(@primary-color-medium, 50%);
+			background: fade(@wpcf7-color, 50%);
 			border:none;
 			color: @global-foreground-color;
 			&:hover{
-				background: fade(@primary-color-medium, 100%);
+				background: fade(@wpcf7-color, 100%);
 			}
 		}
 
 		.wpcf7-not-valid-tip, .wpcf7-response-output{
 			//display:block;
-			background: fade(@secondary-color-medium, 50%);
+			background: fade(@wpcf7-color, 50%);
 			color: @global-foreground-color;
 			font-size:@font-size-sm;
 			padding: 5px 10px;
-			border: 1px solid @secondary-color-light;
+			border: 1px solid @wpcf7-color;
 		}
 
 		img.ajax-loader{
 			background: #fff;
 			padding: 10px;
-			border: 4px solid @primary-color-medium;
+			border: 4px solid @wpcf7-color;
 			border-radius: 40px !important;
 			margin: 20px auto;
 			display: block;
 		}
 
 		small{
-			color: mix( @neutral-color-medium, @global-foreground-color, 66%);
+			color: fade( @neutral-color-medium, 75% );
+			font-weight: normal;
 			font-style: italic;
 		}
 
