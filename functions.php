@@ -25,7 +25,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.13;
+$theme_version = 1.14;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -207,5 +207,12 @@ function disable_emojicons_tinymce( $plugins ) {
 		return array();
 	}
 }
+
+/**
+ * Check for Theme Updates with WP Updates
+ * @link http://wp-updates.com/
+ */
+require_once('php/wp-updates-theme.php');
+new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
 
 ?>

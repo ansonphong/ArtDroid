@@ -23,9 +23,9 @@
 
 #mobile-menu{
 	font-family: @font-family-menu;
-
 	display:none;
-	@media @tablet-and-below {
+
+	@media @md-down {
 		display:block;
 	}
 
@@ -72,6 +72,14 @@
 		font-size:11px;
 		letter-spacing:1;
 	}
+
+
+	.menu-main{
+		@media @sm-down{
+			background: @header-background;
+		}
+	}
+	
 
 	///// MOBILE /////
 	@media @sm-down{

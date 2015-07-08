@@ -17,7 +17,11 @@
 		<div
 			class="image-viewer image-hover-area"
 			style="height:75vh;"
-			ng-style="thumbnailImageBg(selectedImage(),'x-large')">
+			pw-smart-image="selectedImage().image"
+			smart-image-dynamic>
+
+			<!-- ng-style="thumbnailImageBg(selectedImage(),'x-large')" -->
+
 			<div class="loading-outer" ng-show="!galleryLoaded()">
 				<div class="loading-inner">
 					<i class="icon pwi-spinner-2 icon-spin"></i>
@@ -55,7 +59,7 @@
 					class="thumbnail-button"
 					ng-click="gotoImage(imagePost)"
 					ng-class="imageIsSelected(imagePost)"
-					ng-style="thumbnailImageBg(imagePost,'medium')">
+					pw-smart-image="imagePost.image">
 					<div class="thumbnail-overlay"></div>
 				</button>
 			</td>
