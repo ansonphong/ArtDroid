@@ -31,7 +31,8 @@
 				class="gallery-image image-hover-area"
 				ng-repeat="galleryPost in galleryDisplayedPosts()">
 					<!-- IMAGE -->
-					<img pw-src="galleryPost.image.sizes.full.url">
+					<img pw-smart-image="::galleryPost.image">
+						<!-- pw-src="galleryPost.image.sizes.full.url" -->
 					<div
 						pw-include="panels/image-info"
 						include-post="galleryPost"

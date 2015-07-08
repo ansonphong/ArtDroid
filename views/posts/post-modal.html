@@ -308,40 +308,13 @@
 
 		</div>
 
-
-
-		<!-- GALLERY : VERTICAL SCROLL -->
+		<!-- VERTICAL GALLERY -->
 		<div
-			class="media-viewer"
-			style="width:{{post.post_meta.pw_meta.gallery.width}}%"
-			ng-show="showView('galleryVertical')">
-			<div
-				pw-infinite-gallery
-				gallery-preload="4"
-				gallery-scroll="galleryGetNext(1)"
-				class="view-gallery-vertical">
-					<!-- INFINITE SCROLL -->
-					<div class="infinite-y-scroll" id="scrolls-y">
-						<div
-							class="scroll-inner"
-							infinite-y-scroll
-							scroll-container=".modal"
-							scroll-action="galleryGetNext( 2 )"
-							scroll-disabled="!showView('galleryVertical')"
-							scroll-distance="{{post.post_meta.pw_meta.gallery.y_scroll_distance}}">
-							<!-- GALLERY IMAGE -->
-							<div
-								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()">
-								<a href="{{galleryPost.post_permalink}}">
-									<img ng-src="{{galleryPost.image.sizes['x-large'].url}}">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			pw-include="galleries/gallery-vertical"
+			include-post="post"
+			include-enable="showView('galleryVertical')"
+			include-vars="{yScrollContainer:'.modal-view-post'}"
+			class=""></div>
 
 		<!-- WRAPPER (Cloak until loaded) -->
 		<div

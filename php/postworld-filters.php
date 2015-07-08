@@ -402,4 +402,27 @@ function theme_get_loading_icon_options(){
 	return $icons;
 }
 
+/**
+ * FIELD MODEL : GALLERY
+ */
+add_filter( 'pw_post_field_model_gallery', 'theme_post_field_model_gallery' );
+function theme_post_field_model_gallery( $fields ){
+	pw_log( 'gallery', $fields );
+
+	$fields = array_diff( $fields, array( 'image(all)' ) );
+
+	$fields = array_merge( $fields, array(
+		'image(xs,128,128,1)',
+		'image(sm,256,256,1)',
+		'image(md,512,512,0)',
+		'image(lg,1024,1024,0)',
+		'image(xl,2048,2048,0)',
+		'image(xxl,4096,4096,0)',
+		'image(full)'
+		));
+
+	return $fields;
+}
+
+
 ?>

@@ -1,0 +1,29 @@
+<!--//// GALLERY TEMPLATE : VERTICAL /////-->
+<div class="media-viewer">
+	<div
+		pw-infinite-gallery
+		gallery-preload="2"
+		gallery-scroll="galleryGetNext(2)"
+		class="view-gallery-vertical">
+			<!-- INFINITE SCROLL -->
+			<div class="infinite-y-scroll" id="scrolls-y">
+				<div
+					class="scroll-inner"
+					infinite-y-scroll
+					scroll-container="{{vars.yScrollContainer}}"
+					scroll-action="galleryGetNext( 2 )"
+					scroll-disabled=" post.post_meta.pw_meta.gallery.template != 'vertical' "
+					scroll-distance="{{ post.post_meta.pw_meta.gallery.y_scroll_distance }}"
+					>
+					<!-- GALLERY IMAGE -->
+					<div
+						class="gallery-image"
+						ng-repeat="galleryPost in galleryDisplayedPosts()">
+							<img pw-smart-image="galleryPost.image">
+					</div>
+					<!-- ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })" -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
