@@ -53,7 +53,7 @@
 		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleImage')">
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes['x-large'].url )">
+				pw-smart-image="post.image">
 			</div>
 		</div>
 	{% endif %}
