@@ -20,6 +20,7 @@
 						class="gallery-image"
 						ng-repeat="galleryPost in galleryDisplayedPosts()">
 							<img pw-smart-image="galleryPost.image">
+							<pre>{{ galleryPost.image.sizes | json }}</pre>
 					</div>
 					<!-- ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })" -->
 				</div>
