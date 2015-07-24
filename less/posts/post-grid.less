@@ -259,7 +259,7 @@ masonry{
       border-radius: 3px;
     }
 
-    &.standard, &.video{
+    &.standard, &.video, &.audio{
       opacity:0.75;
       transition:.33s ease opacity;
     }
@@ -273,7 +273,7 @@ masonry{
   }
 
   &:hover .link-format-indicator{
-      &.standard, &.video{
+      &.standard, &.video, &.audio{
         opacity:1;
         button{
           color: fade(@secondary-color-light, 100%);
@@ -298,11 +298,17 @@ masonry{
     position:relative;
     z-index:5;
     
-    &.video{
+    &.video, &.audio{
       top:30%;
-      //left:0%;
+    }
+    &.video{
       button{
         font-size:40px;
+      }
+    }
+    &.audio{
+      button{
+        font-size:50px;
       }
     }
     &.standard{
