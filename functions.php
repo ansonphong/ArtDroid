@@ -54,6 +54,9 @@ include "php/postworld-postmeta.php";
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
 
+////////// FIELDS //////////
+include "php/postworld-fields.php";
+
 ////////// FONTS //////////
 include "php/postworld-fonts.php";
 
