@@ -91,6 +91,12 @@ function theme_pw_styles_defaults( $value ){
 				),
 			),
 
+		'galleries'	=>	array(
+			'vertical'	=>	array(
+				'y-gallery-image-margin-bottom'	=>	'0px',
+				),
+			),
+
 		'pages'	=>	array(
 			'single'	=>	array(
 				'page-header-background'	=>	'@neutral-color-dark',
@@ -673,6 +679,32 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"page-header-foreground",
 							"input"			=>	"color",
 							"description"	=>	"The header text color on single pages"
+							),
+						
+						),
+					),
+
+
+				),
+
+			),
+
+		array(
+			"name"	=>	"Galleries",
+			"key"	=>	"galleries",
+			"icon"	=>	"pwi-images",
+			"values"	=>	array(
+
+				array(
+					'name'	=>	'Vertical Galleries',
+					'key'	=>	'vertical',
+					'icon'	=>	'pwi-arrows-v',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Image Margin Bottom",
+							"key"			=>	"y-gallery-image-margin-bottom",
+							"input"			=>	"text",
+							"description"	=>	"The space underneath vertical scrolling gallery images."
 							),
 						
 						),

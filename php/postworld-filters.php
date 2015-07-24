@@ -424,5 +424,4 @@ function theme_post_field_model_gallery( $fields ){
 	return $fields;
 }
 
-
 ?>
