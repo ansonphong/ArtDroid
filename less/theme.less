@@ -79,15 +79,19 @@ body,a,div,span{
 	overflow:hidden;
 }
 
-h1,h2,h3,h4,h5,h6{
-	a{
-		border-bottom:1px solid transparent;
-		&:hover{
-			text-decoration: none;
-			border-bottom:1px solid @primary-color-medium;
+body{
+	h1,h2,h3,h4,h5,h6{
+		a{
+			border-bottom:1px solid transparent;
+			&:hover, &:focus{
+				text-decoration: none;
+				color: mix(@primary-color-medium, @global-foreground-color, 50%);
+				border-bottom:1px solid @primary-color-medium;
+			}
 		}
 	}
 }
+
 
 
 
