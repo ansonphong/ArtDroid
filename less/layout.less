@@ -29,6 +29,42 @@ hr.thin{
 	margin: 5px 0;
 }
 
+.pad-responsive-multiplier( @y-pad: 20px; @x-pad: 20px; @multiplier: 2; ){
+
+	// 20px, x3
+	// xs = 20px
+
+	// sm = 30px = pad (20px) * m  
+	// md = 40px
+	// lg = 50px
+
+	// xl = 60px
+
+
+	@media @xl{
+		@m: @multiplier;
+		padding:( @y-pad * @m ) ( @x-pad * @m );
+	}
+	@media @lg{
+		@m: @multiplier / 1.33;
+		padding:( @y-pad * @m ) ( @x-pad * @m );
+	}
+	@media @md{
+		@m: @multiplier / 1.66;
+		padding:( @y-pad * @m ) ( @x-pad * @m );
+	}
+	@media @sm{
+		@m: @multiplier / 2;
+		padding:( @y-pad * @m ) ( @x-pad * @m );
+	}
+	padding: @y-pad @x-pad;
+
+}
+
+.pad-x-lg{
+	.pad-responsive-multiplier( 0px, 30px, 3 );
+}
+
 ///// FOOTER WIDGETS /////
 @footer-widgets-gutter: 40px;
 .footer-widgets-row{

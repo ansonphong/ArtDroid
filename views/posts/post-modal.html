@@ -134,7 +134,7 @@
 		<!-- PAGE -->
 		<div class="page-width">
 
-			<div class="post-head">
+			<div class="post-head pad-x-lg">
 
 				<div
 					ng-show="!pw.options.theme.modals.header.show"
@@ -293,19 +293,17 @@
 
 
 			<!-- POST CONTENT -->
-			<div
-				ng-show="post.post_content && post.post_content != ' '"
-				class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-				pw-compile-code="post.post_content">
+			<div class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg">
+				<div
+					ng-show="post.post_content && post.post_content != ' '"
+					pw-compile-code="post.post_content">
+				</div>
+				<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
+				<div
+					ng-show="!post.post_content || post.post_content == ' '"
+					ng-bind="post.post_excerpt">
+				</div>
 			</div>
-
-			<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
-			<div
-				ng-show="!post.post_content || post.post_content == ' '"
-				class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-				ng-bind="post.post_excerpt">
-			</div>
-
 
 		</div>
 
