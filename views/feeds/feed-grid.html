@@ -1,12 +1,13 @@
 <masonry
 	column-width=".grid-width-controller"
 	masonry-options='{ "gutter": 0, "transitionDuration":0 }'
+	reload-on-show="true"
+	preserve-order="true"
 	infinite-scroll='getNext()'
 	infinite-scroll-disabled='busy'
 	infinite-scroll-use-document-bottom="true"
 	class="grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
-	<div
-		art-feed>
+	<div art-feed>
 		<div class="grid-width-controller"></div>
 		<div
 			ng-repeat="post in posts()"
@@ -23,9 +24,7 @@
 		<div class="clearfix"></div>
 	</div>
 </masonry>
-
 <div class="clearfix"></div>
-
 <div
 	ng-show='busy'
 	class="text-center">

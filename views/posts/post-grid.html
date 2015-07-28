@@ -4,7 +4,7 @@
 	ng-cloak
 	class="post grid pw-transition-fadein"
 	pw-grid-item
-    pw-timeout="{{ (post.feed.loadOrder * 200) }}"
+    pw-timeout="{{ (post.feed.loadOrder * 100) }}"
     timeout-action="addClass('fadein-on')"
     ng-hide="post.post_status == 'trash'"
     pw-ui>
