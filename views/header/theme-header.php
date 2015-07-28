@@ -38,17 +38,9 @@ global $pw;
 
 			<?php include locate_template( 'views/theme/header-logo.php' ); ?>
 
-			<?php if( is_desktop() ): ?>
-				<div
-					id="main-menu"
-					class="header-col-menu"
-					ng-class="uiWrappingClass('.menu-main','.menu>li','is-wrapping')">
-
-					<?php include locate_template( 'views/theme/menu-social.php' ) ?>
-					<?php include locate_template( 'views/theme/menu-primary.php' ) ?>
-					
-				</div>
-			<?php endif ?>
+			<?php if( is_desktop() ){
+				include locate_template( 'views/theme/menu-desktop.php' );
+			}?>
 
 			<?php if( !is_desktop() ): ?>
 				<div id="mobile-menu-button">
