@@ -75,7 +75,7 @@ function theme_feed_archive_filter( $feed ){
 			'increment'	=>	8,
 			'max' 		=> 	50,
 			'template' 	=> 	'widget-grid',
-			'classes'	=>	'view-grid block-widget x-wide',
+			'classes'	=>	'block-widget x-wide',
 			'widgets'	=>	array(
 				'sidebar'	=>	null,
 				),
@@ -85,14 +85,13 @@ function theme_feed_archive_filter( $feed ){
 		// Check to see if blocks options are set
 		if( $blocks != false ){
 			// Get the specified sidebar id
-			$sidebar_id = _get( $blocks, 'widgets.sidebar' );
-			// If a sidebar is specified
-			if( !empty( $sidebar_id ) ){
-				// Overwrite the default blocks settings with the saved settings
-				$blocks = array_replace_recursive( $default_blocks, $blocks );
-				// Set the blocks settings into the feed variables
-				$feed = _set( $feed, 'feed.blocks', $blocks );
-			}
+			$sidebar_id = 'home-page-feed';
+			// Set Sidebar ID into the array
+			$blocks = _set( $blocks, 'widgets.sidebar', $sidebar_id );
+			// Overwrite the default blocks settings with the saved settings
+			$blocks = array_replace_recursive( $default_blocks, $blocks );
+			// Set the blocks settings into the feed variables
+			$feed['blocks'] = $blocks;
 		}
 	}
 
@@ -102,7 +101,7 @@ function theme_feed_archive_filter( $feed ){
 		$feed = array_replace_recursive( $feed, $feed_settings );
 
 	// Pre-process the theme feed vars
-	$feed_vars = apply_filters( 'theme_feed_preprocess', $feed );
+	$feed = apply_filters( 'theme_feed_preprocess', $feed );
 
 	return $feed;
 	
@@ -129,17 +128,20 @@ function theme_default_feeds( $feed ){
 }
 add_filter( PW_FEED_DEFAULT, 'theme_default_feeds' );
 
-function theme_feed_preprocess_blocks_background_image( $feed_vars ){
+/**
+ * Get the background image which is the background of feed blocks.
+ */
+function theme_feed_preprocess_blocks_background_image( $feed ){
 	// Define the key where the background image is
-	$key = 'feed.blocks.widgets.background_image';
+	$key = 'blocks.widgets.background_image';
 	// Detect if there is a feed block widget background image set
-	$background_image_id = _get( $feed_vars, $key.'.id' );
+	$background_image_id = _get( $feed, $key.'.id' );
 	// If so, replace the ID with the actual image object
 	if( !empty( $background_image_id ) ){
 		$background_image = pw_get_image_obj( $background_image_id );
-		$feed_vars = _set( $feed_vars, $key.'.obj', $background_image );
+		$feed = _set( $feed, $key.'.obj', $background_image );
 	}
-	return $feed_vars;
+	return $feed;
 }
 add_filter( 'theme_feed_preprocess', 'theme_feed_preprocess_blocks_background_image' );
 

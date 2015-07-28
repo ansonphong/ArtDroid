@@ -338,6 +338,7 @@
 							echo pw_select_blocks_settings( array(
 								'option_var' 	=> 'pwOptions',
 								'option_key'	=>	'home.feed.blocks',
+								'show'			=>	array( 'offset', 'increment', 'max', 'background-image', 'parallax' ),
 								));?>
 					</div>
 

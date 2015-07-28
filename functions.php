@@ -25,7 +25,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.14;
+$theme_version = 1.15;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -210,6 +210,9 @@ function disable_emojicons_tinymce( $plugins ) {
 		return array();
 	}
 }
+
+// Add action attribute to forms
+add_action('wp_footer', 'pw_add_forms_action_attribute');
 
 /**
  * Check for Theme Updates with WP Updates
