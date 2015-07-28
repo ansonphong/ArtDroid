@@ -1,0 +1,148 @@
+body.mobile-menu-open{
+	#content{
+		visibility: hidden;
+	}
+}
+
+#mobile-menu{
+	//.transition(.4s);
+	width:100%;
+	height:100%;
+	top:0;
+	right:0;
+	left:0;
+	z-index: 6;
+	overflow: hidden;
+	position:fixed;
+
+	height:0vh;
+	&.open{
+		display: block;
+		//max-height:100%;
+		height:100vh;
+	}
+
+	@media @wp-sm{
+		position:absolute;
+	}
+
+	@media @lg-up{
+		//display:none;
+	}
+
+	@media @md-down{
+		//max-height:0%;
+		
+	}
+
+	#mobile-menu-inner{
+
+		.page-width;
+		height: 100%;
+
+		overflow-x: hidden;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+
+		background: @global-background-color;
+		padding:20px 20px 60px;
+
+		@media @wp-sm{
+			padding-top:@header-height-fixed + 20px;
+		}
+		@media @wp-md{
+			padding-top:@header-height-fixed + 20px;
+		}
+		@media @wp-lg{
+			padding-top:@header-height-fixed + 20px;
+		}
+
+	}
+
+	&.admin-bar-showing{
+		#mobile-menu-inner{
+			@media @wp-sm{
+				padding-top:@header-height-fixed + @wp-sm-admin-height + 20px;
+			}
+			@media @wp-md{
+				padding-top:@header-height-fixed + @wp-md-admin-height + 20px;
+			}
+			@media @wp-lg{
+				padding-top:@header-height-fixed + @wp-lg-admin-height + 20px;
+			}
+		}
+	}
+
+	#mobile-menu-wrapper{
+		position:absolute;
+		width:100%;
+		height:100%;
+		//overflow-y: scroll;
+
+		//overflow-y: scroll;
+		//-ms-overflow-style: none;
+		//&::-webkit-scrollbar { width: 0 !important }
+
+		.transition(.4s);
+		
+		border-bottom:0px solid @neutral-color-medium;
+	}
+	&.open{
+		#mobile-menu-inner{
+			border-bottom-width: 4px;
+		}
+	}
+
+	ul{
+		list-style: none;
+		padding:0;
+		margin:0;
+	}
+
+	ul.menu{
+		li{
+			a{
+				color:@main-menu-text-color;
+				background:@main-menu-background;
+				display: block;
+				padding:10px 20px;
+				font-size: @font-size-md;
+				margin-bottom:1px;
+				&:hover, &:active, &:focus{
+					color:@highlight-foreground-color;
+					background:@highlight-background-color;
+					text-decoration: none;
+				}
+			}
+			&.current-menu-item > a{
+				box-shadow: inset 6px 0 0 @primary-color-medium;
+			}
+			
+		}
+		ul.sub-menu{
+			li a{
+				
+			}
+			li a{
+				padding:4px 40px;
+				font-size: @font-size-sm;
+			}
+		}
+	}
+
+	.mobile-menu-row{
+		@gutter:20px;
+		.make-row( @gutter );
+		.mobile-menu-col-primary, .mobile-menu-col-secondary{
+			.make-sm-column( 6, @gutter );
+		}
+
+		@media @sm-down{
+			.mobile-menu-col-secondary{
+				margin-top: @gutter;
+			}
+		}
+
+	}
+
+}
