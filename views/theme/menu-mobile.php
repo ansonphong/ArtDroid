@@ -6,8 +6,9 @@
 		<div id="mobile-menu-inner">
 			<div class="mobile-menu-row">
 				<div class="mobile-menu-col-primary">
-					<!-- PRIMARY MENU -->
-					<?php include locate_template( 'views/theme/menu-primary.php' ); ?>
+					<div class="menu-main">
+						<?php include locate_template( 'views/theme/menu-primary.php' ); ?>
+					</div>
 				</div>
 				<div class="mobile-menu-col-secondary">
 					<?php include locate_template( 'views/theme/menu-social.php' ) ?>

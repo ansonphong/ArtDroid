@@ -127,6 +127,35 @@ header#header{
 			display:none;
 		}
 	}
+	
+}
+
+
+
+///// MOBILE LAYOUT /////
+.header-row{
+	.make-row( 0px );
+	height:100%;
+	position:relative;
+}
+
+.header-col-logo{
+	.make-xs-column( 8, 0px );
+	.make-sm-column( 3, 0px );
+	//.make-md-column( 3, 0px );
+	.make-lg-column( 2, 0px );
+}
+
+.header-col-menu{
+	.make-xs-column( 4, 0px );
+	.make-sm-column( 9, 0px );
+	//.make-md-column( 9, 0px );
+	.make-lg-column( 10, 0px );
+}
+
+
+///// DESKTOP LAYOUT /////
+html.device-desktop{
 	///// HEADER LAYOUT /////
 	.header-row{
 		.make-row( 0px );
@@ -135,22 +164,22 @@ header#header{
 	}
 
 	.header-col-logo{
-		.make-xs-column( 12, 0px );
+		.make-xs-column( 4, 0px );
 		.make-sm-column( 3, 0px );
 		//.make-md-column( 3, 0px );
 		.make-lg-column( 2, 0px );
-		//.make-xl-column( 2, 0px );
 	}
 
 	.header-col-menu{
-		.make-xs-column( 12, 0px );
+		.make-xs-column( 8, 0px );
 		.make-sm-column( 9, 0px );
 		//.make-md-column( 9, 0px );
 		.make-lg-column( 10, 0px );
-		//.make-xl-column( 10, 0px );
 	}
-	
 }
+
+
+
 
 #header-image{
 	background-position:center;
