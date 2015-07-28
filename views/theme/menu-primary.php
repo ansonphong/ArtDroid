@@ -30,11 +30,6 @@
 		if( $primary_menu['id'] )
 			wp_nav_menu( $primary_menu_settings );
 	?>
-	<?php
-	// Show Social Menu
-	if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.show_social' ) ) )
-		include locate_template( 'views/theme/menu-social.php' );
-	?>
-	
+
 	<div class="clearfix"></div>
 </div>
