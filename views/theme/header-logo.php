@@ -37,8 +37,8 @@
 			<!-- LOGO -->
 			<img
 				src="<?php echo _get( $logo_post, 'image.sizes.full.url' ) ?>"
-				alt="<?php echo get_bloginfo( 'name' ); ?>"
-				pw-smart-image="logoPost.image">
+				pw-smart-image="logoPost.image"
+				ng-cloak>
 		<?php endif ?>
 
 		<?php if( !$has_logo_image ): ?>
