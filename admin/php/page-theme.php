@@ -69,7 +69,6 @@
 		ng-cloak
 		class="postworld">
 
-	
 		<div class="theme-brand">
 			<div class="row">
 				<div class="col-md-6">
@@ -179,20 +178,54 @@
 					<div class="well">
 						<h3>
 							<span class="icon-md"><i class="pwi-image"></i></span>
-							Media
+							Media & Galleries
 						</h3>
+
 						<label>
+							<h4>Images & Media</h4>
 							<input
 								type="number"
 								class="short"
 								ng-model="pwOptions.posts.media.style.height"> % 
 							Height
 							<small>
-								How tall to size the images and media.
+								How tall to size the images and embedded media (audio/videos).
 							</small>
 						</label>
+
+						<label>
+							<h4>Horizontal Gallery</h4>
+							<input
+								type="number"
+								class="short"
+								ng-model="pwOptions.posts.galleries.style.x_gallery_height"> % 
+							Height
+							<small>
+								How tall to size horizontal galleries.
+							</small>
+						</label>
+
 						<div style="clear:both"></div>
 					</div>
+
+
+					<!-- GALLERIES -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="pwi-images"></i></span>
+							Default Gallery Settings
+						</h3>
+
+						<?php
+							echo pw_gallery_options(
+								theme_gallery_options(
+									array(
+										'ng_model' => 'pwOptions.posts.post.post_meta.pw_meta.gallery'
+										))); ?>
+
+						<div style="clear:both"></div>
+					</div>
+
 
 				</div>
 
