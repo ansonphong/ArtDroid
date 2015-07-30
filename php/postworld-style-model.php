@@ -60,7 +60,6 @@ function theme_pw_styles_defaults( $value ){
 				'widget-highlight-color'	=>	'@neutral-color-light',
 				),
 
-			
 			),
 
 		'layout'	=>	array(
@@ -91,11 +90,13 @@ function theme_pw_styles_defaults( $value ){
 				),
 			),
 
+		/*
 		'galleries'	=>	array(
-			'vertical'	=>	array(
-				'y-gallery-image-margin-bottom'	=>	'0px',
+			'horizontal'	=>	array(
+				'x-gallery-height' => '66',
 				),
 			),
+		*/
 
 		'pages'	=>	array(
 			'single'	=>	array(
@@ -689,6 +690,7 @@ function theme_pw_styles_structure( $structure = array() ){
 
 			),
 
+		/*
 		array(
 			"name"	=>	"Galleries",
 			"key"	=>	"galleries",
@@ -696,15 +698,16 @@ function theme_pw_styles_structure( $structure = array() ){
 			"values"	=>	array(
 
 				array(
-					'name'	=>	'Vertical Galleries',
-					'key'	=>	'vertical',
-					'icon'	=>	'pwi-arrows-v',
+					'name'	=>	'Horizontal Galleries',
+					'key'	=>	'horizontal',
+					'icon'	=>	'pwi-arrows-h',
 					'values'	=>	array(
+						
 						array(
-							"name"			=>	"Image Margin Bottom",
-							"key"			=>	"y-gallery-image-margin-bottom",
+							"name"			=>	"Viewport Height",
+							"key"			=>	"x-gallery-height",
 							"input"			=>	"text",
-							"description"	=>	"The space underneath vertical scrolling gallery images."
+							"description"	=>	"The percentage of the viewport height that the horizontal galleries use."
 							),
 						
 						),
@@ -714,6 +717,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				),
 
 			),
+		*/
 
 		array(
 			"name"	=>	"Third Party Plugins",

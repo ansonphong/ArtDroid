@@ -50,7 +50,10 @@
 	
 	{% if post.post_type != 'page' %}
 		<!-- IMAGE -->
-		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleImage')">
+		<div
+			class="media-viewer"
+			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
+			ng-show="showView('singleImage')">
 			<div
 				class="view-image"
 				pw-smart-image="post.image">
