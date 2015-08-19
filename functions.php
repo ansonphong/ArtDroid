@@ -221,4 +221,14 @@ add_action('wp_footer', 'pw_add_forms_action_attribute');
 require_once('php/wp-updates-theme.php');
 new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
 
+/**
+ * Specifically enable automatic updates even if
+ * a VCS folder (.git, .hg, .svn etc) was found in the
+ * WordPress directory or any of its parent directories.
+ *
+ * @link https://codex.wordpress.org/Configuring_Automatic_Background_Updates
+ */
+add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
+
+
 ?>
