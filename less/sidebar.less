@@ -9,26 +9,27 @@
 	border:0;
 
 	.sidebar-widget{
-		background: fade(@widget-base-color, 20%);
+		background: @global-background-color; //fade(@widget-base-color, 20%);
 		color: @widget-foreground;
 
-		margin:2px 0px 4px 1px;
+		margin:1px 0px 4px 1px;
 
 		a{
 			color: mix( @widget-foreground, @widget-highlight-color, 66%);
 			background-color: fade( @widget-base-color, @fade*2 );
-			&:hover{
+			&:hover, &:focus{
 				color:@widget-highlight-color;
-				background-color: fade( @widget-base-color, @fade*3 );
+				background-color: fade( @widget-base-color, @fade*4 );
 			}
 			&:active{
-				background-color: fade( @widget-foreground, @fade*3 );
+				background-color: fade( @widget-foreground, @fade*5 );
 			}
 		}
 
-		h3{
+		h3.sidebar-title{
 			margin:0;
 			padding:10px 20px;
+			background: @widget-base-color;
 		}
 
 		ul{
@@ -48,9 +49,11 @@
 			}
 		}
 
-	}
 
-	.sidebar-widget{
+		.textwidget{
+			padding:20px 22px 20px;
+		}
+	
 		.menu-kit{
 			@menu-base-color: @widget-base-color;
 			@menu-text-color: @widget-foreground;

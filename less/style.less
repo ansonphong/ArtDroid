@@ -20,7 +20,6 @@
 
 @import "header.less";
 @import "footer.less";
-@import "menus.less";
 @import "modules.less";
 @import "media.less";
 @import "sidebar.less";
@@ -40,12 +39,16 @@
 
 @import "thirdparty.less";
 
+///// MENUS /////
+@import "menus.less";
+@import "menus/menu-mobile.less";
+
 ///// SHORTCODES /////
 @import "shortcodes/headings.less";
 @import "shortcodes/callouts.less";
 @import "shortcodes/colors.less";
 @import "shortcodes/gallery.less";
-@import "shortcodes/terms-feed.less";
+@import "shortcodes/term-feed.less";
 @import "shortcodes/blocks.less";
 
 ///// POSTWORLD /////
@@ -66,10 +69,12 @@
 // BLOCKS
 @import "blocks/widget.less";
 
+///// VIEWS /////
+@import "views/page-head.less";
+@import "views/archive-head.less";
 
-///// MODULES /////
-@import "modules/page-head.less";
-
+///// GALLERIES /////
+@import "galleries/gallery-frame.less";
 
 ///// SANDBOX /////
 

@@ -1,14 +1,14 @@
 <?php
 function theme_sidebars_init(){
 
-	$title_before = '<div class="heading primary-color"><div class="heading-line"></div><h2>';
-	$title_after = '</h2></div>';
+	$title_before = '<h3 class="sidebar-title">';
+	$title_after = '</h3>';
 
 	$sidebars = array(
 		array(
 			'name'          => "Home Page: Feed",
 			'id'            => 'home-page-feed',
-			'description'   => 'The primary widgets which appear on the home page.',
+			'description'   => 'The primary widgets which appear in the home page Feed.',
 			'class'         => '',
 			'before_widget' => '<div class="widget-column"><div id="%1$s" class="sidebar-widget %2$s">',
 			'after_widget'  => '</div></div>',

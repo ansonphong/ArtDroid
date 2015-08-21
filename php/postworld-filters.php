@@ -75,7 +75,7 @@ function theme_feed_archive_filter( $feed ){
 			'increment'	=>	8,
 			'max' 		=> 	50,
 			'template' 	=> 	'widget-grid',
-			'classes'	=>	'view-grid block-widget x-wide',
+			'classes'	=>	'block-widget x-wide',
 			'widgets'	=>	array(
 				'sidebar'	=>	null,
 				),
@@ -85,14 +85,13 @@ function theme_feed_archive_filter( $feed ){
 		// Check to see if blocks options are set
 		if( $blocks != false ){
 			// Get the specified sidebar id
-			$sidebar_id = _get( $blocks, 'widgets.sidebar' );
-			// If a sidebar is specified
-			if( !empty( $sidebar_id ) ){
-				// Overwrite the default blocks settings with the saved settings
-				$blocks = array_replace_recursive( $default_blocks, $blocks );
-				// Set the blocks settings into the feed variables
-				$feed = _set( $feed, 'feed.blocks', $blocks );
-			}
+			$sidebar_id = 'home-page-feed';
+			// Set Sidebar ID into the array
+			$blocks = _set( $blocks, 'widgets.sidebar', $sidebar_id );
+			// Overwrite the default blocks settings with the saved settings
+			$blocks = array_replace_recursive( $default_blocks, $blocks );
+			// Set the blocks settings into the feed variables
+			$feed['blocks'] = $blocks;
 		}
 	}
 
@@ -102,7 +101,7 @@ function theme_feed_archive_filter( $feed ){
 		$feed = array_replace_recursive( $feed, $feed_settings );
 
 	// Pre-process the theme feed vars
-	$feed_vars = apply_filters( 'theme_feed_preprocess', $feed );
+	$feed = apply_filters( 'theme_feed_preprocess', $feed );
 
 	return $feed;
 	
@@ -129,17 +128,20 @@ function theme_default_feeds( $feed ){
 }
 add_filter( PW_FEED_DEFAULT, 'theme_default_feeds' );
 
-function theme_feed_preprocess_blocks_background_image( $feed_vars ){
+/**
+ * Get the background image which is the background of feed blocks.
+ */
+function theme_feed_preprocess_blocks_background_image( $feed ){
 	// Define the key where the background image is
-	$key = 'feed.blocks.widgets.background_image';
+	$key = 'blocks.widgets.background_image';
 	// Detect if there is a feed block widget background image set
-	$background_image_id = _get( $feed_vars, $key.'.id' );
+	$background_image_id = _get( $feed, $key.'.id' );
 	// If so, replace the ID with the actual image object
 	if( !empty( $background_image_id ) ){
 		$background_image = pw_get_image_obj( $background_image_id );
-		$feed_vars = _set( $feed_vars, $key.'.obj', $background_image );
+		$feed = _set( $feed, $key.'.obj', $background_image );
 	}
-	return $feed_vars;
+	return $feed;
 }
 add_filter( 'theme_feed_preprocess', 'theme_feed_preprocess_blocks_background_image' );
 
@@ -263,19 +265,116 @@ function theme_postmeta_defaults( $post ){
 
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
-////////// GET ALTERNATIVE IMAGE FROM POST META ID //////////
+
+
+/**
+ * GET ALTERNATIVE IMAGE FROM POST META ID
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 function theme_postmeta_alt_image( $post ){
 	// The theme has the option to select an alternative image for each post
 	// This is tored inthe postmeta as alt_image, in the form of a thumbnail_id
 	$alt_image_id = _get( $post, 'post_meta.alt_image' );
 	if( is_numeric( $alt_image_id ) ){
-		$post = _set( $post, 'image.alt', pw_get_post_image( $post, array( 'image(all)', 'image(post,micro)' ), $alt_image_id ) );
+
+		/**
+		 * Get all the 'fields' with image in it from the post
+		 * And get the same image fields for the alt image
+		 */
+		$image_fields = pw_fields_where( 'image', $post['fields'] );
+		//array( 'image(all)', 'image(post,micro)' );
+
+		$post_image = pw_get_post_image( $alt_image_id, $image_fields, true );
+		
+		$post = _set(
+			$post,
+			'image.alt',
+			$post_image );
 		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
 	return $post;
 }
-add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 
+
+/**
+ * PREPROCESS SLIDER IMAGE FIELDS
+ * Add image fields based on the proportions
+ */
+add_filter( 'pw_slider_preprocess', 'theme_slider_preprocess_image_fields' );
+function theme_slider_preprocess_image_fields( $slider ){
+
+	$fields = array(
+		'ID',
+		'post_title',
+		'post_type',
+		'post_meta(all)',
+		'post_excerpt',
+		'post_permalink',
+		'link_url',
+		'link_format',
+		'fields',
+		);
+
+	$image_fields = array(
+		'image(id)',
+		//'image(meta)',
+		'image(stats)',
+		);
+
+	// Get the slider proportion
+	$proportion = (int) _get( $slider, 'proportion' );
+	// Set the default proportion, also used for 'flex'
+	if( empty( $proportion ) )
+		$proportion = 2;
+
+	// Define image sizes
+	$image_sizes = array(
+		array(
+			'name' 	=> 'xxl',
+			'width' => 3200,
+			),
+		array(
+			'name' => 'xl',
+			'width' => 2400,
+			),
+		array(
+			'name' => 'lg',
+			'width' => 1600,
+			),
+		array(
+			'name' => 'md',
+			'width' => 1000,
+			),
+		array(
+			'name' => 'sm',
+			'width' => 640,
+			),
+		);
+
+	// Generate the custom image field values
+	$custom_image_fields = array();
+	foreach( $image_sizes as $i ){
+		$i['height'] = intval( $i['width'] / $proportion );
+		$custom_image_fields[] = 'image('.$i['name'].','.$i['width'].','.$i['height'].',1)';
+	}
+
+	// Merge all the fields together
+	$fields = array_merge( $fields, $image_fields, $custom_image_fields );
+
+	// Inject the fields into the slider
+	$slider = _set( $slider, 'query.fields', $fields );
+
+	//pw_log( 'process slider', $slider );
+	//pw_log( 'process slider : fields', $fields );
+
+	return $slider;
+
+}
+
+
+/**
+ * LOADING ICON OPTIONS
+ */
 function theme_get_loading_icon_options(){
 	$icons = array(
 		'pwi-spinner-1',
@@ -303,6 +402,28 @@ function theme_get_loading_icon_options(){
 		'pwi-arrow-down-circle',
 		);
 	return $icons;
+}
+
+/**
+ * FIELD MODEL : GALLERY
+ */
+add_filter( 'pw_post_field_model_gallery', 'theme_post_field_model_gallery' );
+function theme_post_field_model_gallery( $fields ){
+	//pw_log( 'gallery', $fields );
+
+	$fields = array_diff( $fields, array( 'image(all)' ) );
+
+	$fields = array_merge( $fields, array(
+		'image(xs,128,128,1)',
+		'image(sm,256,256,1)',
+		'image(md,512,512,2)',
+		'image(lg,1024,1024,2)',
+		'image(xl,2048,2048,2)',
+		'image(xxl,4096,4096,2)',
+		'image(full)'
+		));
+
+	return $fields;
 }
 
 ?>

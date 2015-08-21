@@ -1,6 +1,5 @@
 <div
 	pw-globals="pw">
-
 	<div
 		pw-ui
 		class="modal-head"
@@ -15,7 +14,7 @@
 					<i class="pwi-angle-left-thin"></i>
 				</span>
 				<span class="close-compact">Back</span>
-				<span class="close-full">{{ pw.view.title }}</span>
+				<span class="close-full" ng-bind-html="pw.view.title"></span>
 			</button>
 		</div>
 		<div
@@ -55,21 +54,15 @@
 		</div>
 	</div>
 
-
 	<div
 		pw-post
-
 		post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)', 'time_ago', 'edit_post_link']"
 		require-required="false"
-
 		art-post
 		ng-keypress="keyPress()"
-
 		class="post full pw-transition-fadein wrapper"
-
 		pw-timeout="200"
 		timeout-action="addClass('fadein-on')"
-
 		pw-ui>
 
 		<!-- IMAGE -->
@@ -99,17 +92,19 @@
 
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes.xlarge.url )">
+				pw-smart-image="post.image"
+				smart-image-dynamic>
 			</div>
-
 		</div>
 
-		<!-- GALLERY : FRAME -->
+		<!-- FRAME GALLERY -->
 		<div
+			pw-include="galleries/gallery-frame"
+			include-post="post"
+			include-vars="{keybind:showView('galleryFrame')}"
 			ng-show="showView('galleryFrame')"
-			load-panel="gallery-viewer"
-			panel-post="post"
-			panel-meta="post.gallery"></div>
+			class="full-page-width">
+		</div>
 
 		<!-- GALLERY : HORIZONTAL -->
 		<!-- HORIZONTAL GALLERY -->
@@ -139,7 +134,7 @@
 		<!-- PAGE -->
 		<div class="page-width">
 
-			<div class="post-head">
+			<div class="post-head pad-x-lg">
 
 				<div
 					ng-show="!pw.options.theme.modals.header.show"
@@ -173,7 +168,9 @@
 					<!-- TITLE -->
 					<h1 class="post-title">
 						<a ng-href="{{ post.post_permalink }}">
-							<span class="icon">
+							<span
+								class="icon"
+								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
 								<i
 									ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
 									class="pwi-arrow-down"></i>
@@ -185,17 +182,26 @@
 						</a>
 					</h1>
 					
-					<!-- TAGS -->
-					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<div class="tags">
-							<i class="pwi-tags"></i>
-							<span ng-repeat="term in post.taxonomy.post_tag">
-							    <a pw-href="term.url" class="term tag">
-									<span ng-bind="term.name"></span>
-								</a>
-							</span>
-						</div>
+
+					<!-- CATEGORIES -->
+					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+						<span ng-repeat="term in post.taxonomy.category">
+						    <a pw-href="term.url" class="term category">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
 					</div>
+
+					<!-- TAGS -->
+					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+						<i class="pwi-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
+					</div>
+					
 
 				</div>
 
@@ -279,62 +285,35 @@
 
 				</div>
 
+				<div class="clearfix"></div>
+
 			</div>
 
 			<div class="clearfix"></div>
 
 
 			<!-- POST CONTENT -->
-			<div
-				ng-show="post.post_content && post.post_content != ' '"
-				class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-				pw-compile-code="post.post_content">
-			</div>
-
-			<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
-			<div
-				ng-show="!post.post_content || post.post_content == ' '"
-				class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }}"
-				ng-bind="post.post_excerpt">
-			</div>
-
-
-		</div>
-
-
-
-		<!-- GALLERY : VERTICAL SCROLL -->
-		<div
-			class="media-viewer"
-			style="width:{{post.post_meta.pw_meta.gallery.width}}%"
-			ng-show="showView('galleryVertical')">
-			<div
-				pw-infinite-gallery
-				gallery-preload="4"
-				gallery-scroll="galleryGetNext(1)"
-				class="view-gallery-vertical">
-					<!-- INFINITE SCROLL -->
-					<div class="infinite-y-scroll" id="scrolls-y">
-						<div
-							class="scroll-inner"
-							infinite-y-scroll
-							scroll-container=".modal"
-							scroll-action="galleryGetNext( 2 )"
-							scroll-disabled="!showView('galleryVertical')"
-							scroll-distance="{{post.post_meta.pw_meta.gallery.y_scroll_distance}}">
-							<!-- GALLERY IMAGE -->
-							<div
-								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()">
-								<a href="{{galleryPost.post_permalink}}">
-									<img ng-src="{{galleryPost.image.sizes.xlarge.url}}">
-								</a>
-							</div>
-						</div>
-					</div>
+			<div class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg">
+				<div
+					ng-show="post.post_content && post.post_content != ' '"
+					pw-compile-code="post.post_content">
+				</div>
+				<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
+				<div
+					ng-show="!post.post_content || post.post_content == ' '"
+					ng-bind="post.post_excerpt">
 				</div>
 			</div>
+
 		</div>
+
+		<!-- VERTICAL GALLERY -->
+		<div
+			pw-include="galleries/gallery-vertical"
+			include-post="post"
+			include-enable="showView('galleryVertical')"
+			include-vars="{yScrollContainer:'.modal-view-post'}"
+			class=""></div>
 
 		<!-- WRAPPER (Cloak until loaded) -->
 		<div

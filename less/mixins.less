@@ -1,7 +1,12 @@
+
 .center-vertical-parent(){
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	position: relative;
+}
+.center-vertical-parent{
+	.center-vertical-parent();
 }
 
 .center-vertical(){
@@ -10,6 +15,9 @@
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+}
+.center-vertical{
+	.center-vertical();
 }
 
 

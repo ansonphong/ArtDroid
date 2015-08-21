@@ -1,0 +1,127 @@
+.archive-head{
+
+	background: mix( @global-background-color, @neutral-color-medium, 66% );
+	padding-bottom:15px;
+
+	.archives-yearly{
+		margin-right:15px;
+		font-size:@font-size-sm;
+		padding-bottom:20px;
+		ul{
+			list-style:none;
+			margin:0;
+			padding:0;
+			li{
+				display: inline-block;
+				a{
+					padding:5px 4px;
+					display:inline-block;
+					color: @neutral-color-medium;
+					text-decoration: none;
+					//border: 1px solid transparent;
+					//border-top: 2px solid @neutral-color-medium;
+					box-shadow: inset 0px 2px 0 @neutral-color-medium;
+					letter-spacing: -1px;
+					&:hover{
+						color: @highlight-foreground-color;
+						//border: 1px solid @highlight-foreground-color;
+						background: @highlight-background-color;
+					}
+					&:active{
+						background: @neutral-color-light;
+						color: @neutral-color-dark;
+					}
+				}
+			}
+		}
+	}
+
+	h1{
+		padding:30px 10px 10px 30px;
+		float:left;
+	}
+
+	.header-image-title{
+		display:none;
+	}
+
+	.share-social{
+		margin:35px 15px 10px 15px;
+		float:right;
+		@media @sm-down{
+			margin-top:10px;
+		}
+	}
+
+	&.term-has-image{
+		padding-bottom:0;
+
+		.share-social{
+			margin:15px 5px 10px 15px;
+		}
+
+		.term-bg{
+			position:relative;
+			background-size:cover;
+			background-position: center;
+			min-height:300px;
+			padding-bottom:0;
+		}
+
+		.term-info{
+			display:inline-block;
+			position: absolute;
+			bottom:0;
+			z-index:3;
+			h1{
+				.icon{
+					//text-shadow: 1px 1px 0px @primary-color-light;
+				}
+				margin:0;
+				font-weight:300;
+				padding: 10px 30px;
+				background: fade( @global-background-color, 80% );
+				text-shadow: 1px 1px 0px @global-background-color;
+			}
+		}
+
+		.header-image-title{
+			display:block;
+			position: absolute;
+			z-index:2;
+			@media @md-up{
+				right:0;
+				bottom:0;
+			}
+			@media @sm-down{
+				top:0;
+				right:0;
+			}
+			.header-image-title-unit{
+				opacity:.66;
+				font-size:@font-size-md;
+				display: block;
+				padding:12px 30px;
+				color: @global-background-color;
+				text-shadow: 1px 1px 0 @global-foreground-color;
+			}
+			a{
+				color: @global-background-color;
+				text-shadow: 1px 1px 0 @global-foreground-color;
+				&:hover{
+					opacity:1;
+				}
+			}
+		}
+
+	}
+
+	.term-description{
+		font-weight: 500;
+		font-size:@font-size-sm;
+		padding: 20px 30px;
+		background: fade( @global-background-color, 66% );
+		text-shadow: 1px 1px 0px @global-background-color;
+	}
+
+}

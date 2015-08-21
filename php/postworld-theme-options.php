@@ -1,15 +1,25 @@
 <?php
 
-
 ////////// DEFAULT THEME OPTIONS //////////
 function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+		'fonts'	=>	array(
+			'body'		=>	'Roboto',
+			'title'		=>	'Roboto',
+			'content'	=>	'Roboto Slab',
+			'menu'		=>	'Roboto',
+			),
 		'posts'	=>	array(
 			'media'	=>	array(
 				'style'	=>	array(
 					'height'	=>	66,
+					),
+				),
+			'galleries' => array(
+				'style' => array(
+					'x_gallery_height' => 66,
 					),
 				),
 			'post'	=>	array(
@@ -31,6 +41,13 @@ function pw_theme_options_filter( $options ){
 							),
 						'image'	=>	array(
 							'download'	=>	true,
+							),
+						'gallery' => array(
+							'template' => 'inline',
+							'vertical' => array(
+								'show_title' => true,
+								'show_caption' => true
+								),
 							),
 						),
 					),
@@ -75,6 +92,8 @@ function pw_theme_options_filter( $options ){
 				'no_pause' => true,
 				'show_title' => true,
 				'show_excerpt' => true,
+				'transition' => 'fade',
+				'proportion' => false,
 				),
 			),
 		'modals'	=>	array(

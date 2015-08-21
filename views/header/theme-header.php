@@ -2,11 +2,9 @@
 // Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
 global $pw;
-//echo json_encode($pw);
 ?>
-
 <!DOCTYPE html>
-<html  <?php language_attributes(); ?>>
+<html  <?php language_attributes(); ?> class="<?php echo pw_html_classes() ?>">
 <head>
 	<base href="/">
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -24,78 +22,47 @@ global $pw;
 	///// SECRET LOGIN /////
 	include locate_template( 'views/theme/menu-login-secret.php' );?>
 
-<!-- SECONDARY BACKGROUND LAYER -->
+<!-- SECONDARY BACKGROUND LAYER 
 <div
 	id="pw-background-secondary"
 	document-height="100"
 	pw-background="secondary"></div>
+	-->
 	
 <div id="background"></div>
 <!-- HEADER / NAVIGATION -->
-<header
-	id="header"
-	pw-ui>
+<header id="header" pw-ui>
 	<div class="header-inner page-width">
 
 		<div class="header-row">
-			<div id="logo" class="header-col-logo <?php if( is_front_page() ) echo 'is-front-page' ?>">
-				<?php
-				// Link to home page
-				if( !is_front_page() ){ ?>
-					<a
-						href="<?php echo get_home_url();?>"
-						tooltip="Go to Home Page"
-						tooltip-placement="bottom"
-						tooltip-popup-delay="1000">
-				<?php } ?>
-					
-					<?php
-						$logo_image = pw_get_image_option( array(
-							'option_name' => PW_OPTIONS_THEME,
-							'key' => 'images.logo',
-							'size' => 'full' )
-							);
-					?>
 
-					<?php if( !empty($logo_image['url']) ): ?>
-						<!-- LOGO -->
-						<img src="<?php echo $logo_image['url']; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>">
-					<?php endif; ?>
+			<?php include locate_template( 'views/theme/header-logo.php' ); ?>
 
-					<?php if( empty($logo_image['url']) ): ?>
-						<!-- SITE NAME -->
-						<div class="site-name-wrapper">
-							<div class="site-name">
-								<?php echo get_bloginfo( 'name' ); ?>
-							</div>
-						</div>
-					<?php endif; ?>
+			<?php if( is_desktop() ){
+				include locate_template( 'views/theme/menu-desktop.php' );
+			}?>
 
-				<?php
-				// End link to home page
-				if( !is_front_page() ){ ?>
-					</a>
-				<?php } ?>
-			</div>
-			
-			<div id="main-menu" class="header-col-menu">
-				<?php include locate_template( 'views/theme/menu-primary.php' ); ?>
-			</div>
-
-			<div id="mobile-menu">
-
-				<button
-					class="mobile-menu"
-					ng-click="uiToggleElementDisplay('#main-menu'); uiToggleElementClass('selected', $event)">
-					<i class="pwi-nav"></i>
-				</button>
-
-			</div>
+			<?php if( !is_desktop() ): ?>
+				<div id="mobile-menu-button">
+					<button
+						class="mobile-menu"
+						ng-click="
+							uiToggleElementClass('open', '#mobile-menu');
+							uiToggleElementClass('modal-open mobile-menu-open', 'body');
+							uiToggleElementClass('selected', $event)">
+						<i class="pwi-nav"></i>
+					</button>
+				</div>
+			<?php endif ?>
 
 		</div>
 	</div>
 	<div class="clearfix"></div>
 </header>
+
+<?php if( !is_desktop() ): ?>
+	<?php include locate_template( 'views/theme/menu-mobile.php' ); ?>
+<?php endif ?>
 
 <!-- PRIMARY MENU SPACER -->
 <div id="primary-menu-spacer"></div>

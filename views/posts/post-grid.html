@@ -4,7 +4,7 @@
 	ng-cloak
 	class="post grid pw-transition-fadein"
 	pw-grid-item
-    pw-timeout="{{ (post.feed.loadOrder * 200) }}"
+    pw-timeout="{{ (post.feed.loadOrder * 100) }}"
     timeout-action="addClass('fadein-on')"
     ng-hide="post.post_status == 'trash'"
     pw-ui>
@@ -17,8 +17,10 @@
 			href="{{ post.post_permalink }}"
 			ng-click="openModal({ mode:'feed', post:post })"
 			prevent-default-click>
-			<div class="grid-image"
-				ng-style="gridImageStyle('thumb-', post.image.tags)">
+			<div
+				class="grid-image"
+				pw-smart-image="::post.image"
+				smart-image-override="::post.image.alt">
 			</div>
 			<div class="overlay">
 				<div
@@ -27,6 +29,11 @@
 					<div ng-show="post.link_format == 'video'">
 						<button class="btn video">
 							<i class="pwi-triangle-right-fill"></i>
+						</button>
+					</div>
+					<div ng-show="post.link_format == 'audio'">
+						<button class="btn audio">
+							<i class="pwi-headphones"></i>
 						</button>
 					</div>
 				</div>
@@ -45,16 +52,15 @@
 					{{ post.post_excerpt }}
 				</span>
 
-				<!-- TAGS 
-				<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-					<span class="tags">
-						<i class="pwi-tags"></i>
-						<span ng-repeat="term in post.taxonomy.post_tag">
-							<a href="{{term.url}}" ng-class="term.slug" class="tag">{{term.name}}</a>
-						</span>
+				<!-- TAGS -->
+				<div
+					class="taxonomy category"
+					ng-show="uiBoolean(post.taxonomy.category)">
+					<span ng-repeat="term in post.taxonomy.post_tag">
+						<a href="{{term.url}}" ng-class="term.slug" class="term category">{{term.name}}</a>
 					</span>
 				</div>
-				-->
+				
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls">
@@ -92,14 +98,6 @@
 						</ul>
 					</span>
 				</div>
-				
-				<!--
-				<div style="font-size:9px; line-height:1.2em;">{{ post.image }}</div>
-				Feed : {{ post.feed | json }} /////
-				Stats : {{ post.image.stats | json }} /////
-				Tags : {{ post.image.tags | json }} /////
-				$scope.feedSettings : {{ feedSettings | json }}
-				-->
 			</div>
 		</div>
 	</div>

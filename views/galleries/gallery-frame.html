@@ -1,29 +1,42 @@
 <div
-	pw-gallery-viewer gallery-posts="meta.posts"
-	gallery-keybind="true"
-	class="gallery-viewer post-format-gallery"
+	pw-gallery-viewer
+	gallery-posts="post.gallery.posts"
+	gallery-keybinding="{{ vars.keybind }}"
+	class="gallery-viewer view-gallery-frame"
 	pw-ui>
-
-	<!-- INDEX IS BEING RESET CONSTANTLY DUE TO OBJECT INEQUALITY - WHY? FIND ANOTHER WAY TO SWITCH - LISTEN TO MODAL $ON - POST CHANGED -->
-
+	
 	<!-- DEVELOP HYBRID KEYBINDING WITH MODAL CONTROLLER - LISTEN $ON FOR ENABLE / DISABLE KEYBINDINGS ON THE TOP MODAL WINDOW, GALLERY CONTROLLER INTERACTS WITH THAT -->
 	<!-- SUPPORT FOR PANORAMA SCROLLING / VERTICAL SCROLLING -->
 	<!-- INCLUDE VARS FOR WHETHER OR NOT TO SHOW DOWNLOAD IMAGE LINK AND KEYBIND -->
 	<!-- ADD FULL SCREEN SUPPORT -->
 
-	<div class="gallery-image">
+	<div
+		class="gallery-image"
+		ng-swipe-left="nextImage()"
+		ng-swipe-right="previousImage()">
 		<div
 			class="image-viewer image-hover-area"
-			window-height='75'
-			ng-style="thumbnailImageBg(selectedImage(),'xlarge')">
+			style="height:75vh;"
+			pw-smart-image="selectedImage().image"
+			smart-image-dynamic>
+
 			<div class="loading-outer" ng-show="!galleryLoaded()">
 				<div class="loading-inner">
-					<i class="icon pwi-spinner-2 pwi-spin"></i>
+					<i class="icon pwi-spinner-2 icon-spin"></i>
 				</div>
 			</div>
 
+			<div
+				class="image-overlay"
+				ng-click="nextImage()">
+			</div>
+
 			<!-- IMAGE INFO -->
-			<div load-panel="image-info" panel-post="selectedImage()"></div>
+			<div
+				pw-include="panels/image-info"
+				include-post="selectedImage()"
+				include-vars="{download:post.post_meta.pw_meta.image.download,link_label:post.post_meta.pw_meta.link_url}">
+			</div>
 
 		</div>
 	</div>
@@ -44,7 +57,7 @@
 					class="thumbnail-button"
 					ng-click="gotoImage(imagePost)"
 					ng-class="imageIsSelected(imagePost)"
-					ng-style="thumbnailImageBg(imagePost,'medium')">
+					pw-smart-image="imagePost.image">
 					<div class="thumbnail-overlay"></div>
 				</button>
 			</td>
@@ -60,3 +73,5 @@
 	<!--<pre>INDEX : <span ng-bind="gallery.index"></span> // COUNT : <span ng-bind="gallery.count"></span> // META : <span ng-bind="gallery | json"></span></pre>-->
 
 </div>
+
+
