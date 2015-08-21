@@ -1,6 +1,4 @@
-<?php // Template Name: Home Page ;
-global $pw;
-pw_log( $pw);?>
+<?php // Template Name: Home Page ; ?>
 
 <?php pw_header('home'); ?>
 <div id="page" class="page-home">
