@@ -6,8 +6,14 @@
 	pw-ui>
 
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
-		<!-- POST FORMAT : GALLERY -->
-		<div load-panel="gallery-viewer" panel-meta="post.gallery"></div>
+		<!-- FRAME GALLERY -->
+		<div
+			pw-include="galleries/gallery-frame"
+			include-post="post"
+			include-vars="{keybind:showView('galleryFrame')}"
+			ng-show="showView('galleryFrame')"
+			class="full-page-width">
+		</div>
 	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
@@ -37,43 +43,54 @@
 	{% if post.post_meta.pw_meta.header.type == 'featured_image' %}
 		<!--//// HEADER TYPE : FEATURED IMAGE /////
 		<img
-			pw-src="post.image.sizes.xlarge.url"
+			pw-src="post.image.sizes['x-large'].url"
 			style="width:100%; height:auto;">
 		<hr>-->
 	{% endif %}
 	
 	{% if post.post_type != 'page' %}
 		<!-- IMAGE -->
-		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleImage')">
+		<div
+			class="media-viewer"
+			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
+			ng-show="showView('singleImage')">
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes.xlarge.url )">
+				pw-smart-image="post.image">
 			</div>
 		</div>
 	{% endif %}
 
-	<header class="{{ post.post_type }}-head">
+	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
 		<div class="row">
 			<div class="col-md-7">
 
 				<h1 class="post-title">
-					<span class="icon">
+					
 						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-							<i class="pwi-arrow-down"></i>
+							<span class="icon">
+								<i class="pwi-arrow-down"></i>
+							</span>
 						{% endif %} 
 						{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-							<i class="pwi-arrow-right"></i>
+							<span class="icon">
+								<i class="pwi-arrow-right"></i>
+							</span>
 						{% endif %}
 						{% if post.post_meta.pw_meta.icon.class %}
-							<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
+							<span class="icon">
+								<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
+							</span>
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}
-						<a href="{{ post.parent_post.post_permalink }}">
-							{{ post.parent_post.post_title }}
-						</a>
-						&rsaquo;
+						<span class="parent-post-link">
+							<a href="{{ post.parent_post.post_permalink }}">
+								{{ post.parent_post.post_title }}
+							</a>
+							&rsaquo;
+						</span>
 					{% endif %}
 					<span ng-bind="post.post_title">
 						{{ post.post_title }}
@@ -82,16 +99,23 @@
 				
 				{% if post.post_type != 'page' %}
 					
+					<!-- CATEGORIES -->
+					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+						<span ng-repeat="term in post.taxonomy.category">
+						    <a pw-href="term.url" class="term category">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
+					</div>
+
 					<!-- TAGS -->
-					<div class="taxonomy" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<div class="tags">
-							<i class="pwi-tags"></i>
-							<span ng-repeat="term in post.taxonomy.post_tag">
-							    <a pw-href="term.url" class="term tag">
-									<span ng-bind="term.name"></span>
-								</a>
-							</span>
-						</div>
+					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+						<i class="pwi-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="term.name"></span>
+							</a>
+						</span>
 					</div>
 					
 				{% endif %}
@@ -176,8 +200,6 @@
 
 				{% endif %}
 
-
-
 			</div>
 
 		</div>
@@ -186,65 +208,35 @@
 
 	</header>
 
-	<!--
-	<hr>
-	<span ng-bind="showView('galleryHorizontal')"></span> // 
-	<span ng-bind="post.post_meta.pw_meta | json"></span>
-	-->
-
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
+
 	{% if !post.post_content %}
 		<!-- CONTENT -->
-		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_excerpt | safe }}
 		</div>
 	{% endif %}
 
-
 	{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-		<!--//// GALLERY TEMPLATE : VERTICAL /////-->
+		<!-- VERTICAL GALLERY -->
 		<div
-			ng-show="showView('galleryVertical')"
-			class="media-viewer"
-			window-width="{{post.post_meta.pw_meta.gallery.width}}">
-			<div
-				pw-infinite-gallery
-				gallery-preload="2"
-				gallery-scroll="galleryGetNext(2)"
-				class="view-gallery-vertical">
-					<!-- INFINITE SCROLL -->
-					<div class="infinite-y-scroll" id="scrolls-y">
-						<div
-							class="scroll-inner"
-							infinite-y-scroll
-							scroll-action="galleryGetNext( 2 )"
-							scroll-disabled=" post.post_meta.pw_meta.gallery.template != 'vertical' "
-							scroll-distance="{{ post.post_meta.pw_meta.gallery.y_scroll_distance }}">
-							<!-- GALLERY IMAGE -->
-							<div
-								class="gallery-image"
-								ng-repeat="galleryPost in galleryDisplayedPosts()"
-								ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })">
-									<img pw-src="galleryPost.image.sizes.xlarge.url">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<hr>
-		</div>
+			pw-include="galleries/gallery-vertical"
+			include-post="post"
+			include-enable="showView('galleryVertical')"
+			include-vars="{yScrollContainer:'window'}"
+			class=""></div>
 	{% endif %}
 
 	<div class="clearfix"></div>
 
 	<!-- SOCIAL WIDGETS -->
-	<div class="social-widgets">
+	<div class="social-widgets pad-x-lg">
 		{{ social_widgets | safe }}
 	</div>
-	<!--<hr class="thick">-->
+
 </article>

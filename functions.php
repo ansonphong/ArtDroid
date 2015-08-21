@@ -13,6 +13,7 @@ function theme_postworld_includes(){
 		'infinite',
 		'wp-less',
 		'masonry.js',
+		'jquery',
 		);
 	postworld_includes( array(
 		'angular_version' => 'angular-1.3.13',	// 'angular-1.2.25',
@@ -24,7 +25,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.12;
+$theme_version = 1.15;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -53,8 +54,17 @@ include "php/postworld-postmeta.php";
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
 
+////////// FIELDS //////////
+include "php/postworld-fields.php";
+
+////////// FONTS //////////
+include "php/postworld-fonts.php";
+
 ////////// THEME OPTIONS //////////
 include "php/postworld-theme-options.php";
+
+////////// TERM DATA //////////
+include "php/term-data.php";
 
 ////////// SIDEBARS //////////
 include "php/sidebars.php";
@@ -92,8 +102,8 @@ add_action( 'init', 'expanse_init' );
 
 /////////// ADD IMAGE SIZES //////////
 add_image_size( 'grid', '640', '480', true );
-add_image_size( 'widescreen', '1600', '900', true );
-add_image_size( 'xlarge', '2400', '2400', false );
+add_image_size( 'x-wide', '1600', '800', true );
+add_image_size( 'x-large', '2400', '2400', false );
 
 add_image_size( 'thumb-square', '400', '400', true );
 
@@ -170,6 +180,55 @@ add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
+
+
+
+/**
+ * DISABLE EMOJIS
+ * For some reason, emojis were added to the WordPress Core
+ * This adds to load time and is never used.
+ */
+function disable_wp_emojicons() {
+	// all actions related to emojis
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+	// filter to remove TinyMCE emojis
+	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
+function disable_emojicons_tinymce( $plugins ) {
+	if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+	} else {
+		return array();
+	}
+}
+
+// Add action attribute to forms
+add_action('wp_footer', 'pw_add_forms_action_attribute');
+
+/**
+ * Check for Theme Updates with WP Updates
+ * @link http://wp-updates.com/
+ */
+require_once('php/wp-updates-theme.php');
+new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
+
+/**
+ * Specifically enable automatic updates even if
+ * a VCS folder (.git, .hg, .svn etc) was found in the
+ * WordPress directory or any of its parent directories.
+ *
+ * @link https://codex.wordpress.org/Configuring_Automatic_Background_Updates
+ */
+add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
 
 
 ?>

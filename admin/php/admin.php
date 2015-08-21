@@ -2,7 +2,7 @@
 ///// METABOXES /////
 include "metaboxes.php";
 
-function theme_pw_admin_submenu_slug( $slug ){
+function theme_pw_admin_submenu_slug( $slug = '' ){
 	return 'artdroid';
 }
 add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');

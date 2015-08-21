@@ -1,9 +1,10 @@
 <!-- GALLERY : HORIZONTAL -->
 <div
+	pw-globals="pw"
 	ng-show="includeEnable"
 	class="media-viewer"
-	style="height:{{ post.post_meta.pw_meta.gallery.height }}vh">
-	<!-- {{ post.post_meta.pw_meta.gallery.height }} -->
+	style="height:{{pw.options.theme.posts.galleries.style.x_gallery_height}}vh">
+	
 	<div
 		pw-infinite-gallery
 		gallery-preload="4"
@@ -17,8 +18,6 @@
 			scroll-distance="1000"
 			scroll-disabled="!includeEnable"
 			scroll-this>
-			<!-- {{ post.post_meta.pw_meta.gallery.x_scroll_distance }} -->
-
 			<div class="scroll-indicator" pw-device-class>
 				<div class="message-scroll">
 					<span class="text">Scroll</span>
@@ -29,24 +28,19 @@
 					<span class="text">Slide</span>
 				</div>
 			</div>
-
 			<!-- GALLERY IMAGE -->
 			<div
 				class="gallery-image image-hover-area"
 				ng-repeat="galleryPost in galleryDisplayedPosts()">
-				<!-- ng-click="openModal({ mode:'feed', post:galleryPost, feed:{ id: infiniteGallery.instance } })" -->
 					<!-- IMAGE -->
-					<img pw-src="galleryPost.image.sizes.full.url">
-
-					<!-- IMAGE INFO - FIX THIS, STYLING ISSUE - BREAKING HORIZONTAL FLOW-->
-
+					<img pw-smart-image="::galleryPost.image">
+						<!-- pw-src="galleryPost.image.sizes.full.url" -->
 					<div
 						pw-include="panels/image-info"
 						include-post="galleryPost"
 						include-vars="{download:post.post_meta.pw_meta.image.download,link_label:post.post_meta.pw_meta.link_url}"
 						class="image-info-include">
 					</div>
-					
 			</div>
 		</div>
 	</div>

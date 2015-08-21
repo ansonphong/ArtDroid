@@ -25,6 +25,7 @@ $pwSiteGlobals = array(
 			'social',
 			'feeds',
 			'iconsets',
+			'taxonomy-meta',
 			'shortcodes',
 			'devices',
 			),
@@ -37,13 +38,57 @@ $pwSiteGlobals = array(
 			'feeds',
 			'backgrounds',
 			'iconsets',
+			'taxonomy-meta',
 			'shortcodes',
 			'devices',
+			'post_cache',
 			'post_cache'
 			),
 		),
 
 	'wp_admin'	=>	array(
+
+
+		'taxonomy_meta'	=>	array(
+			array(
+				'taxonomies'	=>	array( 'category', 'post_tag' ),
+				'fields'	=>	array(
+					array(
+						'type'				=>	'icon',
+						'label'				=>	'Icon',
+						'description'		=>	'An icon used to represent the term.',	
+						'meta_key'			=>	'icon',
+						'icon'				=>	'pwi-circle-thick',
+						'placeholder'		=>	''
+						),
+					
+					array(
+						'type'				=>	'image-id',
+						'label'				=>	'Primary Image',
+						'description'		=>	'An image used to represent the term in the header.',
+						'meta_key'			=>	'image-primary',
+						'icon'				=>	'pwi-image',
+						),
+
+					array(
+						'type'				=>	'image-id',
+						'label'				=>	'Secondary Image',
+						'description'		=>	'An image used in sliders, if different from the primary image. If a secondary image is not selected, the primary image will be used.',
+						'meta_key'			=>	'image-secondary',
+						'icon'				=>	'pwi-image',
+						),
+
+					array(
+						'type'				=>	'editor',
+						'label'				=>	'Rich Description',
+						'description'		=>	'The rich description is used in place of the description if provided.',
+						'meta_key'			=>	'rich_description',
+						'icon'				=>	'pwi-quick-edit',
+						),
+					),	
+				),
+			),
+
 
 		'user_meta'	=>	array(
 			'pw_avatar'	=>	true,
@@ -86,7 +131,31 @@ $pwSiteGlobals = array(
 							'meta_key'			=>	'alt_image',
 							'icon'				=>	'pwi-image',
 							),
-
+						array(
+							'type'				=>	'text-input',
+							'label'				=>	'Redirect to URL',
+							'description'		=>	'301 redirect',
+							'meta_key'			=>	'redirect_url',
+							'icon'				=>	'pwi-link',
+							),
+						array(
+							'type'				=>	'select-input',
+							'label'				=>	'Link Target',
+							'description'		=>	'Target of the link when clicked',
+							'meta_key'			=>	'link_target',
+							'icon'				=>	'pwi-target',
+							'options'			=>	array(
+								array(
+									'value' => '',
+									'label' => 'Default'
+									),
+								array(
+									'value' => '_blank',
+									'label' => 'Open in New Tab'
+									),
+								),
+							),
+						
 						),
 
 					),
@@ -129,6 +198,9 @@ $pwSiteGlobals = array(
 	'images' => array(
 		'tags'	=>	array(
 
+			),
+		'tag_mapping' => array(
+			
 			),
 		),
 
@@ -189,7 +261,7 @@ $pwSiteGlobals = array(
 					'name'		=>	'Video',
 					'slug'		=>	'video',
 					'domains'	=>	array('youtube.com/','youtu.be/','vimeo.com/','hulu.com/','ted.com/','sapo.pt/','dailymotion.com','blip.tv/','ustream.tv/',),
-					'icon'		=>	'pwi-play-circle'
+					'icon'		=>	'pwi-play-fill'
 				),
 				array(
 					'name'		=>	'Audio',

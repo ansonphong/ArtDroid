@@ -1,6 +1,54 @@
 <?php
 	// Enable Media Library
 	wp_enqueue_media();
+
+	$home_slider_settings = array(
+		'ng_model' 	=>	'pwOptions.home.slider',
+		'show'		=>	array(
+			'height',
+			'interval',
+			'no_pause',
+			'hyperlink',
+			'show_title',
+			'show_excerpt',
+			'transition',
+			'proportion'
+			),
+		'defaults'	=>	array(
+			'interval'		=>	5000,
+			'mode'			=>	'menu',
+			'no_pause'		=>	true,
+			'transition'	=>	'fade',
+			),
+		'options' => array(
+			'proportion' => array(
+				array(
+					'value' => false,
+					'name' => 'Flexible',
+					),
+				array(
+					'value' => 2,
+					'name' => '2 : 1',
+					),
+				array(
+					'value' => 2.5,
+					'name' => '2.5 : 1',
+					),
+				array(
+					'value' => 3,
+					'name' => '3 : 1',
+					),
+				array(
+					'value' => 3.5,
+					'name' => '3.5 : 1',
+					),
+				array(
+					'value' => 4,
+					'name' => '4 : 1',
+					),
+				),
+			),
+		);
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
@@ -9,6 +57,7 @@
 			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
 			$scope['images'] = {};
 			$scope['options'] = iOptionsData['options'];
+			$scope.fontOptions = <?php echo json_encode( theme_get_font_options() ); ?>;
 	}]);
 </script>
 
@@ -20,7 +69,6 @@
 		ng-cloak
 		class="postworld">
 
-	
 		<div class="theme-brand">
 			<div class="row">
 				<div class="col-md-6">
@@ -41,13 +89,14 @@
 				</div>
 			</div>
 		</div>
-		
-
 
 		<hr class="thick">
 
 		<div class="row">
 			<div class="col-lg-6 pad-col-lg">
+
+				<!--///// FONTS /////-->
+				<?php include 'theme-fonts.php' ?>
 
 				<!--///// LOGO /////-->
 				<div class="well">
@@ -129,20 +178,54 @@
 					<div class="well">
 						<h3>
 							<span class="icon-md"><i class="pwi-image"></i></span>
-							Media
+							Media & Galleries
 						</h3>
+
 						<label>
+							<h4>Images & Media</h4>
 							<input
 								type="number"
 								class="short"
 								ng-model="pwOptions.posts.media.style.height"> % 
 							Height
 							<small>
-								How tall to size the images and media.
+								How tall to size the images and embedded media (audio/videos).
 							</small>
 						</label>
+
+						<label>
+							<h4>Horizontal Gallery</h4>
+							<input
+								type="number"
+								class="short"
+								ng-model="pwOptions.posts.galleries.style.x_gallery_height"> % 
+							Height
+							<small>
+								How tall to size horizontal galleries.
+							</small>
+						</label>
+
 						<div style="clear:both"></div>
 					</div>
+
+
+					<!-- GALLERIES -->
+					<div class="well">
+						<h3>
+							<span class="icon-md"><i class="pwi-images"></i></span>
+							Default Gallery Settings
+						</h3>
+
+						<?php
+							echo pw_gallery_options(
+								theme_gallery_options(
+									array(
+										'ng_model' => 'pwOptions.posts.post.post_meta.pw_meta.gallery'
+										))); ?>
+
+						<div style="clear:both"></div>
+					</div>
+
 
 				</div>
 
@@ -246,15 +329,7 @@
 								<hr class="thin">
 								<h4>Settings</h4>
 								<?php
-									echo pw_select_slider_settings( array(
-										'ng_model' 	=>	'pwOptions.home.slider',
-										'show'		=>	array( 'height', 'interval', 'no_pause', 'hyperlink', 'show_title', 'show_excerpt' ),
-										'defaults'	=>	array(
-												'interval'		=>	5000,
-												'mode'			=>	'menu',
-												'no_pause'		=>	true,
-												),
-										));?>
+									echo pw_select_slider_settings( $home_slider_settings );?>
 							</div>
 
 						</div>
@@ -296,6 +371,7 @@
 							echo pw_select_blocks_settings( array(
 								'option_var' 	=> 'pwOptions',
 								'option_key'	=>	'home.feed.blocks',
+								'show'			=>	array( 'offset', 'increment', 'max', 'background-image', 'parallax' ),
 								));?>
 					</div>
 
