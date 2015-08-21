@@ -60,7 +60,7 @@
 		require-required="false"
 		art-post
 		ng-keypress="keyPress()"
-		class="post full pw-transition-fadein wrapper"
+		class="post full pw-transition-fadein wrapper page-width"
 		pw-timeout="200"
 		timeout-action="addClass('fadein-on')"
 		pw-ui>
@@ -130,182 +130,179 @@
 
 			</div>
 		</div>
-		
-		<!-- PAGE -->
-		<div class="page-width">
 
-			<div class="post-head pad-x-lg">
+		<div class="post-head pad-x-lg">
 
-				<div
-					ng-show="!pw.options.theme.modals.header.show"
-					class="modal-controls pull-right">
-					<button
-						class="btn-neutral-color"
-						tooltip="Previous"
-						tooltip-popup-delay="333"
-						ng-click="previousPost()">
-						<i class="pwi-arrow-left-thin"></i>
-					</button>
-					<button
-						class="btn-neutral-color"
-						tooltip="Next"
-						tooltip-popup-delay="333"
-						ng-click="nextPost()">
-						<i class="pwi-arrow-right-thin"></i>
-					</button>
-					<button
-						class="btn-neutral-color"
-						tooltip="Close"
-						tooltip-popup-delay="333"
-						ng-click="close()">
-						<i class="pwi-close"></i>
-					</button>
-				</div>
+			<div
+				ng-show="!pw.options.theme.modals.header.show"
+				class="modal-controls pull-right">
+				<button
+					class="btn-neutral-color"
+					tooltip="Previous"
+					tooltip-popup-delay="333"
+					ng-click="previousPost()">
+					<i class="pwi-arrow-left-thin"></i>
+				</button>
+				<button
+					class="btn-neutral-color"
+					tooltip="Next"
+					tooltip-popup-delay="333"
+					ng-click="nextPost()">
+					<i class="pwi-arrow-right-thin"></i>
+				</button>
+				<button
+					class="btn-neutral-color"
+					tooltip="Close"
+					tooltip-popup-delay="333"
+					ng-click="close()">
+					<i class="pwi-close"></i>
+				</button>
+			</div>
 
 
-				<div class="pull-left">
-					
-					<!-- TITLE -->
-					<h1 class="post-title">
-						<a ng-href="{{ post.post_permalink }}">
-							<span
-								class="icon"
-								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
-								<i
-									ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
-									class="pwi-arrow-down"></i>
-								<i
-									ng-show="post.post_meta.pw_meta.gallery.template == 'horizontal'"
-									class="pwi-arrow-right"></i>
-							</span> 
-							{{ post.post_title }}
-						</a>
-					</h1>
-					
-
-					<!-- CATEGORIES -->
-					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
-						<span ng-repeat="term in post.taxonomy.category">
-						    <a pw-href="term.url" class="term category">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-
-					<!-- TAGS -->
-					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<i class="pwi-tags"></i>
-						<span ng-repeat="term in post.taxonomy.post_tag">
-						    <a pw-href="term.url" class="term tag">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-					
-
-				</div>
-
-
-
-				<div class="pull-right">
-					
-					<!--///// POST CONTROLS /////-->
-					<div class="post-controls pull-right">
-						<!-- LINK -->
-						<a
-							ng-href="{{ post.post_permalink }}"
-							class="btn"
-							stop-propagation-click
-							tooltip="link"
-							tooltip-popup-delay="333">
-							<i class="pwi-link"></i>
-						</a>
-						<!-- DROPDOWN -->
+			<div class="pull-left">
+				
+				<!-- TITLE -->
+				<h1 class="post-title">
+					<a ng-href="{{ post.post_permalink }}">
 						<span
-							dropdown
-							pw-admin-post-menu
-							ng-show="userOptions != 0"
-							class="admin-menu dropdown">
-							<button
-								prevent-default-click
-								dropdown-toggle
-								class="edit-post"
-								style="border:none"
-								tooltip="edit"
-								tooltip-popup-delay="333">
-								<i class="pwi-merkaba"></i>
-							</button>
-							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
-								<li prevent-default-click ng-repeat="item in userOptions">
-									<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
-								</li>
-							</ul>
-						</span>
-					</div>
+							class="icon"
+							ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
+							<i
+								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
+								class="pwi-arrow-down"></i>
+							<i
+								ng-show="post.post_meta.pw_meta.gallery.template == 'horizontal'"
+								class="pwi-arrow-right"></i>
+						</span> 
+						{{ post.post_title }}
+					</a>
+				</h1>
+				
 
-					<!-- TIME -->
-					<div
-						class="time unit pull-right"
-						tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
-						tooltip-popup-delay="333">
-						<time datetime="{{ post.post_date }}">
-							<i class="pwi-clock-o"></i> {{ post.time_ago }}
-						</time>
-					</div>
-
-					<!-- DOWNLOAD -->
-					<div
-						class="download unit pull-right"
-						ng-show="post.post_meta.pw_meta.image.download">
-						<a download pw-href="post.image.sizes.full.url">
-							<i class="pwi-arrow-down-thin"></i>
-							download
+				<!-- CATEGORIES -->
+				<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+					<span ng-repeat="term in post.taxonomy.category">
+					    <a pw-href="term.url" class="term category">
+							<span ng-bind="term.name"></span>
 						</a>
-					</div>
-
-					<!-- LINK -->
-					<div
-						class="link unit pull-right"
-						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.pw_meta.link_url.label.show == true || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-						tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
-						tooltip-popup-delay="333">
-						<a
-							pw-href="post.link_url"
-							pw-target="post.post_meta.pw_meta.link_url.new_target">
-							<i class="pwi-crosshairs"></i>
-							{{ post.post_meta.pw_meta.link_url.label.custom }}
-						</a>
-					</div>
-
-					<!-- SHARE SOCIAL -->
-					<div class="module share-social pull-right">
-						<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
-					</div>
-
+					</span>
 				</div>
 
-				<div class="clearfix"></div>
+				<!-- TAGS -->
+				<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+					<i class="pwi-tags"></i>
+					<span ng-repeat="term in post.taxonomy.post_tag">
+					    <a pw-href="term.url" class="term tag">
+							<span ng-bind="term.name"></span>
+						</a>
+					</span>
+				</div>
+				
+
+			</div>
+
+
+
+			<div class="pull-right">
+				
+				<!--///// POST CONTROLS /////-->
+				<div class="post-controls pull-right">
+					<!-- LINK -->
+					<a
+						ng-href="{{ post.post_permalink }}"
+						class="btn"
+						stop-propagation-click
+						tooltip="link"
+						tooltip-popup-delay="333">
+						<i class="pwi-link"></i>
+					</a>
+					<!-- DROPDOWN -->
+					<span
+						dropdown
+						pw-admin-post-menu
+						ng-show="userOptions != 0"
+						class="admin-menu dropdown">
+						<button
+							prevent-default-click
+							dropdown-toggle
+							class="edit-post"
+							style="border:none"
+							tooltip="edit"
+							tooltip-popup-delay="333">
+							<i class="pwi-merkaba"></i>
+						</button>
+						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+							<li prevent-default-click ng-repeat="item in userOptions">
+								<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+							</li>
+						</ul>
+					</span>
+				</div>
+
+				<!-- TIME -->
+				<div
+					class="time unit pull-right"
+					tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
+					tooltip-popup-delay="333">
+					<time datetime="{{ post.post_date }}">
+						<i class="pwi-clock-o"></i> {{ post.time_ago }}
+					</time>
+				</div>
+
+				<!-- DOWNLOAD -->
+				<div
+					class="download unit pull-right"
+					ng-show="post.post_meta.pw_meta.image.download">
+					<a download pw-href="post.image.sizes.full.url">
+						<i class="pwi-arrow-down-thin"></i>
+						download
+					</a>
+				</div>
+
+				<!-- LINK -->
+				<div
+					class="link unit pull-right"
+					ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
+					ng-show="post.post_meta.pw_meta.link_url.label.show == true || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+					tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+					tooltip-popup-delay="333">
+					<a
+						pw-href="post.link_url"
+						pw-target="post.post_meta.pw_meta.link_url.new_target">
+						<i class="pwi-crosshairs"></i>
+						{{ post.post_meta.pw_meta.link_url.label.custom }}
+					</a>
+				</div>
+
+				<!-- SHARE SOCIAL -->
+				<div class="module share-social pull-right">
+					<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+				</div>
 
 			</div>
 
 			<div class="clearfix"></div>
 
-
-			<!-- POST CONTENT -->
-			<div class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg">
-				<div
-					ng-show="post.post_content && post.post_content != ' '"
-					pw-compile-code="post.post_content">
-				</div>
-				<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
-				<div
-					ng-show="!post.post_content || post.post_content == ' '"
-					ng-bind="post.post_excerpt">
-				</div>
-			</div>
-
 		</div>
+
+		<div class="clearfix"></div>
+
+
+		<!-- POST CONTENT -->
+		<div class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg">
+			<div
+				ng-show="post.post_content && post.post_content != ' '"
+				pw-compile-code="post.post_content">
+			</div>
+			<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
+			<div
+				ng-show="!post.post_content || post.post_content == ' '"
+				ng-bind="post.post_excerpt">
+			</div>
+		</div>
+
+	
 
 		<!-- VERTICAL GALLERY -->
 		<div
