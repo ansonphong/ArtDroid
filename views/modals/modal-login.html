@@ -1,34 +1,51 @@
 <div class="modal-header">
-    <h3>Login <i class="pwi-signin"></i></h3>
+  <h3>Login <i class="pwi-signin"></i></h3>
 </div>
-<div class="modal-body">
-
-  <form name="loginform" id="loginform" action="/wp-login.php" method="post">
-          
+<div pw-globals="pw" class="modal-body">
+  <form name="modal-loginform" action="/wp-login.php" method="post">
     <p class="login-username">
       <label for="user_login" class="inner">username</label>
-      <input pw-autofocus type="text" name="log" id="user_login" class="input labeled" value="" size="20">
+      <input
+        pw-autofocus
+        type="text"
+        name="log"
+        id="user_login"
+        class="input labeled"
+        value=""
+        size="20"
+        tabindex="301">
     </p>
-
     <p class="login-password">
       <label for="user_pass" class="inner">password</label>
-      <input type="password" name="pwd" id="user_pass" class="input labeled" value="" size="20">
+      <input
+        type="password"
+        name="pwd"
+        id="user_pass"
+        class="input labeled"
+        value=""
+        size="20"
+        tabindex="302">
     </p>
-
     <button
       type="submit"
       name="wp-submit"
       id="wp-submit"
       class="btn btn-primary btn-lg pull-right"
-      value="Log In">
+      value="Log In"
+      tabindex="304">
       Log In
     </button>
     <input type="hidden" name="redirect_to" value="/">
-
-    <label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> remember</label>
-
+    <label>
+      <input
+        name="rememberme"
+        type="checkbox"
+        id="rememberme"
+        value="forever"
+        tabindex="303">
+      remember
+    </label>
+    <input type="hidden" name="redirect_to" value="{{ pw.view.url }}">
     <div class="clearfix"></div>
-
   </form>
-  
 </div>
