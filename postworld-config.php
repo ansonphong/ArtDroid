@@ -131,7 +131,31 @@ $pwSiteGlobals = array(
 							'meta_key'			=>	'alt_image',
 							'icon'				=>	'pwi-image',
 							),
-
+						array(
+							'type'				=>	'text-input',
+							'label'				=>	'Redirect to URL',
+							'description'		=>	'301 redirect',
+							'meta_key'			=>	'redirect_url',
+							'icon'				=>	'pwi-link',
+							),
+						array(
+							'type'				=>	'select-input',
+							'label'				=>	'Link Target',
+							'description'		=>	'Target of the link when clicked',
+							'meta_key'			=>	'link_target',
+							'icon'				=>	'pwi-target',
+							'options'			=>	array(
+								array(
+									'value' => '',
+									'label' => 'Default'
+									),
+								array(
+									'value' => '_blank',
+									'label' => 'Open in New Tab'
+									),
+								),
+							),
+						
 						),
 
 					),

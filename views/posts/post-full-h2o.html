@@ -50,15 +50,18 @@
 	
 	{% if post.post_type != 'page' %}
 		<!-- IMAGE -->
-		<div class="media-viewer" window-height="{{pw.options.theme.posts.media.style.height}}" ng-show="showView('singleImage')">
+		<div
+			class="media-viewer"
+			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
+			ng-show="showView('singleImage')">
 			<div
 				class="view-image"
-				ng-style="backgroundImage( post.image.sizes['x-large'].url )">
+				pw-smart-image="post.image">
 			</div>
 		</div>
 	{% endif %}
 
-	<header class="{{ post.post_type }}-head">
+	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
 		<div class="row">
 			<div class="col-md-7">
@@ -207,14 +210,14 @@
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 		</div>
 	{% endif %}
 
 	{% if !post.post_content %}
 		<!-- CONTENT -->
-		<div class="post-content columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_excerpt | safe }}
 		</div>
 	{% endif %}
@@ -232,7 +235,7 @@
 	<div class="clearfix"></div>
 
 	<!-- SOCIAL WIDGETS -->
-	<div class="social-widgets">
+	<div class="social-widgets pad-x-lg">
 		{{ social_widgets | safe }}
 	</div>
 

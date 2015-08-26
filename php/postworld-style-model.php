@@ -60,7 +60,6 @@ function theme_pw_styles_defaults( $value ){
 				'widget-highlight-color'	=>	'@neutral-color-light',
 				),
 
-			
 			),
 
 		'layout'	=>	array(
@@ -90,6 +89,14 @@ function theme_pw_styles_defaults( $value ){
 				'grid-title-align'			=>	'left',
 				),
 			),
+
+		/*
+		'galleries'	=>	array(
+			'horizontal'	=>	array(
+				'x-gallery-height' => '66',
+				),
+			),
+		*/
 
 		'pages'	=>	array(
 			'single'	=>	array(
@@ -682,6 +689,35 @@ function theme_pw_styles_structure( $structure = array() ){
 				),
 
 			),
+
+		/*
+		array(
+			"name"	=>	"Galleries",
+			"key"	=>	"galleries",
+			"icon"	=>	"pwi-images",
+			"values"	=>	array(
+
+				array(
+					'name'	=>	'Horizontal Galleries',
+					'key'	=>	'horizontal',
+					'icon'	=>	'pwi-arrows-h',
+					'values'	=>	array(
+						
+						array(
+							"name"			=>	"Viewport Height",
+							"key"			=>	"x-gallery-height",
+							"input"			=>	"text",
+							"description"	=>	"The percentage of the viewport height that the horizontal galleries use."
+							),
+						
+						),
+					),
+
+
+				),
+
+			),
+		*/
 
 		array(
 			"name"	=>	"Third Party Plugins",

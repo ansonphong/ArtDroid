@@ -4,7 +4,6 @@
 	$pwInject = $pw['inject'];
 ?>
 <div ng-cloak ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
-
 	<table>
 
 		<?php if( $post->post_type == 'page' ): ?>
@@ -26,7 +25,7 @@
 					<div ng-show="pwMeta.header.type == 'featured_image'">
 						<div class="well">
 							<h3>Featured Image Options</h3>
-							<?php echo i_select_featured_image_options( array( 'ng_model' => 'pwMeta.header.image' ) ); ?>
+							<?php echo pw_select_featured_image_options( array( 'ng_model' => 'pwMeta.header.image' ) ); ?>
 						</div>
 					</div>
 
@@ -34,7 +33,7 @@
 					<div ng-show="pwMeta.header.type == 'slider'">
 						<div class="well">
 							<h3>Slider Options</h3>
-							<?php echo i_admin_slider_options(); ?>
+							<?php echo pw_admin_slider_options(); ?>
 						</div>
 					</div>
 					<hr class="thin">
@@ -48,7 +47,7 @@
 				Galleries
 			</th>
 			<td>
-				<?php echo pw_gallery_options( array( 'context' => 'postAdmin' ) ); ?>
+				<?php echo pw_gallery_options( theme_gallery_options() ); ?>
 				<hr class="thin">
 			</td>
 		</tr>

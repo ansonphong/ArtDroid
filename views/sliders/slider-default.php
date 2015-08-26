@@ -33,7 +33,7 @@
 		
 		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
 			<?php if( $slider['hyperlink'] == true ){ ?>
-				<a ng-href="{{slide.post_permalink}}">
+				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.link_target}}">
 			<?php } ?>
 				<div
 					class="slide-frame"
