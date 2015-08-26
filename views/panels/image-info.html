@@ -9,6 +9,10 @@
 			<h4>
 				{{ post.post_title }}
 			</h4>
+			<span class="image-permalink">
+				<i class="icon pwi-share"></i>
+				Share
+			</span>
 		</a>
 		<span ng-show="vars.download" class="links-inline-button">
 			<a
@@ -25,7 +29,6 @@
 		ng-show="uiBool(post.post_excerpt)">
 		{{ post.post_excerpt }}
 	</div>
-	
 	<div class="image-links" ng-show="uiBool(post.link_url)">
 		<span class="link-label">
 			<a ng-href="{{post.link_url}}" target="_blank">
@@ -34,5 +37,4 @@
 			</a>
 		</span>
 	</div>
-
 </div>

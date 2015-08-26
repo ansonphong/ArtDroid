@@ -1,5 +1,4 @@
 <?php
-// Make filter to merge the child model
 function theme_postmeta_model_filter( $pwMeta ){
 	$defaultPwMeta = array(
 		"header" => array(
@@ -35,15 +34,9 @@ function theme_postmeta_model_filter( $pwMeta ){
 				"transition"	=>	'fade',
 				),
 			),
-		"gallery"	=>	array(
-			"template"	=>	"inline",
-			"width"		=>	100,
-			"height"	=>	75,
-			"x_scroll_distance"	=>	1500,
-			"y_scroll_distance"	=>	1000,
-			),
+		"gallery"	=>	pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'posts.post.post_meta.'.PW_POSTMETA_KEY.'.gallery' ) ),
 		"post_content"	=>	array(
-			"columns"	=> pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'posts.post.post_meta.'.PW_POSTMETA_KEY.'.post_content.columns' ) ),	//1,
+			"columns"	=>	pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'posts.post.post_meta.'.PW_POSTMETA_KEY.'.post_content.columns' ) ),
 			),
 		"icon"	=>	array(
 			"class"	=>	"",
@@ -69,5 +62,32 @@ function theme_postmeta_model_filter( $pwMeta ){
 	
 }
 add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );
+
+
+/**
+ * Variables passed into theme instaces of pw_gallery_options()
+ */
+function theme_gallery_options( $vars = array() ){
+
+	$defaults = array(
+		'context' 	=> 'postAdmin',
+		'gallery_options' => array(
+			'inline',
+			'frame',
+			'horizontal',
+			'vertical'
+			),
+		'show'	=> array(
+			'vertical' => array(
+				'show_title',
+				'show_caption',
+				),
+			),
+		);
+
+	$vars = array_replace_recursive( $defaults, $vars );
+
+	return $vars;
+}
 
 ?>

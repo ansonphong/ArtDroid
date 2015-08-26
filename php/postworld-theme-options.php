@@ -17,6 +17,11 @@ function pw_theme_options_filter( $options ){
 					'height'	=>	66,
 					),
 				),
+			'galleries' => array(
+				'style' => array(
+					'x_gallery_height' => 66,
+					),
+				),
 			'post'	=>	array(
 				'post_meta'	=>	array(
 					'pw_meta'	=>	array(
@@ -36,6 +41,13 @@ function pw_theme_options_filter( $options ){
 							),
 						'image'	=>	array(
 							'download'	=>	true,
+							),
+						'gallery' => array(
+							'template' => 'inline',
+							'vertical' => array(
+								'show_title' => true,
+								'show_caption' => true
+								),
 							),
 						),
 					),

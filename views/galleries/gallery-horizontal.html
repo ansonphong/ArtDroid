@@ -1,8 +1,10 @@
 <!-- GALLERY : HORIZONTAL -->
 <div
+	pw-globals="pw"
 	ng-show="includeEnable"
 	class="media-viewer"
-	style="height:{{ post.post_meta.pw_meta.gallery.height }}vh">
+	style="height:{{pw.options.theme.posts.galleries.style.x_gallery_height}}vh">
+	
 	<div
 		pw-infinite-gallery
 		gallery-preload="4"

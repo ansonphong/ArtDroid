@@ -25,7 +25,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.14;
+$theme_version = 1.15;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -53,6 +53,9 @@ include "php/postworld-postmeta.php";
 
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
+
+////////// FIELDS //////////
+include "php/postworld-fields.php";
 
 ////////// FONTS //////////
 include "php/postworld-fonts.php";
@@ -208,11 +211,24 @@ function disable_emojicons_tinymce( $plugins ) {
 	}
 }
 
+// Add action attribute to forms
+add_action('wp_footer', 'pw_add_forms_action_attribute');
+
 /**
  * Check for Theme Updates with WP Updates
  * @link http://wp-updates.com/
  */
 require_once('php/wp-updates-theme.php');
 new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
+
+/**
+ * Specifically enable automatic updates even if
+ * a VCS folder (.git, .hg, .svn etc) was found in the
+ * WordPress directory or any of its parent directories.
+ *
+ * @link https://codex.wordpress.org/Configuring_Automatic_Background_Updates
+ */
+add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
+
 
 ?>
