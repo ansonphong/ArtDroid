@@ -231,4 +231,19 @@ new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( g
 add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
 
 
+/**
+ * Add an action attribute to the Mailchimp for WP form
+ * so that it's submitting properly when Angular JS is loaded. 
+ *
+ * @link https://wordpress.org/support/plugin/mailchimp-for-wp
+ * @link https://wordpress.org/support/topic/please-allow-filtering-the-form-attributes-form-not-submitting-with-angularjs
+ * @link https://github.com/ibericode/mailchimp-for-wordpress/issues/91
+ */
+function theme_mc4wp_form_action( $action ){
+	global $pw;
+	$current_url = $pw['view']['url'];
+	return $current_url;
+}
+add_filter( 'mc4wp_form_action', 'theme_mc4wp_form_action' );
+
 ?>
