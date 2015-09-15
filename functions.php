@@ -271,4 +271,19 @@ function chromefix_print_css(){
 }
 add_action( 'admin_init', 'chromefix_admin_init' );
 
+/**
+ * Add an action attribute to the Mailchimp for WP form
+ * so that it's submitting properly when Angular JS is loaded. 
+ *
+ * @link https://wordpress.org/support/plugin/mailchimp-for-wp
+ * @link https://wordpress.org/support/topic/please-allow-filtering-the-form-attributes-form-not-submitting-with-angularjs
+ * @link https://github.com/ibericode/mailchimp-for-wordpress/issues/91
+ */
+function theme_mc4wp_form_action( $action ){
+	global $pw;
+	$current_url = $pw['view']['url'];
+	return $current_url;
+}
+add_filter( 'mc4wp_form_action', 'theme_mc4wp_form_action' );
+
 ?>
