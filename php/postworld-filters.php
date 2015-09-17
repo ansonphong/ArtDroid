@@ -363,12 +363,8 @@ function theme_slider_preprocess_image_fields( $slider ){
 
 	// Inject the fields into the slider
 	$slider = _set( $slider, 'query.fields', $fields );
-
-	//pw_log( 'process slider', $slider );
-	//pw_log( 'process slider : fields', $fields );
-
+	
 	return $slider;
-
 }
 
 
