@@ -230,5 +230,60 @@ new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( g
  */
 add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
 
+/**
+ * Prevent this site from being a host for XML-RPC DDoS Attacks
+ */
+add_filter( 'xmlrpc_methods', function( $methods ) {
+	unset( $methods['pingback.ping'] );
+	return $methods;
+});
+
+/**
+ * Disable XML-RPC to prevent from being gateway for incoming DDoS Attacks
+ */
+add_filter('xmlrpc_enabled', '__return_false');
+
+/**
+ * The WordPress Dashboard by default allows administrators to edit PHP files,
+ * such as plugin and theme files. This is often the first tool an attacker
+ * will use if able to login, since it allows code execution.
+ * WordPress has a constant to disable editing from Dashboard. 
+ */
+define('DISALLOW_FILE_EDIT', true);
+
+/**
+ * Fixes 'Slimming Paint' bug in WordPress Admin for Chrome 45
+ * @link https://core.trac.wordpress.org/ticket/33199
+ */
+function chromefix_admin_init(){
+	if ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Chrome' ) !== false ){
+		add_action( 'admin_print_styles', 'chromefix_print_css' );
+	}
+}
+function chromefix_print_css(){ 
+?>
+	<style type="text/css" media="screen">
+		#adminmenu{
+			transform: translateZ(0);
+		}
+	</style>
+<?php
+}
+add_action( 'admin_init', 'chromefix_admin_init' );
+
+/**
+ * Add an action attribute to the Mailchimp for WP form
+ * so that it's submitting properly when Angular JS is loaded. 
+ *
+ * @link https://wordpress.org/support/plugin/mailchimp-for-wp
+ * @link https://wordpress.org/support/topic/please-allow-filtering-the-form-attributes-form-not-submitting-with-angularjs
+ * @link https://github.com/ibericode/mailchimp-for-wordpress/issues/91
+ */
+function theme_mc4wp_form_action( $action ){
+	global $pw;
+	$current_url = $pw['view']['url'];
+	return $current_url;
+}
+add_filter( 'mc4wp_form_action', 'theme_mc4wp_form_action' );
 
 ?>
