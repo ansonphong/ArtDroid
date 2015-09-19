@@ -2,14 +2,10 @@
 	position:relative;
 	z-index:1;
 	background:@page-header-background;
-	padding: 20px;
-
-	@media @desktop-and-above{
-		padding: 20px 40px;
-	}
+	padding-top: 20px;
+	padding-bottom: 20px;
 
 	.page-meta{
-		//.page-bounds();
 		position:absolute;
 		bottom:0px;
 		width:100%;
@@ -87,7 +83,7 @@
 				}
 			}
 		}
-		@media @desktop-and-above{
+		@media @lg-up{
 			font-size:1.2em;
 			padding-top:13px;
 		}

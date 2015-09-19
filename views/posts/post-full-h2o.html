@@ -79,9 +79,7 @@
 							</span>
 						{% endif %}
 						{% if post.post_meta.pw_meta.icon.class %}
-							<span class="icon">
-								<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
-							</span>
+							<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}
