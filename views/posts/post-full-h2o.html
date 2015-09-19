@@ -54,10 +54,20 @@
 			class="media-viewer"
 			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
 			ng-show="showView('singleImage')">
+			<!-- SHOW DYNAMIC SIZE FOR POSTS -->
+			{% if post.post_type == 'post' %}
 			<div
 				class="view-image"
 				pw-smart-image="post.image">
 			</div>
+			{% endif %}
+			{% if post.post_type == 'attachment' %}
+			<!-- SHOW FULL SIZE IMAGE FOR ATTACHMENTS -->
+			<div
+				class="view-image"
+				pw-background-image="post.image.sizes.full.url">
+			</div>
+			{% endif %}
 		</div>
 	{% endif %}
 
