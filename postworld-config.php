@@ -112,6 +112,9 @@ $pwSiteGlobals = array(
 			'layout'	=>	array(
 				'post_types'	=>	array( 'page' ),
 				),
+			'background'	=>	array(
+				'post_types'	=>	array( 'page', 'post' ),
+				),
 
 
 			// Adds inputs for additional custom WordPress postmeta fields
