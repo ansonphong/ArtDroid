@@ -42,7 +42,7 @@ $pwSiteGlobals = array(
 			'shortcodes',
 			'devices',
 			'post_cache',
-			'post_cache'
+			'layout_cache',
 			),
 		),
 
