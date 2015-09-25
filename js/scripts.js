@@ -28,8 +28,8 @@ postworld.directive( 'artPost', [ function( $scope ){
 
 
 postworld.controller( 'artPostCtrl',
-	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts',
-	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
+	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts', '$timeout',
+	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
 	$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
 
@@ -123,6 +123,31 @@ postworld.controller( 'artPostCtrl',
 		return false;
 
 	};
+
+	$scope.imageFormat = function( post ){
+		var ratio = $_.get( post, 'image.stats.ratio' );
+		if( !ratio )
+			return false;
+		ratio = Number( ratio );
+
+		if( ratio > 3 )
+			return 'panorama';
+		else
+			return 'standard';
+
+	}
+
+	///// WATCH : POST ID /////
+	// When the post ID changes, run this function
+	$scope.$watch( 'post.post_content', function( newVal, oldVal ){
+
+		// Refresh Instagram Widgets
+		$timeout( function(){
+			if( !_.isUndefined( window.instgrm ) )
+				window.instgrm.Embeds.process();
+		}, 100 );
+		
+	});
 
 
 }]);

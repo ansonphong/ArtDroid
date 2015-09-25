@@ -483,15 +483,13 @@ function theme_pw_styles_structure( $structure = array() ){
 							"description"	=>	"Color of text in widgets"
 							),
 						array(
-							"name"			=>	"Base Color",
+							"name"			=>	"Highlight Color",
 							"key"			=>	"widget-highlight-color",
 							"input"			=>	"color",
 							"description"	=>	"Highlighted and selected items"
 							),
 						),
 					),
-
-
 
 				),
 
