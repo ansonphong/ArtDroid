@@ -89,3 +89,4 @@ pw_print_layout( $layout_args );
 pw_footer();
 
 ?>
+<!-- Generated in <?php timer_stop(1); ?> seconds... -->
