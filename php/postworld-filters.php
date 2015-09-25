@@ -181,7 +181,7 @@ function theme_postmeta_defaults( $post ){
 	$post_value = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.image.download' ); // $post['post_meta'][PW_POSTMETA_KEY]['image']['download'];
 	$site_value = _get( $default_pw_meta, 'image.download' );
 	// Override 'default' value with the default value
-	if( $post_value == 'default' && $mode != 'edit' ){
+	if( $post_value == 'default' ){
 		// Set in post
 		$post['post_meta'][PW_POSTMETA_KEY]['image']['download'] = $site_value;
 	}
@@ -235,7 +235,8 @@ function theme_postmeta_defaults( $post ){
 		}
 
 		///// LABEL : TOOLTIP /////
-		switch( $post_obj['label']['tooltip']['show'] ){
+		$show_tooltip = _get( $post_obj, 'label.tooltip.show' );
+		switch( $show_tooltip ){
 			case 'default':
 				// Use the site default value
 				$new_obj['label']['tooltip']['custom'] = $site_obj['label']['tooltip']['custom'];
@@ -292,6 +293,29 @@ function theme_postmeta_alt_image( $post ){
 			$post_image );
 		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
+	return $post;
+}
+
+
+/**
+ * REMOVE THE 'UNCATEGORIZED' ITEM FROM CATEGORIES
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_remove_category_uncategorized' );
+function theme_remove_category_uncategorized( $post ){
+	$categories = _get( $post, 'taxonomy.category' );
+
+	// Check if any categories exist
+	if( empty( $categories ) )
+		return $post;
+
+	// Remove all 'uncategorized'
+	$new_categories = array();
+	foreach( $categories as $category ){
+		if( $category['slug'] != 'uncategorized' )
+			$new_categories[] = $category;
+	}
+	$post['taxonomy']['category'] = $new_categories;
+
 	return $post;
 }
 
