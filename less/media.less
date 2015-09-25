@@ -31,6 +31,18 @@
 	background:@media-viewer-background;
 	border-bottom: 1px solid fade( @neutral-color-medium, 20% );
 
+	&.post-image{
+		&.panorama{
+			overflow-x: scroll;
+			img.view-image{
+				max-width: none;
+				width:auto;
+				height:100%;
+
+			}
+		}
+	}
+
 	.view-image{
 		width:100%;
 		height:100%;

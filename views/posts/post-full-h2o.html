@@ -48,19 +48,32 @@
 		<hr>-->
 	{% endif %}
 	
+
+
 	{% if post.post_type != 'page' %}
+	
 		<!-- IMAGE -->
 		<div
-			class="media-viewer"
+			class="media-viewer post-image"
+			ng-class="imageFormat(post)"
 			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
 			ng-show="showView('singleImage')">
-			<!-- SHOW DYNAMIC SIZE FOR POSTS -->
+			
 			{% if post.post_type == 'post' %}
-			<div
-				class="view-image"
-				pw-smart-image="post.image">
-			</div>
+				<!-- SHOW DYNAMIC SIZE FOR POSTS -->
+				<div
+					ng-show="imageFormat(post) == 'standard'"
+					class="view-image"
+					pw-smart-image="post.image"
+					smart-image-dynamic>
+				</div>
+				<img
+					ng-show="imageFormat(post) == 'panorama'"
+					class="view-image"
+					pw-smart-image="post.image"
+					smart-image-dynamic>
 			{% endif %}
+
 			{% if post.post_type == 'attachment' %}
 			<!-- SHOW FULL SIZE IMAGE FOR ATTACHMENTS -->
 			<div
