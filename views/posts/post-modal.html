@@ -67,36 +67,42 @@
 
 		<!-- IMAGE -->
 		<div
-			class="media-viewer"
+			class="media-viewer post-image"
+			ng-class="imageFormat(post)"
 			style="height:{{pw.options.theme.posts.media.style.height}}vh"
 			ng-show="showView('modalImage')">
 
-			<!-- //// IMPLIMENT PANORAMA ///// -->
-
-			<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="uiBoolean(feed)">
-				<button
-					class="btn-previous"
-					tooltip="Previous (Left Arrow on Keyboard)"
-					tooltip-placement="right"
-					tooltip-popup-delay="333">
-					<i class="pwi-triangle-left-thin"></i>
-				</button>
-			</div>
-			<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="uiBoolean(feed)">
-				<button
-					class="btn-next"
-					tooltip="Next (Right Arrow on Keyboard)"
-					tooltip-placement="left"
-					tooltip-popup-delay="333">
-					<i class="pwi-triangle-right-thin"></i>
-				</button>
-			</div>
+			
 
 			<div
 				class="view-image"
+				ng-show="imageFormat(post) == 'standard'"
+				ng-click="nextPost()"
 				pw-smart-image="post.image"
 				smart-image-dynamic>
+				<div
+					class="nav-btn-area area-left"
+					ng-click="previousPost()"
+					ng-show="::uiBoolean(modalFeed)">
+					<button class="btn-previous">
+						<i class="pwi-triangle-left-thin"></i>
+					</button>
+				</div>
+				<div
+					class="nav-btn-area area-right"
+					ng-click="nextPost()"
+					ng-show="::uiBoolean(modalFeed)">
+					<button class="btn-next">
+						<i class="pwi-triangle-right-thin"></i>
+					</button>
+				</div>
 			</div>
+
+			<img
+				ng-show="imageFormat(post) == 'panorama'"
+				class="view-image"
+				pw-smart-image="post.image"
+				smart-image-dynamic>
 
 		</div>
 
