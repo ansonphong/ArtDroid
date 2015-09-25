@@ -55,6 +55,7 @@ $fields = array(
 	'image(md,1024,1024,2)',
 	'image(lg,2048,2048,2)',
 	'image(xl,4096,4096,2)',
+	'image(full)',
 	'time_ago',
 	'author(ID)',
 	'edit_post_link',
