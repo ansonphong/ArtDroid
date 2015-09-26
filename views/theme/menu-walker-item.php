@@ -30,7 +30,6 @@
 		pw_print_html_attr( 'href', $link_attr['href'], "" );
 	?>
 	>
-
 	<?php
 	///// ICON /////
 	if( !empty($icon) ){ ?>
