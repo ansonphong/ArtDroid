@@ -479,7 +479,7 @@ function theme_post_field_model_preview( $fields ){
 		'image(xl,2048,2048,2)',
 		'image(xxl,4096,4096,2)',
 		'image(full)',
-		
+
 		'edit_post_link',
 		'taxonomy(all)',
 		'post_format',
@@ -490,8 +490,6 @@ function theme_post_field_model_preview( $fields ){
 		);
 
 }
-
-
 
 
 ?>
