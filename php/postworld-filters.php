@@ -446,4 +446,55 @@ function theme_post_field_model_gallery( $fields ){
 	return $fields;
 }
 
+
+/**
+ * Custom field model for Preview posts
+ */
+add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );
+function theme_post_field_model_preview( $fields ){
+
+	return array(
+		'ID',
+		'post_title',
+		'post_excerpt',
+		'post_permalink',
+		'time_ago',
+		'post_date',
+		'post_date_gmt',
+		'post_type',
+		'post_status',
+		'fields',
+		'link_format',
+		'link_url',
+		'post_author',
+		'event_start',
+		'event_end',
+		'post_timestamp',
+		'image(stats)',
+		'image(tags)',
+		'image(all)',
+
+		'image(sm,400,400,1)',
+		'image(md,800,800,0)',
+
+		'image(lg,1024,1024,2)',
+		'image(xl,2048,2048,2)',
+		'image(xxl,4096,4096,2)',
+
+		'image(full)',
+
+		'edit_post_link',
+		'taxonomy(all)',
+		'post_format',
+		'post_meta(pw_meta)',
+		'post_meta(alt_image)',
+		'post_meta(_thumbnail_id)',
+		'feed_order',
+		);
+
+}
+
+
+
+
 ?>
