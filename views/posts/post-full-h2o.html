@@ -48,16 +48,56 @@
 		<hr>-->
 	{% endif %}
 	
+
+
 	{% if post.post_type != 'page' %}
+	
 		<!-- IMAGE -->
 		<div
-			class="media-viewer"
+			class="media-viewer post-image"
+			ng-class="imageFormat(post)"
 			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
-			ng-show="showView('singleImage')">
+			ng-show="showView('singleImage')"
+			pw-x-scroll-status>
+			
+			{% if post.post_type == 'post' %}
+				<!-- SHOW DYNAMIC SIZE FOR POSTS -->
+				<div
+					ng-show="imageFormat(post) == 'standard'"
+					class="view-image"
+					pw-smart-image="post.image"
+					smart-image-dynamic>
+				</div>
+
+				<!-- SCROLL INDICATOR -->
+				<div
+					class="scroll-indicator"
+					pw-device-class>
+					<div class="message-scroll">
+						<span class="text">Scroll</span>
+						<i class="icon pwi-arrow-right-thin"></i>
+					</div>
+					<div class="message-slide">
+						<i class="icon pwi-arrow-left-thin"></i>
+						<span class="text">Slide</span>
+					</div>
+				</div>
+
+				<img
+					ng-show="imageFormat(post) == 'panorama'"
+					class="view-image"
+					pw-smart-image="post.image"
+					smart-image-dynamic>
+
+			{% endif %}
+
+			{% if post.post_type == 'attachment' %}
+			<!-- SHOW FULL SIZE IMAGE FOR ATTACHMENTS -->
 			<div
 				class="view-image"
-				pw-smart-image="post.image">
+				pw-background-image="post.image.sizes.full.url">
 			</div>
+			{% endif %}
 		</div>
 	{% endif %}
 
@@ -79,9 +119,7 @@
 							</span>
 						{% endif %}
 						{% if post.post_meta.pw_meta.icon.class %}
-							<span class="icon">
-								<i class="{{post.post_meta.pw_meta.icon.class}}"></i>
-							</span>
+							<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
 						{% endif %}
 					</span>
 					{% if post.parent_post.ID %}

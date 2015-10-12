@@ -4,8 +4,9 @@
 	reload-on-show="true"
 	preserve-order="true"
 	infinite-scroll='getNext()'
-	infinite-scroll-disabled='busy'
+	infinite-scroll-disabled='scrollDisabled'
 	infinite-scroll-use-document-bottom="true"
+	infinite-scroll-distance=".5"
 	class="grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
 	<div art-feed>
 		<div class="grid-width-controller"></div>
