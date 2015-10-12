@@ -18,3 +18,4 @@
 	</div>
 </div>
 <?php pw_footer('home'); ?>
+<!-- Generated in <?php timer_stop(1); ?> seconds... -->

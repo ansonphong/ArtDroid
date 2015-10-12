@@ -10,13 +10,11 @@ include "postworld/postworld.php";
 ////////// INIT POSTWORLD //////////
 function theme_postworld_includes(){
 	$postworld_inject = array(
-		'infinite',
-		'wp-less',
 		'masonry.js',
 		'jquery',
 		);
 	postworld_includes( array(
-		'angular_version' => 'angular-1.3.13',	// 'angular-1.2.25',
+		'angular_version' => 'angular-1.4.6',
 		'inject'  => $postworld_inject,
 	));
 }

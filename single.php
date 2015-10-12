@@ -49,9 +49,13 @@ $fields = array(
 	'related_post',
 	'post_parent',
 	'parent_post(preview)',
-	'image(all)',
-	'image(tags)',
 	'image(stats)',
+	'image(tags)',
+	'image(sm,512,512,2)',
+	'image(md,1024,1024,2)',
+	'image(lg,2048,2048,2)',
+	'image(xl,4096,4096,2)',
+	'image(full)',
 	'time_ago',
 	'author(ID)',
 	'edit_post_link',
@@ -89,3 +93,4 @@ pw_print_layout( $layout_args );
 pw_footer();
 
 ?>
+<!-- Generated in <?php timer_stop(1); ?> seconds... -->

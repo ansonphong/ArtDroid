@@ -42,7 +42,7 @@ $pwSiteGlobals = array(
 			'shortcodes',
 			'devices',
 			'post_cache',
-			'post_cache'
+			'layout_cache',
 			),
 		),
 
@@ -111,6 +111,9 @@ $pwSiteGlobals = array(
 				),
 			'layout'	=>	array(
 				'post_types'	=>	array( 'page' ),
+				),
+			'background'	=>	array(
+				'post_types'	=>	array( 'page', 'post' ),
 				),
 
 

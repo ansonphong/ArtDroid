@@ -1,8 +1,15 @@
 ///// ELEMENTS & CLASSES /////
 html {
-	//overflow-y: scroll;
-	@media @mobile{
-		//overflow-x: hidden;
+	max-width: 100%;
+	min-height:100%;
+
+	// Position must be 'relative' to allow full document height secondary bgs?
+	//position:relative;
+	
+	#wpadminbar{
+		@media @wp-sm{
+			z-index:100;
+		}
 	}
 }
 
@@ -10,6 +17,7 @@ body{
 	overflow-x: hidden;
 	background-color: @global-background-color;
 	min-width: 320px;
+	height:100%;
 
 	a{
 		outline:none !important;
@@ -21,10 +29,23 @@ body{
 	}
 }
 
+#pw-background-secondary{
+	position:absolute;
+	width:100%;
+	overflow:hidden;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:-1;
+}
+
+/*
 @font-face {
 	font-family: "Century Gothic";
 	src: url( @{child-theme}/lib/fonts/century-gothic.ttf );
 }
+*/
 
 body{
 	font-family: "Roboto";
@@ -95,22 +116,24 @@ body{
 
 
 
+html.device-desktop{
+	::-webkit-scrollbar {
+	    width: 12px;
+	    height:12px;
+	}
+	 
+	::-webkit-scrollbar-track {
+		//-webkit-box-shadow: inset 0 0 6px mix @neutral-color-medium; 
+		background: @neutral-color-dark;
+		border-radius: 0px;
+		border:none;
+	}
+	 
+	::-webkit-scrollbar-thumb {
+		border-radius: 0px;
+		background: @neutral-color-medium;
+		//-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	}
+}
 
-::-webkit-scrollbar {
-    width: 12px;
-    height:12px;
-}
- 
-::-webkit-scrollbar-track {
-	//-webkit-box-shadow: inset 0 0 6px mix @neutral-color-medium; 
-	background: @neutral-color-dark;
-	border-radius: 0px;
-	border:none;
-}
- 
-::-webkit-scrollbar-thumb {
-	border-radius: 0px;
-	background: @neutral-color-medium;
-	//-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
 

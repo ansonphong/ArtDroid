@@ -67,34 +67,56 @@
 
 		<!-- IMAGE -->
 		<div
-			class="media-viewer"
+			class="media-viewer post-image"
+			ng-class="imageFormat(post)"
 			style="height:{{pw.options.theme.posts.media.style.height}}vh"
-			ng-show="showView('modalImage')">
-
-			<div class="nav-btn-area area-left" ng-click="previousPost()" ng-show="uiBoolean(feed)">
-				<button
-					class="btn-previous"
-					tooltip="Previous (Left Arrow on Keyboard)"
-					tooltip-placement="right"
-					tooltip-popup-delay="333">
-					<i class="pwi-triangle-left-thin"></i>
-				</button>
-			</div>
-			<div class="nav-btn-area area-right" ng-click="nextPost()" ng-show="uiBoolean(feed)">
-				<button
-					class="btn-next"
-					tooltip="Next (Right Arrow on Keyboard)"
-					tooltip-placement="left"
-					tooltip-popup-delay="333">
-					<i class="pwi-triangle-right-thin"></i>
-				</button>
-			</div>
+			ng-show="showView('modalImage')"
+			pw-x-scroll-status>
 
 			<div
 				class="view-image"
+				ng-show="imageFormat(post) == 'standard'"
 				pw-smart-image="post.image"
 				smart-image-dynamic>
+				<div
+					class="nav-btn-area area-left"
+					ng-click="previousPost()"
+					ng-show="::uiBoolean(modalFeed)">
+					<button class="btn-previous">
+						<i class="pwi-triangle-left-thin"></i>
+					</button>
+				</div>
+				<div
+					class="nav-btn-area area-right"
+					ng-click="nextPost()"
+					ng-show="::uiBoolean(modalFeed)">
+					<button class="btn-next">
+						<i class="pwi-triangle-right-thin"></i>
+					</button>
+				</div>
 			</div>
+
+			<!-- SCROLL INDICATOR -->
+			<div
+				class="scroll-indicator"
+				pw-device-class>
+				<div class="message-scroll">
+					<span class="text">Scroll</span>
+					<i class="icon pwi-arrow-right-thin"></i>
+				</div>
+				<div class="message-slide">
+					<i class="icon pwi-arrow-left-thin"></i>
+					<span class="text">Slide</span>
+				</div>
+			</div>
+
+			<!-- PANORAMA -->
+			<img
+				ng-show="imageFormat(post) == 'panorama'"
+				class="view-image"
+				pw-smart-image="post.image"
+				smart-image-dynamic>
+
 		</div>
 
 		<!-- FRAME GALLERY -->

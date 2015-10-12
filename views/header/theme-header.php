@@ -22,12 +22,9 @@ global $pw;
 	///// SECRET LOGIN /////
 	include locate_template( 'views/theme/menu-login-secret.php' );?>
 
-<!-- SECONDARY BACKGROUND LAYER 
 <div
 	id="pw-background-secondary"
-	document-height="100"
 	pw-background="secondary"></div>
-	-->
 	
 <div id="background"></div>
 <!-- HEADER / NAVIGATION -->

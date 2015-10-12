@@ -181,7 +181,7 @@ function theme_postmeta_defaults( $post ){
 	$post_value = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.image.download' ); // $post['post_meta'][PW_POSTMETA_KEY]['image']['download'];
 	$site_value = _get( $default_pw_meta, 'image.download' );
 	// Override 'default' value with the default value
-	if( $post_value == 'default' && $mode != 'edit' ){
+	if( $post_value == 'default' ){
 		// Set in post
 		$post['post_meta'][PW_POSTMETA_KEY]['image']['download'] = $site_value;
 	}
@@ -235,7 +235,8 @@ function theme_postmeta_defaults( $post ){
 		}
 
 		///// LABEL : TOOLTIP /////
-		switch( $post_obj['label']['tooltip']['show'] ){
+		$show_tooltip = _get( $post_obj, 'label.tooltip.show' );
+		switch( $show_tooltip ){
 			case 'default':
 				// Use the site default value
 				$new_obj['label']['tooltip']['custom'] = $site_obj['label']['tooltip']['custom'];
@@ -292,6 +293,29 @@ function theme_postmeta_alt_image( $post ){
 			$post_image );
 		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
+	return $post;
+}
+
+
+/**
+ * REMOVE THE 'UNCATEGORIZED' ITEM FROM CATEGORIES
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_remove_category_uncategorized' );
+function theme_remove_category_uncategorized( $post ){
+	$categories = _get( $post, 'taxonomy.category' );
+
+	// Check if any categories exist
+	if( empty( $categories ) )
+		return $post;
+
+	// Remove all 'uncategorized'
+	$new_categories = array();
+	foreach( $categories as $category ){
+		if( $category['slug'] != 'uncategorized' )
+			$new_categories[] = $category;
+	}
+	$post['taxonomy']['category'] = $new_categories;
+
 	return $post;
 }
 
@@ -389,5 +413,51 @@ function theme_post_field_model_gallery( $fields ){
 
 	return $fields;
 }
+
+
+/**
+ * Custom field model for Preview posts
+ */
+add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );
+function theme_post_field_model_preview( $fields ){
+
+	return array(
+		'ID',
+		'post_title',
+		'post_excerpt',
+		'post_permalink',
+		'time_ago',
+		'post_date',
+		'post_date_gmt',
+		'post_type',
+		'post_status',
+		'fields',
+		'link_format',
+		'link_url',
+		'post_author',
+		'event_start',
+		'event_end',
+		'post_timestamp',
+		'image(stats)',
+		'image(tags)',
+
+		'image(sm,400,400,1)',
+		'image(md,800,800,0)',
+		'image(lg,1024,1024,2)',
+		'image(xl,2048,2048,2)',
+		'image(xxl,4096,4096,2)',
+		'image(full)',
+
+		'edit_post_link',
+		'taxonomy(all)',
+		'post_format',
+		'post_meta(pw_meta)',
+		'post_meta(alt_image)',
+		'post_meta(_thumbnail_id)',
+		'feed_order',
+		);
+
+}
+
 
 ?>
