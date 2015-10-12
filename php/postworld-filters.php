@@ -416,6 +416,38 @@ function theme_post_field_model_gallery( $fields ){
 
 
 /**
+ * Generate additional image sizes which
+ * Require Postworld image sizing algorithms.
+ *
+ * @see wp_generate_attachment_metadata()
+ * @see apply_filters( 'wp_generate_attachment_metadata', $metadata, $attachment_id ) 
+ *
+ * @see pw_get_post_image( $post, $fields )
+ * 
+ * @todo Sync image fields with theme_post_field_model_gallery()
+ */
+add_filter( 'wp_generate_attachment_metadata', 'theme_generate_special_images_sizes', 10, 2 );
+function theme_generate_special_images_sizes( $metadata, $attachment_id ){
+
+	pw_get_post_image(
+		array(
+			'ID' => $attachment_id,
+			'post_type' => 'attachment'
+			),
+		array(
+			'image(md,512,512,2)',
+			'image(lg,1024,1024,2)',
+			'image(xl,2048,2048,2)',
+			'image(xxl,4096,4096,2)',
+			)
+		);
+
+	return $metadata;
+
+}
+
+
+/**
  * Custom field model for Preview posts
  */
 add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );

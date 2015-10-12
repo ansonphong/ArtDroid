@@ -103,13 +103,21 @@ add_image_size( 'grid', '640', '480', true );
 add_image_size( 'x-wide', '1600', '800', true );
 add_image_size( 'x-large', '2400', '2400', false );
 
-add_image_size( 'thumb-square', '400', '400', true );
+//add_image_size( 'thumb-square', '400', '400', true );
 
-add_image_size( 'thumb-wide', '600', '400', true );
-add_image_size( 'thumb-x-wide', '800', '400', true );
+//add_image_size( 'thumb-wide', '600', '400', true );
+//add_image_size( 'thumb-x-wide', '800', '400', true );
 
-add_image_size( 'thumb-tall', '400', '600', true );
-add_image_size( 'thumb-x-tall', '400', '800', true );
+//add_image_size( 'thumb-tall', '400', '600', true );
+//add_image_size( 'thumb-x-tall', '400', '800', true );
+
+
+add_action('init', 'theme_remove_image_sizes');
+function theme_remove_image_sizes() {	
+	set_post_thumbnail_size( 150, 150 );
+	//remove_image_size('thumbnail');
+}
+
 
 ////////// REMOVE FILTERS //////////
 remove_filter( 'the_content', 'prepend_attachment', 10 );
