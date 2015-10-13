@@ -438,9 +438,6 @@ function theme_post_field_model_gallery( $fields ){
  */
 add_filter( 'wp_generate_attachment_metadata', 'theme_generate_special_images_sizes', 10, 2 );
 function theme_generate_special_images_sizes( $metadata, $attachment_id ){
-	//pw_log( 'metadata', $metadata );
-	//ini_set('memory_limit', '2G');
-
 	/**
 	 * Get the image with custom dimensions
 	 * Using Postworld image resizing algorithm.
@@ -454,12 +451,8 @@ function theme_generate_special_images_sizes( $metadata, $attachment_id ){
 		$metadata
 		);
 
-	//pw_log( 'post_image', $post_image );
-
 	$metadata['sizes'] = array_replace( $metadata['sizes'], $post_image['sizes'] );
 
-	//pw_log( 'new metadata', $metadata );
-	
 	return $metadata;
 
 }
