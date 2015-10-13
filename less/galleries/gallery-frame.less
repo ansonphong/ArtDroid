@@ -114,10 +114,43 @@
 		.image-viewer{
 			position: relative;
 			min-height:400px;
-			background-size:contain;
-			background-repeat: no-repeat;
-			background-position: center center;
+
+			.image-area{
+				position: absolute;
+				top:0;
+				bottom:0;
+				right:0;
+				left:0;
+				&.image--standard{
+					background-size:contain;
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
+				&.image--panorama{
+					overflow-x: scroll;
+					text-align: center;
+
+					height:100%;
+					min-height:100%;
+
+					img{
+						width:auto;
+						max-width:none;
+						height:100%;
+						min-height:100%;
+					}
+				}
+
+			}
+
+			&.panorama{
+				.image-info{
+					bottom:12px;
+				}
+			}
+
 		}
+
 	}
 
 }

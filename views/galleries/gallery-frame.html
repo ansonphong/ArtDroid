@@ -3,18 +3,51 @@
 	gallery-posts="post.gallery.posts"
 	gallery-keybinding="{{ vars.keybind }}"
 	class="gallery-viewer view-gallery-frame"
+	art-post
 	pw-ui>
 	
 	<div
-		class="gallery-image"
-		ng-swipe-left="nextImage()"
-		ng-swipe-right="previousImage()">
+		class="gallery-image">
+		<!-- TODO : Add height as an admin option -->
 		<div
 			class="image-viewer image-hover-area"
 			style="height:75vh;"
-			pw-smart-image="selectedImage().image"
-			smart-image-priority="height"
-			smart-image-dynamic>
+			ng-class="imageFormat( selectedImage() )">
+
+			<div
+				ng-show="imageFormat( selectedImage() ) == 'standard'"
+				class="image-area image--standard"
+				pw-smart-image="selectedImage().image"
+				smart-image-priority="height"
+				smart-image-dynamic
+				ng-swipe-left="nextImage()"
+				ng-swipe-right="previousImage()"></div>
+
+			<div
+				ng-show="imageFormat( selectedImage() ) == 'panorama'"
+				class="image-area image--panorama"
+				pw-x-scroll-status>
+
+					<!-- SCROLL INDICATOR -->
+					<div
+						class="scroll-indicator"
+						pw-device-class>
+						<div class="message-scroll">
+							<span class="text">Scroll</span>
+							<i class="icon pwi-arrow-right-thin"></i>
+						</div>
+						<div class="message-slide">
+							<i class="icon pwi-arrow-left-thin"></i>
+							<span class="text">Slide</span>
+						</div>
+					</div>
+
+					<img
+						pw-smart-image="selectedImage().image"
+						smart-image-priority="height"
+						smart-image-dynamic
+						smart-image-show-debug>
+				</div>
 
 			<div class="loading-outer" ng-show="!galleryLoaded()">
 				<div class="loading-inner">
@@ -22,10 +55,12 @@
 				</div>
 			</div>
 
+			<!--
 			<div
 				class="image-overlay"
 				ng-click="nextImage()">
 			</div>
+			-->
 
 			<!-- IMAGE INFO -->
 			<div

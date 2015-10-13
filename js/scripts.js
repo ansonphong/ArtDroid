@@ -31,7 +31,7 @@ postworld.controller( 'artPostCtrl',
 	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts', '$timeout',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
-	$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
+	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
 
 	$scope.showView = function( view ){
 
@@ -128,13 +128,10 @@ postworld.controller( 'artPostCtrl',
 		var ratio = $_.get( post, 'image.stats.ratio' );
 		if( !ratio )
 			return false;
-		ratio = Number( ratio );
-
-		if( ratio > 3 )
+		if( Number( ratio ) > 3 )
 			return 'panorama';
 		else
 			return 'standard';
-
 	}
 
 	///// WATCH : POST ID /////
