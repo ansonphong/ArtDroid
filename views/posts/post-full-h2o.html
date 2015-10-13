@@ -134,6 +134,13 @@
 						{{ post.post_title }}
 					</span>
 				</h1>
+
+				{% if password_protected %}
+					<div class="password-protected">
+						<i class="icon pwi-lock"></i>
+						This content is password protected.
+					</div>
+				{% endif %}
 				
 				{% if post.post_type != 'page' %}
 					
