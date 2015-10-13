@@ -99,9 +99,9 @@ function expanse_init() {
 add_action( 'init', 'expanse_init' );
 
 /////////// ADD IMAGE SIZES //////////
-add_image_size( 'grid', '640', '480', true );
-add_image_size( 'x-wide', '1600', '800', true );
-add_image_size( 'x-large', '2400', '2400', false );
+//add_image_size( 'grid', '640', '480', true );
+//add_image_size( 'x-wide', '1600', '800', true );
+//add_image_size( 'x-large', '2400', '2400', false );
 
 //add_image_size( 'thumb-square', '400', '400', true );
 
@@ -114,8 +114,12 @@ add_image_size( 'x-large', '2400', '2400', false );
 
 add_action('init', 'theme_remove_image_sizes');
 function theme_remove_image_sizes() {	
-	set_post_thumbnail_size( 150, 150 );
-	//remove_image_size('thumbnail');
+	//set_post_thumbnail_size( 150, 150 );
+	remove_image_size('thumbnail');
+	remove_image_size('medium');
+	remove_image_size('large');
+	remove_image_size('post-thumbnail');
+
 }
 
 
