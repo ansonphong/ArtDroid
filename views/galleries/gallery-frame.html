@@ -21,7 +21,12 @@
 				smart-image-priority="height"
 				smart-image-dynamic
 				ng-swipe-left="nextImage()"
-				ng-swipe-right="previousImage()"></div>
+				ng-swipe-right="previousImage()">
+				<div
+					class="image-overlay"
+					ng-click="nextImage()">
+				</div>
+			</div>
 
 			<div
 				ng-show="imageFormat( selectedImage() ) == 'panorama'"
@@ -55,12 +60,6 @@
 				</div>
 			</div>
 
-			<!--
-			<div
-				class="image-overlay"
-				ng-click="nextImage()">
-			</div>
-			-->
 
 			<!-- IMAGE INFO -->
 			<div
