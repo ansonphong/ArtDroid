@@ -391,6 +391,22 @@ function theme_slider_preprocess_image_fields( $slider ){
 	return $slider;
 }
 
+/**
+ * Define the custom image fields which are generated
+ * By the theme using the Postworld image sizing algorithm.
+ */
+function theme_get_custom_image_fields(){
+	return array(
+		'image(stats)',
+		'image(xs,128,128,1)',
+		'image(sm,256,256,1)',
+		'image(md,512,512,2)',
+		'image(lg,1024,1024,2)',
+		'image(xl,2048,2048,2)',
+		//'image(xxl,3072,3072,2)',
+		//'image(xxl,4096,4096,2)',
+	);
+}
 
 /**
  * FIELD MODEL : GALLERY
@@ -401,15 +417,9 @@ function theme_post_field_model_gallery( $fields ){
 
 	$fields = array_diff( $fields, array( 'image(all)' ) );
 
-	$fields = array_merge( $fields, array(
-		'image(xs,128,128,1)',
-		'image(sm,256,256,1)',
-		'image(md,512,512,2)',
-		'image(lg,1024,1024,2)',
-		'image(xl,2048,2048,2)',
-		'image(xxl,4096,4096,2)',
-		'image(full)'
-		));
+	$custom_image_fields = theme_get_custom_image_fields();
+
+	$fields = array_merge( $fields, array( 'image(full)' ), $custom_image_fields );
 
 	return $fields;
 }
@@ -428,20 +438,28 @@ function theme_post_field_model_gallery( $fields ){
  */
 add_filter( 'wp_generate_attachment_metadata', 'theme_generate_special_images_sizes', 10, 2 );
 function theme_generate_special_images_sizes( $metadata, $attachment_id ){
+	//pw_log( 'metadata', $metadata );
+	//ini_set('memory_limit', '2G');
 
-	pw_get_post_image(
-		array(
-			'ID' => $attachment_id,
-			'post_type' => 'attachment'
-			),
-		array(
-			'image(md,512,512,2)',
-			'image(lg,1024,1024,2)',
-			'image(xl,2048,2048,2)',
-			'image(xxl,4096,4096,2)',
-			)
+	/**
+	 * Get the image with custom dimensions
+	 * Using Postworld image resizing algorithm.
+	 * This caches the images at that resolution.
+	 */
+	$custom_image_fields = theme_get_custom_image_fields();
+	$post_image = pw_get_post_image(
+		$attachment_id,
+		$custom_image_fields,
+		true,
+		$metadata
 		);
 
+	//pw_log( 'post_image', $post_image );
+
+	$metadata['sizes'] = array_replace( $metadata['sizes'], $post_image['sizes'] );
+
+	//pw_log( 'new metadata', $metadata );
+	
 	return $metadata;
 
 }
