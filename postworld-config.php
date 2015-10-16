@@ -28,6 +28,7 @@ $pwSiteGlobals = array(
 			'taxonomy-meta',
 			'shortcodes',
 			'devices',
+			'colors'
 			),
 		'supported'	=>	array(
 			'site',
@@ -43,11 +44,11 @@ $pwSiteGlobals = array(
 			'devices',
 			'post_cache',
 			'layout_cache',
+			'colors'
 			),
 		),
 
 	'wp_admin'	=>	array(
-
 
 		'taxonomy_meta'	=>	array(
 			array(
@@ -94,6 +95,9 @@ $pwSiteGlobals = array(
 			'pw_avatar'	=>	true,
 			),
 		'metabox'	=>	array(
+			'colors' => array(
+				'post_types' => array( 'attachment', 'post' )
+				),
 			'link_url'	=>	array(
 				'post_types'	=>	array( 'post', 'page', 'attachment' ),
 				),
@@ -173,6 +177,56 @@ $pwSiteGlobals = array(
 			'json_meta_keys' => array(
 				'event',
 				'pw_meta',
+				),
+			),
+		),
+
+	// Add options for image meta here
+	'colors' => array(
+		// Cached under pw_colors postmeta key
+		'process_images' => true,
+		'max_size' => 640,
+		'number' => 6,
+		// Generated real-time via pw_get_post_image
+		'color_profiles' => array(
+			'source' => array(
+				'order_by' 		=> 'default'
+				),
+			'dynamic' => array(
+				'order_by'		=> 'lightness',
+				'order'			=> 'DESC',
+				'processing'	=>	array(
+					'lightness_range' => array(
+						'low' => 0.33,
+						'high' => 0.66,
+						'distribute' => true,
+						'order' => 'DESC',
+						),
+					'saturation_range' => array(
+						'low' => 0.4,
+						'high' => 0.6,
+						'distribute' => true,
+						'order' => 'DESC',
+						),
+					),
+				),
+			'median' => array(
+				'order_by'		=> 'lightness',
+				'order'			=> 'DESC',
+				'processing'	=>	array(
+					'lightness_range' => array(
+						'low' => 0.49,
+						'high' => 0.51,
+						'distribute' => true,
+						'order' => 'DESC',
+						),
+					'saturation_range' => array(
+						'low' => 0.49,
+						'high' => 0.51,
+						'distribute' => true,
+						'order' => 'DESC',
+						),
+					),
 				),
 			),
 		),
