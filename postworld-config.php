@@ -186,7 +186,7 @@ $pwSiteGlobals = array(
 		// Cached under pw_colors postmeta key
 		'process_images' => true,
 		'max_size' => 640,
-		'number' => 6,
+		'number' => 4,
 		// Generated real-time via pw_get_post_image
 		'color_profiles' => array(
 			/*
@@ -199,20 +199,20 @@ $pwSiteGlobals = array(
 				'order'			=> 'DESC',
 				'processing'	=>	array(
 					'lightness_range' => array(
-						'low' => 0.2,
+						'low' => 0.15,
 						'high' => 0.8,
 						'distribute' => true,
 						'order' => 'DESC',
 						),
 					'saturation_range' => array(
-						'low' => 0.1,
-						'high' => 0.9,
+						'low' => 0.0,
+						'high' => 0.5,
 						'distribute' => false,
 						'order' => 'DESC',
 						),
 					),
 				),
-			/*
+			
 			'median' => array(
 				'order_by'		=> 'lightness',
 				'order'			=> 'DESC',
@@ -225,13 +225,13 @@ $pwSiteGlobals = array(
 						),
 					'saturation_range' => array(
 						'low' => 0.0,
-						'high' => 0.6,
+						'high' => 0.5,
 						'distribute' => false,
 						'order' => 'DESC',
 						),
 					),
 				),
-				*/
+				
 			),
 		),
 

@@ -1,9 +1,14 @@
 <div
-	pw-globals="pw">
+	pw-globals="pw"
+	pw-colors
+	pw-ui>
+
+	<div pw-include="style/style-hack" include-post="post"></div>
+
 	<div
-		pw-ui
 		class="modal-head"
 		ng-show="pw.options.theme.modals.header.show">
+		<!-- ng-style="{background:getHex(post,'dynamic','last')}" -->
 		<div
 			class="pull-left">
 			<!-- TITLE -->
@@ -30,10 +35,10 @@
 				ng-mouseout="uiToggleView('prevPost')">
 				<i
 					ng-show="!uiShowView('prevPost')"
-					class="pwi-triangle-left-thin"></i>
+					class="icon pwi-triangle-left-thin"></i>
 				<i
 					ng-show="uiShowView('prevPost')"
-					class="pwi-triangle-left-fill"></i>
+					class="icon pwi-triangle-left-fill"></i>
 			</button>
 			<!-- NEXT POST -->
 			<button
@@ -46,10 +51,10 @@
 				ng-mouseout="uiToggleView('nextPost')">
 				<i
 					ng-show="!uiShowView('nextPost')"
-					class="pwi-triangle-right-thin"></i>
+					class="icon pwi-triangle-right-thin"></i>
 				<i
 					ng-show="uiShowView('nextPost')"
-					class="pwi-triangle-right-fill"></i>
+					class="icon pwi-triangle-right-fill"></i>
 			</button>
 		</div>
 	</div>
@@ -189,7 +194,8 @@
 					<a ng-href="{{ post.post_permalink }}">
 						<span
 							class="icon"
-							ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
+							ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'"
+							ng-style="{color:getHex(post,'dynamic','second')}">
 							<i
 								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
 								class="pwi-arrow-down"></i>

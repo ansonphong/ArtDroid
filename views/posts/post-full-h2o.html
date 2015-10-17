@@ -3,8 +3,10 @@
 	art-post
 	pw-modal-access
 	class="post full block"
-	pw-ui>
-
+	pw-ui
+	pw-colors>
+	<div pw-include="style/style-hack" include-post="post"></div>
+	
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
 		<!-- FRAME GALLERY -->
 		<div
@@ -101,13 +103,19 @@
 		</div>
 	{% endif %}
 
+	<!--
+	<div ng-style="{color:getColor(post,'dynamic','first')}">
+		COLORS :
+		<span ng-bind="post.image.colors | json"></span>
+	</div>
+	-->
+	
 	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
 		<div class="row">
 			<div class="col-md-7">
 
 				<h1 class="post-title">
-					
 						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
 							<span class="icon">
 								<i class="pwi-arrow-down"></i>

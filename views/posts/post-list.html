@@ -10,8 +10,8 @@
 					style="display:table-cell;">
 					<img
 						class="thumb"
-						ng-show="{{ ::post.image.sizes.thumbnail.url != null }}"
-						ng-src="{{ ::post.image.sizes.thumbnail.url }}">
+						ng-show="{{ ::post.image.sizes.full.url != null }}"
+						pw-smart-image="::post.image">
 				</div>
 				<div
 					style="display:table-cell; height:100%; vertical-align:middle;">
