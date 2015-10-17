@@ -3,7 +3,8 @@
 	pw-globals="pw"
 	ng-show="includeEnable"
 	class="media-viewer"
-	style="height:{{pw.options.theme.posts.galleries.style.x_gallery_height}}vh">
+	style="height:{{pw.options.theme.posts.galleries.style.x_gallery_height}}vh"
+	pw-colors>
 	
 	<div
 		pw-infinite-gallery
@@ -20,14 +21,27 @@
 			scroll-this>
 
 			<!-- SCROLL INDICATOR -->
-			<div class="scroll-indicator" pw-device-class>
+			<div
+				class="scroll-indicator"
+				pw-device-class
+				ng-style="{background:getHex(post,'dynamic','first')}">
 				<div class="message-scroll">
-					<span class="text">Scroll</span>
-					<i class="icon pwi-arrow-right-thin"></i>
+					<span
+						class="text"
+						ng-style="{color:getHex(post,'dynamic','last')}">Scroll</span>
+					<i
+						class="icon pwi-arrow-right-thin"
+						ng-style="{color:getHex(post,'dynamic','first'), background:getHex(post,'dynamic','last')}">
+					</i>
 				</div>
 				<div class="message-slide">
-					<i class="icon pwi-arrow-left-thin"></i>
-					<span class="text">Slide</span>
+					<span
+						class="text"
+						ng-style="{color:getHex(post,'dynamic','last')}">Slide</span>
+					<i
+						class="icon pwi-arrow-left-thin"
+						ng-style="{color:getHex(post,'dynamic','first'), background:getHex(post,'dynamic','last')}">
+					</i>
 				</div>
 			</div>
 

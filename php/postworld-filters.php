@@ -483,12 +483,12 @@ function theme_post_field_model_preview( $fields ){
 		'post_timestamp',
 		'image(stats)',
 		'image(tags)',
+		'image(colors)',
 
 		'image(sm,400,400,1)',
 		'image(md,800,800,0)',
 		'image(lg,1024,1024,2)',
 		'image(xl,2048,2048,2)',
-		'image(xxl,4096,4096,2)',
 		'image(full)',
 
 		'edit_post_link',

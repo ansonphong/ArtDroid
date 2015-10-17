@@ -30,6 +30,7 @@ $fields = array(
 	'parent_post(preview)',
 	'image(stats)',
 	'image(tags)',
+	'image(colors)',
 	'image(sm,512,512,2)',
 	'image(md,1024,1024,2)',
 	'image(lg,2048,2048,2)',
