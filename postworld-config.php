@@ -188,51 +188,7 @@ $pwSiteGlobals = array(
 		'max_size' => 640,
 		'number' => 4,
 		// Generated real-time via pw_get_post_image
-		'color_profiles' => array(
-			/*
-			'source' => array(
-				'order_by' 		=> 'default'
-				),
-			*/
-			'dynamic' => array(
-				'order_by'		=> 'lightness',
-				'order'			=> 'DESC',
-				'processing'	=>	array(
-					'lightness_range' => array(
-						'low' => 0.15,
-						'high' => 0.8,
-						'distribute' => true,
-						'order' => 'DESC',
-						),
-					'saturation_range' => array(
-						'low' => 0.0,
-						'high' => 0.5,
-						'distribute' => false,
-						'order' => 'DESC',
-						),
-					),
-				),
-			
-			'median' => array(
-				'order_by'		=> 'lightness',
-				'order'			=> 'DESC',
-				'processing'	=>	array(
-					'lightness_range' => array(
-						'low' => 0.49,
-						'high' => 0.51,
-						'distribute' => true,
-						'order' => 'DESC',
-						),
-					'saturation_range' => array(
-						'low' => 0.0,
-						'high' => 0.5,
-						'distribute' => false,
-						'order' => 'DESC',
-						),
-					),
-				),
-				
-			),
+		//'color_profiles' => 
 		),
 
 	'iconsets'	=>	array(
