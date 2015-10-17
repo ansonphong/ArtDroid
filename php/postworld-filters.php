@@ -503,4 +503,60 @@ function theme_post_field_model_preview( $fields ){
 }
 
 
-?>
+add_filter( 'pw_color_profiles', 'theme_color_profiles', 11, 2 );
+function theme_color_profiles( $profiles, $attachment_id ){
+
+	unset( $profiles['default'] );
+
+	$profiles['dynamic'] = array(
+		'order_by'		=> 'lightness',
+		'order'			=> 'DESC',
+		'processing'	=>	array(
+			'lightness_range' => array(
+				'low' => 0.15,
+				'high' => 0.8,
+				'distribute' => true,
+				'order' => 'DESC',
+				),
+			'saturation_range' => array(
+				'low' => 0.0,
+				'high' => 0.5,
+				'distribute' => false,
+				'order' => 'DESC',
+				),
+			),
+		);
+
+		/*
+		'source' => array(
+			'order_by' 		=> 'default'
+			),
+		*/
+		/*
+		'median' => array(
+			'order_by'		=> 'lightness',
+			'order'			=> 'DESC',
+			'processing'	=>	array(
+				'lightness_range' => array(
+					'low' => 0.49,
+					'high' => 0.51,
+					'distribute' => true,
+					'order' => 'DESC',
+					),
+				'saturation_range' => array(
+					'low' => 0.0,
+					'high' => 0.5,
+					'distribute' => false,
+					'order' => 'DESC',
+					),
+				),
+			),
+		*/
+	
+
+	return $profiles;
+
+}
+
+
+
