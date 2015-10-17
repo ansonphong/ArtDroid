@@ -503,8 +503,8 @@ function theme_post_field_model_preview( $fields ){
 }
 
 
-add_filter( 'pw_color_profiles', 'theme_color_profiles', 11, 2 );
-function theme_color_profiles( $profiles, $attachment_id ){
+add_filter( 'pw_color_profiles', 'theme_color_profiles', 11 );
+function theme_color_profiles( $profiles ){
 
 	unset( $profiles['default'] );
 
