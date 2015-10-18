@@ -7,8 +7,8 @@
 	pw-colors>
 
 	<!-- TODO : MAKE THIS INTO A HIGHER LEVEL DIRECTIVE WHICH EXECUTES INSTANTLY -->
-	<!-- SUCH AS pwColorsStyle -->
-	<div pw-colors-style="colorStyles,post.image.colors"></div>
+	<!-- SUCH AS pwColorsStyle, which watches for changes in input colors, if colors-style-dynamic is present -->
+	<div pw-colors-style="colorStyles,post.image.colors" colors-style-dynamic></div>
 
 	<!-- THIS IS A TEMP HACK -->
 	<div pw-compile-code="outputStyles( colorStyles, post.image.colors )"></div>
