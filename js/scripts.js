@@ -146,6 +146,26 @@ postworld.controller( 'artPostCtrl',
 		
 	});
 
+	/**
+	 * Custom dynamic style definitions which change
+	 * According to the current post colors.
+	 */
+	$scope.colorStyles = {
+		".share-social .icon, .post .icon, .post a, .modal-head .icon, .post .callout": {
+			color: "{{ hex('dynamic.25') }} !important",
+			//background: "{{ rgba('dynamic.0',.8) }} !important",
+		},
+		".post .post-title a":{
+			color: "{{ hex('dynamic.0') }} !important",
+		},
+		"::-webkit-scrollbar-track": {
+			background: "{{ hex('dynamic.100') }} !important",
+		},
+		"::-webkit-scrollbar-thumb": {
+			background: "{{ hex('dynamic.50') }} !important",
+		},
+	};
+
 
 }]);
 
