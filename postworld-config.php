@@ -186,7 +186,7 @@ $pwSiteGlobals = array(
 		// Cached under pw_colors postmeta key
 		'process_images' => true,
 		'max_size' => 640,
-		'number' => 4,
+		'number' => 5,
 		// Generated real-time via pw_get_post_image
 		//'color_profiles' => 
 		),

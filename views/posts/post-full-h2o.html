@@ -5,8 +5,14 @@
 	class="post full block"
 	pw-ui
 	pw-colors>
-	<div pw-include="style/style-hack" include-post="post"></div>
-	
+
+	<!-- TODO : MAKE THIS INTO A HIGHER LEVEL DIRECTIVE WHICH EXECUTES INSTANTLY -->
+	<!-- SUCH AS pwColorsStyle -->
+	<div pw-colors-style="colorStyles,post.image.colors"></div>
+
+	<!-- THIS IS A TEMP HACK -->
+	<div pw-compile-code="outputStyles( colorStyles, post.image.colors )"></div>
+
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
 		<!-- FRAME GALLERY -->
 		<div
