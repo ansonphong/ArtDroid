@@ -193,7 +193,6 @@ postworld.controller( 'artPostCtrl',
 			"background": "{{ hex('dynamic.50') }} !important",
 		},
 	};
-
 }]);
 
 postworld.directive( 'artFeed', [ function( $scope ){
