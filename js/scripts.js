@@ -183,6 +183,9 @@ postworld.controller( 'artPostCtrl',
 		".media-viewer": {
 			"border-bottom-color": "{{hex('dynamic.100')}}"
 		},
+		".image-info":{
+			"background":"{{ rgba('dynamic.100',.8) }}"
+		},
 		"::-webkit-scrollbar-track": {
 			"background": "{{ hex('dynamic.100') }} !important",
 		},
