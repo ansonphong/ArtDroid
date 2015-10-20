@@ -151,25 +151,47 @@ postworld.controller( 'artPostCtrl',
 	 * According to the current post colors.
 	 */
 	$scope.colorStyles = {
+		"#header-border": {
+			"border-bottom-color":"{{ hex('dynamic.50') }} !important",
+		},
+		"a .menu-icon":{
+			"color": "{{ hex('dynamic.50') }} !important",
+		},
+		".modal .modal-head button.transparent":{
+			"color":"{{ hex('dynamic.25') }}"
+		},
 		".share-social .icon, .post .icon, .post a, .modal-head .icon, .post .callout": {
-			color: "{{ hex('dynamic.25') }} !important",
+			"color": "{{ hex('dynamic.25') }} !important",
 			//background: "{{ rgba('dynamic.0',.8) }} !important",
 		},
 		".post .post-title a":{
-			color: "{{ hex('dynamic.0') }} !important",
+			"color": "{{ hex('dynamic.0') }} !important",
+		},
+		".post .taxonomy a.term":{
+			"border-bottom": "1px solid {{hex('dynamic.50')}}"
+		},
+		".sidebar .sidebar-widget h3.sidebar-title":{
+			"color": "{{hex('dynamic.25')}}",
+			"background": "{{hex('dynamic.100')}}"
+		},
+		".modal .nav-btn-area button.btn-next, .modal .nav-btn-area button.btn-previous":{
+			"color": "{{hex('dynamic.25')}}"
+		},
+		".modal .nav-btn-area button.btn-next:hover, .modal .nav-btn-area button.btn-previous:hover":{
+			"border-color": "{{hex('dynamic.25')}}",
+		},
+		".media-viewer": {
+			"border-bottom-color": "{{hex('dynamic.100')}}"
 		},
 		"::-webkit-scrollbar-track": {
-			background: "{{ hex('dynamic.100') }} !important",
+			"background": "{{ hex('dynamic.100') }} !important",
 		},
 		"::-webkit-scrollbar-thumb": {
-			background: "{{ hex('dynamic.50') }} !important",
+			"background": "{{ hex('dynamic.50') }} !important",
 		},
 	};
 
-
 }]);
-
-
 
 postworld.directive( 'artFeed', [ function( $scope ){
 	return {

@@ -1,9 +1,11 @@
 <div
-	pw-globals="pw"
-	pw-colors
-	pw-ui>
+	pw-globals="pw">
 
-	<div pw-compile-code="outputStyles( colorStyles, post.image.colors )"></div>
+	<style
+		pw-style-colors="colorStyles"
+		color-profiles="post.image.colors"
+		color-profiles-dynamic>
+	</style>
 
 	<div
 		class="modal-head"

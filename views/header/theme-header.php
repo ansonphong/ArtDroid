@@ -71,6 +71,7 @@ global $pw;
 	id="content"
 	class="page-content pw-transition-fadein page-width"
 	pw-timeout="100"
-	timeout-action="addClass('fadein-on')">
+	timeout-action="addClass('fadein-on')"
+	ng-cloak>
 	
 	<div class="clearfix"></div>
