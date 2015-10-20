@@ -78,11 +78,12 @@ function theme_include_styles(){
 }
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
 function theme_include_scripts(){
+	global $theme_version;
 	///// JQUERY /////
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 	// MAIN SCRIPTS
-	wp_enqueue_script( 'scripts-main', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery', 'jquery-ui-core') , '' , true );
+	wp_enqueue_script( 'scripts-main', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery', 'jquery-ui-core') , $theme_version , true );
 }
 
 ////////// INIT WORDPRES //////////
