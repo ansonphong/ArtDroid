@@ -3,15 +3,17 @@
 	art-post
 	pw-modal-access
 	class="post full block"
+	pw-globals="pw"
 	pw-ui
-	pw-colors>
+	ng-cloak>
 
-	<!-- TODO : MAKE THIS INTO A HIGHER LEVEL DIRECTIVE WHICH EXECUTES INSTANTLY -->
-	<!-- SUCH AS pwColorsStyle, which watches for changes in input colors, if colors-style-dynamic is present -->
-	<div pw-colors-style="colorStyles,post.image.colors" colors-style-dynamic></div>
-
-	<!-- THIS IS A TEMP HACK -->
-	<div pw-compile-code="outputStyles( colorStyles, post.image.colors )"></div>
+	{% if theme_options.colors.views.single.dynamic_colors %}
+	<style
+		pw-style-colors="colorStyles"
+		color-profiles="post.image.colors"
+		color-profiles-enable="pw.options.colors.profiles_enable">
+	</style>
+	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
 		<!-- FRAME GALLERY -->

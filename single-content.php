@@ -8,6 +8,9 @@
 global $social_settings;
 $social_settings['meta']['url'] = get_permalink();
 
+// Get theme options
+$theme_options = pw_get_option(array('option_name'=>PW_OPTIONS_THEME));
+
 $fields = array(
 	'ID',
 	'post_id',
@@ -54,6 +57,7 @@ $post_settings = array(
 		'social_share'		=>	pw_social_share( $post ),
 		'pw'				=>	$pw,
 		'password_protected'=> !empty( $post->post_password ),
+		'theme_options'		=> $theme_options,
 		),
 	'js_vars'	=>	array('post'),
 	);

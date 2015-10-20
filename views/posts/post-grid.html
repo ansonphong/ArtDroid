@@ -1,14 +1,14 @@
 <div
 	pw-feed-post
 	pw-modal-access
-	ng-cloak
 	class="post grid pw-transition-fadein"
 	pw-grid-item
 	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
 	timeout-action="addClass('fadein-on')"
 	ng-hide="post.post_status == 'trash'"
 	pw-ui
-	pw-colors>
+	pw-colors
+	ng-cloak>
 	<div
 		class="post-wrapper"
 		pw-hover-class="hover"

@@ -559,4 +559,33 @@ function theme_color_profiles( $profiles ){
 }
 
 
+function theme_get_loading_icon_options(){
+	$icons = array(
+		'pwi-spinner-1',
+		'pwi-spinner-2',
+		'pwi-spinner-3',
+		'pwi-spinner-4',
+		'pwi-spinner-5',
+		'pwi-spinner-6',
+		'pwi-seal-1',
+		'pwi-triadic-1',
+		'pwi-triadic-2',
+		'pwi-triadic-3',
+		'pwi-triadic-4',
+		'pwi-triadic-5',
+		'pwi-seed-of-life',
+		'pwi-seed-of-life-fill',
+		'pwi-merkaba',
+		'pwi-target',
+		'pwi-sun',
+		'pwi-contrast',
+		'pwi-loop',
+		'pwi-hexagon-thick',
+		'pwi-hexagon-medium',
+		'pwi-hexagon-thin',
+		'pwi-arrow-down-circle',
+		);
+	return $icons;
+}
+
 

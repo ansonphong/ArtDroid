@@ -5,6 +5,18 @@ function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+		'colors' => array(
+			'views' => array(
+				'single' => array(
+					'dynamic_colors' => true,
+					),
+				'grid' => array(
+					'dynamic_colors' => false,
+					),
+				),
+			'profiles' => array(
+				),
+			),
 		'fonts'	=>	array(
 			'body'		=>	'Roboto',
 			'title'		=>	'Roboto',
@@ -21,7 +33,7 @@ function pw_theme_options_filter( $options ){
 				'style' => array(
 					'x_gallery_height' => 66,
 					),
-				),
+				), 
 			'post'	=>	array(
 				'post_meta'	=>	array(
 					'pw_meta'	=>	array(
