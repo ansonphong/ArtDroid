@@ -8,7 +8,6 @@
 	<div
 		class="modal-head"
 		ng-show="pw.options.theme.modals.header.show">
-		<!-- ng-style="{background:getHex(post,'dynamic','last')}" -->
 		<div
 			class="pull-left">
 			<!-- TITLE -->
@@ -194,8 +193,7 @@
 					<a ng-href="{{ post.post_permalink }}">
 						<span
 							class="icon"
-							ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'"
-							ng-style="{color:getHex(post,'dynamic','second')}">
+							ng-show="post.post_meta.pw_meta.gallery.template == 'vertical' || post.post_meta.pw_meta.gallery.template == 'horizontal'">
 							<i
 								ng-show="post.post_meta.pw_meta.gallery.template == 'vertical'"
 								class="pwi-arrow-down"></i>

@@ -236,7 +236,7 @@ masonry{
     }
   }
 
-  .overlay{
+  .overlay,.color-overlay{
     position:absolute;
     width:100%;
     height:100%;
@@ -244,9 +244,15 @@ masonry{
     transition:opacity ease @transition-time;
   }
 
+  .color-overlay{
+    opacity: 0;
+    .transition();
+  }
+
   &:hover{
-    .overlay{
-      background-color:fade( @neutral-color-light, 15% );
+    .color-overlay{
+      opacity: 0.2;
+      //background-color:fade( @neutral-color-light, 15% );
     }
   }
 

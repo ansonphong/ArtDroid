@@ -158,36 +158,36 @@ postworld.controller( 'artPostCtrl',
 			"color": "{{ hex('dynamic.50') }} !important",
 		},
 		".modal .modal-head button.transparent":{
-			"color":"{{ hex('dynamic.25') }}"
+			"color":"{{ hex('dynamic.75') }}"
 		},
 		".share-social .icon, .post .icon, .post a, .modal-head .icon, .post .callout": {
-			"color": "{{ hex('dynamic.25') }} !important",
+			"color": "{{ hex('dynamic.75') }} !important",
 			//background: "{{ rgba('dynamic.0',.8) }} !important",
 		},
 		".post .post-title a":{
-			"color": "{{ hex('dynamic.0') }} !important",
+			"color": "{{ hex('dynamic.100') }} !important",
 		},
 		".post .taxonomy a.term":{
 			"border-bottom": "1px solid {{hex('dynamic.50')}}"
 		},
 		".sidebar .sidebar-widget h3.sidebar-title":{
-			"color": "{{hex('dynamic.25')}}",
-			"background": "{{hex('dynamic.100')}}"
+			"color": "{{hex('dynamic.75')}}",
+			"background": "{{hex('dynamic.0')}}"
 		},
 		".modal .nav-btn-area button.btn-next, .modal .nav-btn-area button.btn-previous":{
-			"color": "{{hex('dynamic.25')}}"
+			"color": "{{hex('dynamic.75')}}"
 		},
 		".modal .nav-btn-area button.btn-next:hover, .modal .nav-btn-area button.btn-previous:hover":{
-			"border-color": "{{hex('dynamic.25')}}",
+			"border-color": "{{hex('dynamic.75')}}",
 		},
 		".media-viewer": {
-			"border-bottom-color": "{{hex('dynamic.100')}}"
+			"border-bottom-color": "{{hex('dynamic.0')}}"
 		},
 		".image-info":{
-			"background":"{{ rgba('dynamic.100',.8) }}"
+			"background":"{{ rgba('dynamic.0',.8) }}"
 		},
 		"::-webkit-scrollbar-track": {
-			"background": "{{ hex('dynamic.100') }} !important",
+			"background": "{{ hex('dynamic.0') }} !important",
 		},
 		"::-webkit-scrollbar-thumb": {
 			"background": "{{ hex('dynamic.50') }} !important",
