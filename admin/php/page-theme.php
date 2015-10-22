@@ -256,14 +256,12 @@
 							<b>Single Posts</b>
 							<small>Use dynamic colors when viewing single posts.</small>
 						</label>
-						<!--
 						<hr class="thin">
 						<label>
 							<input type="checkbox" ng-model="pwOptions.colors.views.grid.dynamic_colors">
 							<b>Grid Feeds</b>
 							<small>Use dynamic colors when viewing grid feed.</small>
 						</label>
-						-->
 					</div>
 				</div>
 

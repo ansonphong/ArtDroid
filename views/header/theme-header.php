@@ -67,6 +67,9 @@ global $pw;
 <!-- LINE -->
 <div id="header-border"></div>
 
+<!-- POSTWORLD GLOBALS -->
+<div pw-globals="pw"></div>
+
 <div
 	id="content"
 	class="page-content pw-transition-fadein page-width"

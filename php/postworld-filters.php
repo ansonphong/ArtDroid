@@ -510,19 +510,19 @@ function theme_color_profiles( $profiles ){
 
 	$profiles['dynamic'] = array(
 		'order_by'		=> 'lightness',
-		'order'			=> 'DESC',
+		'order'			=> 'ASC',
 		'processing'	=>	array(
 			'lightness_range' => array(
 				'low' => 0.15,
 				'high' => 0.8,
 				'distribute' => true,
-				'order' => 'DESC',
+				'order' => 'ASC',
 				),
 			'saturation_range' => array(
 				'low' => 0.0,
 				'high' => 0.5,
 				'distribute' => false,
-				'order' => 'DESC',
+				'order' => 'ASC',
 				),
 			),
 		);

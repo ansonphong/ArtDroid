@@ -7,7 +7,6 @@
 	timeout-action="addClass('fadein-on')"
 	ng-hide="post.post_status == 'trash'"
 	pw-ui
-	pw-colors
 	ng-cloak>
 	<div
 		class="post-wrapper"
@@ -22,6 +21,10 @@
 				class="grid-image"
 				pw-smart-image="::post.image"
 				smart-image-override="::post.image.alt">
+			</div>
+			<div
+				class="color-overlay"
+				ng-style="::{background:getHex(post,'dynamic.75')}">
 			</div>
 			<div class="overlay">
 				<div
@@ -44,15 +47,14 @@
 			</div>
 		</a>
 		<div
-			class="details">
+			class="details"
+			ng-style="::{background:getHex(post,'dynamic.25')}">
 			<div class="details-inner">
-
 				<span class="time">{{ post.time_ago }}</span> 
 				<span class="post-excerpt" ng-show="post.post_excerpt">
 					<span class="span-spacer"> • </span>
 					{{ post.post_excerpt }}
 				</span>
-
 				<!-- TAGS -->
 				<div
 					class="taxonomy category"
