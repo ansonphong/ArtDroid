@@ -170,6 +170,13 @@ postworld.controller( 'artPostCtrl',
 		".post .taxonomy a.term":{
 			"border-bottom": "1px solid {{hex('dynamic.50')}}"
 		},
+		".post-content ul li":{
+			"border-top-color": "{{rgba('dynamic.50',.33)}}"
+		},
+		"body .highlight-color a": {
+			"background":"{{hex('dynamic.0')}}",
+			"color":"{{hex('dynamic.100')}} !important"
+		},
 		".sidebar .sidebar-widget h3.sidebar-title":{
 			"color": "{{hex('dynamic.75')}}",
 			"background": "{{hex('dynamic.0')}}"
