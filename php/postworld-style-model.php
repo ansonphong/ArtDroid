@@ -106,6 +106,12 @@ function theme_pw_styles_defaults( $value ){
 				),
 			),
 
+		'term_feeds'	=>	array(
+			'grid'	=>	array(
+				'term-feed-grid-gutter'	=>	'10px',
+				),
+			),
+
 		'thirdparty' =>	array(
 			'wpcf7'	=> array(
 				'wpcf7-primary-color' => '@neutral-color-medium',
@@ -685,6 +691,33 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"page-header-foreground",
 							"input"			=>	"color",
 							"description"	=>	"The header text color on single pages"
+							),
+						
+						),
+					),
+
+
+				),
+
+			),
+
+		array(
+			"name"	=>	"Term Feeds",
+			"key"	=>	"term_feeds",
+			"icon"	=>	"pwi-square-medium",
+			"values"	=>	array(
+
+				///// GRID /////
+				array(
+					'name'	=>	'Grid',
+					'key'	=>	'grid',
+					'icon'	=>	'pwi-th',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Term Spacing",
+							"key"			=>	"term-feed-grid-gutter",
+							"input"			=>	"text",
+							"description"	=>	"Space between terms in grid term feed"
 							),
 						
 						),
