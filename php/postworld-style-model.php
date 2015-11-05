@@ -79,6 +79,7 @@ function theme_pw_styles_defaults( $value ){
 			'grid'	=>	array(
 				'grid-image-size'			=>	'cover',
 				'grid-unit-padding'			=>	'1px',
+				'grid-feed-padding'			=>	'0px',
 				'grid-unit-border'			=>	'1px solid transparent',
 				'grid-title-foreground'		=>	'@global-foreground-color',
 				'grid-title-background'		=>	'fade( @neutral-color-dark, 80% )',
@@ -595,6 +596,12 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"grid-unit-padding",
 							"input"			=>	"text",
 							"description"	=>	"How much space around each grid unit"
+							),
+						array(
+							"name"			=>	"Grid Feed Padding",
+							"key"			=>	"grid-feed-padding",
+							"input"			=>	"text",
+							"description"	=>	"Padding around the grid feed"
 							),
 						array(
 							"name"			=>	"Grid Unit Border",
