@@ -8,10 +8,12 @@
 	ng-cloak>
 
 	{% if theme_options.colors.views.single.dynamic_colors %}
-		<style
-			pw-style-colors="colorStyles"
-			color-profiles="post.image.colors">
-		</style>
+		{% if post.post_type == 'post' %}
+			<style
+				pw-style-colors="colorStyles"
+				color-profiles="post.image.colors">
+			</style>
+		{% endif %}
 	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
