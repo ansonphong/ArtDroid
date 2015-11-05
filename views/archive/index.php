@@ -5,9 +5,18 @@
 	global $pw;
 	$query = array();
 
-	///// SWITCH HEADER TEMPLATES /////
+	// TAXONOMY HEADER
 	if( in_array( 'archive-taxonomy', $pw['view']['context'] ) )
 		include 'archive-head-taxonomy.php';
+
+	// DATE HEADER
+	else if( in_array( 'archive-date', $pw['view']['context'] ) )
+		include 'archive-head-date.php';
+
+	// POST TYPE HEADER
+	else if( in_array( 'archive-post-type', $pw['view']['context'] ) )
+		include 'archive-head-post-type.php';
+	
 	else
 		include locate_template( 'views/theme/page-head.php' );
 
