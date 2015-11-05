@@ -1,4 +1,4 @@
-<div class="page-head">
+<div class="archive-head">
 
 	<h1>
 		<a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>">
