@@ -310,13 +310,25 @@
 							</label>
 						</div>
 					</div>
+					<!-- SEARCH -->
+					<div
+						class="well">
+						<h3>
+							<span class="icon-md"><i class="pwi-search"></i></span>
+							Search
+						</h3>
+						<label>
+							<input type="checkbox" ng-model="pwOptions.search.show_search">
+							Show Search
+							<small>: A seach icon appears in the header.</small> 
+						</label>
+					</div>
 					<!-- SECRET LOGIN -->
 					<div
 						class="well">
 						<h3>
 							Login
 						</h3>
-
 						<label>
 							<input type="checkbox" ng-model="pwOptions.menus.login.secret_login">
 							Enable Secret login

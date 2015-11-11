@@ -1,7 +1,11 @@
 <?php
 // Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
+
 global $pw;
+
+$show_search = theme_get_option('search.show_search');
+
 ?>
 <!DOCTYPE html>
 <html  <?php language_attributes(); ?> class="<?php echo pw_html_classes() ?>">

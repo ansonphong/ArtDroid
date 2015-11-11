@@ -167,9 +167,21 @@ body{
 
 }
 
+/**
+ * Show nav button areas only on desktop
+ */
+.device-desktop .modal .nav-hover-area{
+	display: block;
+}
+
+/**
+ * Nav button area is an overlay on modal posts
+ * Which on hover gives controls. Only visible on Desktop.
+ */
 .modal{
-	.nav-btn-area{
+	.nav-hover-area{
 		.transition();
+		display: none; // Hide by default
 		opacity:0;
 		position:absolute;
 		outline:none !important;
@@ -232,8 +244,6 @@ body{
 		}
 	}
 
-	
-	
 
 	.post{
 		

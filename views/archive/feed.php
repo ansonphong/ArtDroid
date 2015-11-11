@@ -24,15 +24,17 @@
 				)
 			);
 	}
+	/// SEARCH PAGE ///
+	else if( in_array( 'search', $pw['view']['context'] ) ){
+		$feed_query = $pw['query'];
+	}
 
 	// Setup Feed
 	$feed_vars = array(
 		'directive'	=>	'live-feed',
 		'aux_template'	=>	'seo-list',
 		'feed'	=>	array(
-			'feed_template'	=>	'feed-grid',
 			'query'	=>	$feed_query,
-			//'query'	=>	$feed_query = $pw['query'],
 			),
 		);
 		
