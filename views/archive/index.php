@@ -1,7 +1,6 @@
 <?php pw_header(); ?>
 <div id="page" class="page-home">
 	<?php
-
 	global $pw;
 	$query = array();
 

@@ -70,6 +70,11 @@ include "php/sidebars.php";
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
+///// CUSTOM FUNCTIONS /////
+function theme_get_option($key){
+	return pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => $key ) );
+}
+
 ////////// CHILD THEME //////////
 add_action( 'wp_enqueue_scripts', 'theme_include_styles' );
 function theme_include_styles(){

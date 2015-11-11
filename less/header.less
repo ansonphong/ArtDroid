@@ -111,6 +111,13 @@ header#header{
 		right:0px;
 		opacity:1;
 		transition: all ease .33s;
+
+		// ONLY IF SEARCH ENABLED
+		// Make search enbled parent class
+		// Which switches various things around
+		// Including menu right padding --- !!!
+		right: 64px; // DELETE
+
 		.inner{
 			padding:18px 18px 0 0;
 			position:relative;
@@ -127,6 +134,8 @@ header#header{
 			display:none;
 		}
 	}
+
+	
 	
 }
 
