@@ -1,5 +1,5 @@
 
-.make-art-button( @background-color; @text-color; @background-color-hover; @text-color-hover; ){
+.make-theme-button( @background-color; @text-color; @background-color-hover; @text-color-hover; ){
 	transition: @global-transition-time all ease;
 	background: @background-color;
 	color: @text-color;
@@ -27,15 +27,15 @@ button{
 	}
 
 	&.btn-primary-color{
-		.make-art-button( @primary-color-dark, @primary-color-light, @primary-color-medium, #fff );
+		.make-theme-button( @primary-color-dark, @primary-color-light, @primary-color-medium, #fff );
 	}
 
 	&.btn-secondary-color{
-		.make-art-button( @secondary-color-dark, @secondary-color-light, @secondary-color-medium, #fff );
+		.make-theme-button( @secondary-color-dark, @secondary-color-light, @secondary-color-medium, #fff );
 	}
 
 	&.btn-neutral-color{
-		.make-art-button( @neutral-color-dark, @neutral-color-light, @neutral-color-medium, #fff );
+		.make-theme-button( @neutral-color-dark, @neutral-color-light, @neutral-color-medium, #fff );
 	}
 
 	&.btn-full{

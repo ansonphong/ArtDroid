@@ -2,7 +2,7 @@
 	
 	<div class="row">
 		
-		<div class="col-md-6">
+		<div class="col-md-10">
 			<div class="input-icon absolute top-left">
 				<i class="pwi-search"></i>
 			</div>
@@ -18,6 +18,7 @@
 				ng-model="pw.query.s"/>
 		</div>
 
+		<?php /*
 		<div class="col-md-4 col-xs-6">
 			<div class="search-field-unit">
 				<div class="select-label">
@@ -36,6 +37,7 @@
 				</div>
 			</div>
 		</div>
+		*/?>
 
 		<div class="col-md-2 col-xs-6">
 			<button type="submit" class="search-submit">
