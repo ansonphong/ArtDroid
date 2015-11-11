@@ -4,10 +4,20 @@
 	margin-top:1px;
 }
 
+.search-page{
+	.term-feed{
+		margin: (@grid-feed-padding*2);
+		margin-bottom:0;
+	}
+	.feed{
+		margin-top:(@term-feed-grid-gutter*-1);
+	}
+}
+
 .search-form{
 	.input-icon{
 		font-size: @font-size-md;
-		padding:8px 15px;
+		padding:12px 18px;
 		color: @secondary-color-medium;
 	}
 	input, select, button{
@@ -55,7 +65,7 @@
 
 	input.search-field{
 		padding-left:48px;
-		box-shadow:@inset-box-shadow-lg;
+		//box-shadow:@inset-box-shadow-lg;
 		-webkit-appearance: none;
     	border-radius: 0;
 	}

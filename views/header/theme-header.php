@@ -5,6 +5,8 @@
 global $pw;
 
 $show_search = theme_get_option('search.show_search');
+if( in_array( 'search', $pw['view']['context'] ) )
+	$show_search = false;
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +34,10 @@ $show_search = theme_get_option('search.show_search');
 	
 <div id="background"></div>
 <!-- HEADER / NAVIGATION -->
-<header id="header" pw-ui>
+<header
+	id="header"
+	class="<?php if($show_search) echo 'show-search'?>"
+	pw-ui>
 	<div class="header-inner page-width">
 
 		<div class="header-row">
