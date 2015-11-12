@@ -1,21 +1,28 @@
+.make-theme-button(
+	@background-color;
+	@text-color;
+	@background-color-hover;
+	@text-color-hover;
+	@border-color: @background-color;
+	@border-color-hover: @background-color-hover; ){
 
-.make-theme-button( @background-color; @text-color; @background-color-hover; @text-color-hover; ){
 	transition: @global-transition-time all ease;
 	background: @background-color;
 	color: @text-color;
-	border: 1px solid @background-color;
-	border-radius:3px;
+	border: 1px solid @border-color;
+	border-radius:0px;
 
 	&.btn-outline{
 		border: 1px solid @text-color;
 	}
 
-	&:hover, &:focus{
+	&:hover, &:focus, &:active{
 		background: @background-color-hover;
 		color: @text-color-hover;
-		//border: 1px solid @background-color;
+		border: 1px solid @border-color-hover;
 	}
 }
+
 
 button{
 	padding:6px 12px;

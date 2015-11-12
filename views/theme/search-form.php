@@ -2,7 +2,7 @@
 	
 	<div class="row">
 		
-		<div class="col-md-10">
+		<div class="search-col col-sm-10">
 			<div class="input-icon absolute top-left">
 				<i class="pwi-search"></i>
 			</div>
@@ -39,7 +39,7 @@
 		</div>
 		*/?>
 
-		<div class="col-md-2 col-xs-6">
+		<div class="col-sm-2">
 			<button type="submit" class="search-submit">
 				<?php echo esc_attr_x( 'Search', 'submit button' ) ?>
 			</button>
