@@ -4,6 +4,7 @@
 
 global $pw;
 
+// Boolean if search is to be shown
 $show_search = theme_get_option('search.show_search');
 if( in_array( 'search', $pw['view']['context'] ) )
 	$show_search = false;
