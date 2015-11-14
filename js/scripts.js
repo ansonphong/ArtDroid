@@ -170,6 +170,10 @@ postworld.controller( 'artPostCtrl',
 		".post .taxonomy a.term":{
 			"border-bottom": "1px solid {{hex('dynamic.50')}}"
 		},
+		".post .taxonomy a.term.category":{
+			"background": "{{hex('dynamic.25')}}",
+			"color": "{{hex('dynamic.100')}}",
+		},
 		".post-content ul li":{
 			"border-top-color": "{{rgba('dynamic.50',.33)}}"
 		},

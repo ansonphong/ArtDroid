@@ -1,19 +1,18 @@
 ////////// LIST //////////
 .term-feed.grid{
-	@grid-gutter: 10px;
-
-	//margin:@grid-gutter;
+	//@term-feed-grid-gutter: 30px;
+	//margin:@term-feed-grid-gutter;
 
 	.terms-row {
 		clear:both;
-		.make-row( @grid-gutter );
+		.make-row( @term-feed-grid-gutter );
 	}
 	.terms-col{
-		.make-xs-column( 12, @grid-gutter );
-		.make-sm-column( 6, @grid-gutter );
-		.make-lg-column( 4, @grid-gutter );
+		.make-xs-column( 12, @term-feed-grid-gutter );
+		.make-sm-column( 6, @term-feed-grid-gutter );
+		.make-lg-column( 4, @term-feed-grid-gutter );
 		
-		margin-bottom:@grid-gutter;
+		margin-bottom: @term-feed-grid-gutter;
 
 		//@media @full{ width:33%; }
 		//@media @desktop-and-above{ width:33%; }
@@ -83,7 +82,7 @@
 
 ////////// LIST //////////
 .term-feed.list{
-	@grid-gutter: 10px;
+	@term-feed-grid-gutter: 10px;
 
 	background-color: @global-background-color;
 

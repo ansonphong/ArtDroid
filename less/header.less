@@ -47,6 +47,23 @@ header#header{
 		position:absolute;
 	}
 
+	.menu-main{
+		@media @md-up{
+			margin-right:130px;
+		}
+	}
+
+	&.show-search{
+		.menu-main{
+			@media @md-up{
+				margin-right:200px;
+			}
+		}
+		.menu-social{
+			right: @header-height-fixed;
+		}
+	}
+
 	.header-inner{
 		height:100%;
 	}
@@ -111,6 +128,7 @@ header#header{
 		right:0px;
 		opacity:1;
 		transition: all ease .33s;
+
 		.inner{
 			padding:18px 18px 0 0;
 			position:relative;
@@ -127,6 +145,8 @@ header#header{
 			display:none;
 		}
 	}
+
+	
 	
 }
 

@@ -28,7 +28,7 @@
 						<div
 							class="feed-term-post"
 							ng-repeat="post in feedTerm.posts"
-							ng-style="backgroundImage( post.image.sizes.thumbnail.url )">
+							pw-smart-image="::post.image">
 						</div>
 					</div>
 					<h2>

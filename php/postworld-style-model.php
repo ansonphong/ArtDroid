@@ -79,6 +79,7 @@ function theme_pw_styles_defaults( $value ){
 			'grid'	=>	array(
 				'grid-image-size'			=>	'cover',
 				'grid-unit-padding'			=>	'1px',
+				'grid-feed-padding'			=>	'0px',
 				'grid-unit-border'			=>	'1px solid transparent',
 				'grid-title-foreground'		=>	'@global-foreground-color',
 				'grid-title-background'		=>	'fade( @neutral-color-dark, 80% )',
@@ -102,6 +103,12 @@ function theme_pw_styles_defaults( $value ){
 			'single'	=>	array(
 				'page-header-background'	=>	'@neutral-color-dark',
 				'page-header-foreground'	=>	'@neutral-color-light',
+				),
+			),
+
+		'term_feeds'	=>	array(
+			'grid'	=>	array(
+				'term-feed-grid-gutter'	=>	'10px',
 				),
 			),
 
@@ -597,6 +604,12 @@ function theme_pw_styles_structure( $structure = array() ){
 							"description"	=>	"How much space around each grid unit"
 							),
 						array(
+							"name"			=>	"Grid Feed Padding",
+							"key"			=>	"grid-feed-padding",
+							"input"			=>	"text",
+							"description"	=>	"Padding around the grid feed"
+							),
+						array(
 							"name"			=>	"Grid Unit Border",
 							"key"			=>	"grid-unit-border",
 							"input"			=>	"text",
@@ -678,6 +691,33 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"page-header-foreground",
 							"input"			=>	"color",
 							"description"	=>	"The header text color on single pages"
+							),
+						
+						),
+					),
+
+
+				),
+
+			),
+
+		array(
+			"name"	=>	"Term Feeds",
+			"key"	=>	"term_feeds",
+			"icon"	=>	"pwi-square-medium",
+			"values"	=>	array(
+
+				///// GRID /////
+				array(
+					'name'	=>	'Grid',
+					'key'	=>	'grid',
+					'icon'	=>	'pwi-th',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Term Spacing",
+							"key"			=>	"term-feed-grid-gutter",
+							"input"			=>	"text",
+							"description"	=>	"Space between terms in grid term feed"
 							),
 						
 						),
