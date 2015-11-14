@@ -36,7 +36,7 @@
 
 				<div
 					class="gallery-image"
-					pw-smart-image="galleryPost.image">
+					pw-smart-image="::galleryPost.image">
 				</div>
 			</div>
 		</div>
