@@ -435,6 +435,7 @@ function theme_post_field_model_gallery( $fields ){
  * @see pw_get_post_image( $post, $fields )
  * 
  * @todo Sync image fields with theme_post_field_model_gallery()
+ * @todo Integrate this into Postworld core, as pw_add_image_size()
  */
 add_filter( 'wp_generate_attachment_metadata', 'theme_generate_special_images_sizes', 10, 2 );
 function theme_generate_special_images_sizes( $metadata, $attachment_id ){

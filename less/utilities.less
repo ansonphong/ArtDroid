@@ -43,3 +43,40 @@
 .space-8{ height: @y-space*8; }
 .space-9{ height: @y-space*9; }
 .space-10{ height: @y-space*10; }
+
+
+
+.proportion{
+	position: relative;
+	width: 100%;
+	&.proportion-2:before{
+		content: "";
+		display: block;
+		padding-top: 50%;
+	}
+
+	&.proportion-2_5:before{
+		content: "";
+		display: block;
+		padding-top: 40%;
+	}
+
+	&.proportion-3:before{
+		content: "";
+		display: block;
+		padding-top: 33.33%;
+	}
+
+	&.proportion-3_5:before{
+		content: "";
+		display: block;
+		padding-top: 28.6%;
+	}
+
+	&.proportion-4:before{
+		content: "";
+		display: block;
+		padding-top: 25%;
+	}
+}
+
