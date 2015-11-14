@@ -1,3 +1,5 @@
+<?php include locate_template( 'views/theme/header-search.php' ) ?>
+
 <div
 	id="main-menu"
 	class="header-col-menu"

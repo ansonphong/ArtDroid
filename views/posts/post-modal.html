@@ -83,7 +83,7 @@
 				pw-smart-image="post.image"
 				smart-image-dynamic>
 				<div
-					class="nav-btn-area area-left"
+					class="nav-hover-area area-left"
 					ng-click="previousPost()"
 					ng-show="::uiBoolean(modalFeed)">
 					<button class="btn-previous">
@@ -91,7 +91,7 @@
 					</button>
 				</div>
 				<div
-					class="nav-btn-area area-right"
+					class="nav-hover-area area-right"
 					ng-click="nextPost()"
 					ng-show="::uiBoolean(modalFeed)">
 					<button class="btn-next">
@@ -217,7 +217,7 @@
 
 				<!-- TAGS -->
 				<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-					<i class="pwi-tags"></i>
+					<i class="icon pwi-tags"></i>
 					<span ng-repeat="term in post.taxonomy.post_tag">
 					    <a pw-href="term.url" class="term tag">
 							<span ng-bind="term.name"></span>
@@ -228,21 +228,10 @@
 
 			</div>
 
-
-
 			<div class="pull-right">
 				
 				<!--///// POST CONTROLS /////-->
 				<div class="post-controls pull-right">
-					<!-- LINK -->
-					<a
-						ng-href="{{ post.post_permalink }}"
-						class="btn"
-						stop-propagation-click
-						tooltip="link"
-						tooltip-popup-delay="333">
-						<i class="pwi-link"></i>
-					</a>
 					<!-- DROPDOWN -->
 					<span
 						dropdown
@@ -272,7 +261,7 @@
 					tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
 					tooltip-popup-delay="333">
 					<time datetime="{{ post.post_date }}">
-						<i class="pwi-clock-o"></i> {{ post.time_ago }}
+						{{ post.time_ago }}
 					</time>
 				</div>
 
@@ -282,7 +271,6 @@
 					ng-show="post.post_meta.pw_meta.image.download">
 					<a download pw-href="post.image.sizes.full.url">
 						<i class="pwi-arrow-down-thin"></i>
-						download
 					</a>
 				</div>
 

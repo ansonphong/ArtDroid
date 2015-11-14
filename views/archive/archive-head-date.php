@@ -1,4 +1,4 @@
-<div class="page-head">
+<div class="archive-head">
 					
 	<h1>
 		<i class="pwi-calendar"></i>

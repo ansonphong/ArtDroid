@@ -141,6 +141,9 @@ function pw_theme_options_filter( $options ){
 				'load_increment'	=>	10,
 				),
 			),
+		'search' => array(
+			'show_search' => true,
+			),
 		'menus'	=>	array(
 			'primary'	=>	array(
 				'id'				=>	null,

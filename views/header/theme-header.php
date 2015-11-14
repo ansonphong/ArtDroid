@@ -1,7 +1,14 @@
 <?php
 // Template Name: ART-DROID Main Header
 // Template Description: The main header for all pages.
+
 global $pw;
+
+// Boolean if search is to be shown
+$show_search = theme_get_option('search.show_search');
+if( in_array( 'search', $pw['view']['context'] ) )
+	$show_search = false;
+
 ?>
 <!DOCTYPE html>
 <html  <?php language_attributes(); ?> class="<?php echo pw_html_classes() ?>">
@@ -28,7 +35,10 @@ global $pw;
 	
 <div id="background"></div>
 <!-- HEADER / NAVIGATION -->
-<header id="header" pw-ui>
+<header
+	id="header"
+	class="<?php if($show_search) echo 'show-search'?>"
+	pw-ui>
 	<div class="header-inner page-width">
 
 		<div class="header-row">
