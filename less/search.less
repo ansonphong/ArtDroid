@@ -1,3 +1,5 @@
+@search-selected-background: mix( @neutral-color-medium, @global-background-color, 50% );
+
 #search-menu{
 	float:right;
 	position:absolute;
@@ -27,7 +29,7 @@
 		&.active{
 			top:5px;
 			color: @global-foreground-color;
-			background: @global-background-color;
+			background: @search-selected-background;
 		}
 
 	}
@@ -46,7 +48,7 @@
 
 	box-shadow: @unit-box-shadow-lg;
 
-	background: @global-background-color;
+	background: @search-selected-background;
 	color: @global-background-color;
 	
 	@media @xl{
