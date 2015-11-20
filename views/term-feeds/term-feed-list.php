@@ -31,26 +31,10 @@
    			return false;
    		}
 
-   		///// IMAGE FUNCTIONS /////
-		$scope.backgroundImage = function( imageUrl, properties ){
-
-			// Set the Image URL
-			//var imageUrl = $scope.post.image[imageHandle].url;
-			var style = { 'background-image': "url(" + imageUrl + ")" };
-
-			// Add additional properties
-			if( !_.isUndefined( properties ) ){
-				angular.forEach( properties, function(value, key){
-					style[key] = value;
-				});
-			}
-			return style;
-		}
 	}]);
 </script>
 
 <div class="term-feed list pw-shortcode" ng-controller="<?php echo $instance; ?>" ng-cloak>
-
 	<div ng-repeat="feedTerm in ::rootTerms()">
 		<a ng-href="{{ ::feedTerm.term.url }}">
 			<div
@@ -62,19 +46,15 @@
 					<div
 						class="feed-term-post"
 						ng-repeat="post in ::feedTerm.posts"
-						ng-style="::backgroundImage( post.image.sizes.thumbnail.url )">
+						pw-smart-image="::post.image">
 					</div>
 				</div>
 				<h2>
 					{{ ::feedTerm.term.name }}
 				</h2>
 				<span class="number">{{ ::feedTerm.term.count }}</span>
-			
-			
 			</div>
 		</a>
-		
-
 			<div
 				class="sub-term"
 				ng-class="::termClass( subTerm )"
@@ -84,10 +64,7 @@
 					ng-href="{{ ::subTerm.term.url }}">
 					{{ ::subTerm.term.name }}
 				</a>
-				
 			</div>
-
 	</div>
-
 </div>
 <div class="clearfix"></div>
