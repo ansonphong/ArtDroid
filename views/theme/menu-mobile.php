@@ -22,7 +22,9 @@
 						pw_log( 'context', $pw['view']['context'] );
 						if( in_array( 'single', $pw['view']['context'] ) )
 							$widget_context = 'post';
-						else if( in_array( 'page', $pw['view']['context'] ) )
+						else if(
+							in_array( 'page', $pw['view']['context'] ) ||
+							in_array( 'home', $pw['view']['context'] ) )
 							$widget_context = 'page';
 						else if( in_array( 'archive', $pw['view']['context'] ) )
 							$widget_context = 'archive';
