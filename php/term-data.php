@@ -33,7 +33,8 @@ function theme_get_menu_item_taxonomy( $post ){
 		));
 
 	$fields = array(
-		'image(x-wide)'
+		'image(stats)',
+		'image(all)'
 		);
 
 	/**

@@ -3,6 +3,7 @@
 	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
+	//pw_log('slider', $slider);
 ?>
 <script>
 	postworld.controller( '<?php echo $slider['instance']; ?>',
@@ -37,11 +38,9 @@
 			<?php } ?>
 				<div
 					class="slide-frame"
-					
 					pw-smart-image="::slide.image"
 					smart-image-override="::slide.image.alt"
 					smart-image-dynamic
-
 					parallax-background
 					parallax-ratio="-0.6">
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
