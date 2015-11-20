@@ -1,3 +1,3 @@
 <?php // Template Name: Home Page
-	include "home.php";
+	//include "home.php";
 ?>
