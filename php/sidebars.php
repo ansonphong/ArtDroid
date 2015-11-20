@@ -47,6 +47,39 @@ function theme_sidebars_init(){
 			'after_title'   => $title_after
 			),
 
+		array(
+			'name'          => "Touch Menu - Posts",
+			'id'            => 'touch-menu-post',
+			'description'   => 'Appears when clicking the menu button on touch displays, while on posts.',
+			'class'         => '',
+			'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
+
+		array(
+			'name'          => "Touch Menu - Pages",
+			'id'            => 'touch-menu-page',
+			'description'   => 'Appears when clicking the menu button on touch displays, while on pages.',
+			'class'         => '',
+			'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
+
+		array(
+			'name'          => "Touch Menu - Archives",
+			'id'            => 'touch-menu-archive',
+			'description'   => 'Appears when clicking the menu button on touch displays, while on archives, such as categories and tags.',
+			'class'         => '',
+			'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
+
 		);
 
 	/*

@@ -77,6 +77,7 @@ body.mobile-menu-open{
 		position:absolute;
 		width:100%;
 		height:100%;
+		//z-index: 1000;
 		//overflow-y: scroll;
 
 		//overflow-y: scroll;
@@ -102,12 +103,13 @@ body.mobile-menu-open{
 	ul.menu{
 		li{
 			a{
-				color:@main-menu-text-color;
-				background:@main-menu-background;
+				color: @main-menu-text-color;
+				background: @main-menu-background;
 				display: block;
 				padding:10px 20px;
-				font-size: @font-size-md;
-				margin-bottom:1px;
+				font-size: @font-size-lg;
+				margin-bottom: 1px;
+				
 				&:hover, &:active, &:focus{
 					color:@highlight-foreground-color;
 					background:@highlight-background-color;
@@ -121,11 +123,9 @@ body.mobile-menu-open{
 		}
 		ul.sub-menu{
 			li a{
-				
-			}
-			li a{
 				padding:4px 40px;
-				font-size: @font-size-sm;
+				font-size: @font-size-md;
+
 			}
 		}
 	}
@@ -144,5 +144,15 @@ body.mobile-menu-open{
 		}
 
 	}
+
+	.menu-social{
+		margin-top:5px;
+		.icon{
+			font-size: 42px;
+			width:auto;
+			margin-right:5px;
+		}
+	}
+
 
 }

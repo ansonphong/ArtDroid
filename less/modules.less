@@ -9,36 +9,27 @@
 	a{
 		text-decoration: none;
 		color: @secondary-color-medium;
+		padding: 0px;
+		margin:1px;
 		&:hover{
-			color: @secondary-color-dark;
+			//color: @secondary-color-dark;
+			.icon{
+				color:@global-foreground-color;
+			}
 		}
-		
 	}
 	img{
 		width:auto;
 		height:32px;
 		padding:0 8px;
 	}
-	i{
+	.icon{
 		display:inline-block;
 		width:32px;
 		font-size:32px;
-	}
-
-	&.grayscale{
-		a{
-			img{
-				-webkit-filter: grayscale(1); 
-				opacity:0.33;
-				transition:all .25s ease;
-			}
-			&:hover{
-				img{
-					-webkit-filter: grayscale(0); 
-					opacity:1;
-				}
-			}
-		}
+		color: @secondary-color-medium;
+		padding: 0px;
+		margin:0;
 	}
 }
 

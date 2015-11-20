@@ -26,7 +26,9 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	pw-background="primary">
 
 <?php
-	///// SECRET LOGIN /////
+	/**
+	 * Include the secret login button.
+	 */
 	include locate_template( 'views/theme/menu-login-secret.php' );?>
 
 <div
@@ -45,31 +47,27 @@ if( in_array( 'search', $pw['view']['context'] ) )
 
 			<?php include locate_template( 'views/theme/header-logo.php' ); ?>
 
-			<?php if( is_desktop() ){
-				include locate_template( 'views/theme/menu-desktop.php' );
-			}?>
-
-			<?php if( !is_desktop() ): ?>
-				<div id="mobile-menu-button">
-					<button
-						class="mobile-menu"
-						ng-click="
-							uiToggleElementClass('open', '#mobile-menu');
-							uiToggleElementClass('modal-open mobile-menu-open', 'body');
-							uiToggleElementClass('selected', $event)">
-						<i class="pwi-nav"></i>
-					</button>
-				</div>
-			<?php endif ?>
+			<?php
+				if( is_desktop() )
+					include locate_template( 'views/theme/header-menu-desktop.php' );
+				else
+					include locate_template( 'views/theme/header-menu-mobile.php' );
+			?>
 
 		</div>
 	</div>
 	<div class="clearfix"></div>
 </header>
 
-<?php if( !is_desktop() ): ?>
-	<?php include locate_template( 'views/theme/menu-mobile.php' ); ?>
-<?php endif ?>
+<?php
+	/**
+	 * Include the mobile menu, which is shown
+	 * When the menu button is clicked.
+	 */
+	if( !is_desktop() ):
+		include locate_template( 'views/theme/menu-mobile.php' ); 
+	endif;
+?>
 
 <!-- PRIMARY MENU SPACER -->
 <div id="primary-menu-spacer"></div>
