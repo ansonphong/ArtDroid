@@ -17,8 +17,7 @@
 
 	<div
 		class="term-bg"
-		style="background-image:url('<?php echo $term_meta['image_post']['image']['sizes']['x-wide']['url'] ?>')">
-
+		pw-smart-image="::termMeta.image_post.image">
 		<div class="term-info">
 			<h1>
 				<?php if( _get( $term_meta, 'icon' ) ) : ?>
