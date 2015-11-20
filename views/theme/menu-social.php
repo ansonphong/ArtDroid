@@ -10,7 +10,7 @@ $show_social_menu = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'ke
 		<?php echo pw_social_menu(
 			array(
 				'meta' => array(
-					'classes'			=>	'',
+					'classes'			=>	'icon',
 					'tooltip_placement' => 'bottom',
 					)
 				)

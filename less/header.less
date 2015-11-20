@@ -101,7 +101,7 @@ header#header{
 		@media @xs{
 			img{
 				width:auto;
-				max-width: 100%;
+				max-width: 60vw;
 				//height: auto;
 				max-height:100%;
 			}
@@ -122,32 +122,21 @@ header#header{
 			//color: #fff;
 		}
 	}
-
+	
 	.menu-social{
 		position:absolute;
 		right:0px;
 		opacity:1;
 		transition: all ease .33s;
-
 		.inner{
-			padding:18px 18px 0 0;
+			padding:12px 18px 0 0;
 			position:relative;
-		}
-		a{
-			text-decoration: none;
-			padding: 0px;
-			color: @secondary-color-medium;
-			&:hover{
-				color:@global-foreground-color;
-			}
 		}
 		@media @tablet-and-below {
 			display:none;
 		}
 	}
 
-	
-	
 }
 
 
