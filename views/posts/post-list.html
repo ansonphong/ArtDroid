@@ -7,14 +7,11 @@
 		href="{{ ::post.post_permalink }}">
 			<div class="wrap" style="display:table; min-height:64px;">
 				<div
-					style="display:table-cell;">
-					<img
-						class="thumb"
-						ng-show="{{ ::post.image.sizes.full.url != null }}"
-						pw-smart-image="::post.image">
+					class="thumb-cell"
+					pw-smart-image="::post.image"
+					ng-show="{{ ::post.image.sizes.full.url != null }}">
 				</div>
-				<div
-					style="display:table-cell; height:100%; vertical-align:middle;">
+				<div class="title-cell">
 					<h3>{{ ::post.post_title }}</h3>
 				</div>
 			</div>
