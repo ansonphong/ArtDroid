@@ -6,7 +6,7 @@
 
 <?php
 ///// SINGLE POST FOOTER /////
-if( is_single() || is_page() || is_404() ){
+if( (is_single() || is_page() || is_404()) && !is_home() ){
 
 	global $post;
 
