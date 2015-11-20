@@ -60,7 +60,13 @@
 					class="taxonomy category"
 					ng-show="uiBoolean(post.taxonomy.category)">
 					<span ng-repeat="term in post.taxonomy.category">
-						<a href="{{term.url}}" ng-class="term.slug" class="term category">{{term.name}}</a>
+						<a
+							href="{{term.url}}"
+							ng-class="term.slug"
+							class="term category"
+							ng-style="::{color:getHex(post,'dynamic.100'), background:getHex(post,'dynamic.0')}">
+							{{term.name}}
+						</a>
 					</span>
 				</div>
 				
