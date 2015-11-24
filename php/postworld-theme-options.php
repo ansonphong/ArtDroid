@@ -5,6 +5,24 @@ function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+
+		'blog'	=>	array(
+			'enable'	=>	true,
+			'settings'	=>	array(
+				'base'	=>	'blog',
+				'feed'	=>	array(
+					'preload' => 5,
+					'load_increment' => 5,
+					'view'	=>	array(
+						'current' => 'list'
+						),
+					),
+				'home'	=>	array(
+					'show_in_feed'	=>	false,
+					),
+				),
+			),
+
 		'colors' => array(
 			'views' => array(
 				'single' => array(

@@ -67,6 +67,9 @@ include "php/term-data.php";
 ////////// SIDEBARS //////////
 include "php/sidebars.php";
 
+////////// BLOG //////////
+include "php/post-type-blog.php";
+
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
