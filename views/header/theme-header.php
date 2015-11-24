@@ -24,13 +24,11 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	ng-app="postworld"
 	class="<?php echo pw_body_classes(); ?>"
 	pw-background="primary">
-
 <?php
 	/**
 	 * Include the secret login button.
 	 */
 	include locate_template( 'views/theme/menu-login-secret.php' );?>
-
 <div
 	id="pw-background-secondary"
 	pw-background="secondary"></div>
@@ -42,18 +40,14 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	class="<?php if($show_search) echo 'show-search'?>"
 	pw-ui>
 	<div class="header-inner page-width">
-
 		<div class="header-row">
-
 			<?php include locate_template( 'views/theme/header-logo.php' ); ?>
-
 			<?php
 				if( is_desktop() )
 					include locate_template( 'views/theme/header-menu-desktop.php' );
 				else
 					include locate_template( 'views/theme/header-menu-mobile.php' );
 			?>
-
 		</div>
 	</div>
 	<div class="clearfix"></div>

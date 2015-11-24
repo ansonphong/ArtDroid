@@ -322,7 +322,29 @@ $pwSiteGlobals = array(
 				),
 			),
 
-	'post_views'	=> array( 'list', 'modal', 'detail', 'grid', 'full' ),
+	//'post_views'	=> array( 'list', 'modal', 'detail', 'grid', 'full' ),
+
+	'post_views'	=>	array(
+		'supported' => array('list', 'modal', 'detail', 'grid', 'full'),
+		'feed_options' => array('list','detail','grid'),
+		'meta'	=>	array(
+			'list' => array(
+				'name' => 'List',
+				),
+			'detail' => array(
+				'name' => 'Detail',
+				),
+			'grid' => array(
+				'name' => 'Grid',
+				),
+			'full' => array(
+				'name' => 'Single',
+				),
+			'modal' => array(
+				'name' => 'Name',
+				)
+			),
+		),
 
 	'language'	=>	array(),
 
