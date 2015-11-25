@@ -1,0 +1,23 @@
+<div class="post-controls pull-right">
+	<!-- DROPDOWN -->
+	<span
+		dropdown
+		pw-admin-post-menu
+		ng-show="userOptions != 0"
+		class="admin-menu dropdown">
+		<button
+			prevent-default-click
+			dropdown-toggle
+			class="edit-post"
+			style="border:none"
+			tooltip="edit"
+			tooltip-popup-delay="333">
+			<i class="pwi-merkaba"></i>
+		</button>
+		<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+			<li prevent-default-click ng-repeat="item in userOptions">
+				<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+			</li>
+		</ul>
+	</span>
+</div>
