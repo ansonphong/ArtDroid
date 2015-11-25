@@ -69,7 +69,8 @@ add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
 	
-	if( in_array( 'home', $pw['view']['context'] ) )
+	if( in_array( 'home', $pw['view']['context'] ) ||
+		in_array( 'archive-year', $pw['view']['context'] ) )
 		$feed['query']['post_type'] = 'post';
 	
 	return $feed;
