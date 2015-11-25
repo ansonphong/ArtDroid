@@ -28,21 +28,25 @@ if( $has_cover_image ):
 
 	<div class="archive-head">
 		<?php if( !empty( $blog['title'] ) ) : ?>
-			<a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>">
+			<?php /* <a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>"> */ ?>
 				<h1>
 					<?php if( !empty( $blog['icon'] ) ) : ?>
 						<i class="icon <?php echo $blog['icon'] ?>"></i>
 					<?php endif ?>
 					<?php echo $blog['title']?>
 				</h1>
-			</a>
+			<?php /* </a> */ ?>
 		<?php endif ?>
+
+		<?php /*
 		<div class="share-social pull-right">
 			<?php echo pw_social_share(); ?>
 		</div>
+		
 		<div class="pull-right">
 			<?php include locate_template( 'views/theme/menu-archive-years.php' ); ?>
 		</div>
+		*/ ?>
 		<div class="clearfix"></div>
 	</div>
 

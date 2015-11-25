@@ -2,12 +2,16 @@
 	position: relative;
 
 	&.has-cover-image{
+		h1{
+			color: @global-foreground-color;
+			text-shadow: 2px 2px 0 @global-background-color;
+		}
 		.archive-head{
 			position: absolute;
 			bottom: 0;
 			width: 100%;
 			//opacity: .5;
-			background:fade(@global-background-color, 33%); 
+			background: transparent; //fade(@global-background-color, 33%); 
 		}
 	}
 }
