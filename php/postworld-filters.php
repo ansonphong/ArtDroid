@@ -61,11 +61,24 @@ function theme_filter_pw_oembed_get( $vars ){
 }
 add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 
-////////// THEME FEED ARCHIVE FILTER //////////
-add_filter( PW_FEED_DEFAULT, 'theme_feed_archive_filter' );
-function theme_feed_archive_filter( $feed ){
+
+/**
+ * Override feed settings in select contexts.
+ */
+add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
+function theme_feed_override_filter( $feed ){
 	global $pw;
-	//pw_log( $feed );
+	
+	if( in_array( 'home', $pw['view']['context'] ) )
+		$feed['query']['post_type'] = 'post';
+	
+	return $feed;
+}
+
+////////// THEME FEED ARCHIVE FILTER //////////
+add_filter( PW_FEED_DEFAULT, 'theme_feed_default_filter' );
+function theme_feed_default_filter( $feed ){
+	global $pw;
 
 	////////// GLOBAL //////////
 	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
@@ -99,11 +112,12 @@ function theme_feed_archive_filter( $feed ){
 			// Set the blocks settings into the feed variables
 			$feed['blocks'] = $blocks;
 		}
+
 	}
 
 
-	////////// BLOG FEED //////////
 	/**
+	 * BLOG FEED
 	 * Replace this with natively managed options
 	 * in the admin feed settings.
 	 */

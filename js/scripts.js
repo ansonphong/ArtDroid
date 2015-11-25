@@ -12,7 +12,6 @@ var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(wf, s);
 })();
 
-
 postworld.directive( 'artPost', [ function( $scope ){
 	return {
 		restrict: 'AE',
