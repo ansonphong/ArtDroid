@@ -1,38 +1,74 @@
 <div
+	pw-post
+	art-post
 	pw-feed-post
 	class="post post-type--blog view--full pw-transition-fadein"
-	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
+	pw-timeout="{{ ::(post.feed.loadOrder * 100) }}"
 	timeout-action="addClass('fadein-on')"
 	ng-hide="post.post_status == 'trash'"
 	pw-ui
 	ng-cloak>
-	<!-- EMBED 
-		<div
-			class="media-viewer"
-			style="height:{{pw.options.theme.posts.media.style.height}}vh"
-			ng-show="showView('modalEmbed')">
-			<div
-				class="view-embed">
-				<div
-					class="o-embed"
-					o-embed="{{ post.link_url }}"
-					embed-autoplay="showView('autoplayEmbed')"
-					embed-run="showView('modalEmbed')">
-				</div>
 
+	<!-- EMBED -->
+	<div
+		class="media-viewer"
+		style="height:480px"
+		ng-show="::showView('modalEmbed')">
+		<div
+			class="view-embed">
+			<div
+				class="o-embed"
+				o-embed="{{ post.link_url }}"
+				embed-autoplay="false"
+				embed-run="showView('modalEmbed')">
 			</div>
 		</div>
-		-->
-
+	</div>
+		
 	<div class="content-wrapper">
 
-		<a ng-href="{{post.post_permalink}}">
-			<h1>
-				{{ post.post_title }}
-			</h1>
-		</a>
+		<!-- TIME -->
+		<span
+			class="time"
+			tooltip="{{ ::post.post_timestamp*1000 | date:'fullDate' }}"
+			tooltip-popup-delay="333"
+			tooltip-placement="bottom">
+			<time datetime="{{::post.post_date}}">
+				{{::post.time_ago}}
+			</time>
+		</span>
 
-		<div class="post-content" ng-bind-html="post.post_content"></div>
+		<!-- CATEGORIES -->
+		<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+			<span ng-repeat="term in ::post.taxonomy.blog_category">
+				<a pw-href="term.url" class="term category">
+					<span ng-bind-html="term.name"></span>
+				</a>
+			</span>
+		</div>
+		<div class="clearfix"></div>
+
+		<h1>
+			<a ng-href="{{::post.post_permalink}}">
+				{{::post.post_title}}
+			</a>
+		</h1>
+		
+		<div class="clearfix"></div>
+
+		<div class="post-content" ng-bind-html="::post.post_content"></div>
+
+		<!-- SHARE SOCIAL -->
+		<div class="share-social pad-x-xl">
+			<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+		</div>
+
+		<!-- SOCIAL WIDGETS -->
+		<div
+			class="social-widgets pad-x-xl"
+			ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
+			<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
+		</div>
 
 	</div>
 

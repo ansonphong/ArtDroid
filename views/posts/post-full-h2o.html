@@ -50,17 +50,7 @@
 			</div>
 		</div>
 	</div>
-
-	{% if post.post_meta.pw_meta.header.type == 'featured_image' %}
-		<!--//// HEADER TYPE : FEATURED IMAGE /////
-		<img
-			pw-src="post.image.sizes['x-large'].url"
-			style="width:100%; height:auto;">
-		<hr>-->
-	{% endif %}
 	
-
-
 	{% if post.post_type != 'page' %}
 	
 		<!-- IMAGE -->
@@ -111,13 +101,6 @@
 			{% endif %}
 		</div>
 	{% endif %}
-
-	<!--
-	<div ng-style="{color:getColor(post,'dynamic','first')}">
-		COLORS :
-		<span ng-bind="post.image.colors | json"></span>
-	</div>
-	-->
 	
 	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
@@ -159,6 +142,20 @@
 					</div>
 				{% endif %}
 				
+				{% if post.post_type == 'blog' %}
+
+					<!-- CATEGORIES -->
+					<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+						<span ng-repeat="term in post.taxonomy.blog_category">
+							<a pw-href="term.url" class="term category">
+								<span ng-bind-html="term.name"></span>
+							</a>
+						</span>
+					</div>
+					<div class="clearfix"></div>
+
+				{% endif %}
+
 				{% if post.post_type != 'page' %}
 					
 					<!-- CATEGORIES -->
@@ -224,7 +221,7 @@
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
 						<time datetime="{{ post.post_date }}">
-							<i class="pwi-clock"></i> {{ post.time_ago }}
+							{{ post.time_ago }}
 						</time>
 					</div>
 

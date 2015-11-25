@@ -52,7 +52,7 @@ $pwSiteGlobals = array(
 
 		'taxonomy_meta'	=>	array(
 			array(
-				'taxonomies'	=>	array( 'category', 'post_tag' ),
+				'taxonomies'	=>	array( 'category', 'post_tag', 'blog_category' ),
 				'fields'	=>	array(
 					array(
 						'type'				=>	'icon',

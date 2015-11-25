@@ -10,8 +10,12 @@ function theme_blog_enabled(){
 		));
 }
 
-if( theme_blog_enabled() )
+if( theme_blog_enabled() ){
+	// Registers blog post type and taxonomy
 	add_action( 'init', 'theme_register_blog_post_type' );
+	// Allows custom taxonomies to share the same slug as custom post types
+	add_filter('generate_rewrite_rules', 'pw_taxonomy_slug_rewrite');
+}
 
 function theme_register_blog_post_type(){
 
@@ -49,12 +53,11 @@ function theme_register_blog_post_type(){
 		'has_archive' => true, 
 		'hierarchical' => false,
 		'menu_position' => 7,
-		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author', 'post-formats' ),
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author' ),
 		'taxonomies' => array( 'post_tag' ),
 		'menu_icon' => '',
 	);
 	register_post_type( 'blog', $blog_args );
-
 
 	///// TAXONOMY : BLOG SECTION /////
 	register_taxonomy(

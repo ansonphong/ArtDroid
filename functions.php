@@ -334,4 +334,28 @@ function theme_private_content_redirect_to_login() {
 }
 
 
+/**
+ * Add an additional CSS class to menu item
+ * If the item's url is contained with the current URL.
+ * Useful for in-site custom links.
+ */
+add_filter('nav_menu_css_class' , 'theme_special_nav_class' , 10 , 2);
+function theme_special_nav_class($classes, $item){
+	global $pw;
+	$item_url = $item->url;
+	/**
+	 * If the url starts with a /, implying that it's
+	 * relative to the base site url.
+	 */
+	if (substr($item_url, 0, 1) === '/'){
+		// The item's full url without protocol
+		$item_url = $_SERVER['SERVER_NAME'] . $item_url;
+	}
+	if (strpos($pw['view']['url'],$item_url) !== false) {
+		$classes[] = 'current-menu-ancestor';
+	}
+	return $classes;
+}
+
+
 ?>

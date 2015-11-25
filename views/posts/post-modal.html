@@ -185,9 +185,7 @@
 				</button>
 			</div>
 
-
 			<div class="pull-left">
-				
 				<!-- TITLE -->
 				<h1 class="post-title">
 					<a ng-href="{{ post.post_permalink }}">
@@ -205,7 +203,6 @@
 					</a>
 				</h1>
 				
-
 				<!-- CATEGORIES -->
 				<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
 					<span ng-repeat="term in post.taxonomy.category">
@@ -225,7 +222,6 @@
 					</span>
 				</div>
 				
-
 			</div>
 
 			<div class="pull-right">
@@ -335,6 +331,13 @@
 		<!-- END WRAPPER -->
 		
 		<div class="clearfix"></div>
+
+		<!-- SOCIAL WIDGETS -->
+		<div
+			class="social-widgets pad-x-lg"
+			ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
+			<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
+		</div>
 
 		<div class="space-8"></div>
 
