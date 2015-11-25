@@ -27,6 +27,22 @@
 		
 	<div class="content-wrapper">
 
+		<!-- POST CONTROLS -->
+		<div
+			pw-include="panels/post-controls"
+			include-post="post"
+			include-enable-user="::user.isLoggedIn()">
+		</div>
+
+		<!-- CATEGORIES -->
+		<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+			<span ng-repeat="term in ::post.taxonomy.blog_category">
+				<a pw-href="term.url" class="term category">
+					<span ng-bind-html="term.name"></span>
+				</a>
+			</span>
+		</div>
+
 		<!-- TIME -->
 		<span
 			class="time"
@@ -38,14 +54,6 @@
 			</time>
 		</span>
 
-		<!-- CATEGORIES -->
-		<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
-			<span ng-repeat="term in ::post.taxonomy.blog_category">
-				<a pw-href="term.url" class="term category">
-					<span ng-bind-html="term.name"></span>
-				</a>
-			</span>
-		</div>
 		<div class="clearfix"></div>
 
 		<h1>

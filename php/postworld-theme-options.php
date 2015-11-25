@@ -9,11 +9,13 @@ function pw_theme_options_filter( $options ){
 		'blog'	=>	array(
 			'enable'	=>	true,
 			'settings'	=>	array(
-				'title' => 'My Blog',
-				'icon' => '',
-				'show_title' => true,
-				'cover_image' => array(
-					'attachment_id' => null,
+				'main_page' => array(
+					'show_header' => true,
+					'title' => 'My Blog',
+					'icon' => '',
+					'cover_image' => array(
+						'attachment_id' => null,
+						),
 					),
 				'post_type' => array(
 					'base'				=> 'blog',

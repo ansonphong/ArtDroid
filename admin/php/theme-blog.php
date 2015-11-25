@@ -71,14 +71,27 @@
 	<div class="col-lg-6 pad-col-lg">
 		
 		<div class="well" ng-show="pwOptions.blog.enable">
-			<div class="well">
+			<h3>
+				<span class="icon-md"><i class="pwi-cube-o"></i></span>
+				{{ pwOptions.blog.settings.post_type.name }} Main Page
+			</h3>
+
+			<label>
+				<input type="checkbox" ng-model="pwOptions.blog.settings.main_page.show_header">
+				<b>Show header</b>
+				<small>: Show a header above the main blog page.</small>
+			</label>
+
+			<div class="well" ng-show="pwOptions.blog.settings.main_page.show_header">
 				<h3>
 					<span class="icon-md"><i class="pwi-image"></i></span>
-					{{ pwOptions.blog.settings.post_type.name }} Main Page
+					Main Page Header
 				</h3>
+				
+				
 				<?php
 					echo pw_select_image_id( array( 
-						'ng_model'	=>	'pwOptions.blog.settings.cover_image.attachment_id',
+						'ng_model'	=>	'pwOptions.blog.settings.main_page.cover_image.attachment_id',
 						'slug'			=>	'blog_cover_image',
 						'label'			=>	'Cover Image',
 						'width'			=>	'400px',
@@ -87,13 +100,15 @@
 				<?php
 					echo pw_select_icon_options(
 						array(
-							'ng_model' => 'pwOptions.blog.settings.icon',
+							'ng_model' => 'pwOptions.blog.settings.main_page.icon',
 							)); ?>
 				<hr class="thin">
-				<input type="text" ng-model="pwOptions.blog.settings.title">
+				<input type="text" ng-model="pwOptions.blog.settings.main_page.title">
 				<b>title</b>
 				<small>: The title of the page.</small>
-				<hr class="thin">
+
+				
+
 			</div>
 		</div>
 
