@@ -1,3 +1,17 @@
+.blog-head-wrapper{
+	position: relative;
+
+	&.has-cover-image{
+		.archive-head{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			//opacity: .5;
+			background:fade(@global-background-color, 33%); 
+		}
+	}
+}
+
 .archive-head{
 
 	background: mix( @global-background-color, @neutral-color-medium, 66% );

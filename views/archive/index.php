@@ -12,6 +12,10 @@
 	else if( in_array( 'archive-date', $pw['view']['context'] ) )
 		include 'archive-head-date.php';
 
+	// BLOG HEADER
+	else if( in_array( 'archive-post-type-blog', $pw['view']['context'] ) )
+		include 'archive-head-post-type-blog.php';
+
 	// POST TYPE HEADER
 	else if( in_array( 'archive-post-type', $pw['view']['context'] ) )
 		include 'archive-head-post-type.php';

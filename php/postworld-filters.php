@@ -62,9 +62,15 @@ function theme_filter_pw_oembed_get( $vars ){
 add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 
 ////////// THEME FEED ARCHIVE FILTER //////////
+add_filter( PW_FEED_DEFAULT, 'theme_feed_archive_filter' );
 function theme_feed_archive_filter( $feed ){
 	global $pw;
 	//pw_log( $feed );
+
+	////////// GLOBAL //////////
+	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
+	if( is_array( $feed_settings ) )
+		$feed = array_replace_recursive( $feed, $feed_settings );
 
 	////////// HOME PAGE //////////
 	if( in_array( 'home', $pw['view']['context'] ) ){
@@ -95,10 +101,18 @@ function theme_feed_archive_filter( $feed ){
 		}
 	}
 
-	////////// GLOBAL //////////
-	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
-	if( is_array( $feed_settings ) )
-		$feed = array_replace_recursive( $feed, $feed_settings );
+
+	////////// BLOG FEED //////////
+	/**
+	 * Replace this with natively managed options
+	 * in the admin feed settings.
+	 */
+	if( in_array( 'archive-post-type-blog', $pw['view']['context'] ) ){
+		$blog_feed = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'blog.settings.feed' ) );
+		if( !empty( $blog_feed ) ){
+			$feed = array_replace($feed, $blog_feed);
+		}
+	}
 
 	// Pre-process the theme feed vars
 	$feed = apply_filters( 'theme_feed_preprocess', $feed );
@@ -106,10 +120,10 @@ function theme_feed_archive_filter( $feed ){
 	return $feed;
 	
 }
-add_filter( PW_FEED_DEFAULT, 'theme_feed_archive_filter' );
 
 
 ////// DEFAULT FEED SETTINGS /////
+add_filter( PW_FEED_DEFAULT, 'theme_default_feeds', 5 );
 function theme_default_feeds( $feed ){
 	$theme_default_feed = array(
 		'view'	=>	array(
@@ -126,11 +140,12 @@ function theme_default_feeds( $feed ){
 	$feed = array_replace_recursive($feed, $theme_default_feed);
 	return $feed;
 }
-add_filter( PW_FEED_DEFAULT, 'theme_default_feeds' );
+
 
 /**
  * Get the background image which is the background of feed blocks.
  */
+add_filter( 'theme_feed_preprocess', 'theme_feed_preprocess_blocks_background_image' );
 function theme_feed_preprocess_blocks_background_image( $feed ){
 	// Define the key where the background image is
 	$key = 'blocks.widgets.background_image';
@@ -143,7 +158,7 @@ function theme_feed_preprocess_blocks_background_image( $feed ){
 	}
 	return $feed;
 }
-add_filter( 'theme_feed_preprocess', 'theme_feed_preprocess_blocks_background_image' );
+
 
 
 
@@ -503,6 +518,18 @@ function theme_post_field_model_preview( $fields ){
 
 }
 
+/**
+ * Add field models for post views.
+ */
+add_action('init','theme_register_field_models');
+function theme_register_field_models(){
+	/**
+	 * Add field model for 'full' view.
+	 */
+	$fields = pw_get_field_model('post','preview');
+	$fields[] = 'post_content';
+	pw_register_post_field_model('full',$fields);
+}
 
 add_filter( 'pw_color_profiles', 'theme_color_profiles', 11 );
 function theme_color_profiles( $profiles ){

@@ -99,7 +99,7 @@ $pwSiteGlobals = array(
 				'post_types' => array( 'attachment', 'post' )
 				),
 			'link_url'	=>	array(
-				'post_types'	=>	array( 'post', 'page', 'attachment' ),
+				'post_types'	=>	array( 'post', 'blog', 'page', 'attachment' ),
 				),
 			'post_parent'	=>	array(
 				array(
@@ -322,11 +322,9 @@ $pwSiteGlobals = array(
 				),
 			),
 
-	//'post_views'	=> array( 'list', 'modal', 'detail', 'grid', 'full' ),
-
 	'post_views'	=>	array(
-		'supported' => array('list', 'modal', 'detail', 'grid', 'full'),
-		'feed_options' => array('list','detail','grid'),
+		'supported' => array('list','modal','grid','full'),
+		'feed_options' => array('list','grid','full'),
 		'meta'	=>	array(
 			'list' => array(
 				'name' => 'List',
