@@ -1,0 +1,39 @@
+<div
+	pw-feed-post
+	class="post post-type--blog view--full pw-transition-fadein"
+	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
+	timeout-action="addClass('fadein-on')"
+	ng-hide="post.post_status == 'trash'"
+	pw-ui
+	ng-cloak>
+	<!-- EMBED 
+		<div
+			class="media-viewer"
+			style="height:{{pw.options.theme.posts.media.style.height}}vh"
+			ng-show="showView('modalEmbed')">
+			<div
+				class="view-embed">
+				<div
+					class="o-embed"
+					o-embed="{{ post.link_url }}"
+					embed-autoplay="showView('autoplayEmbed')"
+					embed-run="showView('modalEmbed')">
+				</div>
+
+			</div>
+		</div>
+		-->
+
+	<div class="content-wrapper">
+
+		<a ng-href="{{post.post_permalink}}">
+			<h1>
+				{{ post.post_title }}
+			</h1>
+		</a>
+
+		<div class="post-content" ng-bind-html="post.post_content"></div>
+
+	</div>
+
+</div>

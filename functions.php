@@ -129,6 +129,13 @@ function theme_remove_image_sizes() {
 	remove_image_size('large');
 	remove_image_size('post-thumbnail');
 
+	/////////// ADD IMAGE SIZES //////////
+	pw_add_image_size( 'xs', 128, 128, 2 );
+	pw_add_image_size( 'sm', 256, 256, 2 );
+	pw_add_image_size( 'md', 512, 512, 2 );
+	pw_add_image_size( 'lg', 1024, 1024, 2 );
+	pw_add_image_size( 'xl', 2048, 2048, 2 );
+
 }
 
 
