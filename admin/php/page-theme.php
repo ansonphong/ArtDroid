@@ -19,34 +19,6 @@
 			'no_pause'		=>	true,
 			'transition'	=>	'fade',
 			),
-		'options' => array(
-			'proportion' => array(
-				array(
-					'value' => false,
-					'name' => 'Flexible',
-					),
-				array(
-					'value' => 2,
-					'name' => '2 : 1',
-					),
-				array(
-					'value' => 2.5,
-					'name' => '2.5 : 1',
-					),
-				array(
-					'value' => 3,
-					'name' => '3 : 1',
-					),
-				array(
-					'value' => 3.5,
-					'name' => '3.5 : 1',
-					),
-				array(
-					'value' => 4,
-					'name' => '4 : 1',
-					),
-				),
-			),
 		);
 ?>
 <script>

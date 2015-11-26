@@ -9,6 +9,14 @@
 	pw-ui
 	ng-cloak>
 
+	<div
+		theme-post-header="::pw.options.theme.blog.settings.views.full.header"
+		class="post-header-image"
+		ng-show="::showView('singleImage')"
+		style="background-position:center; background-size:cover;"
+		pw-smart-image="::post.image">
+	</div>
+
 	<!-- EMBED -->
 	<div
 		class="media-viewer"

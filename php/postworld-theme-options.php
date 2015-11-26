@@ -5,7 +5,6 @@ function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
-
 		'blog'	=>	array(
 			'enable'	=>	true,
 			'settings'	=>	array(
@@ -15,6 +14,14 @@ function pw_theme_options_filter( $options ){
 					'icon' => '',
 					'cover_image' => array(
 						'attachment_id' => null,
+						),
+					),
+				'views' => array(
+					'full' => array(
+						'header' => array(
+							'proportion' => 4,
+							'height'	=> 20,
+							),
 						),
 					),
 				'post_type' => array(

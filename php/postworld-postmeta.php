@@ -4,7 +4,8 @@ function theme_postmeta_model_filter( $pwMeta ){
 		"header" => array(
 			"type"		=>	"default",
 			"image"		=>	array(
-				"height"	=>	"50",
+				"height"	=>	50,
+				"proportion" => false,
 				),
 			"slider"	=>	array(
 				"mode" 			=> "this_post",
@@ -58,7 +59,16 @@ function theme_postmeta_model_filter( $pwMeta ){
 			),
 		);
 
-	return array_replace_recursive( $defaultPwMeta, $pwMeta );
+	$pwMeta = array_replace_recursive( $defaultPwMeta, $pwMeta );
+
+	/**
+	 * Sanitization
+	 */
+	// Cast height as integer
+	$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
+
+
+	return $pwMeta;
 	
 }
 add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );

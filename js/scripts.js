@@ -255,4 +255,32 @@ postworld.controller( 'artFeedCtrl',
 
 }]);
 
+/**
+ * Handles the header image classes/styles for the Post Header
+ * Such as is used on the Blog
+ */
+postworld.directive( 'themePostHeader', [ function( $timeout ){
+	return {
+		restrict: 'AE',
+		scope:{
+			themePostHeader:"="
+		},
+		link: function( $scope, element, attrs ){
+			var init = function(settings){
+				if( _.isEmpty(settings) )
+					return false;
+				if( !settings.proportion )
+					element.css('height', settings.height+'vh');
+				else{
+					settings.proportion = String(settings.proportion);
+					settings.proportion = settings.proportion.replace('.','_');
+					element.addClass('proportion proportion-'+settings.proportion);
+				}
+			}
+			$scope.$watch( 'themePostHeader', function(settings){
+				init(settings);
+			});
+		}
+	};
+}]);
 
