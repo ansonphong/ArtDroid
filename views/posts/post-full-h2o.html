@@ -52,7 +52,7 @@
 	</div>
 	
 	{% if post.post_type != 'page' %}
-	
+	{% if post.post_type != 'blog' %}
 		<!-- IMAGE -->
 		<div
 			class="media-viewer post-image full-page-width"
@@ -101,7 +101,18 @@
 			{% endif %}
 		</div>
 	{% endif %}
+	{% endif %}
 	
+	{% if post.post_type == 'blog' %}
+		<div
+			theme-post-header="::pw.options.theme.blog.settings.views.full.header"
+			class="post-header-image"
+			ng-show="::showView('singleImage')"
+			style="background-position:center; background-size:cover;"
+			pw-smart-image="::post.image">
+		</div>
+	{% endif %}
+
 	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
 		<div class="row">

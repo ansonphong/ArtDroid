@@ -61,6 +61,28 @@
 					
 				</div>
 
+				<div class="well">
+					<h3>
+						<span class="icon-md"><i class="pwi-image"></i></span>
+						Header Image
+					</h3>
+
+					<?php
+						echo pw_select_setting( array(
+							'setting' => 'proportion', 
+							'ng_model' => 'pwOptions.blog.settings.views.full.header.proportion',
+							));?>
+
+					<div ng-show="!pwOptions.blog.settings.views.full.header.proportion">
+						<?php
+						echo pw_select_setting( array(
+							'setting' => 'height-percent', 
+							'ng_model' => 'pwOptions.blog.settings.views.full.header.height',
+							));?>
+					</div>
+					
+				</div>
+
 				<hr class="thin">
 
 			</div>
