@@ -95,11 +95,11 @@
 		</div>
 
 		<!-- SOCIAL WIDGETS -->
-		<div
+		<span
 			class="social-widgets pad-x-xl"
 			ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
 			<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
-		</div>
+		</span>
 
 	</div>
 
