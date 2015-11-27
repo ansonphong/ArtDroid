@@ -9,6 +9,7 @@
 	pw-ui
 	ng-cloak>
 
+	<!--
 	<div
 		theme-post-header="::pw.options.theme.blog.settings.views.full.header"
 		class="post-header-image"
@@ -16,6 +17,20 @@
 		style="background-position:center; background-size:cover;"
 		pw-smart-image="::post.image">
 	</div>
+	-->
+
+	<div
+		theme-post-header="::pw.options.theme.blog.settings.views.full.header"
+		ng-show="::showView('singleImage')">
+		<div
+			class="post-header-image"
+			pw-smart-image="::post.image"
+			pw-parallax
+			parallax-depth="1.33"
+			parallax-enable="::showView('singleImage')">
+		</div>
+	</div>
+	
 
 	<!-- EMBED -->
 	<div
