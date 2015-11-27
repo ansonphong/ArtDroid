@@ -283,4 +283,3 @@ postworld.directive( 'themePostHeader', [ function( $timeout ){
 		}
 	};
 }]);
-
