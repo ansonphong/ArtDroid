@@ -18,7 +18,7 @@
 						<span class="icon-md"><i class="pwi-globe-o"></i></span>
 						URL Base
 					</h3>
-					<i><?php echo get_site_url(); ?></i>/<input type="text" ng-model="pwOptions.blog.settings.base">
+					<i><?php echo get_site_url(); ?></i>/<input type="text" ng-model="pwOptions.blog.settings.post_type.base">
 					<br>
 					<small>The base url for blog posts. Changing this may cause offsite links to break.</small>
 				</div>
