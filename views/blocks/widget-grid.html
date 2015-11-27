@@ -6,12 +6,17 @@
 	pw-ui>
 	<div class="feed-block-wrapper">
 		<div
-			ng-style="::uiBackgroundImage(feed().blocks.widgets.background_image.obj.url)"
-			style="background-width:100%; background-size:cover;background-position: center;"
-			parallax-background
-			parallax-ratio="{{ ::feed().blocks.widgets.background_image.parallax_ratio }}"
 			class="widget"
+			style="position:relative; z-index:2;"
+
 			pw-compile-code="::widgets[ post.block.index ]">
+		</div>
+		<div
+			ng-style="::uiBackgroundImage(feed().blocks.widgets.background_image.obj.url)"
+			style="z-index:1;"
+			pw-parallax
+			parallax-depth="{{ ::feed().blocks.widgets.background_image.parallax_ratio }}"
+			parallax-in-feed>
 		</div>
 	</div>
 </div>

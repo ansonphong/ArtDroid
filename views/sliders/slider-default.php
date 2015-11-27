@@ -37,12 +37,19 @@
 				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.link_target}}">
 			<?php } ?>
 				<div
-					class="slide-frame"
-					pw-smart-image="::slide.image"
-					smart-image-override="::slide.image.alt"
-					smart-image-dynamic
-					parallax-background
-					parallax-ratio="-0.6">
+					class="slide-frame">
+
+					<div
+						pw-smart-image="::slide.image"
+						smart-image-override="::slide.image.alt"
+						smart-image-dynamic
+						pw-parallax="parent"
+						parallax-depth="1.5">
+					</div>
+
+					<!--parallax-background
+					parallax-ratio="-0.6"-->
+
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
 						<h2 ng-show="slider.show_title">
 							<span class="post-format-icon" ng-show="slide.link_format == 'video'">
