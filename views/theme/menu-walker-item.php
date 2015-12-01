@@ -30,26 +30,28 @@
 		pw_print_html_attr( 'href', $link_attr['href'], "" );
 	?>
 	>
-	<?php
-	///// ICON /////
-	if( !empty($icon) ){ ?>
-		<i class="icon symbol-target menu-icon <?php echo $icon ?>"></i>
-	<?php } elseif( $depth == 0 && !empty( $classes[0] ) ){ ?>
-		<i class="icon symbol-target menu-icon"></i>
-	<?php } ?>
+	<div class="menu-link-inner">
+		<?php
+		///// ICON /////
+		if( !empty($icon) ){ ?>
+			<i class="icon symbol-target menu-icon <?php echo $icon ?>"></i>
+		<?php } elseif( $depth == 0 && !empty( $classes[0] ) ){ ?>
+			<i class="icon symbol-target menu-icon"></i>
+		<?php } ?>
 
-	<span class="menu-label">
-		<?php echo $link_meta['label'] ?>
-	</span>
+		<span class="menu-label">
+			<?php echo $link_meta['label'] ?>
+		</span>
 
-	<?php
-	///// DESCRIPTION /////
-	/*
-	if( $link_meta['description'] && $depth == 0 ){ ?>
-		<div class="main-menu-item-description">
-			<?php echo $link_meta['description']; ?>
-		</div>
-	<?php } */
-	?>
+		<?php
+		///// DESCRIPTION /////
+		/*
+		if( $link_meta['description'] && $depth == 0 ){ ?>
+			<div class="main-menu-item-description">
+				<?php echo $link_meta['description']; ?>
+			</div>
+		<?php } */
+		?>
+	</div>
 
 </a>

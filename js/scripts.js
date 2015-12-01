@@ -12,6 +12,27 @@ var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(wf, s);
 })();
 
+postworld.directive( 'themeHeader',
+	[ 'pwData', '$pw', '$log', '_', '$window',
+	function( $pwData, $pw, $log, $_, $window ){
+	return {
+		restrict: 'AE',
+		link: function( $scope, element, attrs ){
+			var yScroll = 0,
+				minHeight = 64,
+				maxHeight = $pw.options.style.header_height_expand;
+			var update = function(){
+				// Resize the header
+				yScroll = window.scrollY || ((window.pageYOffset || document.body.scrollTop) - (document.body.clientTop || 0));
+				headerHeight = Math.max( maxHeight - yScroll/2, minHeight );
+				element[0].style.height = parseInt(headerHeight)+'px';
+			}
+			angular.element($window).bind("scroll", update);
+			update();
+		}
+	};
+}]);
+
 postworld.directive( 'artPost', [ function( $scope ){
 	return {
 		restrict: 'AE',

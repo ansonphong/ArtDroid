@@ -1,18 +1,31 @@
 @global-transition-time: 0.2s;
 
-
 @menu-border-left: 15px;
 @main-menu-slide-down: 0px;
 @shadow-md:4px 4px 0 @red1;
 @meta-border-radius: 2px;
 
-
 @header-height: auto;
-@header-height-fixed:64px;
-@primary-menu-height:64px;
+
+@header-height-compact:64px;
+
+@header-height-compact:64px;
+//@header-height-expand:96px;
+
+/**
+ * @todo Limit the value of @header-height-compact to one (minimal) location(s)
+ * and apply a class to change it's position.
+ * Test first with manually adjusting the value, then impliment javascript.
+ * Make a pw-scroll-y-class directive, or modify regular scrollclass directive.
+ */
+
+///@primary-menu-height:64px;
 
 @font-size-xl:36px;
 @font-size-lg:24px;
 @font-size-md:18px;
 @font-size-sm:14px;
 @font-size-xs:12px;
+
+@unit-box-shadow-lg: 2px 2px 10px fade(@neutral-color-dark, 15%);
+@inset-box-shadow-lg: inset 2px 2px 10px fade(@neutral-color-dark, 15%);

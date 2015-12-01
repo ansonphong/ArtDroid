@@ -63,6 +63,9 @@ function theme_pw_styles_defaults( $value ){
 			),
 
 		'layout'	=>	array(
+			'header' => array(
+				'header-height-expand'	=>	'96px',
+				),
 			'bootstrap'	=>	array(
 				'grid-gutter-width'	=>	'0px',
 				),
@@ -508,7 +511,22 @@ function theme_pw_styles_structure( $structure = array() ){
 			"icon"	=>	"pwi-th-large-2",
 			"values"	=>	array(
 
+				///// HEADER /////
+				array(
+					'name'	=>	'Header',
+					'key'	=>	'header',
+					'icon'	=>	'pwi-square-medium',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Header Height",
+							"key"			=>	"header-height-expand",
+							"input"			=>	"text",
+							"description"	=>	"Expanded height of the header before scrolling. (include 'px')"
+							),
+						),
+					),
 
+				
 				///// BOOTSTRAP /////
 				array(
 					'name'	=>	'Bootstrap',

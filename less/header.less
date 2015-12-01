@@ -1,10 +1,11 @@
-.header-spacer{
-	height:@header-height-fixed;
+header#header, .header-spacer{
+	height:@header-height-expand;
 }
 
 #primary-menu-spacer{
-	height:@header-height-fixed;
+	height: @header-height-expand;
 }
+
 
 #header-border{
 	border-bottom:1px solid @header-line-color;
@@ -36,12 +37,8 @@ header#header{
 	z-index:100;
 	width:100%;
 	background:@header-background;
-	height:@primary-menu-height;
 	transition: background .66s ease;
-
-	@media @desktop-and-above{
-		//height:@header-height-fixed;
-	}
+	border-bottom:1px solid @header-line-color;
 
 	@media @wp-sm{
 		position:absolute;
@@ -60,7 +57,7 @@ header#header{
 			}
 		}
 		.menu-social{
-			right: @header-height-fixed;
+			right: @header-height-compact;
 		}
 	}
 
@@ -69,7 +66,7 @@ header#header{
 	}
 
 	#logo{
-		height:(@primary-menu-height - 1px);
+		height:100%;
 		.transition();
 		background:@logo-background;
 		&:hover{
@@ -79,6 +76,7 @@ header#header{
 			background:@logo-background;
 		}
 		a{
+			max-width: 100%;
 			.transition(@global-transition-time);
 			display:inline-block;
 			padding:0px;
@@ -88,8 +86,8 @@ header#header{
 		}
 		img{
 			width:auto;
+			height:auto;
 			max-width: 100%;
-			height:@header-height-fixed - 1px;
 			max-height:100%;
 			transition:all ease 1s;
 			border-radius:0 0 3px 3px;
@@ -128,8 +126,11 @@ header#header{
 		right:0px;
 		opacity:1;
 		transition: all ease .33s;
+		height:100%;
+		//.center-vertical-parent();
 		.inner{
-			padding:12px 18px 0 0;
+			.center-vertical();
+			padding:0px 18px 0 0;
 			position:relative;
 		}
 		@media @tablet-and-below {
