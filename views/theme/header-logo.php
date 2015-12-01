@@ -21,7 +21,7 @@
 </script>
 <div
 	id="logo"
-	class="header-col-logo <?php if( is_front_page() ) echo 'is-front-page' ?>"
+	class="header-col-logo center-vertical-parent <?php if( is_front_page() ) echo 'is-front-page' ?>"
 	ng-controller="headerLogo">
 	<?php
 	// Link to home page
@@ -36,6 +36,7 @@
 		<?php if( $has_logo_image ): ?>
 			<!-- LOGO -->
 			<img
+				class="center-vertical"
 				src="<?php echo _get( $logo_post, 'image.sizes.full.url' ) ?>"
 				pw-smart-image="logoPost.image"
 				ng-cloak>

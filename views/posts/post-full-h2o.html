@@ -191,19 +191,19 @@
 							</a>
 						</span>
 					</div>
+
+					<!-- TIME -->
+					<span
+						class="time unit"
+						tooltip="{{ post.post_date_gmt }}"
+						tooltip-placement="bottom"
+						tooltip-popup-delay="333">
+						<time datetime="{{ post.post_date }}">
+							{{ post.time_ago }}
+						</time>
+					</span>
 					
 				{% endif %}
-
-				<!-- TIME -->
-				<span
-					class="time unit"
-					tooltip="{{ post.post_date_gmt }}"
-					tooltip-placement="bottom"
-					tooltip-popup-delay="333">
-					<time datetime="{{ post.post_date }}">
-						{{ post.time_ago }}
-					</time>
-				</span>
 
 				<div class="clearfix"></div>
 

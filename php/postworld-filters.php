@@ -31,9 +31,13 @@ function pw_theme_feed_defaults_filter( $feed ){
 add_filter( PW_FEED_DEFAULT, 'pw_theme_feed_defaults_filter' );
 
 ////////// LOAD GLOBAL OPTIONS //////////
-// Shared in Javascript as $pw.options
+/**
+ * Adds variables to global Javascript options
+ * available in Javascript at $pw.options
+ */
 function theme_pw_global_options( $options ){
-	// Adds to Javascript $pw.options
+	
+	// Adds theme options to Javascript $pw.options
 	$theme_options = pw_get_option(array('option_name'=>PW_OPTIONS_THEME));
 	$add_options = array(
 		'media',
@@ -44,6 +48,21 @@ function theme_pw_global_options( $options ){
 	foreach( $add_options as $option ){
 		$options[$option] = _get( $theme_options, $option );
 	}
+
+	/**
+	 * Add specific style options, so that the variables
+	 * Can be shared by both LESS and Javascript
+	 */
+	$pwStyles = pw_get_option( array( 'option_name' => PW_OPTIONS_STYLES ) );
+	
+	// Get values as variables
+	$header_height = intval( _get( $pwStyles, 'layout.header.header-height-expand' ) );
+	
+	// Set into style array
+	$options['style'] = array(
+		'header_height_expand' => $header_height,
+		);
+	
 	return $options;
 }
 add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
@@ -630,5 +649,6 @@ function theme_get_loading_icon_options(){
 		);
 	return $icons;
 }
+
 
 

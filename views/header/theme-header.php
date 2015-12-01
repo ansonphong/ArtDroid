@@ -36,6 +36,7 @@ if( in_array( 'search', $pw['view']['context'] ) )
 <div id="background"></div>
 <!-- HEADER / NAVIGATION -->
 <header
+	theme-header
 	id="header"
 	class="<?php if($show_search) echo 'show-search'?>"
 	pw-ui>
@@ -67,7 +68,7 @@ if( in_array( 'search', $pw['view']['context'] ) )
 <div id="primary-menu-spacer"></div>
 
 <!-- LINE -->
-<div id="header-border"></div>
+<!--<div id="header-border"></div>-->
 
 <!-- POSTWORLD GLOBALS -->
 <div pw-globals="pw"></div>

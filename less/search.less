@@ -1,17 +1,24 @@
 @search-selected-background: mix( @neutral-color-medium, @global-background-color, 50% );
 
 #search-menu{
-	float:right;
+	float: right;
 	position:absolute;
 	right:0px;
 	top:0px;
 	z-index:8;
 	text-align: right;
+	height: 100%;
+	width: @header-height-compact;
+
+	.search-menu--inner{
+		position: relative;
+		height: 100%;
+	}
 
 	button.search-icon{
 		.transition();
-		height:@header-height-fixed - 1px;
-		width: @header-height-fixed;
+		height:100%;
+		width: @header-height-compact;
 		font-size:24px;
 		background: @header-background;
 		color: @global-foreground-color;
@@ -37,35 +44,37 @@
 
 #search-menu-input{
 	.transition();
-	display:none;
-	padding:20px;
-
-	position:absolute;
-	top:@header-height-fixed;
-	right:0;
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
 	z-index: 8;
+	width: 100vw;
 
-	box-shadow: @unit-box-shadow-lg;
+	.search-menu-input--inner{
+		position: relative;
+		background: @search-selected-background;
+		color: @global-background-color;
+		box-shadow: @unit-box-shadow-lg;
+		float: right;
+		padding:20px;
 
-	background: @search-selected-background;
-	color: @global-background-color;
-	
-	@media @xl{
-		width:50%;
-	}
-	@media @lg{
-		width:60%;
-	}
-	@media @md{
-		width:70%;
-	}
-	@media @sm-down{
-		width:100%;
+		@media @xl{
+			width:50%;
+		}
+		@media @lg{
+			width:60%;
+		}
+		@media @md{
+			width:70%;
+		}
+		@media @sm-down{
+			width:100%;
+		}
 	}
 
 	&.active{
 		display:block;
-		top:@header-height-fixed;
 	}
 
 }
