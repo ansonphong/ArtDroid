@@ -175,8 +175,14 @@ postworld.controller( 'artPostCtrl',
 	 * According to the current post colors.
 	 */
 	$scope.colorStyles = {
-		"#header-border": {
+		"header#header": {
 			"border-bottom-color":"{{ hex('dynamic.50') }} !important",
+		},
+		".menu-social .icon": {
+			"color":"{{ hex('dynamic.40') }} !important",
+		},
+		".menu-social .icon:hover": {
+			"color":"{{ hex('dynamic.100') }} !important",
 		},
 		"a .menu-icon":{
 			"color": "{{ hex('dynamic.50') }} !important",
@@ -193,6 +199,9 @@ postworld.controller( 'artPostCtrl',
 		},
 		".post .taxonomy a.term":{
 			"border-bottom": "1px solid {{hex('dynamic.50')}}"
+		},
+		".post .post-head .time time":{
+			"color": "{{hex('dynamic.50')}}"
 		},
 		".post .taxonomy a.term.category":{
 			"background": "{{hex('dynamic.25')}}",
@@ -227,6 +236,12 @@ postworld.controller( 'artPostCtrl',
 		"::-webkit-scrollbar-thumb": {
 			"background": "{{ hex('dynamic.50') }} !important",
 		},
+		/*
+		".post.view--grid:hover .link-format-indicator.standard button, .post.view--grid:hover .link-format-indicator.video button, .post.view--grid:hover .link-format-indicator.audio button":{
+		 	"color":"{{hex('dynamic.100')}}",
+		 	"background":"{{hex('dynamic.100')}}"
+		}
+		*/
 	};
 }]);
 

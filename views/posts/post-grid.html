@@ -31,7 +31,9 @@
 					class="link-format-indicator"
 					ng-class="post.link_format">
 					<div ng-show="post.link_format == 'video'">
-						<button class="btn video">
+						<button
+							class="btn video"
+							ng-style="::{color:getHex(post,'dynamic.100'), background:getHex(post,'dynamic.0')}">
 							<i class="pwi-triangle-right-fill"></i>
 						</button>
 					</div>
