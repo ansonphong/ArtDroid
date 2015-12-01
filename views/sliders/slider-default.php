@@ -43,12 +43,9 @@
 						pw-smart-image="::slide.image"
 						smart-image-override="::slide.image.alt"
 						smart-image-dynamic
-						pw-parallax="parent"
-						parallax-depth="1.5">
+						pw-parallax
+						parallax-depth="<?php echo $slider['parallax_depth'] ?>">
 					</div>
-
-					<!--parallax-background
-					parallax-ratio="-0.6"-->
 
 					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
 						<h2 ng-show="slider.show_title">
