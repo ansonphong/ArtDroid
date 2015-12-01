@@ -3,7 +3,7 @@
 <div
 	id="main-menu"
 	class="header-col-menu"
-	ng-class="uiWrappingClass('.menu-main','.menu>li','is-wrapping')">
+	ng-class="uiWrappingClass('.menu-main','.menu>li',['is-wrapping','no-wrapping'])">
 
 	<?php include locate_template( 'views/theme/menu-social.php' ) ?>
 	
