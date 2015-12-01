@@ -1,25 +1,6 @@
 <?php
 	// Enable Media Library
 	wp_enqueue_media();
-	$home_slider_settings = array(
-		'ng_model' 	=>	'pwOptions.home.slider',
-		'show'		=>	array(
-			'height',
-			'interval',
-			'no_pause',
-			'hyperlink',
-			'show_title',
-			'show_excerpt',
-			'transition',
-			'proportion'
-			),
-		'defaults'	=>	array(
-			'interval'		=>	5000,
-			'mode'			=>	'menu',
-			'no_pause'		=>	true,
-			'transition'	=>	'fade',
-			),
-		);
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',

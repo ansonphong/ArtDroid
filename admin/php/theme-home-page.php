@@ -1,3 +1,25 @@
+<?php
+$home_slider_settings = array(
+	'ng_model' 	=>	'pwOptions.home.slider',
+	'show'		=>	array(
+		'height',
+		'interval',
+		'no_pause',
+		'hyperlink',
+		'show_title',
+		'show_excerpt',
+		'transition',
+		'proportion',
+		'parallax_depth'
+		),
+	'defaults'	=>	array(
+		'interval'		=>	5000,
+		'mode'			=>	'menu',
+		'no_pause'		=>	true,
+		'transition'	=>	'fade',
+		),
+	);
+?>
 <div class="row">
 	<div class="col-lg-6 pad-col-lg">
 

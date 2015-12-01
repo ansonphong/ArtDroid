@@ -125,7 +125,7 @@ function pw_theme_options_filter( $options ){
 						'sidebar' => null,
 						'background_image'	=>	array(
 							'id'	=>	null,
-							'parallax_ratio' => -0.5,
+							'parallax_ratio' => 1.5,
 							),
 						),	
 					),
@@ -141,6 +141,7 @@ function pw_theme_options_filter( $options ){
 				'show_excerpt' => true,
 				'transition' => 'fade',
 				'proportion' => false,
+				'parallax_depth' => 1.5
 				),
 			),
 		'modals'	=>	array(
