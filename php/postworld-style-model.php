@@ -35,7 +35,7 @@ function theme_pw_styles_defaults( $value ){
 				'header-line-color'			=>	'fade(@neutral-color-dark,100%)',
 				'logo-background'			=>	'transparent',
 				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
-				'main-menu-background'		=>	'transparent',
+				//'main-menu-background'		=>	'transparent',
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
 				'secondary-menu-foreground'	=>	'@global-foreground-color',
@@ -181,7 +181,7 @@ pw_register_style_set(array(
 				'header-line-color'			=>	'@global-background-color',
 				'logo-background'			=>	'@global-background-color',
 				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
-				'main-menu-background'		=>	'@neutral-color-dark',
+				//'main-menu-background'		=>	'@neutral-color-dark',
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
 				'secondary-menu-foreground'	=>	'@global-foreground-color',
@@ -415,12 +415,14 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"color",
 							"description"	=>	"Color of the logo background on mouse hover"
 							),
+						/*
 						array(
 							"name"			=>	"Main Menu Background",
 							"key"			=>	"main-menu-background",
 							"input"			=>	"color",
 							"description"	=>	"Background color of the main menu items"
 							),
+						*/
 						array(
 							"name"			=>	"Main Menu Text Color",
 							"key"			=>	"main-menu-foreground",
