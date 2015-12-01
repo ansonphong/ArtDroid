@@ -18,11 +18,15 @@ postworld.directive( 'themeHeader',
 	return {
 		restrict: 'AE',
 		link: function( $scope, element, attrs ){
+			// Only enable for desktop devices
+			if( !$pw.device.is_desktop )
+				return false;
+			// Default variables
 			var yScroll = 0,
 				minHeight = 64,
 				maxHeight = $pw.options.style.header_height_expand;
+			// Resize the header
 			var update = function(){
-				// Resize the header
 				yScroll = window.scrollY || ((window.pageYOffset || document.body.scrollTop) - (document.body.clientTop || 0));
 				headerHeight = Math.max( maxHeight - yScroll/2, minHeight );
 				element[0].style.height = parseInt(headerHeight)+'px';

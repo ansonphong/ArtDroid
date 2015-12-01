@@ -1,12 +1,23 @@
+
+// Desktop Devices
+html.device-desktop{
+	header#header, .header-spacer{
+		height:@header-height-expand;
+	}
+	#primary-menu-spacer{
+		height: @header-height-expand;
+	}
+}
+
+// Default styles
 header#header, .header-spacer{
-	height:@header-height-expand;
+	height:@header-height-compact;
 }
-
 #primary-menu-spacer{
-	height: @header-height-expand;
+	height: @header-height-compact;
 }
 
-
+/*
 #header-border{
 	border-bottom:1px solid @header-line-color;
 	position: fixed;
@@ -16,6 +27,7 @@ header#header, .header-spacer{
 		position:absolute;
 	}
 }
+*/
 
 body.scrollfix-y{
 	header#header{

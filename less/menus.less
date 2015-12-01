@@ -81,12 +81,26 @@
 			opacity: 0;
 			height:63px;
 			overflow: hidden;
-			background: fade(@header-background, 66%);
+			background: fade(@header-background, 100%);
 		}
+
+		// Hide submenus
 		ul.menu > li ul{
 			display: none;
 		}
+
+		// Fix vertical centering when wrapping
+		ul.menu > li{
+			>a{
+				.menu-link-inner{
+					.uncenter-vertical();
+				}
+			}
+		}
+
 	}
+
+
 	&.is-wrapping:hover{
 		.menu-indicator{
 			display: none;
@@ -164,9 +178,10 @@
 		//border:1px solid @secondary-color-light;
 	}
 
-	ul.menu > li {
-		
 
+	
+
+	ul.menu > li {
 		@main-menu-slide-down : 5px;
 		.transition(0.2s);
 		z-index:5;
@@ -180,7 +195,7 @@
 			top:@main-menu-slide-down;
 			z-index:10;
 		}
-		a {
+		a{
 			text-decoration:none;
 		}
 		// Top level link items
