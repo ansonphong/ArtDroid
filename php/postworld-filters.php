@@ -4,10 +4,10 @@ add_filter( 'pw_default_layout', 'theme_pw_default_layout' );
 function theme_pw_default_layout( $default_layout = array() ){
 	$default_layout = array(
 		'header'	=>	array(
-			'id'	=>	'artdroid-header',
+			'id'	=>	'theme-header',
 			),
 		'footer'	=>	array(
-			'id'	=>	'artdroid-footer',
+			'id'	=>	'theme-footer',
 			),
 		'template'	=>	'full-width',
 		);

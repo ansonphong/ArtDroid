@@ -21,6 +21,7 @@ $pwSiteGlobals = array(
 		'required'	=>	array(
 			'site',
 			'layouts',
+			'sidebars',
 			'styles',
 			'social',
 			'feeds',

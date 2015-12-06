@@ -1,54 +1,65 @@
 <!-- GALLERY : HORIZONTAL -->
+<!-- -->
 <div
-	pw-globals="pw"
-	ng-show="includeEnable"
-	class="media-viewer"
-	style="height:{{pw.options.theme.posts.galleries.style.x_gallery_height}}vh"
-	pw-colors>
-	
+	class="media-viewer-wrapper pw-transition-fadein"
+	pw-timeout="500"
+	timeout-action="addClass('fadein-on')">
+
 	<div
-		pw-infinite-gallery
-		gallery-preload="4"
-		gallery-scroll="galleryGetNext(3)"
-		class="view-gallery-horizontal">
-		<!-- GALLERY IMAGES -->
+		pw-globals="pw"
+		ng-show="includeEnable"
+		class="media-viewer"
+
+		pw-height="{{::pw.options.theme.posts.galleries.x_gallery.height.method}}"
+		height-value="{{::pw.options.theme.posts.galleries.x_gallery.height.value}}"
+
+		pw-colors>
+		
 		<div
-			class="infinite-x-scroll scroll-inner"
-			infinite-x-scroll
-			scroll-action="galleryGetNext(2)"
-			scroll-distance="1000"
-			scroll-disabled="!includeEnable"
-			scroll-this>
-
-			<!-- SCROLL INDICATOR -->
+			pw-infinite-gallery
+			gallery-preload="4"
+			gallery-scroll="galleryGetNext(3)"
+			class="view-gallery-horizontal">
+			<!-- GALLERY IMAGES -->
 			<div
-				class="scroll-indicator"
-				pw-device-class>
-				<div class="message-scroll">
-					<span class="text">Scroll</span>
-					<i class="icon pwi-arrow-right-thin"></i>
-				</div>
-				<div class="message-slide">
-					<span class="text">Slide</span>
-					<i class="icon pwi-arrow-left-thin"></i>
-				</div>
-			</div>
+				class="infinite-x-scroll scroll-inner"
+				infinite-x-scroll
+				scroll-action="galleryGetNext(2)"
+				scroll-distance="1000"
+				scroll-disabled="!includeEnable"
+				scroll-this>
 
-			<!-- GALLERY IMAGE -->
-			<div
-				class="gallery-image image-hover-area"
-				ng-repeat="galleryPost in galleryDisplayedPosts()">
-					<!-- IMAGE -->
-					<img
-						pw-smart-image="::galleryPost.image"
-						smart-image-dynamic>
-						<!-- pw-src="galleryPost.image.sizes.full.url" -->
-					<div
-						pw-include="panels/image-info"
-						include-post="galleryPost"
-						include-vars="{download:post.post_meta.pw_meta.image.download,link_label:post.post_meta.pw_meta.link_url}"
-						class="image-info-include">
+				<!-- SCROLL INDICATOR -->
+				<div
+					class="scroll-indicator"
+					pw-device-class>
+					<div class="message-scroll">
+						<span class="text">Scroll</span>
+						<i class="icon pwi-arrow-right-thin"></i>
 					</div>
+					<div class="message-slide">
+						<span class="text">Slide</span>
+						<i class="icon pwi-arrow-left-thin"></i>
+					</div>
+				</div>
+
+				<!-- GALLERY IMAGE -->
+				<div
+					class="gallery-image image-hover-area"
+					ng-repeat="galleryPost in galleryDisplayedPosts()">
+						<!-- IMAGE -->
+						<img
+							ng-src="{{::galleryPost.image.sizes.sm.url}}"
+							pw-smart-image="::galleryPost.image"
+							smart-image-dynamic>
+							<!--  -->
+						<div
+							pw-include="panels/image-info"
+							include-post="galleryPost"
+							include-vars="{download:post.post_meta.pw_meta.image.download,link_label:post.post_meta.pw_meta.link_url}"
+							class="image-info-include">
+						</div>
+				</div>
 			</div>
 		</div>
 	</div>

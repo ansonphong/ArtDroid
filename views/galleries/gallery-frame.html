@@ -4,14 +4,16 @@
 	gallery-keybinding="{{ vars.keybind }}"
 	class="gallery-viewer view-gallery-frame"
 	art-post
-	pw-ui>
+	pw-ui
+	pw-globals="pw"
+
+	pw-height="{{::pw.options.theme.posts.galleries.frame_gallery.height.method}}"
+	height-value="{{::pw.options.theme.posts.galleries.frame_gallery.height.value}}">
 	
 	<div
 		class="gallery-image">
-		<!-- TODO : Add height as an admin option -->
 		<div
 			class="image-viewer image-hover-area"
-			style="height:75vh;"
 			ng-class="imageFormat( selectedImage() )">
 
 			<div

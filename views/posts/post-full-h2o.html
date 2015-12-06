@@ -291,10 +291,12 @@
 	{% endif %}
 
 	{% if !post.post_content %}
-		<!-- CONTENT -->
-		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
-			{{ post.post_excerpt | safe }}
-		</div>
+		{% if post.post_excerpt %}
+			<!-- CONTENT FROM EXCERPT -->
+			<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
+				{{ post.post_excerpt | safe }}
+			</div>
+		{% endif %}
 	{% endif %}
 
 	{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
