@@ -65,8 +65,17 @@ function pw_theme_options_filter( $options ){
 					),
 				),
 			'galleries' => array(
-				'style' => array(
-					'x_gallery_height' => 66,
+				'x_gallery' => array(
+					'height' => array(
+						'method' => 'window-base',
+						'value'	=>	66
+						),
+					),
+				'frame_gallery' => array(
+					'height' => array(
+						'method' => 'window-base',
+						'value'	=>	66
+						),
 					),
 				), 
 			'post'	=>	array(

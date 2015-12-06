@@ -75,18 +75,32 @@
 						How tall to size the images and embedded media (audio/videos).
 					</small>
 				</label>
+				<hr class="thin">
+
 
 				<label>
 					<h4>Horizontal Gallery</h4>
-					<input
-						type="number"
-						class="short"
-						ng-model="pwOptions.posts.galleries.style.x_gallery_height"> % 
-					Height
-					<small>
-						How tall to size horizontal galleries.
-					</small>
 				</label>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.galleries.x_gallery.height',
+						'methods' => array('window-base','window-percent','pixels'),
+						));
+				?>
+				<hr class="thin">
+
+				<label>
+					<h4>Frame Gallery</h4>
+				</label>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.galleries.frame_gallery.height',
+						'methods' => array('window-base','window-percent','pixels'),
+						));
+				?>
+				<hr class="thin">
 
 				<div style="clear:both"></div>
 			</div>
