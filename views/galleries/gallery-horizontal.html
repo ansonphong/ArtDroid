@@ -49,9 +49,9 @@
 					ng-repeat="galleryPost in galleryDisplayedPosts()">
 						<!-- IMAGE -->
 						<img
-							pw-src="galleryPost.image.sizes.thumbnail.url"
-							pw-smart-image="::galleryPost.image"
-							smart-image-dynamic>
+							ng-src="{{::galleryPost.image.sizes.sm.url}}"
+							pw-smart-image="::galleryPost.image">
+							<!-- smart-image-dynamic -->
 						<div
 							pw-include="panels/image-info"
 							include-post="galleryPost"
