@@ -339,7 +339,7 @@ $pwSiteGlobals = array(
 				'name' => 'Single',
 				),
 			'modal' => array(
-				'name' => 'Name',
+				'name' => 'Modal',
 				)
 			),
 		),
