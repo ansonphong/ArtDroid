@@ -119,17 +119,23 @@
 						'width'			=>	'400px',
 					 	));?>
 				<hr class="thin">
+
 				<?php
 					echo pw_select_icon_options(
 						array(
 							'ng_model' => 'pwOptions.blog.settings.main_page.icon',
 							)); ?>
+
 				<hr class="thin">
+
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.title">
 				<b>title</b>
-				<small>: The title of the page.</small>
+				<small>: The title of your blog.</small>
+				<hr class="thin">
 
-				
+				<input type="text" ng-model="pwOptions.blog.settings.main_page.subtitle">
+				<b>subtitle</b>
+				<small>: The subtitle of your blog.</small>
 
 			</div>
 		</div>

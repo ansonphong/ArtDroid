@@ -11,6 +11,7 @@ function pw_theme_options_filter( $options ){
 				'main_page' => array(
 					'show_header' => true,
 					'title' => 'My Blog',
+					'subtitle' => 'News, current events and ramblings.',
 					'icon' => '',
 					'cover_image' => array(
 						'attachment_id' => null,
