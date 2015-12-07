@@ -2,13 +2,15 @@
 global $post;
 global $pw;
 
+// Get Header Meta
+$header_meta = pw_get_postmeta( array( "sub_key" => "header" ));
+
 // Redirect pages with redirect_url postmeta
 $redirect_url = get_post_meta( $post->ID, 'redirect_url', true );
 if( !empty($redirect_url) )
 	wp_redirect( $redirect_url, '301' );
 
 pw_header('single');
-
 
 /**
  * ///// HEAD /////

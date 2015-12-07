@@ -58,6 +58,8 @@ $post_settings = array(
 		'pw'				=>	$pw,
 		'password_protected'=> !empty( $post->post_password ),
 		'theme_options'		=> $theme_options,
+		'header_type'		=> $header_type,
+		//'is_page_header_image' => ( $header_type === 'feature_image' && $post->post_type === 'page' )
 		),
 	'js_vars'	=>	array('post'),
 	);

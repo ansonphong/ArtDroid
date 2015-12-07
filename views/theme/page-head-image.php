@@ -1,7 +1,7 @@
 <?php
 	global $post;
 	$image_instance = pw_random_string();
-	$image_proportion = _get( $pw_meta_header, 'image.proportion' );
+	$image_proportion = _get( $header_meta, 'image.proportion' );
 	if( (bool) $image_proportion )
 		$image_proportion = str_replace( '.', '_', (string) $image_proportion );
 ?>
@@ -14,14 +14,23 @@
 	<?php if( !$image_proportion ) : ?>
 		<div
 			id="header-image"
-			style="height:<?php echo $pw_meta_header['image']['height']; ?>vh"
-			pw-smart-image="::headerImage.image">
+			style="height:<?php echo $header_meta['image']['height']; ?>vh">
+			<div
+				pw-smart-image="::headerImage.image"
+				pw-parallax
+				parallax-depth="1.5">
+			</div>
 		</div>
 	<?php else: ?>
 		<div
 			id="header-image"
-			class="proportion proportion-<?php echo $image_proportion ?>"
-			pw-smart-image="::headerImage.image">
+			class="proportion proportion-<?php echo $image_proportion ?>">
+			<div
+				pw-smart-image="::headerImage.image"
+				pw-parallax
+				parallax-depth="1.5"
+				parallax-median="proportional">
+			</div>
 		</div>
 	<?php endif ?>
 </div>

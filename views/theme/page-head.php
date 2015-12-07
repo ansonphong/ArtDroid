@@ -1,11 +1,7 @@
-<?php
-	global $pw;
-	$pw_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
-?>
 <header>
 	<?php
 	///// SWITCH HEADER TYPE /////
-	switch( $pw_meta_header['type'] ){
+	switch( $header_meta['type'] ){
 		case 'slider':
 			include locate_template("views/theme/slider-page.php");
 			break;
