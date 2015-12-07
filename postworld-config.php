@@ -102,6 +102,7 @@ $pwSiteGlobals = array(
 			'link_url'	=>	array(
 				'post_types'	=>	array( 'post', 'blog', 'page', 'attachment' ),
 				),
+			/*
 			'post_parent'	=>	array(
 				array(
 					'labels'	=>	array(
@@ -114,6 +115,7 @@ $pwSiteGlobals = array(
 						),
 					),
 				),
+			*/
 			'layout'	=>	array(
 				'post_types'	=>	array( 'page' ),
 				),

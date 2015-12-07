@@ -27,12 +27,16 @@ if( $has_cover_image ):
 	<div class="archive-head">
 		<?php if( !empty( $blog['main_page']['title'] ) ) : ?>
 			<?php /* <a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>"> */ ?>
-				<h1>
+				<h1 class="title">
 					<?php if( !empty( $blog['main_page']['icon'] ) ) : ?>
 						<i class="icon <?php echo $blog['main_page']['icon'] ?>"></i>
 					<?php endif ?>
 					<?php echo $blog['main_page']['title']?>
 				</h1>
+				<?php if( !empty( $blog['main_page']['subtitle'] ) ) : ?>
+					<h3 class="subtitle"><?php echo $blog['main_page']['subtitle']?></h3>
+				<?php endif ?>
+					
 			<?php /* </a> */ ?>
 		<?php endif ?>
 

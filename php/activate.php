@@ -12,6 +12,10 @@ function theme_activate_artdroid($oldname, $oldtheme=false){
 	 * and then set that as the primary menu.
 	 */
 
+	/**
+	 * Flush permalinks, so that /blog works.
+	 */
+
 }
 
 ?>
