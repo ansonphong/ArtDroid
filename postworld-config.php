@@ -29,7 +29,8 @@ $pwSiteGlobals = array(
 			'taxonomy-meta',
 			'shortcodes',
 			'devices',
-			'colors'
+			'colors',
+			'widgets'
 			),
 		'supported'	=>	array(
 			'site',
@@ -45,7 +46,22 @@ $pwSiteGlobals = array(
 			'devices',
 			'post_cache',
 			'layout_cache',
-			'colors'
+			'colors',
+			'widgets'
+			),
+		),
+
+	'widgets' => array(
+		'labels' => array(
+			'prefix' => '(ArtDroid)'
+			),
+		'supported' => array(
+			'related_posts',
+			'term_feed',
+			'feed',
+			//'menu_kit',
+			//'module',
+			//'user'
 			),
 		),
 

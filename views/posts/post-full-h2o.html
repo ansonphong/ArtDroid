@@ -158,7 +158,6 @@
 				{% endif %}
 				
 				{% if post.post_type == 'blog' %}
-
 					<!-- CATEGORIES -->
 					<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
 						<span ng-repeat="term in post.taxonomy.blog_category">
@@ -167,12 +166,9 @@
 							</a>
 						</span>
 					</div>
-					
-
 				{% endif %}
 
 				{% if post.post_type != 'page' %}
-					
 					<!-- CATEGORIES -->
 					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
 						<span ng-repeat="term in post.taxonomy.category">
@@ -181,7 +177,6 @@
 							</a>
 						</span>
 					</div>
-
 					<!-- TAGS -->
 					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
 						<i class="pwi-tags"></i>
@@ -191,7 +186,6 @@
 							</a>
 						</span>
 					</div>
-
 					<!-- TIME -->
 					<span
 						class="time unit"
@@ -202,7 +196,6 @@
 							{{ post.time_ago }}
 						</time>
 					</span>
-					
 				{% endif %}
 
 				<div class="clearfix"></div>
