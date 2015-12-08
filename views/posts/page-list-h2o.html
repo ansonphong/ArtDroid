@@ -9,7 +9,9 @@
 	    	class="background-image"
 	    	style="background-image:url({{ post.image.sizes.lg.url }});">
 				<h2>
-					<i class="icon {{ post.post_meta.pw_meta.icon.class }}"></i>
+					{% if post.post_meta.pw_meta.icon.class %}
+						<i class="icon {{ post.post_meta.pw_meta.icon.class }}"></i>
+					{% endif %}
 					{{ post.post_title }}
 				</h2>
 			{% if post.post_excerpt %}

@@ -1,5 +1,9 @@
 # ArtDroid // Changelog
 
+### Version 1.28
+- **Breaking Changes** - Changes menu configuration settings.
+    + Menus are now managed through the WordPress native Menu Locations system.
+
 ### Version 1.15
 - **Breaking Changes** - Changed Blocks Behavior
     + The sidebar for blocks no longer needs to be defined and set in the Postworld admin. Now, a
