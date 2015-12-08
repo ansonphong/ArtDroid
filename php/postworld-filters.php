@@ -1,4 +1,5 @@
 <?php
+
 ////////// DEFAULT HEADER ID //////////
 add_filter( 'pw_default_layout', 'theme_pw_default_layout' );
 function theme_pw_default_layout( $default_layout = array() ){

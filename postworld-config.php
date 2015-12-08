@@ -63,6 +63,11 @@ $pwSiteGlobals = array(
 			//'module',
 			//'user'
 			),
+		'settings' => array(
+			'term_feed' => array(
+				'views' => array('term-feed-list'),
+				),
+			),
 		),
 
 	'wp_admin'	=>	array(
@@ -343,22 +348,25 @@ $pwSiteGlobals = array(
 
 	'post_views'	=>	array(
 		'supported' => array('list','modal','grid','full'),
-		'feed_options' => array('list','grid','full'),
+		'options' => array(
+			'feeds' => array('list','grid','full'),
+			'related_posts' => array('list'),
+			),
 		'meta'	=>	array(
 			'list' => array(
-				'name' => 'List',
+				'label' => 'List',
 				),
 			'detail' => array(
-				'name' => 'Detail',
+				'label' => 'Detail',
 				),
 			'grid' => array(
-				'name' => 'Grid',
+				'label' => 'Grid',
 				),
 			'full' => array(
-				'name' => 'Single',
+				'label' => 'Single',
 				),
 			'modal' => array(
-				'name' => 'Modal',
+				'label' => 'Modal',
 				)
 			),
 		),
