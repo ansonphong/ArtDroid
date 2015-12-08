@@ -117,164 +117,167 @@
 		</div>
 	{% endif %}
 
-	<header class="post-head {{ post.post_type }}-head pad-x-lg">
 
-		<div class="row">
-			<div class="col-md-7">
+	{% if !is_page_header_image %}
+		<header class="post-head {{ post.post_type }}-head pad-x-lg">
+			
+			<div class="row">
+				<div class="col-md-7">
 
-				<h1 class="post-title">
-						{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-							<span class="icon">
-								<i class="pwi-arrow-down"></i>
-							</span>
-						{% endif %} 
-						{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-							<span class="icon">
-								<i class="pwi-arrow-right"></i>
+					<h1 class="post-title">
+							{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
+								<span class="icon">
+									<i class="pwi-arrow-down"></i>
+								</span>
+							{% endif %} 
+							{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
+								<span class="icon">
+									<i class="pwi-arrow-right"></i>
+								</span>
+							{% endif %}
+							{% if post.post_meta.pw_meta.icon.class %}
+								<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
+							{% endif %}
+						</span>
+						{% if post.parent_post.ID %}
+							<span class="parent-post-link">
+								<a href="{{ post.parent_post.post_permalink }}">
+									{{ post.parent_post.post_title }}
+								</a>
+								&rsaquo;
 							</span>
 						{% endif %}
-						{% if post.post_meta.pw_meta.icon.class %}
-							<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
-						{% endif %}
-					</span>
-					{% if post.parent_post.ID %}
-						<span class="parent-post-link">
-							<a href="{{ post.parent_post.post_permalink }}">
-								{{ post.parent_post.post_title }}
-							</a>
-							&rsaquo;
+						<span ng-bind="post.post_title">
+							{{ post.post_title }}
+						</span>
+					</h1>
+
+					{% if password_protected %}
+						<div class="password-protected">
+							<i class="icon pwi-lock"></i>
+							This content is password protected.
+						</div>
+					{% endif %}
+					
+					{% if post.post_type == 'blog' %}
+						<!-- CATEGORIES -->
+						<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+							<span ng-repeat="term in post.taxonomy.blog_category">
+								<a pw-href="term.url" class="term category">
+									<span ng-bind-html="term.name"></span>
+								</a>
+							</span>
+						</div>
+					{% endif %}
+
+					{% if post.post_type != 'page' %}
+						<!-- CATEGORIES -->
+						<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+							<span ng-repeat="term in post.taxonomy.category">
+							    <a pw-href="term.url" class="term category">
+									<span ng-bind="term.name"></span>
+								</a>
+							</span>
+						</div>
+						<!-- TAGS -->
+						<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+							<i class="pwi-tags"></i>
+							<span ng-repeat="term in post.taxonomy.post_tag">
+							    <a pw-href="term.url" class="term tag">
+									<span ng-bind="term.name"></span>
+								</a>
+							</span>
+						</div>
+						<!-- TIME -->
+						<span
+							class="time unit"
+							tooltip="{{ post.post_date_gmt }}"
+							tooltip-placement="bottom"
+							tooltip-popup-delay="333">
+							<time datetime="{{ post.post_date }}">
+								{{ post.time_ago }}
+							</time>
 						</span>
 					{% endif %}
-					<span ng-bind="post.post_title">
-						{{ post.post_title }}
-					</span>
-				</h1>
 
-				{% if password_protected %}
-					<div class="password-protected">
-						<i class="icon pwi-lock"></i>
-						This content is password protected.
-					</div>
-				{% endif %}
-				
-				{% if post.post_type == 'blog' %}
-					<!-- CATEGORIES -->
-					<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
-						<span ng-repeat="term in post.taxonomy.blog_category">
-							<a pw-href="term.url" class="term category">
-								<span ng-bind-html="term.name"></span>
-							</a>
-						</span>
-					</div>
-				{% endif %}
+					<div class="clearfix"></div>
 
-				{% if post.post_type != 'page' %}
-					<!-- CATEGORIES -->
-					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
-						<span ng-repeat="term in post.taxonomy.category">
-						    <a pw-href="term.url" class="term category">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-					<!-- TAGS -->
-					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<i class="pwi-tags"></i>
-						<span ng-repeat="term in post.taxonomy.post_tag">
-						    <a pw-href="term.url" class="term tag">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-					<!-- TIME -->
-					<span
-						class="time unit"
-						tooltip="{{ post.post_date_gmt }}"
-						tooltip-placement="bottom"
-						tooltip-popup-delay="333">
-						<time datetime="{{ post.post_date }}">
-							{{ post.time_ago }}
-						</time>
-					</span>
-				{% endif %}
-
-				<div class="clearfix"></div>
-
-			</div>
-
-			<div class="col-md-5 head-details">
-				<!--///// POST CONTROLS /////-->
-				<div class="post-controls pull-right">
-					<!-- DROPDOWN -->
-					<span
-						dropdown
-						pw-admin-post-menu
-						ng-show="userOptions != 0"
-						class="admin-menu dropdown">
-						<button
-							prevent-default-click
-							dropdown-toggle
-							class="edit-post"
-							style="border:none"
-							tooltip="edit"
-							tooltip-placement="top"
-							tooltip-popup-delay="500">
-							<i class="pwi-merkaba"></i>
-						</button>
-						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
-							<li prevent-default-click ng-repeat="item in userOptions">
-								<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
-							</li>
-						</ul>
-					</span>
 				</div>
 
-				<!-- SOCIAL SHARE -->
-				<div class="module share-social pull-right">
-					{{ social_share | safe }}
+				<div class="col-md-5 head-details">
+					<!--///// POST CONTROLS /////-->
+					<div class="post-controls pull-right">
+						<!-- DROPDOWN -->
+						<span
+							dropdown
+							pw-admin-post-menu
+							ng-show="userOptions != 0"
+							class="admin-menu dropdown">
+							<button
+								prevent-default-click
+								dropdown-toggle
+								class="edit-post"
+								style="border:none"
+								tooltip="edit"
+								tooltip-placement="top"
+								tooltip-popup-delay="500">
+								<i class="pwi-merkaba"></i>
+							</button>
+							<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+								<li prevent-default-click ng-repeat="item in userOptions">
+									<button ng-click="menuAction(item.action)"><i ng-class="item.icon"></i> <span ng-bind="item.name"></span></button>
+								</li>
+							</ul>
+						</span>
+					</div>
+
+					<!-- SOCIAL SHARE -->
+					<div class="module share-social pull-right">
+						{{ social_share | safe }}
+					</div>
+
+					{% if post.post_type != 'page' %}
+						<!-- DOWNLOAD -->
+						<div
+							class="download unit pull-right"
+							ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
+							tooltip="Download Image"
+							tooltip-placement="bottom"
+							tooltip-popup-delay="333">
+							<a
+								download
+								pw-href="post.image.sizes.full.url">
+								<i class="pwi-arrow-down-thin"></i>
+							</a>
+						</div>
+
+
+						<!-- LINK -->
+						<div
+							class="link unit pull-right"
+							ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
+							ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+							tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+							tooltip-placement="bottom"
+							tooltip-popup-delay="333">
+							<a
+								pw-href="post.link_url"
+								pw-target="post.post_meta.pw_meta.link_url.new_target">
+								<i class="pwi-crosshairs"></i>
+								{{ post.post_meta.pw_meta.link_url.label.custom }}
+							</a>
+						</div>
+
+					{% endif %}
+
 				</div>
 
-				{% if post.post_type != 'page' %}
-					<!-- DOWNLOAD -->
-					<div
-						class="download unit pull-right"
-						ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
-						tooltip="Download Image"
-						tooltip-placement="bottom"
-						tooltip-popup-delay="333">
-						<a
-							download
-							pw-href="post.image.sizes.full.url">
-							<i class="pwi-arrow-down-thin"></i>
-						</a>
-					</div>
-
-
-					<!-- LINK -->
-					<div
-						class="link unit pull-right"
-						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-						ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-						tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
-						tooltip-placement="bottom"
-						tooltip-popup-delay="333">
-						<a
-							pw-href="post.link_url"
-							pw-target="post.post_meta.pw_meta.link_url.new_target">
-							<i class="pwi-crosshairs"></i>
-							{{ post.post_meta.pw_meta.link_url.label.custom }}
-						</a>
-					</div>
-
-				{% endif %}
-
 			</div>
+			
+			<div class="clearfix"></div>
 
-		</div>
-		
-		<div class="clearfix"></div>
-
-	</header>
+		</header>
+	{% endif %}
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
