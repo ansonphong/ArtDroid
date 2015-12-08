@@ -207,10 +207,8 @@ function theme_admin_enqueue() {
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
-
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
-
 
 
 /**
