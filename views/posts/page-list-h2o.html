@@ -1,6 +1,6 @@
 <article
 	pw-feed-post
-	class="post view--list-h2o pw-transition-fadein"
+	class="post view--list-h2o post-type--{{post.post_type}} pw-transition-fadein"
 	pw-timeout="{{ post.feed.order }}"
 	timeout-multiplier="333"
     timeout-action="addClass('fadein-on')">
@@ -9,7 +9,7 @@
 	    	class="background-image"
 	    	style="background-image:url({{ post.image.sizes.lg.url }});">
 				<h2>
-					<i class="{{ post.post_meta.pw_meta.icon.class }}"></i>
+					<i class="icon {{ post.post_meta.pw_meta.icon.class }}"></i>
 					{{ post.post_title }}
 				</h2>
 			{% if post.post_excerpt %}
