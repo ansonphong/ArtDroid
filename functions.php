@@ -23,7 +23,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.27;
+$theme_version = 1.28;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -358,6 +358,20 @@ function theme_special_nav_class($classes, $item){
 	}
 	return $classes;
 }
+
+
+/**
+ * Register theme menu locations.
+ */
+function theme_register_menu_locations() {
+	register_nav_menus(
+		array(
+			'primary-menu' => __( 'Main Menu' ),
+			//'home-page-slider' => __( 'Home Page Slider' )
+			)
+	);
+}
+add_action( 'init', 'theme_register_menu_locations' );
 
 
 ?>

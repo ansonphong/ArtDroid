@@ -192,7 +192,7 @@ function pw_theme_options_filter( $options ){
 			),
 		'menus'	=>	array(
 			'primary'	=>	array(
-				'id'				=>	null,
+				//'id'				=>	null,
 				'show_social'		=>	true,
 				'show_icons_top'	=>	true,
 				'show_icons_sub'	=>	false,

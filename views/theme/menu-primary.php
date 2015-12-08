@@ -3,8 +3,8 @@
 	$primary_menu = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary' ) );
 
 	$primary_menu_settings = array(
-		'theme_location'  => '',
-		'menu'            => $primary_menu['id'],
+		'theme_location'  => 'primary-menu',
+		//'menu'            => $primary_menu['id'],
 		'container'       => 'div',
 		'container_class' => 'menu-container',
 		'container_id'    => '',

@@ -32,16 +32,19 @@
 			<!-- PRIMARY MENU -->
 			<div class="well">
 				<h3>
-					Primary Menu
+					Main Menu
 				</h3>
+				<?php /* 
 				<span class="icon-md"><i class="pwi-nav"></i></span>
 				<?php
+					
 					echo pw_select_menus( array(
 						'options_model'	=>	'options.menus',
 						'ng_model'	=>	'pwOptions.menus.primary.id',
 						'null_option'	=>	'No Menu',
 						));?>
 				<hr class="thin">
+				*/ ?>
 				<label>
 					<input type="checkbox" ng-model="pwOptions.menus.primary.show_social">
 					Show Social Menu
