@@ -73,7 +73,10 @@
 		<div
 			class="media-viewer post-image"
 			ng-class="imageFormat(post)"
-			style="height:{{pw.options.theme.posts.media.style.height}}vh"
+
+			pw-height="{{::pw.options.theme.posts.images.height.method}}"
+			height-value="{{::pw.options.theme.posts.images.height.value}}"
+
 			ng-show="showView('modalImage')"
 			pw-x-scroll-status>
 
@@ -145,7 +148,10 @@
 		<!-- EMBED -->
 		<div
 			class="media-viewer"
-			style="height:{{pw.options.theme.posts.media.style.height}}vh"
+
+			pw-height="{{::pw.options.theme.posts.embeds.height.method}}"
+			height-value="{{::pw.options.theme.posts.embeds.height.value}}"
+
 			ng-show="showView('modalEmbed')">
 			<div
 				class="view-embed">

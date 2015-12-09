@@ -9,7 +9,7 @@ $home_slider_settings = array(
 		'show_title',
 		'show_excerpt',
 		'transition',
-		'proportion',
+		//'proportion',
 		'parallax_depth'
 		),
 	'defaults'	=>	array(

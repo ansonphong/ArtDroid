@@ -52,6 +52,9 @@ include "php/postworld-postmeta.php";
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
 
+////////// MIGRATIONS //////////
+include "php/postworld-migrations.php";
+
 ////////// FIELDS //////////
 include "php/postworld-fields.php";
 
@@ -128,10 +131,12 @@ add_action( 'init', 'expanse_init' );
 add_action('init', 'theme_remove_image_sizes');
 function theme_remove_image_sizes() {	
 	//set_post_thumbnail_size( 150, 150 );
+	/*
 	remove_image_size('thumbnail');
 	remove_image_size('medium');
 	remove_image_size('large');
 	remove_image_size('post-thumbnail');
+	*/
 
 	/////////// ADD IMAGE SIZES //////////
 	pw_add_image_size( 'xs', 128, 128, 2 );

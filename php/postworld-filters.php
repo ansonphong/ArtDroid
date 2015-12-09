@@ -371,145 +371,6 @@ function theme_remove_category_uncategorized( $post ){
 
 
 /**
- * PREPROCESS SLIDER IMAGE FIELDS
- * Add image fields based on the proportions
- */
-add_filter( 'pw_slider_preprocess', 'theme_slider_preprocess_image_fields' );
-function theme_slider_preprocess_image_fields( $slider ){
-
-	$fields = array(
-		'ID',
-		'post_title',
-		'post_type',
-		'post_meta(all)',
-		'post_excerpt',
-		'post_permalink',
-		'link_url',
-		'link_format',
-		'fields',
-		);
-
-	$image_fields = array(
-		'image(id)',
-		//'image(meta)',
-		'image(stats)',
-		);
-
-	// Get the slider proportion
-	$proportion = (int) _get( $slider, 'proportion' );
-	// Set the default proportion, also used for 'flex'
-	if( empty( $proportion ) )
-		$proportion = 2;
-
-	// Define image sizes
-	$image_sizes = array(
-		array(
-			'name' 	=> 'xxl',
-			'width' => 3200,
-			),
-		array(
-			'name' => 'xl',
-			'width' => 2400,
-			),
-		array(
-			'name' => 'lg',
-			'width' => 1600,
-			),
-		array(
-			'name' => 'md',
-			'width' => 1000,
-			),
-		array(
-			'name' => 'sm',
-			'width' => 640,
-			),
-		);
-
-	// Generate the custom image field values
-	$custom_image_fields = array();
-	foreach( $image_sizes as $i ){
-		$i['height'] = intval( $i['width'] / $proportion );
-		$custom_image_fields[] = 'image('.$i['name'].','.$i['width'].','.$i['height'].',1)';
-	}
-
-	// Merge all the fields together
-	$fields = array_merge( $fields, $image_fields, $custom_image_fields );
-
-	// Inject the fields into the slider
-	$slider = _set( $slider, 'query.fields', $fields );
-	
-	return $slider;
-}
-
-/**
- * Define the custom image fields which are generated
- * By the theme using the Postworld image sizing algorithm.
- */
-function theme_get_custom_image_fields(){
-	return array(
-		'image(stats)',
-		'image(xs,128,128,1)',
-		'image(sm,256,256,1)',
-		'image(md,512,512,2)',
-		'image(lg,1024,1024,2)',
-		'image(xl,2048,2048,2)',
-		//'image(xxl,3072,3072,2)',
-		//'image(xxl,4096,4096,2)',
-	);
-}
-
-/**
- * FIELD MODEL : GALLERY
- */
-add_filter( 'pw_post_field_model_gallery', 'theme_post_field_model_gallery' );
-function theme_post_field_model_gallery( $fields ){
-	//pw_log( 'gallery', $fields );
-
-	$fields = array_diff( $fields, array( 'image(all)' ) );
-
-	$custom_image_fields = theme_get_custom_image_fields();
-
-	$fields = array_merge( $fields, array( 'image(full)' ), $custom_image_fields );
-
-	return $fields;
-}
-
-
-/**
- * Generate additional image sizes which
- * Require Postworld image sizing algorithms.
- *
- * @see wp_generate_attachment_metadata()
- * @see apply_filters( 'wp_generate_attachment_metadata', $metadata, $attachment_id ) 
- *
- * @see pw_get_post_image( $post, $fields )
- * 
- * @todo Sync image fields with theme_post_field_model_gallery()
- * @todo Integrate this into Postworld core, as pw_add_image_size()
- */
-add_filter( 'wp_generate_attachment_metadata', 'theme_generate_special_images_sizes', 10, 2 );
-function theme_generate_special_images_sizes( $metadata, $attachment_id ){
-	/**
-	 * Get the image with custom dimensions
-	 * Using Postworld image resizing algorithm.
-	 * This caches the images at that resolution.
-	 */
-	$custom_image_fields = theme_get_custom_image_fields();
-	$post_image = pw_get_post_image(
-		$attachment_id,
-		$custom_image_fields,
-		true,
-		$metadata
-		);
-
-	$metadata['sizes'] = array_replace( $metadata['sizes'], $post_image['sizes'] );
-
-	return $metadata;
-
-}
-
-
-/**
  * Custom field model for Preview posts
  */
 add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );
@@ -532,15 +393,11 @@ function theme_post_field_model_preview( $fields ){
 		'event_start',
 		'event_end',
 		'post_timestamp',
+		
 		'image(stats)',
 		'image(tags)',
 		'image(colors)',
-
-		'image(sm,400,400,1)',
-		'image(md,800,800,0)',
-		'image(lg,1024,1024,2)',
-		'image(xl,2048,2048,2)',
-		'image(full)',
+		'image(all)',
 
 		'edit_post_link',
 		'taxonomy(all)',
