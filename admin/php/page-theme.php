@@ -94,6 +94,14 @@
 			<?php include 'theme-feeds.php' ?>
 		</tab>
 
+
+		<tab>
+			<tab-heading>
+				<i class="icon pwi-database"></i> Archives
+			</tab-heading>
+			<?php include 'theme-archives.php' ?>
+		</tab>
+
 	</tabset>
 
 	<?php if( pw_dev_mode() ) : ?>

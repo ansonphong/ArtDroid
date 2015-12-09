@@ -54,66 +54,8 @@
 						ng-model="pwOptions.modals.header.show">
 					Show Header
 				</label>
-				<div style="clear:both"></div>
-			</div>
-
-			<!-- MEDIA -->
-			<div class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-image"></i></span>
-					Media Height
-				</h3>
-
-
-				<label>
-					<h4>Images</h4>
-				</label>
-				<?php
-					echo pw_select_setting(array(
-						'setting' => 'height',
-						'ng_model' => 'pwOptions.posts.images.height',
-						'methods' => array('window-base','window-percent','pixels','proportion'),
-						));
-				?>
-				<hr class="thin">
-
-
-				<label>
-					<h4>Video & Audio Embeds</h4>
-				</label>
-				<?php
-					echo pw_select_setting(array(
-						'setting' => 'height',
-						'ng_model' => 'pwOptions.posts.embeds.height',
-						'methods' => array('window-base','window-percent','pixels','proportion'),
-						));
-				?>
-				<hr class="thin">
-
-
-				<label>
-					<h4>Horizontal Gallery</h4>
-				</label>
-				<?php
-					echo pw_select_setting(array(
-						'setting' => 'height',
-						'ng_model' => 'pwOptions.posts.galleries.x_gallery.height',
-						'methods' => array('window-base','window-percent','pixels','proportion'),
-						));
-				?>
-				<hr class="thin">
-
-				<label>
-					<h4>Frame Gallery</h4>
-				</label>
-				<?php
-					echo pw_select_setting(array(
-						'setting' => 'height',
-						'ng_model' => 'pwOptions.posts.galleries.frame_gallery.height',
-						'methods' => array('window-base','window-percent','pixels','proportion'),
-						));
-				?>
-				<hr class="thin">
+				
+				<!-- @todo Set Header Image -->
 
 				<div style="clear:both"></div>
 			</div>
@@ -207,10 +149,64 @@
 		</div>
 
 
+
+
+
+		<!-- MEDIA -->
+		<div class="well">
+			<h3>
+				<span class="icon-md"><i class="pwi-image"></i></span>
+				Media Height
+			</h3>
+			<small>Set the height of the viewing area for various types of media and contexts.</small>
+
+			<div class="well">
+				<h3>Single Images</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.images.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+
+			<div class="well">
+				<h3>Video & Audio Embeds</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.embeds.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+
+			<div class="well">
+				<h3>Horizontal Gallery</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.galleries.x_gallery.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+
+			<div class="well">
+				<h3>Frame Gallery</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.galleries.frame_gallery.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+
+			<div style="clear:both"></div>
+		</div>
+
+
 	</div>
 </div>
-
-
-
-
-
