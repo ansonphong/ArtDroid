@@ -3,8 +3,8 @@
 	<?php
 	$menu_walker = new PW_Menu_With_Description;
 	$secondary_menu = array(
-		'theme_location'  => '',
-		'menu'            => $home_menu_id,
+		'theme_location'  => $menu_theme_location,
+		//'menu'            => $home_menu_id,
 		'container'       => 'div',
 		'container_class' => 'menu-container',
 		'container_id'    => '',
