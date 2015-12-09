@@ -1,7 +1,7 @@
 <div class="slider">
 <?php
 	// Get the slider from post meta
-	$slider = $pw_meta_header['slider'];
+	$slider = $header_meta['slider'];
 
 	// Set additional keys
 	$slider['template'] = 'slider-default';
@@ -9,6 +9,5 @@
 	$slider['class'] = 'slider';
 
 	echo pw_print_slider( $slider );
-
 ?>
 </div>

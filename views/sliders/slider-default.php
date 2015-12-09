@@ -3,7 +3,9 @@
 	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
 	$home_slider_has_menu = !empty($home_menu_id);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
-	//pw_log('slider', $slider);
+	//$slider_vars = $slider;
+	//$slider_vars['posts'] = '';
+	//pw_log('slider', $slider_vars);
 ?>
 <script>
 	postworld.controller( '<?php echo $slider['instance']; ?>',
@@ -15,9 +17,9 @@
 	id="<?php echo $slider['id']; ?>"
 	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
 	ng-controller="<?php echo $slider['instance']; ?>"
-	<?php if( empty($proportion) ):?>
-		style="height:<?php echo $slider['height'] ?>vh;"
-	<?php endif ?>
+
+	pw-height="<?php echo $slider['height']['method'] ?>"
+	height-value="<?php echo $slider['height']['value'] ?>"
 	>
 	<carousel
 		interval="slider.interval"
@@ -33,12 +35,13 @@
 		ng-cloak>
 		
 		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
+
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.link_target}}">
 			<?php } ?>
 				<div
 					class="slide-frame">
-
+					
 					<div
 						pw-smart-image="::slide.image"
 						smart-image-override="::slide.image.alt"

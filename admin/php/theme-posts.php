@@ -61,20 +61,33 @@
 			<div class="well">
 				<h3>
 					<span class="icon-md"><i class="pwi-image"></i></span>
-					Media & Galleries
+					Media Height
 				</h3>
 
+
 				<label>
-					<h4>Images & Media</h4>
-					<input
-						type="number"
-						class="short"
-						ng-model="pwOptions.posts.media.style.height"> % 
-					Height
-					<small>
-						How tall to size the images and embedded media (audio/videos).
-					</small>
+					<h4>Images</h4>
 				</label>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.images.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+				<hr class="thin">
+
+
+				<label>
+					<h4>Video & Audio Embeds</h4>
+				</label>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.embeds.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
 				<hr class="thin">
 
 
@@ -85,7 +98,7 @@
 					echo pw_select_setting(array(
 						'setting' => 'height',
 						'ng_model' => 'pwOptions.posts.galleries.x_gallery.height',
-						'methods' => array('window-base','window-percent','pixels'),
+						'methods' => array('window-base','window-percent','pixels','proportion'),
 						));
 				?>
 				<hr class="thin">
@@ -97,7 +110,7 @@
 					echo pw_select_setting(array(
 						'setting' => 'height',
 						'ng_model' => 'pwOptions.posts.galleries.frame_gallery.height',
-						'methods' => array('window-base','window-percent','pixels'),
+						'methods' => array('window-base','window-percent','pixels','proportion'),
 						));
 				?>
 				<hr class="thin">

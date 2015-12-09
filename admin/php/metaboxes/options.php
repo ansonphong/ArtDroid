@@ -33,7 +33,7 @@
 					<div ng-show="pwMeta.header.type == 'slider'">
 						<div class="well">
 							<h3>Slider Options</h3>
-							<?php echo pw_admin_slider_options(); ?>
+							<?php echo pw_admin_slider_options( array( 'ng_model' => 'pwMeta.header.slider' ) ); ?>
 						</div>
 					</div>
 					<hr class="thin">

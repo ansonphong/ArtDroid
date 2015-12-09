@@ -1,13 +1,12 @@
 <?php
 	///////// FILE OBSOLETE /////////
-
-	$pw_meta_header = pw_get_postmeta( array( "sub_key" => "header" ));
+	$header_meta = pw_get_postmeta( array( "sub_key" => "header" ));
 ?>
 <header>
 	<!-- SLIDER -->
 	<?php
 	///// SWTICH HEADER TYPE /////
-	switch( $pw_meta_header['type'] ){
+	switch( $header_meta['type'] ){
 		case 'slider':
 			include locate_template("views/theme/slider-page.php");
 			break;

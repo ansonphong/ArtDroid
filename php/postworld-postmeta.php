@@ -29,7 +29,10 @@ function theme_postmeta_model_filter( $pwMeta ){
 				"show_title"	=>	true,
 				"show_excerpt"	=>	true,
 				"hyperlink"		=>	true,
-				"height"		=>	75,		// Percent
+				"height"		=>	array(
+					'method' => 'window-percent',
+					'value'	=>	66,
+					),
 				"interval"		=>	5000,	// Milliseconds
 				"no_pause"		=>	true,
 				"transition"	=>	'fade',
@@ -67,6 +70,16 @@ function theme_postmeta_model_filter( $pwMeta ){
 	// Cast height as integer
 	$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
 
+
+	/**
+	 * Migration
+	 */
+	// If slider height is a string or float, make default value
+	if( !is_array( $pwMeta['header']['slider']['height'] ) )
+		$pwMeta['header']['slider']['height'] = array(
+			'method' => 'window-percent',
+			'value' => 66
+			);
 
 	return $pwMeta;
 	

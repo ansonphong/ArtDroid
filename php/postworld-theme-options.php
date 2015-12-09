@@ -60,11 +60,21 @@ function pw_theme_options_filter( $options ){
 			'menu'		=>	'Roboto',
 			),
 		'posts'	=>	array(
-			'media'	=>	array(
-				'style'	=>	array(
-					'height'	=>	66,
+			
+			'images'	=>	array(
+				'height' => array(
+					'method' => 'window-base',
+					'value'	=>	66
 					),
 				),
+
+			'embeds'	=>	array(
+				'height' => array(
+					'method' => 'window-base',
+					'value'	=>	66
+					),
+				),
+
 			'galleries' => array(
 				'x_gallery' => array(
 					'height' => array(
@@ -175,7 +185,7 @@ function pw_theme_options_filter( $options ){
 			'youtube'	=>	array(
 				'theme'		=>	'light',
 				'color'		=>	'red',
-				'controls'	=>	2,
+				'controls'	=>	'2',
 				),
 			),
 		'feeds'	=>	array(
