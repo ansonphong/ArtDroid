@@ -39,7 +39,10 @@
 	<!-- EMBED -->
 	<div
 		class="media-viewer"
-		style="height:{{pw.options.theme.posts.media.style.height}}vh"
+
+		pw-height="{{pw.options.theme.posts.embeds.height.method}}"
+		height-value="{{pw.options.theme.posts.embeds.height.value}}"
+
 		ng-show="showView('singleEmbed')">
 		<div
 			class="view-embed">
@@ -57,7 +60,10 @@
 		<div
 			class="media-viewer post-image full-page-width"
 			ng-class="imageFormat(post)"
-			style="height:{{ pw.options.theme.posts.media.style.height }}vh"
+
+			pw-height="{{pw.options.theme.posts.embeds.height.method}}"
+			height-value="{{pw.options.theme.posts.embeds.height.value}}"
+
 			ng-show="showView('singleImage')"
 			pw-x-scroll-status>
 			
