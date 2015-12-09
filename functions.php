@@ -350,6 +350,10 @@ add_filter('nav_menu_css_class' , 'theme_special_nav_class' , 10 , 2);
 function theme_special_nav_class($classes, $item){
 	global $pw;
 	$item_url = $item->url;
+
+	if( empty($item_url) )
+		return $classes;
+
 	/**
 	 * If the url starts with a /, implying that it's
 	 * relative to the base site url.
