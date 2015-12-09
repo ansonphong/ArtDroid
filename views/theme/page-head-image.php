@@ -1,19 +1,13 @@
 <?php
 	global $post;
-	
 	$pw_post = pw_get_post($post->ID, array(
 		'ID',
 		'post_title',
 		'post_meta(pw_meta)',
 		'parent_post(preview)',
 		));
-
 	$icon_class = _get( $pw_post, 'post_meta.pw_meta.icon.class' );
-
 	$image_instance = pw_random_string();
-	$image_proportion = _get( $header_meta, 'image.proportion' );
-	if( (bool) $image_proportion )
-		$image_proportion = str_replace( '.', '_', (string) $image_proportion );
 ?>
 <script>
 	postworld.controller('<?php echo $image_instance ?>', function($scope){
@@ -24,7 +18,8 @@
 	<?php if( !$image_proportion ) : ?>
 	<div
 		id="header-image"
-		style="height:<?php echo $header_meta['image']['height']; ?>vh">
+		pw-height="<?php echo $header_meta['featured_image']['height']['method']; ?>"
+		height-value="<?php echo $header_meta['featured_image']['height']['value']; ?>">
 		<div
 			pw-smart-image="::headerImage.image"
 			pw-parallax

@@ -136,6 +136,16 @@
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.subtitle">
 				<b>subtitle</b>
 				<small>: The subtitle of your blog.</small>
+				<hr class="thin">
+
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.blog.settings.main_page.header.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+
 
 			</div>
 		</div>

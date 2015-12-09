@@ -1,11 +1,11 @@
-.blog-head-wrapper{
+.blog-head--wrapper{
 	position: relative;
 
 	&.has-cover-image{
 		.title, .subtitle{
 			float:none;
 			color: @global-foreground-color;
-			padding: 0px 0px 10px 30px;
+			padding: 0px 0px 10px;
 			margin: 0;
 			text-shadow: 2px 2px 0 @neutral-color-dark;
 		}
@@ -17,7 +17,13 @@
 			background: transparent; //fade(@global-background-color, 33%); 
 		}
 	}
+	.blog-head--image{
+		min-height:300px;
+		//background-size:cover;
+		//background-position:center;
+	}
 }
+
 
 .archive-head{
 

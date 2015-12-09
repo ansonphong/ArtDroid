@@ -13,6 +13,12 @@ function pw_theme_options_filter( $options ){
 					'title' => 'My Blog',
 					'subtitle' => 'News, current events and ramblings.',
 					'icon' => '',
+					'header' => array(
+						'height' => array(
+							'method' => 'proportion',
+							'value' => 4
+							),
+						),
 					'cover_image' => array(
 						'attachment_id' => null,
 						),
@@ -60,7 +66,7 @@ function pw_theme_options_filter( $options ){
 			'menu'		=>	'Roboto',
 			),
 		'posts'	=>	array(
-			
+
 			'images'	=>	array(
 				'height' => array(
 					'method' => 'window-base',

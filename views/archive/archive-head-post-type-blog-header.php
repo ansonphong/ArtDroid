@@ -13,18 +13,23 @@ if( $has_cover_image ):
 </script>
 <?php endif ?>
 
-<div class="blog-head-wrapper <?php echo $wrapper_class ?>">
+<div class="blog-head--wrapper <?php echo $wrapper_class ?>">
 	
 	<?php if( $has_cover_image ): ?>
 	<div
 		ng-controller="blogCoverImageCtrl"
-		style="height:35vh; background-size:cover; background-position:center;"
-		pw-smart-image="blogCoverImage.image">
-		
+		class="blog-head--image"
+		pw-height="<?php echo $blog['main_page']['header']['height']['method'] ?>"
+		height-value="<?php echo $blog['main_page']['header']['height']['value'] ?>">
+		<div
+			pw-smart-image="blogCoverImage.image"
+			pw-parallax
+			parallax-depth="1.33">
+		</div>
 	</div>
 	<?php endif ?>
 
-	<div class="archive-head">
+	<div class="archive-head pad-x-lg">
 		<?php if( !empty( $blog['main_page']['title'] ) ) : ?>
 			<?php /* <a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>"> */ ?>
 				<h1 class="title">
