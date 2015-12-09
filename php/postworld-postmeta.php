@@ -3,9 +3,11 @@ function theme_postmeta_model_filter( $pwMeta ){
 	$defaultPwMeta = array(
 		"header" => array(
 			"type"		=>	"default",
-			"image"		=>	array(
-				"height"	=>	50,
-				"proportion" => false,
+			"featured_image" => array(
+				'height' => array(
+					'method' => 'proportion',
+					'value' => 4
+					),
 				),
 			"slider"	=>	array(
 				"mode" 			=> "this_post",
@@ -69,17 +71,6 @@ function theme_postmeta_model_filter( $pwMeta ){
 	 */
 	// Cast height as integer
 	$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
-
-
-	/**
-	 * Migration
-	 */
-	// If slider height is a string or float, make default value
-	if( !is_array( $pwMeta['header']['slider']['height'] ) )
-		$pwMeta['header']['slider']['height'] = array(
-			'method' => 'window-percent',
-			'value' => 66
-			);
 
 	return $pwMeta;
 	
