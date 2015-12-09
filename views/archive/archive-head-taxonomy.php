@@ -1,6 +1,10 @@
 <?php
 	global $pw;
 	$term_meta = _get( $pw, 'view.term.meta' );
+	// Boolean if term has image
+	$has_image = !empty($term_meta['image-primary']);
+	// Get theme settings for taxonomy archives
+	$tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) )
 ?>
 <script>
 	postworld.controller( 'themeTermMetaCtrl',
@@ -8,16 +12,27 @@
 		$scope.termMeta = <?php echo json_encode( $term_meta ); ?>;
 	}]);
 </script>
-
 <div
-	class="archive-head"
+	class="archive-head <?php if( $has_image ) echo 'term-has-image' ?>"
 	ng-controller="themeTermMetaCtrl"
-	pw-ui
-	ng-class="uiBoolClass( termMeta['image-primary'], 'term-has-image' )">
-
+	pw-ui>
 	<div
 		class="term-bg"
-		pw-smart-image="::termMeta.image_post.image">
+		<?php if( $has_image ) : ?>
+			pw-height="<?php echo $tax_archives['header']['height']['method'] ?>"
+			height-value="<?php echo $tax_archives['header']['height']['value'] ?>"
+		<?php endif ?>
+		>
+
+		<?php if( $has_image ) : ?>
+			<div
+				pw-parallax
+				parallax-depth="1.33"
+				pw-smart-image="::termMeta.image_post.image"
+				>
+			</div>
+		<?php endif ?>
+
 		<div class="term-info">
 			<h1>
 				<?php if( _get( $term_meta, 'icon' ) ) : ?>
@@ -36,7 +51,7 @@
 			<?php echo pw_social_share(); ?>
 		</div>
 
-		<?php if( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy.header.background_image.show_title' ) ) ): ?>
+		<?php if( _get( $tax_archives, 'header.background_image.show_title' ) ): ?>
 			<div class="header-image-title">
 				<?php
 					$image_link = _get( $term_meta['image_post'], 'link_url' );
@@ -51,8 +66,6 @@
 				</a>
 			</div>
 		<?php endif; ?>
-
-
 
 	</div>
 

@@ -5,6 +5,19 @@ function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+		'archives'	=>	array(
+			'taxonomy'	=>	array(
+				'header'	=>	array(
+					'background_image'	=>	array(
+						'show_title'	=>	true,
+						),
+					'height' => array(
+						'method' => 'proportion',
+						'value' => 4
+						),
+					),
+				),
+			),
 		'blog'	=>	array(
 			'enable'	=>	true,
 			'settings'	=>	array(
