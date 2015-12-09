@@ -1,7 +1,8 @@
 <?php
 	$slider = $vars;
 	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
-	$home_slider_has_menu = !empty($home_menu_id);
+	$menu_theme_location = 'home-page-slider';
+	$home_slider_has_menu = has_nav_menu($menu_theme_location);
 	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
 	//$slider_vars = $slider;
 	//$slider_vars['posts'] = '';

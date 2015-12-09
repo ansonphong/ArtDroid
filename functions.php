@@ -376,7 +376,7 @@ function theme_register_menu_locations() {
 	register_nav_menus(
 		array(
 			'primary-menu' => __( 'Main Menu' ),
-			//'home-page-slider' => __( 'Home Page Slider' )
+			'home-page-slider' => __( 'Home Page Slider' )
 			)
 	);
 }
