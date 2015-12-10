@@ -340,4 +340,24 @@ function theme_register_menu_locations() {
 add_action( 'init', 'theme_register_menu_locations' );
 
 
+/**
+ * From Plugin: Private Content Login Redirect
+ * Plugin URI: http://increasy.com
+ * Redirects non-logged users to the login page when they follow a link to private post or private page.After successful login, it automatically redirects users with private content access to the private content link they followed.
+ * Author: Kumar Abhisek
+ * Author URI: http://increasy.com
+ */
+add_action('template_redirect', 'theme_private_content_redirect_to_login', 9);
+function theme_private_content_redirect_to_login() {
+	global $wp_query,$wpdb;
+	if (is_404()) {
+		$private = $wpdb->get_row($wp_query->request);
+		$location = wp_login_url($_SERVER["REQUEST_URI"]);
+		if( 'private' == $private->post_status  ) {
+			wp_safe_redirect($location);
+			exit;
+		}
+	}
+}
+
 ?>

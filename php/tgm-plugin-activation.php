@@ -3,7 +3,7 @@
  * Include the TGM_Plugin_Activation class.
  */
 require_once get_template_directory() . '/lib/TGM-Plugin-Activation/class-tgm-plugin-activation.php';
-add_action( 'tgmpa_register', 'theme_register_plugins' );
+add_action( 'tgmpa_register', 'theme_register_tgm_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -13,7 +13,7 @@ add_action( 'tgmpa_register', 'theme_register_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function theme_register_plugins() {
+function theme_register_tgm_plugins() {
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
