@@ -40,9 +40,6 @@
 		</div>
 	</div>
 
-	<hr class="thick">
-
-
 	<tabset>
 
 		<tab>
