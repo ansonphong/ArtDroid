@@ -15,7 +15,6 @@
 	});
 </script>
 <div class="page-head page-head--featured-image" ng-controller="<?php echo $image_instance ?>">
-	<?php if( !$image_proportion ) : ?>
 	<div
 		id="header-image"
 		pw-height="<?php echo $header_meta['featured_image']['height']['method']; ?>"
@@ -25,19 +24,7 @@
 			pw-parallax
 			parallax-depth="1.5">
 		</div>
-	<?php else: ?>
-	<div
-		id="header-image"
-		class="proportion proportion-<?php echo $image_proportion ?>">
-		<div
-			pw-smart-image="::headerImage.image"
-			pw-parallax
-			parallax-depth="1.5"
-			parallax-median="proportional">
-		</div>
-	<?php endif ?>
 		<div class="data-overlay pad-x-lg">
-
 			<?php if( !empty( $pw_post['parent_post'] ) ) : ?>
 				<h3 class="parent-title">
 					<a href="<?php echo $pw_post['parent_post']['post_permalink'] ?>">
@@ -46,14 +33,12 @@
 					</a>
 				</h3>
 			<?php endif ?>
-
 			<h1 class="post-title">
-
 				<?php if( !empty( $icon_class ) ): ?>
 					<i class="icon <?php echo $icon_class ?>"></i>
 				<?php endif ?>
 				<?php echo $pw_post['post_title'] ?>
-			</div>
+			</h1>
 		</div>
 	</div>
 </div>
