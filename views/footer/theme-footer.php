@@ -1,8 +1,5 @@
-
 </div> <!-- END #content -->
-
 <div class="clearfix"></div>
-
 
 <?php
 ///// SINGLE POST FOOTER /////
@@ -58,9 +55,11 @@ else{
 	</footer>
 <?php endif; ?>
 
-
-
-<!-- <pre><?php //echo json_encode( $pw['view'], JSON_PRETTY_PRINT ); ?></pre> -->
+<!-- CREDITS -->
+<div style="display:none;">
+	Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a>
+	Designed by <a href="https://phong.com" target="_blank">Phong</a>
+</div>
 
 <?php wp_footer(); ?>
 </body>

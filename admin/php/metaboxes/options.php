@@ -25,8 +25,6 @@
 					<div ng-show="pwMeta.header.type == 'featured_image'">
 						<div class="well">
 							<h3>Featured Image Options</h3>
-							<?php //echo pw_select_featured_image_options( array( 'ng_model' => 'pwMeta.header.image' ) ); ?>
-						
 							<?php
 								echo pw_select_setting(array(
 									'setting' => 'height',
@@ -34,7 +32,6 @@
 									'methods' => array('window-base','window-percent','pixels','proportion'),
 									));
 							?>
-
 						</div>
 					</div>
 
