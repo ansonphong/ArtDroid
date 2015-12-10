@@ -23,7 +23,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.3;
+$theme_version = 1.31;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -102,7 +102,7 @@ function theme_include_scripts(){
 }
 
 ////////// INIT WORDPRES //////////
-function expanse_init() {  
+function theme_init() {  
 	// Add tag metabox to pages
 	register_taxonomy_for_object_type('post_tag', 'page'); 
 	// Add tag metabox to pages
@@ -112,7 +112,7 @@ function expanse_init() {
 	// Post Type Suport
 	add_post_type_support( 'page', array('excerpt') );
 }
-add_action( 'init', 'expanse_init' );
+add_action( 'init', 'theme_init' );
 
 /////////// ADD IMAGE SIZES //////////
 //add_image_size( 'grid', '640', '480', true );
@@ -215,35 +215,6 @@ add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 ////////// POST FORMATS //////////
 //add_theme_support( 'post-formats', array( 'image', 'link' ) );
 
-
-/**
- * DISABLE EMOJIS
- * For some reason, emojis were added to the WordPress Core
- * This adds to load time and is never used.
- */
-function disable_wp_emojicons() {
-	// all actions related to emojis
-	remove_action( 'admin_print_styles', 'print_emoji_styles' );
-	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-	remove_action( 'wp_print_styles', 'print_emoji_styles' );
-	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-
-	// filter to remove TinyMCE emojis
-	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
-}
-add_action( 'init', 'disable_wp_emojicons' );
-
-function disable_emojicons_tinymce( $plugins ) {
-	if ( is_array( $plugins ) ) {
-		return array_diff( $plugins, array( 'wpemoji' ) );
-	} else {
-		return array();
-	}
-}
-
 // Add action attribute to forms
 add_action('wp_footer', 'pw_add_forms_action_attribute');
 
@@ -262,19 +233,6 @@ new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( g
  * @link https://codex.wordpress.org/Configuring_Automatic_Background_Updates
  */
 add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );
-
-/**
- * Prevent this site from being a host for XML-RPC DDoS Attacks
- */
-add_filter( 'xmlrpc_methods', function( $methods ) {
-	unset( $methods['pingback.ping'] );
-	return $methods;
-});
-
-/**
- * Disable XML-RPC to prevent from being gateway for incoming DDoS Attacks
- */
-add_filter('xmlrpc_enabled', '__return_false');
 
 /**
  * The WordPress Dashboard by default allows administrators to edit PHP files,
@@ -367,7 +325,6 @@ function theme_special_nav_class($classes, $item){
 	}
 	return $classes;
 }
-
 
 /**
  * Register theme menu locations.

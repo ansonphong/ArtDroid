@@ -68,33 +68,7 @@ $home_slider_settings = array(
 
 			</div>
 
-			<!-- SECONDARY MENU -->
-			<div
-				class="well"
-				ng-show="pwOptions.home.slider.show_slider">
-				<h3>
-					<span class="icon-md"><i class="pwi-nav-thin"></i></span>
-					Secondary Menu
-				</h3>
-				<small>This menu will appear under the slider.</small>
-				<hr class="thin">
-				<div>
-					<span class="icon-md"><i class="pwi-nav"></i></span>
-					<?php
-						echo pw_select_menus( array(
-							'options_model'	=>	'options.menus',
-							'ng_model'	=>	'pwOptions.home.secondary_menu',
-							'null_option'	=>	'No Menu',
-							));?>
-				</div>
-			</div>
-
-			
-
 		</div>
-
-
-
 
 	</div>
 	<div class="col-lg-6 pad-col-lg">

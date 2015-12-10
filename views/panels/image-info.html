@@ -26,8 +26,8 @@
 	</div>
 	<div
 		class="image-caption"
-		ng-show="uiBool(post.post_excerpt)">
-		{{ post.post_excerpt }}
+		ng-show="uiBool(post.post_excerpt)"
+		ng-bind-html="post.post_excerpt">
 	</div>
 	<div class="image-links" ng-show="uiBool(post.link_url)">
 		<span class="link-label">
