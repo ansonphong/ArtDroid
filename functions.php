@@ -104,11 +104,11 @@ function theme_include_scripts(){
 ////////// INIT WORDPRES //////////
 function theme_init() {  
 	// Add tag metabox to pages
-	register_taxonomy_for_object_type('post_tag', 'page'); 
+	//register_taxonomy_for_object_type('post_tag', 'page'); 
 	// Add tag metabox to pages
-	register_taxonomy_for_object_type('post_tag', 'attachment'); 
+	//register_taxonomy_for_object_type('attachment'); 
 	// Add category metabox to pages
-	register_taxonomy_for_object_type('category', 'page');
+	//register_taxonomy_for_object_type('category', 'page');
 	// Post Type Suport
 	add_post_type_support( 'page', array('excerpt') );
 }
@@ -338,5 +338,18 @@ function theme_register_menu_locations() {
 	);
 }
 add_action( 'init', 'theme_register_menu_locations' );
+
+
+
+/**
+ * Modify context types.
+ */
+add_filter('pw_context_types', 'theme_filter_pw_context_types' );
+function theme_filter_pw_context_types( $contexts ){
+	// Remove blog context
+	$contexts = array_diff( $contexts, array('blog') );
+	return $contexts;
+}
+
 
 ?>
