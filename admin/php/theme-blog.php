@@ -19,6 +19,9 @@
 						URL Base
 					</h3>
 					<i><?php echo get_site_url(); ?></i>/<input type="text" ng-model="pwOptions.blog.settings.post_type.base">
+					<a ng-href="<?php echo get_site_url(); ?>/{{pwOptions.blog.settings.post_type.base}}" target="_blank">
+						Check it out <i class="icon pwi-external-link"></i>
+					</a>
 					<br>
 					<small>The base url for blog posts. Changing this may cause offsite links to break.</small>
 				</div>
