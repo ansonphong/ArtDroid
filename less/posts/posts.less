@@ -126,6 +126,45 @@
 		}
 	}
 
+	/**
+	 * FORM ELEMENTS
+	 */
+	select, input, button, textarea{
+		font-family: @font-family-body;
+		background-color: @global-background-color;
+		color: @global-foreground-color;
+		border: 1px solid @secondary-color-medium;
+		border-radius: 2px;
+		padding: 8px 14px;
+		font-size: @font-size-md;
+		margin: 0 5px 10px 0;
+		outline:none;
+		&:active, &:focus{
+			border: 1px solid mix( @secondary-color-medium, @global-foreground-color, 25% );
+		}
+	}
+
+	input[type="image"]{
+		border:none;
+	}
+
+
+	textarea{
+		display: block;
+		max-width: 100%;
+		padding: 8px 14px;
+		width: 100%;
+	}
+
+	button{
+		.make-theme-button(
+			fade(@secondary-color-medium, 50%),
+			#fff,
+			@secondary-color-medium
+			);
+		border-radius:2px;
+	}
+
 }
 
 .pw-css-columns-shortcode-row{
