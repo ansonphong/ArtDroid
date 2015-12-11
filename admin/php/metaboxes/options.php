@@ -67,26 +67,31 @@
 				<hr class="thin">
 			</td>
 		</tr>
-		<!-- LINK URL -->
-		<tr>
-			<th class="label" valign="top">
-				Link Label
-			</th>
-			<td>
-				<?php echo pw_link_url_options( array( 'context' => 'postAdmin' ) ); ?>
-				<hr class="thin">
-			</td>
-		</tr>
-		<!-- DOWNLOAD IMAGE -->
-		<tr>
-			<th class="label" valign="top">
-				Download Image
-			</th>
-			<td>
-				<?php echo pw_download_image_option( array( 'context' => 'postAdmin' ) ); ?>
-				<hr class="thin">
-			</td>
-		</tr>
+
+		<?php if( $post->post_type == 'post' ): ?>
+			<!-- LINK URL -->
+			<tr>
+				<th class="label" valign="top">
+					Link Label
+				</th>
+				<td>
+					<?php echo pw_link_url_options( array( 'context' => 'postAdmin' ) ); ?>
+					<hr class="thin">
+				</td>
+			</tr>
+			<!-- DOWNLOAD IMAGE -->
+			<tr>
+				<th class="label" valign="top">
+					Download Image
+				</th>
+				<td>
+					<?php echo pw_download_image_option( array( 'context' => 'postAdmin' ) ); ?>
+					<hr class="thin">
+				</td>
+			</tr>
+		<?php endif ?>
+
+
 		<!-- ICON -->
 		<tr>
 			<th class="label" valign="top">
