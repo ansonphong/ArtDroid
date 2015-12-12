@@ -39,6 +39,7 @@ function theme_pw_styles_defaults( $value ){
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
 				'secondary-menu-foreground'	=>	'@global-foreground-color',
+				'search-button-background'	=>	'@header-background',
 				),
 
 			'media'	=>	array(
@@ -440,6 +441,12 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"secondary-menu-foreground",
 							"input"			=>	"color",
 							"description"	=>	"Color of the secondary menu text"
+							),
+						array(
+							"name"			=>	"Search Button Background",
+							"key"			=>	"search-button-background",
+							"input"			=>	"color",
+							"description"	=>	"Background color of the header search button"
 							),
 						),
 					),

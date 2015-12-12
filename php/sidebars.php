@@ -6,7 +6,7 @@ function theme_sidebars_init(){
 
 	$sidebars = array(
 		array(
-			'name'          => "Home Page: Feed",
+			'name'          => "Home Page: Feed Blocks",
 			'id'            => 'home-page-feed',
 			'description'   => 'The primary widgets which appear in the home page Feed.',
 			'class'         => '',
