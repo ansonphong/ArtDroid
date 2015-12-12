@@ -105,14 +105,19 @@ add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 /**
  * Override feed settings in select contexts.
  */
-add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
+//add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
 	
+	// Force posts for home and year archives
 	if( in_array( 'home', $pw['view']['context'] ) ||
 		in_array( 'archive-year', $pw['view']['context'] ) )
 		$feed['query']['post_type'] = 'post';
-	
+
+	// Home page primary content
+	if( in_array( 'home', $pw['view']['context'] ) ){
+	}
+
 	return $feed;
 }
 

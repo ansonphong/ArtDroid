@@ -112,7 +112,7 @@ function pw_theme_options_filter( $options ){
 				'post_meta'	=>	array(
 					'pw_meta'	=>	array(
 						'post_content'	=>	array(
-							'columns'	=>	2,
+							'columns'	=>	1,
 							),
 						'link_url'	=>	array(
 							'label'	=>	array(
@@ -153,6 +153,9 @@ function pw_theme_options_filter( $options ){
 			'in_main_menu_gray'	=>	true,
 			),
 		'home'	=>	array(
+			'content' => array(
+				'primary' => 'posts',
+				),
 			'feed'	=>	array(
 				'blocks'	=>	array(
 					'offset' => 3,

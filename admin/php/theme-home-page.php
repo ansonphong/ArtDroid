@@ -19,8 +19,30 @@ $home_slider_settings = array(
 		'transition'	=>	'fade',
 		),
 	);
+
+$home_options = array(
+	'content' => array(
+		'primary' => array(
+			array(
+				'label' => 'Blog Feed',
+				'value' => 'blog'
+				),
+			array(
+				'label' => 'Posts Feed',
+				'value' => 'posts',
+				),
+			),
+		),
+	);
+
 ?>
-<div class="row">
+
+<script>
+	postworld.controller('themAdminHome', function($scope){
+		$scope.homeOptions = <?php echo json_encode( $home_options ) ?>;
+	});
+</script>
+<div class="row" ng-controller="themAdminHome">
 	<div class="col-lg-6 pad-col-lg">
 
 
@@ -72,16 +94,39 @@ $home_slider_settings = array(
 
 	</div>
 	<div class="col-lg-6 pad-col-lg">
-		
+	
 		<div class="well">
-			<!-- BLOCKS -->
+
+			<!-- DISPLAY -->
 			<div class="well">
+				<h3>
+					<span class="icon-md"><i class="pwi-eye"></i></span>
+					Display
+				</h3>
+				<small>
+					What to show on the home page.
+				</small>
+				<hr class="thin">
+				
+				<select
+					ng-model="pwOptions.home.content.primary"
+					ng-options="option.value as option.label for option in homeOptions.content.primary">
+				</select>
+
+				<b>Primary Content</b>
+				<small>: What to show as the primary content on the home page.</small>
+
+			</div>
+
+			<!-- BLOCKS -->
+			<div class="well" ng-show="pwOptions.home.content.primary == 'posts'">
 				<h3>
 					<span class="icon-md"><i class="pwi-grid"></i></span>
 					Blocks
 				</h3>
 				<small>
 					Blocks appear in-line the feed, and can be used to place widgets, promotional material, newsletter signups, Facebook like buttons, Twitter tweet buttons, etc.
+					Blocks can be added in <b><a href="<?php echo get_admin_url(null,'widgets.php') ?>" target="_blank">Appearance › Widgets</a></b> to the <b>Home Page: Feed Blocks</b> sidebar.
 				</small>
 				<hr class="thin">
 				<?php

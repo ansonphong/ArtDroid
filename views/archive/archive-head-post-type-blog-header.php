@@ -29,7 +29,7 @@ if( $has_cover_image ):
 	</div>
 	<?php endif ?>
 
-	<div class="archive-head pad-x-lg">
+	<div class="archive-head">
 		<?php if( !empty( $blog['main_page']['title'] ) ) : ?>
 			<?php /* <a href="<?php echo get_post_type_archive_link( _get($pw,'view.post_type.name') ); ?>"> */ ?>
 				<h1 class="title">
