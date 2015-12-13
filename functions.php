@@ -355,14 +355,17 @@ function theme_filter_pw_context_types( $contexts ){
 /**
  * Add item to admin menu bar on the top.
  */
-add_action( 'admin_bar_menu', 'theme_admin_bar_menu', 900 );
+if( current_user_can('manage_options') )
+	add_action( 'admin_bar_menu', 'theme_admin_bar_menu', 999 );
 function theme_admin_bar_menu($wp_admin_bar)
 {
-	$theme_url = get_admin_url().'admin.php?page=artdroid';
+	$theme_url = get_admin_url(null,'admin.php?page=artdroid');
+
+	$menu_name = 'theme_menu';
 
 	// Primary Menu Item
 	$args = array(
-		'id'     	=> 'theme_menu',
+		'id'     	=> $menu_name,
 		'title'		=>	'ArtDroid',
 		'meta'   	=> array( 'class' => 'first-toolbar-group' ),
 		'href'		=>	$theme_url,
@@ -376,14 +379,14 @@ function theme_admin_bar_menu($wp_admin_bar)
 		'id'		=>	'theme_settings',
 		'title'		=>	'Theme Settings',
 		'href'		=>	$theme_url,
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
 	));
 
 	array_push($args,array(
 		'id'     	=>	'site_options',
 		'title'		=>	'Site Options',
 		'href'		=>	$theme_url.'-site',
-		'parent' 	=>	'theme_menu',
+		'parent' 	=>	$menu_name,
 		'meta'   	=>	array( 'class' => 'theme-menu-item' ),
 	));
 
@@ -391,54 +394,77 @@ function theme_admin_bar_menu($wp_admin_bar)
 		'id'		=>	'site_layout',
 		'title'		=>	'Layout',
 		'href'		=>	$theme_url.'-layout',
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
 	));
-
 	
 	array_push($args,array(
-		'id'		=>	'site_layout',
+		'id'		=>	'site_sidebars',
 		'title'		=>	'Sidebars',
 		'href'		=>	$theme_url.'-sidebars',
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
 	));
 	
 	array_push($args,array(
-		'id'		=>	'site_layout',
+		'id'		=>	'site_styles',
 		'title'		=>	'Styles',
 		'href'		=>	$theme_url.'-styles',
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
 	));
 
 	array_push($args,array(
-		'id'		=>	'site_layout',
+		'id'		=>	'site_social',
 		'title'		=>	'Social',
 		'href'		=>	$theme_url.'-social',
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
 	));
 
 	array_push($args,array(
-		'id'		=>	'site_layout',
+		'id'		=>	'site_feeds',
 		'title'		=>	'Feeds',
 		'href'		=>	$theme_url.'-feeds',
-		'parent'	=>	'theme_menu',
+		'parent'	=>	$menu_name,
+	));
+
+	if( pw_module_enabled('backgrounds') )
+		array_push($args,array(
+			'id'		=>	'site_backgrounds',
+			'title'		=>	'Backgrounds',
+			'href'		=>	$theme_url.'-backgrounds',
+			'parent'	=>	$menu_name,
+		));
+
+	array_push($args,array(
+		'id'		=>	'site_iconsets',
+		'title'		=>	'Iconsets',
+		'href'		=>	$theme_url.'-iconsets',
+		'parent'	=>	$menu_name,
 	));
 
 	array_push($args,array(
-		'id'		=>	'site_layout',
-		'title'		=>	'Backgrounds',
-		'href'		=>	$theme_url.'-backgrounds',
-		'parent'	=>	'theme_menu',
+		'id'		=>	'site_shortcodes',
+		'title'		=>	'Shortcodes',
+		'href'		=>	$theme_url.'-shortcodes',
+		'parent'	=>	$menu_name,
 	));
-	/*
-	*/
-	// Somehow the iterator isn't working properly?
-	// 
 
-	//sort($args);
-	for($a=0;$a<count($args);$a++)
-	{
+	array_push($args,array(
+		'id'		=>	'site_database',
+		'title'		=>	'Database',
+		'href'		=>	$theme_url.'-database',
+		'parent'	=>	$menu_name,
+	));
+
+	// Add plugins to the main frontend admin menu
+	array_push($args,array(
+		'id'		=>	'plugins',
+		'title'		=>	'Plugins',
+		'href'		=>	get_admin_url(null,'plugins.php'),
+		'parent'	=>	'site-name',
+	));
+
+	for($a=0;$a<count($args);$a++){
 		$wp_admin_bar->add_node($args[$a]);
-	}		
+	}
 	
 } 
 
