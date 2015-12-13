@@ -352,4 +352,94 @@ function theme_filter_pw_context_types( $contexts ){
 }
 
 
+/**
+ * Add item to admin menu bar on the top.
+ */
+add_action( 'admin_bar_menu', 'theme_admin_bar_menu', 900 );
+function theme_admin_bar_menu($wp_admin_bar)
+{
+	$theme_url = get_admin_url().'admin.php?page=artdroid';
+
+	// Primary Menu Item
+	$args = array(
+		'id'     	=> 'theme_menu',
+		'title'		=>	'ArtDroid',
+		'meta'   	=> array( 'class' => 'first-toolbar-group' ),
+		'href'		=>	$theme_url,
+	);
+	$wp_admin_bar->add_node( $args );	
+
+	// Sub menu items
+	$args = array();
+
+	array_push($args,array(
+		'id'		=>	'theme_settings',
+		'title'		=>	'Theme Settings',
+		'href'		=>	$theme_url,
+		'parent'	=>	'theme_menu',
+	));
+
+	array_push($args,array(
+		'id'     	=>	'site_options',
+		'title'		=>	'Site Options',
+		'href'		=>	$theme_url.'-site',
+		'parent' 	=>	'theme_menu',
+		'meta'   	=>	array( 'class' => 'theme-menu-item' ),
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Layout',
+		'href'		=>	$theme_url.'-layout',
+		'parent'	=>	'theme_menu',
+	));
+
+	
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Sidebars',
+		'href'		=>	$theme_url.'-sidebars',
+		'parent'	=>	'theme_menu',
+	));
+	
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Styles',
+		'href'		=>	$theme_url.'-styles',
+		'parent'	=>	'theme_menu',
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Social',
+		'href'		=>	$theme_url.'-social',
+		'parent'	=>	'theme_menu',
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Feeds',
+		'href'		=>	$theme_url.'-feeds',
+		'parent'	=>	'theme_menu',
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Backgrounds',
+		'href'		=>	$theme_url.'-backgrounds',
+		'parent'	=>	'theme_menu',
+	));
+	/*
+	*/
+	// Somehow the iterator isn't working properly?
+	// 
+
+	//sort($args);
+	for($a=0;$a<count($args);$a++)
+	{
+		$wp_admin_bar->add_node($args[$a]);
+	}		
+	
+} 
+
 ?>
