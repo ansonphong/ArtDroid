@@ -1,5 +1,4 @@
 <?php
-
 ////////// DEFAULT THEME OPTIONS //////////
 function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
@@ -39,8 +38,10 @@ function pw_theme_options_filter( $options ){
 				'views' => array(
 					'full' => array(
 						'header' => array(
-							'proportion' => 4,
-							'height'	=> 20,
+							'height' => array(
+								'method' => 'proportion',
+								'value' => 4
+								),
 							),
 						),
 					),
@@ -243,6 +244,7 @@ function pw_theme_options_filter( $options ){
 		);
 
 	$options = array_replace_recursive( $defaultOptions, $options );
+
 	return $options;
 }
 

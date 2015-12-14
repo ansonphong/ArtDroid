@@ -71,18 +71,12 @@
 					</h3>
 
 					<?php
-						echo pw_select_setting( array(
-							'setting' => 'proportion', 
-							'ng_model' => 'pwOptions.blog.settings.views.full.header.proportion',
-							));?>
-
-					<div ng-show="!pwOptions.blog.settings.views.full.header.proportion">
-						<?php
-						echo pw_select_setting( array(
-							'setting' => 'height-percent', 
+						echo pw_select_setting(array(
+							'setting' => 'height',
 							'ng_model' => 'pwOptions.blog.settings.views.full.header.height',
-							));?>
-					</div>
+							'methods' => array('window-percent','pixels','proportion'),
+							));
+						?>
 					
 				</div>
 
