@@ -17,6 +17,16 @@ function theme_options_migrate( $options ){
 			'value' => 66
 			);
 
+	/**
+	 * Blog post header height
+	 */
+	$blog_post_header_height = _get( $options, 'blog.settings.views.full.header.height' );
+	if( !is_array( $blog_post_header_height ) )
+		$options['blog']['settings']['views']['full']['header']['height'] = array(
+			'method' => 'proportion',
+			'value' => 4
+			);
+
 	return $options;
 
 }
