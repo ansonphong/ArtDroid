@@ -49,12 +49,130 @@ function artdroid_admin_menu(){
     	);
 }
 
+
+/**
+ * Add item to admin menu bar on the top.
+ */
+if( current_user_can('manage_options') )
+	add_action( 'admin_bar_menu', 'theme_admin_bar_menu', 999 );
+function theme_admin_bar_menu($wp_admin_bar){
+	$theme_url = get_admin_url(null,'admin.php?page=artdroid');
+
+	$menu_name = 'theme-menu';
+
+	// Primary Menu Item
+	$args = array(
+		'id'     	=> 	$menu_name,
+		'title'		=>	'<span class="ab-icon"></span> ArtDroid',
+		'meta'   	=> 	array( 'class' => 'first-toolbar-group' ),
+		'href'		=>	$theme_url,
+	);
+	$wp_admin_bar->add_node( $args );	
+
+	// Sub menu items
+	$args = array();
+
+	array_push($args,array(
+		'id'		=>	'theme_settings',
+		'title'		=>	'Theme Settings',
+		'href'		=>	$theme_url,
+		'parent'	=>	$menu_name,
+	));
+
+	array_push($args,array(
+		'id'     	=>	'site_options',
+		'title'		=>	'Site Options',
+		'href'		=>	$theme_url.'-site',
+		'parent' 	=>	$menu_name,
+		'meta'   	=>	array( 'class' => 'theme-menu-item' ),
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_layout',
+		'title'		=>	'Layout',
+		'href'		=>	$theme_url.'-layout',
+		'parent'	=>	$menu_name,
+	));
+	
+	array_push($args,array(
+		'id'		=>	'site_sidebars',
+		'title'		=>	'Sidebars',
+		'href'		=>	$theme_url.'-sidebars',
+		'parent'	=>	$menu_name,
+	));
+	
+	array_push($args,array(
+		'id'		=>	'site_styles',
+		'title'		=>	'Styles',
+		'href'		=>	$theme_url.'-styles',
+		'parent'	=>	$menu_name,
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_social',
+		'title'		=>	'Social',
+		'href'		=>	$theme_url.'-social',
+		'parent'	=>	$menu_name,
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_feeds',
+		'title'		=>	'Feeds',
+		'href'		=>	$theme_url.'-feeds',
+		'parent'	=>	$menu_name,
+	));
+
+	if( pw_module_enabled('backgrounds') )
+		array_push($args,array(
+			'id'		=>	'site_backgrounds',
+			'title'		=>	'Backgrounds',
+			'href'		=>	$theme_url.'-backgrounds',
+			'parent'	=>	$menu_name,
+		));
+
+	array_push($args,array(
+		'id'		=>	'site_iconsets',
+		'title'		=>	'Iconsets',
+		'href'		=>	$theme_url.'-iconsets',
+		'parent'	=>	$menu_name,
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_shortcodes',
+		'title'		=>	'Shortcodes',
+		'href'		=>	$theme_url.'-shortcodes',
+		'parent'	=>	$menu_name,
+	));
+
+	array_push($args,array(
+		'id'		=>	'site_database',
+		'title'		=>	'Database',
+		'href'		=>	$theme_url.'-database',
+		'parent'	=>	$menu_name,
+	));
+
+	// Add plugins to the main frontend admin menu
+	array_push($args,array(
+		'id'		=>	'plugins',
+		'title'		=>	'Plugins',
+		'href'		=>	get_admin_url(null,'plugins.php'),
+		'parent'	=>	'site-name',
+	));
+
+	for($a=0;$a<count($args);$a++){
+		$wp_admin_bar->add_node($args[$a]);
+	}
+	
+} 
+
 ///// ADMIN STYLES /////
 add_action('admin_print_styles', 'theme_admin_icon_styles');
+add_action('wp_print_styles', 'theme_admin_icon_styles');
 function theme_admin_icon_styles(){
 	?>
 	<style>
-		#toplevel_page_artdroid .dashicons-before:before{
+		#toplevel_page_artdroid .dashicons-before:before,
+		#wpadminbar #wp-admin-bar-theme-menu .ab-icon:before{
 			content: "\e701";
 			font-family: "Postworld-Icons"
 		}

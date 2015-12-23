@@ -243,6 +243,7 @@
 					</div>
 
 					{% if post.post_type != 'page' %}
+					{% if post.post_type != 'blog' %}
 						<!-- DOWNLOAD -->
 						<div
 							class="download unit pull-right"
@@ -256,7 +257,6 @@
 								<i class="pwi-arrow-down-thin"></i>
 							</a>
 						</div>
-
 
 						<!-- LINK -->
 						<div
@@ -274,6 +274,7 @@
 							</a>
 						</div>
 
+					{% endif %}
 					{% endif %}
 
 				</div>

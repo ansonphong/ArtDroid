@@ -104,39 +104,19 @@ function theme_include_scripts(){
 ////////// INIT WORDPRES //////////
 function theme_init() {  
 	// Add tag metabox to pages
-	register_taxonomy_for_object_type('post_tag', 'page'); 
+	//register_taxonomy_for_object_type('post_tag', 'page'); 
 	// Add tag metabox to pages
-	register_taxonomy_for_object_type('post_tag', 'attachment'); 
+	//register_taxonomy_for_object_type('attachment'); 
 	// Add category metabox to pages
-	register_taxonomy_for_object_type('category', 'page');
+	//register_taxonomy_for_object_type('category', 'page');
 	// Post Type Suport
 	add_post_type_support( 'page', array('excerpt') );
 }
 add_action( 'init', 'theme_init' );
 
-/////////// ADD IMAGE SIZES //////////
-//add_image_size( 'grid', '640', '480', true );
-//add_image_size( 'x-wide', '1600', '800', true );
-//add_image_size( 'x-large', '2400', '2400', false );
-
-//add_image_size( 'thumb-square', '400', '400', true );
-
-//add_image_size( 'thumb-wide', '600', '400', true );
-//add_image_size( 'thumb-x-wide', '800', '400', true );
-
-//add_image_size( 'thumb-tall', '400', '600', true );
-//add_image_size( 'thumb-x-tall', '400', '800', true );
-
-
 add_action('init', 'theme_remove_image_sizes');
 function theme_remove_image_sizes() {	
 	//set_post_thumbnail_size( 150, 150 );
-	/*
-	remove_image_size('thumbnail');
-	remove_image_size('medium');
-	remove_image_size('large');
-	remove_image_size('post-thumbnail');
-	*/
 
 	/////////// ADD IMAGE SIZES //////////
 	pw_add_image_size( 'xs', 128, 128, 2 );
@@ -194,7 +174,6 @@ $social_settings = array(
 		),
 
 	);
-
 
 ///// ADD EDITOR STYLE /////
 add_editor_style( "/css/editor-style.css" );
@@ -338,5 +317,17 @@ function theme_register_menu_locations() {
 	);
 }
 add_action( 'init', 'theme_register_menu_locations' );
+
+
+/**
+ * Modify context types.
+ */
+add_filter('pw_context_types', 'theme_filter_pw_context_types' );
+function theme_filter_pw_context_types( $contexts ){
+	// Remove blog context
+	$contexts = array_diff( $contexts, array('blog') );
+	return $contexts;
+}
+
 
 ?>
