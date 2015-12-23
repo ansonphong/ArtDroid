@@ -82,7 +82,7 @@
 }
 
 
-// Wordpress Instragram Widget Plugin
+// Wordpress Instagram Widget Plugin
 // https://wordpress.org/plugins/wp-instagram-widget/
 .sidebar-widget{
 
@@ -143,6 +143,7 @@
 // Mailchimp for Wordpress
 // https://wordpress.org/plugins/mailchimp-for-wp/
 html body .mc4wp-form{
+	color: mix( @primary-color-medium, @global-foreground-color, 50% );
 
 	p{
 		margin:0;
@@ -185,6 +186,17 @@ html body .mc4wp-form{
 		}
 		&:active{
 			background: @global-foreground-color;
+			color: @global-background-color;
+		}
+	}
+
+	input[type="radio"], input[type="checkbox"]{
+		width:auto;
+		background:transparent;
+		border:none;
+		margin: 0 5px;
+		&:checked + .wpcf7-list-item-label{
+			font-weight: 900;
 			color: @global-background-color;
 		}
 	}

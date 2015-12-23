@@ -17,6 +17,7 @@
 <div class="page-head page-head--featured-image" ng-controller="<?php echo $image_instance ?>">
 	<div
 		id="header-image"
+		class="theme-header"
 		pw-height="<?php echo $header_meta['featured_image']['height']['method']; ?>"
 		height-value="<?php echo $header_meta['featured_image']['height']['value']; ?>">
 		<div

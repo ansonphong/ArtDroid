@@ -6,7 +6,7 @@
 .post-content{
 	font-size:@font-size-md;
 	line-height:1.66;
-	font-weight:200;
+	font-weight:300;
 	color: @neutral-color-light;
 	
 	h1,h2,h3,h4,h5,h6{
@@ -60,6 +60,12 @@
 				font-size: .9em;
 				border-top: 1px solid fade(@neutral-color-medium, 33%);
 			}
+			ol{
+				margin-top:10px;
+				li{
+					border:none;
+				}
+			}
 		}
 	}
 
@@ -73,8 +79,8 @@
 		>li{
 			position: relative;
 			counter-increment: step-counter;
-			padding-left: 44px;
-			padding-top:2px;
+			padding: 2px 0 0 44px !important;
+			//padding-top:2px;
   			margin-bottom: 10px;
 			&::before{
 				content: counter(step-counter); // ,upper-roman;

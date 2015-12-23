@@ -19,6 +19,9 @@
 						URL Base
 					</h3>
 					<i><?php echo get_site_url(); ?></i>/<input type="text" ng-model="pwOptions.blog.settings.post_type.base">
+					<a ng-href="<?php echo get_site_url(); ?>/{{pwOptions.blog.settings.post_type.base}}" target="_blank">
+						Check it out <i class="icon pwi-external-link"></i>
+					</a>
 					<br>
 					<small>The base url for blog posts. Changing this may cause offsite links to break.</small>
 				</div>
@@ -68,18 +71,12 @@
 					</h3>
 
 					<?php
-						echo pw_select_setting( array(
-							'setting' => 'proportion', 
-							'ng_model' => 'pwOptions.blog.settings.views.full.header.proportion',
-							));?>
-
-					<div ng-show="!pwOptions.blog.settings.views.full.header.proportion">
-						<?php
-						echo pw_select_setting( array(
-							'setting' => 'height-percent', 
+						echo pw_select_setting(array(
+							'setting' => 'height',
 							'ng_model' => 'pwOptions.blog.settings.views.full.header.height',
-							));?>
-					</div>
+							'methods' => array('window-percent','pixels','proportion'),
+							));
+						?>
 					
 				</div>
 

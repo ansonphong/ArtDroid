@@ -10,5 +10,5 @@
 			),
 		);
 
-	pw_live_feed( $feed_vars );
+	pw_feed( $feed_vars );
 ?>

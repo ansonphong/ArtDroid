@@ -1,6 +1,20 @@
 <?php
+/**
+ * Force Blog Views to Full
+ */
+add_filter(PW_OPTIONS_FEED_SETTINGS,'theme_options_feed_settings');
+function theme_options_feed_settings( $feed_settings ){
+	// Force Blog Archives View
+	$feed_settings = _set( $feed_settings, 'context.archive-post-type-blog.view.current', 'full' );
+	// Force Blog Terms View
+	$feed_settings = _set( $feed_settings, 'context.archive-taxonomy-blog_category.view.current', 'full' );
 
-////////// DEFAULT HEADER ID //////////
+	return $feed_settings;
+}
+
+/**
+ * DEFAULT HEADER ID
+ */
 add_filter( 'pw_default_layout', 'theme_pw_default_layout' );
 function theme_pw_default_layout( $default_layout = array() ){
 	$default_layout = array(
@@ -15,7 +29,9 @@ function theme_pw_default_layout( $default_layout = array() ){
 	return $default_layout;
 }
 
-////////// PRINT OPTIONS //////////
+/**
+ * PRINT OPTIONS
+ */
 function pw_theme_global_options( $options = array() ){
 	// Print these options for access in Javascript context
 	$options['theme'] = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) );
@@ -23,7 +39,9 @@ function pw_theme_global_options( $options = array() ){
 }
 add_filter( PW_GLOBAL_OPTIONS, 'pw_theme_global_options' );
 
-////////// DEFAULT FEED OPTIONS //////////
+/**
+ * DEFAULT FEED OPTIONS
+ */
 function pw_theme_feed_defaults_filter( $feed ){
 	// Set the default number of columns in the grid view
 	$feed = _set( $feed, 'options.views.grid.columns', 4 );
@@ -31,8 +49,8 @@ function pw_theme_feed_defaults_filter( $feed ){
 }
 add_filter( PW_FEED_DEFAULT, 'pw_theme_feed_defaults_filter' );
 
-////////// LOAD GLOBAL OPTIONS //////////
 /**
+ * LOAD GLOBAL OPTIONS
  * Adds variables to global Javascript options
  * available in Javascript at $pw.options
  */
@@ -68,7 +86,9 @@ function theme_pw_global_options( $options ){
 }
 add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
 
-////////// FILTER OEMBED OPTIONS //////////
+/**
+ * FILTER OEMBED OPTIONS
+ */
 function theme_filter_pw_oembed_get( $vars ){
 	// Takes the theme embed options
 	// And sets them as the default options for embeds
@@ -89,14 +109,21 @@ add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
 	
+	// Force posts for home and year archives
 	if( in_array( 'home', $pw['view']['context'] ) ||
 		in_array( 'archive-year', $pw['view']['context'] ) )
 		$feed['query']['post_type'] = 'post';
-	
+
+	// Home page primary content
+	if( in_array( 'home', $pw['view']['context'] ) ){
+	}
+
 	return $feed;
 }
 
-////////// THEME FEED ARCHIVE FILTER //////////
+/**
+ * THEME FEED ARCHIVE FILTER
+ */
 add_filter( PW_FEED_DEFAULT, 'theme_feed_default_filter' );
 function theme_feed_default_filter( $feed ){
 	global $pw;

@@ -2,8 +2,11 @@
 	$menu_walker = new PW_Menu_With_Description;
 	$primary_menu = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary' ) );
 
+	$primary_menu_location = 'primary-menu';
+	$has_primary_menu = has_nav_menu($primary_menu_location);
+
 	$primary_menu_settings = array(
-		'theme_location'  => 'primary-menu',
+		'theme_location'  => $primary_menu_location,
 		//'menu'            => $primary_menu['id'],
 		'container'       => 'div',
 		'container_class' => 'menu-container',
@@ -25,6 +28,6 @@
 			'show_icons_sub'	=>	$primary_menu['show_icons_sub'],
 			),
 	);
-	if( $primary_menu['id'] )
+	if( $has_primary_menu )
 		wp_nav_menu( $primary_menu_settings );
 ?>
