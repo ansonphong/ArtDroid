@@ -21,7 +21,8 @@ pw_header('home');
 						'current' => 'full'
 						),
 					'query' => array(
-						'post_type' => 'blog'
+						'post_type' => 'blog',
+						'post_status' => 'publish'
 						),
 					)
 				));
