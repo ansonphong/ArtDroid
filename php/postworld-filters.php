@@ -1,18 +1,5 @@
 <?php
 /**
- * Force Blog Views to Full
- */
-add_filter(PW_OPTIONS_FEED_SETTINGS,'theme_options_feed_settings');
-function theme_options_feed_settings( $feed_settings ){
-	// Force Blog Archives View
-	$feed_settings = _set( $feed_settings, 'context.archive-post-type-blog.view.current', 'full' );
-	// Force Blog Terms View
-	$feed_settings = _set( $feed_settings, 'context.archive-taxonomy-blog_category.view.current', 'full' );
-
-	return $feed_settings;
-}
-
-/**
  * DEFAULT HEADER ID
  */
 add_filter( 'pw_default_layout', 'theme_pw_default_layout' );
@@ -109,16 +96,35 @@ add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
 	
+	
 	// Force posts for home and year archives
 	if( in_array( 'home', $pw['view']['context'] ) ||
 		in_array( 'archive-year', $pw['view']['context'] ) )
 		$feed['query']['post_type'] = 'post';
+	
 
 	// Home page primary content
 	if( in_array( 'home', $pw['view']['context'] ) ){
+		$home_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home' ) );
+		if( _get( $home_options, 'content.primary' ) == 'blog' ){
+			$feed['query']['post_type'] = 'blog';
+			$feed['view']['current'] = 'full';
+		}
 	}
-
 	return $feed;
+}
+
+/**
+ * Force Blog Views to Full
+ */
+add_filter(PW_OPTIONS_FEED_SETTINGS,'theme_options_feed_settings');
+function theme_options_feed_settings( $feed_settings ){
+	// Force Blog Archives View
+	$feed_settings = _set( $feed_settings, 'context.archive-post-type-blog.view.current', 'full' );
+	// Force Blog Terms View
+	$feed_settings = _set( $feed_settings, 'context.archive-taxonomy-blog_category.view.current', 'full' );
+
+	return $feed_settings;
 }
 
 /**

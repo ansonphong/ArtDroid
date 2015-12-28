@@ -88,6 +88,7 @@ postworld.controller( 'artPostCtrl',
 		var hasImageAndNoEmbed = ( !hasEmbed && hasImage );
 		var hasImageAndNoGallery = ( !hasGallery && hasImage );
 
+		$log.debug('$scope.post.image', $scope.post.image);
 
 		///// SWITCH : VIEWS : LOGIC /////
 		switch( view ){
@@ -99,6 +100,11 @@ postworld.controller( 'artPostCtrl',
 			case 'singleImage':		// For use in Single Post View
 				if( ( hasImageAndNoEmbed && !galleryHorizontal && !galleryFrame ) ||
 					( headerImage && hasImage && !galleryHorizontal && !galleryFrame ) )
+					return true;
+				break;
+
+			case 'blogImage':		// For use in Blog Full View
+				if( hasImageAndNoEmbed )
 					return true;
 				break;
 

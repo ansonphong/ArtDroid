@@ -1,3 +1,10 @@
+<!--
+	- ADD SETTINGS:
+		- Default image handling
+			- Then on per blog entry, select - horizontal-slice|full|none
+		- How many blog posts to preload|load-increment
+		- 
+-->
 <div class="row">
 	<div class="col-lg-6 pad-col-lg">
 

@@ -8,17 +8,16 @@
 	ng-hide="post.post_status == 'trash'"
 	pw-ui
 	ng-cloak>
-
 	<div
 		pw-height="{{::pw.options.theme.blog.settings.views.full.header.height.method}}"
 		height-value="{{::pw.options.theme.blog.settings.views.full.header.height.value}}"
-		ng-show="::showView('singleImage')">
+		ng-show="::showView('blogImage')">
 		<div
 			class="post-header-image"
 			pw-smart-image="::post.image"
 			pw-parallax
 			parallax-depth="1.33"
-			parallax-enable="::showView('singleImage')">
+			parallax-enable="::showView('blogImage')">
 		</div>
 	</div>
 	

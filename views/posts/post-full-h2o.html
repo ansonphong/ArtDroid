@@ -111,14 +111,16 @@
 	
 	{% if post.post_type == 'blog' %}
 		<div
-			theme-post-header="::pw.options.theme.blog.settings.views.full.header">
+			pw-height="{{pw.options.theme.blog.settings.views.full.header.height.method}}"
+			height-value="{{pw.options.theme.blog.settings.views.full.header.height.value}}"
+			ng-show="::showView('blogImage')">
 			<div
 				class="post-header-image"
-				ng-show="::showView('singleImage')"
+				ng-show="::showView('blogImage')"
 				pw-smart-image="::post.image"
 				pw-parallax="parent"
 				parallax-depth="1.33"
-				parallax-median="proportional">
+				parallax-enable="::showView('blogImage')">
 			</div>
 		</div>
 	{% endif %}
@@ -128,7 +130,7 @@
 		<header class="post-head {{ post.post_type }}-head pad-x-lg">
 			
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-8">
 
 					<h1 class="post-title">
 							{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
@@ -210,7 +212,7 @@
 
 				</div>
 
-				<div class="col-md-5 head-details">
+				<div class="col-md-4 head-details">
 					<!--///// POST CONTROLS /////-->
 					<div class="post-controls pull-right">
 						<!-- DROPDOWN -->
