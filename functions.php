@@ -178,11 +178,21 @@ $social_settings = array(
 ///// ADD EDITOR STYLE /////
 add_editor_style( "/css/editor-style.css" );
 
-///// BOOTSTRAP ANGULAR APP TO BLOGOSPHERE OPTIONS PAGE /////
+/**
+ * BOOTSTRAP ANGULAR APP TO BLOGOSPHERE OPTIONS PAGE
+ */
 add_filter( 'pw_admin_bootstrap_angular', 'theme_admin_boostrap_angular' );
 function theme_admin_boostrap_angular( $bootstrap ){
 	$bootstrap['base_substring'][] = 'artdroid';
 	return $bootstrap;
+}
+
+/**
+ * Modify the REST namespace to match the theme name.
+ */
+add_filter( 'pw_rest_namespace', 'theme_rest_namespace' );
+function theme_rest_namespace( $namespace ){
+	return 'artdroid';
 }
 
 ///// ADD ADMIN STYLES /////
