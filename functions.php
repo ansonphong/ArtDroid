@@ -14,7 +14,7 @@ function theme_postworld_includes(){
 		'jquery',
 		);
 	postworld_includes( array(
-		'angular_version' => 'angular-1.4.6',
+		//'angular_version' => 'angular-1.4.6',
 		'inject'  => $postworld_inject,
 	));
 }

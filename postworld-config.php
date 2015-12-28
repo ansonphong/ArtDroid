@@ -71,6 +71,11 @@ $pwSiteGlobals = array(
 		),
 
 	'wp_admin'	=>	array(
+		
+		'admin_bar_menu' => array(
+			'enable' => true,
+			'title' => 'ArtDroid'
+			),
 
 		'taxonomy_meta'	=>	array(
 			array(
