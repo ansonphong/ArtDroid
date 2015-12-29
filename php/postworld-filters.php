@@ -96,13 +96,11 @@ add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
 	
-	
 	// Force posts for home and year archives
 	if( in_array( 'home', $pw['view']['context'] ) ||
 		in_array( 'archive-year', $pw['view']['context'] ) )
 		$feed['query']['post_type'] = 'post';
 	
-
 	// Home page primary content
 	if( in_array( 'home', $pw['view']['context'] ) ){
 		$home_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home' ) );
@@ -134,11 +132,6 @@ add_filter( PW_FEED_DEFAULT, 'theme_feed_default_filter' );
 function theme_feed_default_filter( $feed ){
 	global $pw;
 
-	////////// GLOBAL //////////
-	$feed_settings = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'feeds.settings' ) );
-	if( is_array( $feed_settings ) )
-		$feed = array_replace_recursive( $feed, $feed_settings );
-
 	////////// HOME PAGE //////////
 	if( in_array( 'home', $pw['view']['context'] ) ){
 		///// BLOCKS : WIDGETS /////
@@ -169,19 +162,6 @@ function theme_feed_default_filter( $feed ){
 
 	}
 
-
-	/**
-	 * BLOG FEED
-	 * Replace this with natively managed options
-	 * in the admin feed settings.
-	 */
-	if( in_array( 'archive-post-type-blog', $pw['view']['context'] ) ){
-		$blog_feed = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'blog.settings.feed' ) );
-		if( !empty( $blog_feed ) ){
-			$feed = array_replace($feed, $blog_feed);
-		}
-	}
-
 	// Pre-process the theme feed vars
 	$feed = apply_filters( 'theme_feed_preprocess', $feed );
 
@@ -190,10 +170,16 @@ function theme_feed_default_filter( $feed ){
 }
 
 
-////// DEFAULT FEED SETTINGS /////
-add_filter( PW_FEED_DEFAULT, 'theme_default_feeds', 5 );
-function theme_default_feeds( $feed ){
-	$theme_default_feed = array(
+/**
+ * DEFAULT FEED SETTINGS
+ * Condition the default feed settings,
+ * configurable in the admin under Postworld › Feeds.
+ */
+add_filter( 'pw_default_feed_settings', 'theme_default_feed_settings', 5 );
+function theme_default_feed_settings( $feed ){
+	$default_feed = array(
+		'preload' => 10,
+		'load_increment' => 10,
 		'view'	=>	array(
 			'current' 	=> 'grid',
 			),
@@ -205,7 +191,7 @@ function theme_default_feeds( $feed ){
 				),
 			)
 		);
-	$feed = array_replace_recursive($feed, $theme_default_feed);
+	$feed = array_replace_recursive( $feed, $default_feed );
 	return $feed;
 }
 
@@ -448,12 +434,17 @@ function theme_post_field_model_preview( $fields ){
  */
 add_action('init','theme_register_field_models');
 function theme_register_field_models(){
-	/**
-	 * Add field model for 'full' view.
-	 */
-	$fields = pw_get_field_model('post','preview');
-	$fields[] = 'post_content';
-	pw_register_post_field_model('full',$fields);
+	$preview_fields = pw_get_post_field_model('preview');
+	$micro_fields = pw_get_post_field_model('micro');
+	// FULL
+	pw_register_post_field_model('full', array_merge( $preview_fields, array(
+		'post_content'
+	)));
+	// LIST
+	pw_register_post_field_model('list', array_merge( $micro_fields, array(
+		'image(xs)',
+		'image(sm)',
+	)));
 }
 
 add_filter( 'pw_color_profiles', 'theme_color_profiles', 11 );

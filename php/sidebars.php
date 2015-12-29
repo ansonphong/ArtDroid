@@ -37,6 +37,17 @@ function theme_sidebars_init(){
 			),
 
 		array(
+			'name'          => "Blog Footer",
+			'id'            => 'blog-foot',
+			'description'   => 'At the footer of a single blog entry.',
+			'class'         => '',
+			'before_widget' => '<div class="widget-column"><div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
+
+		array(
 			'name'          => "Error Footer",
 			'id'            => 'error-foot',
 			'description'   => 'At the footer of error (404) pages. Add content here to keep mis-guided visitors engaged.',

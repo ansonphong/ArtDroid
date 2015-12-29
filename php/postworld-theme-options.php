@@ -51,10 +51,6 @@ function pw_theme_options_filter( $options ){
 					'item_name' 		=> 'Blog Post',
 					'item_name_plural' 	=> 'Blog Posts'
 					),
-				'feed'	=>	array(
-					'preload' => 5,
-					'load_increment' => 5,
-					),
 				'home'	=>	array(
 					'show_in_feed'	=>	false,
 					),
@@ -214,10 +210,6 @@ function pw_theme_options_filter( $options ){
 		'feeds'	=>	array(
 			'loading'	=>	array(
 				'icon'	=>	'icon-spinner-2'
-				),
-			'settings'	=>	array(
-				'preload'			=>	10,
-				'load_increment'	=>	10,
 				),
 			),
 		'search' => array(

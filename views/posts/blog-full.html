@@ -5,9 +5,7 @@
 	class="post post-type--blog view--full pw-transition-fadein"
 	pw-timeout="{{ ::(post.feed.loadOrder * 100) }}"
 	timeout-action="addClass('fadein-on')"
-	ng-hide="post.post_status == 'trash'"
-	pw-ui
-	ng-cloak>
+	pw-ui>
 	<div
 		pw-height="{{::pw.options.theme.blog.settings.views.full.header.height.method}}"
 		height-value="{{::pw.options.theme.blog.settings.views.full.header.height.value}}"
@@ -32,7 +30,7 @@
 				class="o-embed"
 				o-embed="{{ post.link_url }}"
 				embed-autoplay="false"
-				embed-run="showView('modalEmbed')">
+				embed-run="::showView('modalEmbed')">
 			</div>
 		</div>
 	</div>
@@ -47,7 +45,7 @@
 		</div>
 
 		<!-- CATEGORIES -->
-		<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+		<div class="taxonomy category" ng-show="::uiBoolean(post.taxonomy.blog_category)">
 			<span ng-repeat="term in ::post.taxonomy.blog_category">
 				<a pw-href="term.url" class="term category">
 					<span ng-bind-html="term.name"></span>
