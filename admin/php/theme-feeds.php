@@ -1,7 +1,6 @@
 <div class="row">
 	<div class="col-lg-6 pad-col-lg">
 
-
 		<!--///// FEEDS /////-->
 		<div class="well">
 			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
@@ -23,30 +22,7 @@
 							)); ?>
 			</div>
 
-			<!-- SETTINGS -->
-			<div class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-gear"></i></span>
-					Settings
-				</h3>
-
-				<input
-					type="number"
-					class="short"
-					ng-model="pwOptions.feeds.settings.preload">
-				preload : <small>number of posts to preload on page load</small>
-
-				<hr class="thin">
-				<input
-					type="number"
-					class="short"
-					ng-model="pwOptions.feeds.settings.load_increment">
-				load increment : <small>number of posts to load each infinite scroll</small>				
-			</div>
-
 		</div>
-
-
 
 	</div>
 	<div class="col-lg-6 pad-col-lg">
