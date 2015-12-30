@@ -1,8 +1,11 @@
 .post.post-type--blog.view--full{
 	border-top: 8px solid @neutral-color-medium;
+	background-color: @blog-background-color;
+	color: @blog-foreground-color;
 
 	.blog-head{
 		padding-top:30px;
+		background-color: @blog-background-color;
 	}
 
 	.content-wrapper{
@@ -48,6 +51,16 @@
 
 	.post-content{
 		padding-top:20px;
+		color: @blog-foreground-color;
+		a{
+			color: @blog-link-color;
+			border-bottom-color: @blog-link-color;
+			&:hover{
+				@hover-color: mix( @blog-link-color, @blog-background-color, 50% );
+				color: @hover-color;
+				border-bottom-color: @hover-color; 
+			}
+		}
 	}
 
 }
