@@ -119,7 +119,8 @@ $home_options = array(
 			</div>
 
 			<!-- BLOCKS -->
-			<div class="well" ng-show="pwOptions.home.content.primary == 'posts'">
+			<!-- ng-show="pwOptions.home.content.primary == 'posts'" -->
+			<div class="well">
 				<h3>
 					<span class="icon-md"><i class="pwi-grid"></i></span>
 					Blocks

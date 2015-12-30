@@ -61,6 +61,12 @@ function theme_pw_styles_defaults( $value ){
 				'widget-highlight-color'	=>	'@neutral-color-light',
 				),
 
+			'blog'	=>	array(
+				'blog-background-color'		=>	'@global-background-color',
+				'blog-foreground-color'		=>	'@global-foreground-color',
+				'blog-link-color'			=>	'@primary-color-medium',
+				),
+
 			),
 
 		'layout'	=>	array(
@@ -509,6 +515,35 @@ function theme_pw_styles_structure( $structure = array() ){
 							),
 						),
 					),
+
+
+				///// BLOG /////
+				array(
+					'name'	=>	'Blog',
+					'key'	=>	'blog',
+					'icon'	=>	'pwi-blog',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Background Color",
+							"key"			=>	"blog-background-color",
+							"input"			=>	"color",
+							"description"	=>	"Background color of blog posts."
+							),
+						array(
+							"name"			=>	"Foreground Color",
+							"key"			=>	"blog-foreground-color",
+							"input"			=>	"color",
+							"description"	=>	"Text color of blog posts."
+							),
+						array(
+							"name"			=>	"Link Color",
+							"key"			=>	"blog-link-color",
+							"input"			=>	"color",
+							"description"	=>	"Link color in blog posts."
+							),
+						),
+					),
+
 
 				),
 

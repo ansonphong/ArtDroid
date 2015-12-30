@@ -71,112 +71,15 @@
 					<label class="inner">Post Excerpt</label>
 					<textarea id="post_excerpt" class="labeled" msd-elastic ng-textarea-filter data-maxlength="500" data-readmore="..."
 						name="post_excerpt" ng-model="post.post_excerpt"></textarea>
-				</div>
-
-				<hr class="thin">
-
-				<!--///// POST DETAILS /////-->
-				<div class="post-details row">
-
-					<!--/// LEFT COLUMN ///-->
-					<div class="col-md-6">
-
-						<!-- LINK URL -->
-						<label class="inner">LINK URL</label>
-						<input class="labeled" type="url" ng-model="post.link_url" placeholder="http://">
-					
-						<!-- POST FORMAT -->
-						<div class="link-format">
-							<span ng-repeat="format in link_format_meta" class="row-fluid">
-									<input type="radio" name="link_format" value="{{format.slug}}" ng-model="post.link_format" disabled />
-									<label>
-										<i class="{{format.icon}}"></i> <span ng-bind="format.name"></span>
-									</label>
-							</span>
-							<span ng-show="post.link_url.length">
-								<span  style="float:right; padding:5px 10px;"><a href="{{post.link_url}}" target="_blank">View <i class="pwi-external-link"></i></a></span>
-							</span>
-						</div>
-						<div class="clearfix"></div>
-
-
-						<!--///// POSTS AND PAGES ONLY /////-->
-						<div ng-hide="post.post_type == 'attachment'">
-							
-
-							<hr>
-
-							<!-- POST COLUMNS OPTION -->
-							<div pw-compile-code="getTemplatePartial({ partial:'editPost.pwMeta.post_content.columns'})"></div>
-
-							<hr>
-
-							<!-- DOWNLOAD IMAGE OPTION -->
-							<div pw-compile-code="getTemplatePartial({ partial:'editPost.pwMeta.image.download'})"></div>
-
-						</div>
-					 
-					</div>
-
-					<!--/// SPACER COLUMN ///-->
-					<div class="col-md-1"></div>
-
-					<!--/// RIGHT COLUMN ///-->
-					<div class="col-md-5">
-						<!-- TAXONOMY : TAGS -->
-						<div class="post-details module taxonomy">
-							<div pw-autocomplete-tags class="tags">
-									<div ng-repeat="tag in tagsInput" class="tag">
-											<span><i class="pwi-tag"></i> {{tag.name}}</span>
-											<button
-												ng-click="removeTag(tag)"
-												class="btn-neutral-color pull-right">
-											<i class="pwi-close"></i>
-										</button>
-										<div class="clearfix"></div>
-									</div>
-									<div class="input-group">
-										<input
-											type="text"
-											typeahead-min-length="1"
-											typeahead-loading="loadingTagsAutocomplete"
-											typeahead-wait-ms="200"
-											typeahead-editable="1"
-											ng-model="queryTag"
-											typeahead="tag.slug as tag.name for tag in queryTags($viewValue) | filter:$viewValue | limitTo:20"
-											typeahead-on-select="addTag($item);queryTag=''"
-											class="form-control blue">
-										<span class="input-group-btn">
-											<button
-												class="btn btn-primary-color"
-												ng-click="newTag(queryTag);queryTag=''">
-												<i ng-show="!loadingTagsAutocomplete" class="pwi-plus"></i>
-												<i ng-show="loadingTagsAutocomplete" class="icon-spin pwi-spinner-2"></i>
-												New Tag
-											</button>
-										</span>
-									</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="clearfix"></div>
-				</div>
-
-				<div ng-hide="post.post_type == 'attachment'">
-					<hr>
-					<!-- GALLERY OPTIONS -->
-					<h3>Gallery</h3>
-					<div pw-compile-code="getTemplatePartial({ partial:'editPost.pwMeta.gallery'})"></div>
-					<hr class="thin">
-				</div>
+				</div>				
 				
 		</div><!-- END MODAL BODY -->
 
-	</div><!-- END WRAPPER -->
+	</div>
+
 	<!--
 	<pre>{{ post.tax_input | json }}</pre>
 	<pre>{{ post.link_url | json }}</pre>
 	-->
 
-</div><!-- END CONTROLLER -->
+</div>

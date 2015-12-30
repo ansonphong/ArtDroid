@@ -99,25 +99,25 @@
 		<div class="well" ng-show="pwOptions.blog.enable">
 			<h3>
 				<span class="icon-md"><i class="pwi-cube-o"></i></span>
-				{{ pwOptions.blog.settings.post_type.name }} Main Page
+				{{ pwOptions.blog.settings.post_type.name }}
+				<?php _ex('Main Page','postworld') ?>
 			</h3>
 
 			<label>
 				<input type="checkbox" ng-model="pwOptions.blog.settings.main_page.show_header">
-				<b>Show header</b>
-				<small>: Show a header above the main blog page.</small>
+				<b><?php _ex('Show header','postworld') ?></b>
+				<small>: <?php _ex('Show a header above the main blog page.', 'postworld') ?></small>
 			</label>
 
 			<div class="well" ng-show="pwOptions.blog.settings.main_page.show_header">
 				<h3>
 					<span class="icon-md"><i class="pwi-image"></i></span>
-					Main Page Header
+					<?php _ex('Main Page Header','postworld') ?>
 				</h3>
-				
 				
 				<?php
 					echo pw_select_image_id( array( 
-						'ng_model'	=>	'pwOptions.blog.settings.main_page.cover_image.attachment_id',
+						'ng_model'		=>	'pwOptions.blog.settings.main_page.cover_image.attachment_id',
 						'slug'			=>	'blog_cover_image',
 						'label'			=>	'Cover Image',
 						'width'			=>	'400px',
@@ -129,17 +129,16 @@
 						array(
 							'ng_model' => 'pwOptions.blog.settings.main_page.icon',
 							)); ?>
-
 				<hr class="thin">
 
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.title">
-				<b>title</b>
-				<small>: The title of your blog.</small>
+				<b><?php _ex('title','postworld') ?></b>
+				<small>: <?php _ex('The title of your blog','postworld') ?></small>
 				<hr class="thin">
 
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.subtitle">
-				<b>subtitle</b>
-				<small>: The subtitle of your blog.</small>
+				<b><?php _ex('subtitle','postworld') ?></b>
+				<small>: <?php _ex('The subtitle of your blog','postworld') ?></small>
 				<hr class="thin">
 
 				<?php

@@ -1,0 +1,29 @@
+<div pw-globals="pw">
+	<div
+		infinite-scroll='getNext()'
+		infinite-scroll-disabled='busy'
+		infinite-scroll-use-document-bottom="true"
+		infinite-scroll-distance="1"
+		pw-user="user"
+		ng-class="{'invert':pw.options.theme.blog.settings.style.invert}">
+		<div
+			ng-repeat="post in posts()"
+			class="feed-item">
+			<div
+				feed-item
+				post="post"
+				feed-settings="args"
+				class="feed-post">
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div
+		ng-show='busy'
+		class="text-center">
+		<div
+			class="loading loading-animation">
+			<i class="{{ ::pw.options.feeds.loading.icon }} icon-spin"></i>
+		</div>
+	</div>
+</div>
