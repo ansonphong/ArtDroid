@@ -339,30 +339,14 @@ function theme_postmeta_defaults( $post ){
 	 * High friction methods of settings defaults.
 	 */
 
-	$custom_defaults = pw_get_option(array(
-		'option_name' => PW_OPTIONS_DEFAULTS,
-		'key' => 'wp_postmeta.pw_meta'
-		));
-
 	// Blog defaults from custom defaults
 	if( _get( $post, 'post_type' ) === 'blog' ){
 
-		/**
-		 * @todo Integrate into a unified method which can be cross-used.
-		 */
-		/*
 		$post['post_meta'] = pw_set_custom_default( array(
-			'origin' => 'wp_postmeta.pw_meta.featured_image.display'
-			'destination' => 'pw_meta.featured_image.display'
+			'subject' => $post['post_meta'],
+			'type' => 'wp_postmeta',
+			'default_key' => 'pw_meta.featured_image.display'
 			));
-		 */
-		$fi_display = _get($post,'post_meta.pw_meta.featured_image.display');
-		if( !$fi_display || empty($fi_display) || $fi_display == 'default' )
-			$post = _set(
-				$post,
-				'post_meta.pw_meta.featured_image.display',
-				_get( $custom_defaults, 'featured_image.display' )
-				);
 
 	}
 

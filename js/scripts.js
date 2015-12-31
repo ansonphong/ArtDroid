@@ -88,6 +88,9 @@ postworld.controller( 'artPostCtrl',
 		var hasImageAndNoEmbed = ( !hasEmbed && hasImage );
 		var hasImageAndNoGallery = ( !hasGallery && hasImage );
 
+		// BLOG
+		var fiDisplay = $_.get($scope.post,'post_meta.pw_meta.featured_image.display');
+
 		$log.debug('$scope.post.image', $scope.post.image);
 
 		///// SWITCH : VIEWS : LOGIC /////
@@ -103,8 +106,13 @@ postworld.controller( 'artPostCtrl',
 					return true;
 				break;
 
-			case 'blogImage':		// For use in Blog Full View
-				if( hasImageAndNoEmbed )
+			case 'fiDisplay--slice':		// For use in Blog Full View
+				if( hasImageAndNoEmbed && fiDisplay === 'slice' )
+					return true;
+				break;
+
+			case 'fiDisplay--full':		// For use in Blog Full View
+				if( hasImageAndNoEmbed && fiDisplay === 'full' )
 					return true;
 				break;
 

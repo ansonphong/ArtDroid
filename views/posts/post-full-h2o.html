@@ -2,15 +2,10 @@
 	pw-post
 	art-post
 	pw-modal-access
-	class="post view--full post-type--{{post.post_type}} block"
+	class="post view--full post-type--{{post.post_type}}"
 	pw-globals="pw"
 	pw-ui
 	ng-cloak>
-	
-	<!-- TODO : INTEGRATE THIS WITH A showView('fi_slice|fi_full') VIEW HANDLER -->
-	<!-- TODO : Break down into re-usable templates partials, in views/panels/fi-slice, fi-full ??? -->
-	
-	<div ng-bind="post.post_meta.pw_meta.featured_image | json"></div>
 
 	{% if theme_options.colors.views.single.dynamic_colors %}
 		{% if post.post_type == 'post' %}
@@ -116,17 +111,14 @@
 	
 	{% if post.post_type == 'blog' %}
 		<div
-			pw-height="{{pw.options.theme.blog.settings.views.full.header.height.method}}"
-			height-value="{{pw.options.theme.blog.settings.views.full.header.height.value}}"
-			ng-show="::showView('blogImage')">
-			<div
-				class="post-header-image"
-				ng-show="::showView('blogImage')"
-				pw-smart-image="::post.image"
-				pw-parallax="parent"
-				parallax-depth="1.33"
-				parallax-enable="::showView('blogImage')">
-			</div>
+			pw-include="panels/featured-image--slice"
+			include-vars="{themeOptions:pw.options.theme,postImage:post.image}"
+			include-enable="::showView('fiDisplay--slice')">
+		</div>
+		<div
+			pw-include="panels/featured-image--full"
+			include-vars="{themeOptions:pw.options.theme,postImage:post.image}"
+			include-enable="::showView('fiDisplay--full')">
 		</div>
 	{% endif %}
 

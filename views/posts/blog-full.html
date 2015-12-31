@@ -4,18 +4,19 @@
 	art-post
 	class="post post-type--blog view--full"
 	pw-ui>
+
+	<!-- FEATURED IMAGE -->
 	<div
-		pw-height="{{::pw.options.theme.blog.settings.views.full.header.height.method}}"
-		height-value="{{::pw.options.theme.blog.settings.views.full.header.height.value}}"
-		ng-show="::showView('blogImage')">
-		<div
-			class="post-header-image"
-			pw-smart-image="::post.image"
-			pw-parallax
-			parallax-depth="1.33"
-			parallax-enable="::showView('blogImage')">
-		</div>
+		pw-include="panels/featured-image--slice"
+		include-vars="{themeOptions:pw.options.theme,postImage:post.image}"
+		include-enable="::showView('fiDisplay--slice')">
 	</div>
+	<div
+		pw-include="panels/featured-image--full"
+		include-vars="{themeOptions:pw.options.theme,postImage:post.image}"
+		include-enable="::showView('fiDisplay--full')">
+	</div>
+
 	
 	<!-- EMBED -->
 	<div
