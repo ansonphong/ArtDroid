@@ -6,6 +6,10 @@
 <div ng-cloak ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
 	<table>
 
+		<?php if( $post->post_type == 'blog' ): ?>
+			BLOG
+		<?php endif ?>
+
 		<?php if( $post->post_type == 'page' ): ?>
 			<!-- HEADER -->
 			<tr>

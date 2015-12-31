@@ -6,6 +6,11 @@
 	pw-globals="pw"
 	pw-ui
 	ng-cloak>
+	
+	<!-- TODO : INTEGRATE THIS WITH A showView('fi_slice|fi_full') VIEW HANDLER -->
+	<!-- TODO : Break down into re-usable templates partials, in views/panels/fi-slice, fi-full ??? -->
+	
+	<div ng-bind="post.post_meta.pw_meta.featured_image | json"></div>
 
 	{% if theme_options.colors.views.single.dynamic_colors %}
 		{% if post.post_type == 'post' %}

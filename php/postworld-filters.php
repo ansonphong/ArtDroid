@@ -214,8 +214,10 @@ function theme_feed_preprocess_blocks_background_image( $feed ){
 }
 
 
-
-
+/**
+ * Set postmeta defaults after getting a post.
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 function theme_postmeta_defaults( $post ){
 
 	// If no pwMeta, set special var
@@ -231,8 +233,8 @@ function theme_postmeta_defaults( $post ){
 		return $post;
 
 	// Check for Defaults
-	$iOptions = pw_get_option( array( 'option_name'	=>	PW_OPTIONS_THEME ) );
-	$default_pw_meta = _get( $iOptions, 'posts.post.post_meta.'.PW_POSTMETA_KEY );
+	$themeOptions = pw_get_option( array( 'option_name'	=>	PW_OPTIONS_THEME ) );
+	$default_pw_meta = _get( $themeOptions, 'posts.post.post_meta.'.PW_POSTMETA_KEY );
 
 	// If default pw_meta is not set
 	if( empty( $default_pw_meta ) )
@@ -244,9 +246,13 @@ function theme_postmeta_defaults( $post ){
 		$default_pw_meta,
 		$post['post_meta'][PW_POSTMETA_KEY]
 		);
-	
-	//////////////////// SET DEFAULT VALUES ////////////////////
-	////////// DOWNLOAD IMAGE //////////
+
+
+
+	/**
+	 * SET DEFAULT VALUES
+	 */
+	///// DOWNLOAD IMAGE /////
 	$post_value = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.image.download' ); // $post['post_meta'][PW_POSTMETA_KEY]['image']['download'];
 	$site_value = _get( $default_pw_meta, 'image.download' );
 	// Override 'default' value with the default value
@@ -255,11 +261,11 @@ function theme_postmeta_defaults( $post ){
 		$post['post_meta'][PW_POSTMETA_KEY]['image']['download'] = $site_value;
 	}
 	
-	////////// LINK URL //////////
 
-	// IF IMETA DOESN'T EXIST (SUCH AS FOR ATTACHMENTS) - PLACE DEFAULT VALUES
-	// ENABLE ATTACHMENTS TO SAVE IMETA
-
+	/**
+	 * LINK URL
+	 * IF PWMETA DOESN'T EXIST (SUCH AS FOR ATTACHMENTS) - PLACE DEFAULT VALUES
+	 */
 	///// LABEL : SHOW /////
 	$post_obj = _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url' );
 	$site_obj = _get( $default_pw_meta, 'link_url' );
@@ -326,14 +332,45 @@ function theme_postmeta_defaults( $post ){
 		$post['post_meta'][PW_POSTMETA_KEY]['link_url'] = $new_obj;
 	}
 
+	/**
+	 * CUSTOM DEFAULTS
+	 * This is the new simplified and unified way of settings defaults inline.
+	 * Future developments should follow this model, and ignore the previous
+	 * High friction methods of settings defaults.
+	 */
+
+	$custom_defaults = pw_get_option(array(
+		'option_name' => PW_OPTIONS_DEFAULTS,
+		'key' => 'wp_postmeta.pw_meta'
+		));
+
+	// Blog defaults from custom defaults
+	if( _get( $post, 'post_type' ) === 'blog' ){
+
+		/**
+		 * @todo Integrate into a unified method which can be cross-used.
+		 */
+		/*
+		$post['post_meta'] = pw_set_custom_default( array(
+			'origin' => 'wp_postmeta.pw_meta.featured_image.display'
+			'destination' => 'pw_meta.featured_image.display'
+			));
+		 */
+		$fi_display = _get($post,'post_meta.pw_meta.featured_image.display');
+		if( !$fi_display || empty($fi_display) || $fi_display == 'default' )
+			$post = _set(
+				$post,
+				'post_meta.pw_meta.featured_image.display',
+				_get( $custom_defaults, 'featured_image.display' )
+				);
+
+	}
 
 	///// RETURN /////	
 	//$post = _set( $post, "post_meta.pw_meta.defaults", $default_pw_meta );
 	return $post;	
 
 }
-
-add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_defaults' );
 
 
 
