@@ -338,16 +338,13 @@ function theme_postmeta_defaults( $post ){
 	 * Future developments should follow this model, and ignore the previous
 	 * High friction methods of settings defaults.
 	 */
-
 	// Blog defaults from custom defaults
 	if( _get( $post, 'post_type' ) === 'blog' ){
-
 		$post['post_meta'] = pw_set_custom_default( array(
 			'subject' => $post['post_meta'],
 			'type' => 'wp_postmeta',
 			'default_key' => 'pw_meta.featured_image.display'
 			));
-
 	}
 
 	///// RETURN /////	
@@ -355,7 +352,6 @@ function theme_postmeta_defaults( $post ){
 	return $post;	
 
 }
-
 
 
 /**
