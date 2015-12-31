@@ -1,4 +1,5 @@
 <?php
+add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );
 function theme_postmeta_model_filter( $pwMeta ){
 	$defaultPwMeta = array(
 		"header" => array(
@@ -66,6 +67,8 @@ function theme_postmeta_model_filter( $pwMeta ){
 
 	$pwMeta = array_replace_recursive( $defaultPwMeta, $pwMeta );
 
+	$pwMeta['test'] = 333;
+
 	/**
 	 * Sanitization
 	 */
@@ -75,7 +78,6 @@ function theme_postmeta_model_filter( $pwMeta ){
 	return $pwMeta;
 	
 }
-add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );
 
 
 /**

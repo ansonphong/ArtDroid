@@ -33,7 +33,7 @@ function theme_register_blog_post_type(){
 		'edit_item' => 'Edit '.$settings['post_type']['name'],
 		'new_item' => 'New '.$settings['post_type']['item_name'],
 		'all_items' => 'All '.$settings['post_type']['item_name_plural'],
-		'view_item' => 'View '.$settings['post_type']['item_name'].' Post',
+		'view_item' => 'View '.$settings['post_type']['item_name'],
 		'search_items' => 'Search '.$settings['post_type']['item_name_plural'],
 		'not_found' =>  'Nothing found',
 		'not_found_in_trash' => 'No '.$settings['post_type']['item_name_plural'].' found in Trash', 

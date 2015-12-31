@@ -153,10 +153,56 @@ $pwSiteGlobals = array(
 			// Adds inputs for additional custom WordPress postmeta fields
 			'wp_postmeta'		=>	array(
 				///// POST META /////
+
+				array(
+					'post_types' => array('blog'),
+					'metabox'		=>	array(
+						'title'		=>	__('Post Options','postworld'),
+						'context'	=>	'normal',
+						),
+					'fields' => array(
+						array(
+							'supports'			=>	array('custom_default'),
+							'type'				=>	'radio-buttons',
+							'label'				=>	__('Featured Image Display','postworld'),
+							'description'		=>	__('How to display the featured image','postworld'),
+							'icon'				=>	'pwi-image',
+							'meta_key'			=>	'pw_meta',
+							'sub_key'			=>	'featured_image.display',
+							'default_value'		=>	'default',
+							'options' 			=>	array(
+								array(
+									'value' => 'default',
+									//'icon' 	=> 'pwi-circle-thin',
+									'label' => __('Default','postworld'),
+									'description' => 'Use the default setting configured in theme settings.'
+									),
+								array(
+									'value' => 'slice',
+									//'icon' 	=> 'pwi-arrows-h',
+									'label' => __('Slice','postworld'),
+									'description' => 'Shows a horizontal slice of the image in the post header.'
+									),
+								array(
+									'value' => 'full',
+									//'icon' 	=> 'pwi-image',
+									'label' => __('Full','postworld'),
+									'description' => 'Shows the full image in the post header.'
+									),
+								array(
+									'value' => 'none',
+									//'icon' 	=> 'pwi-close-thin',
+									'label' => __('None','postworld')
+									),
+								),
+							),
+						),
+					),
+
 				array(
 					'post_types'	=>	array( 'post', 'page' ),
 					'metabox'		=>	array(
-						'title'		=>	'Post Meta',
+						'title'		=>	'Post Options',
 						'context'	=>	'normal',
 						),
 					'fields'	=>	array(
