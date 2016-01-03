@@ -19,6 +19,46 @@
 			</div>
 		</div>
 
+		<div class="well">
+			<h2>
+				Footer
+			</h2>
+
+			<div class="well">
+				<label>
+					<input type="checkbox" ng-model="pwOptions.footer.show_footer">
+					<b>Show Footer</b>
+					<small>: Show a footer at the bottom of each page.</small>
+				</label>
+
+				<div class="indent" ng-show="pwOptions.footer.show_footer">
+
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.footer.credits.show_credits">
+						<b>Show Credits</b>
+						<small>: Credits in the footer.</small>
+					</label>
+
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.footer.custom.show_custom">
+						<b>Show Custom Message</b>
+						<small>: Add a custom message to your footer.</small>
+					</label>
+					<div class="indent" ng-show="pwOptions.footer.custom.show_custom">
+						<hr class="thin">
+						<textarea msd-elastic class="full-width" ng-model="pwOptions.footer.custom.content"></textarea>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+
 	</div>
 	<div class="col-lg-6 pad-col-lg">
 		

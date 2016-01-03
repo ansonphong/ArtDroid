@@ -23,8 +23,11 @@ body{
 		outline:none !important;
 		.transition();
 		color: mix( @primary-color-medium, @global-foreground-color, 80% );
-		&:hover{
+		&:hover, &:focus{
 			color: mix( @primary-color-medium, @global-foreground-color, 50% );
+		}
+		&:active{
+			color: mix( @primary-color-medium, @global-foreground-color, 33% );
 		}
 	}
 }

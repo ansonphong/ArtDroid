@@ -1,5 +1,6 @@
 <?php
 ////////// DEFAULT THEME OPTIONS //////////
+add_filter( PW_OPTIONS_THEME, 'pw_theme_options_filter' );
 function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
@@ -233,13 +234,21 @@ function pw_theme_options_filter( $options ){
 				'secret_login'	=>	true,
 				),
 			),
+		'footer' => array(
+			'show_footer' => true,
+			'credits' => array(
+				'show_credits' => true,
+				),
+			'custom' => array(
+				'show_custom' => true,
+				'content' => "Copyright © All rights reserved."
+				),
+			),
 		);
 
 	$options = array_replace_recursive( $defaultOptions, $options );
 
 	return $options;
 }
-
-add_filter( PW_OPTIONS_THEME, 'pw_theme_options_filter' );
 
 ?>

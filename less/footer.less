@@ -10,10 +10,7 @@ footer#footer{
 	padding:40px;
 	background: @footer-background;
 	color: @footer-color;
-
 	border-top:1px solid fade(@footer-color, 25%);
-
-	//@neutral-color-light
 
 	a{
 		text-decoration: none;
@@ -42,5 +39,37 @@ footer#footer{
 		}
 	}
 
+
+	.footer-credits{
+		text-align: right;
+		a{
+			color: @footer-color;
+			border-bottom: 1px solid @footer-color;
+			&:hover{
+				color: @global-foreground-color;
+			}
+		}
+		.credit{
+			font-size: 10px;
+			font-weight: 400;
+		}
+		.theme-logo{
+			float:right;
+			font-size: 34px;
+			padding: 0 10px;
+			a{
+
+				border-bottom: 0;
+				.icon{
+					.transition();
+					&:hover{
+						color: @primary-color-medium;
+					}
+				}
+			}
+		}
+	}
+
 }
+
 
