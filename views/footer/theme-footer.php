@@ -2,7 +2,9 @@
 <div class="clearfix"></div>
 
 <?php
-///// SINGLE POST FOOTER /////
+/**
+ * Single post footer
+ */
 if( (is_single() || is_page() || is_404()) && !is_home() && !is_front_page() ){
 
 	global $post;
@@ -12,7 +14,7 @@ if( (is_single() || is_page() || is_404()) && !is_home() && !is_front_page() ){
 	else
 		$sidebar_prefix = $post->post_type;
 
-	///// POST WIDGETS /////
+	// Post Widgets
 	$foot_widgets = pw_print_widgets( array(
 		'sidebar'		=>	$sidebar_prefix.'-foot',
 		'before'		=>	'<div class="sidebar">',
@@ -35,8 +37,14 @@ else{
 	$foot_widgets = array('widgets' => '');
 }
 
+$has_widgets = ( isset( $widget_count ) && $widget_count > 0 );
+$footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'footer' ) );
+
+$credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" : "";
+
 ?>
-<?php if( isset( $widget_count ) && $widget_count > 0 ): ?>
+
+<?php if( $has_widgets || $footer_options['show_footer'] ): ?>
 	<!-- FOOTER -->
 	<footer
 		id="footer"
@@ -46,20 +54,37 @@ else{
 		
 		<div class="page-width">
 
-			<div class="post-foot-widgets footer-widgets-row footer-columns-<?php echo $widget_columns ?>">
-				<?php echo $foot_widgets['widgets'] ?>
+			<!-- WIDGETS -->
+			<?php if( $has_widgets ): ?>
+				<div class="post-foot-widgets footer-widgets-row footer-columns-<?php echo $widget_columns ?>">
+					<?php echo $foot_widgets['widgets'] ?>
+				</div>
+				<div class="clearfix"></div>
+			<?php endif ?>
+
+			<!-- CREDITS -->
+			<!-- Thanks for using ArtDroid! -->
+			<div class="footer-credits" style="<?php echo $credits_style ?>">
+				<div class="theme-logo">
+					<a href="https://artdroid.phong.com" target="_blank">
+						<i class="icon pwi-merkaba"></i>
+					</a>
+				</div>
+				<div class="credit">
+					Powered by ArtDroid for WordPress
+				</div>
+				<div class="credit">
+					Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a>
+				</div>
+				<div class="credit">
+					Designed by <a href="https://phong.com" target="_blank">Phong</a>
+				</div>
 			</div>
 
 		</div>
 
 	</footer>
 <?php endif; ?>
-
-<!-- CREDITS -->
-<div style="display:none;">
-	Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a>
-	Designed by <a href="https://phong.com" target="_blank">Phong</a>
-</div>
 
 <?php wp_footer(); ?>
 </body>
