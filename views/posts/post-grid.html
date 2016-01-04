@@ -6,8 +6,7 @@
 	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
 	timeout-action="addClass('fadein-on')"
 	ng-hide="post.post_status == 'trash'"
-	pw-ui
-	ng-cloak>
+	pw-ui>
 	<div
 		class="post-wrapper"
 		pw-hover-class="hover"
@@ -76,7 +75,7 @@
 				<div
 					pw-include="panels/post-controls"
 					include-post="post"
-					include-enable-user="::user.isLoggedIn()">
+					include-eval="isLoggedIn()&&!isDevice(['mobile'])">
 				</div>
 
 			</div>

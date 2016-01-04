@@ -38,7 +38,7 @@
 				<?php if( _get( $term_meta, 'icon' ) ) : ?>
 					<i class="icon <?php echo $term_meta['icon'] ?>"></i> 
 				<?php elseif( $pw['view']['taxonomy']['name'] == 'post_tag' ) : ?>
-					<i class="pwi-tag" tooltip="tag" tooltip-placement="bottom"></i> 
+					<i class="icon pwi-tag" tooltip="tag" tooltip-placement="bottom"></i> 
 				<?php endif; ?>
 				<a href="<?php echo $pw['view']['term']['url'] ?>">
 					<?php echo $pw['view']['term']['name'] ?>
@@ -46,10 +46,12 @@
 			</h1>
 		</div>
 		
-		<!-- SHARE SOCIAL -->
-		<div class="share-social">
-			<?php echo pw_social_share(); ?>
-		</div>
+		<?php if( is_desktop() ): ?>
+			<!-- SHARE SOCIAL -->
+			<div class="share-social">
+				<?php echo pw_social_share(); ?>
+			</div>
+		<?php endif ?>
 
 		<?php if( _get( $tax_archives, 'header.background_image.show_title' ) ): ?>
 			<div class="header-image-title">

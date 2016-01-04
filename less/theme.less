@@ -2,7 +2,6 @@
 html {
 	max-width: 100%;
 	min-height:100%;
-
 	// Position must be 'relative' to allow full document height secondary bgs?
 	//position:relative;
 	
@@ -11,12 +10,21 @@ html {
 			z-index:100;
 		}
 	}
+	&.device-desktop{
+		body, #content, header, footer{
+			min-width: 800px;
+		}
+	}
+	&.device-mobile, &.device-tablet{
+		body, #content, header, footer{
+			min-width: 320px;
+		}
+	}
 }
 
 body{
 	overflow-x: hidden;
 	background-color: @global-background-color;
-	min-width: 320px;
 	height:100%;
 
 	a{

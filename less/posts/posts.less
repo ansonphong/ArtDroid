@@ -54,6 +54,8 @@
 		}
 	}
 
+
+
 	ul{
 		list-style: none;
 		margin:0;
@@ -270,6 +272,9 @@
 		float: left;
 		margin-right:20px;
 		margin-top:15px;
+		@media @md-down{
+			margin-bottom: 20px;
+		}
 	}
 
 	&.view--grid .taxonomy{
@@ -373,9 +378,6 @@
 		margin-top:-17px;
 	}
 
-	.date{
-		color:@gray3;
-	}
 
 	.media-embed{
 
@@ -422,13 +424,6 @@
 			line-height:32px;
 		}
 
-		// hover colors
-		button.up:hover {
-			color:@blue3;
-		}
-		button.down:hover {
-			color:@red1;
-		}
 
 		button.selected{
 			color:#000;
