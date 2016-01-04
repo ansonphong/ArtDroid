@@ -55,7 +55,7 @@
 		<!-- TIME -->
 		<span
 			class="time"
-			tooltip="{{ ::post.post_timestamp*1000 | date:'fullDate' }}"
+			uib-tooltip="{{ ::post.post_timestamp*1000 | date:'fullDate' }}"
 			tooltip-popup-delay="333"
 			tooltip-placement="bottom">
 			<time datetime="{{::post.post_date}}">

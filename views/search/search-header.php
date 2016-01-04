@@ -11,4 +11,5 @@
 		include locate_template( 'views/theme/search-form.php' );
 	?>
 </div>
+<div class="clearfix"></div>
 

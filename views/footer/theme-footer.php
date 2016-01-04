@@ -62,24 +62,42 @@ $credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" 
 				<div class="clearfix"></div>
 			<?php endif ?>
 
-			<!-- CREDITS -->
-			<!-- Thanks for using ArtDroid! -->
-			<div class="footer-credits" style="<?php echo $credits_style ?>">
-				<div class="theme-logo">
-					<a href="https://artdroid.phong.com" target="_blank">
-						<i class="icon pwi-merkaba"></i>
-					</a>
+			<div class="row">
+				<div class="col-md-6">
+					<!-- CUSTOM -->
+					<?php if( $footer_options['custom']['show_custom'] ): ?>
+						<div class="footer--custom">
+							<?php echo $footer_options['custom']['content'] ?>
+						</div>
+					<?php endif ?>
 				</div>
-				<div class="credit">
-					Powered by ArtDroid for WordPress
-				</div>
-				<div class="credit">
-					Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a>
-				</div>
-				<div class="credit">
-					Designed by <a href="https://phong.com" target="_blank">Phong</a>
+				<div class="col-md-6">
+					<!-- CREDITS -->
+					<!-- Thanks for using ArtDroid! -->
+					<div class="footer--credits" style="<?php echo $credits_style ?>">
+						<div class="theme-logo">
+							<a href="https://artdroid.phong.com" target="_blank">
+								<i class="icon pwi-merkaba"></i>
+							</a>
+						</div>
+						<div class="credit">
+							Powered by ArtDroid for WordPress
+						</div>
+						<div class="credit">
+							Spawned by <a href="http://androidjones.com" target="_blank">Android Jones</a>
+						</div>
+						<div class="credit">
+							Designed by <a href="https://phong.com" target="_blank">Phong</a>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			
+
+			
+
+			
 
 		</div>
 

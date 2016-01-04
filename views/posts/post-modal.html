@@ -27,7 +27,7 @@
 			<button
 				ng-click="previousPost()"
 				class="btn-previous transparent"
-				tooltip="Previous"
+				uib-tooltip="Previous"
 				tooltip-placement="bottom"
 				tooltip-popup-delay="1000"
 				ng-mouseover="uiToggleView('prevPost')"
@@ -43,7 +43,7 @@
 			<button
 				ng-click="nextPost()"
 				class="btn-next transparent"
-				tooltip="Next"
+				uib-tooltip="Next"
 				tooltip-placement="bottom"
 				tooltip-popup-delay="1000"
 				ng-mouseover="uiToggleView('nextPost')"
@@ -172,21 +172,21 @@
 				class="modal-controls pull-right">
 				<button
 					class="btn-neutral-color"
-					tooltip="Previous"
+					uib-tooltip="Previous"
 					tooltip-popup-delay="333"
 					ng-click="previousPost()">
 					<i class="pwi-arrow-left-thin"></i>
 				</button>
 				<button
 					class="btn-neutral-color"
-					tooltip="Next"
+					uib-tooltip="Next"
 					tooltip-popup-delay="333"
 					ng-click="nextPost()">
 					<i class="pwi-arrow-right-thin"></i>
 				</button>
 				<button
 					class="btn-neutral-color"
-					tooltip="Close"
+					uib-tooltip="Close"
 					tooltip-popup-delay="333"
 					ng-click="close()">
 					<i class="pwi-close"></i>
@@ -233,7 +233,7 @@
 				<!-- TIME -->
 				<div
 					class="time unit pull-left"
-					tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
+					uib-tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
 					tooltip-popup-delay="333">
 					<time datetime="{{ post.post_date }}">
 						{{ post.time_ago }}
@@ -266,7 +266,7 @@
 					class="link unit pull-right"
 					ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
 					ng-show="post.post_meta.pw_meta.link_url.label.show == true || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-					tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+					uib-tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
 					tooltip-popup-delay="333">
 					<a
 						pw-href="post.link_url"
