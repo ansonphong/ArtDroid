@@ -196,7 +196,7 @@
 						<!-- TIME -->
 						<span
 							class="time unit"
-							tooltip="{{ post.post_date_gmt }}"
+							uib-tooltip="{{ post.post_date_gmt }}"
 							tooltip-placement="bottom"
 							tooltip-popup-delay="333">
 							<time datetime="{{ post.post_date }}">
@@ -214,16 +214,16 @@
 					<div class="post-controls pull-right">
 						<!-- DROPDOWN -->
 						<span
-							dropdown
+							uib-dropdown
 							pw-admin-post-menu
 							ng-show="userOptions != 0"
 							class="admin-menu dropdown">
 							<button
 								prevent-default-click
-								dropdown-toggle
+								uib-dropdown-toggle
 								class="edit-post"
 								style="border:none"
-								tooltip="edit"
+								uib-tooltip="edit"
 								tooltip-placement="top"
 								tooltip-popup-delay="500">
 								<i class="pwi-merkaba"></i>
@@ -247,7 +247,7 @@
 						<div
 							class="download unit pull-right"
 							ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
-							tooltip="Download Image"
+							uib-tooltip="Download Image"
 							tooltip-placement="bottom"
 							tooltip-popup-delay="333">
 							<a
@@ -262,7 +262,7 @@
 							class="link unit pull-right"
 							ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
 							ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-							tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+							uib-tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
 							tooltip-placement="bottom"
 							tooltip-popup-delay="333">
 							<a
