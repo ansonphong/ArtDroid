@@ -248,7 +248,7 @@
 				<div
 					pw-include="panels/post-controls"
 					include-post="post"
-					include-enable-user="::user.isLoggedIn()"
+					include-eval="isLoggedIn()&&!isDevice(['mobile'])"
 					class="pull-right">
 				</div>
 
