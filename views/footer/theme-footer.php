@@ -65,7 +65,7 @@ $credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" 
 
 			<?php if( $footer_options['show_footer'] ): ?>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<!-- CUSTOM -->
 						<?php if( $footer_options['custom']['show_custom'] ): ?>
 							<div class="footer--custom">
@@ -73,7 +73,7 @@ $credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" 
 							</div>
 						<?php endif ?>
 					</div>
-					<div class="col-md-6">
+					<div class="col-sm-6">
 						<!-- CREDITS -->
 						<!-- Thanks for using ArtDroid! -->
 						<div class="footer--credits" style="<?php echo $credits_style ?>">
@@ -95,8 +95,6 @@ $credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" 
 					</div>
 				</div>
 			<?php endif ?>
-
-			
 
 		</div>
 

@@ -59,6 +59,11 @@ postworld.controller( 'artPostCtrl',
 
 	$scope.showView = function( view ){
 
+		/**
+		 * @todo Optimize this so on Modal view, it's not being called as frequently
+		 * $log.debug( 'showView', view ); // See how frequently it occurs
+		 */
+
 		// LOADING
 		var loading = ( $scope.status == 'loading' ) ?
 			true : false;
@@ -90,8 +95,6 @@ postworld.controller( 'artPostCtrl',
 
 		// BLOG
 		var fiDisplay = $_.get($scope.post,'post_meta.pw_meta.featured_image.display');
-
-		$log.debug('$scope.post.image', $scope.post.image);
 
 		///// SWITCH : VIEWS : LOGIC /////
 		switch( view ){
