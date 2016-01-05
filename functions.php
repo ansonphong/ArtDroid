@@ -23,7 +23,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.32;
+$theme_version = 1.33;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 

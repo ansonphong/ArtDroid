@@ -11,18 +11,17 @@
 		pw-hover-class="hover"
 		hover-on-delay="100"
 		hover-off-delay="0">
-		<a
-			href="{{ ::post.post_permalink }}"
+
+		<!-- POST CONTROLS -->
+		<div
+			pw-include="panels/post-controls"
+			include-post="post"
+			include-eval="isLoggedIn()&&!isDevice(['mobile'])">
+		</div>
+		
+		<a href="{{ ::post.post_permalink }}"
 			pw-open-modal="{ mode:'feed', post:post }"
 			modal-eval="!isDevice(['mobile'])">
-			
-			<!--
-				- if bypass is true, don't do prevent default click, do nothing,
-				letting the link be natural
-				- allow for a global bypass context via some filtering mechanism, add to scripts.js
-				- make a single directive, not nested function access
-			-->
-
 			<div
 				class="grid-image"
 				pw-smart-image="::post.image"
@@ -35,15 +34,15 @@
 			<div class="overlay">
 				<div
 					class="link-format-indicator"
-					ng-class="post.link_format">
-					<div ng-show="post.link_format == 'video'">
+					ng-class="::post.link_format">
+					<div ng-show="::post.link_format == 'video'">
 						<button
 							class="btn video"
 							ng-style="::{color:getHex(post,'dynamic.100'), background:getHex(post,'dynamic.0')}">
 							<i class="pwi-triangle-right-fill"></i>
 						</button>
 					</div>
-					<div ng-show="post.link_format == 'audio'">
+					<div ng-show="::post.link_format == 'audio'">
 						<button class="btn audio">
 							<i class="pwi-headphones"></i>
 						</button>
@@ -51,23 +50,23 @@
 				</div>
 			</div>
 			<div class="grid-info">
-				<h2>{{ post.post_title }}</h2>
+				<h2>{{ ::post.post_title }}</h2>
 			</div>
 		</a>
+		<!--
 		<div
 			class="details"
 			ng-style="::{background:getHex(post,'dynamic.25')}">
 			<div class="details-inner">
 				<span class="time">{{ post.time_ago }}</span> 
-				<span class="post-excerpt" ng-show="post.post_excerpt">
+				<span class="post-excerpt" ng-show="::post.post_excerpt">
 					<span class="span-spacer"> • </span>
 					{{ post.post_excerpt }}
 				</span>
-				<!-- TAGS -->
 				<div
 					class="taxonomy category"
 					ng-show="uiBoolean(post.taxonomy.category)">
-					<span ng-repeat="term in post.taxonomy.category">
+					<span ng-repeat="term in ::post.taxonomy.category">
 						<a
 							href="{{term.url}}"
 							ng-class="term.slug"
@@ -78,14 +77,8 @@
 					</span>
 				</div>
 
-				<!-- POST CONTROLS -->
-				<div
-					pw-include="panels/post-controls"
-					include-post="post"
-					include-eval="isLoggedIn()&&!isDevice(['mobile'])">
-				</div>
-
 			</div>
 		</div>
+		-->
 	</div>
 </div>
