@@ -50,13 +50,11 @@ postworld.directive( 'artPost', [ function( $scope ){
 	};
 }]);
 
-
 postworld.controller( 'artPostCtrl',
 	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts', '$timeout',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
-
 	$scope.showView = function( view ){
 
 		/**
@@ -178,13 +176,11 @@ postworld.controller( 'artPostCtrl',
 	///// WATCH : POST ID /////
 	// When the post ID changes, run this function
 	$scope.$watch( 'post.post_content', function( newVal, oldVal ){
-
 		// Refresh Instagram Widgets
 		$timeout( function(){
 			if( !_.isUndefined( window.instgrm ) )
 				window.instgrm.Embeds.process();
 		}, 100 );
-		
 	});
 
 	/**
@@ -255,8 +251,8 @@ postworld.controller( 'artPostCtrl',
 		},
 		/*
 		".post.view--grid:hover .link-format-indicator.standard button, .post.view--grid:hover .link-format-indicator.video button, .post.view--grid:hover .link-format-indicator.audio button":{
-		 	"color":"{{hex('dynamic.100')}}",
-		 	"background":"{{hex('dynamic.100')}}"
+			"color":"{{hex('dynamic.100')}}",
+			"background":"{{hex('dynamic.100')}}"
 		}
 		*/
 	};
@@ -282,32 +278,32 @@ postworld.controller( 'artFeedCtrl',
 
 	///// UNIVERSALS /////
 	$scope.customTagMapping = [
-    	{
-    		name: 'square',
-    		width: 1,
-    		height: 1,
-    	},
-    	{
-    		name: 'wide',
-    		width: 1,
-    		height: 1,
-    	},
-    	{
-    		name: 'x-wide',
-    		width: 2,
-    		height: 1,
-    	},
-    	{
-    		name: 'tall',
-    		width: 1,
-    		height: 1,
-    	},
-    	{
-    		name: 'x-tall',
-    		width: 1,
-    		height: 2,
-    	},
-    ];
+		{
+			name: 'square',
+			width: 1,
+			height: 1,
+		},
+		{
+			name: 'wide',
+			width: 1,
+			height: 1,
+		},
+		{
+			name: 'x-wide',
+			width: 2,
+			height: 1,
+		},
+		{
+			name: 'tall',
+			width: 1,
+			height: 1,
+		},
+		{
+			name: 'x-tall',
+			width: 1,
+			height: 2,
+		},
+	];
 
 
 }]);
