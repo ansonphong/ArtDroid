@@ -98,14 +98,14 @@
 	}
 
 	.carousel-indicators{
+		display: none;
 		left:0;
 		right:0;
-		bottom:0;
+		top:0;
 		width:100%;
 		margin-left:0;
-
 		text-align: right;
-		padding-right:30px;
+		padding: 10px;
 
 		li{
 			width:32px;
@@ -116,6 +116,15 @@
 			}
 			box-shadow: 2px 2px 0 @neutral-color-dark;
 		}
+
+		@media @lg-up{
+			display: block;
+			position: absolute;
+			top: auto;
+			bottom: 0;
+			padding: 0 30px 0 0;
+		}
+
 	}
 
 
@@ -185,13 +194,16 @@
 
 		.slider-bottom-bar{
 			display:block;
-			background:fade(@neutral-color-dark, 50%);
 			position:absolute;
+			background:fade(@neutral-color-dark, 50%);
 			width:100%;
 			height:76px;
 			bottom:0px;
 			right:0px;
 			z-index:5;
+			@media @md-down{
+				position:relative;
+			}
 		}
 
 		.carousel-caption{
@@ -211,10 +223,17 @@
 		opacity:0;
 		transition: opacity 0.4s ease;
 
+		@media @md-down{
+			opacity:1;
+		}
+
 		&.left, &.right{
 			span{
 				position: absolute;
 				top:60px;
+				@media @md-down{
+					top:40px;
+				}
 			}
 			span:before{
 				font-size: 32px;
@@ -224,12 +243,21 @@
 				transition:background @global-transition-time ease;
 				border:1px solid rgba(255,255,255,0.25);
 				.dropshadow(2px);
+				@media @md-down{
+					border-radius:0;
+					background: fade(@slider-arrow-color, 33%);
+					border:none;
+					box-shadow: none;
+				}
 			}
 		}
 
 		&.right{
 			span{
 				right: 40px;
+				@media @md-down{
+					right: 0px;
+				}
 			}
 			span:before{
 				padding: 10px 6px 10px 14px;
@@ -239,6 +267,9 @@
 		&.left{
 			span{
 				left: 40px;
+				@media @md-down{
+					left: 0px;
+				}
 			}
 			span:before{
 				padding: 10px 14px 10px 6px;

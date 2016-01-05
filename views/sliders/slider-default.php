@@ -22,7 +22,7 @@
 	pw-height="<?php echo $slider['height']['method'] ?>"
 	height-value="<?php echo $slider['height']['value'] ?>"
 	>
-	<carousel
+	<uib-carousel
 		interval="slider.interval"
 
 		<?php if( $slider['no_pause'] == true ):?>
@@ -35,7 +35,7 @@
 
 		ng-cloak>
 		
-		<slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
+		<uib-slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
 
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.link_target}}">

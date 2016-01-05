@@ -1,8 +1,7 @@
 <div
 	pw-feed-post
-	pw-modal-access
-	class="post view--grid pw-transition-fadein"
 	pw-grid-item
+	class="post view--grid pw-transition-fadein"
 	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
 	timeout-action="addClass('fadein-on')"
 	ng-hide="post.post_status == 'trash'"
@@ -13,9 +12,17 @@
 		hover-on-delay="100"
 		hover-off-delay="0">
 		<a
-			href="{{ post.post_permalink }}"
-			ng-click="openModal({ mode:'feed', post:post })"
-			prevent-default-click>
+			href="{{ ::post.post_permalink }}"
+			pw-open-modal="{ mode:'feed', post:post }"
+			modal-eval="!isDevice(['mobile'])">
+			
+			<!--
+				- if bypass is true, don't do prevent default click, do nothing,
+				letting the link be natural
+				- allow for a global bypass context via some filtering mechanism, add to scripts.js
+				- make a single directive, not nested function access
+			-->
+
 			<div
 				class="grid-image"
 				pw-smart-image="::post.image"
@@ -70,7 +77,7 @@
 						</a>
 					</span>
 				</div>
-				
+
 				<!-- POST CONTROLS -->
 				<div
 					pw-include="panels/post-controls"
