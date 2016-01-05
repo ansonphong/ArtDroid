@@ -69,7 +69,7 @@
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				</a>
 			<?php } ?>
-		</slide>
+		</uib-slide>
 
 		<?php
 		///// FRONT PAGE /////
@@ -83,5 +83,5 @@
 			<?php
 		}
 		?>
-	</carousel>
+	</uib-carousel>
 </div>
