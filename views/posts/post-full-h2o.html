@@ -130,20 +130,11 @@
 				<div class="col-md-8">
 
 					<h1 class="post-title">
-							{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
-								<span class="icon">
-									<i class="pwi-arrow-down"></i>
-								</span>
-							{% endif %} 
-							{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
-								<span class="icon">
-									<i class="pwi-arrow-right"></i>
-								</span>
-							{% endif %}
-							{% if post.post_meta.pw_meta.icon.class %}
-								<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
-							{% endif %}
-						</span>
+
+						{% if post.post_meta.pw_meta.icon.class %}
+							<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
+						{% endif %}
+						
 						{% if post.parent_post.ID %}
 							<span class="parent-post-link">
 								<a href="{{ post.parent_post.post_permalink }}">
@@ -184,15 +175,19 @@
 								</a>
 							</span>
 						</div>
-						<!-- TAGS -->
-						<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-							<i class="pwi-tags"></i>
-							<span ng-repeat="term in post.taxonomy.post_tag">
-							    <a pw-href="term.url" class="term tag">
-									<span ng-bind="term.name"></span>
-								</a>
-							</span>
-						</div>
+
+						{% if !device.is_mobile %}
+							<!-- TAGS -->
+							<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+								<i class="pwi-tags"></i>
+								<span ng-repeat="term in post.taxonomy.post_tag">
+								    <a pw-href="term.url" class="term tag">
+										<span ng-bind="term.name"></span>
+									</a>
+								</span>
+							</div>
+						{% endif %}
+
 						<!-- TIME -->
 						<span
 							class="time unit"
@@ -218,10 +213,12 @@
 						class="pull-right">
 					</div>
 
-					<!-- SOCIAL SHARE -->
-					<div class="module share-social pull-right">
-						{{ social_share | safe }}
-					</div>
+					{% if !device.is_mobile %}
+						<!-- SOCIAL SHARE -->
+						<div class="module share-social pull-right">
+							{{ social_share | safe }}
+						</div>
+					{% endif %}
 
 					{% if post.post_type != 'page' %}
 					{% if post.post_type != 'blog' %}
@@ -295,9 +292,35 @@
 
 	<div class="clearfix"></div>
 
-	<!-- SOCIAL WIDGETS -->
-	<div class="social-widgets pad-x-lg">
-		{{ social_widgets | safe }}
-	</div>
+	{% if device.is_mobile %}
+		<!-- TAGS -->
+		<div class="taxonomy tags pad-x-lg" ng-show="uiBoolean(post.taxonomy.post_tag)">
+			<i class="pwi-tags"></i>
+			<span ng-repeat="term in post.taxonomy.post_tag">
+			    <a pw-href="term.url" class="term tag">
+					<span ng-bind="term.name"></span>
+				</a>
+			</span>
+		</div>
+		<div class="clearfix"></div>
+		<div class="space-4"></div>
+		
+	{% endif %}
+
+	{% if device.is_mobile %}
+		<!-- SOCIAL SHARE -->
+		<div class="module share-social pad-x-lg">
+			{{ social_share | safe }}
+		</div>
+		<div class="clearfix"></div>
+	{% endif %}
+
+	{% if !device.is_mobile %}
+		<!-- SOCIAL WIDGETS -->
+		<div class="social-widgets pad-x-lg">
+			{{ social_widgets | safe }}
+		</div>
+		<div class="clearfix"></div>
+	{% endif %}
 
 </article>
