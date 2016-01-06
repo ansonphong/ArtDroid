@@ -45,7 +45,9 @@
 
 				<!-- GALLERY IMAGE -->
 				<div
-					class="gallery-image image-hover-area"
+					class="gallery-image"
+					pw-toggle-class="active"
+					toggle-class-bind="click"
 					ng-repeat="galleryPost in galleryDisplayedPosts()">
 						<!-- IMAGE -->
 						<img

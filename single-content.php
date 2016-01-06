@@ -59,7 +59,8 @@ $post_settings = array(
 		'password_protected'=> !empty( $post->post_password ),
 		'theme_options'		=> $theme_options,
 		'header_type'		=> $header_meta['type'],
-		'is_page_header_image' => ( $header_meta['type'] === 'featured_image' && $post->post_type === 'page' )
+		'is_page_header_image' => ( $header_meta['type'] === 'featured_image' && $post->post_type === 'page' ),
+		'device' => pw_device_meta(),
 		),
 	'js_vars'	=>	array('post'),
 	);
