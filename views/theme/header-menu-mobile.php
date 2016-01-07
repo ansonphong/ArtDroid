@@ -4,7 +4,7 @@
 		class="mobile-menu"
 		ng-click="
 			uiToggleElementClass('open', '#mobile-menu');
-			uiToggleElementClass('modal-open mobile-menu-open', 'body');
+			uiToggleElementClass('mobile-menu-open', 'body');
 			uiToggleElementClass('selected', $event)">
 		<i class="pwi-nav"></i>
 	</button>
