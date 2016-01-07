@@ -16,12 +16,12 @@
 		<div
 			pw-include="panels/post-controls"
 			include-post="post"
-			include-eval="isLoggedIn()&&!isDevice(['mobile'])">
+			include-eval="isLoggedIn()&&isDevice('desktop')">
 		</div>
 		
 		<a href="{{ ::post.post_permalink }}"
 			pw-open-modal="{ mode:'feed', post:post }"
-			modal-eval="!isDevice(['mobile'])">
+			modal-eval="isDevice('desktop')">
 			<div
 				class="grid-image"
 				pw-smart-image="::post.image"
