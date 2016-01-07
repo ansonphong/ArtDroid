@@ -39,13 +39,10 @@
 	<!-- EMBED -->
 	<div
 		class="media-viewer"
-
 		pw-height="{{pw.options.theme.posts.embeds.height.method}}"
 		height-value="{{pw.options.theme.posts.embeds.height.value}}"
-
 		ng-show="showView('singleEmbed')">
-		<div
-			class="view-embed">
+		<div class="view-embed">
 			<div
 				class="o-embed"
 				o-embed="{{ post.link_url }}"
@@ -225,7 +222,7 @@
 						<!-- DOWNLOAD -->
 						<div
 							class="download unit pull-right"
-							ng-show="post.post_meta.pw_meta.image.download || post.post_type == 'attachment'"
+							ng-show="showView('singleImage')"
 							uib-tooltip="Download Image"
 							tooltip-placement="bottom"
 							tooltip-popup-delay="333">
