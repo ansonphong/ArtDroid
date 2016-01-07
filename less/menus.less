@@ -5,38 +5,6 @@
 	}
 }
 
-.show-search #mobile-menu-button{
-	right: @header-height-compact;
-}
-
-#mobile-menu-button{
-	font-family: @font-family-menu;
-	display:block;
-	position:absolute;
-	top:0;
-	right:0;
-	height:@header-height-compact;
-	width:@header-height-compact;
-	outline:none;
-
-	button.mobile-menu{
-		.transition();
-		@primary-color: mix( @global-foreground-color, @global-background-color, 25% );
-		position: absolute;
-		width:100%;
-		height:100%;
-		font-size:24px;
-		border:none;
-		color:@neutral-color-medium;
-		background:none;
-		outline:none;
-		&.selected{
-			color: #fff;
-			background: @neutral-color-medium;
-		}
-	}
-
-}
 
 // FULL MENU
 #main-menu {

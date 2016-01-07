@@ -59,18 +59,23 @@
 		float: right;
 		padding:20px;
 
-		@media @xl{
-			width:50%;
+		@media @xs{
+			//width:@mobile-menu-width-xs;
+			width: 100%;
 		}
-		@media @lg{
-			width:60%;
+		@media @sm{
+			width:@mobile-menu-width-sm;
 		}
 		@media @md{
-			width:70%;
+			width:@mobile-menu-width-md;
 		}
-		@media @sm-down{
-			width:100%;
+		@media @lg{
+			width:@mobile-menu-width-lg;
 		}
+		@media @xl{
+			width:@mobile-menu-width-xl;
+		}
+		
 	}
 
 	&.active{
@@ -132,7 +137,7 @@
 		@media @lg-up{ border-right:none; }
 	}
 	select, button.search-submit{
-		@media @md-down{ border-top:none; }
+		@media @md-down{ border-top:none !important; }
 	}
 
 	.search-field-unit{
