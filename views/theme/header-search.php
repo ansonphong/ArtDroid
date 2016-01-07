@@ -5,7 +5,7 @@ if( $show_search ) : ?>
 		class="search-menu--inner">
 		<button
 			class="search-icon"
-			ng-click="uiToggleView( 'searchInput' ); uiFocusElement( '#search-menu-input-s', 250 )"
+			ng-click="uiToggleView( 'searchInput' ); uiFocusElement( '#search-menu-input-s', 333 )"
 			ng-class="uiSetClass( 'searchInput', 'active' )">
 			<i class="pwi-search"></i>
 		</button>
