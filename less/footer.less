@@ -1,5 +1,8 @@
 footer#footer{
-	
+	background: @footer-background;
+	color: @footer-color;
+
+	@footer-padding: 40px;
 	@media @lg-up{
 		margin-top:50px;
 	}
@@ -7,11 +10,6 @@ footer#footer{
 		margin-top:20px;
 	}
 	
-	padding:40px;
-	background: @footer-background;
-	color: @footer-color;
-	border-top:1px solid fade(@footer-color, 25%);
-
 	a{
 		text-decoration: none;
 	}
@@ -20,16 +18,10 @@ footer#footer{
 		border-color: fade(@footer-color, 25%);
 	}
 
-	.address{
-		.info{
-			display:inline-block;
-			padding:0 2px;
-		}
 
-		.address_name{
-			font-weight:bold;
-		}
-
+	.footer-widgets, .footer-base{
+		border-top:1px solid fade(@footer-color, 25%);
+		padding: @footer-padding;
 	}
 
 	.sidebar{
@@ -39,6 +31,44 @@ footer#footer{
 		}
 	}
 
+	.footer--custom, .footer--image, .footer--credits{
+		@media @md-up{
+			height:96px;
+			.center-vertical-parent();
+			.inner-content{
+				.center-vertical;
+			}
+		}
+		@media @sm-down{
+			.inner-content{
+				padding-bottom: 20px;
+			}
+		}
+	}
+	
+	.footer--custom{
+		font-size: small;
+		text-align: center;
+		padding: 10px 0 30px;
+		@media @md-up{
+			text-align: left;
+			padding:0;
+			.center-vertical-parent();
+		}
+		.inner-content{
+			@media @md-up{
+				.center-vertical();
+			}
+		}
+	}
+
+	.footer--image{
+		text-align: center;
+		img{
+			height: 64px;
+			width: auto;
+		}
+	}
 
 	.footer--credits{
 		text-align: right;
@@ -79,14 +109,4 @@ footer#footer{
 		}
 	}
 
-	.footer--custom{
-		font-size: small;
-		@media @sm-down{
-			text-align: center;
-			margin-bottom:20px;
-		}
-	}
-
 }
-
-

@@ -44,9 +44,9 @@
 
 		<tab>
 			<tab-heading>
-				<i class="icon pwi-nav"></i> Header & Menus
+				<i class="icon pwi-nav"></i> Header & Footer
 			</tab-heading>
-			<?php include 'theme-header-menus.php' ?>
+			<?php include 'theme-header-footer.php' ?>
 		</tab>
 
 		<tab>

@@ -1,116 +1,138 @@
 .post.view--list{
+	@mid-color: mix( @global-foreground-color, @primary-color-medium, 50% );
+	width:100%;
+	position: relative;
+	margin:0;
+	background: @global-background-color;
 
-  @mid-color: mix( @global-foreground-color, @primary-color-medium, 50% );
+	a{
+		border-top:1px solid fade(@mid-color, 25%);
+		text-decoration: none;
+		display: block;
+		padding:0;
+		background-color: @global-background-color;
+		&:hover{
+			//border-top:1px solid fade(@mid-color, 50%);
+			//color: @global-foreground-color;
+			//background-color: mix( @global-background-color, @primary-color-medium, 75% );
+		}
+	}
 
-  width:100%;
+	h3{
+		margin:0;
+		padding:10px 10px 10px 20px;
+		font-size:16px;
+	}
 
-  position: relative;
-  margin:0;
+	.thumb-cell{
+		display:table-cell;
+		width:64px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
 
-  background: @global-background-color;
-  
-  a{
-    border-top:1px solid fade(@mid-color, 25%);
-    text-decoration: none;
-    display: block;
-    padding:0;
-    background-color: @global-background-color;
-    &:hover{
-      //border-top:1px solid fade(@mid-color, 50%);
-      color: @global-foreground-color;
-      background-color: mix( @global-background-color, @primary-color-medium, 75% );
-    }
-  }
+	.title-cell{
+		display:table-cell;
+		height:100%;
+		vertical-align:middle;
+	}
 
-  h3{
-    margin:0;
-    padding:10px 10px 10px 20px;
-    font-size:16px;
-  }
+	.details{
+		position: absolute;
+		display: none;
+		right: 0;
+		bottom: 0;
+		padding: 10px 20px;
+		width:100%;
+		background: @global-background-color;
+		.tooltip{
+			float:right;
+			width:auto;
+		}
+	}
 
-  .thumb-cell{
-    display:table-cell;
-    width:64px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
+	&:hover{
+		.details{
+			display:block;
+		}
 
-  .title-cell{
-    display:table-cell;
-    height:100%;
-    vertical-align:middle;
-  }
+		img.thumb{
+			opacity: 1;
+		}
+	}
 
-  .details{
-    position: absolute;
-    display: none;
-    right: 0;
-    bottom: 0;
-    padding: 10px 20px;
-    width:100%;
-    background: @global-background-color;
-    .tooltip{
-      float:right;
-      width:auto;
-    }
-  }
+	&.page{
+		padding:0;
+		h2{
+			margin-bottom:0px;
+		}
+		div{
+			padding:0;
+		}
+	}
 
-  &:hover{
-    .details{
-      display:block;
-    }
-
-    img.thumb{
-      opacity: 1;
-    }
-  }
-
-  &.page{
-    padding:0;
-    h2{
-      margin-bottom:0px;
-    }
-    div{
-      padding:0;
-    }
-  }
+	.color-overlay{
+		transition: opacity @global-transition-time ease;
+		position: absolute;
+		pointer-events: none;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+		//background-color: fade( @global-foreground-color, 0% );
+	}
+	a{
+		&:hover, &:focus{
+			.color-overlay{
+				opacity: .15;
+				//transition-duration: @global-transition-time;
+			}
+		}
+		&:active{
+			.color-overlay{
+				opacity: .5;
+				//transition-duration: @global-transition-time;
+			}
+		}
+	}
 
 }
 
 .post.view--list-h2o{
-  width:100%;
+	width:100%;
 
-  a{
-    .transition();
-    display:block;
-    margin: 0 10px 10px 0;
-    border:1px solid transparent;
-    &:hover, &:active{
-      text-decoration: none;
-      border:1px solid @global-foreground-color;
-      h2{
-        background: fade( @global-foreground-color, 80% );
-        color: @global-background-color;
-      }
-    }
-  }
-  .background-image{
-    min-height:200px;
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat;
-  }
-  h2, .post-excerpt{
-    .transition();
-    display:inline-block;
-    padding: 10px 20px;
-    margin: 10px 10px 0;
-    background: fade( @global-background-color, 80% );
-    color: @global-foreground-color;
-  }
-  .post-excerpt{
-    margin-top: 0;
-    padding: 5px 20px;
-  }
+	a{
+		.transition();
+		display:block;
+		margin: 0 10px 10px 0;
+		border:1px solid transparent;
+		&:hover, &:active{
+			text-decoration: none;
+			border:1px solid @global-foreground-color;
+			h2{
+				background: fade( @global-foreground-color, 80% );
+				color: @global-background-color;
+			}
+		}
+	}
+	.background-image{
+		min-height:200px;
+		background-size: cover;
+		background-position: center; 
+		background-repeat: no-repeat;
+	}
+	h2, .post-excerpt{
+		.transition();
+		display:inline-block;
+		padding: 10px 20px;
+		margin: 10px 10px 0;
+		background: fade( @global-background-color, 80% );
+		color: @global-foreground-color;
+	}
+	.post-excerpt{
+		margin-top: 0;
+		padding: 5px 20px;
+	}
 }

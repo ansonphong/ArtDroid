@@ -243,10 +243,15 @@
 					class="pull-right">
 				</div>
 
+				<!-- SHARE SOCIAL -->
+				<div class="module share-social pull-right">
+					<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+				</div>
+
 				<!-- DOWNLOAD -->
 				<div
 					class="download unit pull-right"
-					ng-show="showView('singleImage')">
+					ng-show="showView('downloadSingleImage')">
 					<a download pw-href="post.image.sizes.full.url">
 						<i class="pwi-arrow-down-thin"></i>
 					</a>
@@ -265,11 +270,6 @@
 						<i class="pwi-crosshairs"></i>
 						{{ post.post_meta.pw_meta.link_url.label.custom }}
 					</a>
-				</div>
-
-				<!-- SHARE SOCIAL -->
-				<div class="module share-social pull-right">
-					<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
 				</div>
 
 			</div>

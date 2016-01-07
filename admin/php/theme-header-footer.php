@@ -21,6 +21,7 @@
 
 		<div class="well">
 			<h2>
+				<span class="icon-md"><i class="pwi-triangle-up-medium"></i></span>
 				Footer
 			</h2>
 
@@ -33,12 +34,7 @@
 
 				<div class="indent" ng-show="pwOptions.footer.show_footer">
 
-					<hr class="thin">
-					<label>
-						<input type="checkbox" ng-model="pwOptions.footer.credits.show_credits">
-						<b>Show Credits</b>
-						<small>: Credits in the footer.</small>
-					</label>
+					
 
 					<hr class="thin">
 					<label>
@@ -50,6 +46,35 @@
 						<hr class="thin">
 						<textarea msd-elastic class="full-width" ng-model="pwOptions.footer.custom.content"></textarea>
 					</div>
+
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.footer.image.show_image">
+						<b>Show Image</b>
+						<small>: Add a custom image to your footer, such as a logo.</small>
+					</label>
+					<div class="indent" ng-show="pwOptions.footer.image.show_image">
+						<hr class="thin">
+						<?php
+							echo pw_select_image_id( array( 
+								'ng_model'	=>	'pwOptions.footer.image.attachment_id',
+								'slug'			=>	'footerImage',
+								'label'			=>	'Footer Image',
+								'width'			=>	'400px',
+							 	));?>
+						<div class="space-4"></div>
+					</div>
+
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.footer.credits.show_credits">
+						<b>Show Credits</b>
+						<small>: Credits in the footer.</small>
+					</label>
+
+					<!--
+						- Add option for hidden link back to Android / Phong 'link juice'
+					-->
 
 				</div>
 
