@@ -56,7 +56,6 @@ postworld.controller( 'artPostCtrl',
 
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
 	$scope.showView = function( view ){
-
 		/**
 		 * @todo Optimize this so on Modal view, it's not being called as frequently
 		 * $log.debug( 'showView', view ); // See how frequently it occurs
@@ -73,6 +72,7 @@ postworld.controller( 'artPostCtrl',
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
 		var galleryFrame = ( galleryTemplate == 'frame' );
+		var isGallery = ( galleryHorizontal || galleryFrame || galleryVertical );
 
 		// HEADER
 		var header = $_.get( $scope, 'post.post_meta.pw_meta.header.type' );
@@ -94,6 +94,11 @@ postworld.controller( 'artPostCtrl',
 		// BLOG
 		var fiDisplay = $_.get($scope.post,'post_meta.pw_meta.featured_image.display');
 
+		var singleImage = function(){
+			return	( ( hasImageAndNoEmbed && !isGallery ) ||
+					( headerImage && hasImage && !isGallery ) );
+		}
+
 		///// SWITCH : VIEWS : LOGIC /////
 		switch( view ){
 			case 'loading':
@@ -102,8 +107,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'singleImage':		// For use in Single Post View
-				if( ( hasImageAndNoEmbed && !galleryHorizontal && !galleryFrame ) ||
-					( headerImage && hasImage && !galleryHorizontal && !galleryFrame ) )
+				if(singleImage())
 					return true;
 				break;
 
@@ -156,6 +160,11 @@ postworld.controller( 'artPostCtrl',
 				if( galleryFrame ) // && hasGallery
 					return true;
 				break;
+
+			case 'downloadSingleImage':
+				if( singleImage() && $_.get( $scope.post, 'post_meta.pw_meta.image.download' ) )
+					return true;
+				break;
 	
 		}
 
@@ -188,6 +197,9 @@ postworld.controller( 'artPostCtrl',
 	 * According to the current post colors.
 	 */
 	$scope.colorStyles = {
+		".post .color-overlay":{
+			"background-color":"{{ hex('dynamic.50') }}",
+		},
 		"header#header": {
 			"border-bottom-color":"{{ hex('dynamic.50') }} !important",
 		},

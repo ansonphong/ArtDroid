@@ -3,8 +3,10 @@
 	class="post view--list pw-transition-fadein"
 	pw-timeout="{{ ::(post.feed.loadOrder * 200) }}"
     timeout-action="addClass('fadein-on')">
+
     <a
 		href="{{ ::post.post_permalink }}">
+		<div class="color-overlay"></div>
 			<div class="wrap" style="display:table; min-height:64px;">
 				<div
 					class="thumb-cell"

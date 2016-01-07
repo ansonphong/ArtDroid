@@ -22,7 +22,7 @@
 			pw-include="galleries/gallery-frame"
 			include-post="post"
 			include-vars="{keybind:showView('galleryFrame')}"
-			ng-show="showView('galleryFrame')"
+			ng-show="::showView('galleryFrame')"
 			class="full-page-width">
 		</div>
 	{% endif %}
@@ -32,7 +32,7 @@
 		<div
 			pw-include="galleries/gallery-horizontal"
 			include-post="post"
-			include-enable="showView('galleryHorizontal')"
+			include-enable="::showView('galleryHorizontal')"
 			class="full-page-width"></div>
 	{% endif %}
 
@@ -41,12 +41,12 @@
 		class="media-viewer"
 		pw-height="{{pw.options.theme.posts.embeds.height.method}}"
 		height-value="{{pw.options.theme.posts.embeds.height.value}}"
-		ng-show="showView('singleEmbed')">
+		ng-show="::showView('singleEmbed')">
 		<div class="view-embed">
 			<div
 				class="o-embed"
 				o-embed="{{ post.link_url }}"
-				embed-run="showView('singleEmbed')">
+				embed-run="::showView('singleEmbed')">
 			</div>
 		</div>
 	</div>
@@ -61,7 +61,7 @@
 			pw-height="{{pw.options.theme.posts.embeds.height.method}}"
 			height-value="{{pw.options.theme.posts.embeds.height.value}}"
 
-			ng-show="showView('singleImage')"
+			ng-show="::showView('singleImage')"
 			pw-x-scroll-status>
 			
 			{% if post.post_type == 'post' %}
@@ -140,7 +140,7 @@
 								&rsaquo;
 							</span>
 						{% endif %}
-						<span ng-bind="post.post_title">
+						<span ng-bind="::post.post_title">
 							{{ post.post_title }}
 						</span>
 					</h1>
@@ -155,9 +155,9 @@
 					{% if post.post_type == 'blog' %}
 						<!-- CATEGORIES -->
 						<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
-							<span ng-repeat="term in post.taxonomy.blog_category">
+							<span ng-repeat="term in ::post.taxonomy.blog_category">
 								<a pw-href="term.url" class="term category">
-									<span ng-bind-html="term.name"></span>
+									<span ng-bind-html="::term.name"></span>
 								</a>
 							</span>
 						</div>
@@ -168,7 +168,7 @@
 						<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
 							<span ng-repeat="term in post.taxonomy.category">
 							    <a pw-href="term.url" class="term category">
-									<span ng-bind="term.name"></span>
+									<span ng-bind="::term.name"></span>
 								</a>
 							</span>
 						</div>
@@ -177,9 +177,9 @@
 							<!-- TAGS -->
 							<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
 								<i class="pwi-tags"></i>
-								<span ng-repeat="term in post.taxonomy.post_tag">
+								<span ng-repeat="term in ::post.taxonomy.post_tag">
 								    <a pw-href="term.url" class="term tag">
-										<span ng-bind="term.name"></span>
+										<span ng-bind="::term.name"></span>
 									</a>
 								</span>
 							</div>
@@ -222,7 +222,7 @@
 						<!-- DOWNLOAD -->
 						<div
 							class="download unit pull-right"
-							ng-show="showView('singleImage')"
+							ng-show="::showView('downloadSingleImage')"
 							uib-tooltip="Download Image"
 							tooltip-placement="bottom"
 							tooltip-popup-delay="333">
@@ -282,7 +282,7 @@
 		<div
 			pw-include="galleries/gallery-vertical"
 			include-post="post"
-			include-enable="showView('galleryVertical')"
+			include-enable="::showView('galleryVertical')"
 			include-vars="{yScrollContainer:'window'}"
 			class=""></div>
 	{% endif %}
@@ -295,7 +295,7 @@
 			<i class="pwi-tags"></i>
 			<span ng-repeat="term in post.taxonomy.post_tag">
 			    <a pw-href="term.url" class="term tag">
-					<span ng-bind="term.name"></span>
+					<span ng-bind="::term.name"></span>
 				</a>
 			</span>
 		</div>
