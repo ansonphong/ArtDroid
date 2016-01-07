@@ -280,16 +280,17 @@
 
 		<div class="clearfix"></div>
 
-
 		<!-- POST CONTENT -->
-		<div class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg">
+		<div
+			class="post-content columns-{{ post.post_meta.pw_meta.post_content.columns }} pad-x-lg"
+			ng-hide="!uiBool(post.post_content)&&!uiBool(post.post_excerpt)">
 			<div
-				ng-show="post.post_content && post.post_content != ' '"
+				ng-show="uiBool(post.post_content)"
 				pw-compile-code="post.post_content">
 			</div>
 			<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
 			<div
-				ng-show="!post.post_content || post.post_content == ' '"
+				ng-show="!uiBool(post.post_content) && uiBool(post.post_excerpt)"
 				ng-bind="post.post_excerpt">
 			</div>
 		</div>
