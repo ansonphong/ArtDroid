@@ -128,12 +128,13 @@ function theme_options_feed_settings( $feed_settings ){
 /**
  * THEME FEED ARCHIVE FILTER
  */
-add_filter( PW_FEED_DEFAULT, 'theme_feed_default_filter' );
+add_filter( PW_FEED_OVERRIDE, 'theme_feed_default_filter' );
 function theme_feed_default_filter( $feed ){
 	global $pw;
 
 	////////// HOME PAGE //////////
-	if( in_array( 'home', $pw['view']['context'] ) ){
+	if( in_array( 'home', $pw['view']['context'] ) &&
+		_get( $feed, 'view.current' ) !== 'list' ){
 		///// BLOCKS : WIDGETS /////
 		// Add Feed blocks
 		$default_blocks = array(
