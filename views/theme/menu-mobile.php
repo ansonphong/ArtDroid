@@ -19,7 +19,7 @@
 						 * Touch Menu Widgets
 						 */
 						global $pw;
-						pw_log( 'context', $pw['view']['context'] );
+						//pw_log( 'context', $pw['view']['context'] );
 						if( in_array( 'single', $pw['view']['context'] ) )
 							$widget_context = 'post';
 						else if(
