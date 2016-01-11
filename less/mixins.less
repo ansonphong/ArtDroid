@@ -32,10 +32,14 @@
 	.grid-sizer( @grid-width );
 	.grid-sizer{ width:@grid-width; }
 
-	.masonry-brick{
+	.feed-item{
 		height:@height;
+		width: @grid-width;
 		&.square, &.wide, &.tall, &.x-tall, &.no-image { width: @grid-width; }
-		&.x-wide, &.xx-wide{ width: (@grid-width * @width-multiplier); }
+		@media @lg-up{
+			&.x-wide, &.xx-wide{ width: (@grid-width * @width-multiplier); }
+		}
+		
 	}
 	
 }

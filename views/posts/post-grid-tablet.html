@@ -1,0 +1,55 @@
+<div
+	pw-feed-post
+	pw-grid-item
+	class="post view--grid pw-transition-fadein"
+	pw-timeout="{{ (post.feed.loadOrder * 100) }}"
+	timeout-action="addClass('fadein-on')"
+	ng-hide="post.post_status == 'trash'"
+	pw-ui>
+	<div
+		class="post-wrapper"
+		pw-hover-class="hover"
+		hover-on-delay="100"
+		hover-off-delay="0">
+
+		<!-- POST CONTROLS -->
+		<div
+			pw-include="panels/post-controls"
+			include-post="post"
+			include-eval="isLoggedIn()&&isDevice('desktop')">
+		</div>
+		
+		<a href="{{ ::post.post_permalink }}">
+			<div
+				class="grid-image"
+				pw-smart-image="::post.image"
+				smart-image-override="::post.image.alt">
+			</div>
+			<div
+				class="color-overlay"
+				ng-style="::{background:getHex(post,'dynamic.75')}">
+			</div>
+			<div class="overlay">
+				<div
+					class="link-format-indicator"
+					ng-class="::post.link_format">
+					<div ng-show="::post.link_format == 'video'">
+						<button
+							class="btn video"
+							ng-style="::{color:getHex(post,'dynamic.100'), background:getHex(post,'dynamic.0')}">
+							<i class="pwi-triangle-right-fill"></i>
+						</button>
+					</div>
+					<div ng-show="::post.link_format == 'audio'">
+						<button class="btn audio">
+							<i class="pwi-headphones"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="grid-info">
+				<h2>{{ ::post.post_title }}</h2>
+			</div>
+		</a>
+	</div>
+</div>

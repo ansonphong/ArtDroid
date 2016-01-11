@@ -2,30 +2,25 @@
 masonry{
 	display:block;
 }
+.feed--grid{
+	@media @lg { .grid-sizer-mix( 100%/4, 2, 333px ); }
+	@media @xl { .grid-sizer-mix( 100%/5, 2, 333px ); }
+	@media @md { .grid-sizer-mix( 100%/3, 2, 300px ); }
+	@media @sm { .grid-sizer-mix( 100%/2, 2, 275px ); }
+	@media @xs { .grid-sizer-mix( 100%/1, 1, 225px ); }
 
-@media @desktop-and-above { .grid-sizer-mix( 100%/4, 2, 333px ); }
-@media @full {              .grid-sizer-mix( 100%/5, 2, 333px ); }
-@media @desktop-and-below { .grid-sizer-mix( 100%/3, 2, 300px ); }
-@media @tablet-and-below {  .grid-sizer-mix( 100%/2, 2, 275px ); }
-@media @mobile {            .grid-sizer-mix( 100%/1, 1, 225px ); }
-
-.masonry-brick{
-	padding:@grid-unit-padding;
-	.feed-post, .post{
-		height:100%;
+	.feed-item{
+		padding:@grid-unit-padding;
+		.feed-post, .post{
+			height:100%;
+		}
 	}
 }
 
-
-.grid.view .feed-item{
-
+.feed--grid .feed-item{
 	transition:none;
 	float:left;
 	display:block;
-	//border:1px solid transparent;
-	&:hover{
-		//border:1px solid @secondary-color-medium;
-	}
 
 	@margin:0.25%;
 	//width:(100%/3)-(@margin*2);

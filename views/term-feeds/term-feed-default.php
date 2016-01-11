@@ -2,20 +2,6 @@
 	postworld.controller( '<?php echo $instance; ?>', [ '$scope', function( $scope ){
 		$scope.vars = <?php echo json_encode($vars); ?>;
    		$scope.termFeed = <?php echo json_encode($term_feed); ?>;
-
-   		///// IMAGE FUNCTIONS /////
-		$scope.backgroundImage = function( imageUrl, properties ){
-			// Set the Image URL
-			//var imageUrl = $scope.post.image[imageHandle].url;
-			var style = { 'background-image': "url(" + imageUrl + ")" };
-			// Add additional properties
-			if( !_.isUndefined( properties ) ){
-				angular.forEach( properties, function(value, key){
-					style[key] = value;
-				});
-			}
-			return style;
-		}
 	}]);
 </script>
 <div class="term-feed grid pw-shortcode" ng-controller="<?php echo $instance; ?>">

@@ -1,0 +1,37 @@
+<div
+	infinite-scroll='getNext()'
+	infinite-scroll-disabled='scrollDisabled'
+	infinite-scroll-use-document-bottom="true"
+	infinite-scroll-distance="1"
+	class="feed--grid grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
+	<div
+		art-feed
+		pw-colors
+		colors-enable-option="theme.colors.views.grid.dynamic_colors">
+		<div
+			ng-repeat="post in posts()"
+			class="feed-item"
+			pw-grid
+			ng-class="setGridClass( post.image.tags )">
+			<div
+				feed-item
+				post="post"
+				feed-settings="args"
+				class="feed-post">
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="clearfix"></div>
+
+<div
+	ng-show='busy'
+	class="text-center">
+	<div
+		class="loading loading-animation"
+		pw-globals="pw">
+		<i class="{{ ::pw.options.feeds.loading.icon }} icon-spin"></i>
+	</div>
+</div>
