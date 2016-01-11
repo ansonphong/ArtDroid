@@ -1,7 +1,6 @@
 body.mobile-menu-open{
 	overflow: hidden;
 	overflow-y: hidden;
-
 }
 
 .show-search #mobile-menu-button{
@@ -49,15 +48,17 @@ body.mobile-menu-open{
 	position:fixed;
 	height:100vh;
 	transition: background @global-transition-time ease-out;
+	pointer-events:none;
 	&.open{
 		display: block;
 		background: fade(@global-background-color, 50%);
+		pointer-events: auto;
 		@media @sm-up{
 			
 		}
 	}
 	@media @wp-sm{
-		position:absolute;
+		//position:absolute;
 	}
 	@media @lg-up{
 		//display:none;

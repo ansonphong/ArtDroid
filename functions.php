@@ -114,8 +114,8 @@ function theme_init() {
 }
 add_action( 'init', 'theme_init' );
 
-add_action('init', 'theme_remove_image_sizes');
-function theme_remove_image_sizes() {	
+add_action('init', 'theme_add_image_sizes');
+function theme_add_image_sizes() {	
 	//set_post_thumbnail_size( 150, 150 );
 
 	/////////// ADD IMAGE SIZES //////////
