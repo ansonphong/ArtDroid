@@ -131,50 +131,6 @@ function theme_add_image_sizes() {
 ////////// REMOVE FILTERS //////////
 remove_filter( 'the_content', 'prepend_attachment', 10 );
 
-////////// SOCIAL MEDIA WIDGETS //////////
-global $social_settings;
-$social_settings = array(
-	"meta"  =>  array(
-		"title"       =>  "expanse",
-		//"url"		         =>  get_permalink(), //"http://wonderfulwordweaving.com", //
-		"before_network"  =>  "<span class=\"social-widget %network%\">",
-		"after_network"   =>  "</span>"
-		),
-	"networks"  =>  array(
-
-		array(
-			"network"     =>  "facebook",
-			"widget"      =>  "like-button",
-			"appId"       =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.facebook_app_id' ) ),
-			"include_sdk" =>  true,
-			"settings"  =>  array(
-				"layout"    	=>  "button_count",
-				"action"    	=>  "like",
-				"show_faces"  	=>  "false",
-				"share"     	=>  "true",
-				"width"     	=>  "133",
-				"height"    	=>  "24",
-				"colorscheme" 	=> 	"light",
-				),
-			),
-		array(
-			"network"     =>  "twitter",
-			"widget"      =>  "share",
-			"include_script"=>  true,
-			"settings"    =>  array(
-				"via"       =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter' ) ), //"twitter_user",
-				"related"   =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter' ) ),
-				"hashtags"  =>  pw_get_option( array( 'option_name' => PW_OPTIONS_SOCIAL, 'key' => 'networks.twitter_hashtags' ) ), //"twitter_user",
-				"size"      =>  "small",
-				"lang"      =>  "en",
-				"dnt"       =>  "true",
-				),
-			),
-
-		),
-
-	);
-
 ///// ADD EDITOR STYLE /////
 add_editor_style( "/css/editor-style.css" );
 
