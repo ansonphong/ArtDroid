@@ -26,13 +26,12 @@
 	.center-vertical();
 }
 
-
 ///// GRID SIZER /////
 .grid-sizer-mix( @grid-width; @width-multiplier: 2; @height: 300px ){
 	.grid-sizer( @grid-width );
 	.grid-sizer{ width:@grid-width; }
 
-	.feed-item{
+	.feed-item, .masonry-brick{
 		height:@height;
 		width: @grid-width;
 		&.square, &.wide, &.tall, &.x-tall, &.no-image { width: @grid-width; }
@@ -43,8 +42,6 @@
 	}
 	
 }
-
-
 
 .dropshadow( @distance: 5px; @blur: 0px; ){
 	box-shadow: @distance @distance @blur fade(@global-background-color, 50%);
