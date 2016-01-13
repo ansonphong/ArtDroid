@@ -25,6 +25,7 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	class="<?php echo pw_body_classes(); ?>"
 	pw-background="primary">
 <?php
+	do_action('theme_preload_templates');
 	/**
 	 * Include the secret login button.
 	 */
