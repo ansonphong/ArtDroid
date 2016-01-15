@@ -1,5 +1,5 @@
 footer#footer{
-	background: @footer-background;
+	//background: @footer-background;
 	color: @footer-color;
 
 	@footer-padding: 40px;
@@ -18,10 +18,17 @@ footer#footer{
 		border-color: fade(@footer-color, 25%);
 	}
 
-
 	.footer-widgets, .footer-base{
 		border-top:1px solid fade(@footer-color, 25%);
 		padding: @footer-padding;
+	}
+
+	.footer-widgets{
+		background: @footer-widgets-background;
+	}
+
+	.footer-base{
+		background: @footer-base-background;
 	}
 
 	.sidebar{

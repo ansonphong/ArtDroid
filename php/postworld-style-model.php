@@ -1,9 +1,12 @@
 <?php
 
-function theme_pw_styles_defaults( $value ){
-	$style_model = array(
+add_filter( PW_OPTIONS_STYLES, 'theme_pw_styles_default' );
+function theme_pw_styles_default( $styles = array() ){
+
+	$defaults = array(
 		'colors'	=>	array(
 			'core' =>	array(
+				'test-color'					=>  '#AAA',
 				'global-background-color'		=>	'#000000',
 				'global-foreground-color'		=>	'#ffffff',
 				
@@ -22,8 +25,8 @@ function theme_pw_styles_defaults( $value ){
 				'highlight-foreground-color'	=>	'@primary-color-medium',
 				'highlight-background-color'	=>	'#fff',
 
-				'modal-foreground-color'	=>	'#fff',
-				'modal-background-color'	=>	'#000',
+				'modal-foreground-color'		=>	'#fff',
+				'modal-background-color'		=>	'#000',
 
 				'highlight-color-light'			=>	'#ffac7f',
 				'highlight-color-medium'		=>	'#ff5a00',
@@ -47,8 +50,10 @@ function theme_pw_styles_defaults( $value ){
 				),
 
 			'footer'=>	array(
-				'footer-background'	=>	'transparent',
-				'footer-color'		=>	'@neutral-color-medium',
+				//'footer-background'			=>	'transparent',
+				'footer-color'				=>	'@neutral-color-medium',
+				'footer-widgets-background' => '@global-background-color',
+				'footer-base-background' 	=> '@global-background-color',
 				),
 
 			'slider'=>	array(
@@ -101,14 +106,6 @@ function theme_pw_styles_defaults( $value ){
 				),
 			),
 
-		/*
-		'galleries'	=>	array(
-			'horizontal'	=>	array(
-				'x-gallery-height' => '66',
-				),
-			),
-		*/
-
 		'pages'	=>	array(
 			'single'	=>	array(
 				'page-header-background'	=>	'@neutral-color-dark',
@@ -130,27 +127,15 @@ function theme_pw_styles_defaults( $value ){
 
 		);
 
-	//'galleries'
-	// Add default width for vertical scroll galleries
-	// Add default height for horizontal scroll galleries
-
-
-	/*
-	'grid'	=>	array(
-				'grid-background-size'	=>	'cover',
-				),
-	*/
-
-	$value = array_replace_recursive( $style_model, $value ); 
-	return $value;
+	return array_replace_recursive( $defaults, $styles ); 
 
 }
-add_filter( PW_OPTIONS_STYLES, 'theme_pw_styles_defaults' );
 
 
 /**
  * STYLE SET : EARTH TONE
  */
+/*
 pw_register_style_set(array(
 	'name' => 'Earth Tone',
     'id' => 'earth-tone',
@@ -256,10 +241,11 @@ pw_register_style_set(array(
 		)
 	)
 );
-
+*/
 
 
 ////////// STYLE ADMIN //////////
+add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 function theme_pw_styles_structure( $structure = array() ){
 
 	$theme_structure = array(
@@ -396,7 +382,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Header',
 					'key'	=>	'header',
-					'icon'	=>	'pwi-nav',
+					'icon'	=>	'pwi-arrow-up-circle',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Header Background",
@@ -457,11 +443,38 @@ function theme_pw_styles_structure( $structure = array() ){
 						),
 					),
 
+				///// FOOTER /////
+				array(
+					'name'	=>	'Footer',
+					'key'	=>	'footer',
+					'icon'	=>	'pwi-arrow-down-circle',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Footer Text Color",
+							"key"			=>	"footer-color",
+							"input"			=>	"color",
+							"description"	=>	"Color of text in the footer area"
+							),
+						array(
+							"name"			=>	"Footer Widgets Background",
+							"key"			=>	"footer-widgets-background",
+							"input"			=>	"color",
+							"description"	=>	"Background of the footer widgets area"
+							),
+						array(
+							"name"			=>	"Footer Base Background",
+							"key"			=>	"footer-base-background",
+							"input"			=>	"color",
+							"description"	=>	"Background of the base footer area"
+							),
+						),
+					),
+
 				///// MEDIA /////
 				array(
 					'name'	=>	'Media',
 					'key'	=>	'media',
-					'icon'	=>	'pwi-play',
+					'icon'	=>	'pwi-images',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Media Viewer Background",
@@ -559,7 +572,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Header',
 					'key'	=>	'header',
-					'icon'	=>	'pwi-square-medium',
+					'icon'	=>	'pwi-arrow-up-circle',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Header Height",
@@ -591,7 +604,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				array(
 					'name'	=>	'Page',
 					'key'	=>	'page',
-					'icon'	=>	'pwi-th-large',
+					'icon'	=>	'pwi-file',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Width (Extra Small)",
@@ -766,7 +779,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Term Feeds",
 			"key"	=>	"term_feeds",
-			"icon"	=>	"pwi-square-medium",
+			"icon"	=>	"pwi-th-large",
 			"values"	=>	array(
 
 				///// GRID /////
@@ -822,12 +835,12 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Third Party Plugins",
 			"key"	=>	"thirdparty",
-			"icon"	=>	"pwi-gear",
+			"icon"	=>	"pwi-plugin",
 			"values"	=>	array(
 				array(
 					'name'	=>	'Contact Form 7',
 					'key'	=>	'wpcf7',
-					'icon'	=>	'pwi-circle-medium',
+					'icon'	=>	'pwi-mail',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Primary Color",
@@ -840,9 +853,7 @@ function theme_pw_styles_structure( $structure = array() ){
 				),
 			),
 
-
 		);
-
 
 	$structure = array_replace_recursive( $structure, $theme_structure ); 
 
@@ -850,7 +861,5 @@ function theme_pw_styles_structure( $structure = array() ){
 
 }
 
-// Hook in the style structure to the filter
-add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 
 ?>
