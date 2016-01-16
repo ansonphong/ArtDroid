@@ -49,7 +49,9 @@
 		<?php if( is_desktop() ): ?>
 			<!-- SHARE SOCIAL -->
 			<div class="share-social">
-				<?php echo pw_social_share(); ?>
+				<div class="share-social--buttons">
+					<?php echo pw_social_share(); ?>
+				</div>
 			</div>
 		<?php endif ?>
 

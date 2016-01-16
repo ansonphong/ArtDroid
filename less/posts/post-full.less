@@ -58,13 +58,20 @@
 	.post-content{
 		background: @global-background-color;
 		//padding:60px;
-		padding-top:30px;
+		//padding-top:30px;
 		padding-bottom:30px;
 		margin-bottom:0 !important;
+	
+		p:first-child{
+			img{
+				margin-top:0;
+			}
+		}
 	}
 
 	.social-footer{
-		background: fade( @global-background-color, 50% );
+		//background: fade( @global-background-color, 50% );
+		background-color: mix( @global-background-color, @neutral-color-medium, 85% );
 		padding-top:20px;
 		padding-bottom:20px;
 	}
@@ -73,7 +80,8 @@
 		display:block;
 		filter:grayscale(1);
 		-webkit-filter:grayscale(1);
-
+		float: left;
+		padding-top: 5px;
 		.social-widget{
 			opacity:.5;
 		}
@@ -95,7 +103,18 @@
 	}
 
 	.share-social{
-		float:right;
+		@media @md-up{
+			float: right;
+		}
 	}
+
+	.comments-thirdparty{
+		background-color: @global-background-color;
+	}
+
+
+	.taxonomy-footer{
+		background: @global-background-color;
+	}	
 
 }

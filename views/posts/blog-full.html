@@ -17,7 +17,6 @@
 		include-enable="::showView('fiDisplay--full')">
 	</div>
 
-	
 	<!-- EMBED -->
 	<div
 		class="media-viewer"
@@ -35,57 +34,74 @@
 	</div>
 		
 	<div class="content-wrapper">
+		<header class="post-head blog-head pad-x-lg">
+			<!-- POST CONTROLS -->
+			<div
+				pw-include="panels/post-controls"
+				include-post="post"
+				include-enable-user="::user.isLoggedIn()">
+			</div>
 
-		<!-- POST CONTROLS -->
-		<div
-			pw-include="panels/post-controls"
-			include-post="post"
-			include-enable-user="::user.isLoggedIn()">
-		</div>
+			<!-- CATEGORIES -->
+			<div class="taxonomy category" ng-show="::uiBoolean(post.taxonomy.blog_category)">
+				<span ng-repeat="term in ::post.taxonomy.blog_category">
+					<a pw-href="term.url" class="term category">
+						<span ng-bind-html="term.name"></span>
+					</a>
+				</span>
+			</div>
 
-		<!-- CATEGORIES -->
-		<div class="taxonomy category" ng-show="::uiBoolean(post.taxonomy.blog_category)">
-			<span ng-repeat="term in ::post.taxonomy.blog_category">
-				<a pw-href="term.url" class="term category">
-					<span ng-bind-html="term.name"></span>
-				</a>
+			<!-- TIME -->
+			<span
+				class="time"
+				uib-tooltip="{{ ::post.post_timestamp*1000 | date:'fullDate' }}"
+				tooltip-popup-delay="333"
+				tooltip-placement="bottom">
+				<time datetime="{{::post.post_date}}">
+					{{::post.time_ago}}
+				</time>
 			</span>
+
+			<div class="clearfix"></div>
+
+			<h1>
+				<a ng-href="{{::post.post_permalink}}">
+					{{::post.post_title}}
+				</a>
+			</h1>
+			
+			<div class="clearfix"></div>
+
+		</header>
+
+		<div class="post-content pad-x-lg" pw-compile-code="::post.post_content"></div>
+
+		<div class="social-footer pad-x-lg">
+			
+			<!-- SHARE SOCIAL -->
+			<div class="share-social">
+				<div class="share-social--label">
+					<i class="icon pwi-share"></i>
+					Share
+				</div>
+				<div class="share-social--buttons" pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+			</div>
+
+			<!-- SOCIAL WIDGETS -->
+			<span
+				class="social-widgets"
+				ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
+				<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
+			</span>
+
+			<div class="clearfix"></div>
+
 		</div>
 
-		<!-- TIME -->
-		<span
-			class="time"
-			uib-tooltip="{{ ::post.post_timestamp*1000 | date:'fullDate' }}"
-			tooltip-popup-delay="333"
-			tooltip-placement="bottom">
-			<time datetime="{{::post.post_date}}">
-				{{::post.time_ago}}
-			</time>
-		</span>
-
-		<div class="clearfix"></div>
-
-		<h1>
-			<a ng-href="{{::post.post_permalink}}">
-				{{::post.post_title}}
-			</a>
-		</h1>
-		
-		<div class="clearfix"></div>
-
-		<div class="post-content" pw-compile-code="::post.post_content"></div>
-
-		<!-- SHARE SOCIAL -->
-		<div class="share-social pad-x-xl">
-			<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+		<!-- COMMENTS -->
+		<div pw-comments class="comments-thirdparty pad-x-lg">
+			
 		</div>
-
-		<!-- SOCIAL WIDGETS -->
-		<span
-			class="social-widgets pad-x-xl"
-			ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
-			<div pw-compile-code="::getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
-		</span>
 
 	</div>
 
