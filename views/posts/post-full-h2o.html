@@ -36,20 +36,22 @@
 			class="full-page-width"></div>
 	{% endif %}
 
-	<!-- EMBED -->
-	<div
-		class="media-viewer"
-		pw-height="{{pw.options.theme.posts.embeds.height.method}}"
-		height-value="{{pw.options.theme.posts.embeds.height.value}}"
-		ng-show="::showView('singleEmbed')">
-		<div class="view-embed">
-			<div
-				class="o-embed"
-				o-embed="{{ post.link_url }}"
-				embed-run="::showView('singleEmbed')">
+	{% if post.link_url %}
+		<!-- EMBED -->
+		<div
+			class="media-viewer"
+			pw-height="{{pw.options.theme.posts.embeds.height.method}}"
+			height-value="{{pw.options.theme.posts.embeds.height.value}}"
+			ng-show="::showView('singleEmbed')">
+			<div class="view-embed">
+				<div
+					class="o-embed"
+					o-embed="{{ post.link_url }}"
+					embed-run="::showView('singleEmbed')">
+				</div>
 			</div>
 		</div>
-	</div>
+	{% endif %}
 	
 	{% if post.post_type != 'page' %}
 	{% if post.post_type != 'blog' %}
@@ -123,85 +125,11 @@
 	{% if !is_page_header_image %}
 		<header class="post-head {{ post.post_type }}-head pad-x-lg">
 			
-			<div class="row">
-				<div class="col-md-8">
 
-					<h1 class="post-title">
 
-						{% if post.post_meta.pw_meta.icon.class %}
-							<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
-						{% endif %}
-						
-						{% if post.parent_post.ID %}
-							<span class="parent-post-link">
-								<a href="{{ post.parent_post.post_permalink }}">
-									{{ post.parent_post.post_title }}
-								</a>
-								&rsaquo;
-							</span>
-						{% endif %}
-						<span ng-bind="::post.post_title">
-							{{ post.post_title }}
-						</span>
-					</h1>
+			<div class="post-buttons">
 
-					{% if password_protected %}
-						<div class="password-protected">
-							<i class="icon pwi-lock"></i>
-							This content is password protected.
-						</div>
-					{% endif %}
-					
-					{% if post.post_type == 'blog' %}
-						<!-- CATEGORIES -->
-						<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
-							<span ng-repeat="term in ::post.taxonomy.blog_category">
-								<a pw-href="term.url" class="term category">
-									<span ng-bind-html="::term.name"></span>
-								</a>
-							</span>
-						</div>
-					{% endif %}
-
-					{% if post.post_type != 'page' %}
-						<!-- CATEGORIES -->
-						<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
-							<span ng-repeat="term in post.taxonomy.category">
-							    <a pw-href="term.url" class="term category">
-									<span ng-bind="::term.name"></span>
-								</a>
-							</span>
-						</div>
-
-						{% if !device.is_mobile %}
-							<!-- TAGS -->
-							<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-								<i class="pwi-tags"></i>
-								<span ng-repeat="term in ::post.taxonomy.post_tag">
-								    <a pw-href="term.url" class="term tag">
-										<span ng-bind="::term.name"></span>
-									</a>
-								</span>
-							</div>
-						{% endif %}
-
-						<!-- TIME -->
-						<span
-							class="time unit"
-							uib-tooltip="{{ post.post_date_gmt }}"
-							tooltip-placement="bottom"
-							tooltip-popup-delay="333">
-							<time datetime="{{ post.post_date }}">
-								{{ post.time_ago }}
-							</time>
-						</span>
-					{% endif %}
-
-					<div class="clearfix"></div>
-
-				</div>
-
-				<div class="col-md-4 head-details">
+				{% if device.is_desktop %}
 					<!-- POST CONTROLS -->
 					<div
 						pw-include="panels/post-controls"
@@ -209,16 +137,12 @@
 						include-eval="isLoggedIn()&&!isDevice(['mobile'])"
 						class="pull-right">
 					</div>
+				{% endif %}
 
-					{% if !device.is_mobile %}
-						<!-- SOCIAL SHARE -->
-						<div class="module share-social pull-right">
-							{{ social_share | safe }}
-						</div>
-					{% endif %}
+				{% if post.post_type != 'page' %}
+				{% if post.post_type != 'blog' %}
 
-					{% if post.post_type != 'page' %}
-					{% if post.post_type != 'blog' %}
+					{% if device.is_desktop %}
 						<!-- DOWNLOAD -->
 						<div
 							class="download unit pull-right"
@@ -232,30 +156,104 @@
 								<i class="pwi-arrow-down-thin"></i>
 							</a>
 						</div>
-
-						<!-- LINK -->
-						<div
-							class="link unit"
-							ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-							ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-							uib-tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
-							tooltip-placement="bottom"
-							tooltip-popup-delay="333">
-							<a
-								pw-href="post.link_url"
-								pw-target="post.post_meta.pw_meta.link_url.new_target">
-								<i class="pwi-crosshairs"></i>
-								{{ post.post_meta.pw_meta.link_url.label.custom }}
-							</a>
-						</div>
-
-					{% endif %}
 					{% endif %}
 
-				</div>
+					<!-- LINK -->
+					<div
+						class="link unit"
+						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
+						ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						uib-tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+						tooltip-placement="bottom"
+						tooltip-popup-delay="333">
+						<a
+							pw-href="post.link_url"
+							pw-target="post.post_meta.pw_meta.link_url.new_target">
+							<i class="pwi-crosshairs"></i>
+							{{ post.post_meta.pw_meta.link_url.label.custom }}
+						</a>
+					</div>
+
+				{% endif %}
+				{% endif %}
+
+				<div class="clearfix"></div>
 
 			</div>
+
 			
+
+			<h1 class="post-title">
+
+				{% if post.post_meta.pw_meta.icon.class %}
+					<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
+				{% endif %}
+				
+				{% if post.parent_post.ID %}
+					<span class="parent-post-link">
+						<a href="{{ post.parent_post.post_permalink }}">
+							{{ post.parent_post.post_title }}
+						</a>
+						&rsaquo;
+					</span>
+				{% endif %}
+				<span ng-bind="::post.post_title">
+					{{ post.post_title }}
+				</span>
+			</h1>
+
+			{% if password_protected %}
+				<div class="password-protected">
+					<i class="icon pwi-lock"></i>
+					This content is password protected.
+				</div>
+			{% endif %}
+			
+			{% if post.post_type == 'blog' %}
+				<!-- CATEGORIES -->
+				<div class="taxonomy category" ng-show="uiBoolean(post.taxonomy.blog_category)">
+					<span ng-repeat="term in ::post.taxonomy.blog_category">
+						<a pw-href="term.url" class="term category">
+							<span ng-bind-html="::term.name"></span>
+						</a>
+					</span>
+				</div>
+			{% endif %}
+
+			{% if post.post_type != 'page' %}
+				<!-- CATEGORIES -->
+				<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+					<span ng-repeat="term in post.taxonomy.category">
+					    <a pw-href="term.url" class="term category">
+							<span ng-bind="::term.name"></span>
+						</a>
+					</span>
+				</div>
+
+				{% if !device.is_mobile %}
+					<!-- TAGS -->
+					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+						<i class="pwi-tags"></i>
+						<span ng-repeat="term in ::post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="::term.name"></span>
+							</a>
+						</span>
+					</div>
+				{% endif %}
+
+				<!-- TIME -->
+				<span
+					class="time unit"
+					uib-tooltip="{{ post.post_date_gmt }}"
+					tooltip-placement="bottom"
+					tooltip-popup-delay="333">
+					<time datetime="{{ post.post_date }}">
+						{{ post.time_ago }}
+					</time>
+				</span>
+			{% endif %}
+
 			<div class="clearfix"></div>
 
 		</header>
@@ -265,6 +263,7 @@
 		<!-- CONTENT -->
 		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
+			<div class="clearfix"></div>
 		</div>
 	{% endif %}
 
@@ -304,20 +303,25 @@
 		
 	{% endif %}
 
-	{% if device.is_mobile %}
+	<div class="social-footer pad-x-lg">
 		<!-- SOCIAL SHARE -->
-		<div class="module share-social pad-x-lg">
+		<div class="share-social">
 			{{ social_share | safe }}
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
-	{% endif %}
+		{% if !device.is_mobile %}
+			<!-- SOCIAL WIDGETS -->
+			<div class="social-widgets">
+				{{ social_widgets | safe }}
+			</div>
+			<div class="clearfix"></div>
+		{% endif %}
+		
+	</div>
 
-	{% if !device.is_mobile %}
-		<!-- SOCIAL WIDGETS -->
-		<div class="social-widgets pad-x-lg">
-			{{ social_widgets | safe }}
-		</div>
-		<div class="clearfix"></div>
-	{% endif %}
+	<div class="comments">
+		COMMENTS
+	</div>
+	
 
 </article>

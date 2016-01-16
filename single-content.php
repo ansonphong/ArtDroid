@@ -1,12 +1,4 @@
 <?php
-/**
- * ///// CONTENT /////
- * The main part of the post.
- */
-
-// Social Media Widgets
-global $social_settings;
-$social_settings['meta']['url'] = get_permalink();
 
 // Get theme options
 $theme_options = pw_get_option(array('option_name'=>PW_OPTIONS_THEME));
