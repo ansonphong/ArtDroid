@@ -5,7 +5,8 @@
 	class="post view--full post-type--{{post.post_type}}"
 	pw-globals="pw"
 	pw-ui
-	ng-cloak>
+	ng-cloak
+	pw-device-class>
 
 	{% if theme_options.colors.views.single.dynamic_colors %}
 		{% if post.post_type == 'post' %}
@@ -289,26 +290,40 @@
 	<div class="clearfix"></div>
 
 	{% if device.is_mobile %}
-		<!-- TAGS -->
-		<div class="taxonomy tags pad-x-lg" ng-show="uiBoolean(post.taxonomy.post_tag)">
-			<i class="pwi-tags"></i>
-			<span ng-repeat="term in post.taxonomy.post_tag">
-			    <a pw-href="term.url" class="term tag">
-					<span ng-bind="::term.name"></span>
-				</a>
-			</span>
-		</div>
-		<div class="clearfix"></div>
-		<div class="space-4"></div>
-		
+		{% if post.post_type != 'page' %}
+			{% if post.taxonomy.post_tag %}
+				<div class="taxonomy-footer pad-x-lg">
+					<!-- TAGS -->
+					<div class="taxonomy tags">
+						<i class="icon pwi-tags"></i>
+						<span ng-repeat="term in post.taxonomy.post_tag">
+						    <a pw-href="term.url" class="term tag">
+								<span ng-bind="::term.name"></span>
+							</a>
+						</span>
+						<div class="clearfix"></div>
+						<div class="space-4"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			{% endif %}
+		{% endif %}
 	{% endif %}
 
 	<div class="social-footer pad-x-lg">
-		<!-- SOCIAL SHARE -->
-		<div class="share-social">
-			{{ social_share | safe }}
-			<div class="clearfix"></div>
-		</div>
+		{% if social_share %}
+			<!-- SOCIAL SHARE -->
+			<div class="share-social">
+				<div class="share-social--label">
+					<i class="icon pwi-share"></i>
+					Share
+				</div>
+				<div class="share-social--buttons">
+					{{ social_share | safe }}
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		{% endif %}
 		{% if !device.is_mobile %}
 			<!-- SOCIAL WIDGETS -->
 			<div class="social-widgets">
@@ -316,12 +331,18 @@
 			</div>
 			<div class="clearfix"></div>
 		{% endif %}
-		
+		<div class="clearfix"></div>
 	</div>
 
-	<div class="comments">
-		COMMENTS
-	</div>
+	{% if !device.is_mobile %}
+		{% if post.post_type != 'page' %}
+			{% if comments %}
+				<div class="comments-thirdparty pad-x-lg">
+					{{ comments | safe }}
+				</div>
+			{% endif %}
+		{% endif %}
+	{% endif %}
 	
 
 </article>

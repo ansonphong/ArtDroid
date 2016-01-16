@@ -5,7 +5,9 @@
 		</a>
 	</h1>
 	<div class="share-social pull-right">
-		<?php echo pw_social_share(); ?>
+		<div class="share-social--buttons">
+			<?php echo pw_social_share(); ?>
+		</div>
 	</div>
 	<div class="pull-right">
 		<?php include locate_template( 'views/theme/menu-archive-years.php' ); ?>

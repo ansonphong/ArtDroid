@@ -52,6 +52,9 @@ include "php/postworld-postmeta.php";
 ////////// FILTERS //////////
 include "php/postworld-filters.php";
 
+////////// ACTIONS //////////
+include "php/postworld-actions.php";
+
 ////////// MIGRATIONS //////////
 include "php/postworld-migrations.php";
 
