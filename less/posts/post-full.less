@@ -1,6 +1,22 @@
 .post.view--full{
 	padding-bottom:30px;
 
+	header{
+		.post-buttons{
+			float:right;
+			padding-left: 20px;
+			padding-bottom: 10px;
+		}
+	}
+
+	h1{
+		font-size: x-large;
+		line-height: 1.2;
+		@media @lg-up{
+			font-size: xx-large;
+		}
+	}
+
 	.parent-post-link{
 		cursor: pointer;	
 		a{
@@ -47,13 +63,16 @@
 		margin-bottom:0 !important;
 	}
 
-	.social-widgets{
-		display:block;
+	.social-footer{
+		background: fade( @global-background-color, 50% );
 		padding-top:20px;
 		padding-bottom:20px;
+	}
+
+	.social-widgets{
+		display:block;
 		filter:grayscale(1);
 		-webkit-filter:grayscale(1);
-		//background: fade( @global-background-color, 50% );
 
 		.social-widget{
 			opacity:.5;
@@ -73,6 +92,10 @@
 		@media @lg-up{
 			//padding:20px 40px;
 		}
+	}
+
+	.share-social{
+		float:right;
 	}
 
 }
