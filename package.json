@@ -1,0 +1,16 @@
+{
+  "name": "ArtDroid",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-copy": "^0.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/phongmedia/artdroid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phongmedia/artdroid/issues"
+  },
+  "dependencies": {}
+}
