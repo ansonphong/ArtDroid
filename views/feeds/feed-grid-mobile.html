@@ -1,10 +1,8 @@
-<masonry
-	reload-on-show="true"
-	preserve-order="true"
+<div
 	infinite-scroll='getNext()'
 	infinite-scroll-disabled='scrollDisabled'
 	infinite-scroll-use-document-bottom="true"
-	infinite-scroll-distance="2"
+	infinite-scroll-distance="1"
 	class="feed--grid grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
 	<div
 		art-feed
@@ -12,7 +10,7 @@
 		colors-enable-option="theme.colors.views.grid.dynamic_colors">
 		<div
 			ng-repeat="post in posts()"
-			class="feed-item masonry-brick"
+			class="feed-item"
 			pw-grid
 			ng-class="setGridClass( post.image.tags )">
 			<div
@@ -24,8 +22,10 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-</masonry>
+</div>
+
 <div class="clearfix"></div>
+
 <div
 	ng-show='busy'
 	class="text-center">
