@@ -1,7 +1,3 @@
-
-<span class="fb-comments-count" data-href="<?php echo $vars['href'] ?>"></span>
-comments
-
 <div
 	class="fb-comments"
 	data-href="<?php echo $vars['href'] ?>"
