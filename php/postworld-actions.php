@@ -2,6 +2,7 @@
 /**
  * Preload Template Partials
  * Decreases load time.
+ * @todo Factor grab_ng_template for: 1. minification, 2. caching
  */
 add_action( 'theme_preload_templates', 'theme_preload_template_partials' );
 function theme_preload_template_partials(){
