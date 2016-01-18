@@ -30,7 +30,8 @@ $pwSiteGlobals = array(
 			'shortcodes',
 			'devices',
 			'colors',
-			'widgets'
+			'widgets',
+			'comments'
 			),
 		'supported'	=>	array(
 			'site',
@@ -47,7 +48,8 @@ $pwSiteGlobals = array(
 			'post_cache',
 			//'layout_cache',
 			'colors',
-			'widgets'
+			'widgets',
+			'comments'
 			),
 		),
 
