@@ -1,6 +1,7 @@
 <?php
 	// Enable Media Library
 	wp_enqueue_media();
+	global $theme_version;
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
@@ -25,10 +26,15 @@
 				<h1>
 					<span class="artdroid-brand">
 						<i class="pwi-merkaba"></i>
-						ArtDroid 
+						<a href="//artdroid.phong.com" target="_blank">
+							ArtDroid
+						</a> 
 					</span>
 					<span class="subhead">
 						Theme Settings
+					</span>
+					<span class="theme-version">
+						v<?php echo $theme_version ?>
 					</span>
 				</h1>
 			</div>
@@ -40,66 +46,66 @@
 		</div>
 	</div>
 
-	<tabset>
+	<uib-tabset>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-nav"></i> Header & Footer
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-header-footer.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-quill"></i> Fonts
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-fonts.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-pushpin"></i> Posts
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-posts.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-blog"></i> Blog
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-blog.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-home"></i> Home Page
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-home-page.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-droplet"></i> Colors
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-colors.php' ?>
-		</tab>
+		</uib-tab>
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-th-list"></i> Feeds
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-feeds.php' ?>
-		</tab>
+		</uib-tab>
 
 
-		<tab>
-			<tab-heading>
+		<uib-tab>
+			<uib-tab-heading>
 				<i class="icon pwi-database"></i> Archives
-			</tab-heading>
+			</uib-tab-heading>
 			<?php include 'theme-archives.php' ?>
-		</tab>
+		</uib-tab>
 
-	</tabset>
+	</uib-tabset>
 
 	<?php if( pw_dev_mode() ) : ?>
 		<hr class="thick">		

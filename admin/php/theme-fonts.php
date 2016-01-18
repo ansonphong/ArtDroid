@@ -18,10 +18,10 @@
 						<td>
 							<!-- DROPDOWN -->
 							<span
-								dropdown
+								uib-dropdown
 								class="dropdown">
 								<!-- SELECTED ITEM -->
-								<span dropdown-toggle
+								<span uib-dropdown-toggle
 									class="area-select area-select-font"
 									ng-style="{'font-family': pwOptions.fonts.body }">
 									{{ pwOptions.fonts.body }}
@@ -53,10 +53,10 @@
 						<td>
 							<!-- DROPDOWN -->
 							<span
-								dropdown
+								uib-dropdown
 								class="dropdown">
 								<!-- SELECTED ITEM -->
-								<span dropdown-toggle
+								<span uib-dropdown-toggle
 									class="area-select area-select-font"
 									ng-style="{'font-family': pwOptions.fonts.title }">
 									{{ pwOptions.fonts.title }}
@@ -88,10 +88,10 @@
 						<td>
 							<!-- DROPDOWN -->
 							<span
-								dropdown
+								uib-dropdown
 								class="dropdown">
 								<!-- SELECTED ITEM -->
-								<span dropdown-toggle
+								<span uib-dropdown-toggle
 									class="area-select area-select-font"
 									ng-style="{'font-family': pwOptions.fonts.content }">
 									{{ pwOptions.fonts.content }}
@@ -123,10 +123,10 @@
 						<td>
 							<!-- DROPDOWN -->
 							<span
-								dropdown
+								uib-dropdown
 								class="dropdown">
 								<!-- SELECTED ITEM -->
-								<span dropdown-toggle
+								<span uib-dropdown-toggle
 									class="area-select area-select-font"
 									ng-style="{'font-family': pwOptions.fonts.menu }">
 									{{ pwOptions.fonts.menu }}
