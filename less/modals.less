@@ -2,8 +2,13 @@
 // Prevent the modal from overlapping WP Admin Bar when logged in
 body.admin-bar{
 	.modal{
-		margin-top: 32px !important;
-
+		margin-top: @wp-sm-admin-height !important;
+		@media @sm{
+			//margin-top: @wp-md-admin-height !important;
+		}
+		@media @md-up{
+			margin-top: @wp-lg-admin-height !important;
+		}
 	}
 }
 
@@ -53,10 +58,11 @@ body{
 	.modal-header{
 		border:none;
 	}
-
+	@modal-head-height: 64px;
 	.modal-head{
+		position: relative;
 
-		height:64px;
+		height:@modal-head-height;
 		padding: 13px 15px;
 		padding-left: 5px;
 
@@ -92,6 +98,21 @@ body{
 			@media @xs{ 	font-size:@font-size-sm; }
 			&:hover{
 				color: @modal-foreground-color;
+			}
+		}
+
+		.header-image{
+			position: absolute;
+			left:50%;
+			top:0;
+			height:@modal-head-height;
+			//overflow-y: hidden;
+			float:left;
+			display: block;
+			img{
+				height:@modal-head-height;
+				width: auto;
+				transform: translateX(-50%);
 			}
 		}
 

@@ -1,5 +1,18 @@
 <?php
 
+add_filter( PW_POSTS, 'theme_pw_posts_preload' );
+function theme_pw_posts_preload( $posts ){
+	pw_set_microtimer('theme_pw_posts_preload');
+	$modal_image_id = pw_grab_option( PW_OPTIONS_THEME, 'modals.header.image.attachment_id' );
+	if( !empty( $modal_image_id ) )
+		$posts[] = pw_get_post(
+			$modal_image_id,
+			array( 'ID','post_type','image(md,1000,128,2)','image(sm,500,64,2)' ),
+			array( 'cache' => true ) );
+	pw_log_microtimer('theme_pw_posts_preload');
+	return $posts;
+}
+
 /**
  * DEFAULT HEADER ID
  */
