@@ -23,5 +23,8 @@ function theme_preload_template_partials(){
 		echo pw_grab_ng_template( 'panels', 'image-info' );
 	}
 
-}
+	echo pw_grab_ng_template( 'galleries', 'gallery-frame' );
+	echo pw_grab_ng_template( 'galleries', 'gallery-horizontal' );
+	echo pw_grab_ng_template( 'galleries', 'gallery-vertical' );
 
+}
