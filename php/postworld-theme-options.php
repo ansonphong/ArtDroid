@@ -187,6 +187,10 @@ function pw_theme_options_filter( $options ){
 		'modals'	=>	array(
 			'header'	=>	array(
 				'show'	=>	true,
+				'image' => array(
+					'show_image' => false,
+					'attachment_id' => false
+					),
 				),
 			),
 		'media'	=>	array(
