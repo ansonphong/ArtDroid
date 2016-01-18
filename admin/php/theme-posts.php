@@ -37,30 +37,6 @@
 				<div style="clear:both"></div>
 			</div>
 
-
-			<!-- MODALS -->
-			<div class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-layers-2"></i></span>
-					Modals
-				</h3>
-				<small>
-					Modals hover above the page, to view a sequence of posts without leaving the page.
-				</small>
-				<hr class="thin">
-				<label>
-					<input
-						type="checkbox"
-						ng-model="pwOptions.modals.header.show">
-					Show Header
-				</label>
-				
-				<!-- @todo Set Header Image -->
-
-				<div style="clear:both"></div>
-			</div>
-
-
 			<!-- GALLERIES -->
 			<div class="well">
 				<h3>

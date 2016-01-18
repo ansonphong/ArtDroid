@@ -7,20 +7,37 @@
 	font-weight: 100;
 
 	a{
-		color:@brand-primary-color;
+		color: lighten(@brand-primary-color, 15%);
 		&:hover{
 			color: mix( @brand-primary-color, #fff, 75% );
 		}
+	}
+
+	.theme-version{
+		color: #ccc;
+		font-size: .66em;
+		font-weight: 200;
 	}
 
 	.theme-info{
 		padding:45px 30px 10px;
 		font-size:16px;
 		opacity:.75;
+		font-weight: 500;
 	}
 
 	h1{
 		margin-bottom:0;
+		a{
+			color: #fff;
+			text-decoration: none !important;
+			border-bottom: 1px solid transparent;
+			outline: none;
+			&:hover, &:focus, &:active{
+				color: #fff;
+				border-bottom-color: #fff;
+			}
+		}
 		.subhead{
 			display:inline-block;
 			font-size:24px;
@@ -37,7 +54,7 @@
 		background:@brand-primary-color;
 		color:#fff;
 		font-family:Roboto;
-		font-weight:100;
+		font-weight:400;
 		font-size:24px;
 		letter-spacing:2px;
 		i{
