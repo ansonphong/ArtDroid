@@ -360,10 +360,15 @@ postworld.directive('themeModalHeaderImage',
 		link: function( $scope, element, attrs ){
 
 			var imageId = $pw.options.theme.modals.header.image.attachment_id;
-			if( imageId !== 0 && imageId !== false ){
-				var imagePost = $pwData.findPost( { ID: imageId } );
-				$log.debug( 'themeModalHeaderImage : imagePost', imagePost );
+			if( imageId == 0 || imageId == false || imageId == null ){
+				$log.debug( 'themeModalHeaderImage : REMOVED' );
+				element.remove();
+				return false;
 			}
+
+			var imagePost = $pwData.findPost( { ID: imageId } );
+			$scope.modalHeaderImage = imagePost;
+			$log.debug( 'themeModalHeaderImage : imagePost', imagePost );
 			$log.debug('themeModalHeaderImage : imageId', imageId );
 
 		}
