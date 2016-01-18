@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Preload Template Partials
  * Increases page display speed.
