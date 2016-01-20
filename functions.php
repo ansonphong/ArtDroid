@@ -23,7 +23,7 @@ add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 ///// THEME VERSION /////
 global $theme_version;
-$theme_version = 1.37;
+$theme_version = 1.38;
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -167,11 +167,22 @@ add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 add_action('wp_footer', 'pw_add_forms_action_attribute');
 
 /**
- * Check for Theme Updates with WP Updates
- * @link http://wp-updates.com/
+ * Check for Theme Updates from ArtDroid server
  */
-require_once('php/wp-updates-theme.php');
-new WPUpdatesThemeUpdater_1478( 'http://wp-updates.com/api/2/theme', basename( get_template_directory() ) );
+add_action('init','theme_check_for_updates');
+function theme_check_for_updates(){
+	require_once('lib/theme-updates/theme-update-checker.php');
+
+	$base_url = 'http://artdroid/';
+	$query_vars = array(
+		'update_action' => 'get_metadata',
+		'update_slug' => 'artdroid',
+		'installed_version' => 1.333
+		);
+	$query_string = http_build_query( $query_vars );
+	$request_url = $base_url . '?' . $query_string;
+	$update_theme = new ThemeUpdateChecker( 'artdroid', $request_url );
+}
 
 /**
  * Specifically enable automatic updates even if
