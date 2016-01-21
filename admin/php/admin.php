@@ -55,7 +55,7 @@ function artdroid_admin_menu(){
 add_action('admin_print_styles', 'theme_admin_icon_styles');
 add_action('wp_print_styles', 'theme_admin_icon_styles');
 function theme_admin_icon_styles(){
-	?>
+	echo '
 	<style>
 		#toplevel_page_artdroid .dashicons-before:before,
 		#wpadminbar #wp-admin-bar-postworld-menu .ab-icon:before{
@@ -63,7 +63,7 @@ function theme_admin_icon_styles(){
 			font-family: "Postworld-Icons"
 		}
 	</style>
-	<?
+	';
 }
 
 
