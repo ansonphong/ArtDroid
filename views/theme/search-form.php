@@ -10,7 +10,7 @@
 				type="search"
 				id="search-menu-input-s"
 				class="search-field"
-				placeholder="<?php echo esc_attr_x( 'Search...', 'placeholder' ) ?>"
+				placeholder="<?php echo esc_attr_x( 'Search...', 'placeholder', 'postworld' ) ?>"
 				value="<?php echo get_search_query() ?>"
 				autocomplete="off"
 				name="s"
@@ -41,7 +41,7 @@
 
 		<div class="col-sm-2">
 			<button type="submit" class="search-submit">
-				<?php echo esc_attr_x( 'Search', 'submit button' ) ?>
+				<?php echo esc_attr_x( 'Search', 'submit button', 'postworld' ) ?>
 			</button>
 		</div>
 

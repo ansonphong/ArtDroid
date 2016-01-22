@@ -50,7 +50,7 @@
 					echo pw_select_image_id( array( 
 						'ng_model'	=>	'pwOptions.modals.header.image.attachment_id',
 						'slug'			=>	'modal_header_image',
-						'label'			=>	_x('Modal Header Logo','postworld'),
+						'label'			=>	_x('Modal Header Logo', 'image at the top of a modal window', 'postworld'),
 						'width'			=>	'300px',
 					 	));?>
 

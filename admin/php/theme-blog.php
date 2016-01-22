@@ -1,8 +1,3 @@
-<!--
-- ADD SETTINGS:
-	- Default image handling
-		- Then on per blog entry, select - horizontal-slice|full|none
--->
 <div class="row">
 	<div class="col-lg-6 pad-col-lg">
 
@@ -98,19 +93,19 @@
 			<h3>
 				<span class="icon-md"><i class="pwi-cube-o"></i></span>
 				{{ pwOptions.blog.settings.post_type.name }}
-				<?php _ex('Main Page','postworld') ?>
+				<?php _ex('Main Page', 'main page of the blog', 'postworld') ?>
 			</h3>
 
 			<label>
 				<input type="checkbox" ng-model="pwOptions.blog.settings.main_page.show_header">
-				<b><?php _ex('Show header','postworld') ?></b>
-				<small>: <?php _ex('Show a header above the main blog page.', 'postworld') ?></small>
+				<b><?php _ex('Show header', 'header of the blog', 'postworld') ?></b>
+				<small>: <?php _ex('Show a header above the main blog page', 'self-explanitory', 'postworld') ?></small>
 			</label>
 
 			<div class="well" ng-show="pwOptions.blog.settings.main_page.show_header">
 				<h3>
 					<span class="icon-md"><i class="pwi-image"></i></span>
-					<?php _ex('Main Page Header','postworld') ?>
+					<?php _ex('Main Page Header', 'settings heading', 'postworld') ?>
 				</h3>
 				
 				<?php
@@ -130,13 +125,13 @@
 				<hr class="thin">
 
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.title">
-				<b><?php _ex('title','postworld') ?></b>
-				<small>: <?php _ex('The title of your blog','postworld') ?></small>
+				<b><?php _ex('title', 'title of the blog', 'postworld') ?></b>
+				<small>: <?php _ex('The title of your blog', 'self-explanitory', 'postworld') ?></small>
 				<hr class="thin">
 
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.subtitle">
 				<b><?php _ex('subtitle','postworld') ?></b>
-				<small>: <?php _ex('The subtitle of your blog','postworld') ?></small>
+				<small>: <?php _ex('The subtitle of your blog', 'self-explanitory', 'postworld') ?></small>
 				<hr class="thin">
 
 				<?php
@@ -152,7 +147,5 @@
 		</div>
 
 	</div>
-
-	<!-- TODO : ADD BLOG CATEGORY TAXONOMY -->
 
 </div>

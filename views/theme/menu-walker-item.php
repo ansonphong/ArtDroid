@@ -1,5 +1,10 @@
 <?php
-	//pw_log( $item );
+
+	$args->walker_vars = array_replace( array(
+		'show_icons_top' => false,
+		'show_icons_sub' => false,
+		), $args->walker_vars );
+
 	if( $args->walker_vars['show_icons_top'] && $depth == 0 ||
 		$args->walker_vars['show_icons_sub'] && $depth >= 1 ){
 		// Get icon for Posts
