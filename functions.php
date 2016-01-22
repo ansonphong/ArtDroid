@@ -76,6 +76,9 @@ include "php/sidebars.php";
 ////////// BLOG //////////
 include "php/post-type-blog.php";
 
+////////// UPDATES //////////
+include "php/postworld-updates.php";
+
 ////////// ON THEME ACTIVATION //////////
 include "php/activate.php";
 
@@ -165,25 +168,6 @@ add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
 // Add action attribute to forms
 add_action('wp_footer', 'pw_add_forms_action_attribute');
-
-/**
- * Check for Theme Updates from ArtDroid server
- */
-add_action('init','theme_check_for_updates');
-function theme_check_for_updates(){
-	global $theme_version;
-	require_once('lib/theme-updates/theme-update-checker.php');
-	$update_server_url = 'http://artdroid.phong.com/';
-	$query_vars = array(
-		'update_action' => 'get_metadata',
-		'update_slug' => 'artdroid',
-		'installed_version' => $theme_version
-		);
-	$query_string = http_build_query( $query_vars );
-	$request_url = $update_server_url . '?' . $query_string;
-	//pw_log('request_url', $request_url);
-	$update_theme = new ThemeUpdateChecker( 'artdroid', $request_url );
-}
 
 /**
  * Specifically enable automatic updates even if
