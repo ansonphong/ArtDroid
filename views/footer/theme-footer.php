@@ -1,4 +1,4 @@
-</div> <!-- END #content -->
+</div><!-- END #content -->
 <div class="clearfix"></div>
 
 <?php
@@ -39,10 +39,6 @@ else{
 
 $has_widgets = ( isset( $widget_count ) && $widget_count > 0 );
 $footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'footer' ) );
-
-//$credits_style = (!$footer_options['credits']['show_credits']) ? "display:none" : "";
-///*  style=" echo $credits_style "
-
 ?>
 
 <?php if( $has_widgets || $footer_options['show_footer'] ): ?>
@@ -65,16 +61,14 @@ $footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key'
 				</div>
 			<?php endif ?>
 
-
 			<?php if( $footer_options['show_footer'] ): ?>
 
 				<?php
 					/**
-					 * @todo Know how many of the footer columns are needed,
-					 * be is 1, 2, 3, 4, and divide 12/columns - dynamically reorient 
+					 * @todo 	Know how many of the footer columns are needed,
+					 * 			be it 1, 2, 3, 4, and divide 12/columns - dynamically reorient 
 					 */
 				?>
-
 				<div class="row footer-base">
 
 					<!-- CUSTOM -->
@@ -116,13 +110,13 @@ $footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key'
 										</a>
 									</div>
 									<div class="credit">
-										<?php _ex('Powered by ArtDroid for WordPress','artdroid') ?>
+										<?php _ex('Powered by ArtDroid for WordPress', 'credits', 'artdroid') ?>
 									</div>
 									<div class="credit">
-										<?php _ex('Spawned by','artdroid') ?> <a href="http://androidjones.com" target="_blank">Android Jones</a>
+										<?php _ex('Spawned by', 'credits','artdroid') ?> <a href="http://androidjones.com" target="_blank"><?php _ex('Android Jones', 'credits','artdroid') ?></a>
 									</div>
 									<div class="credit">
-										<?php _ex('Designed by','artdroid') ?> <a href="https://phong.com" target="_blank">Phong</a>
+										<?php _ex('Designed by','credits','artdroid') ?> <a href="https://phong.com" target="_blank"><?php _ex('Phong', 'credits','artdroid') ?></a>
 									</div>
 								</div>
 							</div>
