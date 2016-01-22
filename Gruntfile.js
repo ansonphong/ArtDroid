@@ -1,11 +1,9 @@
 var _contains = function( needle, haystack ){
 	return ( haystack.indexOf(needle) > -1 );
 }
-
 /**
  * @todo impliment grunt compress
  */
-
 module.exports = function(grunt) {
 	var destDir = '../../../../artdroid/';
 
