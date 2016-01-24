@@ -10,7 +10,7 @@
 global $theme_version;
 $theme_version = 1.400;
 
-/*
+/*x
 ArtDroid is a Premium WordPress theme
 designed with artists, designers,
 photographers and motion picture directors
