@@ -130,7 +130,7 @@
 				<hr class="thin">
 
 				<input type="text" ng-model="pwOptions.blog.settings.main_page.subtitle">
-				<b><?php _ex('subtitle','postworld') ?></b>
+				<b><?php _ex('subtitle','settings','postworld') ?></b>
 				<small>: <?php _ex('The subtitle of your blog', 'self-explanitory', 'postworld') ?></small>
 				<hr class="thin">
 

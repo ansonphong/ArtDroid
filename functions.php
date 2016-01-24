@@ -1,29 +1,68 @@
 <?php
-////////// POSTWORLD //////////
-/// POSTWORLD CONFIG ///
+/*   _         _   ____            _     _ 
+    / \   _ __| |_|  _ \ _ __ ___ (_) __| |
+   / _ \ | '__| __| | | | '__/ _ \| |/ _` |
+  / ___ \| |  | |_| |_| | | | (_) | | (_| |
+ /_/   \_\_|   \__|____/|_|  \___/|_|\__,_|
+                                           
+----------- WELCOME TO ARTDROID -----------*/
+
+global $theme_version;
+$theme_version = 1.400;
+
+/*
+ArtDroid is a Premium WordPress theme
+designed with artists, designers,
+photographers and motion picture directors
+in mind. ArtDroid focuses on getting your
+art seen, up-front and center stage.
+
+Thanks for using ArtDroid, we hope you
+enjoy using it and if you have any support
+issues, questions, ideas for future features
+or bugs to report, please visit:
+http://artdroid.phong.com
+
+ArtDroid is spawned by Android Jones
+http://androidjones.com
+
+Designed, coded, supported and
+maintained by Phong Media Design
+http://phong.com
+
+Distributed by Theme Forest
+http://themeforest.net/?ref=phongmedia
+*/
+
+/**
+ * ArtDroid is built using Postworld
+ * a theme development framework developed
+ * by Phong Media Design. Postworld provides
+ * a backend framework which builds ontop
+ * of the native WordPress functionality
+ * coupled with the client-side Javascript
+ * to create an exceptional experience
+ * for both the developer and the user.
+ */
+// Configure Postworld
 include "postworld-config.php";
-include "postworld-language.php";
-
-/// POSTWORLD CORE ///
+// Include the Postworld library
 include "postworld/postworld.php";
-
-////////// INIT POSTWORLD //////////
+// Enqueue Postworld scripts and styles
 function theme_postworld_includes(){
-	$postworld_inject = array(
-		'masonry.js',
-		'jquery',
-		);
 	postworld_includes( array(
-		//'angular_version' => 'angular-1.4.6',
-		'inject'  => $postworld_inject,
+		'inject'  => array(
+			'masonry.js',
+			'jquery',
+			),
 	));
 }
 add_action( 'wp_enqueue_scripts', 'theme_postworld_includes' );
 add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
-///// THEME VERSION /////
-global $theme_version;
-$theme_version = 1.39;
+/**
+ * Theme Version
+ */
 function theme_version_filter( $pw_version ){
 	global $theme_version;
 	$ver = $theme_version . '-' . $pw_version; 
@@ -137,11 +176,13 @@ function theme_add_image_sizes() {
 ////////// REMOVE FILTERS //////////
 remove_filter( 'the_content', 'prepend_attachment', 10 );
 
-///// ADD EDITOR STYLE /////
+/**
+ * Add editor styles
+ */
 add_editor_style( "/css/editor-style.css" );
 
 /**
- * BOOTSTRAP ANGULAR APP TO BLOGOSPHERE OPTIONS PAGE
+ * Bootstrap AngularJS to theme admin options pages.
  */
 add_filter( 'pw_admin_bootstrap_angular', 'theme_admin_boostrap_angular' );
 function theme_admin_boostrap_angular( $bootstrap ){
@@ -150,24 +191,25 @@ function theme_admin_boostrap_angular( $bootstrap ){
 }
 
 /**
- * Modify the REST namespace to match the theme name.
+ * Modify the Postworld REST namespace to match the theme name.
  */
 add_filter( 'pw_rest_namespace', 'theme_rest_namespace' );
 function theme_rest_namespace( $namespace ){
 	return 'artdroid';
 }
 
-///// ADD ADMIN STYLES /////
+/**
+ * Enqueue styles for the administrative panel.
+ */
 function theme_admin_enqueue() {
 	wp_enqueue_style( 'Theme-Admin-Styles', get_template_directory_uri() . '/admin/less/styles.less' );
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
-////////// POST FORMATS //////////
-//add_theme_support( 'post-formats', array( 'image', 'link' ) );
-
-// Add action attribute to forms
-add_action('wp_footer', 'pw_add_forms_action_attribute');
+/**
+ * Add action attribute to forms, to override Angular behavior
+ */
+add_action( 'wp_footer', 'pw_add_forms_action_attribute');
 
 /**
  * Specifically enable automatic updates even if
@@ -257,8 +299,8 @@ add_filter('nav_menu_css_class' , 'pw_nav_menu_css_class' , 10 , 2);
 function theme_register_menu_locations() {
 	register_nav_menus(
 		array(
-			'primary-menu' => __( 'Main Menu' ),
-			'home-page-slider' => __( 'Home Page Slider' )
+			'primary-menu' => __( 'Main Menu', 'theme' ),
+			'home-page-slider' => __( 'Home Page Slider', 'theme' )
 			)
 	);
 }
@@ -275,15 +317,16 @@ function theme_filter_pw_context_types( $contexts ){
 	return $contexts;
 }
 
-/*
-add_filter('upload_mimes', 'custom_upload_mimes');
-function custom_upload_mimes ( $existing_mimes=array() ) {
-    // add your extension to the mimes array as below
-    $existing_mimes['zip'] = 'application/zip';
-    $existing_mimes['gz'] = 'application/x-gzip';
-    return $existing_mimes;
-}
-*/
 
+/**
+ * Sets the default content width.
+ */
+if ( ! isset( $content_width ) ) $content_width = 900;
+
+
+/**
+ * Add automatic feed links.
+ */
+add_theme_support( 'automatic-feed-links' )
 
 ?>

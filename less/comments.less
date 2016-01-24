@@ -1,164 +1,156 @@
-// COMMENTS
-
 .comments {
+	font-size:15px;
+	button.drop{
+		margin-top:5px;
+	}
+	.comment_content {
+		padding:0 0 0px 56px;
+	}
 
-  font-size:15px;
+	.comments-header{
+		z-index:1;
+		width:100%;
+		text-align:center;
+		height:1px;
+		margin:28px 0 28px;
+		background-color:@blue2;
+	}
 
-  button.drop{
-    margin-top:5px;
-  }
+	// adds bullets to left & right of header
+	h4:before, h4:after {
+		content:" • "
+	}
 
-  .comment_content {
-    padding:0 0 0px 56px;
-  }
+	h4{
+		z-index:2;
 
-  // fancy header
-  .comments-header{
-    z-index:1;
-    width:100%;
-    text-align:center;
-    height:1px;
-    // gives appropriate white space around header
-    margin:28px 0 28px;
+		// offsets stream header over horizontal bar
+		.relative;
+		top:-18px;
 
-    background-color:@blue2;
-  }
+		// creates cut-out for header text
+		background-color:white;
 
-  // adds bullets to left & right of header
-  h4:before, h4:after {
-    content:" • "
-  }
+		// allows centering of text without white background covering full width
+		display:inline-block;
 
-  h4{
-    z-index:2;
+		// makes whitespace left and right
+		padding: 0 12px;
 
-    // offsets stream header over horizontal bar
-    .relative;
-    top:-18px;
+		color:@blue2;
+	}
+	// end fancy header
 
-    // creates cut-out for header text
-    background-color:white;
+	// removes UL padding from comment tree
+	.comments-tree {padding-left:0px;}
 
-    // allows centering of text without white background covering full width
-    display:inline-block;
+	// comment sorting
+	.sort-comments{
+		text-align:center;
+		margin-bottom: 14px;
+		.sort-by{
+			color:#777;
+		}
 
-    // makes whitespace left and right
-    padding: 0 12px;
-
-    color:@blue2;
-  }
-  // end fancy header
-
-  // removes UL padding from comment tree
-  .comments-tree {padding-left:0px;}
-
-  // comment sorting
-  .sort-comments{
-    text-align:center;
-    margin-bottom: 14px;
-    .sort-by{
-      color:#777;
-    }
-
-    .form-control{
-      display:inline-block;
-      width:auto;
-      margin: 0 10px;
-    }
-  }
+		.form-control{
+			display:inline-block;
+			width:auto;
+			margin: 0 10px;
+		}
+	}
 
 
-  // comment header
-  .comment-header{
-    .expand,
-    .contract,
-    .up,
-    .down {
-      .pull-left;
-      border:none;
-      background:none;
-      .font-size(21);
-      .pointer;
-    }
+	// comment header
+	.comment-header{
+		.expand,
+		.contract,
+		.up,
+		.down {
+			.pull-left;
+			border:none;
+			background:none;
+			.font-size(21);
+			.pointer;
+		}
 
-    .expand,
-    .contract {
-      color:#ccc;
-      &:hover {
-        color:#777;
-      }
-    }
+		.expand,
+		.contract {
+			color:#ccc;
+			&:hover {
+				color:#777;
+			}
+		}
 
-    .comment-vote{
-      .pull-left;
-    }
-    .up,
-    .down {
-      height: 20px;
-      line-height:20px;
-      padding: 0 6px;
-      color:#777;
-      margin-top:-5px;
-      outline:none;
-      font-size:24px;
+		.comment-vote{
+			.pull-left;
+		}
+		.up,
+		.down {
+			height: 20px;
+			line-height:20px;
+			padding: 0 6px;
+			color:#777;
+			margin-top:-5px;
+			outline:none;
+			font-size:24px;
 
-    }
+		}
 
-    .up {
-    }
-    .down {
-      clear:left;
-    }
+		.up {
+		}
+		.down {
+			clear:left;
+		}
 
-    .up:hover, .up.selected:hover {
-      color:@blue2;
-    }
-    .up.selected {
-      color:#000;
-    }
-    .down:hover, .down.selected:hover {
-      color:@red1;
-    }
-    .down.selected {
-      color:#000;
-    }
+		.up:hover, .up.selected:hover {
+			color:@blue2;
+		}
+		.up.selected {
+			color:#000;
+		}
+		.down:hover, .down.selected:hover {
+			color:@red1;
+		}
+		.down.selected {
+			color:#000;
+		}
 
-    .comment_author{
-      color:@red2;
-      .font-size(15);
-    }
-  }
+		.comment_author{
+			color:@red2;
+			.font-size(15);
+		}
+	}
 
-  // clears each post from the previous
-  .indent {
-    clear:both;
-  }
+	// clears each post from the previous
+	.indent {
+		clear:both;
+	}
 
-  .title {
+	.title {
 
-  }
+	}
 
-  .comment .reply {
-    opacity:0;
-    transition:opacity 0.25s ease;
-  }
+	.comment .reply {
+		opacity:0;
+		transition:opacity 0.25s ease;
+	}
 
-  .comment:hover .reply {
-    opacity:1;
-  }
+	.comment:hover .reply {
+		opacity:1;
+	}
 
-  button.reply{
-    border:0;
-    background:#fff;
-    outline:none;
-    color:@gray5;
+	button.reply{
+		border:0;
+		background:#fff;
+		outline:none;
+		color:@gray5;
 
-    &.selected{
-      background:#000;
-      color:#fff;
-      opacity:1;
-    }
-  }
+		&.selected{
+			background:#000;
+			color:#fff;
+			opacity:1;
+		}
+	}
 
 }
 
