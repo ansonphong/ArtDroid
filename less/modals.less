@@ -1,4 +1,3 @@
-
 // Prevent the modal from overlapping WP Admin Bar when logged in
 body.admin-bar{
 	.modal{
@@ -29,32 +28,24 @@ body{
   background:@modal-background-color;
 }
 
-///// EDIT POST MODAL /////
 .modal-edit-post{
 	.modal-content{
 		border:1px solid @global-foreground-color;
 		.dropshadow( 5px, 0px );
-
 		hr{
 			border-top-color:@neutral-color-medium;
 		}
-
-
 	}	
 }
 
-///// MODAL /////
 .modal{
 	color: @modal-foreground-color;
-	//background: @modal-background-color;
-
 	.modal-dialog{
 		@media @full{ width:50% };
 		@media @desktop-and-below{ width:66% };
 		@media @tablet{ width:100% };
 		@media @mobile{ width:100% };
 	}
-
 	.modal-header{
 		border:none;
 	}
@@ -115,11 +106,9 @@ body{
 				transform: translateX(-50%);
 			}
 		}
-
 	}
 
 	.post-controls{
-
 		button, a.btn{
 			color:@modal-foreground-color;
 			background:transparent;
@@ -128,15 +117,10 @@ body{
 				background:@modal-foreground-color;
 			}
 		}
-
 	}
-
 }
 
-
-///// VIEW POST /////
 .modal.modal-view-post {
-
 	.modal-dialog{
 		-webkit-transform: translate(0, 0);
 		-ms-transform: translate(0, 0);
@@ -152,32 +136,23 @@ body{
 			color:@modal-foreground-color;
 			border-radius:0;
 			transition:none;
-
 			hr{
 				border-top-color:@neutral-color-medium;
 			}
-
 			h1{
 				padding-right:40px;
 			}
-
 			.post-head{
 				background:transparent;
 				padding-bottom:0;
 			}
 			.post-content{
 				background:transparent;
+				padding-top:30px;
 			}
-
 			.modal-controls{
 				display:block;
-				//position:absolute;
-				//top:0;
-				//right:0;
 				padding: 0 10px;
-				button{
-
-				}
 			}
 
 		}
@@ -302,7 +277,7 @@ body{
 
 }
 
-
+/*
 .modal-media {
 	.modal-dialog{
 		width:80%;
@@ -319,5 +294,4 @@ body{
 		}
 	}
 }
-
-
+*/

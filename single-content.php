@@ -43,7 +43,7 @@ $fields = array(
 $post_settings = array(
 	'post_id'	=>	$post->ID,
 	'fields'	=>	$fields,
-	'view'		=>	'full-h2o',
+	'view'		=>	'single-h2o',
 	'vars'	=> array(
 		'pw'					=>	$pw,
 		'social_widgets'		=>	pw_social_widgets(),
@@ -54,7 +54,7 @@ $post_settings = array(
 		'is_page_header_image' 	=>	( $header_meta['type'] === 'featured_image' && $post->post_type === 'page' ),
 		'device' 				=>	pw_device_meta(),
 		'comments'				=>	pw_get_comments_thirdparty( array( 'post_id' => $post->ID ) ),
-
+		'post_class'			=>	pw_post_class('', $post->ID),
 		),
 	'js_vars'	=>	array('post'),
 	);
