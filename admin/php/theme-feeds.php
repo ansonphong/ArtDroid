@@ -4,13 +4,16 @@
 		<!--///// FEEDS /////-->
 		<div class="well">
 			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
-			<h2><i class="pwi-th-list"></i> Feeds</h2>
+			<h2>
+				<i class="pwi-th-list"></i>
+				<?php _e( 'Feeds', 'postworld' ) ?>
+			</h2>
 
 			<!-- LOADING ICONS -->
 			<div class="well">
 				<h3>
 					<span class="icon-md"><i class="pwi-circle-medium"></i></span>
-					<?php ___('feeds.settings.loading_icon') ?>
+					<?php _e( 'Loading Icon', 'postworld' ) ?>
 				</h3>
 				<?php
 					$loading_icon_options = theme_get_loading_icon_options();
