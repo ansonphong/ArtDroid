@@ -73,7 +73,8 @@ function theme_postmeta_model_filter( $pwMeta ){
 	 * Sanitization
 	 */
 	// Cast height as integer
-	$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
+	if( isset($pwMeta['header']['image']['height']) )
+		$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
 
 	return $pwMeta;
 	

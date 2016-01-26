@@ -40,8 +40,8 @@ function theme_pw_styles_default( $styles = array() ){
 				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
 				//'main-menu-background'		=>	'transparent',
 				'main-menu-foreground'		=>	'@global-foreground-color',
-				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
-				'secondary-menu-foreground'	=>	'@global-foreground-color',
+				'sub-menu-background'		=>	'@neutral-color-light',
+				'sub-menu-foreground'		=>	'@secondary-color-dark',
 				'search-button-background'	=>	'@header-background',
 				),
 

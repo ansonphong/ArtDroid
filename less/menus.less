@@ -30,7 +30,6 @@
 		height: 100%;
 		.transition(.5s);
 		padding:0 10px 0px 5px;
-		//padding:0 20px 5px 20px;
 	}
 	.menu-container{
 		height: 100%;
@@ -38,6 +37,10 @@
 			height: 100%;
 		}
 	}
+	/**
+	 * When the menu is to wide to be contained
+	 * at the point it breaks, this class is added.
+	 */
 	&.is-wrapping{
 		.menu-indicator{
 			display: block;
@@ -51,12 +54,10 @@
 			overflow: hidden;
 			background: fade(@header-background, 100%);
 		}
-
 		// Hide submenus
 		ul.menu > li ul{
 			display: none;
 		}
-
 		// Fix vertical centering when wrapping
 		ul.menu > li{
 			>a{
@@ -65,10 +66,7 @@
 				}
 			}
 		}
-
 	}
-
-
 	&.is-wrapping:hover{
 		.menu-indicator{
 			display: none;
@@ -80,6 +78,7 @@
 			opacity:1;
 		}
 	}
+
 	// Submenu Items
 	ul, li {
 		list-style: none;
@@ -145,9 +144,6 @@
 	li:hover ul.sub-menu{
 		//border:1px solid @secondary-color-light;
 	}
-
-
-	
 
 	ul.menu > li {
 		@main-menu-slide-down : 5px;
@@ -216,7 +212,6 @@
 			transition:@transition-time all linear;
 			overflow:hidden;
 		}
-
 		&:hover >ul {
 			//display:block;
 			max-height:600px;
@@ -225,22 +220,19 @@
 		
 		// DROPDOWN LEVEL
 		> ul {
-			//background:@gray-lighter;
 			position: absolute;
-			//top:(@header-height);
 			top:100%;
-
 			.dropshadow(5px);
 			z-index:2;
 			>li >a {
 				display:block;
 				padding:8px 15px;
 				transition:@transition-time/6 all ease;
-				color:@secondary-color-dark;
-				background:@neutral-color-light;
+				color:@sub-menu-foreground;
+				background:@sub-menu-background;
 				&:hover{
-					background:@secondary-color-dark;
-					color:#fff;
+					background:@highlight-background-color;
+					color:@highlight-foreground-color;
 				}
 			}
 		}
