@@ -423,16 +423,16 @@ function theme_pw_styles_structure( $structure = array() ){
 							"description"	=>	"Color of the main menu items text"
 							),
 						array(
-							"name"			=>	"Secondary Menu Background",
-							"key"			=>	"secondary-menu-background",
+							"name"			=>	"Sub-menu Background",
+							"key"			=>	"sub-menu-background",
 							"input"			=>	"color",
-							"description"	=>	"Background color of the secondary menu"
+							"description"	=>	"Background color of the dropdown menus"
 							),
 						array(
-							"name"			=>	"Secondary Menu Text Color",
-							"key"			=>	"secondary-menu-foreground",
+							"name"			=>	"Sub-menu Text Color",
+							"key"			=>	"sub-menu-foreground",
 							"input"			=>	"color",
-							"description"	=>	"Color of the secondary menu text"
+							"description"	=>	"Color of the dropdown menu text"
 							),
 						array(
 							"name"			=>	"Search Button Background",
