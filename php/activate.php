@@ -1,6 +1,14 @@
 <?php  
-///// INSTALL POSTWORLD /////
-add_action("after_switch_theme", "postworld_install", 10 , 2);  
+add_action("after_switch_theme", "theme_install", 10 , 2);  
+
+function theme_install(){
+	postworld_install(array(
+		'tables' => array(
+			
+			)
+		));
+}
+
 
 add_action("after_switch_theme", "theme_activate_artdroid", 10 ,  2);
 function theme_activate_artdroid($oldname, $oldtheme=false){
