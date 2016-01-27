@@ -46,6 +46,7 @@
 					<div
 						pw-smart-image="::slide.image"
 						smart-image-override="::slide.image.alt"
+						smart-image-min-height="512"
 						smart-image-dynamic
 						pw-parallax
 						parallax-depth="<?php echo $slider['parallax_depth'] ?>">

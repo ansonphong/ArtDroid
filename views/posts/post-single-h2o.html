@@ -131,6 +131,7 @@
 			<div class="post-buttons">
 
 				{% if device.is_desktop %}
+					{% if post.post_type == 'post' %}
 					<!-- POST CONTROLS -->
 					<div
 						pw-include="panels/post-controls"
@@ -138,6 +139,7 @@
 						include-eval="isLoggedIn()&&!isDevice(['mobile'])"
 						class="pull-right">
 					</div>
+					{% endif %}
 				{% endif %}
 
 				{% if post.post_type != 'page' %}
