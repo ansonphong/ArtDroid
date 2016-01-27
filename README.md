@@ -1,4 +1,2 @@
-infinite-expanse
+ArtDroid
 ================
-
-Expanse child theme for Infinite Framework
