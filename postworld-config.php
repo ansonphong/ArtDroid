@@ -250,6 +250,8 @@ $pwSiteGlobals = array(
 		),
 
 	'db'	=>	array(
+		'tables' => array(
+			),
 		'wp_postmeta' => array(
 			'json_meta_keys' => array(
 				'event',
