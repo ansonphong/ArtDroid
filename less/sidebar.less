@@ -1,9 +1,9 @@
 .sidebar{
 
-	@indentation: 20px;
-	@item-padding-y: 10px;
-	@item-padding-x: 20px;
-	@fade: 15%;
+	@widget-indentation: 20px;
+	@widget-item-padding-y: 10px;
+	@widget-item-padding-x: 20px;
+	@widget-fade: 15%;
 
 	background-color:transparent;
 	border:0;
@@ -16,13 +16,13 @@
 
 		a{
 			color: mix( @widget-foreground, @widget-highlight-color, 66%);
-			background-color: fade( @widget-base-color, @fade*2 );
+			background-color: fade( @widget-base-color, @widget-fade*2 );
 			&:hover, &:focus{
 				color:@widget-highlight-color;
-				background-color: fade( @widget-base-color, @fade*4 );
+				background-color: fade( @widget-base-color, @widget-fade*4 );
 			}
 			&:active{
-				background-color: fade( @widget-foreground, @fade*5 );
+				background-color: fade( @widget-foreground, @widget-fade*5 );
 			}
 		}
 
@@ -42,9 +42,9 @@
 		li{
 			a{
 				display: block;
-				padding: @item-padding-y @item-padding-x;
+				padding: @widget-item-padding-y @widget-item-padding-x;
 				text-decoration: none;
-				background-color: fade( @widget-base-color, @fade );
+				background-color: fade( @widget-base-color, @widget-fade );
 				
 			}
 		}
@@ -75,38 +75,38 @@
 							background-color: fade( @menu-base-color, 80% );
 							color: @menu-highlight-color;
 						}
-						//border-bottom:1px solid fade( @menu-base-color, @fade );
+						//border-bottom:1px solid fade( @menu-base-color, @widget-fade );
 					}
 					&.selected{
 						a{
-							border-left:(@indentation*1-(@item-padding-x/2)) solid @border-left-color;
+							border-left:(@widget-indentation*1-(@widget-item-padding-x/2)) solid @border-left-color;
 						}
 					}
 				}
 
 				// Second Level Item
 				ul li a{
-					background-color: fade( @menu-base-color, @fade );
-					padding-left: @indentation*2;
+					background-color: fade( @menu-base-color, @widget-fade );
+					padding-left: @widget-indentation*2;
 				}
 				ul li.selected a{
-					padding: @item-padding-y @item-padding-x;
-					border-left:@indentation*2-@item-padding-x solid @border-left-color;
+					padding: @widget-item-padding-y @widget-item-padding-x;
+					border-left:@widget-indentation*2-@widget-item-padding-x solid @border-left-color;
 				}
 
 				// Third Level Item
 				ul ul li a{
-					background-color: fade( @menu-base-color, @fade );
-					padding-left: @indentation*3;
+					background-color: fade( @menu-base-color, @widget-fade );
+					padding-left: @widget-indentation*3;
 				}
 				ul ul li.selected{
-					padding: @item-padding-y @item-padding-x;
-					border-left:@indentation*3-@item-padding-x solid @border-left-color;
+					padding: @widget-item-padding-y @widget-item-padding-x;
+					border-left:@widget-indentation*3-@widget-item-padding-x solid @border-left-color;
 				}
 
 				li.sibling_menu_item.selected + .child_menu,
 				li.parent_menu_item.selected + .sibling_menu{
-					background-color: fade( @menu-base-color, @fade );
+					background-color: fade( @menu-base-color, @widget-fade );
 				}
 
 				li.selected a{
