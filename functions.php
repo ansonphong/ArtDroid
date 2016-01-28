@@ -279,7 +279,7 @@ function theme_private_content_redirect_to_login() {
 		$private = $wpdb->get_row($wp_query->request);
 		$location = wp_login_url($_SERVER["REQUEST_URI"]);
 		// Notice: Trying to get property of non-object in functions.php on line 282
-		if( 'private' == $private->post_status  ) {
+		if( is_object($private) && 'private' == $private->post_status  ) {
 			wp_safe_redirect($location);
 			exit;
 		}
