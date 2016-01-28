@@ -10,13 +10,8 @@
 define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
 define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
-global $lang;
-global $pwUniversalLanguage;
-global $template_paths;
-
-global $pwSiteGlobals;
-$pwSiteGlobals = array(
-
+global $pw_config;
+$pw_config = array(
 	'modules'	=>	array(
 		'required'	=>	array(
 			'site',
@@ -251,6 +246,8 @@ $pwSiteGlobals = array(
 
 	'db'	=>	array(
 		'tables' => array(
+			'post_meta',
+			'cache'
 			),
 		'wp_postmeta' => array(
 			'json_meta_keys' => array(
@@ -498,7 +495,7 @@ $pwSiteGlobals = array(
 		),
 
 	'avatar'			=> array(
-		'default'	=>	$template_paths['POSTWORLD_URL'].'/images/avatars/avatar-ajones-A.png',
+		//'default'	=>	$template_paths['POSTWORLD_URL'].'/images/avatars/avatar-ajones-A.png',
 		),
 
 	'roles' 			=> array(
