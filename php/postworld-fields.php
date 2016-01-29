@@ -1,6 +1,25 @@
 <?php
+/**
+ * Add field models for post views.
+ */
+add_action('init','theme_register_field_models');
+function theme_register_field_models(){
+	$preview_fields = pw_get_post_field_model('preview');
+	$micro_fields = pw_get_post_field_model('micro');
 
-pw_register_field_model( 'post', 'list-h2o', array(
+	// FULL
+	pw_register_post_field_model('full', array_merge( $preview_fields, array(
+		'post_content(more)'
+	)));
+
+	// LIST
+	pw_register_post_field_model('list', array_merge( $micro_fields, array(
+		'image(xs)',
+		'image(sm)',
+	)));
+
+	// LIST-H2O
+	pw_register_field_model( 'post', 'list-h2o', array(
 	'ID',
 	'post_title',
 	'post_parent',
@@ -23,5 +42,4 @@ pw_register_field_model( 'post', 'list-h2o', array(
 	'post_meta(all)',
 	'fields'
 	));
-
-?>
+}

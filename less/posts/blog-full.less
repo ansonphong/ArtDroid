@@ -1,4 +1,4 @@
-.post.type-blog.view-full{
+.type-blog.view-full{
 	border-top: 8px solid @neutral-color-medium;
 	color: @blog-foreground-color;
 
@@ -83,6 +83,31 @@
 
 	.taxonomy.tags{
 		
+	}
+
+	.post-content-more{
+		a{
+			display: block;
+			text-decoration: none;
+		}
+		button.read-more{
+			.transition();
+			display: block;
+			width: 100%;
+			background: transparent;
+			border-top: 1px dashed @neutral-color-medium;
+			//border-bottom: 1px solid @secondary-color-medium;
+			padding: 15px;
+			color: mix(@secondary-color-medium, @blog-foreground-color );
+			
+			&:hover, &:focus{
+				background: mix( @blog-foreground-color, @blog-background-color, 10% );
+			}
+			&:active{
+				color: @blog-foreground-color;
+				background: mix( @blog-foreground-color, @blog-background-color, 20% );
+			}
+		}
 	}
 
 }
