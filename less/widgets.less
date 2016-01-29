@@ -12,7 +12,6 @@
 
 .sidebar-widget{
 	color: @widget-foreground-color;
-
 	a{
 		color: @widget-link-color;
 		background-color: fade( @widget-base-color, @widget-fade*2 );
@@ -113,6 +112,7 @@
 		// Links
 		a{
 			color: @widget-link-color;
+			font-weight: 400;
 			&:hover, &:focus{
 				color: @highlight-foreground-color;
 				//background: @highlight-background-color;
@@ -121,7 +121,7 @@
 
 		// Top Level Items
 		>li{
-			border-top: 1px solid mix( @widget-background-color, @neutral-color-medium, 95% );
+			//border-top: 1px solid mix( @widget-background-color, @neutral-color-medium, 95% );
 			>a{
 				font-size: @font-size-md;
 				padding: 10px 20px;
@@ -141,7 +141,9 @@
 
 		li.current-menu-item{
 			>a{
-				box-shadow: inset 5px 0 0 @widget-link-color;
+				color: @widget-foreground-color;
+				box-shadow: inset 5px 0 0 @widget-foreground-color;
+				font-weight: 500;
 			}
 		}
 		
