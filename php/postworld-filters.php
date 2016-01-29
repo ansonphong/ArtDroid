@@ -465,23 +465,6 @@ function theme_post_field_model_preview( $fields ){
 
 }
 
-/**
- * Add field models for post views.
- */
-add_action('init','theme_register_field_models');
-function theme_register_field_models(){
-	$preview_fields = pw_get_post_field_model('preview');
-	$micro_fields = pw_get_post_field_model('micro');
-	// FULL
-	pw_register_post_field_model('full', array_merge( $preview_fields, array(
-		'post_content'
-	)));
-	// LIST
-	pw_register_post_field_model('list', array_merge( $micro_fields, array(
-		'image(xs)',
-		'image(sm)',
-	)));
-}
 
 add_filter( 'pw_color_profiles', 'theme_color_profiles', 11 );
 function theme_color_profiles( $profiles ){

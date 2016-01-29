@@ -1,8 +1,8 @@
-<div
+<article
 	pw-post
 	pw-feed-post
 	art-post
-	class="post post-type--blog view-full"
+	class="post type-blog view-full"
 	pw-ui>
 
 	<!-- FEATURED IMAGE -->
@@ -76,6 +76,12 @@
 
 		<div class="post-content pad-x-lg" pw-compile-code="::post.post_content"></div>
 
+		<div class="post-content-more pad-x-lg" ng-show="post.post_content_more">
+			<a ng-href="{{post.post_permalink}}">
+				<button class="read-more">Read More...</button>
+			</a>
+		</div>
+
 		<div class="social-footer pad-x-lg">
 			
 			<!-- SHARE SOCIAL -->
@@ -100,4 +106,4 @@
 
 	</div>
 
-</div>
+</article>
