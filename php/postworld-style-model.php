@@ -61,9 +61,9 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 
 			'widgets'	=>	array(
-				'widget-base-color'			=>	'@neutral-color-dark',
-				'widget-foreground'			=>	'@neutral-color-medium',
-				'widget-highlight-color'	=>	'@neutral-color-light',
+				'widget-background-color'	=>	'@neutral-color-dark',
+				'widget-foreground-color'	=>	'@neutral-color-medium',
+				'widget-link-color'			=>	'@primary-color-medium',
 				),
 
 			'blog'	=>	array(
@@ -509,14 +509,20 @@ function theme_pw_styles_structure( $structure = array() ){
 					'icon'	=>	'pwi-dashboard',
 					'values'	=>	array(
 						array(
-							"name"			=>	"Base Color",
-							"key"			=>	"widget-base-color",
+							"name"			=>	"Background Color",
+							"key"			=>	"widget-background-color",
 							"input"			=>	"color",
 							"description"	=>	"General Color of widgets"
 							),
 						array(
 							"name"			=>	"Text Color",
-							"key"			=>	"widget-foreground",
+							"key"			=>	"widget-foreground-color",
+							"input"			=>	"color",
+							"description"	=>	"Color of text in widgets"
+							),
+						array(
+							"name"			=>	"Link Color",
+							"key"			=>	"widget-link-color",
 							"input"			=>	"color",
 							"description"	=>	"Color of text in widgets"
 							),
