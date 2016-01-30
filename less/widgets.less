@@ -10,14 +10,14 @@
 }
 .sidebar-widget.widget_nav_menu{}
 
-.sidebar-widget{
+body .sidebar-widget{
 	color: @widget-foreground-color;
 	a{
 		color: @widget-link-color;
-		background-color: fade( @widget-base-color, @widget-fade*2 );
+		background-color: fade( @widget-background-color, @widget-fade*2 );
 		&:hover, &:focus{
 			color:@widget-highlight-color;
-			background-color: fade( @widget-base-color, @widget-fade*4 );
+			background-color: fade( @widget-background-color, @widget-fade*4 );
 		}
 		&:active{
 			background-color: fade( @widget-foreground-color, @widget-fade*5 );
@@ -25,9 +25,10 @@
 	}
 
 	.sidebar-title{
+		font-size: @font-size-md;
 		margin:0;
 		padding:10px 20px;
-		background: @widget-base-color;
+		background: @widget-background-color;
 		margin-bottom: 2px;
 	}
 
@@ -41,7 +42,7 @@
 				display: block;
 				padding: @widget-item-padding-y @widget-item-padding-x;
 				text-decoration: none;
-				background-color: fade( @widget-base-color, @widget-fade );
+				background-color: fade( @widget-background-color, @widget-fade );
 				
 			}
 		}
@@ -111,10 +112,13 @@
 		
 		// Links
 		a{
-			color: @widget-link-color;
+			//color: @widget-link-color;
 			font-weight: 400;
 			&:hover, &:focus{
-				color: @highlight-foreground-color;
+				//color: @widget-foreground-color;
+			}
+			&:active{
+				//color: @highlight-foreground-color;
 				//background: @highlight-background-color;
 			}
 		}
@@ -131,10 +135,10 @@
 		ul{
 			padding-left: 20px; 
 			li{
-
 				a{
 					font-size: @font-size-sm;
 					padding: 6px 15px;
+					//background: transparent;
 				}
 			}
 		}
@@ -148,6 +152,15 @@
 		}
 		
 		
+	}
+
+	/**
+	 * LIST FEEDS
+	 */
+	.feed .post.view-list{
+
+
+
 	}
 
 	
