@@ -12,11 +12,19 @@
 	border: 1px solid @border-color;
 	border-radius:0px;
 
+	.icon{
+		color: fade(@text-color, 80%);
+		transition: @global-transition-time all ease;
+	}
+
 	&.btn-outline{
 		border: 1px solid @text-color;
 	}
 
 	&:hover, &:focus, &:active{
+		.icon{
+			color: @text-color-hover;
+		}
 		background: @background-color-hover;
 		color: @text-color-hover;
 		border: 1px solid @border-color-hover;

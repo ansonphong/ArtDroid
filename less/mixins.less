@@ -1,4 +1,15 @@
 
+.columns( @count:2; @gap:20px ){
+	-webkit-column-count: @count; /* Chrome, Safari, Opera */
+	-moz-column-count: @count; /* Firefox */
+	column-count: @count;
+
+	-webkit-column-gap: @gap; /* Chrome, Safari, Opera */
+	-moz-column-gap: @gap; /* Firefox */
+	column-gap: @gap;
+
+}
+
 .center-vertical-parent(){
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
