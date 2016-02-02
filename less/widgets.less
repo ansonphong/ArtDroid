@@ -24,6 +24,30 @@ body .sidebar-widget{
 		}
 	}
 
+	.screen-reader-text{
+		display: none;
+	}
+
+	select{
+		width: 100%;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: fade(@widget-background-color, 50%);
+		color: @widget-foreground-color;
+		border: 1px solid @widget-foreground-color;
+		padding: 15px 20px;
+		border-radius: 0;
+		font-size: @font-size-md;
+		font-weight: 300;
+		.transition();
+
+		&:hover{
+			background: fade(@widget-background-color, 100%);
+		}
+
+	}
+
 	.sidebar-title{
 		font-size: @font-size-md;
 		margin:0;
@@ -151,21 +175,85 @@ body .sidebar-widget{
 			}
 		}
 		
-		
 	}
+
+	/**
+	 * RECENT POSTS
+	 */
+	 span.post-date, span.rss-date{
+	 	display: block;
+	 	padding-left: 20px;
+	 	padding-bottom: 10px;
+	 	font-size: smaller;
+	 	font-weight: 500;
+	 }
 
 	/**
 	 * LIST FEEDS
 	 */
 	.feed .post.view-list{
 
-
-
 	}
 
-	
+	/**
+	 * TAG CLOUD
+	 */
+	.tagcloud{
+		padding: 20px;
+		a{
+			display: inline-block;
+			padding: 0 8px 8px 0;
+		}
+	}
 
 }
+
+
+/**
+ * FEED BLOCK CUSTOM MENU WIDGET
+ */
+.feed{
+	.x-wide .feed-block-widget{
+		ul{
+			@media @lg-up{
+				padding-left: 30px;
+				padding-right: 30px;
+				.columns( 2, 20px );
+				ul{
+					.columns( 1, 20px );
+				}
+			}
+		}
+
+		
+	}
+	
+	.feed-block-widget{
+		ul{
+			a{
+				background: @widget-background-color;
+				margin-bottom: 2px;
+				&:hover, &:focus{
+					color: @highlight-foreground-color;
+					background: @highlight-background-color;
+				}
+			}
+			>li>a{
+			
+			}
+		}
+		select{
+			margin: 0 auto;
+			width: 90%;
+			display: block;
+			text-align: center;
+			background: @widget-background-color;
+		}
+	}
+
+}
+
+
 
 /**
  * FEED BLOCK WIDGETS
