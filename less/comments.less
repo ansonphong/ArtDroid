@@ -1,14 +1,17 @@
 .comments {
 	button{
 		outline:none;
+		.make-theme-button(
+			@secondary-color-dark,
+			@secondary-color-light,
+			@secondary-color-medium,
+			@secondary-color-light
+			);
 	}
 	hr{
 		border-top-color: fade( @primary-color-medium, 25% );
 		margin-top:15px;
 		margin-bottom:15px;
-	}
-	button.drop{
-		margin-top:5px;
 	}
 	textarea{
 		background: @global-background-color;
@@ -34,7 +37,7 @@
 			border:1px solid @primary-color-medium;
 		}
 	}
-	.admin-menu{
+	.post-controls{
 		float:right;
 	}
 	.reply-input-controls{
@@ -53,9 +56,6 @@
 	}
 	.comment-header{
 		font-size:@font-size-sm;
-		button{
-			height:32px;
-		}
 		.unit{
 			display: inline-block;
 			vertical-align: top;
@@ -80,6 +80,10 @@
 			color:@secondary-color-medium;
 			font-size: @font-size-sm;
 		}
+		.time-ago{
+			font-style: italic;
+			color: @neutral-color-medium;
+		}
 	}
 
 	// clears each post from the previous
@@ -91,17 +95,14 @@
 		border-left: 1px dotted @neutral-color-medium;
 		padding-left: 10px;
 	}
-	button.reply{
-		border:0;
-		outline:none;
-		color:@neutral-color-medium;
-		&:hover{
-			color:@highlight-backgroud-color;
-		}
+	button.button-reply{
+		position: relative;
+		left: -10px;
+		transition: left @global-transition-time ease;
 		&.selected{
-			border-radius: 2px 2px 0 0;
-			color:@highlight-foreground-color;
-			background:@highlight-background-color;
+			background: @highlight-background-color;
+			color: @highlight-foreground-color;
+			left: 0px;
 		}
 	}
 }
