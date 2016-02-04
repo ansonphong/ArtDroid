@@ -1,0 +1,180 @@
+<div class="comments">
+	<div class="comments-header">
+		<h3><i class="pwi-bubbles"></i> Comments</h3>
+	</div>
+
+	<!-- Add a new comment to the Post - Top Level Comment Only -->
+	<div ng-show="commentsLoaded">
+			<textarea
+				msd-elastic
+				class="comment-content"
+				ng-model="treedata.replyText"
+				placeholder="What do you think..."
+				ng-disabled="treedata.replyInProgress">
+			</textarea>
+			<div ng-show="treedata.replyError" class="pull-left alert alert-danger error" >
+				{{treedata.replyError}}
+			</div>
+			<div class=pull-right>
+				<button type="button" class="blue drop" ng-click="replyComment(treedata)" ng-disabled="treedata.replyInProgress"><i class="pwi-bubble"></i> comment</button>
+			</div>
+		<div style='clear: both;'></div>												
+	</div>	  
+
+	<!-- Show Loading Icon While Loading  -->
+	<div ng-hide="commentsLoaded" class="text-center">
+		<i class="pwi-spinner-2 pwi-spin pwi-large"></i>
+	</div>
+
+	<!-- Show Comments Tree After Loading -->
+	<!-- This UL is wholly replicated every time there is a child Comment  -->
+	<ul ng-show="commentsLoaded" class="comments-tree">
+		<div
+			streeviewmodel
+			ya-tree="child in treedata.children at ul"
+			ng-class="{minimized:child.minimized}"
+			ng-init="openClose(child)">
+			<hr>
+			<div class="comment">
+			<!-- Maximize/Minimize Icon based on Karma Points -->
+			<!-- .comment-header -->
+			<div class="comment-header" ng-init="setRoles(child)">
+				<span ng-switch="child.minimized">
+					<button
+						ng-switch-when="true"
+						class="expand pwi-plus-square-o"
+						ng-click="toggleMinimized(child)">
+					</button>
+					<button
+						ng-switch-when="false"
+						class="contract pwi-minus-square-o"
+						ng-click="toggleMinimized(child)">
+					</button>
+				</span>
+
+				<!-- Author / Date / Points -->
+				<span class="comment-author">
+					<span ng-if="::child.comment_author_url">
+						<a href="{{::child.comment_author_url}}" target="_blank">
+							{{::child.comment_author}}
+						</a>
+					</span>
+					<span ng-if="::!child.comment_author_url">
+						{{::child.comment_author}}
+					</span>
+					
+				</span>
+				<span>&nbsp; &bull; &nbsp;</span>
+				<span
+					title="{{ ::child.comment_date_gmt | date:'medium' }} GMT"
+					tooltip="{{ ::child.comment_date_gmt | date:'yyyy-MM-dd HH:mm:ss' }} GMT">
+					{{ child.time_ago }}
+				</span>
+
+				<!-- DROPDOWN -->
+				<span uib-dropdown ng-controller="adminCommentDropdown" class="admin-menu dropdown interactions">
+					<!-- ng-show="userOptions != 0"  -->
+					<button uib-dropdown-toggle class="interactions-button edit" tooltip="Edit" tooltip-placement="top">
+						<i class="pwi-caret-down"></i>
+					</button>
+					<span class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel" >
+						<li ng-repeat="item in userOptions">
+							<button ng-click="menuAction(item.action, child)"><i class="{{item.icon}}"></i> {{item.name}}</button>
+						</li>
+					</span>
+				</span>
+				
+			</div>
+			<!-- end .comment-header -->
+
+			<div class="indent" ng-show="!child.minimized">
+				<!-- Comment Body Text -->
+				<span ng-switch on="child.editMode" ng-init="child.editMode=false">
+
+					<!-- Edit Mode, Show a Text Box -->
+					<div ng-switch-when="true" >
+							<textarea
+								msd-elastic
+								class="comment-content"
+								ng-model="child.editText"
+								ng-init="child.editText=child.comment_content_raw" placeholder="What do you think..."
+								ng-disabled="child.editInProgress">
+							</textarea>
+							<div
+								ng-show="child.editError"
+								class="pull-left alert alert-danger error">
+								{{child.editError}}
+							</div>
+							<div class=pull-right>
+								<button
+									type="button"
+									class="gray drop"
+									ng-click="child.editMode=false" ng-disabled="child.editInProgress">
+									<i class="pwi-close"></i>
+								</button>
+								<button
+									type="button"
+									class="blue drop"
+									ng-click="editComment(child)"
+									ng-disabled="child.editInProgress">
+									<i class="pwi-disk"></i> Save
+								</button>
+							</div>
+						<div style='clear: both;'></div>
+					</div>
+
+					<!-- View Mode, Show Formatted Text -->
+					<div ng-switch-when="false" id="profile-description">   
+									<div
+										ng-show-more
+										class="showMoreHeight text comment_content"
+										ng-class={showMoreHeight:child.showMore}
+										ng-bind-html="child.trustedContent"
+										ng-init="trustHtml(child)">
+									</div>
+					</div>
+
+				</span>
+					<!-- end Comment Body Text -->
+
+				
+					<!-- Control Bar: Edit/Delete/Reply -->				
+
+					<!-- Reply -->				
+					<button ng-click="toggleReplyBox(child)" class="reply"
+						ng-init="child.replyBoxSelected = ''" ng-class="child.replyBoxSelected">
+						<i class="pwi-bubble"></i>
+						reply
+					</button>
+
+					<!-- Reply Box -->				
+					<div ng-show="child.replyBox">
+						<textarea
+							msd-elastic
+							class="comment-content"
+							ng-model="child.replyText"
+							placeholder="What do you think..."
+							ng-disabled="child.replyInProgress"
+							id="reply-{{child.comment_ID}}">
+						</textarea>
+						<div ng-show="child.replyError" class="pull-left alert alert-danger error" >
+							{{child.replyError}}
+						</div>
+						<div class="pull-right">
+							<button type="button" class="gray drop" ng-click="child.replyBox=false" ng-disabled="child.replyInProgress"><i class="pwi-close"></i></button>
+							<button type="button" class="blue drop" ng-click="replyComment(child)" ng-disabled="child.replyInProgress"><i class="pwi-bubble"></i> reply</button>
+						</div>
+					</div>
+				</div>
+										
+				<ul
+					data-ng-show="!child.minimized"
+					ng-class="{pregnant:child.children.length, indent:true}">
+				</ul>
+
+			</div>
+			</div>
+		</div>
+	</ul>
+	
+</div>

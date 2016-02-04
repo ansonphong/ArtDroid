@@ -1,78 +1,74 @@
 .comments {
-	font-size:15px;
+	button{
+		outline:none;
+	}
+	hr{
+		border-top-color: fade( @primary-color-medium, 25% );
+		margin-top:15px;
+		margin-bottom:15px;
+	}
 	button.drop{
 		margin-top:5px;
 	}
-	.comment_content {
-		padding:0 0 0px 56px;
+	textarea{
+		background: @global-background-color;
+		color: @global-foreground-color;
+		border: 1px solid @neutral-color-medium;
+		font-size: @font-size-md;
+		outline: none;
+		&:focus{
+			border-color: @global-foreground-color;
+		}
 	}
-
-	.comments-header{
-		z-index:1;
+	textarea.reply-input{
 		width:100%;
-		text-align:center;
-		height:1px;
-		margin:28px 0 28px;
-		background-color:@blue2;
+		padding:10px;
+		border-radius: 2px;
+		border:1px solid @primary-color-medium;
+		outline:none;
+		color: @primary-color-medium;
+		&.join-top-left{
+			border-radius: 0px 2px 2px 2px;
+		}
+		&:focus{
+			border:1px solid @primary-color-medium;
+		}
 	}
-
-	// adds bullets to left & right of header
-	h4:before, h4:after {
-		content:" • "
+	.admin-menu{
+		float:right;
 	}
-
-	h4{
-		z-index:2;
-
-		// offsets stream header over horizontal bar
-		.relative;
-		top:-18px;
-
-		// creates cut-out for header text
-		background-color:white;
-
-		// allows centering of text without white background covering full width
-		display:inline-block;
-
-		// makes whitespace left and right
-		padding: 0 12px;
-
-		color:@blue2;
+	.reply-input-controls{
+		margin-bottom:10px;
+		float:right;
 	}
-	// end fancy header
-
+	.comment-content {
+		padding: 10px 15px;
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;	
+	}
 	// removes UL padding from comment tree
-	.comments-tree {padding-left:0px;}
-
-	// comment sorting
-	.sort-comments{
-		text-align:center;
-		margin-bottom: 14px;
-		.sort-by{
-			color:#777;
-		}
-
-		.form-control{
-			display:inline-block;
-			width:auto;
-			margin: 0 10px;
-		}
+	.comments-tree{
+		padding-left:0px;
 	}
-
-
-	// comment header
 	.comment-header{
+		font-size:@font-size-sm;
+		button{
+			height:32px;
+		}
+		.unit{
+			display: inline-block;
+			vertical-align: top;
+			padding-top: 5px;
+		}
 		.expand,
-		.contract,
-		.up,
-		.down {
-			.pull-left;
+		.contract{
+			float:left;
 			border:none;
 			background:none;
-			.font-size(21);
+			font-size: @font-size-lg;
 			.pointer;
 		}
-
 		.expand,
 		.contract {
 			color:#ccc;
@@ -80,77 +76,32 @@
 				color:#777;
 			}
 		}
-
-		.comment-vote{
-			.pull-left;
-		}
-		.up,
-		.down {
-			height: 20px;
-			line-height:20px;
-			padding: 0 6px;
-			color:#777;
-			margin-top:-5px;
-			outline:none;
-			font-size:24px;
-
-		}
-
-		.up {
-		}
-		.down {
-			clear:left;
-		}
-
-		.up:hover, .up.selected:hover {
-			color:@blue2;
-		}
-		.up.selected {
-			color:#000;
-		}
-		.down:hover, .down.selected:hover {
-			color:@red1;
-		}
-		.down.selected {
-			color:#000;
-		}
-
-		.comment_author{
-			color:@red2;
-			.font-size(15);
+		.comment-author{
+			color:@secondary-color-medium;
+			font-size: @font-size-sm;
 		}
 	}
 
 	// clears each post from the previous
 	.indent {
+		padding-left:15px;
 		clear:both;
 	}
-
-	.title {
-
+	.comment {
+		border-left: 1px dotted @neutral-color-medium;
+		padding-left: 10px;
 	}
-
-	.comment .reply {
-		opacity:0;
-		transition:opacity 0.25s ease;
-	}
-
-	.comment:hover .reply {
-		opacity:1;
-	}
-
 	button.reply{
 		border:0;
-		background:#fff;
 		outline:none;
-		color:@gray5;
-
+		color:@neutral-color-medium;
+		&:hover{
+			color:@highlight-backgroud-color;
+		}
 		&.selected{
-			background:#000;
-			color:#fff;
-			opacity:1;
+			border-radius: 2px 2px 0 0;
+			color:@highlight-foreground-color;
+			background:@highlight-background-color;
 		}
 	}
-
 }
-

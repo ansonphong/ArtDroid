@@ -67,6 +67,14 @@ $pw_config = array(
 			),
 		),
 
+	'comments' => array(
+		'supported' => array(
+			'disqus',
+			'facebook',
+			'wordpress'
+			)
+		),
+
 	'wp_admin'	=>	array(
 		
 		'admin_bar_menu' => array(
