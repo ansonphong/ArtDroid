@@ -78,7 +78,8 @@
 					<span
 						class="time-ago"
 						title="{{ ::child.comment_date_gmt | date:'medium' }} GMT"
-						tooltip="{{ ::child.comment_date_gmt | date:'yyyy-MM-dd HH:mm:ss' }} GMT">
+						uib-tooltip="{{ ::child.comment_date_gmt | date:'yyyy-MM-dd HH:mm:ss' }} GMT"
+						tooltip-popup-delay="500">
 						{{ child.time_ago }}
 					</span>
 

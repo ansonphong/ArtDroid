@@ -5,11 +5,11 @@
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
-		[ '$scope', 'iOptionsData',
-		function( $scope, iOptionsData ){
+		[ '$scope', 'pwOptionsData',
+		function( $scope, pwOptionsData ){
 			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
 			$scope['images'] = {};
-			$scope['options'] = iOptionsData['options'];
+			$scope['options'] = pwOptionsData['options'];
 			$scope.fontOptions = <?php echo json_encode( theme_get_font_options() ); ?>;
 	}]);
 </script>
