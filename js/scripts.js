@@ -1,4 +1,5 @@
 ///// GOOGLE FONTS /////
+/*
 WebFontConfig = {
 google: { families: [ 'Roboto:100,300,400,700,300italic:latin' ] }
 };
@@ -11,6 +12,7 @@ wf.async = 'true';
 var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(wf, s);
 })();
+*/
 
 postworld.directive( 'themeHeader',
 	[ 'pwData', '$pw', '$log', '_', '$window',

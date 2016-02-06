@@ -5,17 +5,15 @@
 ?>
 <script>
 	postworldAdmin.controller( 'optionsDataCtrl',
-		[ '$scope', 'pwOptionsData',
-		function( $scope, pwOptionsData ){
+		function( $scope, $pw ){
 			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
 			$scope['images'] = {};
-			$scope['options'] = pwOptionsData['options'];
+			$scope['options'] = $pw.optionsMeta;
 			$scope.fontOptions = <?php echo json_encode( theme_get_font_options() ); ?>;
-	}]);
+	});
 </script>
 
 <div
-	pw-admin-options
 	ng-controller="optionsDataCtrl"
 	ng-cloak
 	class="theme postworld">

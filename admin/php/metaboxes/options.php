@@ -20,7 +20,9 @@
 					<div class="btn-group">
 						<label
 							ng-repeat="type in options.header.type"
-							class="btn" ng-model="pwMeta.header.type" btn-radio="type.slug">
+							class="btn"
+							ng-model="pwMeta.header.type"
+							uib-btn-radio="type.slug">
 							{{ type.name }}
 						</label>
 					</div>
