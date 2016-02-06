@@ -101,7 +101,7 @@
 								'ng_model'	=>	'pwOptions.footer.image.attachment_id',
 								'slug'			=>	'footerImage',
 								'label'			=>	'Footer Image',
-								'width'			=>	'400px',
+								'width'			=>	'300px',
 							 	));?>
 						<div class="space-4"></div>
 					</div>

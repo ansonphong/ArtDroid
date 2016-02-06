@@ -1,15 +1,11 @@
 <script>
-
 	///// CONTROLLER /////
 	postworldAdmin.controller('pwMetaboxOptionsCtrl',
-		['$scope', 'pwPostOptions', '_', 'pwOptionsData',
-			function( $scope, $pwPostOptions, $_, $pwOptionsData ) {
-
-			// Get tax outline by AJAX
-			$pwPostOptions.taxTerms( $scope, 'tax_terms' );
+		['$scope', 'pwPostOptions', '_', 
+			function( $scope, $pwPostOptions, $_ ) {
 
 			// Define Options
-			$scope['options'] = $pwOptionsData['options'];
+			$scope['options'] = $pw.optionsMeta;
 
 			$scope.getSelectedOption = function( objectPath ){
 				/* objectPath = 'galleries.template'
