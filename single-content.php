@@ -1,7 +1,5 @@
 <?php
-
-// Get theme options
-$theme_options = pw_get_option(array('option_name'=>PW_OPTIONS_THEME));
+$theme_options = pw_grab_option(PW_OPTIONS_THEME);
 
 $fields = array(
 	'ID',
@@ -53,6 +51,7 @@ $post_settings = array(
 		'header_type'			=>	$header_meta['type'],
 		'is_page_header_image' 	=>	( $header_meta['type'] === 'featured_image' && $post->post_type === 'page' ),
 		'device' 				=>	pw_device_meta(),
+		'wordpress_comments_enabled' => pw_grab_option( PW_OPTIONS_COMMENTS, 'wordpress.enable' ),
 		'comments_thirdparty'	=>	pw_get_comments_thirdparty( array( 'post_id' => $post->ID ) ),
 		'post_class'			=>	pw_post_class('', $post->ID),
 		),
