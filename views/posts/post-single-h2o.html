@@ -340,8 +340,7 @@
 
 		<a name="comments"></a>
 		<script type="text/javascript" charset="utf-8">
-		var load_comments = [];
-		load_comments['post_comments'] = {
+		pw.comments['single_post'] = {
 				query : {
 					//post_id : 0,
 					status: 'approve',
@@ -390,7 +389,7 @@
 		</script>
 		<div
 			streeview
-			pw-comments="post_comments"
+			pw-comments="single_post"
 			post-id="post.ID">
 		</div>
 
@@ -400,7 +399,7 @@
 		{% if post.post_type != 'page' %}
 			{% if comments %}
 				<div class="comments-thirdparty pad-x-lg">
-					{{ comments | safe }}
+					{{ comments_thirdparty | safe }}
 				</div>
 			{% endif %}
 		{% endif %}
