@@ -13,7 +13,7 @@
 			<!-- CATEGORIES -->
 			<div class="taxonomy unit" ng-repeat="term in post.taxonomy.category">
 				<a ng-href="{{ term.url }}" class="unit term"
-					tooltip="More in This Category" tooltip-placement="bottom">
+					uib-tooltip="More in This Category" tooltip-placement="bottom">
 					{{ term.name }}
 				</a>
 			</div>
@@ -21,7 +21,7 @@
 			<!-- TIME -->
 			<div
 				class="time unit"
-				tooltip="{{ post.post_date }}" tooltip-placement="bottom">
+				uib-tooltip="{{ post.post_date }}" tooltip-placement="bottom">
 				<time datetime="{{ post.post_date }}">
 					<i class="pwi-clock"></i> {{ post.time_ago }}
 				</time>

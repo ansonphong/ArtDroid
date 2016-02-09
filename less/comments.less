@@ -1,4 +1,6 @@
 .comments {
+	position: relative;
+
 	button{
 		outline:none;
 		.make-theme-button(
@@ -38,7 +40,9 @@
 		}
 	}
 	.post-controls{
-		float:right;
+		//float: right;
+		position: absolute;
+		right: 0;
 	}
 	.reply-input-controls{
 		margin-bottom:10px;
@@ -56,6 +60,7 @@
 	}
 	.comment-header{
 		font-size:@font-size-sm;
+		padding-bottom: 5px;
 		.unit{
 			display: inline-block;
 			vertical-align: top;
@@ -88,14 +93,18 @@
 
 	// clears each post from the previous
 	.indent {
-		padding-left:15px;
+		padding-left:10px;
 		clear:both;
 	}
 	.comment {
+		position: relative;
 		border-left: 1px dotted @neutral-color-medium;
 		padding-left: 10px;
 		p{
 			margin: 0 0 15px;
+			&:last-child{
+				margin-bottom: 5px;
+			}
 		}
 	}
 	button.button-reply{

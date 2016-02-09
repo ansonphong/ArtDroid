@@ -28,7 +28,7 @@
 	if( !is_front_page() ){ ?>
 		<a
 			href="<?php echo get_home_url();?>"
-			tooltip="Go to Home Page"
+			uib-tooltip="Go to Home Page"
 			tooltip-placement="bottom"
 			tooltip-popup-delay="1000">
 	<?php } ?>

@@ -8,7 +8,7 @@
 ?>
 <script>
 	postworld.controller( 'themeTermMetaCtrl',
-		[ '$scope', '_', function( $scope, $_ ){
+		[ '$scope', '$_', function( $scope, $_ ){
 		$scope.termMeta = <?php echo json_encode( $term_meta ); ?>;
 	}]);
 </script>
@@ -38,7 +38,7 @@
 				<?php if( _get( $term_meta, 'icon' ) ) : ?>
 					<i class="icon <?php echo $term_meta['icon'] ?>"></i> 
 				<?php elseif( $pw['view']['taxonomy']['name'] == 'post_tag' ) : ?>
-					<i class="icon pwi-tag" tooltip="tag" tooltip-placement="bottom"></i> 
+					<i class="icon pwi-tag" uib-tooltip="tag" tooltip-placement="bottom"></i> 
 				<?php endif; ?>
 				<a href="<?php echo $pw['view']['term']['url'] ?>">
 					<?php echo $pw['view']['term']['name'] ?>

@@ -1,5 +1,7 @@
 <?php
-	// TODO : Refactor in foreach
+	/**
+	 * @todo Refactor in foreach, using filterable icons, so themes can define which icons are used.
+	 */
 
 	// Post from vars
 	$post = pw_to_array($vars);
@@ -12,11 +14,16 @@
 	
 	///// IMAGE URL /////
 	// If the image URL is set
-	$image_url = ( $image_url_from_post != false ) ?
+	if( $image_url_from_post != false ){
 		// Use the image URL from the post
-		$image_url_from_post :
+		$image_url = $image_url_from_post;
+	}
+	else{
 		// Otherwise, get it manually
-		pw_get_featured_image_obj( $post['ID'] )['url'];
+		$image_obj = pw_get_featured_image_obj( $post['ID'] );
+		$image_url = $image_obj['url'];
+	}
+
 	if( $image_url == null )
 		$image_url = '';
 	else
@@ -77,7 +84,7 @@
 ?>
 
 <?php if( in_array( 'facebook', $share_networks ) ){ ?> 
-	<span class="pull-left" tooltip="Share on Facebook" tooltip-popup-delay="500">
+	<span class="pull-left" uib-tooltip="Share on Facebook" tooltip-popup-delay="500">
 		<a href="<?php echo $facebook_link; ?>" target="_blank">
 			<i class="icon pwi-facebook-square"></i>
 		</a>
@@ -85,7 +92,7 @@
 <?php } ?>
 
 <?php if( in_array( 'twitter', $share_networks ) ){ ?> 
-	<span class="pull-left" tooltip="Share on Twitter" tooltip-popup-delay="500">
+	<span class="pull-left" uib-tooltip="Share on Twitter" tooltip-popup-delay="500">
 		<a href="<?php echo $twitter_link; ?>" target="_blank">
 			<i class="icon pwi-twitter-square"></i>
 		</a>
@@ -93,7 +100,7 @@
 <?php } ?>
 
 <?php if( in_array( 'reddit', $share_networks ) ){ ?> 
-	<span class="pull-left" tooltip="Share on Reddit" tooltip-popup-delay="500">
+	<span class="pull-left" uib-tooltip="Share on Reddit" tooltip-popup-delay="500">
 		<a href="<?php echo $reddit_link; ?>" target="_blank">
 			<i class="icon pwi-reddit-square"></i>
 		</a>
@@ -101,7 +108,7 @@
 <?php } ?>
 
 <?php if( in_array( 'google_plus', $share_networks ) ){ ?> 
-	<span class="pull-left" tooltip="Share on Google Plus" tooltip-popup-delay="500">
+	<span class="pull-left" uib-tooltip="Share on Google Plus" tooltip-popup-delay="500">
 		<a href="<?php echo $google_plus_link; ?>" target="_blank">
 			<i class="icon pwi-google-plus-square"></i>
 		</a>
@@ -109,7 +116,7 @@
 <?php } ?>
 
 <?php if( in_array( 'pinterest', $share_networks ) ){ ?> 
-	<span class="pull-left" tooltip="Share on Pinterest" tooltip-popup-delay="500">
+	<span class="pull-left" uib-tooltip="Share on Pinterest" tooltip-popup-delay="500">
 		<a href="<?php echo $pinterest_link; ?>" target="_blank">
 			<i class="icon pwi-pinterest-square"></i>
 		</a>
