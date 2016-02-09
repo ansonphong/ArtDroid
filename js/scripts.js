@@ -15,7 +15,7 @@ s.parentNode.insertBefore(wf, s);
 */
 
 postworld.directive( 'themeHeader',
-	[ 'pwData', '$pw', '$log', '_', '$window',
+	[ '$pwData', '$pw', '$log', '$_', '$window',
 	function( $pwData, $pw, $log, $_, $window ){
 	return {
 		restrict: 'AE',
@@ -53,7 +53,7 @@ postworld.directive( 'artPost', [ function( $scope ){
 }]);
 
 postworld.controller( 'artPostCtrl',
-	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts', '$timeout',
+	[ '$scope', '$log', '$_', '$pw', '$pwData', 'pwPosts', '$timeout',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
@@ -287,7 +287,7 @@ postworld.directive( 'artFeed', [ function( $scope ){
 
 
 postworld.controller( 'artFeedCtrl',
-	[ '$scope', '$log', '_', '$pw', 'pwData', 'pwPosts',
+	[ '$scope', '$log', '$_', '$pw', '$pwData', 'pwPosts',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
 
 	///// UNIVERSALS /////
@@ -356,7 +356,7 @@ postworld.directive( 'themePostHeader', [ function( $timeout ){
  * If no image specified, element is hidden.
  */
 postworld.directive('themeModalHeaderImage',
-	[ '$pw', '_', '$log', 'pwData', function ( $pw, $_, $log, $pwData ) {
+	[ '$pw', '$_', '$log', '$pwData', function ( $pw, $_, $log, $pwData ) {
 	return {
 		restrict: 'A',
 		link: function( $scope, element, attrs ){
