@@ -81,19 +81,21 @@
 		left: 0;
 		right: 0;
 		opacity: 0;
-		//background-color: fade( @global-foreground-color, 0% );
+		background-color: fade( @highlight-foreground-color, 100% );
 	}
 	a{
+		border-bottom: 0;
 		&:hover, &:focus{
+
 			.color-overlay{
 				opacity: .15;
-				//transition-duration: @global-transition-time;
+				transition-duration: @global-transition-time;
 			}
 		}
 		&:active{
 			.color-overlay{
 				opacity: .5;
-				//transition-duration: @global-transition-time;
+				transition-duration: @global-transition-time;
 			}
 		}
 	}

@@ -228,7 +228,7 @@ $pw_config = array(
 						array(
 							'type'				=>	'select-input',
 							'label'				=>	'Link Target',
-							'description'		=>	'Target of the link when clicked',
+							'description'		=>	'Target of the link when clicked, used by sliders',
 							'meta_key'			=>	'link_target',
 							'icon'				=>	'pwi-target',
 							'options'			=>	array(
