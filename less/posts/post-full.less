@@ -68,9 +68,26 @@
 		padding-bottom:30px;
 		margin-bottom:0 !important;
 	
-		p:first-child{
-			img{
-				margin-top:0;
+		p{
+			margin-bottom:20px;
+
+			&:first-child{
+				img{
+					margin-top:0;
+				}
+			}
+		}
+
+		
+	}
+
+	blockquote{
+		padding: 10px 20px;
+		border-left: 5px solid @neutral-color-medium;
+		p{
+			&:last-child{
+				margin-bottom: 0;
+				padding-bottom: 0;
 			}
 		}
 	}

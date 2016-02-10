@@ -345,25 +345,7 @@
 }
 
 
-
-//FEED POST ITEMS
-
 .post{
-
-	// FEED POST HEADERS
-	// ============
-	h3 {
-		a{color:@red2;}
-		a:hover{color:@blue2; text-decoration:none;}
-
-		// padding for post content
-		margin-bottom:14px;
-	}
-
-	blockquote {
-		color:@gray6;
-		font-style: italic;
-	}
 
 	p {
 		margin: 0 0 20px;
@@ -376,7 +358,6 @@
 		}
 		&.audio iframe{
 			width:100%;
-			//height:120px;
 		}
 		.loading{
 			padding:20px;
@@ -386,46 +367,6 @@
 		.o-embed{
 			line-height:0; 
 		}
-	}
-
-	// VOTE WIDGET
-	.widget-vote{
-		position:relative;
-		width:56px;
-		height:56px;
-		float:left;
-		//clear:both;
-		// offsets top to line up with header
-		margin-bottom:10px;
-
-		text-align:center;
-		font-size:18px;
-		
-		button{
-			width:100%;
-			height:50%;
-			margin:0;
-			border: 0px transparent;
-			outline:none;
-			background:none;
-			color: #777;
-			font-size:32px;
-			line-height:32px;
-		}
-
-
-		button.selected{
-			color:#000;
-		}
-
-		// vote count
-		div {
-			position:absolute;
-			z-index:2;
-			top:43%;
-			width:100%;
-			.user-select;
-			}
 	}
 
 	.post-content{
@@ -453,126 +394,6 @@
 
 	
 
-}
-
-
-// THERE WAS AN EXTRA } HERE - DELETED IT, NOT SURE
-
-.post .post_actions {
-	float:right;
-	margin:0 10px 10px 0;
-
-	button.selected{
-		background:#444;
-		color:#fff;
-	}
-}
-
-
-// top right user interactions
-
-.post {
-	.interactions, header .dropdown {
-		.transition();
-		//transition:@global-transition-time all ease;
-		opacity:0;
-	}
-}
-
-.post:hover{
-	.interactions, header .dropdown {
-		opacity:1;
-	}
-}
-
-
-.post.view-full{
-	.interactions, header .dropdown {
-		opacity:1;
-	}
-}
-
-
-
-
-@event_block_height : 100px;
-
-.post .event, .post.event {
-	
-
-	.details{
-		background:@gray1;
-		border:1px solid @gray3;
-		min-height:@event_block_height;
-		box-sizing:border-box;
-		font-size:15px;
-		color:@gray7;
-	}
-
-	.date_block{
-		float:left;
-		box-sizing:border-box;
-		padding:12px;
-		margin:0 15px 0 0;
-		text-align: center;
-		background: @aqua2;
-		color:#fff;
-		
-		.month{
-			font-size:13px;
-			line-height:15px;
-			letter-spacing:0px;
-			font-weight:100;
-		}
-
-		.date{
-			font-size:50px;
-			line-height:39px;
-			font-weight: 900;
-			letter-spacing:2px;
-		}
-
-		.year{
-			font-size:24px;
-			line-height:21px;
-			letter-spacing:1px;
-		}
-
-	}
-
-	.post_excerpt, .event_meta{
-		display: block;
-		padding:0 30px 20px 105px;
-		line-height:20px;
-		b{
-			color:@gray5;
-			display: block;
-			margin-top: 11px;
-			margin-bottom: 5px;
-		}
-
-	}
-
-}
-
-.post.view-full .event{
-	.date_block{
-		border-radius: @meta-border-radius;
-	}
-	.details{
-		font-size:18px;
-		border:0;
-		background:none;
-	}
-	.event_meta{
-		line-height:24px;
-		padding: 0 30px 0px 110px;
-	}
-	[class^="icon-"]{
-		width:18px;
-		text-align: center;
-		display: inline-block;
-	}
 }
 
 

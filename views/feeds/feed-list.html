@@ -1,10 +1,7 @@
 <div
-	infinite-scroll='getNext()'
-	infinite-scroll-disabled='busy'
-	
-	infinite-scroll-distance="1"
-	>
-
+	infinite-scroll="getNext()"
+	infinite-scroll-disabled="busy"
+	infinite-scroll-distance="1">
 	<div
 		ng-repeat="post in posts()"
 		class="feed-item"
@@ -18,11 +15,10 @@
 		</div>
 	</div>
 	<div class="clearfix"></div>
-
 </div>
 <div class="clearfix"></div>
 <div
-	ng-show='busy'
+	ng-show="busy"
 	class="text-center">
 	<div
 		class="loading loading-animation"
