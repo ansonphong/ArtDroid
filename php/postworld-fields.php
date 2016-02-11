@@ -16,6 +16,7 @@ function theme_register_field_models(){
 	pw_register_post_field_model('list', array_merge( $micro_fields, array(
 		'image(xs)',
 		'image(sm)',
+		'stats',
 	)));
 
 	// LIST-H2O
