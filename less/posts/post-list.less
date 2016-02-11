@@ -4,6 +4,13 @@
 	position: relative;
 	margin:0;
 	background: @global-background-color;
+	
+	&.current-post{
+		a{
+			color: @secondary-color-light;
+			background: @secondary-color-dark;
+		}
+	}
 
 	a{
 		border-top:1px solid fade(@mid-color, 15%);
