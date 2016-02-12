@@ -39,7 +39,8 @@
 			<div
 				pw-include="panels/post-controls"
 				include-post="post"
-				include-enable-user="::user.isLoggedIn()">
+				include-enable-user="::user.isLoggedIn()"
+				ng-show="::user.isLoggedIn()">
 			</div>
 
 			<!-- CATEGORIES -->
