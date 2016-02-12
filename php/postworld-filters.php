@@ -109,20 +109,31 @@ add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 
 /**
  * Override feed settings in select contexts.
+ * @todo Cleanup logic pattern, make compatible for wider user and CPTs
  */
 add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
-	
+
+	$is_from_preset_feed = (bool) _get( $feed, 'id' );
+	$is_home_page = in_array( 'home', $pw['view']['context'] );
+	$is_year_archive = in_array( 'archive-year', $pw['view']['context'] );
+
 	// Force posts for home and year archives
-	if( in_array( 'home', $pw['view']['context'] ) ||
-		in_array( 'archive-year', $pw['view']['context'] ) )
+	/**
+	 * @todo Make this compatible for blog or CPT year archives
+	 */
+	if( ($is_home_page || $is_year_archive) && !$is_from_preset_feed ){
 		$feed['query']['post_type'] = 'post';
-	
+	}
+		
 	// Home page primary content
 	if( in_array( 'home', $pw['view']['context'] ) ){
-		$home_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home' ) );
-		if( _get( $home_options, 'content.primary' ) == 'blog' ){
+		$primary_home_content = pw_grab_option( PW_OPTIONS_THEME, 'home.content.primary' );
+		$primary_content_is_blog = ( $primary_home_content == 'blog' );
+		
+		if( $primary_content_is_blog &&
+			!$is_from_preset_feed ){
 			$feed['query']['post_type'] = 'blog';
 			$feed['view']['current'] = 'full';
 		}
