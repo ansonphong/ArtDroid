@@ -53,7 +53,6 @@ postworld.directive( 'artPost', [ function( $scope ){
 }]);
 
 postworld.controller( 'artPostCtrl',
-	[ '$scope', '$log', '$_', '$pw', '$pwData', 'pwPosts', '$timeout',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
@@ -270,7 +269,7 @@ postworld.controller( 'artPostCtrl',
 		}
 		*/
 	};
-}]);
+});
 
 postworld.directive( 'artFeed', [ function( $scope ){
 	return {
@@ -287,7 +286,6 @@ postworld.directive( 'artFeed', [ function( $scope ){
 
 
 postworld.controller( 'artFeedCtrl',
-	[ '$scope', '$log', '$_', '$pw', '$pwData', 'pwPosts',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts ){
 
 	///// UNIVERSALS /////
@@ -320,13 +318,13 @@ postworld.controller( 'artFeedCtrl',
 	];
 
 
-}]);
+});
 
 /**
  * Handles the header image classes/styles for the Post Header
  * Such as is used on the Blog
  */
-postworld.directive( 'themePostHeader', [ function( $timeout ){
+postworld.directive( 'themePostHeader', function( $timeout ){
 	return {
 		restrict: 'AE',
 		scope:{
@@ -349,14 +347,14 @@ postworld.directive( 'themePostHeader', [ function( $timeout ){
 			});
 		}
 	};
-}]);
+});
 
 /**
  * Places the image in the modal header, if specified.
  * If no image specified, element is hidden.
  */
 postworld.directive('themeModalHeaderImage',
-	[ '$pw', '$_', '$log', '$pwData', function ( $pw, $_, $log, $pwData ) {
+	function ( $pw, $_, $log, $pwData ) {
 	return {
 		restrict: 'A',
 		link: function( $scope, element, attrs ){
@@ -375,4 +373,4 @@ postworld.directive('themeModalHeaderImage',
 
 		}
 	};
-}])
+})
