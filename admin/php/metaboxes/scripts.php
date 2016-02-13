@@ -1,8 +1,7 @@
 <script>
 	///// CONTROLLER /////
 	postworldAdmin.controller('pwMetaboxOptionsCtrl',
-		['$scope', 'pwPostOptions', '$_', '$pw',
-			function( $scope, $pwPostOptions, $_, $pw ) {
+		function( $scope, $pwPostOptions, $_, $pw ) {
 
 			// Define Options
 			$scope['options'] = $pw.optionsMeta;
@@ -54,6 +53,6 @@
 				return false;
 			}
 
-	}]);
+	});
 
 </script>
