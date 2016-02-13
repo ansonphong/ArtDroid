@@ -1,7 +1,6 @@
 <?php // Filter $vars with : add_filter( PW_TERM_FEED . 'term-feed-list', 'function' ); ?>
 <script>
 	postworld.controller( '<?php echo $instance; ?>',
-		[ '$scope', '$pw', '$_', '$log',
 		function( $scope, $pw, $_, $log ){
 
 		$scope.vars = <?php echo json_encode($vars); ?>;
@@ -31,7 +30,7 @@
    			return false;
    		}
 
-	}]);
+	});
 </script>
 
 <div class="term-feed list pw-shortcode" ng-controller="<?php echo $instance; ?>" ng-cloak>
