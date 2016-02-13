@@ -10,9 +10,9 @@
 ?>
 <script>
 	postworld.controller( '<?php echo $slider['instance']; ?>',
-		[ '$scope', '$_', '$log', '$window', function( $scope, $_, $log, $window ){
+		function( $scope, $_, $log, $window ){
 		$scope.slider = <?php echo json_encode($slider); ?>;
-	}]);
+	});
 </script>
 <div
 	id="<?php echo $slider['id']; ?>"

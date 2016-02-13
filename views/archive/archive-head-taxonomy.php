@@ -8,9 +8,9 @@
 ?>
 <script>
 	postworld.controller( 'themeTermMetaCtrl',
-		[ '$scope', '$_', function( $scope, $_ ){
+		function( $scope, $_ ){
 		$scope.termMeta = <?php echo json_encode( $term_meta ); ?>;
-	}]);
+	});
 </script>
 <div
 	class="archive-head <?php if( $has_image ) echo 'term-has-image' ?>"
