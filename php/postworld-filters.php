@@ -37,28 +37,32 @@ function theme_pw_default_layout( $default_layout = array() ){
 /**
  * PRINT OPTIONS
  */
+add_filter( PW_GLOBAL_OPTIONS, 'pw_theme_global_options' );
 function pw_theme_global_options( $options = array() ){
 	// Print these options for access in Javascript context
 	$options['theme'] = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) );
 	return $options;
 }
-add_filter( PW_GLOBAL_OPTIONS, 'pw_theme_global_options' );
+
 
 /**
  * DEFAULT FEED OPTIONS
  */
+add_filter( PW_FEED_DEFAULT, 'pw_theme_feed_defaults_filter' );
+
 function pw_theme_feed_defaults_filter( $feed ){
 	// Set the default number of columns in the grid view
 	$feed = _set( $feed, 'options.views.grid.columns', 4 );
 	return $feed;
 }
-add_filter( PW_FEED_DEFAULT, 'pw_theme_feed_defaults_filter' );
+
 
 /**
  * LOAD GLOBAL OPTIONS
  * Adds variables to global Javascript options
  * available in Javascript at $pw.options
  */
+add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
 function theme_pw_global_options( $options ){
 	
 	// Adds theme options to Javascript $pw.options
@@ -89,11 +93,12 @@ function theme_pw_global_options( $options ){
 	
 	return $options;
 }
-add_filter( PW_GLOBAL_OPTIONS, 'theme_pw_global_options' );
+
 
 /**
  * FILTER OEMBED OPTIONS
  */
+add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
 function theme_filter_pw_oembed_get( $vars ){
 	// Takes the theme embed options
 	// And sets them as the default options for embeds
@@ -104,7 +109,7 @@ function theme_filter_pw_oembed_get( $vars ){
 	$vars = array_replace_recursive( $vars, $embed_options );
 	return $vars;
 }
-add_filter( 'pw_oembed_get', 'theme_filter_pw_oembed_get' );
+
 
 
 /**
