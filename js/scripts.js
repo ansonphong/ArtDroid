@@ -1,21 +1,4 @@
-///// GOOGLE FONTS /////
-/*
-WebFontConfig = {
-google: { families: [ 'Roboto:100,300,400,700,300italic:latin' ] }
-};
-(function() {
-var wf = document.createElement('script');
-wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-wf.type = 'text/javascript';
-wf.async = 'true';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(wf, s);
-})();
-*/
-
 postworld.directive( 'themeHeader',
-	[ '$pwData', '$pw', '$log', '$_', '$window',
 	function( $pwData, $pw, $log, $_, $window ){
 	return {
 		restrict: 'AE',
@@ -37,9 +20,9 @@ postworld.directive( 'themeHeader',
 			update();
 		}
 	};
-}]);
+});
 
-postworld.directive( 'artPost', [ function( $scope ){
+postworld.directive( 'artPost', function( $scope ){
 	return {
 		restrict: 'AE',
 		controller: 'artPostCtrl',
@@ -50,7 +33,7 @@ postworld.directive( 'artPost', [ function( $scope ){
 			//});
 		}
 	};
-}]);
+});
 
 postworld.controller( 'artPostCtrl',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
