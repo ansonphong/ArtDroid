@@ -1,12 +1,13 @@
 <masonry
-	masonry-options="{ gutter: 0, transitionDuration:0 }"
+	masonry-options="{ gutter: 0, transitionDuration:0, columnWidth:'.grid-width-controller' }"
 	reload-on-show="true"
 	preserve-order="true"
 	infinite-scroll='getNext()'
 	infinite-scroll-disabled='scrollDisabled'
 	infinite-scroll-use-document-bottom="true"
 	infinite-scroll-distance="1"
-	class="feed--grid grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}">
+	class="feed--grid grid-columns-{{ setDefault( 'feed().options.views.grid.columns', '5' ) }}" style="width:100%">
+	<div class="grid-width-controller"></div>
 	<div
 		art-feed
 		pw-colors

@@ -22,7 +22,7 @@ postworld.directive( 'themeHeader',
 	};
 });
 
-postworld.directive( 'artPost', function( $scope ){
+postworld.directive( 'artPost', function(){
 	return {
 		restrict: 'AE',
 		controller: 'artPostCtrl',
@@ -254,7 +254,7 @@ postworld.controller( 'artPostCtrl',
 	};
 });
 
-postworld.directive( 'artFeed', [ function( $scope ){
+postworld.directive( 'artFeed', function(){
 	return {
 		restrict: 'AE',
 		controller: 'artFeedCtrl',
@@ -265,7 +265,7 @@ postworld.directive( 'artFeed', [ function( $scope ){
 			//});
 		}
 	};
-}]);
+});
 
 
 postworld.controller( 'artFeedCtrl',
