@@ -130,6 +130,7 @@ $home_options = array(
 							'query' => array(
 								'post_type' => 'page',
 								'post_status' => 'publish',
+								'posts_per_page' => 0
 								),
 							));
 					?>
