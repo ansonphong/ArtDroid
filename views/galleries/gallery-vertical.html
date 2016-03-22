@@ -12,9 +12,9 @@
 					class="scroll-inner"
 					infinite-y-scroll
 					scroll-container="{{vars.yScrollContainer}}"
-					scroll-action="galleryGetNext( 2 )"
-					scroll-disabled="post.post_meta.pw_meta.gallery.template != 'vertical'"
+					scroll-action="galleryGetNext(2)"
 					scroll-distance="1000">
+					<!-- scroll-disabled="post.post_meta.pw_meta.gallery.template != 'vertical'" -->
 					<!-- GALLERY IMAGE -->
 					<div
 						class="gallery-image"
@@ -37,6 +37,10 @@
 								pw-smart-image="galleryPost.image"
 								smart-image-min-width="512"
 								smart-image-timeout="1000">
+
+							<div
+								class="image-spacer"
+								ng-show="post.post_meta.pw_meta.gallery.vertical.show_spacer">
 					</div>
 				</div>
 			</div>
