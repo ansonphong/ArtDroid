@@ -1,4 +1,19 @@
 <?php
+
+
+add_filter( 'theme_show_footer', 'theme_show_footer_options' );
+function theme_show_footer_options( $show_footer ){
+	$show_footer_switch = pw_grab_option(PW_OPTIONS_THEME,'footer.show_footer');
+	return ($show_footer && ($has_widgets || $show_footer_switch));
+}
+
+add_filter( 'theme_show_footer', 'theme_show_footer_gallery_home_page' );
+function theme_show_footer_gallery_home_page( $show_footer ){
+	// Hide the footer if on home content
+	$gallery_home_page = pw_grab_option( PW_OPTIONS_THEME, 'home.content.primary' ) === 'scrolling-gallery';
+	return ($show_footer && !($gallery_home_page && is_front_page()) );
+}
+
 /**
  * Pre-load posts which are injected into the pwData Angular service
  * Under pwData.posts
