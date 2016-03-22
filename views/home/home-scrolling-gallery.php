@@ -10,16 +10,29 @@ if( !empty($gallery_post_id) ){
 ?>
 
 <script>
-	postworld.controller('homeGallery', function($scope){
+	postworld.controller('homeGallery', function($scope,$_){
 		$scope.post = <?php echo json_encode($pw_post) ?>;
+		$scope.post = $_.set( $scope.post, 'post_meta.pw_meta.gallery.vertical.show_spacer', true );
 	});
 </script>
 
-<div class="post" ng-controller="homeGallery">
-	<!-- HORIZONTAL GALLERY -->
-	<div
-		pw-include="galleries/gallery-horizontal"
-		include-post="post"
-		include-enable="true"
-		class="full-page-width"></div>
+<div id="home-gallery" class="post" ng-controller="homeGallery">
+
+	<?php if( !is_mobile() ): ?>
+		<!-- HORIZONTAL GALLERY -->
+		<div
+			pw-include="galleries/gallery-horizontal"
+			include-post="post"
+			include-enable="true"
+			class="full-page-width"></div>
+	<?php else: ?>
+		<!-- VERTICAL GALLERY -->
+		<div
+			pw-include="galleries/gallery-vertical"
+			include-post="post"
+			include-enable="true"
+			include-vars="{yScrollContainer:'window'}"
+			class=""></div>
+	<?php endif ?>
+
 </div>
