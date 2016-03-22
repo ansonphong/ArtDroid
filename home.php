@@ -5,6 +5,7 @@ pw_header('home');
 
 <div id="page" class="page-home">
 	<?php
+
 	// HOME SLIDER
 	include locate_template( 'views/theme/slider-home.php' );
 	
@@ -26,6 +27,9 @@ pw_header('home');
 						),
 					)
 				));
+			break;
+		case 'scrolling-gallery':
+			$primary_content = pw_ob_include_template('views/home/home-scrolling-gallery.php');
 			break;
 	}
 

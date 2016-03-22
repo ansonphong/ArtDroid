@@ -31,6 +31,10 @@ $home_options = array(
 				'label' => 'Posts Feed',
 				'value' => 'posts',
 				),
+			array(
+				'label' => 'Scrolling Gallery',
+				'value' => 'scrolling-gallery',
+				),
 			),
 		),
 	);
@@ -115,6 +119,22 @@ $home_options = array(
 
 				<b>Primary Content</b>
 				<small>: What to show as the primary content on the home page.</small>
+
+				<div ng-if="pwOptions.home.content.primary == 'scrolling-gallery'">
+					<hr class="thin">
+					Use gallery from page:
+					<?php
+						echo pw_select_setting(array(
+							'setting' => 'post-id',
+							'ng_model' => 'pwOptions.home.content.post_id',
+							'query' => array(
+								'post_type' => 'page',
+								'post_status' => 'publish',
+								),
+							));
+					?>
+
+				</div>
 
 			</div>
 

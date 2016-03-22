@@ -41,7 +41,8 @@ $has_widgets = ( isset( $widget_count ) && $widget_count > 0 );
 $footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'footer' ) );
 ?>
 
-<?php if( $has_widgets || $footer_options['show_footer'] ): ?>
+
+<?php if( apply_filters('theme_show_footer',true) ): ?>
 	<!-- FOOTER -->
 	<footer
 		id="footer"
