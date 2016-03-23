@@ -106,6 +106,15 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 			),
 
+		'galleries' => array(
+			'horizontal' => array(
+				'horizontal-gallery-image-padding' => '10px 0 10px 10px',
+				),
+			'vertical' => array(
+				'vertical-gallery-image-padding' => '0 0 10px 0',
+				),
+			),
+
 		'pages'	=>	array(
 			'single'	=>	array(
 				'page-header-background'	=>	'@neutral-color-dark',
@@ -809,7 +818,7 @@ function theme_pw_styles_structure( $structure = array() ){
 
 			),
 
-		/*
+		
 		array(
 			"name"	=>	"Galleries",
 			"key"	=>	"galleries",
@@ -823,10 +832,27 @@ function theme_pw_styles_structure( $structure = array() ){
 					'values'	=>	array(
 						
 						array(
-							"name"			=>	"Viewport Height",
-							"key"			=>	"x-gallery-height",
+							"name"			=>	"Image Padding",
+							"key"			=>	"horizontal-gallery-image-padding",
 							"input"			=>	"text",
-							"description"	=>	"The percentage of the viewport height that the horizontal galleries use."
+							"description"	=>	"The space around an image in a horizontal gallery. (include 'px')"
+							),
+						
+						),
+					),
+
+
+				array(
+					'name'	=>	'Vertical Galleries',
+					'key'	=>	'vertical',
+					'icon'	=>	'pwi-arrows-v',
+					'values'	=>	array(
+						
+						array(
+							"name"			=>	"Image Padding",
+							"key"			=>	"vertical-gallery-image-padding",
+							"input"			=>	"text",
+							"description"	=>	"The space around an image in a vertical gallery. (include 'px')"
 							),
 						
 						),
@@ -836,7 +862,6 @@ function theme_pw_styles_structure( $structure = array() ){
 				),
 
 			),
-		*/
 
 		array(
 			"name"	=>	"Third Party Plugins",

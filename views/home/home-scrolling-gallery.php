@@ -12,7 +12,6 @@ if( !empty($gallery_post_id) ){
 <script>
 	postworld.controller('homeGallery', function($scope,$_){
 		$scope.post = <?php echo json_encode($pw_post) ?>;
-		$scope.post = $_.set( $scope.post, 'post_meta.pw_meta.gallery.vertical.show_spacer', true );
 	});
 </script>
 
