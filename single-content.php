@@ -37,6 +37,8 @@ $fields = array(
 	'gallery(ids,posts)'
 	);
 
+$pw_comment_form_options = array();
+
 ///// PRINT POST /////
 $post_settings = array(
 	'post_id'	=>	$post->ID,
@@ -52,6 +54,8 @@ $post_settings = array(
 		'is_page_header_image' 	=>	( $header_meta['type'] === 'featured_image' && $post->post_type === 'page' ),
 		'device' 				=>	pw_device_meta(),
 		'wordpress_comments_enabled' => ($post->post_type !== 'page' && pw_grab_option( PW_OPTIONS_COMMENTS, 'wordpress.enable' )),
+		'pw_comments_template'  =>	pw_comments_template( '/comments.php', false ),
+		'pw_comment_form' 		=>	pw_comment_form( $pw_comment_form_options, $post->ID ),
 		'comments_thirdparty'	=>	pw_get_comments_thirdparty( array( 'post_id' => $post->ID ) ),
 		'post_class'			=>	pw_post_class('', $post->ID),
 		),
