@@ -151,4 +151,114 @@
 		}
 	}
 
+	.comments-wordpress{
+		h3{
+			color: @neutral-color-medium;
+			font-size: @font-size-sm;
+			text-transform: uppercase;
+		}
+
+		ol.commentlist{
+    		clear: both;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		ul.children{
+			clear: both;
+			list-style: none;
+			padding: 0;
+		}
+
+		.comment{
+			border-left: 1px dotted @neutral-color-medium;
+			border-top: 1px solid fade(@neutral-color-medium,25%);
+			padding-left: 20px;
+			padding-top: 10px;
+		}
+
+		.comment-body{
+			padding: 0 0 20px;
+			position: relative;
+			.comment-author{
+				font-size: @font-size-sm;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: @neutral-color-medium;
+				margin-bottom: 10px;
+				a{
+					color: @primary-color-medium;
+				}
+			}
+			.comment-meta{
+				@media @sm-up{
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+			p{
+				margin: 0 0 10px;
+			}
+		}
+
+		a.comment-reply-link{
+			color: white;
+			background: fade(@neutral-color-medium, 50%);
+			display: inline-block;
+			padding: 3px 10px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+	}
+
+	form.comment-form, form#commentform{
+		p{
+			position: relative;
+			clear: both;
+			margin: 0px 0 10px;
+			&::after{
+				content: "";
+				clear: both;
+			}
+		}
+		textarea, input[type="text"]{
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;
+			padding: 28px 20px 10px;
+			background: @global-background-color;
+			border: 1px solid @neutral-color-medium;
+			color: @global-foreground-color;
+			font-size: @font-size-md;
+			&#comment{
+				padding-top: 10px;
+			}
+		}
+
+		label{
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: mix( @neutral-color-medium, @global-foreground-color, 50% );
+			text-transform: uppercase;
+			padding: 5px 20px;
+		}
+
+		input[type="submit"]{
+			.transition();
+			.background-hover(@neutral-color-medium,@primary-color-medium,@highlight-background-color);
+			.color-hover(white,white,@highlight-foreground-color);
+			.border-hover(1px, @neutral-color-light, @global-foreground-color, @highlight-foreground-color);
+			width: 100%;
+			padding: 10px;
+			font-size: @font-size-md;
+		}
+
+
+	}
+
 }

@@ -31,6 +31,36 @@
 	}
 }
 
+.color-hover( @color-base: white; @color-hover: @color-base; @color-active: @color-hover  ){
+	color: @color-base;
+	&:hover, &:focus{
+		color: @color-hover;
+	}
+	&:active{
+		color: @color-active;
+	}
+}
+    
+.background-hover( @background-base; @background-hover: @background-base; @background-active: @background-hover  ){
+	background: @background-base;
+	&:hover, &:focus{
+		background: @background-hover;
+	}
+	&:active{
+		background: @background-active;
+	}
+}
+
+.border-hover( @outline-width: 1px; @outline-color: @primary-color-medium; @outline-color-hover: @outline-color; @outline-color-active: @outline-color ){
+	outline: 0;
+	border: @outline-width solid @outline-color;
+	&:hover, &:focus{
+		border-color: @outline-color-hover;
+	}
+	&:active{
+		border-color: @outline-color-active;
+	}
+}
 
 button{
 	padding:6px 12px;
