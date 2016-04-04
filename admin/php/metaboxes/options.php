@@ -60,7 +60,9 @@
 			</th>
 			<td>
 				<?php echo pw_gallery_options( theme_gallery_options() ); ?>
+
 				<hr class="thin">
+
 			</td>
 		</tr>
 		<!-- POST CONTENT -->

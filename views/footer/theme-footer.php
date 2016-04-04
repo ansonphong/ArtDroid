@@ -37,12 +37,15 @@ else{
 	$foot_widgets = array('widgets' => '');
 }
 
+
 $has_widgets = ( isset( $widget_count ) && $widget_count > 0 );
-$footer_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'footer' ) );
+$show_footer_switch = apply_filters('theme_show_footer',true);
+
+$footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 ?>
 
 
-<?php if( apply_filters('theme_show_footer',true) ): ?>
+<?php if( $has_widgets && $show_footer_switch ): ?>
 	<!-- FOOTER -->
 	<footer
 		id="footer"

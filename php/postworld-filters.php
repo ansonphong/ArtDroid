@@ -1,10 +1,11 @@
 <?php
 
-
-add_filter( 'theme_show_footer', 'theme_show_footer_options' );
+/**
+ * @todo Make this check the post itself and check for distraction fre galleries
+ */
+add_filter( 'theme_show_footer', 'theme_show_footer_options', 1 );
 function theme_show_footer_options( $show_footer ){
-	$show_footer_switch = pw_grab_option(PW_OPTIONS_THEME,'footer.show_footer');
-	return ($show_footer && ($has_widgets || $show_footer_switch));
+	return $show_footer;
 }
 
 add_filter( 'theme_show_footer', 'theme_show_footer_gallery_home_page' );
