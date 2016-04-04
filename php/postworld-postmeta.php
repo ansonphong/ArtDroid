@@ -95,6 +95,10 @@ function theme_gallery_options( $vars = array() ){
 			'vertical'
 			),
 		'show'	=> array(
+			'immersion' => array(
+				'enable' => true,
+				'show_for' => array('frame','horizontal','vertical'),
+				),
 			'vertical' => array(
 				'show_title',
 				'show_caption',

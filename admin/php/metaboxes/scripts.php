@@ -12,22 +12,25 @@
 				 * And returns the option value from $scope.options with the same slug
 				 */
 				 // Get the value of the selected option
-				 var selectedOptionSlug = $_.getObj( $scope.pwMeta, objectPath );
+				 var selectedOptionSlug = $_.get( $scope.pwMeta, objectPath );
 				 // Get the array of options
-				 var options = $_.getObj( $scope['options'], objectPath );
+				 var options = $_.get( $scope['options'], objectPath );
 				 // Return the option where the slug equals the selected value
 				 return _.findWhere( options, { slug: selectedOptionSlug } );
 			};
 
 			$scope.viewSwitcher = function( view ){
+				var galleryTemplate = $scope.pwMeta.gallery.template;
 				switch( view ){
 					case 'inline' :
 					case 'horizontal' :
 					case 'vertical' :
-						if( $scope.pwMeta.gallery.template == view )
+						if( galleryTemplate == view )
 							return true;
 						break;
 				}
+
+
 				return false;
 			}
 
