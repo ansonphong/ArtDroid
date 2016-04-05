@@ -31,10 +31,6 @@ $home_options = array(
 				'label' => 'Posts Feed',
 				'value' => 'posts',
 				),
-			array(
-				'label' => 'Scrolling Gallery',
-				'value' => 'scrolling-gallery',
-				),
 			),
 		),
 	);
@@ -108,35 +104,14 @@ $home_options = array(
 					Display
 				</h3>
 				<small>
-					What to show on the home page.
+					What to show as the primary content of the home page by default, if no page is specified in the admin under <a href="<?php echo admin_url('options-reading.php') ?>"> <b>Settings › Reading</b></a>.
 				</small>
 				<hr class="thin">
-				
 				<select
 					ng-model="pwOptions.home.content.primary"
 					ng-options="option.value as option.label for option in homeOptions.content.primary">
 				</select>
-
 				<b>Primary Content</b>
-				<small>: What to show as the primary content on the home page.</small>
-
-				<div ng-if="pwOptions.home.content.primary == 'scrolling-gallery'">
-					<hr class="thin">
-					Use gallery from page:
-					<?php
-						echo pw_select_setting(array(
-							'setting' => 'post-id',
-							'ng_model' => 'pwOptions.home.content.post_id',
-							'query' => array(
-								'post_type' => 'page',
-								'post_status' => 'publish',
-								'posts_per_page' => 1000
-								),
-							));
-					?>
-
-				</div>
-
 			</div>
 
 			<!-- BLOCKS -->
