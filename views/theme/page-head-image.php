@@ -20,6 +20,9 @@
 		class="theme-header"
 		pw-height="<?php echo $header_meta['featured_image']['height']['method']; ?>"
 		height-value="<?php echo $header_meta['featured_image']['height']['value']; ?>">
+		<div class="gradient-overlay">
+			
+		</div>
 		<div
 			pw-smart-image="::headerImage.image"
 			pw-parallax
