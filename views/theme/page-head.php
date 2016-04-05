@@ -8,6 +8,8 @@
 		case 'featured_image':
 			include locate_template("views/theme/page-head-image.php");
 			break;
+		case 'none':
+			break;
 		default:
 			include locate_template("views/theme/page-head-default.php");
 			break;

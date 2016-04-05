@@ -1,5 +1,33 @@
 <?php
 
+
+add_filter('pw_options_meta','theme_options_meta');
+function theme_options_meta($options_meta){
+
+	$options_meta['header']['type'] = array(
+			array(
+				'slug' => 'default',
+				'name' => _x( 'Default', 'default option', 'postworld' ),
+			),
+			array(
+				'slug' => 'featured_image',
+				'name' => __( 'Featured Image', 'postworld' ),
+			),
+			array(
+				'slug' => 'slider',
+				'name' => __( 'Slider', 'postworld' ),
+			),
+			array(
+				'slug' => 'none',
+				'name' => __( 'None', 'postworld' ),
+			),
+		);
+
+	return $options_meta;
+
+}
+
+
 /**
  * @todo Make this check the post itself and check for distraction fre galleries
  */
