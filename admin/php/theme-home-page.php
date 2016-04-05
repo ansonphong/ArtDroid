@@ -20,31 +20,10 @@ $home_slider_settings = array(
 		),
 	);
 
-$home_options = array(
-	'content' => array(
-		'primary' => array(
-			array(
-				'label' => 'Blog Feed',
-				'value' => 'blog'
-				),
-			array(
-				'label' => 'Posts Feed',
-				'value' => 'posts',
-				),
-			),
-		),
-	);
-
 ?>
 
-<script>
-	postworld.controller('themAdminHome', function($scope){
-		$scope.homeOptions = <?php echo json_encode( $home_options ) ?>;
-	});
-</script>
-<div class="row" ng-controller="themAdminHome">
+<div class="row">
 	<div class="col-lg-6 pad-col-lg">
-
 
 		<!--///// HOME /////-->
 		<div class="well">
@@ -96,24 +75,6 @@ $home_options = array(
 	<div class="col-lg-6 pad-col-lg">
 	
 		<div class="well">
-
-			<!-- DISPLAY -->
-			<div class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-eye"></i></span>
-					Display
-				</h3>
-				<small>
-					What to show as the primary content of the home page by default, if no page is specified in the admin under <a href="<?php echo admin_url('options-reading.php') ?>"> <b>Settings › Reading</b></a>.
-				</small>
-				<hr class="thin">
-				<select
-					ng-model="pwOptions.home.content.primary"
-					ng-options="option.value as option.label for option in homeOptions.content.primary">
-				</select>
-				<b>Primary Content</b>
-			</div>
-
 			<!-- BLOCKS -->
 			<!-- ng-show="pwOptions.home.content.primary == 'posts'" -->
 			<div class="well">

@@ -151,9 +151,6 @@ function pw_theme_options_filter( $options ){
 			'in_main_menu_gray'	=>	true,
 			),
 		'home'	=>	array(
-			'content' => array(
-				'primary' => 'posts',
-				),
 			'feed'	=>	array(
 				'blocks'	=>	array(
 					'offset' => 3,

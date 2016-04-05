@@ -148,6 +148,7 @@ function theme_feed_override_filter( $feed ){
 		$feed['query']['post_type'] = 'post';
 	}
 		
+	/*
 	// Home page primary content
 	if( in_array( 'home', $pw['view']['context'] ) ){
 		$primary_home_content = pw_grab_option( PW_OPTIONS_THEME, 'home.content.primary' );
@@ -159,6 +160,8 @@ function theme_feed_override_filter( $feed ){
 			$feed['view']['current'] = 'full';
 		}
 	}
+	*/
+	
 	return $feed;
 }
 
