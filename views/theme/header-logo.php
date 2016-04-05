@@ -15,9 +15,11 @@
 	//pw_log( 'logo post', $logo_post );
 ?>
 <script>
+	
 	postworld.controller( 'headerLogo', function( $scope ){
 		$scope.logoPost = <?php echo json_encode( $logo_post ) ?>;
 	});
+	
 </script>
 <div
 	id="logo"
