@@ -135,32 +135,30 @@ function theme_filter_pw_oembed_get( $vars ){
 add_filter( PW_FEED_OVERRIDE, 'theme_feed_override_filter' );
 function theme_feed_override_filter( $feed ){
 	global $pw;
+	global $post;
 
 	$is_from_preset_feed = (bool) _get( $feed, 'id' );
 	$is_home_page = in_array( 'home', $pw['view']['context'] );
 	$is_year_archive = in_array( 'archive-year', $pw['view']['context'] );
 
-	// Force posts for home and year archives
 	/**
+	 * Force posts for home and year archives
+	 *
 	 * @todo Make this compatible for blog or CPT year archives
 	 */
 	if( ($is_home_page || $is_year_archive) && !$is_from_preset_feed ){
 		$feed['query']['post_type'] = 'post';
 	}
-		
-	/*
-	// Home page primary content
-	if( in_array( 'home', $pw['view']['context'] ) ){
-		$primary_home_content = pw_grab_option( PW_OPTIONS_THEME, 'home.content.primary' );
-		$primary_content_is_blog = ( $primary_home_content == 'blog' );
-		
-		if( $primary_content_is_blog &&
-			!$is_from_preset_feed ){
-			$feed['query']['post_type'] = 'blog';
-			$feed['view']['current'] = 'full';
-		}
+	
+	/**
+	 * Adjust the feed settings when setting the posts template
+	 * On a regular page.
+	 */
+	$wp_page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+	if( is_page() && $wp_page_template === 'posts.php' ){
+		unset($feed['query']['pagename']);
+		$feed['query']['post_type'] = 'post';
 	}
-	*/
 	
 	return $feed;
 }
