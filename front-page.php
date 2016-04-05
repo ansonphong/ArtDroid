@@ -1,45 +1,43 @@
 <?php
+global $pw;
+global $post;
 $home_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home' ) );
-pw_header('home');
-?>
+pw_header();
 
-<div id="page" class="page-home">
-	<?php
-	// HOME SLIDER
+/**
+ * SLIDER
+ */
+if( _get( $home_options, 'slider.show_slider' ) ){
 	include locate_template( 'views/theme/slider-home.php' );
-	
-	switch( _get( $home_options, 'content.primary' ) ){
-		case 'posts':
-			$primary_content = pw_ob_include_template('views/archive/feed.php');
-			break;
-		case 'blog':
-			$primary_content = pw_feed(array(
-				'echo' => false,
-				'aux_template'	=>	'seo-list',
-				'feed' => array(
-					'view' => array(
-						'current' => 'full'
-						),
-					'query' => array(
-						'post_type' => 'blog',
-						'post_status' => 'publish'
-						),
-					)
-				));
-			break;
+}
+
+$show_on_front = get_option( 'show_on_front' );
+
+
+/**
+ * POSTS FEED
+ */
+if( $show_on_front == 'posts' || is_home()  ){
+	//$pw['query']['post_type'] = 'post';
+	$primary_content = pw_ob_include_template('views/archive/feed.php');
+	pw_print_layout( array( 'content' => $primary_content ) );
+}
+
+/**
+ * PAGE
+ */
+else if( $show_on_front == 'page' ){
+	// If Blog page is selected
+	if( get_post_meta( $post->ID, '_wp_page_template', true ) === 'blog.php' ){
+		$primary_content = pw_ob_include_template( 'views/archive/feed-blog.php' );
+		pw_print_layout( array( 'content' => $primary_content ) );
 	}
+	// Otherwise show the page
+	else
+		include locate_template('single-content.php');
+}
 
-	?>
-	<div id="content" class="layout full page-bounds">
-		<?php
-			$layout_args = array(
-				'content'	=>	$primary_content,
-				);
-			pw_print_layout( $layout_args );
-		?>
-	</div>
-</div>
-
-<?php pw_footer('home'); ?>
+pw_footer();
+?>
 
 <!-- Generated in <?php timer_stop(1); ?> seconds... -->
