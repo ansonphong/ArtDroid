@@ -7,7 +7,7 @@ $redirect_url = get_post_meta( $post->ID, 'redirect_url', true );
 if( !empty($redirect_url) )
 	wp_redirect( $redirect_url, '301' );
 
-pw_header('single');
+pw_header();
 
 /**
  * If the current post is Password Protected

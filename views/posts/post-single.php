@@ -179,7 +179,7 @@
 
 		<?php if( $device['is_mobile'] ): ?>
 			<?php if( $post['post_type'] !== 'page' ): ?>
-				<?php if( !empty( _get($post,'taxonomy.post_tag') ) ): ?>
+				<?php if( !empty( $post['taxonomy']['post_tag'] ) ): ?>
 					<div class="taxonomy-footer pad-x-lg">
 						<!-- TAGS -->
 						<div class="taxonomy tags">
