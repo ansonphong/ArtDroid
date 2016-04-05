@@ -33,43 +33,49 @@ if( in_array( 'search', $pw['view']['context'] ) )
 <div
 	id="pw-background-secondary"
 	pw-background="secondary"></div>
-	
+
 <div id="background"></div>
-<!-- HEADER / NAVIGATION -->
-<header
-	theme-header
-	id="header"
-	class="<?php if($show_search) echo 'show-search'?>"
-	pw-ui>
-	<div class="header-inner page-width">
-		<div class="header-row">
-			<?php include locate_template( 'views/theme/header-logo.php' ); ?>
-			<?php
-				if( is_desktop() )
-					include locate_template( 'views/theme/header-menu-desktop.php' );
-				else
-					include locate_template( 'views/theme/header-menu-mobile.php' );
-			?>
+
+
+<?php if( !defined('THEME_HIDE_NAV') ): ?>
+
+	<!-- HEADER / NAVIGATION -->
+	<header
+		theme-header
+		id="header"
+		class="<?php if($show_search) echo 'show-search'?>"
+		pw-ui>
+		<div class="header-inner page-width">
+			<div class="header-row">
+				<?php include locate_template( 'views/theme/header-logo.php' ); ?>
+				<?php
+					if( is_desktop() )
+						include locate_template( 'views/theme/header-menu-desktop.php' );
+					else
+						include locate_template( 'views/theme/header-menu-mobile.php' );
+				?>
+			</div>
 		</div>
-	</div>
-	<div class="clearfix"></div>
-</header>
+		<div class="clearfix"></div>
+	</header>
 
-<?php
-	/**
-	 * Include the mobile menu, which is shown
-	 * When the menu button is clicked.
-	 */
-	if( !is_desktop() ):
-		include locate_template( 'views/theme/menu-mobile.php' ); 
-	endif;
-?>
+	<?php
+		/**
+		 * Include the mobile menu, which is shown
+		 * When the menu button is clicked.
+		 */
+		if( !is_desktop() ):
+			include locate_template( 'views/theme/menu-mobile.php' ); 
+		endif;
+	?>
 
-<!-- PRIMARY MENU SPACER -->
-<div id="primary-menu-spacer"></div>
+	<!-- PRIMARY MENU SPACER -->
+	<div id="primary-menu-spacer"></div>
 
-<!-- LINE -->
-<!--<div id="header-border"></div>-->
+	<!-- LINE -->
+	<!--<div id="header-border"></div>-->
+
+<?php endif ?>
 
 <!-- POSTWORLD GLOBALS -->
 <div pw-globals="pw"></div>
