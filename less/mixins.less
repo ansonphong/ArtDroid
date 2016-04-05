@@ -81,3 +81,9 @@
 		( @dropshadow * .9 ) ( @dropshadow * .9 ) 0 @color,
 		@dropshadow @dropshadow 0 @border-color;
 };
+
+.gradient-2-color( @deg: 0deg; @color1: #000; @color1-position: 0%; @color2: #fff; @color2-position: 100%;  ){
+	background: -moz-linear-gradient(	@deg, @color1 @color1-position, @color2 @color2-position); /* FF3.6-15 */
+	background: -webkit-linear-gradient(@deg, @color1 @color1-position, @color2 @color2-position); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(		@deg, @color1 @color1-position, @color2 @color2-position); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
