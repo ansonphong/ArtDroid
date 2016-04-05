@@ -142,9 +142,15 @@
 			 * as they already display a header.
 			 */
 			$is_page_header_image = ( $header_meta['type'] === 'featured_image' && $post['post_type'] === 'page' );
-			if( !$is_page_header_image ): ?>
-			<?php include 'post-single--header.php' ?>
-		<?php endif ?>
+
+			// Boolean, whether the header is switched off.
+			$header_type_none = ($header_meta['type'] == 'none');
+
+			// Conditionally Show the header
+			if( !$is_page_header_image && !$header_type_none ):
+				include 'post-single--header.php';
+			endif;
+		?>
 
 		<?php if( !empty($post['post_content']) ): ?>
 			<!-- CONTENT -->
