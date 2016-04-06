@@ -113,6 +113,12 @@ function theme_pw_styles_default( $styles = array() ){
 			'vertical' => array(
 				'vertical-gallery-image-padding' => '0 0 10px 0',
 				),
+			'frame' => array(
+				'frame-gallery-image-padding' => '20px',
+				),
+			'inline' => array(
+				'inline-gallery-image-padding' => '20px',
+				),
 			),
 
 		'pages'	=>	array(
@@ -853,6 +859,40 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"vertical-gallery-image-padding",
 							"input"			=>	"text",
 							"description"	=>	"The space around an image in a vertical gallery. (include 'px')"
+							),
+						
+						),
+					),
+
+
+				array(
+					'name'	=>	'Frame Galleries',
+					'key'	=>	'frame',
+					'icon'	=>	'pwi-square-medium',
+					'values'	=>	array(
+						
+						array(
+							"name"			=>	"Image Padding",
+							"key"			=>	"frame-gallery-image-padding",
+							"input"			=>	"text",
+							"description"	=>	"The space around an image in a frame gallery. (include 'px')"
+							),
+						
+						),
+					),
+
+
+				array(
+					'name'	=>	'Inline/Grid Galleries',
+					'key'	=>	'frame',
+					'icon'	=>	'pwi-grid',
+					'values'	=>	array(
+						
+						array(
+							"name"			=>	"Image Padding",
+							"key"			=>	"inline-gallery-image-padding",
+							"input"			=>	"text",
+							"description"	=>	"The space around an image in an inline grid gallery. (include 'px')"
 							),
 						
 						),
