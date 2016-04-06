@@ -4,7 +4,7 @@
 	pw-timeout="{{ post.feed.order }}"
 	timeout-multiplier="333"
     timeout-action="addClass('fadein-on')">
-    <a href="{{ post.post_permalink }}">
+    <a href="{{ post.post_permalink }}" target="{{post.post_meta.link_target}}">
 	    <div
 	    	class="background-image"
 	    	style="background-image:url({{ post.image.sizes.lg.url }});">
