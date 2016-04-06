@@ -1,0 +1,38 @@
+a.shortcode--button{
+	@color: mix( @primary-color-medium, @global-foreground-color, 50% );
+	@background: mix( @primary-color-medium, @global-background-color, 50% );
+
+	.transition();
+	.background-hover( @background, @primary-color-dark, @primary-color-light );
+	.color-hover( @color, @primary-color-light, @primary-color-dark );
+
+	display: inline-block;
+	background: @background;
+	color: @color;
+	text-decoration: none;
+	border-radius: @border-radius-md;
+
+	.icon{
+		color: @color;
+		margin-right: 10px;
+	}
+
+
+
+	&.size--small{
+		padding: 5px 15px;
+		font-size: @font-size-md;
+	}
+	&.size--, &.size--medium{
+		padding: 10px 25px;
+		font-size: @font-size-lg;
+
+	}
+	&.size--large{
+
+		padding: 10px 25px;
+		font-size: @font-size-xl;
+
+	}
+
+}
