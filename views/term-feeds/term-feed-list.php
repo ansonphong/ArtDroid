@@ -33,7 +33,7 @@
 	});
 </script>
 
-<div class="term-feed list pw-shortcode" ng-controller="<?php echo $instance; ?>" ng-cloak>
+<div class="term-feed term-feed--list pw-shortcode" ng-controller="<?php echo $instance; ?>" ng-cloak>
 	<div ng-repeat="feedTerm in ::rootTerms()">
 		<a ng-href="{{ ::feedTerm.term.url }}">
 			<div
