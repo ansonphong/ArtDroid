@@ -1,5 +1,5 @@
 ////////// LIST //////////
-.term-feed.grid{
+.term-feed.term-feed--grid{
 	//@term-feed-grid-gutter: 30px;
 	//margin:@term-feed-grid-gutter;
 
@@ -37,13 +37,12 @@
 
 		h2{
 			transition: all @global-transition-time ease;
-			//font-family: inherit;
 			color:@global-foreground-color;
 			position:absolute;
 			z-index:2;
 			margin:10px 10px;
 			padding:20px;
-			background:fade(@global-background-color, 80%);
+			background:fade(@global-background-color, 66%);
 			border-radius: @border-radius-sm;
 		}
 		.number{
@@ -74,6 +73,13 @@
 		overflow:hidden;
 	}
 
+	.gradient-overlay{
+		.fill-space();
+		.gradient-2-color( 165deg, fade(@global-background-color,66%), 33%, fade(@global-background-color,0%), 100% );
+		z-index: 1;
+
+	}
+
 	.feed-term-post{
 		width:20%;
 		height:50%;
@@ -85,7 +91,7 @@
 }
 
 ////////// LIST //////////
-.term-feed.list{
+.term-feed.term-feed--list{
 	@term-feed-grid-gutter: 10px;
 
 	background-color: @global-background-color;
