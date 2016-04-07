@@ -21,6 +21,7 @@ if( $has_cover_image ):
 		class="blog-head--image"
 		pw-height="<?php echo $blog['main_page']['header']['height']['method'] ?>"
 		height-value="<?php echo $blog['main_page']['header']['height']['value'] ?>">
+		<div class="gradient-overlay"></div>
 		<div
 			pw-smart-image="blogCoverImage.image"
 			pw-parallax

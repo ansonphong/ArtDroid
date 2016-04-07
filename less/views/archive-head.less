@@ -12,18 +12,22 @@
 	}
 	&.has-cover-image{
 		.archive-head{
-			//padding:0;
 			position: absolute;
 			bottom: 0;
 			width: 100%;
-			//opacity: .5;
-			background: transparent; //fade(@global-background-color, 33%); 
+			z-index: 2;
+			background: transparent;
 		}
 	}
 	.blog-head--image{
 		min-height:300px;
 		//background-size:cover;
 		//background-position:center;
+		.gradient-overlay{
+			.fill-space();
+			.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 66% );
+			z-index: 1;
+		}
 	}
 }
 
