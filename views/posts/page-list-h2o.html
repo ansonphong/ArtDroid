@@ -8,18 +8,20 @@
 	    <div
 	    	class="background-image"
 	    	style="background-image:url({{ post.image.sizes.lg.url }});">
-				<h2>
-					{% if post.post_meta.pw_meta.icon.class %}
-						<i class="icon {{ post.post_meta.pw_meta.icon.class }}"></i>
-					{% endif %}
-					{{ post.post_title }}
-				</h2>
+	    	<div class="gradient-overlay"></div>
+			<h2>
+				{% if post.post_meta.pw_meta.icon.class %}
+					<i class="icon {{ post.post_meta.pw_meta.icon.class }}"></i>
+				{% endif %}
+				{{ post.post_title }}
+			</h2>
 			{% if post.post_excerpt %}
 				<br>
 				<div class="post-excerpt">
 					{{ post.post_excerpt }}
 				</div>
 			{% endif %}
+
 	    </div>
     </a>
 </article>
