@@ -111,23 +111,31 @@
 
 .post.view-list-h2o{
 	width:100%;
+	position: relative;
 
 	a{
 		.transition();
 		display:block;
 		margin: 0 10px 10px 0;
-		border:1px solid transparent;
+		border:2px solid transparent;
 		border-radius: @border-radius-sm;
 		overflow: hidden;
 
 		&:hover, &:active{
 			text-decoration: none;
-			border:1px solid @global-foreground-color;
+			border:2px solid @global-foreground-color;
 			h2{
 				background: fade( @global-foreground-color, 80% );
 				color: @global-background-color;
+				
 			}
 		}
+	}
+	.gradient-overlay{
+		.fill-space();
+		.gradient-2-color( 165deg, fade(@global-background-color,66%), 33%, fade(@global-background-color,0%), 100% );
+		z-index: 1;
+		margin: 1px;
 	}
 	.background-image{
 		min-height:200px;
@@ -135,12 +143,16 @@
 		background-position: center; 
 		background-repeat: no-repeat;
 	}
+	h2{
+		background: fade( @global-background-color, 50% );
+	}
 	h2, .post-excerpt{
 		.transition();
+		position: relative;
+		z-index: 2;
 		display:inline-block;
 		padding: 10px 20px;
 		margin: 10px 10px 0;
-		background: fade( @global-background-color, 80% );
 		color: @global-foreground-color;
 		border-radius: @border-radius-sm;
 	}
@@ -148,4 +160,5 @@
 		margin-top: 0;
 		padding: 5px 20px;
 	}
+
 }

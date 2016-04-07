@@ -37,6 +37,14 @@
 	.center-vertical();
 }
 
+.fill-space(){
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
 ///// GRID SIZER /////
 .grid-sizer-mix( @grid-width; @width-multiplier: 2; @height: 300px ){
 	.grid-sizer( @grid-width );
@@ -87,3 +95,5 @@
 	background: -webkit-linear-gradient(@deg, @color1 @color1-position, @color2 @color2-position); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(		@deg, @color1 @color1-position, @color2 @color2-position); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+
+
