@@ -174,7 +174,7 @@ function theme_feed_override_filter( $feed ){
 	 *
 	 * @todo Make this compatible for blog or CPT year archives
 	 */
-	if( ($is_home_page || $is_year_archive) && !$is_from_preset_feed ){
+	if( $is_year_archive && !$is_from_preset_feed ){
 		$feed['query']['post_type'] = 'post';
 	}
 	
