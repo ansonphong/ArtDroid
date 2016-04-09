@@ -7,7 +7,7 @@ pw_feed(array(
 			),
 		'query' => array(
 			'post_type' => 'blog',
-			'post_status' => 'publish'
+			'post_status' => 'publish',
 			),
 		)
 	));
