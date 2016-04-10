@@ -1,6 +1,5 @@
 <?php
 
-
 add_filter('pw_options_meta','theme_options_meta');
 function theme_options_meta($options_meta){
 
@@ -182,11 +181,13 @@ function theme_feed_override_filter( $feed ){
 	 * Adjust the feed settings when setting the posts template
 	 * On a regular page.
 	 */
+	/*
 	$wp_page_template = get_post_meta( $post->ID, '_wp_page_template', true );
 	if( is_page() && $wp_page_template === 'posts.php' ){
 		unset($feed['query']['pagename']);
 		$feed['query']['post_type'] = 'post';
 	}
+	*/
 	
 	return $feed;
 }
