@@ -143,7 +143,12 @@ function theme_include_scripts(){
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 	// MAIN SCRIPTS
-	wp_enqueue_script( 'scripts-main', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery', 'jquery-ui-core') , $theme_version , true );
+	wp_enqueue_script(
+		'theme-scripts',
+		get_stylesheet_directory_uri() . '/js/scripts.js',
+		array('jquery', 'jquery-ui-core'),
+		$theme_version,
+		true );
 }
 
 ////////// INIT WORDPRES //////////
@@ -333,3 +338,5 @@ add_theme_support( 'automatic-feed-links' );
 
 add_post_type_support( 'post', 'excerpt' );
 add_post_type_support( 'blog', 'excerpt' );
+
+

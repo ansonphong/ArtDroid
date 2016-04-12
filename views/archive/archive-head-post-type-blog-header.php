@@ -2,16 +2,18 @@
 $cover_image_id = $blog['main_page']['cover_image']['attachment_id'];
 $has_cover_image = !empty( $cover_image_id );
 $wrapper_class = ( $has_cover_image ) ? "has-cover-image" : "";
+?>
 
-if( $has_cover_image ):
-	$cover_image_post = pw_get_post( $cover_image_id, 'image' );
-	?>
-<script type="text/javascript">
-	postworld.controller('blogCoverImageCtrl', function($scope){
-		$scope.blogCoverImage = <?php echo json_encode($cover_image_post); ?>;
-	});
-</script>
-<?php endif ?>
+<?php if( $has_cover_image ): ?>
+	<?php $GLOBALS['theme_cover_image_post'] = pw_get_post( $cover_image_id, 'image' ); ?>
+	<?php add_action('wp_print_footer_scripts', function(){ ?>
+		<script type="text/javascript">
+			postworld.controller('blogCoverImageCtrl', function($scope){
+				$scope.blogCoverImage = <?php echo json_encode($GLOBALS['theme_cover_image_post']); ?>;
+			});
+		</script>
+	<?php }); ?>
+<?php endif; ?>
 
 <div class="blog-head--wrapper <?php echo $wrapper_class ?>">
 	

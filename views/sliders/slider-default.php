@@ -1,19 +1,19 @@
 <?php
-	$slider = $vars;
-	$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
-	$menu_theme_location = 'home-page-slider';
-	$home_slider_has_menu = has_nav_menu($menu_theme_location);
-	$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
-	//$slider_vars = $slider;
-	//$slider_vars['posts'] = '';
-	//pw_log('slider', $slider_vars);
+$slider = $vars;
+$home_menu_id = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'home.secondary_menu' ) );;
+$menu_theme_location = 'home-page-slider';
+$home_slider_has_menu = has_nav_menu($menu_theme_location);
+$slider_has_menu = ( is_front_page() && $home_slider_has_menu );
+
+pw_print_ng_controller(array(
+	'controller' => $slider['instance'],
+	'vars' => array(
+		'slider' => $slider
+		),
+	));
+
 ?>
-<script>
-	postworld.controller( '<?php echo $slider['instance']; ?>',
-		function( $scope, $_, $log, $window ){
-		$scope.slider = <?php echo json_encode($slider); ?>;
-	});
-</script>
+
 <div
 	id="<?php echo $slider['id']; ?>"
 	class="<?php echo $slider['class']; ?> <?php if( $slider_has_menu ) echo 'slider-with-menu'; ?>"
