@@ -27,7 +27,7 @@ if( in_array( 'search', $pw['view']['context'] ) )
 <?php
 	do_action('theme_preload_templates');
 	/**
-	 * Include Loading Srreen.
+	 * Include Loading Overlay.
 	 */
 	if( pw_grab_option( PW_OPTIONS_THEME, 'loading.show_loading' ) )
 		include locate_template( 'views/theme/loading-overlay.php' );

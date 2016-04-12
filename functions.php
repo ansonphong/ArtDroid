@@ -133,12 +133,14 @@ include "php/tgm-plugin-activation.php";
 ////////// CHILD THEME //////////
 add_action( 'wp_enqueue_scripts', 'theme_include_styles' );
 function theme_include_styles(){
-	// CHILD LESS
-	wp_enqueue_style( 'Theme-Styles', get_stylesheet_directory_uri() . '/less/style.less' );
+	wp_enqueue_style(
+		'Theme-Styles',
+		get_stylesheet_directory_uri() . '/less/style.less',
+		array(),
+		$GLOBALS['theme_version'] );
 }
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
 function theme_include_scripts(){
-	global $theme_version;
 	///// JQUERY /////
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
@@ -147,7 +149,7 @@ function theme_include_scripts(){
 		'theme-scripts',
 		get_stylesheet_directory_uri() . '/js/scripts.js',
 		array('jquery', 'jquery-ui-core'),
-		$theme_version,
+		$GLOBALS['theme_version'],
 		true );
 }
 
@@ -207,7 +209,12 @@ function theme_rest_namespace( $namespace ){
  * Enqueue styles for the administrative panel.
  */
 function theme_admin_enqueue() {
-	wp_enqueue_style( 'Theme-Admin-Styles', get_template_directory_uri() . '/admin/less/styles.less' );
+	global $theme_version;
+	wp_enqueue_style(
+		'Theme-Admin-Styles',
+		get_template_directory_uri() . '/admin/less/styles.less',
+		array(),
+		$theme_version);
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 

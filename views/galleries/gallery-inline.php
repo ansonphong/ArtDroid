@@ -1,26 +1,20 @@
 <!-- POSTWORLD INLINE GALLERY : <?php echo $vars['instance']; ?> -->
-
-<?php
-	/**
-	 * @todo Get this working, and test on both Modal and Single View
-	 */
-?>
-
 <script>
-	postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope, $pwData ){
-		var galleryInstance = "gallery-<?php echo $vars['instance']; ?>";
-		var galleryPosts = <?php echo json_encode( $vars['posts'] ); ?>;
-		$pwData.insertFeed( galleryInstance, { posts: galleryPosts } );
-		$scope.feed = $pwData.getFeed( galleryInstance );
+	jQuery( document ).ready(function() {
+		postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope, $pwData ){
+			var galleryInstance = "gallery-<?php echo $vars['instance']; ?>";
+			var galleryPosts = <?php echo json_encode( $vars['posts'] ); ?>;
+			$pwData.insertFeed( galleryInstance, { posts: galleryPosts } );
+			$scope.feed = $pwData.getFeed( galleryInstance );
+		});
+		pwRegisterController( "<?php echo $vars['instance']; ?>" );
 	});
-	pwRegisterController( "<?php echo $vars['instance']; ?>" );
 </script>
 
 <div
 	class="pw-gallery-shortcode"
 	ng-cloak
-	<?php /* ng-controller="<?php echo $vars['instance']; ?>" */ ?>
-	>
+	ng-controller="<?php echo $vars['instance']; ?>">
 	<masonry
 		column-width=".grid-width-controller"
 		masonry-options='{ "gutter": 0, "transitionDuration":0 }'
