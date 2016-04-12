@@ -1,11 +1,13 @@
 <?php
-pw_print_ng_controller(array(
-	'controller' => $instance,
-	'vars' => array(
-		'termFeed' => $term_feed
-		),
-	));
+/**
+ * Manually include term feed Angular controller, incase it's stored in the post cache.
+ */
 ?>
+<script>
+	postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope ){
+		$scope.termFeed = <?php echo json_encode($term_feed) ?>;
+	});
+</script>
 
 <div class="term-feed term-feed--grid pw-shortcode" ng-controller="<?php echo $instance; ?>">
 	<div class="terms-row">
