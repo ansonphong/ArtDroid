@@ -130,7 +130,9 @@
 		padding-bottom:0;
 
 		.share-social{
-			margin:15px 5px 10px 15px;
+			position: relative;
+			z-index: 10;
+			padding:0px;
 		}
 
 		.term-bg{
@@ -139,6 +141,15 @@
 			background-position: center;
 			min-height:280px;
 			padding-bottom:0;
+		}
+
+		.gradient-overlay{
+			.fill-space();
+			.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 100% );
+			z-index: 1;
+			@media @md-up{
+				.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 66% );
+			}
 		}
 
 		.term-info{
@@ -152,8 +163,8 @@
 				}
 				margin:0;
 				font-weight:300;
-				padding: 10px 30px;
-				background: fade( @global-background-color, 80% );
+				padding: 20px 30px;
+				//background: fade( @global-background-color, 80% );
 				text-shadow: 1px 1px 0px @global-background-color;
 			}
 		}

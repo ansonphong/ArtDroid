@@ -110,7 +110,8 @@ $pw_config = array(
 						'meta_key'			=>	'image-secondary',
 						'icon'				=>	'pwi-image',
 						),
-
+					
+					/*
 					array(
 						'type'				=>	'editor',
 						'label'				=>	'Rich Description',
@@ -118,6 +119,8 @@ $pw_config = array(
 						'meta_key'			=>	'rich_description',
 						'icon'				=>	'pwi-quick-edit',
 						),
+					*/
+
 					),	
 				),
 			),
