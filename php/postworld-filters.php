@@ -259,8 +259,8 @@ function theme_feed_default_filter( $feed ){
 add_filter( 'pw_default_feed_settings', 'theme_default_feed_settings', 5 );
 function theme_default_feed_settings( $feed ){
 	$default_feed = array(
-		'preload' => 10,
-		'load_increment' => 10,
+		'preload' => get_option('posts_per_page', 10),
+		'load_increment' => pw_grab_option( PW_OPTIONS_THEME, 'feeds.settings.load_increment' ),
 		'view'	=>	array(
 			'current' 	=> 'grid',
 			),

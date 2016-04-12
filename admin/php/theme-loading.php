@@ -12,7 +12,6 @@
 			<!-- LOADING ICONS -->
 			<div class="well">
 				<h3>
-					<span class="icon-md"><i class="pwi-circle-medium"></i></span>
 					<?php _e( 'Loading Icon', 'postworld' ) ?>
 				</h3>
 				<?php
@@ -24,6 +23,25 @@
 							'icon_spin' => true,
 							)); ?>
 			</div>
+
+
+			<!-- LOAD INCREMENT -->
+			<div class="well">
+				<h3>
+					<?php _e( 'Load Increment', 'postworld' ) ?>
+				</h3>
+				
+				<label>
+					<input type="number" class="short" ng-model="pwOptions.feeds.settings.load_increment">
+					<b><?php _e('Posts','postworld') ?></b>
+					<small>: <?php _e( 'Load this many posts at a time when infinite scrolling.', 'postworld' ) ?></small>
+				</label>
+
+			</div>
+
+
+
+			
 
 		</div>
 
@@ -40,14 +58,13 @@
 			</h2>
 			<div class="well">
 				<h3>
-					<span class="icon-md"><i class="pwi-circle-medium"></i></span>
 					<?php _e( 'Loading Screen', 'postworld' ) ?>
 				</h3>
 				
 				<label>
 					<input type="checkbox" ng-model="pwOptions.loading.show_loading">
-					<b>Show Loading Overlay</b>
-					<small>: Show an overlay spinner on the page while it's loading.</small>
+					<b><?php _e( 'Show Loading Overlay', 'postworld' ) ?></b>
+					<small>: <?php _e( 'Show an overlay spinner on the page while it\'s loading.', 'postworld' ) ?></small>
 				</label>
 
 			</div>
