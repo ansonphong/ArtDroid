@@ -1,15 +1,16 @@
 <?php
 	global $pw;
-	$term_meta = _get( $pw, 'view.term.meta' );
+	$term = _get( $pw, 'view.term' );
+	//$term_meta = _get( $pw, 'view.term.meta' );
 	// Boolean if term has image
-	$has_image = !empty($term_meta['image-primary']);
+	$has_image = !empty($term['meta']['image-primary']);
 	// Get theme settings for taxonomy archives
 	$tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) )
 ?>
 <script>
 	postworld.controller( 'themeTermMetaCtrl',
 		function( $scope, $_ ){
-		$scope.termMeta = <?php echo json_encode( $term_meta ); ?>;
+		$scope.termMeta = <?php echo json_encode( $term['meta'] ); ?>;
 	});
 </script>
 <div
@@ -25,6 +26,7 @@
 		>
 
 		<?php if( $has_image ) : ?>
+			<div class="gradient-overlay"></div>
 			<div
 				pw-parallax
 				parallax-depth="1.33"
@@ -35,32 +37,44 @@
 
 		<div class="term-info">
 			<h1>
-				<?php if( _get( $term_meta, 'icon' ) ) : ?>
-					<i class="icon <?php echo $term_meta['icon'] ?>"></i> 
+				<?php if( _get( $term, 'meta.icon' ) ) : ?>
+					<i class="icon <?php echo $term['meta']['icon'] ?>"></i> 
 				<?php elseif( $pw['view']['taxonomy']['name'] == 'post_tag' ) : ?>
 					<i class="icon pwi-tag" uib-tooltip="tag" tooltip-placement="bottom"></i> 
 				<?php endif; ?>
-				<a href="<?php echo $pw['view']['term']['url'] ?>">
-					<?php echo $pw['view']['term']['name'] ?>
-				</a>
+				
+				<?php if( _get( $term, 'parent' ) ): ?>
+					<a href="<?php echo $term['parent']['url'] ?>"><?php echo $term['parent']['name'] ?></a>
+					&rsaquo;
+				<? endif ?>
+
+				<?php echo $term['name'] ?>
+
 			</h1>
 		</div>
 		
 		<?php if( is_desktop() ): ?>
+			<?php 
+				/**
+				 * Temporarily Hide Social Media Sharing Icons
+				 * @todo Add option to toggle this in Admin
+				 */
+				/*
+			?>
 			<!-- SHARE SOCIAL -->
 			<div class="share-social">
 				<div class="share-social--buttons">
 					<?php echo pw_social_share(); ?>
 				</div>
 			</div>
-		<?php endif ?>
+		<?php */ endif ?>
 
 		<?php if( _get( $tax_archives, 'header.background_image.show_title' ) ): ?>
 			<div class="header-image-title">
 				<?php
-					$image_link = _get( $term_meta['image_post'], 'link_url' );
+					$image_link = _get( $term['meta']['image_post'], 'link_url' );
 					if( empty( $image_link ) )
-						$image_link = _get( $term_meta['image_post'], 'post_permalink' );
+						$image_link = _get( $term['meta']['image_post'], 'post_permalink' );
 				?>
 				<a
 					href="<?php echo $image_link ?>"
@@ -76,14 +90,14 @@
 	<!-- TERM DESCRIPTION -->
 	<?php
 	$term_description = _get( $pw, 'view.term.description' );
-	$term_rich_description = get_term_meta( $pw['view']['term']['term_id'], 'rich_description', true );
+	$term_rich_description = get_term_meta( $term['term_id'], 'rich_description', true );
 	
 	if( !empty( $term_rich_description ) )
-		$term_description = apply_filters( 'the_content', $term_rich_description);
+		$term_description = $term_rich_description;
 	
 	if( !empty( $term_description ) ) : ?>
 		<div class="term-description post-content">
-			<?php echo $term_description ?> 
+			<?php echo apply_filters( 'the_content', $term_description) ?> 
 		</div>
 	<?php endif; ?>
 
