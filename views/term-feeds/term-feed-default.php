@@ -1,11 +1,8 @@
-<?php
-/**
- * Manually include term feed Angular controller, incase it's stored in the post cache.
- */
-?>
 <script>
-	postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope ){
-		$scope.termFeed = <?php echo json_encode($term_feed) ?>;
+	jQuery( document ).ready(function() {
+		postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope ){
+			$scope.termFeed = <?php echo json_encode($term_feed) ?>;
+		});
 	});
 </script>
 
