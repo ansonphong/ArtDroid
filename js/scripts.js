@@ -386,4 +386,4 @@ postworld.directive('themeModalHeaderImage',
 
 		}
 	};
-})
+});

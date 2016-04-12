@@ -30,5 +30,31 @@
 	</div>
 	<div class="col-lg-6 pad-col-lg">
 		
+
+		<!--///// PAGES /////-->
+		<div class="well">
+			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME,'pwOptions'); ?></div>
+			<h2>
+				<i class="pwi-file"></i>
+				<?php _e( 'Site', 'postworld' ) ?>
+			</h2>
+			<div class="well">
+				<h3>
+					<span class="icon-md"><i class="pwi-circle-medium"></i></span>
+					<?php _e( 'Loading Screen', 'postworld' ) ?>
+				</h3>
+				
+				<label>
+					<input type="checkbox" ng-model="pwOptions.loading.show_loading">
+					<b>Show Loading Overlay</b>
+					<small>: Show an overlay spinner on the page while it's loading.</small>
+				</label>
+
+			</div>
+
+		</div>
+
+
+
 	</div>
 </div>

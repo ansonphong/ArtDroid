@@ -5,6 +5,9 @@ function pw_theme_options_filter( $options ){
 	// Set the default postworld theme options
 
 	$defaultOptions = array(
+		'loading'	=>	array(
+			'show_loading' => true,
+			),
 		'archives'	=>	array(
 			'taxonomy'	=>	array(
 				'header'	=>	array(
