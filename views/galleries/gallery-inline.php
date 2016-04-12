@@ -19,7 +19,8 @@
 <div
 	class="pw-gallery-shortcode"
 	ng-cloak
-	ng-controller="<?php echo $vars['instance']; ?>">
+	<?php /* ng-controller="<?php echo $vars['instance']; ?>" */ ?>
+	>
 	<masonry
 		column-width=".grid-width-controller"
 		masonry-options='{ "gutter": 0, "transitionDuration":0 }'

@@ -90,9 +90,9 @@
 
 		<uib-tab>
 			<uib-tab-heading>
-				<i class="icon pwi-th-list"></i> Feeds
+				<i class="icon pwi-spinner-3"></i> Loading
 			</uib-tab-heading>
-			<?php include 'theme-feeds.php' ?>
+			<?php include 'theme-loading.php' ?>
 		</uib-tab>
 
 
