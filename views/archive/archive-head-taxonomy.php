@@ -46,7 +46,7 @@
 				<?php if( _get( $term, 'parent' ) ): ?>
 					<a href="<?php echo $term['parent']['url'] ?>"><?php echo $term['parent']['name'] ?></a>
 					&rsaquo;
-				<? endif ?>
+				<?php endif ?>
 
 				<?php echo $term['name'] ?>
 
