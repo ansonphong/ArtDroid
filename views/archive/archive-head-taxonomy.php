@@ -6,17 +6,15 @@ $term = _get( $pw, 'view.term' );
 $has_image = !empty($term['meta']['image-primary']);
 // Get theme settings for taxonomy archives
 $tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) );
-$GLOBALS['theme_term_meta'] = $term['meta'];
-?>
 
-<?php add_action('wp_print_footer_scripts', function(){ ?>
-	<script>
-		postworld.controller( 'themeTermMetaCtrl',
-			function( $scope, $_ ){
-			$scope.termMeta = <?php echo json_encode( $GLOBALS['theme_term_meta'] ) ?>;
-		});
-	</script>
-<?php }); ?>
+pw_print_ng_controller(array(
+		'controller' => 'themeTermMetaCtrl',
+		'vars' => array(
+			'termMeta' => $term['meta'],
+			),
+		));
+
+?>
 
 <div
 	class="archive-head <?php if( $has_image ) echo 'term-has-image' ?>"

@@ -1,3 +1,33 @@
+postworld.directive( 'themeTermFeed',
+	function( $pw, $_, $log ){
+	return{
+		link: function( $scope, element, attrs ){
+			$scope.rootTerms = function(){
+				var rootTerms = $_.deepWhere( $scope.termFeed, 'term.parent', '0' );
+				$log.debug( 'ROOT TERMS : ', rootTerms );
+				console.log( 'ROOT TERMS : ', $scope.termFeed );
+				return rootTerms;
+			}
+			$scope.subTerms = function( parentId ){
+				// Return subTerms if parentId term is selected, or is parent 
+				if( $_.get( $pw.view, 'term.term_id' ) === parseInt( parentId ) ||
+					$_.get( $pw.view, 'term.parent.term_id' ) === parseInt( parentId ) )
+					return $_.deepWhere( $scope.termFeed, 'term.parent', parentId );
+			}
+			$scope.termClass = function( feedTerm ){
+				// Detect if the current term is selected and return 'selected' class
+				var currentContext = $_.get( $pw.view, 'context' );
+				if( $_.inArray( 'archive-taxonomy', currentContext ) ){
+					var currentTerm = $_.get( $pw.view, 'term' );
+					if( feedTerm.term.term_id == currentTerm.term_id )
+						return 'selected';
+				}
+				return false;
+			}
+		}
+	}
+});
+
 postworld.directive( 'themeHeader',
 	function( $pwData, $pw, $log, $_, $window ){
 	return {
