@@ -1,18 +1,23 @@
 <?php
-	global $pw;
-	$term = _get( $pw, 'view.term' );
-	//$term_meta = _get( $pw, 'view.term.meta' );
-	// Boolean if term has image
-	$has_image = !empty($term['meta']['image-primary']);
-	// Get theme settings for taxonomy archives
-	$tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) )
+global $pw;
+$term = _get( $pw, 'view.term' );
+//$term_meta = _get( $pw, 'view.term.meta' );
+// Boolean if term has image
+$has_image = !empty($term['meta']['image-primary']);
+// Get theme settings for taxonomy archives
+$tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) );
+$GLOBALS['theme_term_meta'] = $term['meta'];
 ?>
-<script>
-	postworld.controller( 'themeTermMetaCtrl',
-		function( $scope, $_ ){
-		$scope.termMeta = <?php echo json_encode( $term['meta'] ); ?>;
-	});
-</script>
+
+<?php add_action('wp_print_footer_scripts', function(){ ?>
+	<script>
+		postworld.controller( 'themeTermMetaCtrl',
+			function( $scope, $_ ){
+			$scope.termMeta = <?php echo json_encode( $GLOBALS['theme_term_meta'] ) ?>;
+		});
+	</script>
+<?php }); ?>
+
 <div
 	class="archive-head <?php if( $has_image ) echo 'term-has-image' ?>"
 	ng-controller="themeTermMetaCtrl"

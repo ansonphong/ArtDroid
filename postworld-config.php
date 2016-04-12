@@ -12,6 +12,16 @@ define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
 global $pw_config;
 $pw_config = array(
+
+	'includes' => array(
+		'js' => array(
+			'in_footer' => true,
+			),
+		'css' => array(
+			'in_footer' => true,
+			),
+		),
+
 	'modules'	=>	array(
 		'required'	=>	array(
 			'site',

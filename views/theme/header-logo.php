@@ -12,15 +12,15 @@
 		'image(lg,128,128,2)',
 		);
 	$logo_post = ( $has_logo_image ) ? pw_get_post( $logo_id, $logo_fields ) : array();
-	//pw_log( 'logo post', $logo_post );
+
+	pw_print_ng_controller(array(
+		'controller' => 'headerLogo',
+		'vars' => array(
+			'logoPost' => $logo_post
+			),
+		));
 ?>
-<script>
-	
-	postworld.controller( 'headerLogo', function( $scope ){
-		$scope.logoPost = <?php echo json_encode( $logo_post ) ?>;
-	});
-	
-</script>
+
 <div
 	id="logo"
 	class="header-col-logo center-vertical-parent <?php if( is_front_page() ) echo 'is-front-page' ?>"
