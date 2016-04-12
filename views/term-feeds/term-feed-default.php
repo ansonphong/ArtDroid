@@ -1,12 +1,11 @@
-
-<?php add_action('wp_print_footer_scripts', function(){ ?>
-	<script>
-		postworld.controller( '<?php echo $instance; ?>', function( $scope ){
-			$scope.vars = <?php echo json_encode($vars); ?>;
-			$scope.termFeed = <?php echo json_encode($term_feed); ?>;
-		});
-	</script>
-<?php }); ?>
+<?php
+pw_print_ng_controller(array(
+	'controller' => $instance,
+	'vars' => array(
+		'termFeed' => $term_feed
+		),
+	));
+?>
 
 <div class="term-feed term-feed--grid pw-shortcode" ng-controller="<?php echo $instance; ?>">
 	<div class="terms-row">

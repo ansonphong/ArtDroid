@@ -1,19 +1,22 @@
 <?php
-	global $post;
-	$pw_post = pw_get_post($post->ID, array(
-		'ID',
-		'post_title',
-		'post_meta(pw_meta)',
-		'parent_post(preview)',
-		));
-	$icon_class = _get( $pw_post, 'post_meta.pw_meta.icon.class' );
-	$image_instance = pw_random_string();
+global $post;
+$pw_post = pw_get_post($post->ID, array(
+	'ID',
+	'post_title',
+	'post_meta(pw_meta)',
+	'parent_post(preview)',
+	));
+$icon_class = _get( $pw_post, 'post_meta.pw_meta.icon.class' );
+$image_instance = pw_random_string();
+
+pw_print_ng_controller(array(
+	'controller' => $image_instance,
+	'vars' => array(
+		'headerImage' => pw_get_post( $post->ID, 'image' )
+		),
+	));
 ?>
-<script>
-	postworld.controller('<?php echo $image_instance ?>', function($scope){
-		$scope.headerImage = <?php echo json_encode( pw_get_post( $post->ID, 'image' ) );?>;
-	});
-</script>
+
 <div class="page-head page-head--featured-image" ng-controller="<?php echo $image_instance ?>">
 	<div
 		id="header-image"

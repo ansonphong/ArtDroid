@@ -1,12 +1,15 @@
 <?php
-	global $pw;
-	extract($vars);
+global $pw;
+extract($vars);
+
+pw_print_ng_controller(array(
+	'controller' => 'singlePost',
+	'vars' => array(
+		'post' => $post
+		),
+	));
 ?>
-<script>
-	postworld.controller('singlePost',function($scope){
-		$scope.post = <?php echo json_encode($post) ?>;
-	})
-</script>
+
 <div pw-globals="pw">
 <article
 	ng-controller="singlePost"

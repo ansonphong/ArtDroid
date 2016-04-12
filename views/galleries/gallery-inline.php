@@ -1,4 +1,11 @@
 <!-- POSTWORLD INLINE GALLERY : <?php echo $vars['instance']; ?> -->
+
+<?php
+	/**
+	 * @todo Get this working, and test on both Modal and Single View
+	 */
+?>
+
 <script>
 	postworld.controller( '<?php echo $vars['instance']; ?>', function( $scope, $pwData ){
 		var galleryInstance = "gallery-<?php echo $vars['instance']; ?>";
@@ -33,7 +40,8 @@
 
 				<div
 					class="gallery-image"
-					pw-smart-image="::galleryPost.image">
+					pw-smart-image="::galleryPost.image"
+					smart-image-dynamic>
 				</div>
 			</div>
 		</div>

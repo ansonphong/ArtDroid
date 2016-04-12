@@ -4,20 +4,18 @@ $has_cover_image = !empty( $cover_image_id );
 $wrapper_class = ( $has_cover_image ) ? "has-cover-image" : "";
 ?>
 
-<?php if( $has_cover_image ): ?>
-	<?php $GLOBALS['theme_cover_image_post'] = pw_get_post( $cover_image_id, 'image' ); ?>
-	<?php add_action('wp_print_footer_scripts', function(){ ?>
-		<script type="text/javascript">
-			postworld.controller('blogCoverImageCtrl', function($scope){
-				$scope.blogCoverImage = <?php echo json_encode($GLOBALS['theme_cover_image_post']); ?>;
-			});
-		</script>
-	<?php }); ?>
-<?php endif; ?>
-
 <div class="blog-head--wrapper <?php echo $wrapper_class ?>">
 	
 	<?php if( $has_cover_image ): ?>
+
+	<?php
+		pw_print_ng_controller(array(
+			'controller' => 'blogCoverImageCtrl',
+			'vars' => array(
+				'blogCoverImage' => pw_get_post( $cover_image_id, 'image' ),
+				),
+			));
+	?>
 	<div
 		ng-controller="blogCoverImageCtrl"
 		class="blog-head--image"
