@@ -2,10 +2,13 @@
 global $pw;
 extract($vars);
 
+$theme_print_post = $post;
+unset($theme_print_post['post_content']);
+
 pw_print_ng_controller(array(
 	'controller' => 'singlePost',
 	'vars' => array(
-		'post' => $post
+		'post' => $theme_print_post
 		),
 	));
 ?>

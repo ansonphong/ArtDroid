@@ -39,7 +39,7 @@
   		animation: spin 2s linear infinite;
 	}
 	#loading-overlay .loader-spinner{
-		border: 16px solid <?php echo pw_grab_option( PW_OPTIONS_STYLES, 'colors.core.neutral-color-dark' ) ?>;
+		border: 16px solid <?php echo pw_grab_option( PW_OPTIONS_STYLES, 'colors.core.primary-color-dark' ) ?>;
 		border-top: 16px solid <?php echo pw_grab_option( PW_OPTIONS_STYLES, 'colors.core.primary-color-medium' ) ?>;
 		border-bottom: 16px solid <?php echo pw_grab_option( PW_OPTIONS_STYLES, 'colors.core.primary-color-medium' ) ?>;
 		border-radius: 50%;
