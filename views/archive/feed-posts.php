@@ -9,6 +9,7 @@ pw_feed( array(
 			'posts_per_page' 	=> 1000,
 			'has_password'		=>	false,
 			'post_password'		=> '',	
+			'show_sticky_posts'	=>	true,
 			),
 		)
 	));
