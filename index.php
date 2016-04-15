@@ -1,3 +1,2 @@
 <?php
-	include 'home.php';
-?>
+	include 'front-page.php';

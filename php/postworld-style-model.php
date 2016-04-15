@@ -884,7 +884,7 @@ function theme_pw_styles_structure( $structure = array() ){
 
 				array(
 					'name'	=>	'Inline/Grid Galleries',
-					'key'	=>	'frame',
+					'key'	=>	'inline',
 					'icon'	=>	'pwi-grid',
 					'values'	=>	array(
 						

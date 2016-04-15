@@ -1,20 +1,23 @@
 <?php
-	// Enable Media Library
-	wp_enqueue_media();
-	global $theme_version;
+// Enable Media Library
+wp_enqueue_media();
+global $theme_version;
+
+pw_print_ng_controller(array(
+	'app' => 'postworldAdmin',
+	'controller' => 'themeOptionsDataCtrl',
+	'vars' => array(
+		'pwOptions' => pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ),
+		'images' => array( '_' => 0 ),
+		'fontOptions' => theme_get_font_options(),
+		),
+	));
+
 ?>
-<script>
-	postworldAdmin.controller( 'optionsDataCtrl',
-		function( $scope, $pw ){
-			$scope.pwOptions = <?php echo json_encode( pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) ) ); ?>;
-			$scope['images'] = {};
-			$scope['options'] = $pw.optionsMeta;
-			$scope.fontOptions = <?php echo json_encode( theme_get_font_options() ); ?>;
-	});
-</script>
 
 <div
-	ng-controller="optionsDataCtrl"
+	pw-admin-options
+	ng-controller="themeOptionsDataCtrl"
 	ng-cloak
 	class="theme postworld">
 

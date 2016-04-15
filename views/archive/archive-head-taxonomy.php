@@ -8,11 +8,11 @@ $has_image = !empty($term['meta']['image-primary']);
 $tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) );
 
 pw_print_ng_controller(array(
-		'controller' => 'themeTermMetaCtrl',
-		'vars' => array(
-			'termMeta' => $term['meta'],
-			),
-		));
+	'controller' => 'themeTermMetaCtrl',
+	'vars' => array(
+		'termMeta' => $term['meta'],
+		),
+	));
 
 ?>
 
