@@ -1,6 +1,12 @@
 <?php
 add_filter( PW_POSTMETA, 'theme_postmeta_model_filter' );
 function theme_postmeta_model_filter( $pwMeta ){
+
+	$default_height = array(
+		'method' => 'window-percent',
+		'value'	=>	66,
+		);
+
 	$defaultPwMeta = array(
 		"header" => array(
 			"type"		=>	"default",
@@ -32,11 +38,8 @@ function theme_postmeta_model_filter( $pwMeta ){
 				"show_title"	=>	true,
 				"show_excerpt"	=>	true,
 				"hyperlink"		=>	true,
-				"height"		=>	array(
-					'method' => 'window-percent',
-					'value'	=>	66,
-					),
-				"interval"		=>	5000,	// Milliseconds
+				"height"		=>	$default_height,
+				"interval"		=>	5000,
 				"no_pause"		=>	true,
 				"transition"	=>	'fade',
 				),
@@ -67,14 +70,17 @@ function theme_postmeta_model_filter( $pwMeta ){
 
 	$pwMeta = array_replace_recursive( $defaultPwMeta, $pwMeta );
 
-	$pwMeta['test'] = 333;
-
 	/**
 	 * Sanitization
 	 */
 	// Cast height as integer
 	if( isset($pwMeta['header']['image']['height']) )
 		$pwMeta['header']['image']['height'] = intval( $pwMeta['header']['image']['height'] );
+
+	// Migrate height from single integer value to pw_height object
+	$height_value = _get( $pwMeta, 'header.slider.height' );
+	if( !is_array($height_value) )
+		$pwMeta = _set( $pwMeta, 'header.slider.height', $default_height );
 
 	return $pwMeta;
 	

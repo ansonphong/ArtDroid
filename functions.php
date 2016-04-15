@@ -112,6 +112,9 @@ include "php/term-data.php";
 ////////// SIDEBARS //////////
 include "php/sidebars.php";
 
+////////// CUSTOMIZE //////////
+include "php/customize.php";
+
 ////////// BLOG //////////
 include "php/post-type-blog.php";
 
@@ -345,5 +348,4 @@ add_theme_support( 'automatic-feed-links' );
 
 add_post_type_support( 'post', 'excerpt' );
 add_post_type_support( 'blog', 'excerpt' );
-
 

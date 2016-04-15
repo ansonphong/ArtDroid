@@ -17,9 +17,6 @@ $pw_config = array(
 		'js' => array(
 			'in_footer' => true,
 			),
-		'css' => array(
-			'in_footer' => true,
-			),
 		),
 
 	'modules'	=>	array(

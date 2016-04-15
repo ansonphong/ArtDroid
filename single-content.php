@@ -1,6 +1,5 @@
 <?php
 global $post;
-
 /**
  * ///// HEAD /////
  * This part appears above the post content.
