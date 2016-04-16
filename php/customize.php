@@ -26,15 +26,25 @@ function theme_previewable_devices_filter( $devices ){
 
 
 /**
- * Remove extraneous theme customizer options which don't work properly.
+ * Remove extraneous theme customizer options, which are distracting.
  */
 add_action( 'customize_register', 'theme_remove_customizer_options', 30 );
 function theme_remove_customizer_options( $wp_customize ) {
-	$wp_customize->remove_section( 'static_front_page' );
 	$wp_customize->remove_section( 'themes' );
+	//$wp_customize->remove_section( 'static_front_page' );
 	//$wp_customize->remove_section( 'title_tagline' );
 	//$wp_customize->remove_section( 'nav' );
 }
+
+
+/**
+ * Clear the LESS cache before and after previewing.
+ */
+//add_action( 'start_previewing_theme', 'pw_reset_less_php_cache' );
+//add_action( 'stop_previewing_theme', 'pw_reset_less_php_cache' );
+add_action( 'customize_preview_init', 'pw_reset_less_php_cache' );
+add_action( 'customize_save', 'pw_reset_less_php_cache' );
+//customize_save
 
 
 /**
@@ -48,11 +58,11 @@ function theme_customize_register( $wp_customize ) {
 	 */
 	/*
 	$wp_customize->add_panel( 'current_theme', array(
-	    'priority' => 10,
-	    'capability' => 'edit_theme_options',
-	    'theme_supports' => '',
-	    'title' => __( 'ArtDroid Theme', 'textdomain' ),
-	    'description' => __( 'Customize the theme.', 'textdomain' ),
+		'priority' => 10,
+		'capability' => 'edit_theme_options',
+		'theme_supports' => '',
+		'title' => __( 'ArtDroid Theme', 'textdomain' ),
+		'description' => __( 'Customize the theme.', 'textdomain' ),
 	) );
 	*/
 	
@@ -62,12 +72,12 @@ function theme_customize_register( $wp_customize ) {
 	 *****************************************
 	 */
 	$wp_customize->add_section( 'theme_header', array(
-	    'priority' => 10,
-	    'capability' => 'edit_theme_options',
-	    'theme_supports' => '',
-	    'title' => __( 'Header', 'textdomain' ),
-	    'description' => '',
-	    //'panel' => 'current_theme',
+		'priority' => 10,
+		'capability' => 'edit_theme_options',
+		'theme_supports' => '',
+		'title' => __( 'Header', 'textdomain' ),
+		'description' => '',
+		//'panel' => 'current_theme',
 	) );
 
 	/**
@@ -82,12 +92,12 @@ function theme_customize_register( $wp_customize ) {
 		//'sanitize_callback' => 'esc_url',
 	) );
 	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-	    'type' => 'select',
-	    'priority' => 10,
-	    'section' => 'theme_header',
-	    'label' => __( 'Menu Position', 'postworld' ),
-	    'description' => __('Position of the primary menu.', 'postworld'),
-	    'choices'  => array(
+		'type' => 'select',
+		'priority' => 10,
+		'section' => 'theme_header',
+		'label' => __( 'Menu Position', 'postworld' ),
+		'description' => __('Position of the primary menu.', 'postworld'),
+		'choices'  => array(
 			'left'  => 'Left',
 			'right' => 'Right',
 			)
@@ -184,13 +194,85 @@ function theme_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'email_field_id', array(
-	    'type' => 'email',
-	    'priority' => 10,
-	    'section' => 'theme_header',
-	    'label' => __( 'Email Field', 'textdomain' ),
-	    'description' => '',
+		'type' => 'email',
+		'priority' => 10,
+		'section' => 'theme_header',
+		'label' => __( 'Email Field', 'textdomain' ),
+		'description' => '',
 	) );
 	*/
+
+
+
+
+	/*****************************************
+	 * SECTION : COLORS
+	 *****************************************
+	 */
+	$wp_customize->add_section( 'theme_colors', array(
+		'priority' => 10,
+		'capability' => 'edit_theme_options',
+		'theme_supports' => '',
+		'title' => __( 'Colors', 'textdomain' ),
+		'description' => 'Customize the colors for the theme.',
+		//'panel' => 'current_theme',
+	) );
+
+	/**
+	 * BACKGROUND COLOR
+	 */
+	pw_wp_customize_add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.global-background-color',
+		'label' 			=>	__('Background Color', 'postworld'),
+		//'description'		=>	__('Color used for primary theme elements.', 'postworld'),
+		));
+
+	/**
+	 * FOREGROUND COLOR
+	 */
+	pw_wp_customize_add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.global-foreground-color',
+		'label' 			=>	__('Foreground Color', 'postworld'),
+		'description'		=>	__('Color used for text and foreground elements.', 'postworld'),
+		));
+
+	/**
+	 * PRIMARY COLOR
+	 */
+	pw_wp_customize_add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.primary-color-medium',
+		'label' 			=>	__('Primary Color', 'postworld'),
+		'description'		=>	__('For primary theme elements.', 'postworld'),
+		));
+
+	/**
+	 * SECONDARY COLOR
+	 */
+	pw_wp_customize_add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.secondary-color-medium',
+		'label' 			=>	__('Secondary Color', 'postworld'),
+		'description'		=>	__('For secondary theme elements.', 'postworld'),
+		));
+
+
+	/**
+	 * NEUTRAL COLOR
+	 */
+	pw_wp_customize_add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.neutral-color-medium',
+		'label' 			=>	__('Neutral Color', 'postworld'),
+		'description'		=>	__('For neutral theme elements.', 'postworld'),
+		));
 
 
 }
