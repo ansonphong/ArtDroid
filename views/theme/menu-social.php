@@ -1,21 +1,18 @@
-<?php 
-$show_social_menu = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'menus.primary.show_social' ) );
-?>
 
-<?php if( $show_social_menu ): ?>
-	
-<div
-	class="menu-social">
-	<div class="inner">
-		<?php echo pw_social_menu(
-			array(
-				'meta' => array(
-					'classes'			=>	'icon',
-					'tooltip_placement' => 'bottom',
+<?php if( pw_grab_option( PW_OPTIONS_THEME, 'menus.primary.show_social' ) ): ?>
+		
+	<div
+		class="menu-social">
+		<div class="inner">
+			<?php echo pw_social_menu(
+				array(
+					'meta' => array(
+						'classes'			=>	'icon',
+						'tooltip_placement' => 'bottom',
+						)
 					)
-				)
-			);?>
+				);?>
+		</div>
 	</div>
-</div>
 
 <?php endif ?>

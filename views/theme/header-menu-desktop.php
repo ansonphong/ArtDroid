@@ -1,8 +1,10 @@
 <?php include locate_template( 'views/theme/header-search.php' ) ?>
 
+<?php $menu_alignment = pw_grab_option( PW_OPTIONS_THEME, 'menus.primary.alignment' ); ?>
+
 <div
 	id="main-menu"
-	class="header-col-menu"
+	class="header-col-menu menu-alignment--<?php echo $menu_alignment ?>"
 	ng-class="uiWrappingClass('.menu-main','.menu>li',['is-wrapping','no-wrapping'])">
 
 	<?php include locate_template( 'views/theme/menu-social.php' ) ?>
