@@ -173,11 +173,6 @@ function theme_customize_register( $wp_customize ) {
 	) );
 
 
-	
-
-
-
-
 
 	/*
 	$wp_customize->add_setting( 'email_field_id', array(
@@ -199,7 +194,5 @@ function theme_customize_register( $wp_customize ) {
 
 
 }
-
-
 
 
