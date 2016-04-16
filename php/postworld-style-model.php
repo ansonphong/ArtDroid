@@ -8,28 +8,14 @@ function theme_pw_styles_default( $styles = array() ){
 			'core' =>	array(
 				'global-background-color'		=>	'#000000',
 				'global-foreground-color'		=>	'#ffffff',
-				
-				//'primary-color-light'			=>	'#ffdcb3',
 				'primary-color-medium'			=>	'#f4901a',
-				//'primary-color-dark'			=>	'#6a3900',
-
-				//'secondary-color-light'			=>	'@primary-color-light',
-				'secondary-color-medium'		=>	'@primary-color-medium',
-				//'secondary-color-dark'			=>	'@primary-color-dark',
-
-				//'neutral-color-light'			=>	'#e3e3e3',
+				'secondary-color-medium'		=>	'#f4901a',
 				'neutral-color-medium'			=>	'#808080',
-				//'neutral-color-dark'			=>	'#282828',
-
-				'highlight-foreground-color'	=>	'@primary-color-medium',
+				'highlight-foreground-color'	=>	'#f4901a',
 				'highlight-background-color'	=>	'#fff',
-
 				'modal-foreground-color'		=>	'#fff',
 				'modal-background-color'		=>	'#000',
-
-				//'highlight-color-light'			=>	'#ffac7f',
 				'highlight-color-medium'		=>	'#ff5a00',
-				//'highlight-color-dark'			=>	'#802d00',
 				),
 
 			'header'	=>	array(
