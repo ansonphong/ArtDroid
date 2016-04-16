@@ -5,6 +5,8 @@
  */
 function theme_add_theme_support() {
 	add_theme_support( 'custom-logo', array(
+		'width' => 750,
+		'height' => 250,
 		'flex-height' => true,
 		'flex-width'  => true,
 	) );
@@ -22,6 +24,7 @@ function theme_previewable_devices_filter( $devices ){
 	return array();
 }
 
+
 /**
  * Remove extraneous theme customizer options which don't work properly.
  */
@@ -32,6 +35,7 @@ function theme_remove_customizer_options( $wp_customize ) {
 	//$wp_customize->remove_section( 'title_tagline' );
 	//$wp_customize->remove_section( 'nav' );
 }
+
 
 /**
  * Add new Customizer options.
