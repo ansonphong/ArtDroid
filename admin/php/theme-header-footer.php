@@ -2,6 +2,7 @@
 	<div class="col-lg-6 pad-col-lg">
 
 		<!--///// LOGO /////-->
+		<?php /*
 		<div class="well">
 			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 			<h2>
@@ -21,6 +22,46 @@
 					 	));?>
 			</div>
 		</div>
+		*/?>
+
+		<!--///// GENERAL /////-->
+		<div class="well">
+			<h2>
+				<span class="icon-md"><i class="pwi-gear"></i></span>
+				General
+			</h2>
+
+			<!-- SEARCH -->
+			<div
+				class="well">
+				<h3>
+					<span class="icon-md"><i class="pwi-search"></i></span>
+					Search
+				</h3>
+				<label>
+					<input type="checkbox" ng-model="pwOptions.search.show_search">
+					Show Search
+					<small>: A seach icon appears in the header.</small> 
+				</label>
+			</div>
+			<!-- SECRET LOGIN -->
+			<div
+				class="well">
+				<h3>
+					<span class="icon-md"><i class="icon pwi-switch"></i></span>
+					Login
+				</h3>
+				<label>
+					<input type="checkbox" ng-model="pwOptions.menus.login.secret_login">
+					Enable Secret login
+					<small>: A &pi; symbol will appear when hovering over the bottom-right of the page when not logged in. Clicking the &pi; button will prompt login. </small> 
+				</label>
+			</div>
+
+		</div>
+
+			
+
 
 		<!--///// MODALS /////-->
 		<div class="well">
@@ -58,6 +99,82 @@
 			</div>
 			<div style="clear:both"></div>
 		</div>
+
+
+		<!--///// ARCHIVES /////-->
+		<div class="well">
+			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+			<h2>
+				<i class="pwi-tag"></i>
+				Term Archives
+			</h2>
+			<!-- HEADER -->
+			<div class="well">
+				<h3>Header Image</h3>
+				<label>
+					<input type="checkbox" ng-model="pwOptions.archives.taxonomy.header.background_image.show_title">
+					Show Image Title
+				</label>
+				<hr class="thin">
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.archives.taxonomy.header.height',
+						'methods' => array('window-base','window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+		</div>
+
+
+	</div>
+	<div class="col-lg-6 pad-col-lg">
+		
+		<!--///// MENUS /////-->
+		<div class="well">
+			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+			<h2>
+				<i class="pwi-nav-thin"></i>
+				Menus
+			</h2>
+			<!-- PRIMARY MENU -->
+			<div class="well">
+				<h3>
+					<span class="icon-md"><i class="pwi-circle-thin"></i></span>
+					Main Menu
+				</h3>
+				<label>
+					<input type="checkbox" ng-model="pwOptions.menus.primary.show_social">
+					<b>Show Social Menu</b>
+					<div class="indent">
+						<small>
+							Show Facebook/Twitter/Instagram icons at the upper right. These will link to the profiles provided in
+
+							<a href="<?php get_site_url(); ?>/wp-admin/admin.php?page=<?php echo pw_admin_submenu_slug() ?>-social">
+								<?php _e("ArtDroid › Social", 'postworld') ?>
+							</a>
+
+						</small>
+					</div>
+					
+				</label>
+				<hr class="thin">
+				<label>
+					<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_top">
+					Show Icons at Top Level
+				</label>
+				<div class="indent">
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_sub">
+						Show Icons in Submenus
+					</label>
+				</div>
+			</div>
+			
+		</div>
+
+
 
 		<!--///// FOOTER /////-->
 		<div class="well">
@@ -119,66 +236,6 @@
 
 		</div>
 
-	</div>
-	<div class="col-lg-6 pad-col-lg">
-		
-		<!--///// MENUS /////-->
-		<div class="well">
-			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
-			<h2>
-				<i class="pwi-nav-thin"></i>
-				Menus
-			</h2>
-			<!-- PRIMARY MENU -->
-			<div class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-circle-thin"></i></span>
-					Main Menu
-				</h3>
-				<label>
-					<input type="checkbox" ng-model="pwOptions.menus.primary.show_social">
-					Show Social Menu
-				</label>
-				<hr class="thin">
-				<label>
-					<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_top">
-					Show Icons at Top Level
-				</label>
-				<div class="indent">
-					<hr class="thin">
-					<label>
-						<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_sub">
-						Show Icons in Submenus
-					</label>
-				</div>
-			</div>
-			<!-- SEARCH -->
-			<div
-				class="well">
-				<h3>
-					<span class="icon-md"><i class="pwi-search"></i></span>
-					Search
-				</h3>
-				<label>
-					<input type="checkbox" ng-model="pwOptions.search.show_search">
-					Show Search
-					<small>: A seach icon appears in the header.</small> 
-				</label>
-			</div>
-			<!-- SECRET LOGIN -->
-			<div
-				class="well">
-				<h3>
-					<span class="icon-md"><i class="icon pwi-switch"></i></span>
-					Login
-				</h3>
-				<label>
-					<input type="checkbox" ng-model="pwOptions.menus.login.secret_login">
-					Enable Secret login
-					<small>: A &pi; symbol will appear when hovering over the bottom-right of the page when not logged in. Clicking the &pi; button will prompt login. </small> 
-				</label>
-			</div>
-		</div>
 
 	</div>
 </div>

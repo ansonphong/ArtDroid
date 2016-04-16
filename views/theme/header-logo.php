@@ -1,8 +1,13 @@
 <?php
+	/*
 	$logo_id = pw_get_option( array(
 		'option_name' => PW_OPTIONS_THEME,
 		'key' => 'images.logo'
 		));
+	*/
+
+	$logo_id = get_theme_mod( 'custom_logo' );
+
 	$has_logo_image = ( is_numeric($logo_id) ) ? true : false; 
 	$logo_fields = array(
 		'ID',
