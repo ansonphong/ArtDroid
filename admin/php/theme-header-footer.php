@@ -151,7 +151,8 @@
 					<option value="left">Left</option>
 					<option value="right">Right</option>
 				</select>
-				<b>Menu Alignment</b>
+				<b>Menu Alignment</b> (Desktop Devices)
+				<small>Which side of the screen to align the primary menu to.</small>
 
 				<hr class="thin">
 
