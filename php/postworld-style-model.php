@@ -6,21 +6,20 @@ function theme_pw_styles_default( $styles = array() ){
 	$defaults = array(
 		'colors'	=>	array(
 			'core' =>	array(
-				'test-color'					=>  '#AAA',
 				'global-background-color'		=>	'#000000',
 				'global-foreground-color'		=>	'#ffffff',
 				
-				'primary-color-light'			=>	'#ffdcb3',
+				//'primary-color-light'			=>	'#ffdcb3',
 				'primary-color-medium'			=>	'#f4901a',
-				'primary-color-dark'			=>	'#6a3900',
+				//'primary-color-dark'			=>	'#6a3900',
 
-				'secondary-color-light'			=>	'@primary-color-light',
+				//'secondary-color-light'			=>	'@primary-color-light',
 				'secondary-color-medium'		=>	'@primary-color-medium',
-				'secondary-color-dark'			=>	'@primary-color-dark',
+				//'secondary-color-dark'			=>	'@primary-color-dark',
 
-				'neutral-color-light'			=>	'#e3e3e3',
+				//'neutral-color-light'			=>	'#e3e3e3',
 				'neutral-color-medium'			=>	'#808080',
-				'neutral-color-dark'			=>	'#282828',
+				//'neutral-color-dark'			=>	'#282828',
 
 				'highlight-foreground-color'	=>	'@primary-color-medium',
 				'highlight-background-color'	=>	'#fff',
@@ -28,9 +27,9 @@ function theme_pw_styles_default( $styles = array() ){
 				'modal-foreground-color'		=>	'#fff',
 				'modal-background-color'		=>	'#000',
 
-				'highlight-color-light'			=>	'#ffac7f',
+				//'highlight-color-light'			=>	'#ffac7f',
 				'highlight-color-medium'		=>	'#ff5a00',
-				'highlight-color-dark'			=>	'#802d00',
+				//'highlight-color-dark'			=>	'#802d00',
 				),
 
 			'header'	=>	array(
@@ -147,118 +146,6 @@ function theme_pw_styles_default( $styles = array() ){
 }
 
 
-/**
- * STYLE SET : EARTH TONE
- */
-/*
-pw_register_style_set(array(
-	'name' => 'Earth Tone',
-    'id' => 'earth-tone',
-	'styles' => array(
-		'colors'	=>	array(
-			'core' =>	array(
-				'global-background-color'		=>	'#000000',
-				'global-foreground-color'		=>	'#ffffff',
-				
-				'primary-color-light'			=>	'#d8b883',
-				'primary-color-medium'			=>	'#ad4200',
-				'primary-color-dark'			=>	'#812c00',
-
-				'secondary-color-light'			=>	'@primary-color-light',
-				'secondary-color-medium'		=>	'@primary-color-medium',
-				'secondary-color-dark'			=>	'@primary-color-dark',
-
-				'neutral-color-light'			=>	'#e4ded2',
-				'neutral-color-medium'			=>	'#7a6357',
-				'neutral-color-dark'			=>	'#2e2c24',
-
-				'highlight-foreground-color'	=>	'@primary-color-medium',
-				'highlight-background-color'	=>	'#fff',
-
-				'modal-foreground-color'	=>	'#fff',
-				'modal-background-color'	=>	'#000',
-
-				'highlight-color-light'			=>	'#ffac7f',
-				'highlight-color-medium'		=>	'#ff5a00',
-				'highlight-color-dark'			=>	'#802d00',
-				),
-
-			'header'	=>	array(
-				'header-background'			=>	'@global-background-color',
-				'header-line-color'			=>	'@global-background-color',
-				'logo-background'			=>	'@global-background-color',
-				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
-				//'main-menu-background'		=>	'@neutral-color-dark',
-				'main-menu-foreground'		=>	'@global-foreground-color',
-				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
-				'secondary-menu-foreground'	=>	'@global-foreground-color',
-				),
-
-			'media'	=>	array(
-				'media-viewer-background'			=>	'#000',
-				),
-
-			'footer'=>	array(
-				'footer-background'	=>	'transparent',
-				'footer-color'		=>	'@neutral-color-medium',
-				),
-
-			'slider'=>	array(
-				'slider-arrow-color'	=>	'@secondary-color-dark',
-				),
-
-			'widgets'	=>	array(
-				'widget-base-color'			=>	'@primary-color-dark',
-				'widget-foreground'			=>	'@primary-color-medium',
-				'widget-highlight-color'	=>	'@primary-color-light',
-				),
-
-			
-			),
-
-		'layout'	=>	array(
-
-			'bootstrap'	=>	array(
-				'grid-gutter-width'	=>	'0px',
-				),
-
-			'page'	=>	array(
-				'page-xs-width'		=>	'100%',
-				'page-sm-width'		=>	'95%',
-				'page-md-width'		=>	'90%',
-				'page-lg-width'		=>	'85%',
-				'page-max-width'	=>	'1200px',
-				),
-
-			),
-
-		'posts'	=>	array(
-			'grid'	=>	array(
-				'grid-image-size'			=>	'cover',
-				'grid-unit-padding'			=>	'1px',
-				'grid-unit-border'			=>	'1px solid transparent',
-				'grid-title-foreground'		=>	'@global-foreground-color',
-				'grid-title-background'		=>	'fade( @neutral-color-dark, 80% )',
-				'grid-title-shadow'			=>	'none',
-				'grid-title-font-weight'	=>	'normal',
-				'grid-details-foreground'	=>	'#fff',
-				'grid-details-background'	=>	'@neutral-color-dark',
-				'grid-title-align'			=>	'left',
-				),
-			),
-
-		'pages'	=>	array(
-			'single'	=>	array(
-				'page-header-background'	=>	'@neutral-color-dark',
-				'page-header-foreground'	=>	'@neutral-color-light',
-				),
-			),
-		)
-	)
-);
-*/
-
-
 ////////// STYLE ADMIN //////////
 add_filter( PW_MODEL_STYLES, 'theme_pw_styles_structure' );
 function theme_pw_styles_structure( $structure = array() ){
@@ -290,60 +177,22 @@ function theme_pw_styles_structure( $structure = array() ){
 							),
 						array( 'line' ),
 						array(
-							"name"			=>	"Primary Light",
-							"key"			=>	"primary-color-light",
-							"input"			=>	"color",
-							"description"	=>	"Used for accents"
-							),
-						array(
-							"name"			=>	"Primary Medium",
+							"name"			=>	"Primary Color",
 							"key"			=>	"primary-color-medium",
 							"input"			=>	"color",
-							"description"	=>	"Used for mid tones"
+							"description"	=>	__("Used for primary elements. Choose a color with around 50% lightness.", "postworld"),
 							),
 						array(
-							"name"			=>	"Primary Dark",
-							"key"			=>	"primary-color-dark",
-							"input"			=>	"color",
-							"description"	=>	"Used for deep shades"
-							),
-						array( 'line' ),
-						array(
-							"name"			=>	"Secondary Light",
-							"key"			=>	"secondary-color-light",
-							"input"			=>	"color",
-							"description"	=>	"Used for accents"
-							),
-						array(
-							"name"			=>	"Secondary Medium",
+							"name"			=>	"Secondary Color",
 							"key"			=>	"secondary-color-medium",
 							"input"			=>	"color",
-							"description"	=>	"Used for mid tones"
+							"description"	=>	__("Used for secondary elements. Choose a color with around 50% lightness.", "postworld"),
 							),
 						array(
-							"name"			=>	"Secondary Dark",
-							"key"			=>	"secondary-color-dark",
-							"input"			=>	"color",
-							"description"	=>	"Used for deep shades"
-							),
-						array( 'line' ),
-						array(
-							"name"			=>	"Neutral Light",
-							"key"			=>	"neutral-color-light",
-							"input"			=>	"color",
-							"description"	=>	"Used for accents"
-							),
-						array(
-							"name"			=>	"Neutral Medium",
+							"name"			=>	"Neutral Color",
 							"key"			=>	"neutral-color-medium",
 							"input"			=>	"color",
-							"description"	=>	"Used for mid tones"
-							),
-						array(
-							"name"			=>	"Neutral Dark",
-							"key"			=>	"neutral-color-dark",
-							"input"			=>	"color",
-							"description"	=>	"Used for deep shades"
+							"description"	=>	__("Used for neutral elements. Choose a color with around 50% lightness.", "postworld"),
 							),
 						array( 'line' ),
 						array(
@@ -373,22 +222,10 @@ function theme_pw_styles_structure( $structure = array() ){
 							),
 						array( 'line' ),
 						array(
-							"name"			=>	"Highlight Light",
-							"key"			=>	"highlight-color-light",
-							"input"			=>	"color",
-							"description"	=>	"Used for accents"
-							),
-						array(
 							"name"			=>	"Highlight Medium",
 							"key"			=>	"highlight-color-medium",
 							"input"			=>	"color",
-							"description"	=>	"Used for mid tones"
-							),
-						array(
-							"name"			=>	"Highlight Dark",
-							"key"			=>	"highlight-color-dark",
-							"input"			=>	"color",
-							"description"	=>	"Used for deep shades"
+							"description"	=>	__("Used for items which require special attention.", "postworld"),
 							),
 						),
 					),
@@ -933,4 +770,118 @@ function theme_pw_styles_structure( $structure = array() ){
 }
 
 
-?>
+
+
+
+
+
+/**
+ * STYLE SET : EARTH TONE
+ */
+/*
+pw_register_style_set(array(
+	'name' => 'Earth Tone',
+    'id' => 'earth-tone',
+	'styles' => array(
+		'colors'	=>	array(
+			'core' =>	array(
+				'global-background-color'		=>	'#000000',
+				'global-foreground-color'		=>	'#ffffff',
+				
+				'primary-color-light'			=>	'#d8b883',
+				'primary-color-medium'			=>	'#ad4200',
+				'primary-color-dark'			=>	'#812c00',
+
+				'secondary-color-light'			=>	'@primary-color-light',
+				'secondary-color-medium'		=>	'@primary-color-medium',
+				'secondary-color-dark'			=>	'@primary-color-dark',
+
+				'neutral-color-light'			=>	'#e4ded2',
+				'neutral-color-medium'			=>	'#7a6357',
+				'neutral-color-dark'			=>	'#2e2c24',
+
+				'highlight-foreground-color'	=>	'@primary-color-medium',
+				'highlight-background-color'	=>	'#fff',
+
+				'modal-foreground-color'	=>	'#fff',
+				'modal-background-color'	=>	'#000',
+
+				'highlight-color-light'			=>	'#ffac7f',
+				'highlight-color-medium'		=>	'#ff5a00',
+				'highlight-color-dark'			=>	'#802d00',
+				),
+
+			'header'	=>	array(
+				'header-background'			=>	'@global-background-color',
+				'header-line-color'			=>	'@global-background-color',
+				'logo-background'			=>	'@global-background-color',
+				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
+				//'main-menu-background'		=>	'@neutral-color-dark',
+				'main-menu-foreground'		=>	'@global-foreground-color',
+				'secondary-menu-background'	=>	'mix(@neutral-color-medium, @global-background-color, 12%)',
+				'secondary-menu-foreground'	=>	'@global-foreground-color',
+				),
+
+			'media'	=>	array(
+				'media-viewer-background'			=>	'#000',
+				),
+
+			'footer'=>	array(
+				'footer-background'	=>	'transparent',
+				'footer-color'		=>	'@neutral-color-medium',
+				),
+
+			'slider'=>	array(
+				'slider-arrow-color'	=>	'@secondary-color-dark',
+				),
+
+			'widgets'	=>	array(
+				'widget-base-color'			=>	'@primary-color-dark',
+				'widget-foreground'			=>	'@primary-color-medium',
+				'widget-highlight-color'	=>	'@primary-color-light',
+				),
+
+			
+			),
+
+		'layout'	=>	array(
+
+			'bootstrap'	=>	array(
+				'grid-gutter-width'	=>	'0px',
+				),
+
+			'page'	=>	array(
+				'page-xs-width'		=>	'100%',
+				'page-sm-width'		=>	'95%',
+				'page-md-width'		=>	'90%',
+				'page-lg-width'		=>	'85%',
+				'page-max-width'	=>	'1200px',
+				),
+
+			),
+
+		'posts'	=>	array(
+			'grid'	=>	array(
+				'grid-image-size'			=>	'cover',
+				'grid-unit-padding'			=>	'1px',
+				'grid-unit-border'			=>	'1px solid transparent',
+				'grid-title-foreground'		=>	'@global-foreground-color',
+				'grid-title-background'		=>	'fade( @neutral-color-dark, 80% )',
+				'grid-title-shadow'			=>	'none',
+				'grid-title-font-weight'	=>	'normal',
+				'grid-details-foreground'	=>	'#fff',
+				'grid-details-background'	=>	'@neutral-color-dark',
+				'grid-title-align'			=>	'left',
+				),
+			),
+
+		'pages'	=>	array(
+			'single'	=>	array(
+				'page-header-background'	=>	'@neutral-color-dark',
+				'page-header-foreground'	=>	'@neutral-color-light',
+				),
+			),
+		)
+	)
+);
+*/

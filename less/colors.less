@@ -17,8 +17,20 @@
 @highlight-color-light: #ffac7f;
 @highlight-color-medium: #ff5a00;
 @highlight-color-dark: #802d00;
-
 */
+
+@primary-color-dark: saturate( mix( @global-background-color, @primary-color-medium, 75% ), 25% );
+@primary-color-light: saturate( mix( @global-foreground-color, @primary-color-medium, 75% ), 25% );
+
+@secondary-color-dark: mix( @global-background-color, @secondary-color-medium, 66% );
+@secondary-color-light: mix( @global-foreground-color, @secondary-color-medium, 66% );
+
+@neutral-color-dark: mix( @global-background-color, @neutral-color-medium, 66% );
+@neutral-color-light: mix( @global-foreground-color, @neutral-color-medium, 66% );
+
+@highlight-color-light: mix( @global-background-color, @highlight-color-medium, 66% );
+@highlight-color-dark: mix( @global-foreground-color, @highlight-color-medium, 66% );
+
 
 ///// COLORS /////
 @blue1-66:rgba(0,20,40,0.66);

@@ -133,15 +133,29 @@ function theme_get_option($key){
 include "php/tgm-plugin-activation.php";
 //include "php/visual-composer-shortcodes.php";
 
-////////// CHILD THEME //////////
+// STYLES
 add_action( 'wp_enqueue_scripts', 'theme_include_styles' );
 function theme_include_styles(){
-	wp_enqueue_style(
-		'Theme-Styles',
-		get_stylesheet_directory_uri() . '/less/style.less',
-		array(),
-		$GLOBALS['theme_version'] );
+
+	// If doing a style preview with the cusotmizer, use an alternate stylesheet
+	if( defined('PW_DOING_CUSTOMIZER') && PW_DOING_CUSTOMIZER ){
+		wp_enqueue_style(
+			'Theme-Preview-Styles',
+			get_stylesheet_directory_uri() . '/less/style-preview.less',
+			array(),
+			$GLOBALS['theme_version'] );
+	}
+	else{
+		wp_enqueue_style(
+			'Theme-Styles',
+			get_stylesheet_directory_uri() . '/less/style.less',
+			array(),
+			$GLOBALS['theme_version'] );
+	}
+
+
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
 function theme_include_scripts(){
 	///// JQUERY /////
