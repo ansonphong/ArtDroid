@@ -17,7 +17,6 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
 	<title><?php wp_title(' | ', true, 'left'); ?></title>
-	<link rel="icon" type="image/png" href="<?php $favicon = pw_site_favicon(); echo $favicon['url']; ?>">
 	<?php wp_head(); ?>
 </head>
 <body
