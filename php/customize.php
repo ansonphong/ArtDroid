@@ -3,6 +3,14 @@
  * @todo 	Add custom Logo : https://make.wordpress.org/core/2016/03/10/custom-logo/
  * 			Reconcile with existing proprietary logo uploading. 
  */
+function theme_add_theme_support() {
+	add_theme_support( 'custom-logo', array(
+		'flex-height' => true,
+		'flex-width'  => true,
+	) );
+}
+add_action( 'after_setup_theme', 'theme_add_theme_support' );
+
 
 /**
  * Remove all previewable devices, since this theme uses
