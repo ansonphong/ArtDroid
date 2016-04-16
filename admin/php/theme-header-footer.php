@@ -2,7 +2,12 @@
 	<div class="col-lg-6 pad-col-lg">
 
 		<!--///// LOGO /////-->
-		<?php /*
+		<?php
+		/**
+		 * This was recently implimented via WordPress native customizer
+		 * Keep it around for a bit incase it must be used on WordPress < 4.5 
+		 */
+		/*
 		<div class="well">
 			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
 			<h2>
@@ -61,8 +66,6 @@
 		</div>
 
 			
-
-
 		<!--///// MODALS /////-->
 		<div class="well">
 			<h2>
@@ -143,6 +146,15 @@
 					<span class="icon-md"><i class="pwi-circle-thin"></i></span>
 					Main Menu
 				</h3>
+
+				<select ng-model="pwOptions.menus.primary.alignment">
+					<option value="left">Left</option>
+					<option value="right">Right</option>
+				</select>
+				<b>Menu Alignment</b>
+
+				<hr class="thin">
+
 				<label>
 					<input type="checkbox" ng-model="pwOptions.menus.primary.show_social">
 					<b>Show Social Menu</b>
@@ -169,11 +181,11 @@
 						<input type="checkbox" ng-model="pwOptions.menus.primary.show_icons_sub">
 						Show Icons in Submenus
 					</label>
-				</div>
+				</div>				
+
 			</div>
 			
 		</div>
-
 
 
 		<!--///// FOOTER /////-->

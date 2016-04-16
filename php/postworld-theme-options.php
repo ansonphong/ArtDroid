@@ -229,6 +229,7 @@ function pw_theme_options_filter( $options ){
 				'show_social'		=>	true,
 				'show_icons_top'	=>	true,
 				'show_icons_sub'	=>	false,
+				'alignment'			=>	'left',
 				),
 			/*
 			'secondary'	=>	array(
