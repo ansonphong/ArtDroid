@@ -19,13 +19,14 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 
 			'header'	=>	array(
-				'header-background'			=>	'#808080', //'fade(@neutral-color-dark,90%)',
+				'header-background'			=>	'#808080',
+				'header-background-opacity'	=>	'90%',
 				'header-line-color'			=>	'fade(@neutral-color-dark,100%)',
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'sub-menu-background'		=>	'@neutral-color-light',
 				'sub-menu-foreground'		=>	'@secondary-color-dark',
 				'search-button-background'	=>	'@header-background',
-				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
+				'logo-background-hover'		=>	'#333',
 				),
 
 			'media'	=>	array(
@@ -226,14 +227,20 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"color",
 							"description"	=>	"Background color of the header"
 							),
+
+						array(
+							"name"			=>	"Header Background Opacity",
+							"key"			=>	"header-background-opacity",
+							"input"			=>	"text",
+							"description"	=>	"Opacity of the header background in percent, between 0-100%, include (%), ie. 90%",
+							),
+
 						array(
 							"name"			=>	"Header Line",
 							"key"			=>	"header-line-color",
 							"input"			=>	"color",
 							"description"	=>	"The color of the line under the header"
 							),
-
-						
 						/*
 						array(
 							"name"			=>	"Main Menu Background",
@@ -264,13 +271,13 @@ function theme_pw_styles_structure( $structure = array() ){
 							"name"			=>	"Search Button Background",
 							"key"			=>	"search-button-background",
 							"input"			=>	"color",
-							"description"	=>	"Background color of the header search button"
+							"description"	=>	"Background color of the header search button",
 							),
 						array(
 							"name"			=>	"Logo Background Hover",
 							"key"			=>	"logo-background-hover",
 							"input"			=>	"color",
-							"description"	=>	"Color of the logo background on mouse hover"
+							"description"	=>	"Color of the logo background on mouse hover",
 							),
 						),
 					),

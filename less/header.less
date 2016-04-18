@@ -45,12 +45,13 @@ body.scrollfix-y{
 }
 
 header#header{
-	position:fixed;
-	z-index:100;
-	width:100%;
-	background:@header-background;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	//@header-background-opacity: 100%;
+	background: fade( @header-background, @header-background-opacity );
 	transition: background .66s ease;
-	border-bottom:1px solid @header-line-color;
+	border-bottom: 1px solid @header-line-color;
 
 	@media @wp-sm{
 		position:absolute;
