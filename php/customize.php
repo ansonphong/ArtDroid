@@ -98,6 +98,8 @@ function theme_customize_register( $wp_customize ) {
 									),
 		));
 
+	// Opacity of the header background in percent, between 0-100%, include (%), ie. 90%
+
 	/**
 	 * SHOW SEARCH
 	 */
@@ -144,6 +146,31 @@ function theme_customize_register( $wp_customize ) {
 		'subkey' 			=>	'menus.primary.show_icons_sub',
 		'label' => __( 'Show Icons in Submenus', 'postworld' ),
 		'description' => __('Show page icons in dropdown submenus.', 'postworld'),
+		));
+
+	/**
+	 * HEADER : BACKGROUND OPACITY
+	 */
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'select',
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.header-background-opacity',
+		'label' 			=> __( 'Header Background Opacity', 'postworld' ),
+		//'description' 		=> __('', 'postworld'),
+		'choices'	=>	array(
+			'100' => '100%',
+			'90' => '90%',
+			'80' => '80%',
+			'70' => '70%',
+			'60' => '60%',
+			'50' => '50%',
+			'40' => '40%',
+			'30' => '30%',
+			'20' => '20%',
+			'10' => '10%',
+			'0' => '0%',
+			),
 		));
 
 	/**
