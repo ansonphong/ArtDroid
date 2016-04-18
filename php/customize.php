@@ -53,6 +53,8 @@ add_action( 'customize_save', 'pw_reset_less_php_cache' );
 add_action( 'customize_register', 'theme_customize_register' );
 function theme_customize_register( $wp_customize ) {
 
+	$postworld_customize = new PW_Customize_Manager();
+
 	/**
 	 * PANELS
 	 */
@@ -183,6 +185,61 @@ function theme_customize_register( $wp_customize ) {
 	) );
 
 
+	/**
+	 * HEADER : BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.header-background',
+		'label' 			=>	__('Header Background Color', 'postworld'),
+		//'description'		=>	__('', 'postworld'),
+		));
+
+	/**
+	 * HEADER : LINE
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.header-line-color',
+		'label' 			=>	__('Header Line Color', 'postworld'),
+		'description'		=>	__('Line under the header.', 'postworld'),
+		));
+
+	/**
+	 * HEADER : MAIN MENU TEXT
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.main-menu-foreground',
+		'label' 			=>	__('Main Menu Text Color', 'postworld'),
+		//'description'		=>	__('', 'postworld'),
+		));
+
+	/**
+	 * HEADER : SUB MENU BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.sub-menu-background',
+		'label' 			=>	__('Sub Menu Background Color', 'postworld'),
+		'description'		=>	__('Dropdown menu background color.', 'postworld'),
+		));
+
+	/**
+	 * HEADER : SUB MENU TEXT
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.sub-menu-foreground',
+		'label' 			=>	__('Sub Menu Text Color', 'postworld'),
+		'description'		=>	__('Dropdown menu text color.', 'postworld'),
+		));
+
 
 	/*
 	$wp_customize->add_setting( 'email_field_id', array(
@@ -221,29 +278,29 @@ function theme_customize_register( $wp_customize ) {
 	/**
 	 * BACKGROUND COLOR
 	 */
-	pw_wp_customize_add_color_setting( $wp_customize, array(
+	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
 		'option_definition' =>	'PW_OPTIONS_STYLES',
 		'subkey' 			=>	'colors.core.global-background-color',
 		'label' 			=>	__('Background Color', 'postworld'),
-		//'description'		=>	__('Color used for primary theme elements.', 'postworld'),
+		//'description'		=>	__('', 'postworld'),
 		));
 
 	/**
 	 * FOREGROUND COLOR
 	 */
-	pw_wp_customize_add_color_setting( $wp_customize, array(
+	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
 		'option_definition' =>	'PW_OPTIONS_STYLES',
 		'subkey' 			=>	'colors.core.global-foreground-color',
-		'label' 			=>	__('Foreground Color', 'postworld'),
-		'description'		=>	__('Color used for text and foreground elements.', 'postworld'),
+		'label' 			=>	__('Foreground (Text) Color', 'postworld'),
+		//'description'		=>	__('', 'postworld'),
 		));
 
 	/**
 	 * PRIMARY COLOR
 	 */
-	pw_wp_customize_add_color_setting( $wp_customize, array(
+	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
 		'option_definition' =>	'PW_OPTIONS_STYLES',
 		'subkey' 			=>	'colors.core.primary-color-medium',
@@ -254,7 +311,7 @@ function theme_customize_register( $wp_customize ) {
 	/**
 	 * SECONDARY COLOR
 	 */
-	pw_wp_customize_add_color_setting( $wp_customize, array(
+	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
 		'option_definition' =>	'PW_OPTIONS_STYLES',
 		'subkey' 			=>	'colors.core.secondary-color-medium',
@@ -262,11 +319,10 @@ function theme_customize_register( $wp_customize ) {
 		'description'		=>	__('For secondary theme elements.', 'postworld'),
 		));
 
-
 	/**
 	 * NEUTRAL COLOR
 	 */
-	pw_wp_customize_add_color_setting( $wp_customize, array(
+	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
 		'option_definition' =>	'PW_OPTIONS_STYLES',
 		'subkey' 			=>	'colors.core.neutral-color-medium',
@@ -274,7 +330,69 @@ function theme_customize_register( $wp_customize ) {
 		'description'		=>	__('For neutral theme elements.', 'postworld'),
 		));
 
+	/**
+	 * HIGHLIGHT : FOREGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.highlight-foreground-color',
+		'label' 			=>	__('Hover Foreground (Text) Color', 'postworld'),
+		'description'		=>	__('Text color used for highlights, such as mouse hovers.', 'postworld'),
+		));
+
+	/**
+	 * HIGHLIGHT : BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.highlight-background-color',
+		'label' 			=>	__('Hover Background Color', 'postworld'),
+		'description'		=>	__('Background color used for highlighted areas, such as mouse hovers.', 'postworld'),
+		));
+
+
+	/**
+	 * MODAL : FOREGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.modal-foreground-color',
+		'label' 			=>	__('Modal Foreground Color', 'postworld'),
+		'description'		=>	__('Text color in modal windows, such as post and gallery image viewers.', 'postworld'),
+		));
+
+
+	/**
+	 * MODAL : BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.modal-background-color',
+		'label' 			=>	__('Modal Background Color', 'postworld'),
+		'description'		=>	__('Background color of modal windows.', 'postworld'),
+		));
+
+
+	/**
+	 * MODAL : BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.core.highlight-color-medium',
+		'label' 			=>	__('Highlight (Eye Catching) Color', 'postworld'),
+		'description'		=>	__('Used for buy now links and email newsletter signup forms.', 'postworld'),
+		));
+
+
+
+	
+
+
 
 }
-
 

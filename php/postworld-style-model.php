@@ -19,15 +19,13 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 
 			'header'	=>	array(
-				'header-background'			=>	'fade(@neutral-color-dark,90%)',
+				'header-background'			=>	'#808080', //'fade(@neutral-color-dark,90%)',
 				'header-line-color'			=>	'fade(@neutral-color-dark,100%)',
-				'logo-background'			=>	'transparent',
-				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
-				//'main-menu-background'		=>	'transparent',
 				'main-menu-foreground'		=>	'@global-foreground-color',
 				'sub-menu-background'		=>	'@neutral-color-light',
 				'sub-menu-foreground'		=>	'@secondary-color-dark',
 				'search-button-background'	=>	'@header-background',
+				'logo-background-hover'		=>	'mix(@neutral-color-medium, @global-background-color, 50%)',
 				),
 
 			'media'	=>	array(
@@ -234,18 +232,8 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"color",
 							"description"	=>	"The color of the line under the header"
 							),
-						array(
-							"name"			=>	"Logo Background",
-							"key"			=>	"logo-background",
-							"input"			=>	"color",
-							"description"	=>	"Color of the logo background"
-							),
-						array(
-							"name"			=>	"Logo Background Hover",
-							"key"			=>	"logo-background-hover",
-							"input"			=>	"color",
-							"description"	=>	"Color of the logo background on mouse hover"
-							),
+
+						
 						/*
 						array(
 							"name"			=>	"Main Menu Background",
@@ -277,6 +265,12 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"search-button-background",
 							"input"			=>	"color",
 							"description"	=>	"Background color of the header search button"
+							),
+						array(
+							"name"			=>	"Logo Background Hover",
+							"key"			=>	"logo-background-hover",
+							"input"			=>	"color",
+							"description"	=>	"Color of the logo background on mouse hover"
 							),
 						),
 					),
