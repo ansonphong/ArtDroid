@@ -53,6 +53,7 @@ add_action( 'customize_save', 'pw_reset_less_php_cache' );
 add_action( 'customize_register', 'theme_customize_register' );
 function theme_customize_register( $wp_customize ) {
 
+	// Invoke the Postworld Customize Manager
 	$postworld_customize = new PW_Customize_Manager();
 
 	/**
@@ -67,14 +68,13 @@ function theme_customize_register( $wp_customize ) {
 		'description' => __( 'Customize the theme.', 'textdomain' ),
 	) );
 	*/
-	
 
 	/*****************************************
 	 * SECTION : HEADER
 	 *****************************************
 	 */
 	$wp_customize->add_section( 'theme_header', array(
-		'priority' => 10,
+		'priority' => 60,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => __( 'Header', 'textdomain' ),
@@ -85,105 +85,66 @@ function theme_customize_register( $wp_customize ) {
 	/**
 	 * MENU ALIGNMENT
 	 */
-	$subkey = 'menus.primary.alignment';
-	$wp_customize->add_setting( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'default' => pw_grab_option( PW_OPTIONS_THEME, $subkey ),
-		'type' => 'postworld',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		//'sanitize_callback' => 'esc_url',
-	) );
-	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'type' => 'select',
-		'priority' => 10,
-		'section' => 'theme_header',
-		'label' => __( 'Menu Position', 'postworld' ),
-		'description' => __('Position of the primary menu.', 'postworld'),
-		'choices'  => array(
-			'left'  => 'Left',
-			'right' => 'Right',
-			)
-	) );
-
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'menus.primary.alignment',
+		'label' 			=>	__( 'Menu Position', 'postworld' ),
+		'description'		=>	__('Position of the primary menu.', 'postworld'),
+		'type'				=>	'select',
+		'choices'			=>	array(
+									'left'  => 'Left',
+									'right' => 'Right',
+									),
+		));
 
 	/**
 	 * SHOW SEARCH
 	 */
-	$subkey = 'search.show_search';
-	$wp_customize->add_setting( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'default' => pw_grab_option( PW_OPTIONS_THEME, $subkey ),
-		'type' => 'postworld',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		//'sanitize_callback' => 'esc_url',
-	) );
-	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'type' => 'checkbox',
-		'priority' => 10,
-		'section' => 'theme_header',
-		'label' => __( 'Show Search', 'postworld' ),
-		'description' => __('Show search icon in upper right.', 'postworld'),
-	) );
-
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'search.show_search',
+		'label' 			=> __( 'Show Search', 'postworld' ),
+		'description' 		=> __('Show search icon in upper right.', 'postworld'),
+		));
 
 	/**
 	 * SHOW SOCIAL MENU
 	 */
-	$subkey = 'menus.primary.show_social';
-	$wp_customize->add_setting( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'default' => pw_grab_option( PW_OPTIONS_THEME, $subkey ),
-		'type' => 'postworld',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		//'sanitize_callback' => 'esc_url',
-	) );
-	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'type' => 'checkbox',
-		'priority' => 10,
-		'section' => 'theme_header',
-		'label' => __( 'Show Social Menu', 'postworld' ),
-		'description' => __('Show social media icons (if defined in ArtDroid › Social)', 'postworld'),
-	) );
-
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'menus.primary.show_social',
+		'label' 			=> __( 'Show Social Menu', 'postworld' ),
+		'description' 		=> __('Show social media icons (if defined in ArtDroid › Social)', 'postworld'),
+		));
 
 	/**
 	 * SHOW ICONS AT TOP LEVEL
 	 */
-	$subkey = 'menus.primary.show_icons_top';
-	$wp_customize->add_setting( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'default' => pw_grab_option( PW_OPTIONS_THEME, $subkey ),
-		'type' => 'postworld',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		//'sanitize_callback' => 'esc_url',
-	) );
-	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'type' => 'checkbox',
-		'priority' => 10,
-		'section' => 'theme_header',
-		'label' => __( 'Show Icons on Top Level', 'postworld' ),
-		'description' => __('Show page icons on top level menu items.', 'postworld'),
-	) );
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'menus.primary.show_icons_top',
+		'label' 			=> __( 'Show Icons on Top Level', 'postworld' ),
+		'description' 		=> __('Show page icons on top level menu items.', 'postworld'),
+		));
 
 	/**
 	 * SHOW ICONS IN SUBMENUS
 	 */
-	$subkey = 'menus.primary.show_icons_sub';
-	$wp_customize->add_setting( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'default' => pw_grab_option( PW_OPTIONS_THEME, $subkey ),
-		'type' => 'postworld',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		//'sanitize_callback' => 'esc_url',
-	) );
-	$wp_customize->add_control( 'PW_OPTIONS_THEME['.$subkey.']', array(
-		'type' => 'checkbox',
-		'priority' => 10,
-		'section' => 'theme_header',
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'menus.primary.show_icons_sub',
 		'label' => __( 'Show Icons in Submenus', 'postworld' ),
 		'description' => __('Show page icons in dropdown submenus.', 'postworld'),
-	) );
-
+		));
 
 	/**
 	 * HEADER : BACKGROUND
@@ -194,17 +155,6 @@ function theme_customize_register( $wp_customize ) {
 		'subkey' 			=>	'colors.header.header-background',
 		'label' 			=>	__('Header Background Color', 'postworld'),
 		//'description'		=>	__('', 'postworld'),
-		));
-
-	/**
-	 * HEADER : LINE
-	 */
-	$postworld_customize->add_color_setting( $wp_customize, array(
-		'section'			=>	'theme_header',
-		'option_definition' =>	'PW_OPTIONS_STYLES',
-		'subkey' 			=>	'colors.header.header-line-color',
-		'label' 			=>	__('Header Line Color', 'postworld'),
-		'description'		=>	__('Line under the header.', 'postworld'),
 		));
 
 	/**
@@ -241,24 +191,38 @@ function theme_customize_register( $wp_customize ) {
 		));
 
 
-	/*
-	$wp_customize->add_setting( 'email_field_id', array(
-		'default' => '',
-		'type' => 'theme_mod',
-		'capability' => 'edit_theme_options',
-		'transport' => '',
-		'sanitize_callback' => 'sanitize_email',
-	) );
+	/**
+	 * HEADER : SEARCH BUTTON BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.search-button-background',
+		'label' 			=>	__('Search Button Background Color', 'postworld'),
+		//'description'		=>	__('', 'postworld'),
+		));
 
-	$wp_customize->add_control( 'email_field_id', array(
-		'type' => 'email',
-		'priority' => 10,
-		'section' => 'theme_header',
-		'label' => __( 'Email Field', 'textdomain' ),
-		'description' => '',
-	) );
-	*/
+	/**
+	 * HEADER : LOGO BACKGROUND HOVER
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.logo-background-hover',
+		'label' 			=>	__('Logo Background Hover Color', 'postworld'),
+		'description'		=>	__('Color of the box behind the logo when hovering over it.', 'postworld'),
+		));
 
+	/**
+	 * HEADER : LINE
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_header',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.header.header-line-color',
+		'label' 			=>	__('Header Line Color', 'postworld'),
+		'description'		=>	__('Line under the header.', 'postworld'),
+		));
 
 
 
@@ -267,7 +231,7 @@ function theme_customize_register( $wp_customize ) {
 	 *****************************************
 	 */
 	$wp_customize->add_section( 'theme_colors', array(
-		'priority' => 10,
+		'priority' => 160,
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => __( 'Colors', 'textdomain' ),
@@ -352,7 +316,6 @@ function theme_customize_register( $wp_customize ) {
 		'description'		=>	__('Background color used for highlighted areas, such as mouse hovers.', 'postworld'),
 		));
 
-
 	/**
 	 * MODAL : FOREGROUND
 	 */
@@ -363,7 +326,6 @@ function theme_customize_register( $wp_customize ) {
 		'label' 			=>	__('Modal Foreground Color', 'postworld'),
 		'description'		=>	__('Text color in modal windows, such as post and gallery image viewers.', 'postworld'),
 		));
-
 
 	/**
 	 * MODAL : BACKGROUND
@@ -389,10 +351,4 @@ function theme_customize_register( $wp_customize ) {
 		));
 
 
-
-	
-
-
-
 }
-
