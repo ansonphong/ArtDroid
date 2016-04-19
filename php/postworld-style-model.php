@@ -6,12 +6,12 @@ function theme_pw_styles_default( $styles = array() ){
 	$defaults = array(
 		'colors'	=>	array(
 			'core' =>	array(
-				'global-background-color'		=>	'#000000',
-				'global-foreground-color'		=>	'#ffffff',
-				'primary-color-medium'			=>	'#f4901a',
-				'secondary-color-medium'		=>	'#f4901a',
+				'global-background-color'		=>	'#191919',
+				'global-foreground-color'		=>	'#e6e6e6',
+				'primary-color-medium'			=>	'#cc6600',
+				'secondary-color-medium'		=>	'#cc6600',
 				'neutral-color-medium'			=>	'#808080',
-				'highlight-foreground-color'	=>	'#f4901a',
+				'highlight-foreground-color'	=>	'#cc6600',
 				'highlight-background-color'	=>	'#fff',
 				'modal-foreground-color'		=>	'#fff',
 				'modal-background-color'		=>	'#000',
@@ -19,13 +19,13 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 
 			'header'	=>	array(
-				'header-background'			=>	'#808080',
+				'header-background'			=>	'#2b2b2b',
 				'header-background-opacity'	=>	'90%',
-				'header-line-color'			=>	'fade(@neutral-color-dark,100%)',
-				'main-menu-foreground'		=>	'@global-foreground-color',
-				'sub-menu-background'		=>	'@neutral-color-light',
-				'sub-menu-foreground'		=>	'@secondary-color-dark',
-				'search-button-background'	=>	'@header-background',
+				'header-line-color'			=>	'#545454',
+				'main-menu-foreground'		=>	'#e6e6e6',
+				'sub-menu-background'		=>	'#d4d4d4',
+				'sub-menu-foreground'		=>	'#323232',
+				'search-button-background'	=>	'#808080',
 				'logo-background-hover'		=>	'#333',
 				),
 
