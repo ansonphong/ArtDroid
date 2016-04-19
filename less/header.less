@@ -53,24 +53,28 @@ header#header{
 	transition: background .66s ease;
 	border-bottom: 1px solid @header-line-color;
 
+	#main-menu-container{
+		margin-right: 10px;
+	}
+
 	@media @wp-sm{
 		position:absolute;
 	}
 
 	.menu-main{
 		@media @md-up{
-			margin-right:130px;
+			margin-right:20px; // 130px
 		}
 	}
 
 	&.show-search{
 		.menu-main{
 			@media @md-up{
-				margin-right:200px;
+				margin-right: (20px + @header-height-compact);
 			}
 		}
 		.menu-social{
-			right: @header-height-compact;
+			margin-right: @header-height-compact;
 		}
 	}
 
@@ -136,8 +140,9 @@ header#header{
 	}
 	
 	.menu-social{
-		position:absolute;
-		right:0px;
+		//position:absolute;
+		//right:0px;
+		float: right;
 		opacity:1;
 		transition: all ease .33s;
 		height:100%;

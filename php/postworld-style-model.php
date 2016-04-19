@@ -36,8 +36,8 @@ function theme_pw_styles_default( $styles = array() ){
 			'footer'=>	array(
 				//'footer-background'			=>	'transparent',
 				'footer-color'				=>	'@neutral-color-medium',
-				'footer-widgets-background' => '@global-background-color',
-				'footer-base-background' 	=> '@global-background-color',
+				'footer-widgets-background' =>	'@global-background-color',
+				'footer-base-background' 	=>	'@global-background-color',
 				),
 
 			'slider'=>	array(
@@ -70,7 +70,7 @@ function theme_pw_styles_default( $styles = array() ){
 				'page-sm-width'		=>	'100%',
 				'page-md-width'		=>	'100%',
 				'page-lg-width'		=>	'100%',
-				'page-max-width'	=>	'1600px',
+				'page-max-width'	=>	'3600px',
 				),
 			),
 

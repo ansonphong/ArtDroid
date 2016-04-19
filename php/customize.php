@@ -367,7 +367,18 @@ function theme_customize_register( $wp_customize ) {
 
 
 	/**
-	 * MODAL : BACKGROUND
+	 * MEDIA : BACKGROUND
+	 */
+	$postworld_customize->add_color_setting( $wp_customize, array(
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_STYLES',
+		'subkey' 			=>	'colors.media.media-viewer-background',
+		'label' 			=>	__('Media Background Color', 'postworld'),
+		'description'		=>	__('Appears behind images in image galleries and posts.', 'postworld'),
+		));
+
+	/**
+	 * HIGHLIGHT : EYE CATCHING
 	 */
 	$postworld_customize->add_color_setting( $wp_customize, array(
 		'section'			=>	'theme_colors',
@@ -376,6 +387,8 @@ function theme_customize_register( $wp_customize ) {
 		'label' 			=>	__('Highlight (Eye Catching) Color', 'postworld'),
 		'description'		=>	__('Used for buy now links and email newsletter signup forms.', 'postworld'),
 		));
+
+
 
 
 }
