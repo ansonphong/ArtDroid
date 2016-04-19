@@ -156,6 +156,10 @@ function theme_include_styles(){
 
 }
 
+
+/**
+ * THEME CUSTOM SCRIPTS
+ */
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
 function theme_include_scripts(){
 	///// JQUERY /////
@@ -169,6 +173,26 @@ function theme_include_scripts(){
 		$GLOBALS['theme_version'],
 		true );
 }
+
+
+/**
+ * ADMIN SCRIPTS
+ */
+add_action( 'admin_enqueue_scripts', 'theme_admin_scripts' );
+function theme_admin_scripts(){
+	/*wp_enqueue_style(
+		'Admin-Styles',
+		get_stylesheet_directory_uri() . '/less/admin/style.less' );*/
+
+	wp_enqueue_script(
+		'Theme-Admin-Scripts',
+		get_stylesheet_directory_uri() . '/js/adminScripts.js',
+		array() ,
+		$GLOBALS['theme_version'],
+		true );
+	
+}
+
 
 ////////// INIT WORDPRES //////////
 function theme_init() {  
