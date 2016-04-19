@@ -38,13 +38,10 @@ function theme_remove_customizer_options( $wp_customize ) {
 
 
 /**
- * Clear the LESS cache before and after previewing.
+ * Clear the LESS cache before Customizing and after saving.
  */
-//add_action( 'start_previewing_theme', 'pw_reset_less_php_cache' );
-//add_action( 'stop_previewing_theme', 'pw_reset_less_php_cache' );
 add_action( 'customize_preview_init', 'pw_reset_less_php_cache' );
 add_action( 'customize_save', 'pw_reset_less_php_cache' );
-//customize_save
 
 
 /**
@@ -262,9 +259,10 @@ function theme_customize_register( $wp_customize ) {
 		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => __( 'Colors', 'textdomain' ),
-		'description' => 'Customize the colors for the theme.',
+		//'description' => 'Customize the colors for the theme.',
 		//'panel' => 'current_theme',
 	) );
+
 
 	/**
 	 * BACKGROUND COLOR
@@ -386,6 +384,31 @@ function theme_customize_register( $wp_customize ) {
 		'subkey' 			=>	'colors.core.highlight-color-medium',
 		'label' 			=>	__('Highlight (Eye Catching) Color', 'postworld'),
 		'description'		=>	__('Used for buy now links and email newsletter signup forms.', 'postworld'),
+		));
+
+
+	/**
+	 * DYNAMIC COLORS : SINGLE
+	 */
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'colors.views.single.dynamic_colors',
+		'label' 			=> __( 'Dynamic Colors on Single Posts', 'postworld' ),
+		'description' 		=> __('Customize the site colors to match the featured image on when viewing a single post.', 'postworld'),
+		));
+
+	/**
+	 * DYNAMIC COLORS : GRID
+	 */
+	$postworld_customize->add_control_setting( $wp_customize, array(
+		'type'				=>	'checkbox',
+		'section'			=>	'theme_colors',
+		'option_definition' =>	'PW_OPTIONS_THEME',
+		'subkey' 			=>	'colors.views.grid.dynamic_colors',
+		'label' 			=> __( 'Dynamic Colors on Grid Feeds', 'postworld' ),
+		'description' 		=> __('Customize the grid feed overlay colors to match each post.', 'postworld'),
 		));
 
 
