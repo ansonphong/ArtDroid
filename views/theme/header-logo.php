@@ -15,6 +15,7 @@
 		'image(stats)',
 		//'image(md,63,63,2)',
 		'image(lg,128,128,2)',
+		'image(xl,256,256,2)',
 		);
 	$logo_post = ( $has_logo_image ) ? pw_get_post( $logo_id, $logo_fields ) : array();
 
@@ -44,7 +45,7 @@
 			<!-- LOGO -->
 			<img
 				class="center-vertical"
-				src="<?php echo _get( $logo_post, 'image.sizes.full.url' ) ?>"
+				src="<?php echo _get( $logo_post, 'image.sizes.lg.url' ) ?>"
 				pw-smart-image="logoPost.image"
 				ng-cloak>
 		<?php endif ?>
