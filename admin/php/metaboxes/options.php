@@ -3,7 +3,7 @@
 	global $post;
 	$pwInject = $pw['inject'];
 ?>
-<div ng-cloak ng-controller="pwMetaboxOptionsCtrl" class="pw-metabox">
+<div ng-controller="pwMetaboxOptionsCtrl" class="postworld pw-metabox pw-cloak">
 	<table>
 
 		<?php if( $post->post_type == 'blog' ): ?>
