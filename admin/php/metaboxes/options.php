@@ -6,7 +6,7 @@
 <div ng-controller="pwMetaboxOptionsCtrl" class="postworld pw-metabox pw-cloak">
 	<table>
 
-		<?php if( $post->post_type == 'blog' ): ?>
+		<?php if( $post->post_type == 'blog' && 1 == 0 ): ?>
 			BLOG
 		<?php endif ?>
 
