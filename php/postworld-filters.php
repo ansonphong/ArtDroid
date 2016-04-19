@@ -528,26 +528,54 @@ function theme_post_field_model_preview( $fields ){
 }
 
 
+/**
+ * Reverse the ordering, depending on if the background is light or dark.
+ * ASC for dark backgrounds
+ * DESC for light backgrounds
+ */
+function theme_get_color_order(){
+	// Check for cached value
+	if( isset( $GLOBALS['theme_color_order'] ) )
+		return $GLOBALS['theme_color_order'];
+
+	// Decide on the color order
+	$pw_colors = new PW_Colors();
+	$background_color = pw_grab_option( PW_OPTIONS_STYLES, 'colors.core.global-background-color' );
+	$background_color_tags = $pw_colors->get_color_tags( $background_color, 'hex' );
+	
+	// If the light color tag is detected
+	if( in_array( 'light', $background_color_tags ) )
+		$order = 'DESC';
+	else
+		$order = 'ASC';
+
+	// Cache color order on runtime global variable
+	$GLOBALS['theme_color_order'] = $order;
+
+	return $order;
+}
+
 add_filter( 'pw_color_profiles', 'theme_color_profiles', 11 );
 function theme_color_profiles( $profiles ){
 
 	unset( $profiles['default'] );
+	$order = theme_get_color_order();
 
 	$profiles['dynamic'] = array(
 		'order_by'		=> 'lightness',
-		'order'			=> 'ASC',
+		'order'			=> $order,
 		'processing'	=>	array(
 			'lightness_range' => array(
 				'low' => 0.15,
 				'high' => 0.8,
 				'distribute' => true,
-				'order' => 'ASC',
+				'order' => $order,
 				),
 			'saturation_range' => array(
 				'low' => 0.0,
 				'high' => 0.5,
 				'distribute' => false,
-				'order' => 'ASC',
+				'order' => $order,
 				),
 			),
 		);

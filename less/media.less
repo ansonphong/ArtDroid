@@ -26,7 +26,6 @@
 
 .media-viewer{
 	position:relative;
-	//height:90%;
 	margin:auto;
 	background:@media-viewer-background;
 	border-bottom: 1px solid fade( @neutral-color-medium, 20% );
@@ -34,6 +33,9 @@
 	&.post-image{
 		&.panorama{
 			overflow-x: scroll;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+
 			img.view-image{
 				max-width: none;
 				width:auto;
