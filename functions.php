@@ -10,12 +10,11 @@
 global $theme_version;
 $theme_version = 1.420;
 
-/*x
+/**
 ArtDroid is a Premium WordPress theme
 designed with artists, designers,
-photographers and motion picture directors
-in mind. ArtDroid focuses on getting your
-art seen, up-front and center stage.
+photographers in mind. ArtDroid focuses on
+getting your art seen, up-front and center stage.
 
 Thanks for using ArtDroid, we hope you
 enjoy using it and if you have any support
@@ -28,6 +27,7 @@ http://androidjones.com
 
 Designed, coded, supported and
 maintained by Phong Media Design
+in Vancouver, BC, Canada
 http://phong.com
 
 Distributed by Theme Forest
@@ -37,7 +37,7 @@ http://themeforest.net/?ref=phongmedia
 /**
  * ArtDroid is built using Postworld
  * a theme development framework developed
- * by Phong Media Design. Postworld provides
+ * by Phong Media. Postworld provides
  * a backend framework which builds ontop
  * of the native WordPress functionality
  * coupled with the client-side Javascript
@@ -153,7 +153,6 @@ function theme_include_styles(){
 			$GLOBALS['theme_version'] );
 	}
 
-
 }
 
 
@@ -162,7 +161,7 @@ function theme_include_styles(){
  */
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
 function theme_include_scripts(){
-	///// JQUERY /////
+	// JQUERY
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 	// MAIN SCRIPTS
@@ -190,7 +189,7 @@ function theme_admin_scripts(){
 		array() ,
 		$GLOBALS['theme_version'],
 		true );
-	
+
 }
 
 
@@ -384,8 +383,10 @@ if ( ! isset( $content_width ) ) $content_width = 900;
  */
 add_theme_support( 'automatic-feed-links' );
 
+
+/**
+ * Add Excerpt field to posts and blogs entries.
+ */
 add_post_type_support( 'post', 'excerpt' );
 add_post_type_support( 'blog', 'excerpt' );
-
-
 
