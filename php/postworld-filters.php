@@ -26,20 +26,21 @@ function theme_options_meta($options_meta){
 
 }
 
-
 /**
- * @todo Make this check the post itself and check for distraction fre galleries
+ * Turn off footer if gallery type is immersive.
  */
 add_filter( 'theme_show_footer', 'theme_show_footer_options', 1 );
 function theme_show_footer_options( $show_footer ){
-	return $show_footer;
-}
 
-add_filter( 'theme_show_footer', 'theme_show_footer_gallery_home_page' );
-function theme_show_footer_gallery_home_page( $show_footer ){
-	// Hide the footer if on home content
-	$gallery_home_page = pw_grab_option( PW_OPTIONS_THEME, 'home.content.primary' ) === 'scrolling-gallery';
-	return ($show_footer && !($gallery_home_page && is_front_page()) );
+	if( is_page() || is_single() ){
+		global $post;
+		$is_immersive = pw_grab_postmeta( $post->ID, PW_POSTMETA_KEY, 'gallery.immersive' );
+		return !$is_immersive;
+	}
+	else{
+		return $show_footer;
+	}
+	
 }
 
 /**
