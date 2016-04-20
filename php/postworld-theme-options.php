@@ -131,6 +131,7 @@ function pw_theme_options_filter( $options ){
 							),
 						'gallery' => array(
 							'template' => 'inline',
+							'immersive' => false,
 							'vertical' => array(
 								'show_title' => true,
 								'show_caption' => true
