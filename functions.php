@@ -163,22 +163,34 @@ function theme_include_styles(){
 
 }
 
-
 /**
  * THEME CUSTOM SCRIPTS
  */
-add_action( 'wp_enqueue_scripts', 'theme_include_scripts' );
+add_action( 'wp_enqueue_scripts', 'theme_include_scripts', 2 );
 function theme_include_scripts(){
 	// JQUERY
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
+
 	// MAIN SCRIPTS
-	wp_enqueue_script(
-		'theme-scripts',
-		get_stylesheet_directory_uri() . '/js/scripts.js',
-		array('jquery', 'jquery-ui-core', 'artdroid-footer'),
-		$GLOBALS['theme_version'],
-		true );
+	if( pw_dev_mode() )
+		wp_enqueue_script(
+			'theme-scripts',
+			get_stylesheet_directory_uri() . '/js/scripts.js',
+			array('jquery', 'jquery-ui-core', 'postworld'),
+			$GLOBALS['theme_version'],
+			true );
+	
+	else
+		pw_register_script( array(
+			'group' => 'postworld',
+			'handle' => 'theme-scripts',
+			'file' => get_stylesheet_directory() . '/js/scripts.js',
+			'version' => $GLOBALS['theme_version'],
+			'in_footer' => $in_footer,
+			'priority' => 500,
+			));
+
 }
 
 
