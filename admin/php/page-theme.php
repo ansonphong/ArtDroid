@@ -1,7 +1,6 @@
 <?php
 // Enable Media Library
 wp_enqueue_media();
-global $theme_version;
 
 pw_print_ng_controller(array(
 	'app' => 'postworldAdmin',
@@ -34,7 +33,7 @@ pw_print_ng_controller(array(
 						Theme Settings
 					</span>
 					<span class="theme-version">
-						v<?php echo $theme_version ?>
+						v<?php echo $GLOBALS['theme_version'] ?>
 					</span>
 				</h1>
 			</div>

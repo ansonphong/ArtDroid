@@ -8,7 +8,7 @@
 ----------- WELCOME TO ARTDROID -----------*/
 
 global $theme_version;
-$theme_version = 1.421;
+$theme_version = 1.422;
 
 /**
 ArtDroid is a Premium WordPress theme
@@ -53,7 +53,6 @@ function theme_postworld_includes(){
 	postworld_includes( array(
 		'inject'  => array(
 			'masonry.js',
-			'jquery',
 			),
 	));
 }
@@ -61,14 +60,23 @@ add_action( 'wp_enqueue_scripts', 'theme_postworld_includes' );
 add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
 
 /**
- * Theme Version
+ * Append the theme version to the site version
  */
-function theme_version_filter( $pw_version ){
-	global $theme_version;
-	$ver = $theme_version . '-' . $pw_version; 
-	return $ver;
+add_filter( PW_VERSIONS, 'theme_pw_site_version' );
+function theme_pw_site_version( $versions ){
+	$versions['theme'] = $GLOBALS['theme_version'];
+	return $versions;
 }
-add_filter( PW_THEME_VERSION, 'theme_version_filter' );
+
+/**
+ * Change the location of the LESS CACHE so it's identifyable with the theme
+ */
+add_filter( 'wp_less_cache_path', 'theme_less_cache_location' );
+add_filter( 'wp_less_cache_url', 'theme_less_cache_location' );
+function theme_less_cache_location( $location ){
+	return str_replace( 'wp-less-cache', 'artdroid-cache', $location );
+}
+
 
 ////////// ADMIN //////////
 //include_once get_infinite_directory().'/php/options.php';
@@ -168,7 +176,7 @@ function theme_include_scripts(){
 	wp_enqueue_script(
 		'theme-scripts',
 		get_stylesheet_directory_uri() . '/js/scripts.js',
-		array('jquery', 'jquery-ui-core'),
+		array('jquery', 'jquery-ui-core', 'artdroid-footer'),
 		$GLOBALS['theme_version'],
 		true );
 }
@@ -249,12 +257,11 @@ function theme_rest_namespace( $namespace ){
  * Enqueue styles for the administrative panel.
  */
 function theme_admin_enqueue() {
-	global $theme_version;
 	wp_enqueue_style(
 		'Theme-Admin-Styles',
 		get_template_directory_uri() . '/admin/less/styles.less',
 		array(),
-		$theme_version);
+		$GLOBALS['theme_version'] );
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 
