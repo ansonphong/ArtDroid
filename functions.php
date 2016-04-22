@@ -69,7 +69,7 @@ function theme_pw_site_version( $versions ){
 }
 
 /**
- * Change the location of the LESS CACHE so it's identifyable with the theme
+ * Change the location of the LESS CACHE so it's identifiable with the theme
  */
 add_filter( 'wp_less_cache_path', 'theme_less_cache_location' );
 add_filter( 'wp_less_cache_url', 'theme_less_cache_location' );
