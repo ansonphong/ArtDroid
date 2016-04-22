@@ -8,7 +8,7 @@
 ----------- WELCOME TO ARTDROID -----------*/
 
 global $theme_version;
-$theme_version = 1.422;
+$theme_version = 1.423;
 
 /**
 ArtDroid is a Premium WordPress theme
