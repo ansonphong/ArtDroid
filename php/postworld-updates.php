@@ -4,13 +4,12 @@
  */
 add_action('init','theme_check_for_updates');
 function theme_check_for_updates(){
-	global $theme_version;
 	require_once( get_template_directory().'/lib/theme-updates/theme-update-checker.php');
 	$update_server_url = 'http://artdroid.phong.com/';
 	$query_vars = array(
 		'update_action' => 'get_metadata',
 		'update_slug' => 'artdroid',
-		'installed_version' => $theme_version
+		'installed_version' => $GLOBALS['theme_version'],
 		);
 	$query_string = http_build_query( $query_vars );
 	$request_url = $update_server_url . '?' . $query_string;
