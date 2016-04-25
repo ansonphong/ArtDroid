@@ -169,7 +169,7 @@ function theme_include_styles(){
 add_action( 'wp_enqueue_scripts', 'theme_include_scripts', 2 );
 function theme_include_scripts(){
 	// JQUERY
-	wp_enqueue_script('jquery');
+	//wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 
 	// MAIN SCRIPTS
