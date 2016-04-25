@@ -152,17 +152,10 @@ html body .mc4wp-form{
 		display: none;
 	}
 
-	input[type="email"],
-	input[type="submit"],
-	button[type="submit"]{
+	input, button{
+		width: 100%;
 		.transition();
 		display:block;
-
-		@media @xl{ width:50%; }
-		@media @lg{ width:60%; }
-		@media @md{ width:70%; }
-		@media @sm{ width:80%; }
-		@media @xs{ width:90%; }
 	}
 
 	input[type="email"]{
@@ -209,5 +202,17 @@ html body .mc4wp-form{
 		background: fade(@global-background-color, 50%);
 	}
 	
+}
+
+html body .feed .mc4wp-form{
+	input[type="email"],
+	input[type="submit"],
+	button[type="submit"]{
+		@media @xl{ width:60%; }
+		@media @lg{ width:70%; }
+		@media @md{ width:80%; }
+		@media @sm{ width:90%; }
+		@media @xs{ width:95%; }
+	}
 }
 
