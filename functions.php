@@ -177,17 +177,17 @@ function theme_include_scripts(){
 		wp_enqueue_script(
 			'theme-scripts',
 			get_stylesheet_directory_uri() . '/js/scripts.js',
-			array('jquery', 'jquery-ui-core', 'postworld'),
+			array( POSTWORLD_APP ),
 			$GLOBALS['theme_version'],
 			true );
 	
 	else
 		pw_register_script( array(
-			'group' => 'postworld',
+			'group' => POSTWORLD_APP,
 			'handle' => 'theme-scripts',
-			'file' => get_stylesheet_directory() . '/js/scripts.js',
+			'file' => get_template_directory() . '/js/scripts.js',
 			'version' => $GLOBALS['theme_version'],
-			'in_footer' => $in_footer,
+			'in_footer' => true,
 			'priority' => 500,
 			));
 
