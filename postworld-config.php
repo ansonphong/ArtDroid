@@ -134,7 +134,7 @@ $pw_config = array(
 
 
 		'user_meta'	=>	array(
-			'pw_avatar'	=>	true,
+			'pw_avatar'	=>	false,
 			),
 		'metabox'	=>	array(
 			'colors' => array(

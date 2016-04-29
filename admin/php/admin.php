@@ -2,10 +2,15 @@
 ///// METABOXES /////
 include "metaboxes.php";
 
+add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');
 function theme_pw_admin_submenu_slug( $slug = '' ){
 	return 'artdroid';
 }
-add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');
+
+add_action('postworld_admin_header','theme_admin_header');
+function theme_admin_header(){
+	echo pw_ob_admin_template('theme-admin-header');
+}
 
 /*
 function postworld_theme_submenu( $submenu ){
@@ -59,7 +64,7 @@ function theme_admin_icon_styles(){
 	<style>
 		#toplevel_page_artdroid .dashicons-before:before,
 		#wpadminbar #wp-admin-bar-postworld-menu .ab-icon:before{
-			content: "\e701";
+			content: "\e900";
 			font-family: "Postworld-Icons"
 		}
 	</style>
@@ -73,5 +78,3 @@ function postworld_admin_theme_page(){
 	//i_include_scripts();
 	include 'page-theme.php';
 }
-
-?>
