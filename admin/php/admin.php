@@ -1,33 +1,21 @@
 <?php
-///// METABOXES /////
 include "metaboxes.php";
 
+/**
+ * Change the slug of the Postworld admin settings so it's branded
+ */
 add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');
 function theme_pw_admin_submenu_slug( $slug = '' ){
 	return 'artdroid';
 }
 
+/**
+ * Add the theme branded header to the top of Postworld Admin pages
+ */
 add_action('postworld_admin_header','theme_admin_header');
 function theme_admin_header(){
 	echo pw_ob_admin_template('theme-admin-header');
 }
-
-/*
-function postworld_theme_submenu( $submenu ){
-	global $pw;
-	$submenu['theme'] = array(
-		'parent_slug'	=> $pw['info']['slug'],
-		'page_title' 	=> 'Theme Settings',
-		'menu_title' 	=> 'Theme Settings',
-		'capability' 	=> 'manage_options',
-		'menu_slug' 	=> $pw['info']['slug'].'-theme',
-		'function' 		=> 'postworld_admin_theme_page',
-		'icon_url'		=> '',
-		);
-	return $submenu;
-}
-*/
-//add_filter( 'pw_admin_submenu', 'postworld_theme_submenu' );
 
 add_action( 'admin_menu', 'artdroid_admin_menu', 8 );
 function artdroid_admin_menu(){
@@ -38,7 +26,6 @@ function artdroid_admin_menu(){
 			'capability' => 'manage_options',
 			'menu_slug' => 'artdroid',
 			'function' => 'postworld_admin_theme_page',
-			//'icon_url' => '',//plugins_url( $migration_admin_folder.'/images/logo/pw_symbol-16.png' ),
 			'menu_icon'	=>	'dashicons-art',
 			'position' => ''
 			),
@@ -53,12 +40,17 @@ function artdroid_admin_menu(){
     	$admin['menu']['menu_icon']
     	);
 }
+function postworld_admin_theme_page(){
+	include 'page-theme.php';
+}
 
-
-
-///// ADMIN STYLES /////
+/**
+ * Add Theme Icon to WP Admin Bar and Top-level Admin Menu
+ */
+if( is_admin_bar_showing() ){
+	add_action('wp_print_styles', 'theme_admin_icon_styles');
+}
 add_action('admin_print_styles', 'theme_admin_icon_styles');
-add_action('wp_print_styles', 'theme_admin_icon_styles');
 function theme_admin_icon_styles(){
 	echo '
 	<style>
@@ -69,13 +61,5 @@ function theme_admin_icon_styles(){
 		}
 	</style>
 	';
-}
-
-
-///// SOCIAL SCREEN /////
-function postworld_admin_theme_page(){
-	//global $child_admin;
-	//i_include_scripts();
-	include 'page-theme.php';
 }
 
