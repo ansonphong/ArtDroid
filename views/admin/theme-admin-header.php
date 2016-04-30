@@ -3,9 +3,8 @@
 		<div class="col-md-6">
 			<h1>
 				<span class="artdroid-brand">
-					<i class="pwi-icosa"></i>
 					<a href="//artdroid.phong.com" target="_blank">
-						ArtDroid
+						<img src="<?php echo get_template_directory_uri() ?>/images/artdroid-sticker-orange-128.png" title="ArtDroid" style="height: 64px; width: auto;">
 					</a> 
 				</span>
 				<span class="subhead">

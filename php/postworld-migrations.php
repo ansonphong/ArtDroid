@@ -1,4 +1,26 @@
 <?php
+
+/**
+ * Do theme migrations for versions less than 1.425
+ */
+add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_two_five' );
+function theme_migration_one_point_four_two_five( $vars ){
+	if( version_compare( $vars['previous_version'], '1.425' ) === -1 ){
+
+		// POSTMETA
+		// redirect_url -> artdroid_redirect_url
+		// link_target -> artdroid_link_target 	
+		// pw_meta -> artdroid_meta
+		// pw_colors -> artdroid_colors
+		// pw_avatar -> artdroid_avatar
+
+
+		// Rename Database Tables
+		
+
+	} 
+}
+
 /**
  * THEME OPTIONS MIGRATIONS
  */

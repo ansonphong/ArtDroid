@@ -7,14 +7,14 @@
                                            
 ----------- WELCOME TO ARTDROID -----------*/
 /**
- * Registers the current theme within Postworld
+ * Registers the current theme within Postworld core
  */
-add_filter( 'pw_register_theme', 'artdroid_register_theme' );
+add_action( 'postworld_config', 'artdroid_register_theme', 10 );
 function artdroid_register_theme($theme){
-	return array(
+	pw_register_theme(array(
 		'slug' => 'artdroid',
-		'version' => '1.423',
-		);
+		'version' => '1.424',
+		));
 };
 
 /**

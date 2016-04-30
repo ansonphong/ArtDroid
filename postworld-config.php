@@ -10,9 +10,7 @@
 define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
 define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
-global $pw_config;
-$pw_config = array(
-
+$GLOBALS['pw_config'] = array(
 	'includes' => array(
 		'js' => array(
 			'in_footer' => true,
@@ -232,14 +230,14 @@ $pw_config = array(
 							'type'				=>	'text-input',
 							'label'				=>	'Redirect to URL',
 							'description'		=>	'301 redirect',
-							'meta_key'			=>	'redirect_url',
+							'meta_key'			=>	'artdroid_redirect_url',
 							'icon'				=>	'pwi-link',
 							),
 						array(
 							'type'				=>	'select-input',
 							'label'				=>	'Link Target',
 							'description'		=>	'Target of the link when clicked, used by sliders',
-							'meta_key'			=>	'link_target',
+							'meta_key'			=>	'artdroid_link_target',
 							'icon'				=>	'pwi-target',
 							'options'			=>	array(
 								array(
