@@ -1,3 +1,7 @@
+@import "../../postworld/lib/bootstrap/less/bootstrap-base.less";
+@import "../../postworld/less/breakpoints.less";
+@import "../../postworld/less/mixins.less";
+
 .postworld{
 	h1.primary{
 		padding-left: 24px;
@@ -9,6 +13,7 @@
 }
 #theme-admin-header{
 	@brand-primary-color:#cc6600;
+	height: (64px + 10px);
 
 	background: #222;
 	color:#bbb;
@@ -22,43 +27,55 @@
 		}
 	}
 
+	.header-row, .header-col{
+		height: 100%;
+	}
+
+	.subhead, .theme-version{
+		.center-vertical();
+		padding-left: 15px;
+		display: none;
+		float: left;
+		font-size: 1.5em;
+		@media @md-up{
+			display: block;
+		}
+	}
+
+	.subhead{
+		font-size: 1.5em;
+		font-family:Roboto;
+		font-weight:100;
+		margin-left:5px;
+		color: @brand-primary-color;
+	}
+
 	.theme-version{
 		color: #ccc;
-		font-size: .66em;
 		font-weight: 200;
 	}
 
-	.theme-info{
-		padding:45px 30px 10px;
+	.theme-credits{
+		.center-vertical();
+		padding:0 30px;
 		font-size:16px;
 		opacity:.75;
 		font-weight: 500;
 	}
 
-	h1{
-		margin-bottom:0;
-		a{
+	a{
+		color: #fff;
+		text-decoration: none !important;
+		border-bottom: 1px solid transparent;
+		outline: none;
+		&:hover, &:focus, &:active{
 			color: #fff;
-			text-decoration: none !important;
-			border-bottom: 1px solid transparent;
-			outline: none;
-			&:hover, &:focus, &:active{
-				color: #fff;
-				border-bottom-color: #fff;
-			}
-		}
-		.subhead{
-			display:inline-block;
-			font-size:24px;
-			font-family:Roboto;
-			font-weight:100;
-			margin-left:5px;
-			color: @brand-primary-color;
+			border-bottom-color: #fff;
 		}
 	}
 
 	.artdroid-brand{
-		display:inline-block;
+		float: left;
 		padding:5px 5px;
 		background:@brand-primary-color;
 		color:#fff;
@@ -70,6 +87,14 @@
 			position:relative;
 			top:1px;
 		}
+	}
+
+	.col-credits{
+		display: none;
+		@media @lg-up{
+			display: block;
+		}
+		text-align:right;
 	}
 
 }
