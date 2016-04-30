@@ -11,6 +11,14 @@ add_action('postworld_config', 'theme_postworld_config');
 
 function theme_postworld_config(){
 
+	/**
+	 * Break this into a smaller sets of configuration settings.
+	 * Use pw_set_config or refactor to use pw_config( 'key', 'value' )
+
+		pw_config( 'modules', array( 'required' => array('site') ) );
+		
+	*/
+
 	define( 'PW_OPTIONS_THEME', 'postworld-theme-artdroid' );
 	define( 'PW_OPTIONS_STYLES', 'postworld-styles-artdroid' );
 
