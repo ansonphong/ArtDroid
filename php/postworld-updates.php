@@ -1,6 +1,6 @@
 <?php
 /**
- * Check for Theme Updates from ArtDroid server
+ * Check for Theme Updates from ArtDroid server.
  */
 add_action('init','theme_check_for_updates');
 function theme_check_for_updates(){
@@ -9,7 +9,7 @@ function theme_check_for_updates(){
 	$query_vars = array(
 		'update_action' => 'get_metadata',
 		'update_slug' => 'artdroid',
-		'installed_version' => $GLOBALS['theme_version'],
+		'installed_version' => pw_theme_version(),
 		);
 	$query_string = http_build_query( $query_vars );
 	$request_url = $update_server_url . '?' . $query_string;

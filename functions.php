@@ -6,9 +6,16 @@
  /_/   \_\_|   \__|____/|_|  \___/|_|\__,_|
                                            
 ----------- WELCOME TO ARTDROID -----------*/
-
-global $theme_version;
-$theme_version = 1.423;
+/**
+ * Registers the current theme within Postworld
+ */
+add_filter( 'pw_register_theme', 'artdroid_register_theme' );
+function artdroid_register_theme($theme){
+	return array(
+		'slug' => 'artdroid',
+		'version' => '1.423',
+		);
+};
 
 /**
 ArtDroid is a Premium WordPress theme
@@ -58,15 +65,6 @@ function theme_postworld_includes(){
 }
 add_action( 'wp_enqueue_scripts', 'theme_postworld_includes' );
 add_action( 'admin_enqueue_scripts', 'theme_postworld_includes' );
-
-/**
- * Append the theme version to the site version
- */
-add_filter( PW_VERSIONS, 'theme_pw_site_version' );
-function theme_pw_site_version( $versions ){
-	$versions['theme'] = $GLOBALS['theme_version'];
-	return $versions;
-}
 
 /**
  * Change the location of the LESS CACHE so it's identifiable with the theme
@@ -145,20 +143,20 @@ include "php/tgm-plugin-activation.php";
 add_action( 'wp_enqueue_scripts', 'theme_include_styles' );
 function theme_include_styles(){
 
-	// If doing a style preview with the cusotmizer, use an alternate stylesheet
+	// If doing a style preview with the customizer, use an alternate stylesheet
 	if( defined('PW_DOING_CUSTOMIZER') && PW_DOING_CUSTOMIZER ){
 		wp_enqueue_style(
 			'Theme-Preview-Styles',
 			get_stylesheet_directory_uri() . '/less/style-preview.less',
 			array(),
-			$GLOBALS['theme_version'] );
+			pw_theme_version() );
 	}
 	else{
 		wp_enqueue_style(
 			'Theme-Styles',
 			get_stylesheet_directory_uri() . '/less/style.less',
 			array(),
-			$GLOBALS['theme_version'] );
+			pw_theme_version() );
 	}
 
 }
@@ -178,7 +176,7 @@ function theme_include_scripts(){
 			'theme-scripts',
 			get_stylesheet_directory_uri() . '/js/scripts.js',
 			array( POSTWORLD_APP ),
-			$GLOBALS['theme_version'],
+			pw_theme_version(),
 			true );
 	
 	else
@@ -186,9 +184,10 @@ function theme_include_scripts(){
 			'group' => POSTWORLD_APP,
 			'handle' => 'theme-scripts',
 			'file' => get_template_directory() . '/js/scripts.js',
-			'version' => $GLOBALS['theme_version'],
+			'version' => pw_theme_version(),
 			'in_footer' => true,
 			'priority' => 500,
+			'minify' => true,
 			));
 
 }
@@ -207,7 +206,7 @@ function theme_admin_scripts(){
 		'Theme-Admin-Scripts',
 		get_stylesheet_directory_uri() . '/js/adminScripts.js',
 		array() ,
-		$GLOBALS['theme_version'],
+		pw_theme_version(),
 		true );
 
 }
@@ -253,7 +252,7 @@ add_editor_style( "/css/editor-style.css" );
  */
 add_filter( 'pw_admin_bootstrap_angular', 'theme_admin_boostrap_angular' );
 function theme_admin_boostrap_angular( $bootstrap ){
-	$bootstrap['base_substring'][] = 'artdroid';
+	$bootstrap['base_substring'][] = pw_theme_slug();
 	return $bootstrap;
 }
 
@@ -262,7 +261,7 @@ function theme_admin_boostrap_angular( $bootstrap ){
  */
 add_filter( 'pw_rest_namespace', 'theme_rest_namespace' );
 function theme_rest_namespace( $namespace ){
-	return 'artdroid';
+	return pw_theme_slug();
 }
 
 /**
@@ -273,7 +272,8 @@ function theme_admin_enqueue() {
 		'Theme-Admin-Styles',
 		get_template_directory_uri() . '/admin/less/styles.less',
 		array(),
-		$GLOBALS['theme_version'] );
+		pw_theme_version()
+		);
 }
 add_action( 'admin_enqueue_scripts', 'theme_admin_enqueue' );
 

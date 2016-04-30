@@ -2,14 +2,6 @@
 include "metaboxes.php";
 
 /**
- * Change the slug of the Postworld admin settings so it's branded
- */
-add_filter('pw_admin_submenu_slug','theme_pw_admin_submenu_slug');
-function theme_pw_admin_submenu_slug( $slug = '' ){
-	return 'artdroid';
-}
-
-/**
  * Add the theme branded header to the top of Postworld Admin pages
  */
 add_action('postworld_admin_header','theme_admin_header');

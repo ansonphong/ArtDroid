@@ -12,7 +12,7 @@
 					Theme Settings
 				</span>
 				<span class="theme-version">
-					v<?php echo $GLOBALS['theme_version'] ?>
+					v<?php echo pw_theme_version() ?>
 				</span>
 			</h1>
 		</div>

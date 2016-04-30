@@ -153,7 +153,7 @@ function theme_include_google_fonts( $fonts ){
 	
 	///// ADMIN /////
 	// Return all the font options in the admin for previews
-	if( is_admin() && _get( $_GET, 'page' ) == theme_pw_admin_submenu_slug() )
+	if( is_admin() && _get( $_GET, 'page' ) == pw_theme_slug() )
 		return $font_options;
 	// Return empty if on other admin pages
 	elseif( is_admin() )
