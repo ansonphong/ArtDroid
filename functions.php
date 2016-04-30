@@ -9,8 +9,8 @@
 /**
  * Registers the current theme within Postworld core
  */
-add_action( 'postworld_config', 'artdroid_register_theme', 10 );
-function artdroid_register_theme($theme){
+add_action( 'postworld_config', 'artdroid_register_theme' );
+function artdroid_register_theme(){
 	pw_register_theme(array(
 		'slug' => 'artdroid',
 		'version' => '1.424',
