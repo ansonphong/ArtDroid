@@ -139,7 +139,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Colors",
 			"key"	=>	"colors",
-			"icon"	=>	"pwi-droplet",
+			//"icon"	=>	"pwi-droplet",
 			"values"	=>	array(
 
 				///// COLORS /////
@@ -410,7 +410,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Layout",
 			"key"	=>	"layout",
-			"icon"	=>	"pwi-th-large-2",
+			//"icon"	=>	"pwi-th-large-2",
 			"values"	=>	array(
 
 				///// HEADER /////
@@ -501,7 +501,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Posts",
 			"key"	=>	"posts",
-			"icon"	=>	"pwi-pushpin",
+			//"icon"	=>	"pwi-pushpin",
 			"values"	=>	array(
 
 				///// BOOTSTRAP /////
@@ -591,7 +591,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Pages",
 			"key"	=>	"pages",
-			"icon"	=>	"pwi-file",
+			//"icon"	=>	"pwi-file",
 			"values"	=>	array(
 
 				///// BOOTSTRAP /////
@@ -624,7 +624,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Term Feeds",
 			"key"	=>	"term_feeds",
-			"icon"	=>	"pwi-th-large",
+			//"icon"	=>	"pwi-th-large",
 			"values"	=>	array(
 
 				///// GRID /////
@@ -652,7 +652,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Galleries",
 			"key"	=>	"galleries",
-			"icon"	=>	"pwi-images",
+			//"icon"	=>	"pwi-images",
 			"values"	=>	array(
 
 				array(
@@ -730,7 +730,7 @@ function theme_pw_styles_structure( $structure = array() ){
 		array(
 			"name"	=>	"Third Party Plugins",
 			"key"	=>	"thirdparty",
-			"icon"	=>	"pwi-plugin",
+			//"icon"	=>	"pwi-plugin",
 			"values"	=>	array(
 				array(
 					'name'	=>	'Contact Form 7',
@@ -755,11 +755,6 @@ function theme_pw_styles_structure( $structure = array() ){
 	return $structure;
 
 }
-
-
-
-
-
 
 
 /**
