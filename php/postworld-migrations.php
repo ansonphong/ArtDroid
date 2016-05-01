@@ -18,6 +18,10 @@ function theme_migration_one_point_four_two_five( $vars ){
 		// Rename Database Tables
 		
 
+		// OPTIONS TABLE
+		// postworld-theme-artdroid -> artdroid-theme-options
+		// postworld-styles-artdroid -> artdroid-styles
+
 	} 
 }
 
