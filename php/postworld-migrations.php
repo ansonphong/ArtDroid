@@ -1,18 +1,33 @@
 <?php
-
 /**
  * Do theme migrations for versions less than 1.425
  */
 add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_two_five' );
 function theme_migration_one_point_four_two_five( $vars ){
+
+	$pw_database = new PW_Database();
+
+	// If the version being upgraded is earlier than 1.425
 	if( version_compare( $vars['previous_version'], '1.425' ) === -1 ){
 
-		// POSTMETA
-		// redirect_url -> artdroid_redirect_url
-		// link_target -> artdroid_link_target 	
+		/**
+		 * Migrate Postmeta keys, to prefixed versions
+		 */
+		$pw_database->rename_all_postmeta_keys( 'redirect_url', 'artdroid_redirect_url' );
+		$pw_database->rename_all_postmeta_keys( 'link_target', 'artdroid_link_target' );
+
+		// @todo impliment prefixing for these in postworld core.
+		
 		// pw_meta -> artdroid_meta
 		// pw_colors -> artdroid_colors
 		// pw_avatar -> artdroid_avatar
+
+		/**
+		 * 	update wp_postmeta
+			set meta_key = 'new_key_name'
+			where meta_key = 'old_key_name'
+		 */
+
 
 
 		// Rename Database Tables
