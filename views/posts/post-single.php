@@ -160,14 +160,14 @@ pw_print_ng_controller(array(
 
 		<?php if( !empty($post['post_content']) ): ?>
 			<!-- CONTENT -->
-			<div class="post-content pad-x-lg columns-<?php echo _get($post,'post_meta.pw_meta.post_content.columns') ?>">
+			<div class="post-content pad-x-lg columns-<?php echo _get($post,'post_meta.'.PW_POSTMETA_KEY.'.post_content.columns') ?>">
 				<?php echo $post['post_content'] ?>
 				<div class="clearfix"></div>
 			</div>
 		<?php else: ?>
 			<?php if( !empty($post['post_excerpt']) ): ?>
 				<!-- CONTENT FROM EXCERPT -->
-				<div class="post-content pad-x-lg columns-<?php echo _get($post,'post_meta.pw_meta.post_content.columns') ?>">
+				<div class="post-content pad-x-lg columns-<?php echo _get($post,'post_meta.'.PW_POSTMETA_KEY.'.post_content.columns') ?>">
 					<?php echo $post['post_excerpt'] ?>
 				</div>
 			<?php endif ?>

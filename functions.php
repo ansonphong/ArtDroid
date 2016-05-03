@@ -13,7 +13,7 @@ add_action( 'postworld_config', 'artdroid_register_theme' );
 function artdroid_register_theme(){
 	pw_register_theme(array(
 		'slug' => 'artdroid',
-		'version' => '1.424',
+		'version' => '1.425',
 		));
 };
 

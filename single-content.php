@@ -61,9 +61,9 @@ $vars = array(
 	'pw_comment_form' 		=>	pw_comment_form( $pw_comment_form_options, $post->ID ),
 	'comments_thirdparty'	=>	pw_get_comments_thirdparty( array( 'post_id' => $post->ID ) ),
 	'post_class'			=>	pw_post_class('', $post->ID),
-	'gallery_template'		=>	_get( $pw_post, 'post_meta.pw_meta.gallery.template' ),
-	'post_icon'				=>	_get($pw_post,'post_meta.pw_meta.icon.class'),
-	'immersive_gallery'		=>	(_get($pw_post,'post_meta.pw_meta.gallery.immersive') && _get($pw_post,'post_meta.pw_meta.gallery.template') !== 'inline'),
+	'gallery_template'		=>	_get( $pw_post, 'post_meta.'.PW_POSTMETA_KEY.'.gallery.template' ),
+	'post_icon'				=>	_get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.icon.class'),
+	'immersive_gallery'		=>	(_get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.gallery.immersive') && _get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.gallery.template') !== 'inline'),
 	);
 
 pw_print_layout( array(

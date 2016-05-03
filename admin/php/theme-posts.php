@@ -48,7 +48,7 @@
 					echo pw_gallery_options(
 						theme_gallery_options(
 							array(
-								'ng_model' => 'pwOptions.posts.post.post_meta.pw_meta.gallery'
+								'ng_model' => 'pwOptions.posts.post.post_meta.'.PW_POSTMETA_KEY.'.gallery'
 								))); ?>
 
 				<div style="clear:both"></div>

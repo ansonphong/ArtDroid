@@ -3,10 +3,10 @@ global $post;
 $pw_post = pw_get_post($post->ID, array(
 	'ID',
 	'post_title',
-	'post_meta(pw_meta)',
+	'post_meta('.PW_POSTMETA_KEY.')',
 	'parent_post(preview)',
 	));
-$icon_class = _get( $pw_post, 'post_meta.pw_meta.icon.class' );
+$icon_class = _get( $pw_post, 'post_meta.'.PW_POSTMETA_KEY.'.icon.class' );
 $image_instance = pw_random_string();
 
 pw_print_ng_controller(array(

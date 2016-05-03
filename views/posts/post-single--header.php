@@ -35,16 +35,16 @@
 			<!-- LINK -->
 			<div
 				class="link unit"
-				ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-				ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-				uib-tooltip="<?php echo _get( $post, 'post_meta.pw_meta.link_url.label.tooltip.custom' ) ?>"
+				ng-class="{ 'highlight-color': post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.highlight }"
+				ng-show="ngBoolean(post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show) || post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+				uib-tooltip="<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.tooltip.custom' ) ?>"
 				tooltip-placement="bottom"
 				tooltip-popup-delay="333">
 				<a
 					pw-href="post.link_url"
-					pw-target="post.post_meta.pw_meta.link_url.new_target">
+					pw-target="post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.new_target">
 					<i class="pwi-crosshairs"></i>
-					<?php echo _get( $post, 'post_meta.pw_meta.link_url.label.custom' ) ?>
+					<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.custom' ) ?>
 				</a>
 			</div>
 
@@ -57,7 +57,7 @@
 	<h1 class="post-title">
 
 		<?php if( !empty( $post_icon ) ): ?>
-			<i class="icon <?php echo _get($post,'post_meta.pw_meta.icon.class') ?>"></i>
+			<i class="icon <?php echo _get($post,'post_meta.'.PW_POSTMETA_KEY.'.icon.class') ?>"></i>
 		<?php endif ?>
 		
 		<?php if( !empty( $post['parent_post'] ) ): ?>

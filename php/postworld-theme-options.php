@@ -111,7 +111,7 @@ function pw_theme_options_filter( $options ){
 				), 
 			'post'	=>	array(
 				'post_meta'	=>	array(
-					'pw_meta'	=>	array(
+					PW_POSTMETA_KEY	=>	array(
 						'post_content'	=>	array(
 							'columns'	=>	1,
 							),

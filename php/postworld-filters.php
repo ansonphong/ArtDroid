@@ -425,12 +425,12 @@ function theme_postmeta_defaults( $post ){
 		$post['post_meta'] = pw_set_custom_default( array(
 			'subject' => $post['post_meta'],
 			'type' => 'wp_postmeta',
-			'default_key' => 'pw_meta.featured_image.display'
+			'default_key' => PW_POSTMETA_KEY.'.featured_image.display'
 			));
 	}
 
 	///// RETURN /////	
-	//$post = _set( $post, "post_meta.pw_meta.defaults", $default_pw_meta );
+	//$post = _set( $post, "post_meta.".PW_POSTMETA_KEY.".defaults", $default_pw_meta );
 	return $post;	
 
 }
@@ -520,7 +520,7 @@ function theme_post_field_model_preview( $fields ){
 		'edit_post_link',
 		'taxonomy(all)',
 		'post_format',
-		'post_meta(pw_meta)',
+		'post_meta('.PW_POSTMETA_KEY.')',
 		'post_meta(alt_image)',
 		'post_meta(_thumbnail_id)',
 		'feed_order',

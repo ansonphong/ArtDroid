@@ -17,7 +17,7 @@
 		{% endif %}
 	{% endif %}
 
-	{% if post.post_meta.pw_meta.gallery.template == 'frame' %}
+	{% if post.post_meta.artdroid_meta.gallery.template == 'frame' %}
 		<!-- FRAME GALLERY -->
 		<div
 			pw-include="galleries/gallery-frame"
@@ -28,7 +28,7 @@
 		</div>
 	{% endif %}
 
-	{% if post.post_meta.pw_meta.gallery.template == 'horizontal' %}
+	{% if post.post_meta.artdroid_meta.gallery.template == 'horizontal' %}
 		<!-- HORIZONTAL GALLERY -->
 		<div
 			pw-include="galleries/gallery-horizontal"
@@ -164,16 +164,16 @@
 					<!-- LINK -->
 					<div
 						class="link unit"
-						ng-class="{ 'highlight-color': post.post_meta.pw_meta.link_url.label.highlight }"
-						ng-show="ngBoolean(post.post_meta.pw_meta.link_url.label.show) || post.post_meta.pw_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
-						uib-tooltip="{{ post.post_meta.pw_meta.link_url.label.tooltip.custom }}"
+						ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
+						ng-show="ngBoolean(post.post_meta.artdroid_meta.link_url.label.show) || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">
 						<a
 							pw-href="post.link_url"
-							pw-target="post.post_meta.pw_meta.link_url.new_target">
+							pw-target="post.post_meta.artdroid_meta.link_url.new_target">
 							<i class="pwi-crosshairs"></i>
-							{{ post.post_meta.pw_meta.link_url.label.custom }}
+							{{ post.post_meta.artdroid_meta.link_url.label.custom }}
 						</a>
 					</div>
 
@@ -188,8 +188,8 @@
 
 			<h1 class="post-title">
 
-				{% if post.post_meta.pw_meta.icon.class %}
-					<i class="icon {{post.post_meta.pw_meta.icon.class}}"></i>
+				{% if post.post_meta.artdroid_meta.icon.class %}
+					<i class="icon {{post.post_meta.artdroid_meta.icon.class}}"></i>
 				{% endif %}
 				
 				{% if post.parent_post.ID %}
@@ -264,7 +264,7 @@
 
 	{% if post.post_content %}
 		<!-- CONTENT -->
-		<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
+		<div class="post-content pad-x-lg columns-{{post.post_meta.artdroid_meta.post_content.columns}}">
 			{{ post.post_content | safe }}
 			<div class="clearfix"></div>
 		</div>
@@ -273,13 +273,13 @@
 	{% if !post.post_content %}
 		{% if post.post_excerpt %}
 			<!-- CONTENT FROM EXCERPT -->
-			<div class="post-content pad-x-lg columns-{{post.post_meta.pw_meta.post_content.columns}}">
+			<div class="post-content pad-x-lg columns-{{post.post_meta.artdroid_meta.post_content.columns}}">
 				{{ post.post_excerpt | safe }}
 			</div>
 		{% endif %}
 	{% endif %}
 
-	{% if post.post_meta.pw_meta.gallery.template == 'vertical' %}
+	{% if post.post_meta.artdroid_meta.gallery.template == 'vertical' %}
 		<!-- VERTICAL GALLERY -->
 		<div
 			pw-include="galleries/gallery-vertical"

@@ -14,21 +14,21 @@
 					scroll-container="{{vars.yScrollContainer}}"
 					scroll-action="galleryGetNext(2)"
 					scroll-distance="1000">
-					<!-- scroll-disabled="post.post_meta.pw_meta.gallery.template != 'vertical'" -->
+					<!-- scroll-disabled="post.post_meta.artdroid_meta.gallery.template != 'vertical'" -->
 					<!-- GALLERY IMAGE -->
 					<div
 						class="gallery-image"
 						ng-repeat="galleryPost in galleryDisplayedPosts()">
 							<div
 								class="image-details"
-								ng-show="post.post_meta.pw_meta.gallery.vertical.show_title || post.post_meta.pw_meta.gallery.vertical.show_caption">
+								ng-show="post.post_meta.artdroid_meta.gallery.vertical.show_title || post.post_meta.artdroid_meta.gallery.vertical.show_caption">
 								<h4
-									ng-show="post.post_meta.pw_meta.gallery.vertical.show_title">
+									ng-show="post.post_meta.artdroid_meta.gallery.vertical.show_title">
 									<a href="{{ galleryPost.post_permalink }}">
 										{{ galleryPost.post_title }}
 									</a>
 								</h4>
-								<p ng-show="post.post_meta.pw_meta.gallery.vertical.show_caption && uiBool(galleryPost.post_excerpt)">
+								<p ng-show="post.post_meta.artdroid_meta.gallery.vertical.show_caption && uiBool(galleryPost.post_excerpt)">
 									{{ galleryPost.post_excerpt }}
 								</p>
 							</div>

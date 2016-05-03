@@ -68,6 +68,10 @@ postworld.directive( 'artPost', function(){
 postworld.controller( 'artPostCtrl',
 	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
 
+	/**
+	 * @todo Replace artdroid_meta with $pw.define.PW_POSTMETA_KEY
+	 */
+
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
 	$scope.showView = function( view ){
 		/**
@@ -80,7 +84,7 @@ postworld.controller( 'artPostCtrl',
 			true : false;
 
 		// GALLERY
-		var galleryTemplate = $_.get( $scope, 'post.post_meta.pw_meta.gallery.template' );
+		var galleryTemplate = $_.get( $scope, 'post.post_meta.artdroid_meta.gallery.template' );
 		var hasGallery = ( !_.isEmpty( $_.get( $scope, 'post.gallery.posts' ) ) );
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
@@ -89,7 +93,7 @@ postworld.controller( 'artPostCtrl',
 		var isGallery = ( galleryHorizontal || galleryFrame || galleryVertical );
 
 		// HEADER
-		var header = $_.get( $scope, 'post.post_meta.pw_meta.header.type' );
+		var header = $_.get( $scope, 'post.post_meta.artdroid_meta.header.type' );
 		var headerDefault = ( header == 'default' || header == false );
 		var headerImage = ( header == 'featured_image' );
 		var headerSlider = ( header == 'headerSlider' );
@@ -106,7 +110,7 @@ postworld.controller( 'artPostCtrl',
 		var hasImageAndNoGallery = ( !hasGallery && hasImage );
 
 		// BLOG
-		var fiDisplay = $_.get($scope.post,'post_meta.pw_meta.featured_image.display');
+		var fiDisplay = $_.get($scope.post,'post_meta.artdroid_meta.featured_image.display');
 
 		var singleImage = function(){
 			return	( ( hasImageAndNoEmbed && !isGallery ) ||
@@ -176,7 +180,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'downloadSingleImage':
-				if( singleImage() && $_.get( $scope.post, 'post_meta.pw_meta.image.download' ) )
+				if( singleImage() && $_.get( $scope.post, 'post_meta.artdroid_meta.image.download' ) )
 					return true;
 				break;
 	
