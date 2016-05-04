@@ -5,8 +5,8 @@
  */
 add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_two_five' );
 function theme_migration_one_point_four_two_five( $vars ){
-
-	pw_log('RUN MIGRATIONS', 'theme_migration_one_point_four_two_five');
+	global $wpdb;
+	//pw_log('RUN MIGRATIONS', 'theme_migration_one_point_four_two_five');
 
 	$pw_database = new PW_Database();
 
@@ -60,19 +60,25 @@ function theme_migration_one_point_four_two_five( $vars ){
 
 		// Update metakey names in the option_value column
 		$pw_database->search_and_replace( array(
-			'table_name' => PW_OPTIONS_THEME,
+			'table_name' => $wpdb->options,
 			'column_name' => 'option_value',
 			'search_value' => 'pw_meta',
 			'replace_value' => PW_POSTMETA_KEY,
 			'where_row' => 'option_name',
 			'where_value' => array(
 				PW_OPTIONS_DEFAULTS,
-				PW_OPTIONS_THEME
 				)
 			));
 
-		// ADD THIS MIGRATION
-		// @todo Add taxonomy_meta migrations, see postworld-config.php
+		/**
+		 * Rename tables from postworld_ prefixed to artdroid_ prefixed
+		 */
+		$pw_database->rename_table(
+			$wpdb->prefix.'postworld_post_meta',
+			$wpdb->postworld_prefix.'post_meta' );
+		$pw_database->rename_table(
+			$wpdb->prefix.'postworld_cache',
+			$wpdb->postworld_prefix.'cache' );
 
 	} 
 }

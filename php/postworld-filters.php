@@ -443,7 +443,7 @@ add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 function theme_postmeta_alt_image( $post ){
 	// The theme has the option to select an alternative image for each post
 	// This is tored inthe postmeta as alt_image, in the form of a thumbnail_id
-	$alt_image_id = _get( $post, 'post_meta.alt_image' );
+	$alt_image_id = _get( $post, 'post_meta.'.THEME_ALT_IMAGE );
 	if( is_numeric( $alt_image_id ) ){
 
 		/**
@@ -521,7 +521,7 @@ function theme_post_field_model_preview( $fields ){
 		'taxonomy(all)',
 		'post_format',
 		'post_meta('.PW_POSTMETA_KEY.')',
-		'post_meta(alt_image)',
+		'post_meta('.THEME_ALT_IMAGE.')',
 		'post_meta(_thumbnail_id)',
 		'feed_order',
 		);
