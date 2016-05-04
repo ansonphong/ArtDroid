@@ -1,4 +1,7 @@
 <?php
+/**
+ * Renders the Blog feed.
+ */
 pw_feed(array(
 	'aux_template'	=>	'seo-list',
 	'feed' => array(
