@@ -60,7 +60,7 @@ function theme_migration_one_point_four_two_five( $vars ){
 
 		// Update metakey names in the option_value column
 		$pw_database->search_and_replace( array(
-			'tablename' => PW_OPTIONS_THEME,
+			'table_name' => PW_OPTIONS_THEME,
 			'column_name' => 'option_value',
 			'search_value' => 'pw_meta',
 			'replace_value' => PW_POSTMETA_KEY,
