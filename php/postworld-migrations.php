@@ -1,17 +1,17 @@
 <?php
 /**
  * THEME DATABASE UPGRADE MIGRATIONS
- * Do theme migrations for versions less than 1.425
+ * Do theme migrations for versions less than 1.4.25
  */
-add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_two_five' );
-function theme_migration_one_point_four_two_five( $vars ){
+add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_point_two_five' );
+function theme_migration_one_point_four_point_two_five( $vars ){
 	global $wpdb;
-	//pw_log('RUN MIGRATIONS', 'theme_migration_one_point_four_two_five');
+	//pw_log('RUN MIGRATIONS', 'theme_migration_one_point_four_point_two_five');
 
 	$pw_database = new PW_Database();
 
-	// If the version being upgraded is earlier than 1.425
-	if( version_compare( $vars['previous_version'], '1.425' ) === -1 ){
+	// If the version being upgraded is earlier than 1.4.25
+	if( version_compare( $vars['previous_version'], '1.4.25' ) === -1 ){
 
 		/**
 		 *	WP_POSTMETA TABLE
