@@ -16,6 +16,14 @@ function theme_postworld_config(){
 	define( 'THEME_REDIRECT_URL', 'artdroid_redirect_url' );
 	define( 'THEME_LINK_TARGET', 'artdroid_link_target' );
 
+	/**
+	 * Define prefixed termmeta keys to be used.
+	 */
+	define( 'THEME_ICON', 'artdroid_icon' );
+	define( 'THEME_IMAGE_PRIMARY', 'artdroid_image_primary' );
+	define( 'THEME_IMAGE_SECONDARY', 'artdroid_image_secondary' );
+
+
 	$postmeta_key = 'artdroid_meta'; // @todo Pre-register automatically in Postworld Core, so PW_POSTMETA_KEY can be used
 
 	$GLOBALS[ POSTWORLD_CONFIG ]['includes'] = 	array(
@@ -125,7 +133,7 @@ function theme_postworld_config(){
 						'type'				=>	'icon',
 						'label'				=>	'Icon',
 						'description'		=>	'An icon used to represent the term.',	
-						'meta_key'			=>	'icon',
+						'meta_key'			=>	THEME_ICON,
 						'icon'				=>	'pwi-circle-thick',
 						'placeholder'		=>	''
 						),
@@ -134,7 +142,7 @@ function theme_postworld_config(){
 						'type'				=>	'image-id',
 						'label'				=>	'Primary Image',
 						'description'		=>	'An image used to represent the term in the header.',
-						'meta_key'			=>	'image-primary',
+						'meta_key'			=>	THEME_IMAGE_PRIMARY,
 						'icon'				=>	'pwi-image',
 						),
 
@@ -142,7 +150,7 @@ function theme_postworld_config(){
 						'type'				=>	'image-id',
 						'label'				=>	'Secondary Image',
 						'description'		=>	'An image used in sliders, if different from the primary image. If a secondary image is not selected, the primary image will be used.',
-						'meta_key'			=>	'image-secondary',
+						'meta_key'			=>	THEME_IMAGE_SECONDARY,
 						'icon'				=>	'pwi-image',
 						),
 					/*
@@ -260,23 +268,23 @@ function theme_postworld_config(){
 						'type'				=>	'text-input',
 						'label'				=>	'Redirect to URL',
 						'description'		=>	'301 redirect',
-						'meta_key'			=>	'artdroid_redirect_url',
+						'meta_key'			=>	THEME_REDIRECT_URL,
 						'icon'				=>	'pwi-link',
 						),
 					array(
 						'type'				=>	'select-input',
 						'label'				=>	'Link Target',
 						'description'		=>	'Target of the link when clicked, used by sliders',
-						'meta_key'			=>	'artdroid_link_target',
+						'meta_key'			=>	THEME_LINK_TARGET,
 						'icon'				=>	'pwi-target',
 						'options'			=>	array(
 							array(
 								'value' => '',
-								'label' => 'Default'
+								'label' => __('Default','postworld')
 								),
 							array(
 								'value' => '_blank',
-								'label' => 'Open in New Tab'
+								'label' => __('Open in New Tab','postworld')
 								),
 							),
 						),
@@ -288,7 +296,6 @@ function theme_postworld_config(){
 			),
 
 		);
-
 
 	$GLOBALS[ POSTWORLD_CONFIG ]['database'] = array(
 		'tables' => array(

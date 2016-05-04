@@ -26,6 +26,14 @@ function theme_migration_one_point_four_two_five( $vars ){
 		$pw_database->rename_postmeta_keys( 'pw_avatar', 	PW_AVATAR_KEY );
 
 		/**
+		 *	WP_TERMMETA TABLE
+		 *	Migrate Termmeta keys, to prefixed versions in wp_termmeta table
+		 */
+		$pw_database->rename_termmeta_keys( 'icon', 			THEME_ICON );
+		$pw_database->rename_termmeta_keys( 'image-primary', 	THEME_IMAGE_PRIMARY );
+		$pw_database->rename_termmeta_keys( 'image-secondary', 	THEME_IMAGE_SECONDARY );
+
+		/**
 		 *	WP_OPTIONS TABLE
 		 *	Migrate 'postworld' Prefixed option names to
 		 *	'artdroid' theme prefixed option names
@@ -48,6 +56,7 @@ function theme_migration_one_point_four_two_five( $vars ){
 		$pw_database->rename_option( 'postworld-header-code',			PW_OPTIONS_HEADER_CODE );
 		$pw_database->rename_option( 'postworld-defaults',				PW_OPTIONS_DEFAULTS );
 		$pw_database->rename_option( 'postworld-comments',				PW_OPTIONS_COMMENTS );
+		$pw_database->rename_option( 'postworld-db-version',			PW_DB_VERSION );
 
 		// Update metakey names in the option_value column
 		$pw_database->search_and_replace( array(
@@ -62,10 +71,8 @@ function theme_migration_one_point_four_two_five( $vars ){
 				)
 			));
 
-
+		// ADD THIS MIGRATION
 		// @todo Add taxonomy_meta migrations, see postworld-config.php
-
-
 
 	} 
 }
