@@ -13,7 +13,7 @@ add_action( 'postworld_register_theme', 'artdroid_register_theme' );
 function artdroid_register_theme(){
 	pw_register_theme( array(
 		'slug' => 'artdroid',
-		'version' => '1.4.25',
+		'version' => '1.4.26',
 		));
 };
 
@@ -53,7 +53,7 @@ http://themeforest.net/?ref=phongmedia
  */
 // Configure Postworld
 include "postworld-config.php";
-// Include the Postworld library
+// Include the Postworld Core
 include "postworld/postworld.php";
 // Enqueue Postworld scripts and styles
 function theme_postworld_includes(){

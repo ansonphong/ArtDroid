@@ -120,7 +120,118 @@ function theme_postworld_config(){
 			)
 		);
 
+	/**
+	 * @todo Break this down into modular components to inject with pw_config()
+	 */
 	$GLOBALS[ POSTWORLD_CONFIG ]['wp_admin'] = array(
+		'metabox' => array(
+			'colors' => array(
+				'post_types' => array( 'attachment', 'post' )
+				),
+			'link_url'	=>	array(
+				'post_types'	=>	array( 'post', 'blog', 'page', 'attachment' ),
+				),
+			'layout'	=>	array(
+				'post_types'	=>	array( 'page' ),
+				),
+			'background'	=>	array(
+				'post_types'	=>	array( 'page', 'post' ),
+				),
+
+			// Adds inputs for additional custom WordPress postmeta fields
+			'wp_postmeta'		=>	array(
+				///// POST META /////
+				array(
+					'post_types' => array('blog'),
+					'metabox'		=>	array(
+						'title'		=>	__('Post Options','postworld'),
+						'context'	=>	'normal',
+						),
+					'fields' => array(
+						array(
+							'supports'			=>	array('custom_default'),
+							'type'				=>	'radio-buttons',
+							'label'				=>	__('Featured Image Display','postworld'),
+							'description'		=>	__('How to display the featured image','postworld'),
+							'icon'				=>	'pwi-image',
+							'meta_key'			=>	$postmeta_key,
+							'sub_key'			=>	'featured_image.display',
+							'default_value'		=>	'default',
+							'options' 			=>	array(
+								array(
+									'value' => 'default',
+									//'icon' 	=> 'pwi-circle-thin',
+									'label' => __('Default','postworld'),
+									'description' => 'Use the default setting configured in theme settings.'
+									),
+								array(
+									'value' => 'slice',
+									//'icon' 	=> 'pwi-arrows-h',
+									'label' => __('Slice','postworld'),
+									'description' => 'Shows a horizontal slice of the image in the post header.'
+									),
+								array(
+									'value' => 'full',
+									//'icon' 	=> 'pwi-image',
+									'label' => __('Full','postworld'),
+									'description' => 'Shows the full image in the post header.'
+									),
+								array(
+									'value' => 'none',
+									//'icon' 	=> 'pwi-close-thin',
+									'label' => __('None','postworld')
+									),
+								),
+							),
+						),
+					),
+
+				array(
+					'post_types'	=>	array( 'post', 'page' ),
+					'metabox'		=>	array(
+						'title'		=>	'Post Options',
+						'context'	=>	'normal',
+						),
+					'fields'	=>	array(
+						array(
+							'type'				=>	'image-id',
+							'label'				=>	'Alternative Featured Image',
+							'description'		=>	'Used for the slider',
+							'meta_key'			=>	THEME_ALT_IMAGE,
+							'icon'				=>	'pwi-image',
+							),
+						array(
+							'type'				=>	'text-input',
+							'label'				=>	'Redirect to URL',
+							'description'		=>	'301 redirect',
+							'meta_key'			=>	THEME_REDIRECT_URL,
+							'icon'				=>	'pwi-link',
+							),
+						array(
+							'type'				=>	'select-input',
+							'label'				=>	'Link Target',
+							'description'		=>	'Target of the link when clicked, used by sliders',
+							'meta_key'			=>	THEME_LINK_TARGET,
+							'icon'				=>	'pwi-target',
+							'options'			=>	array(
+								array(
+									'value' => '',
+									'label' => __('Default','postworld')
+									),
+								array(
+									'value' => '_blank',
+									'label' => __('Open in New Tab','postworld')
+									),
+								),
+							),
+						
+						),
+
+					),
+
+				),
+
+			),
 		'admin_bar_menu' => array(
 			'enable' => true,
 			'title' => __('ArtDroid','artdroid'),
@@ -170,131 +281,6 @@ function theme_postworld_config(){
 
 	$GLOBALS[ POSTWORLD_CONFIG ]['user_meta'] = array(
 		'pw_avatar'	=>	false,
-		);
-
-	$GLOBALS[ POSTWORLD_CONFIG ]['metabox'] = array(
-		'colors' => array(
-			'post_types' => array( 'attachment', 'post' )
-			),
-		'link_url'	=>	array(
-			'post_types'	=>	array( 'post', 'blog', 'page', 'attachment' ),
-			),
-		/*
-		'post_parent'	=>	array(
-			array(
-				'labels'	=>	array(
-					'title'		=>	'Parent Page',
-					'search'	=>	'Search pages...'
-					),
-				'post_types' 	=> array( 'page' ),
-				'query'	=>	array(
-					'post_type'			=>	'page',
-					),
-				),
-			),
-		*/
-		'layout'	=>	array(
-			'post_types'	=>	array( 'page' ),
-			),
-		'background'	=>	array(
-			'post_types'	=>	array( 'page', 'post' ),
-			),
-
-
-		// Adds inputs for additional custom WordPress postmeta fields
-		'wp_postmeta'		=>	array(
-			///// POST META /////
-
-			array(
-				'post_types' => array('blog'),
-				'metabox'		=>	array(
-					'title'		=>	__('Post Options','postworld'),
-					'context'	=>	'normal',
-					),
-				'fields' => array(
-					array(
-						'supports'			=>	array('custom_default'),
-						'type'				=>	'radio-buttons',
-						'label'				=>	__('Featured Image Display','postworld'),
-						'description'		=>	__('How to display the featured image','postworld'),
-						'icon'				=>	'pwi-image',
-						'meta_key'			=>	$postmeta_key,
-						'sub_key'			=>	'featured_image.display',
-						'default_value'		=>	'default',
-						'options' 			=>	array(
-							array(
-								'value' => 'default',
-								//'icon' 	=> 'pwi-circle-thin',
-								'label' => __('Default','postworld'),
-								'description' => 'Use the default setting configured in theme settings.'
-								),
-							array(
-								'value' => 'slice',
-								//'icon' 	=> 'pwi-arrows-h',
-								'label' => __('Slice','postworld'),
-								'description' => 'Shows a horizontal slice of the image in the post header.'
-								),
-							array(
-								'value' => 'full',
-								//'icon' 	=> 'pwi-image',
-								'label' => __('Full','postworld'),
-								'description' => 'Shows the full image in the post header.'
-								),
-							array(
-								'value' => 'none',
-								//'icon' 	=> 'pwi-close-thin',
-								'label' => __('None','postworld')
-								),
-							),
-						),
-					),
-				),
-
-			array(
-				'post_types'	=>	array( 'post', 'page' ),
-				'metabox'		=>	array(
-					'title'		=>	'Post Options',
-					'context'	=>	'normal',
-					),
-				'fields'	=>	array(
-					array(
-						'type'				=>	'image-id',
-						'label'				=>	'Alternative Featured Image',
-						'description'		=>	'Used for the slider',
-						'meta_key'			=>	THEME_ALT_IMAGE,
-						'icon'				=>	'pwi-image',
-						),
-					array(
-						'type'				=>	'text-input',
-						'label'				=>	'Redirect to URL',
-						'description'		=>	'301 redirect',
-						'meta_key'			=>	THEME_REDIRECT_URL,
-						'icon'				=>	'pwi-link',
-						),
-					array(
-						'type'				=>	'select-input',
-						'label'				=>	'Link Target',
-						'description'		=>	'Target of the link when clicked, used by sliders',
-						'meta_key'			=>	THEME_LINK_TARGET,
-						'icon'				=>	'pwi-target',
-						'options'			=>	array(
-							array(
-								'value' => '',
-								'label' => __('Default','postworld')
-								),
-							array(
-								'value' => '_blank',
-								'label' => __('Open in New Tab','postworld')
-								),
-							),
-						),
-					
-					),
-
-				),
-
-			),
-
 		);
 
 	$GLOBALS[ POSTWORLD_CONFIG ]['database'] = array(
