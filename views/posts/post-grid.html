@@ -11,14 +11,11 @@
 		pw-hover-class="hover"
 		hover-on-delay="100"
 		hover-off-delay="0">
-
-		<!-- POST CONTROLS -->
 		<div
 			pw-include="panels/post-controls"
 			include-post="post"
 			include-eval="isLoggedIn()&&isDevice('desktop')">
 		</div>
-		
 		<a href="{{ ::post.post_permalink }}"
 			pw-open-modal="{ mode:'feed', post:post }"
 			modal-eval="isDevice('desktop')">
@@ -53,32 +50,5 @@
 				<h2>{{ ::post.post_title }}</h2>
 			</div>
 		</a>
-		<!--
-		<div
-			class="details"
-			ng-style="::{background:getHex(post,'dynamic.25')}">
-			<div class="details-inner">
-				<span class="time">{{ post.time_ago }}</span> 
-				<span class="post-excerpt" ng-show="::post.post_excerpt">
-					<span class="span-spacer"> • </span>
-					{{ post.post_excerpt }}
-				</span>
-				<div
-					class="taxonomy category"
-					ng-show="uiBoolean(post.taxonomy.category)">
-					<span ng-repeat="term in ::post.taxonomy.category">
-						<a
-							href="{{term.url}}"
-							ng-class="term.slug"
-							class="term category"
-							ng-style="::{color:getHex(post,'dynamic.100'), background:getHex(post,'dynamic.0')}">
-							{{term.name}}
-						</a>
-					</span>
-				</div>
-
-			</div>
-		</div>
-		-->
 	</div>
 </div>

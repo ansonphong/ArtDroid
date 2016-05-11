@@ -125,11 +125,9 @@ function theme_pw_global_options( $options ){
 	 * Add specific style options, so that the variables
 	 * Can be shared by both LESS and Javascript
 	 */
-	$pwStyles = pw_get_option( array( 'option_name' => PW_OPTIONS_STYLES ) );
-	
+	$pw_styles = pw_grab_option( PW_OPTIONS_STYLES );
 	// Get values as variables
-	$header_height = intval( _get( $pwStyles, 'layout.header.header-height-expand' ) );
-	
+	$header_height = intval( _get( $pw_styles, 'layout.header.header-height-expand' ) );
 	// Set into style array
 	$options['style'] = array(
 		'header_height_expand' => $header_height,
