@@ -1,4 +1,3 @@
-
 <?php
 global $pw;
 global $post;
@@ -40,5 +39,4 @@ else if( $show_on_front == 'page' ){
 
 pw_footer();
 ?>
-
 <!-- Generated in <?php timer_stop(1); ?> seconds... -->
