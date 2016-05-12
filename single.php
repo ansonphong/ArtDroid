@@ -3,7 +3,7 @@ global $post;
 global $pw;
 
 // Redirect pages with redirect_url postmeta
-$redirect_url = get_post_meta( $post->ID, 'redirect_url', true );
+$redirect_url = get_post_meta( $post->ID, THEME_REDIRECT_URL, true );
 if( !empty($redirect_url) )
 	wp_redirect( $redirect_url, '301' );
 
