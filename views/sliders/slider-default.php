@@ -38,7 +38,7 @@ pw_print_ng_controller(array(
 		<uib-slide class="slide" ng-repeat="slide in ::slider.posts" active="slide.active">
 
 			<?php if( $slider['hyperlink'] == true ){ ?>
-				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.link_target}}">
+				<a ng-href="{{slide.post_permalink}}" target="{{slide.post_meta.<?php echo THEME_LINK_TARGET ?>}}">
 			<?php } ?>
 				<div
 					class="slide-frame">
