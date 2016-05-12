@@ -13,7 +13,7 @@ function theme_pw_view_term_meta( $term ){
 		));
 
 	// Get the post array associated with the image ID
-	$term_image_id = _get( $term['meta'], 'image-primary' );
+	$term_image_id = _get( $term['meta'], THEME_IMAGE_PRIMARY );
 	$term['meta']['image_post'] = ( $term_image_id !== false ) ?
 		pw_get_post( $term_image_id, 'preview' ) :
 		array();
@@ -41,12 +41,12 @@ function theme_get_menu_item_taxonomy( $post ){
 	 * Get the secondary image
 	 * With priority over the primary image
 	 */
-	if( !empty( $term_meta['image-secondary'] ) ){
-		$post['image'] = pw_get_post_image( $term_meta['image-secondary'], $fields, true );
-		//pw_log( 'image secondary', $term_meta['image-secondary'] );
+	if( !empty( $term_meta[THEME_IMAGE_SECONDARY] ) ){
+		$post['image'] = pw_get_post_image( $term_meta[THEME_IMAGE_SECONDARY], $fields, true );
+		//pw_log( 'image secondary', $term_meta[THEME_IMAGE_SECONDARY] );
 	}
-	elseif( !empty( $term_meta['image-primary'] ) )
-		$post['image'] = pw_get_post_image( $term_meta['image-primary'], $fields, true );
+	elseif( !empty( $term_meta[THEME_IMAGE_PRIMARY] ) )
+		$post['image'] = pw_get_post_image( $term_meta[THEME_IMAGE_PRIMARY], $fields, true );
 
 	$post['term_meta'] = $term_meta;
 

@@ -3,7 +3,7 @@ global $pw;
 $term = _get( $pw, 'view.term' );
 //$term_meta = _get( $pw, 'view.term.meta' );
 // Boolean if term has image
-$has_image = !empty($term['meta']['image-primary']);
+$has_image = (bool) _get( $term, 'meta.'.THEME_IMAGE_PRIMARY );
 // Get theme settings for taxonomy archives
 $tax_archives = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME, 'key' => 'archives.taxonomy' ) );
 
@@ -40,8 +40,8 @@ pw_print_ng_controller(array(
 
 		<div class="term-info">
 			<h1>
-				<?php if( _get( $term, 'meta.icon' ) ) : ?>
-					<i class="icon <?php echo $term['meta']['icon'] ?>"></i> 
+				<?php if( _get( $term, 'meta.'.THEME_ICON ) ) : ?>
+					<i class="icon <?php echo $term['meta'][THEME_ICON] ?>"></i> 
 				<?php elseif( $pw['view']['taxonomy']['name'] == 'post_tag' ) : ?>
 					<i class="icon pwi-tag" uib-tooltip="tag" tooltip-placement="bottom"></i> 
 				<?php endif; ?>
@@ -93,17 +93,11 @@ pw_print_ng_controller(array(
 	<!-- TERM DESCRIPTION -->
 	<?php
 	$term_description = _get( $pw, 'view.term.description' );
-	$term_rich_description = get_term_meta( $term['term_id'], 'rich_description', true );
-	
-	if( !empty( $term_rich_description ) )
-		$term_description = $term_rich_description;
-	
 	if( !empty( $term_description ) ) : ?>
 		<div class="term-description post-content">
 			<?php echo apply_filters( 'the_content', $term_description) ?> 
 		</div>
 	<?php endif; ?>
-
 	<div class="clearfix"></div>
 
 </div>
