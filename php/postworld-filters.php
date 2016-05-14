@@ -165,14 +165,14 @@ function theme_feed_override_filter( $feed ){
 
 	$is_from_preset_feed = (bool) _get( $feed, 'id' );
 	$is_home_page = in_array( 'home', $pw['view']['context'] );
-	$is_year_archive = in_array( 'archive-year', $pw['view']['context'] );
+	$is_date_archive = in_array( 'archive-date', $pw['view']['context'] );
 
 	/**
 	 * Force posts for home and year archives
 	 *
 	 * @todo Make this compatible for blog or CPT year archives
 	 */
-	if( $is_year_archive && !$is_from_preset_feed ){
+	if( $is_date_archive && !$is_from_preset_feed ){
 		$feed['query']['post_type'] = 'post';
 	}
 	
@@ -326,7 +326,6 @@ function theme_postmeta_defaults( $post ){
 		$default_pw_meta,
 		$post['post_meta'][PW_POSTMETA_KEY]
 		);
-
 
 
 	/**
