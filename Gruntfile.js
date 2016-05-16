@@ -87,14 +87,34 @@ module.exports = function(grunt) {
 				destDir + 'postworld/**/pwAdminGlobals.js',
 			]
 		},
+
+		// make a zipfile
+		/**
+		 * Not functional, @todo test and make it work.
+		 */
+		compress: {
+			main: {
+				options: {
+					archive: 'artdroid.zip'
+				},
+				files: [
+					{	// includes files in path and its subdirs
+						src: [ destDir ],
+						dest: destDir+'../'
+					}, 
+				]
+			}
+		},
+
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.registerTask( 'default', ['copy', 'clean','cleanupTheme'] );
-
 	grunt.registerMultiTask('cleanupTheme', 'Cleans up the theme.', function() {
 		grunt.log.writeln('ARTDROID : Finished Cleanup');
 	});
+
+	grunt.loadNpmTasks('grunt-contrib-compress');
 
 };
