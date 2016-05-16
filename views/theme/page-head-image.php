@@ -36,7 +36,7 @@ pw_print_ng_controller(array(
 				<h3 class="parent-title">
 					<a href="<?php echo $pw_post['parent_post']['post_permalink'] ?>">
 						<?php echo $pw_post['parent_post']['post_title'] ?>
-						›
+						&rsaquo;
 					</a>
 				</h3>
 			<?php endif ?>

@@ -162,11 +162,9 @@
 					<div class="indent">
 						<small>
 							Show Facebook/Twitter/Instagram icons at the upper right. These will link to the profiles provided in
-
 							<a href="<?php get_site_url(); ?>/wp-admin/admin.php?page=<?php echo pw_theme_slug() ?>-social">
-								<?php _e("ArtDroid › Social", 'postworld') ?>
+								<?php _e("ArtDroid &rsaquo; Social", 'postworld') ?>
 							</a>
-
 						</small>
 					</div>
 					

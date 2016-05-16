@@ -13,7 +13,7 @@ add_action( 'postworld_register_theme', 'artdroid_register_theme' );
 function artdroid_register_theme(){
 	pw_register_theme( array(
 		'slug' => 'artdroid',
-		'version' => '1.4.28',
+		'version' => '1.4.29',
 		));
 };
 
@@ -401,6 +401,7 @@ if ( ! isset( $content_width ) ) $content_width = 900;
  * Add automatic feed links.
  */
 add_theme_support( 'automatic-feed-links' );
+add_theme_support( 'title-tag' );
 
 
 /**

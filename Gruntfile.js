@@ -41,8 +41,10 @@ module.exports = function(grunt) {
 				destDir + '/**/*.psd',
 				destDir + '/**/docs/',
 				destDir + '/**/.DS_Store',
+				destDir + '/**/.ds_store',
 				destDir + '/**/.git',
 				destDir + '/**/.gitignore',
+				destDir + '/**/.gitmodules',
 				destDir + '/**/.gitattributes',
 				destDir + '/**/makefile',
 				destDir + '/**/composer.json',
@@ -50,6 +52,28 @@ module.exports = function(grunt) {
 				destDir + '/**/package.json',
 				destDir + '/**/bower.json',
 				destDir + '/**/conf.json',
+				destDir + '/**/.editorconfig',
+				destDir + '/**/.scrutinizer.yml',
+				destDir + '/**/.travis.yml',
+				destDir + '/**/.npmignore',
+				destDir + '/**/.bin',
+				destDir + '/**/.jshintrc',
+				destDir + '/**/.eslintrc',
+				destDir + '/**/.zuul.yml',
+				destDir + '/**/.eslintrc',
+				destDir + '/**/.istanbul.yml',
+				destDir + '/**/.php_cs',
+				destDir + '/**/.bowerrc',
+				destDir + '/**/.documentup.json',
+				destDir + '/**/.hidden',
+				destDir + '/**/.hidden.txt',
+				destDir + '/**/.bower.json',
+				destDir + '/**/.tern-project',
+				destDir + '/**/.target.mk',
+				destDir + '/**/.deps',
+				destDir + '/**/.node.d',
+				destDir + '/**/.node',
+				destDir + '/**/.dntrc',
 			],
 			postworld:[
 				destDir + 'postworld/_archive',
@@ -72,6 +96,5 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('cleanupTheme', 'Cleans up the theme.', function() {
 		grunt.log.writeln('ARTDROID : Finished Cleanup');
 	});
-
 
 };

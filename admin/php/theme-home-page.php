@@ -84,7 +84,7 @@ $home_slider_settings = array(
 				</h3>
 				<small>
 					Blocks appear in-line the feed, and can be used to place widgets, promotional material, newsletter signups, Facebook like buttons, Twitter tweet buttons, etc.
-					Blocks can be added in <b><a href="<?php echo get_admin_url(null,'widgets.php') ?>" target="_blank">Appearance › Widgets</a></b> to the <b>Home Page: Feed Blocks</b> sidebar.
+					Blocks can be added in <b><a href="<?php echo get_admin_url(null,'widgets.php') ?>" target="_blank">Appearance &rsaquo; Widgets</a></b> to the <b>Home Page: Feed Blocks</b> sidebar.
 				</small>
 				<hr class="thin">
 				<?php

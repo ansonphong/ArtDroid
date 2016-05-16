@@ -250,7 +250,7 @@ function pw_theme_options_filter( $options ){
 				),
 			'custom' => array(
 				'show_custom' => true,
-				'content' => "Copyright © All rights reserved."
+				'content' => "Copyright &COPY; All rights reserved."
 				),
 			'image' => array(
 				'show_image' => false,

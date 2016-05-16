@@ -16,7 +16,6 @@ if( in_array( 'search', $pw['view']['context'] ) )
 	<base href="/">
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
-	<title><?php wp_title(' | ', true, 'left'); ?></title>
 	<?php wp_head(); ?>
 </head>
 <body

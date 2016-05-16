@@ -118,7 +118,7 @@ function theme_customize_register( $wp_customize ) {
 		'option_definition' =>	'PW_OPTIONS_THEME',
 		'subkey' 			=>	'menus.primary.show_social',
 		'label' 			=> __( 'Show Social Menu', 'postworld' ),
-		'description' 		=> __('Show social media icons (if defined in ArtDroid › Social)', 'postworld'),
+		'description' 		=> __('Show social media icons (if defined in ArtDroid &rsaquo; Social)', 'postworld'),
 		));
 
 	/**
