@@ -100,8 +100,8 @@ postworld.controller( 'artPostCtrl',
 
 		// EMBED
 		var hasEmbed = (
-			$_.get( $scope, 'post.link_format' ) == 'video' ||
-			$_.get( $scope, 'post.link_format' ) == 'audio' ) ?
+			$_.get( $scope, 'post.post_meta.artdroid_link_format' ) == 'video' ||
+			$_.get( $scope, 'post.post_meta.artdroid_link_format' ) == 'audio' ) ?
 			true : false;
 
 		// IMAGE

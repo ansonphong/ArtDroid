@@ -34,8 +34,8 @@
 	</header>
 
 	<!-- LINK URL -->
-	<div class="link_format video" ng-show="post.link_format == 'video'">
-		<div o-embed="post.link_url" ng-bind-html="oEmbed"></div>
+	<div class="link_format video" ng-show="post.post_meta.artdroid_link_format == 'video'">
+		<div o-embed="post.post_meta.artdroid_link_url" ng-bind-html="oEmbed"></div>
 		<hr>
 	</div>
 

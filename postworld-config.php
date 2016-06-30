@@ -281,7 +281,7 @@ function theme_postworld_config(){
 
 	pw_config('database', array(
 		'tables' => array(
-			'post_meta',
+			//'post_meta',
 			'cache'
 			),
 		'wp_postmeta' => array(

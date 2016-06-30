@@ -1,15 +1,10 @@
 <?php
 global $post;
-/**
- * ///// HEAD /////
- * This part appears above the post content.
- */
+
 // Get Header Meta
 $header_meta = pw_get_postmeta( array( "sub_key" => "header" ));
 if( is_page() )
 	include locate_template( 'views/theme/page-head.php' ); 
-//else if( is_single() )
-//	include locate_template( 'views/theme/post-head.php' ); 
 
 // Define what post data is queried
 $fields = array(

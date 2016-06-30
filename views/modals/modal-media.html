@@ -4,13 +4,13 @@
 	class="post">
 
 	<!-- LOADING -->
-	<div ng-show="status=='loading' || oEmbedStatus[post.link_url] == 'loading'" class="loading">
+	<div ng-show="status=='loading' || oEmbedStatus[post.post_meta.artdroid_link_url] == 'loading'" class="loading">
 		<i class="pwi-spinner pwi-spin icon-large"></i>
 	</div>
 
 	<!-- WRAPPER (Cloak until loaded) -->
 	<div
-		ng-cloak ng-hide="status=='loading' || oEmbedStatus[post.link_url] == 'loading'"
+		ng-cloak ng-hide="status=='loading' || oEmbedStatus[post.post_meta.artdroid_link_url] == 'loading'"
 
 		class="pw-transition-fadein wrapper"
 		pw-timeout="2000"
@@ -21,13 +21,13 @@
 			<!-- MEDIA -->
 			<div
 				class="media-embed layer-2"
-				ng-class="post.link_format"
-				ng-show="post.link_format == 'video' || post.link_format == 'audio'">
+				ng-class="post.post_meta.artdroid_link_format"
+				ng-show="post.post_meta.artdroid_link_format == 'video' || post.post_meta.artdroid_link_format == 'audio'">
 				<div
 					class="o-embed"
-					o-embed="post.link_url"
+					o-embed="post.post_meta.artdroid_link_url"
 					autoplay="true"
-					run="post.link_format == 'video' || post.link_format == 'audio'">
+					run="post.post_meta.artdroid_link_format == 'video' || post.post_meta.artdroid_link_format == 'audio'">
 					<div class="o-embed" ng-bind-html="oEmbed"></div>
 					<!--<div ng-bind="oEmbedCode | json"></div>-->
 				</div>

@@ -158,7 +158,7 @@
 				class="view-embed">
 				<div
 					class="o-embed"
-					o-embed="{{ post.link_url }}"
+					o-embed="{{ post.post_meta.artdroid_link_url }}"
 					embed-autoplay="showView('autoplayEmbed')"
 					embed-run="showView('modalEmbed')">
 				</div>
@@ -264,11 +264,11 @@
 					<div
 						class="link unit"
 						ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
 						uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
 						tooltip-popup-delay="333">
 						<a
-							pw-href="post.link_url"
+							pw-href="post.post_meta.artdroid_link_url"
 							pw-target="post.post_meta.artdroid_meta.link_url.new_target">
 							<i class="pwi-crosshairs"></i>
 							{{ post.post_meta.artdroid_meta.link_url.label.custom }}

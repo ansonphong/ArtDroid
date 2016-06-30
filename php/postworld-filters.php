@@ -439,7 +439,7 @@ function theme_postmeta_defaults( $post ){
 add_filter( 'pw_get_post_complete_filter', 'theme_postmeta_alt_image' );
 function theme_postmeta_alt_image( $post ){
 	// The theme has the option to select an alternative image for each post
-	// This is tored inthe postmeta as alt_image, in the form of a thumbnail_id
+	// This is stored in the postmeta as alt_image, in the form of a thumbnail_id
 	$alt_image_id = _get( $post, 'post_meta.'.THEME_ALT_IMAGE );
 	if( is_numeric( $alt_image_id ) ){
 
@@ -456,7 +456,6 @@ function theme_postmeta_alt_image( $post ){
 			$post,
 			'image.alt',
 			$post_image );
-		//pw_log( "POST ID : " . $post['ID'] .' // ' . "ALT IMAGE ID : " . $alt_image_id );
 	}
 	return $post;
 }
@@ -485,45 +484,6 @@ function theme_remove_category_uncategorized( $post ){
 }
 
 
-/**
- * Custom field model for Preview posts
- */
-add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );
-function theme_post_field_model_preview( $fields ){
-
-	return array(
-		'ID',
-		'post_title',
-		'post_excerpt',
-		'post_permalink',
-		'time_ago',
-		'post_date',
-		'post_date_gmt',
-		'post_type',
-		'post_status',
-		'fields',
-		'link_format',
-		'link_url',
-		'post_author',
-		'event_start',
-		'event_end',
-		'post_timestamp',
-		
-		'image(stats)',
-		'image(tags)',
-		'image(colors)',
-		'image(all)',
-
-		'edit_post_link',
-		'taxonomy(all)',
-		'post_format',
-		'post_meta('.PW_POSTMETA_KEY.')',
-		'post_meta('.THEME_ALT_IMAGE.')',
-		'post_meta(_thumbnail_id)',
-		'feed_order',
-		);
-
-}
 
 
 /**

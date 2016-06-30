@@ -75,7 +75,7 @@ pw_print_ng_controller(array(
 		<?php if( _get( $tax_archives, 'header.background_image.show_title' ) ): ?>
 			<div class="header-image-title">
 				<?php
-					$image_link = _get( $term['meta']['image_post'], 'link_url' );
+					$image_link = _get( $term['meta']['image_post'], 'post_meta.'.PW_LINK_URL_KEY );
 					if( empty( $image_link ) )
 						$image_link = _get( $term['meta']['image_post'], 'post_permalink' );
 				?>

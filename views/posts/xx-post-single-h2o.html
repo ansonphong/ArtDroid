@@ -165,7 +165,7 @@
 					<div
 						class="link unit"
 						ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
-						ng-show="ngBoolean(post.post_meta.artdroid_meta.link_url.label.show) || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+						ng-show="ngBoolean(post.post_meta.artdroid_meta.link_url.label.show) || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
 						uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
 						tooltip-placement="bottom"
 						tooltip-popup-delay="333">

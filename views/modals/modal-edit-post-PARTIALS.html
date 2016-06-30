@@ -11,7 +11,7 @@
 						<!-- POST FORMAT -->
 						<div class="link-format">
 							<span ng-repeat="format in link_format_meta" class="row-fluid">
-									<input type="radio" name="link_format" value="{{format.slug}}" ng-model="post.link_format" disabled />
+									<input type="radio" name="link_format" value="{{format.slug}}" ng-model="post.post_meta.artdroid_link_format" disabled />
 									<label>
 										<i class="{{format.icon}}"></i> <span ng-bind="format.name"></span>
 									</label>

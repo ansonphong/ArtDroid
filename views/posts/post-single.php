@@ -58,7 +58,7 @@ pw_print_ng_controller(array(
 
 	<?php if( !$immersive_gallery ): ?>
 
-		<?php if( !empty( $post['link_url'] ) ): ?>
+		<?php if( !empty( $post['post_meta']['artdroid_link_url'] ) ): ?>
 			<!-- EMBED -->
 			<div
 				class="media-viewer"
@@ -68,7 +68,7 @@ pw_print_ng_controller(array(
 				<div class="view-embed">
 					<div
 						class="o-embed"
-						o-embed="<?php echo $post['link_url'] ?>"
+						o-embed="<?php echo $post['post_meta']['artdroid_link_url'] ?>"
 						embed-run="::showView('singleEmbed')">
 					</div>
 				</div>

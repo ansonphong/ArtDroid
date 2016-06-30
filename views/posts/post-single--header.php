@@ -36,12 +36,12 @@
 			<div
 				class="link unit"
 				ng-class="{ 'highlight-color': post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.highlight }"
-				ng-show="ngBoolean(post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show) || post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show == 'custom' && post.link_url && post.link_format == 'link'"
+				ng-show="ngBoolean(post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show) || post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show == 'custom' && post.post_meta.<?php echo PW_LINK_URL_KEY ?> && post.post_meta.<?php echo PW_LINK_FORMAT_KEY ?> == 'link'"
 				uib-tooltip="<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.tooltip.custom' ) ?>"
 				tooltip-placement="bottom"
 				tooltip-popup-delay="333">
 				<a
-					pw-href="post.link_url"
+					pw-href="post.post_meta.<?php echo PW_LINK_URL_KEY ?>"
 					pw-target="post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.new_target">
 					<i class="pwi-crosshairs"></i>
 					<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.custom' ) ?>
