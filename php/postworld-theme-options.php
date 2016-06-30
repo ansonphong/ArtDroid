@@ -215,7 +215,7 @@ function pw_theme_options_filter( $options ){
 			),
 		'feeds'	=>	array(
 			'loading'	=>	array(
-				'icon'	=>	'icon-spinner-2',
+				'icon'	=>	'pwi-spinner-2',
 				),
 			'settings' => array(
 				'load_increment' => 10,
