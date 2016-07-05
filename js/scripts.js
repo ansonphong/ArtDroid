@@ -140,7 +140,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'modalImage': 		// For use in Modal Viewer
-				if( hasImageAndNoEmbed && !galleryHorizontal && !galleryFrame )
+				if( hasImageAndNoEmbed && !galleryVertical && !galleryHorizontal && !galleryFrame )
 					return true;
 				break;
 

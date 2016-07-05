@@ -1,7 +1,17 @@
 <!-- POSTWORLD INLINE GALLERY : <?php echo $vars['instance']; ?> -->
 <?php
-	// Include a secondary script here, or use begin end OB...
-	pw_ob_footer_script( 'views/galleries/gallery-inline-scripts.php', $vars );
+	/** 
+	 * Include Javascript definitions
+	 * Various methods of including the data are done differently
+	 * Depending on which context they appear in.
+	 */
+	// Shown in Modal Window / Dynamically
+	if( (defined( 'JSON_REQUEST' ) && JSON_REQUEST) ||
+		(defined( 'DOING_AJAX' ) && DOING_AJAX) )
+		echo pw_ob_include_template( 'views/galleries/gallery-inline-scripts.php', $vars );
+	// Shown on static single pages
+	else
+		pw_ob_footer_script( 'views/galleries/gallery-inline-scripts.php', $vars );
 ?>
 
 <div

@@ -28,8 +28,7 @@
 										{{ galleryPost.post_title }}
 									</a>
 								</h4>
-								<p ng-show="post.post_meta.artdroid_meta.gallery.vertical.show_caption && uiBool(galleryPost.post_excerpt)">
-									{{ galleryPost.post_excerpt }}
+								<p ng-if="post.post_meta.artdroid_meta.gallery.vertical.show_caption && uiBool(galleryPost.post_excerpt)" ng-bind-html="galleryPost.post_excerpt">
 								</p>
 							</div>
 							
