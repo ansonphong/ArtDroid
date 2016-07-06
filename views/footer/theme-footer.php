@@ -107,7 +107,7 @@ $footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 							<div class="footer--credits">
 								<div class="inner-content">
 									<div class="theme-logo">
-										<a href="https://artdroid.phong.com" target="_blank">
+										<a href="https://artdroid.net" target="_blank">
 											<i class="icon pwi-merkaba"></i>
 										</a>
 									</div>

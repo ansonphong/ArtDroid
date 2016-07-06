@@ -2,7 +2,7 @@
 	<div class="row header-row">
 		<div class="col-md-8 header-col">
 			<div class="artdroid-brand">
-				<a href="//artdroid.phong.com" target="_blank">
+				<a href="https://artdroid.net" target="_blank">
 					<img src="<?php echo get_template_directory_uri() ?>/images/artdroid-sticker-orange-128.png" title="ArtDroid" style="height: 64px; width: 200px;">
 				</a> 
 			</div>

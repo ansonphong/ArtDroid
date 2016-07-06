@@ -27,7 +27,7 @@ Thanks for using ArtDroid, we hope you
 enjoy using it and if you have any support
 issues, questions, ideas for future features
 or bugs to report, please visit:
-http://artdroid.phong.com
+https://artdroid.net
 
 ArtDroid is spawned by Android Jones
 http://androidjones.com
