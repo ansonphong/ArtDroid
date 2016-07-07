@@ -50,22 +50,37 @@ pw_print_ng_controller(array(
 						smart-image-dynamic
 						pw-parallax
 						parallax-depth="<?php echo $slider['parallax_depth'] ?>">
+							<div
+								class="carousel-caption"
+								ng-show="slider.show_title || slider.show_excerpt"
+								<?php
+									// Offset Parallax Depth
+									if( is_desktop() ){
+										$bottom_offset = floatval($slider['parallax_depth']) * 13;
+										if( $slider_has_menu )
+											$bottom_offset += 5;
+										?>
+											style="bottom:<?php echo $bottom_offset ?>%"
+										<?php
+									}
+								?>
+								>
+							<h2 ng-show="slider.show_title">
+								<span class="post-format-icon" ng-show="slide.post_meta.artdroid_link_format == 'video'">
+									<i class="pwi-play"></i>
+								</span>
+								<span class="post-format-icon" ng-show="slide.post_meta.artdroid_link_format == 'audio'">
+									<i class="pwi-headphones"></i>
+								</span>
+								{{slide.post_title}}
+							</h2>
+							<p ng-show="slider.show_excerpt && slide.post_excerpt">
+								{{slide.post_excerpt}}
+							</p>
+						</div>
 					</div>
 
-					<div class="carousel-caption" ng-show="slider.show_title || slider.show_excerpt">
-						<h2 ng-show="slider.show_title">
-							<span class="post-format-icon" ng-show="slide.post_meta.artdroid_link_format == 'video'">
-								<i class="pwi-play"></i>
-							</span>
-							<span class="post-format-icon" ng-show="slide.post_meta.artdroid_link_format == 'audio'">
-								<i class="pwi-headphones"></i>
-							</span>
-							{{slide.post_title}}
-						</h2>
-						<p ng-show="slider.show_excerpt && slide.post_excerpt">
-							{{slide.post_excerpt}}
-						</p>
-					</div>
+					
 				</div>
 			<?php if( $slider['hyperlink'] == true ){ ?>
 				</a>
