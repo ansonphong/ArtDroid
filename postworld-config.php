@@ -275,6 +275,33 @@ function theme_postworld_config(){
 			),
 		));
 
+	
+
+	pw_config('controls.post.role_access', array(
+		'administrator' => array(
+			  'own' => array( 'wp-edit', 'trash' ), // 'pw-edit',
+			'other' => array( 'wp-edit', 'trash' ),
+			),
+		'editor' => array(
+			  'own' => array( 'wp-edit', 'trash' ),
+			'other' => array( 'wp-edit', 'trash' ),
+			),
+		'author' => array(
+			  'own' => array( 'wp-edit', 'trash' ),
+			'other' => array(  ),
+			),
+		'contributor' => array(
+			  'own' => array( 'wp-edit', 'trash' ),
+			'other' => array(  ),
+			),
+		'guest' => array(
+			  'own' => array(  ),
+			'other' => array(  ),
+			),
+		));
+
+
+
 	pw_config('user_meta', array(
 		'pw_avatar'	=>	false,
 		));
