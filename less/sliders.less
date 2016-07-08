@@ -85,13 +85,7 @@
 		background-position: top;
 	}
 
-	a:hover{
-		h2 {
-			color: @neutral-color-dark;
-			text-shadow:none;
-			background: fade( @neutral-color-light, 100% );
-		}
-	}
+	
 
 	.slider-bottom-bar{
 		display:none;
@@ -127,6 +121,11 @@
 
 	}
 
+	a:hover{
+		h2 {
+			border-bottom:2px solid #fff;
+		}
+	}
 
 	.carousel-caption{
 		text-align:left;
@@ -141,12 +140,15 @@
 			margin:0;
 			padding: 8px 0px;
 			color: #fff;
-			text-shadow: 2px 2px 0 @neutral-color-dark;
+			text-shadow: 	2px 2px 0 @neutral-color-dark,
+							2px 2px 10px @neutral-color-dark;
+			border-radius: @border-radius-md;
+			border-bottom:2px solid transparent;
 			@media @lg-up{
-				font-size: 96px;
+				font-size: 76px;
 			}
 			@media @md{
-				font-size: 64px;
+				font-size: 54px;
 			}
 		}
 		p{
@@ -300,7 +302,6 @@
 	
 
 	.slider-bottom-bar-inner{
-		//.page-bounds();
 
 		ul.menu{
 			text-align:right;

@@ -56,7 +56,7 @@ pw_print_ng_controller(array(
 								<?php
 									// Offset Parallax Depth
 									if( is_desktop() ){
-										$bottom_offset = floatval($slider['parallax_depth']) * 13;
+										$bottom_offset = floatval($slider['parallax_depth']) * 15;
 										if( $slider_has_menu )
 											$bottom_offset += 5;
 										?>
