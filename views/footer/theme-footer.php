@@ -92,9 +92,16 @@ $footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 									$footer_image_id = $footer_options['image']['attachment_id'];
 									$footer_image = ( !empty($footer_image_id) ) ?
 										pw_get_post( $footer_image_id, 'list' ) : false;
+									$footer_image_link_url = _get( $footer_options, 'image.link_url' );
 								?>
 								<div class="inner-content">
-									<img src="<?php echo _get($footer_image,'image.sizes.sm.url') ?>">
+									<?php if($footer_image_link_url): ?>
+										<a href="<?php echo $footer_image_link_url ?>">
+									<?php endif ?>
+											<img src="<?php echo _get($footer_image,'image.sizes.sm.url') ?>">
+									<?php if($footer_image_link_url): ?>
+										</a>
+									<?php endif ?>
 								</div>
 							</div>
 						<?php endif ?>			
@@ -108,7 +115,7 @@ $footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 								<div class="inner-content">
 									<div class="theme-logo">
 										<a href="https://artdroid.net" target="_blank">
-											<i class="icon pwi-merkaba"></i>
+											<i class="icon pwi-icosa"></i>
 										</a>
 									</div>
 									<div class="credit">

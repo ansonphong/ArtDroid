@@ -231,7 +231,13 @@
 								'label'			=>	'Footer Image',
 								'width'			=>	'300px',
 							 	));?>
+						<hr class="thin">
+						<input type="url" ng-model="pwOptions.footer.image.link_url" placeholder="http://">
+						<b>Footer Image Link</b>
+						<small>: No link if empty.</small>
+
 						<div class="space-4"></div>
+
 					</div>
 
 					<hr class="thin">

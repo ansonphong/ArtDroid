@@ -255,6 +255,7 @@ function pw_theme_options_filter( $options ){
 			'image' => array(
 				'show_image' => false,
 				'attachment_id' => null,
+				'link_url' => '',
 				),
 			),
 		);
