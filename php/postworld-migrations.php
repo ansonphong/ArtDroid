@@ -1,5 +1,14 @@
 <?php
 /**
+ * Every time the theme version increases, run these methods.
+ */
+add_action( 'artdroid_theme_upgrade', 'artdroid_upgrade_routine' );
+function artdroid_upgrade_routine(){
+	// Clear Cache on Theme Upgrade
+	pw_truncate_cache();
+}
+
+/**
  * THEME DATABASE UPGRADE MIGRATIONS
  * Do theme migrations for versions less than 1.4.32
  */

@@ -132,6 +132,9 @@ function pw_theme_options_filter( $options ){
 						'gallery' => array(
 							'template' => 'inline',
 							'immersive' => false,
+							'inline' => array(
+								'show_featured_image' => false,
+								),
 							'vertical' => array(
 								'show_title' => true,
 								'show_caption' => true
@@ -245,12 +248,11 @@ function pw_theme_options_filter( $options ){
 			),
 		'footer' => array(
 			'show_footer' => true,
-			'credits' => array(
-				'show_credits' => true,
-				),
 			'custom' => array(
-				'show_custom' => true,
-				'content' => "Copyright &COPY; All rights reserved."
+				'show_custom_a' => true,
+				'content_a' => "Copyright &COPY; All rights reserved.",
+				'show_custom_b' => true,
+				'content_b' => "Made with WordPress using <i class='pwi-icosa'></i>ArtDroid.",
 				),
 			'image' => array(
 				'show_image' => false,

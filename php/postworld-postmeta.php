@@ -109,6 +109,9 @@ function theme_gallery_options( $vars = array() ){
 				'show_title',
 				'show_caption',
 				),
+			'inline' => array(
+				'show_featured_image'
+				),
 			),
 		);
 

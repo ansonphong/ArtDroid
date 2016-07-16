@@ -75,10 +75,10 @@ $footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 
 					<!-- CUSTOM -->
 					<div class="col-sm-4">
-						<?php if( $footer_options['custom']['show_custom'] ): ?>
-							<div class="footer--custom center-vertical-parent">
+						<?php if( $footer_options['custom']['show_custom_a'] ): ?>
+							<div class="footer--custom center-vertical-parent footer-custom-a">
 								<div class="inner-content">
-									<?php echo nl2br( $footer_options['custom']['content']) ?>
+									<?php echo nl2br( $footer_options['custom']['content_a']) ?>
 								</div>
 							</div>
 						<?php endif ?>
@@ -107,26 +107,12 @@ $footer_options = pw_grab_option( PW_OPTIONS_THEME, 'footer' );
 						<?php endif ?>			
 					</div>
 
-					<!-- CREDITS -->
+					<!-- RIGHT COLUMN -->
 					<div class="col-sm-4">
-						<?php if( $footer_options['credits']['show_credits'] ): ?>
-							<!-- Thanks for using ArtDroid! -->
-							<div class="footer--credits">
+						<?php if( $footer_options['custom']['show_custom_b'] ): ?>
+							<div class="footer--custom center-vertical-parent footer-custom-b">
 								<div class="inner-content">
-									<div class="theme-logo">
-										<a href="https://artdroid.net" target="_blank">
-											<i class="icon pwi-icosa"></i>
-										</a>
-									</div>
-									<div class="credit">
-										<?php _ex('Powered by ArtDroid for WordPress', 'credits', 'artdroid') ?>
-									</div>
-									<div class="credit">
-										<?php _ex('Spawned by', 'credits','artdroid') ?> <a href="http://androidjones.com" target="_blank"><?php _ex('Android Jones', 'credits','artdroid') ?></a>
-									</div>
-									<div class="credit">
-										<?php _ex('Designed by','credits','artdroid') ?> <a href="https://phong.com" target="_blank"><?php _ex('Phong', 'credits','artdroid') ?></a>
-									</div>
+									<?php echo nl2br( $footer_options['custom']['content_b']) ?>
 								</div>
 							</div>
 						<?php endif ?>

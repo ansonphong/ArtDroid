@@ -1,34 +1,5 @@
 <div class="row">
 	<div class="col-lg-6 pad-col-lg">
-
-		<!--///// LOGO /////-->
-		<?php
-		/**
-		 * This was recently implimented via WordPress native customizer
-		 * Keep it around for a bit incase it must be used on WordPress < 4.5 
-		 */
-		/*
-		<div class="well">
-			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
-			<h2>
-				<span class="icon-md"><i class="pwi-image"></i></span>
-				Logo
-			</h2>
-			<small>
-				The logo image appears at the upper left of every page.
-			</small>
-			<div class="well">
-				<?php
-					echo pw_select_image_id( array( 
-						'ng_model'	=>	'pwOptions.images.logo',
-						'slug'			=>	'logo',
-						'label'			=>	'Logo',
-						'width'			=>	'400px',
-					 	));?>
-			</div>
-		</div>
-		*/?>
-
 		<!--///// GENERAL /////-->
 		<div class="well">
 			<h2>
@@ -65,7 +36,6 @@
 
 		</div>
 
-			
 		<!--///// MODALS /////-->
 		<div class="well">
 			<h2>
@@ -102,7 +72,6 @@
 			</div>
 			<div style="clear:both"></div>
 		</div>
-
 
 		<!--///// ARCHIVES /////-->
 		<div class="well">
@@ -207,17 +176,6 @@
 
 					<hr class="thin">
 					<label>
-						<input type="checkbox" ng-model="pwOptions.footer.custom.show_custom">
-						<b>Show Custom Message</b>
-						<small>: Add a custom message to your footer.</small>
-					</label>
-					<div class="indent" ng-show="pwOptions.footer.custom.show_custom">
-						<hr class="thin">
-						<textarea msd-elastic class="full-width" ng-model="pwOptions.footer.custom.content"></textarea>
-					</div>
-
-					<hr class="thin">
-					<label>
 						<input type="checkbox" ng-model="pwOptions.footer.image.show_image">
 						<b>Show Image</b>
 						<small>: Add a custom image to your footer, such as a logo.</small>
@@ -237,15 +195,29 @@
 						<small>: No link if empty.</small>
 
 						<div class="space-4"></div>
-
 					</div>
 
 					<hr class="thin">
 					<label>
-						<input type="checkbox" ng-model="pwOptions.footer.credits.show_credits">
-						<b>Show Credits</b>
-						<small>: Credits in the footer.</small>
+						<input type="checkbox" ng-model="pwOptions.footer.custom.show_custom_a">
+						<b>Left Custom Message</b>
+						<small>: Add a custom message on the left side of your footer.</small>
 					</label>
+					<div class="indent" ng-show="pwOptions.footer.custom.show_custom_a">
+						<hr class="thin">
+						<textarea msd-elastic class="full-width" ng-model="pwOptions.footer.custom.content_a"></textarea>
+					</div>
+
+					<hr class="thin">
+					<label>
+						<input type="checkbox" ng-model="pwOptions.footer.custom.show_custom_b">
+						<b>Right Custom Message</b>
+						<small>: Add a custom message on the right side of your footer.</small>
+					</label>
+					<div class="indent" ng-show="pwOptions.footer.custom.show_custom_b">
+						<hr class="thin">
+						<textarea msd-elastic class="full-width" ng-model="pwOptions.footer.custom.content_b"></textarea>
+					</div>
 
 				</div>
 
