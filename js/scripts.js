@@ -112,9 +112,19 @@ postworld.controller( 'artPostCtrl',
 		// BLOG
 		var fiDisplay = $_.get($scope.post,'post_meta.artdroid_meta.featured_image.display');
 
+		// Show Single Image
 		var singleImage = function(){
-			return	( ( hasImageAndNoEmbed && !isGallery ) ||
-					( headerImage && hasImage && !isGallery ) );
+			return (
+						( hasImageAndNoEmbed && !isGallery ) ||
+						( headerImage && hasImage && !isGallery )
+					);
+		}
+
+		// Show featured image on inline galleries
+		var galleryInlineShowFeatureImage = function(){
+			return ( galleryInline ) ? 
+				$_.get( $scope.post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
+				true;
 		}
 
 		///// SWITCH : VIEWS : LOGIC /////
@@ -125,7 +135,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'singleImage':		// For use in Single Post View
-				if(singleImage())
+				if( singleImage() && galleryInlineShowFeatureImage() )
 					return true;
 				break;
 
@@ -140,7 +150,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'modalImage': 		// For use in Modal Viewer
-				if( hasImageAndNoEmbed && !galleryVertical && !galleryHorizontal && !galleryFrame )
+				if( hasImageAndNoEmbed && !galleryVertical && !galleryHorizontal && !galleryFrame && galleryInlineShowFeatureImage() )
 					return true;
 				break;
 

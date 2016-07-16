@@ -267,4 +267,22 @@ function pw_theme_options_filter( $options ){
 	return $options;
 }
 
-?>
+
+
+
+/**
+ * Add Gallery Options for Inline Gallery
+ */
+add_action( 'pw_admin_gallery_inline_options', 'artdroid_admin_gallery_inline_options' );
+function artdroid_admin_gallery_inline_options( $vars ){
+	?>
+		<hr class="thin">
+		<input type="checkbox" ng-model="<?php echo $vars['ng_model'] ?>.inline.show_featured_image" id="inline-show-featured-image">
+		<label for="inline-show-featured-image">
+			<b>
+				<?php _ex( 'Show Featured Image', 'option', 'postworld' ) ?>
+			</b>
+		</label>
+	<?php
+}
+
