@@ -19,18 +19,21 @@ function theme_migration_one_point_four_point_three_two( $vars ){
 		global $wpdb;
 		$pw_database = new PW_Database();
 		$post_meta_table = $wpdb->postworld_prefix.'post_meta';
-		// Get the link_url and link_format values from $wpdb->postworld_prefix.'post_meta'
-		// And transfer values to wp_postmeta prefixed with the theme name
-		$post_meta_table = $pw_database->get_all_table_values( $post_meta_table );
-		$key_prefix = pw_theme_slug().'_';
-		foreach( $post_meta_table as $row ){
-			if( !empty( $row->link_url ) )
-				update_post_meta( $row->post_id, $key_prefix.'link_url', $row->link_url );
-			if( $row->link_format !== 'standard' )
-				update_post_meta( $row->post_id, $key_prefix.'link_format', $row->link_format );
+		// If the legacy table exists, from an older install of ArtDroid
+		if( $pw_database->table_exists($post_meta_table) ){
+			// Get the link_url and link_format values from $wpdb->postworld_prefix.'post_meta'
+			// And transfer values to wp_postmeta prefixed with the theme name
+			$post_meta_table = $pw_database->get_all_table_values( $post_meta_table );
+			$key_prefix = pw_theme_slug().'_';
+			foreach( $post_meta_table as $row ){
+				if( !empty( $row->link_url ) )
+					update_post_meta( $row->post_id, $key_prefix.'link_url', $row->link_url );
+				if( $row->link_format !== 'standard' )
+					update_post_meta( $row->post_id, $key_prefix.'link_format', $row->link_format );
+			}
+			// Delete table
+			$pw_database->drop_table( $post_meta_table );
 		}
-		// Delete table
-		$pw_database->drop_table( $post_meta_table );
 	}
 	return;
 }
