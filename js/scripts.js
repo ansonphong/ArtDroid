@@ -122,6 +122,10 @@ postworld.controller( 'artPostCtrl',
 
 		// Show featured image on inline galleries
 		var galleryInlineShowFeatureImage = function(){
+			// Enable the image when viewing attachments, such as modal images
+			if( $scope.post.post_type === 'attachment' )
+				return true;
+			// Allow the per-post setting to disable the featured image if it's an inline gallery
 			return ( galleryInline ) ? 
 				$_.get( $scope.post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
 				true;
