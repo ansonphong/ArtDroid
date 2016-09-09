@@ -1,0 +1,98 @@
+<div class="post-head pad-x-lg" pw-globals="pw" pw-ui>
+	<div
+		ng-show="!pw.options.theme.modals.header.show"
+		class="modal-controls pull-right">
+		<button
+			class="btn-neutral-color"
+			uib-tooltip="Previous"
+			tooltip-popup-delay="333"
+			ng-click="previousPost()">
+			<i class="pwi-arrow-left-thin"></i>
+		</button>
+		<button
+			class="btn-neutral-color"
+			uib-tooltip="Next"
+			tooltip-popup-delay="333"
+			ng-click="nextPost()">
+			<i class="pwi-arrow-right-thin"></i>
+		</button>
+		<button
+			class="btn-neutral-color"
+			uib-tooltip="Close"
+			tooltip-popup-delay="333"
+			ng-click="close()">
+			<i class="pwi-close"></i>
+		</button>
+	</div>
+	<div class="pull-left">
+		<!-- TITLE -->
+		<h1 class="post-title">
+			<a ng-href="{{ post.post_permalink }}">
+				<i ng-show="uiBool(post.post_meta.artdroid_meta.icon.class)" class="icon {{post.post_meta.artdroid_meta.icon.class}}"></i>
+				{{ post.post_title }}
+			</a>
+		</h1>
+		<!-- CATEGORIES -->
+		<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
+			<span ng-repeat="term in post.taxonomy.category">
+			    <a pw-href="term.url" class="term category">
+					<span ng-bind="term.name"></span>
+				</a>
+			</span>
+		</div>
+		<!-- TAGS -->
+		<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
+			<i class="icon pwi-tags"></i>
+			<span ng-repeat="term in post.taxonomy.post_tag">
+			    <a pw-href="term.url" class="term tag">
+					<span ng-bind="term.name"></span>
+				</a>
+			</span>
+		</div>
+		<!-- TIME -->
+		<div
+			class="time unit pull-left"
+			uib-tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
+			tooltip-popup-delay="333">
+			<time datetime="{{ post.post_date }}">
+				{{ post.time_ago }}
+			</time>
+		</div>
+	</div>
+	<div class="pull-right">
+		<!-- POST CONTROLS -->
+		<div
+			pw-include="panels/post-controls"
+			include-post="post"
+			include-eval="isLoggedIn()&&!isDevice(['mobile'])"
+			class="pull-right">
+		</div>
+		<!-- SHARE SOCIAL -->
+		<div class="module share-social pull-right">
+			<div class="share-social--buttons" pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+		</div>
+		<!-- DOWNLOAD -->
+		<div
+			class="download unit pull-right"
+			ng-show="showView('downloadSingleImage')">
+			<a download pw-href="post.image.sizes.full.url">
+				<i class="pwi-arrow-down-thin"></i>
+			</a>
+		</div>
+		<!-- LINK -->
+		<div
+			class="link unit"
+			ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
+			ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
+			uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
+			tooltip-popup-delay="333">
+			<a
+				pw-href="post.post_meta.artdroid_link_url"
+				pw-target="post.post_meta.artdroid_meta.link_url.new_target">
+				<i class="pwi-crosshairs"></i>
+				{{ post.post_meta.artdroid_meta.link_url.label.custom }}
+			</a>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

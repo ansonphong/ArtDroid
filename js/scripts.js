@@ -391,6 +391,7 @@ postworld.directive('themeModalHeaderImage',
 		link: function( $scope, element, attrs ){
 
 			var imageId = $pw.options.theme.modals.header.image.attachment_id;
+			console.log( 'imageId', imageId );
 			if( imageId == 0 || imageId == false || imageId == null ){
 				$log.debug( 'themeModalHeaderImage : REMOVED' );
 				element.remove();
