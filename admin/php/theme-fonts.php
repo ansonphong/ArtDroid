@@ -151,6 +151,41 @@
 							</small>
 						</td>
 					</tr>
+					<tr>
+						<td align="right">
+							Image Title :
+						</td>
+						<td>
+							<!-- DROPDOWN -->
+							<span
+								uib-dropdown
+								class="dropdown">
+								<!-- SELECTED ITEM -->
+								<span uib-dropdown-toggle
+									class="area-select area-select-font"
+									ng-style="{'font-family': pwOptions.fonts.image_title }">
+									{{ pwOptions.fonts.image_title }}
+								</span>
+								<!-- MENU -->
+								<ul
+									class="dropdown-menu grid"
+									role="menu">
+									<li
+										class="select-font"
+										ng-repeat="font in fontOptions"
+										ng-click="pwOptions.fonts.image_title = font.name"
+										ng-style="{'font-family': font.name }">
+										{{ font.name }}
+									</li>
+								</ul>
+							</span>
+						</td>
+						<td>
+							<small>
+								The font used for single image titles.
+							</small>
+						</td>
+					</tr>
 				</table>
 
 

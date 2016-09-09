@@ -189,10 +189,11 @@ function theme_less_vars( $vars, $handle ) {
 	// Add variables to LESS files
 	$theme_options = pw_get_option( array( 'option_name' => PW_OPTIONS_THEME ) );
 	$theme_vars = array(
-		'font-family-body'		=>	'"'._get( $theme_options, 'fonts.body' ).'"',
-		'font-family-title'		=>	'"'._get( $theme_options, 'fonts.title' ).'"',
-		'font-family-content'	=>	'"'._get( $theme_options, 'fonts.content' ).'"',
-		'font-family-menu'		=>	'"'._get( $theme_options, 'fonts.menu' ).'"',
+		'font-family-body'			=>	'"'._get( $theme_options, 'fonts.body' ).'"',
+		'font-family-title'			=>	'"'._get( $theme_options, 'fonts.title' ).'"',
+		'font-family-content'		=>	'"'._get( $theme_options, 'fonts.content' ).'"',
+		'font-family-menu'			=>	'"'._get( $theme_options, 'fonts.menu' ).'"',
+		'font-family-image_title'	=>	'"'._get( $theme_options, 'fonts.image_title' ).'"',
 		);
 	$vars = array_replace_recursive( $vars, $theme_vars);
 	return $vars;

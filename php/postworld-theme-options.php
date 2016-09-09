@@ -74,10 +74,11 @@ function pw_theme_options_filter( $options ){
 				),
 			),
 		'fonts'	=>	array(
-			'body'		=>	'Roboto',
-			'title'		=>	'Roboto',
-			'content'	=>	'Roboto Slab',
-			'menu'		=>	'Roboto',
+			'body'			=>	'Roboto',
+			'title'			=>	'Roboto',
+			'content'		=>	'Roboto Slab',
+			'menu'			=>	'Roboto',
+			'image_title'	=>	'Roboto',
 			),
 		'posts'	=>	array(
 
