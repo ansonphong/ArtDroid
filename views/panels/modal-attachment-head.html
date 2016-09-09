@@ -68,7 +68,7 @@
 	<!-- SOCIAL WIDGETS -->
 	<div
 		class="social-widgets"
-		ng-if="post.post_status == 'publish' || post.post_type == 'attachment'">
+		ng-if="(post.post_status == 'publish' || post.post_type == 'attachment') && uiIsDevice(['desktop'])">
 		<div pw-compile-code="uiGetTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
 	</div>
 
