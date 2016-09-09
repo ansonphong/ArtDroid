@@ -114,16 +114,19 @@
 			</div>
 		<?php endif ?>
 
-		<!-- TIME -->
-		<span
-			class="time unit"
-			uib-tooltip="<?php echo $post['post_date_gmt'] ?>"
-			tooltip-placement="bottom"
-			tooltip-popup-delay="333">
-			<time datetime="<?php echo $post['post_date'] ?>">
-				<?php echo $post['time_ago'] ?>
-			</time>
-		</span>
+		<?php if( $post['post_type'] !== 'attachment' ): ?>
+			<!-- TIME -->
+			<span
+				class="time unit"
+				uib-tooltip="<?php echo $post['post_date_gmt'] ?>"
+				tooltip-placement="bottom"
+				tooltip-popup-delay="333">
+				<time datetime="<?php echo $post['post_date'] ?>">
+					<?php echo $post['time_ago'] ?>
+				</time>
+			</span>
+		<?php endif; ?>
+
 	<?php endif ?>
 
 	<div class="clearfix"></div>
