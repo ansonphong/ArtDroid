@@ -1,4 +1,36 @@
 <div class="attachment-head pad-x-lg" pw-ui>
+	<div class="pull-right">
+		<!-- POST CONTROLS -->
+		<div
+			pw-include="panels/post-controls"
+			include-post="post"
+			include-eval="isLoggedIn()&&!isDevice(['mobile'])"
+			class="post-controls-wrapper">
+		</div>
+		
+		<!-- DOWNLOAD -->
+		<div
+			class="download unit pull-right"
+			ng-show="showView('downloadSingleImage')">
+			<a download pw-href="post.image.sizes.full.url">
+				<i class="pwi-arrow-down-thin"></i>
+			</a>
+		</div>
+		<!-- LINK -->
+		<div
+			class="link unit"
+			ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
+			ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
+			uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
+			tooltip-popup-delay="333">
+			<a
+				pw-href="post.post_meta.artdroid_link_url"
+				pw-target="post.post_meta.artdroid_meta.link_url.new_target">
+				<i class="pwi-crosshairs"></i>
+				{{ post.post_meta.artdroid_meta.link_url.label.custom }}
+			</a>
+		</div>
+	</div>
 	<div class="attachment-head--inner">
 		<!-- TITLE -->
 		<h1 class="post-title">
@@ -25,44 +57,20 @@
 			</span>
 		</div>
 	</div>
-	<div class="pull-right">
-		<!-- POST CONTROLS -->
-		<div
-			pw-include="panels/post-controls"
-			include-post="post"
-			include-eval="isLoggedIn()&&!isDevice(['mobile'])"
-			class="pull-right">
-		</div>
-		<!-- SHARE SOCIAL -->
-		<div class="module share-social pull-right">
-			<div class="share-social--buttons" pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
-		</div>
-		<!-- DOWNLOAD -->
-		<div
-			class="download unit pull-right"
-			ng-show="showView('downloadSingleImage')">
-			<a download pw-href="post.image.sizes.full.url">
-				<i class="pwi-arrow-down-thin"></i>
-			</a>
-		</div>
-		<!-- LINK -->
-		<div
-			class="link unit"
-			ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
-			ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
-			uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
-			tooltip-popup-delay="333">
-			<a
-				pw-href="post.post_meta.artdroid_link_url"
-				pw-target="post.post_meta.artdroid_meta.link_url.new_target">
-				<i class="pwi-crosshairs"></i>
-				{{ post.post_meta.artdroid_meta.link_url.label.custom }}
-			</a>
-		</div>
-	</div>
-	
+	<!-- POST CAPTION/EXCERPT -->
 	<div class="post-caption" ng-if="uiBool(post.post_excerpt)" ng-bind="post.post_excerpt"></div>
 
-	<div class="clearfix"></div>
+	<!-- SHARE SOCIAL -->
+	<div class="module share-social">
+		<div class="share-social--buttons" pw-compile-code="uiGetTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
+	</div>
 
+	<!-- SOCIAL WIDGETS -->
+	<div
+		class="social-widgets"
+		ng-if="post.post_status == 'publish' || post.post_type == 'attachment'">
+		<div pw-compile-code="uiGetTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
+	</div>
+
+	<div class="clearfix"></div>
 </div>
