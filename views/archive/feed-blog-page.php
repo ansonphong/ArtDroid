@@ -4,7 +4,6 @@
  */
 $blog_settings = pw_grab_option( PW_OPTIONS_THEME, 'blog.settings' );
 
-
 pw_feed(array(
 	'aux_template'	=>	'seo-list',
 	'feed' => array(
@@ -19,6 +18,8 @@ pw_feed(array(
 		)
 	));
 
+
+// "ALL BLOG POSTS" BUTTON LINK
 if( $blog_settings['page_template']['show_more_link'] ): ?>
 
 	<div class="blog-page">
