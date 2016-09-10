@@ -29,7 +29,7 @@ if( $show_on_front == 'posts' || is_home() || $wp_page_template === 'posts.php' 
 else if( $show_on_front == 'page' ){
 	// If Blog page is selected
 	if( $wp_page_template === 'blog.php' ){
-		$primary_content = pw_ob_include_template( 'views/archive/feed-blog.php' );
+		$primary_content = pw_ob_include_template( 'views/archive/feed-blog-page.php' );
 		pw_print_layout( array( 'content' => $primary_content ) );
 	}
 	// Otherwise show the page

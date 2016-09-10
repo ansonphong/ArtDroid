@@ -58,6 +58,12 @@ function pw_theme_options_filter( $options ){
 				'home'	=>	array(
 					'show_in_feed'	=>	false,
 					),
+				'page_template' => array(
+					'show_more_link' => true,
+					'query' => array(
+						'posts_per_page' => 0,
+						),
+					),
 				),
 			),
 
