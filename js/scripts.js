@@ -79,13 +79,15 @@ postworld.controller( 'artPostCtrl',
 		 * $log.debug( 'showView', view ); // See how frequently it occurs
 		 */
 
+		 var post = $scope.post;
+
 		// LOADING
 		var loading = ( $scope.status == 'loading' ) ?
 			true : false;
 
 		// GALLERY
-		var galleryTemplate = $_.get( $scope, 'post.post_meta.artdroid_meta.gallery.template' );
-		var hasGallery = ( !_.isEmpty( $_.get( $scope, 'post.gallery.posts' ) ) );
+		var galleryTemplate = $_.get( post, 'post_meta.artdroid_meta.gallery.template' );
+		var hasGallery = ( !_.isEmpty( $_.get( post, 'gallery.posts' ) ) );
 		var galleryInline = ( galleryTemplate == 'inline' || galleryTemplate == false );
 		var galleryHorizontal = ( galleryTemplate == 'horizontal' );
 		var galleryVertical = ( galleryTemplate == 'vertical' );
@@ -93,41 +95,46 @@ postworld.controller( 'artPostCtrl',
 		var isGallery = ( galleryHorizontal || galleryFrame || galleryVertical );
 
 		// HEADER
-		var header = $_.get( $scope, 'post.post_meta.artdroid_meta.header.type' );
+		var header = $_.get( post, 'post_meta.artdroid_meta.header.type' );
 		var headerDefault = ( header == 'default' || header == false );
 		var headerImage = ( header == 'featured_image' );
 		var headerSlider = ( header == 'headerSlider' );
 
 		// EMBED
 		var hasEmbed = (
-			$_.get( $scope, 'post.post_meta.artdroid_link_format' ) == 'video' ||
-			$_.get( $scope, 'post.post_meta.artdroid_link_format' ) == 'audio' ) ?
+			$_.get( post, 'post_meta.artdroid_link_format' ) == 'video' ||
+			$_.get( post, 'post_meta.artdroid_link_format' ) == 'audio' ) ?
 			true : false;
 
 		// IMAGE
-		var hasImage = ( $_.objExists( $scope, 'post.image.sizes' ) );
+		var hasImage = ( $_.objExists( post, 'image.sizes' ) );
 		var hasImageAndNoEmbed = ( !hasEmbed && hasImage );
 		var hasImageAndNoGallery = ( !hasGallery && hasImage );
 
 		// BLOG
-		var fiDisplay = $_.get($scope.post,'post_meta.artdroid_meta.featured_image.display');
+		var fiDisplay = $_.get( post, 'post_meta.artdroid_meta.featured_image.display');
+
+		var isPostType = function( postType ){
+			return ( $_.get(post, 'post_type') === postType );
+		}
 
 		// Show Single Image
 		var singleImage = function(){
 			return (
 						( hasImageAndNoEmbed && !isGallery ) ||
-						( headerImage && hasImage && !isGallery )
+						( headerImage && hasImage && !isGallery ) ||
+						isPostType('attachment')
 					);
 		}
 
 		// Show featured image on inline galleries
 		var galleryInlineShowFeatureImage = function(){
 			// Enable the image when viewing attachments, such as modal images
-			if( $scope.post.post_type === 'attachment' )
+			if( post.post_type === 'attachment' )
 				return true;
 			// Allow the per-post setting to disable the featured image if it's an inline gallery
 			return ( galleryInline ) ? 
-				$_.get( $scope.post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
+				$_.get( post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
 				true;
 		}
 
@@ -194,7 +201,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'downloadSingleImage':
-				if( singleImage() && $_.get( $scope.post, 'post_meta.artdroid_meta.image.download' ) )
+				if( singleImage() && $_.get( post, 'post_meta.artdroid_meta.image.download' ) )
 					return true;
 				break;
 	
@@ -205,7 +212,7 @@ postworld.controller( 'artPostCtrl',
 	};
 
 	$scope.imageFormat = function( post ){
-		var ratio = $_.get( post, 'image.stats.ratio' );
+		var ratio = $_.get( $scope.post, 'image.stats.ratio' );
 		if( !ratio )
 			return false;
 		if( Number( ratio ) > 3 )
@@ -391,6 +398,7 @@ postworld.directive('themeModalHeaderImage',
 		link: function( $scope, element, attrs ){
 
 			var imageId = $pw.options.theme.modals.header.image.attachment_id;
+			console.log( 'imageId', imageId );
 			if( imageId == 0 || imageId == false || imageId == null ){
 				$log.debug( 'themeModalHeaderImage : REMOVED' );
 				element.remove();

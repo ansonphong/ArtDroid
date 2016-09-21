@@ -5,12 +5,14 @@
 /**
  * Single post footer
  */
-if( (is_single() || is_page() || is_404()) && !is_home() && !is_front_page() ){
+if( (is_single() || is_page() || is_404() || is_front_page()) && !is_home() ){
 
 	global $post;
 
 	if( is_404() )
 		$sidebar_prefix = 'error';
+	elseif( is_front_page() )
+	$sidebar_prefix = 'front-page';
 	else
 		$sidebar_prefix = $post->post_type;
 

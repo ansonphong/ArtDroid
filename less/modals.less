@@ -52,10 +52,16 @@ body{
 	@modal-head-height: 64px;
 	.modal-head{
 		position: relative;
-
 		height:@modal-head-height;
 		padding: 13px 15px;
 		padding-left: 5px;
+
+		.modal-head--left{
+			max-width: 25%;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		//.modal-head--right{}
 
 		.icon-angle-left-thin{
 			position:relative;
@@ -66,6 +72,7 @@ body{
 			.close-compact{ display:inline-block; }
 			.close-full{ display:none; }
 		}
+
 		@media @md-up{
 			.close-compact{ display:none; }
 			.close-full{ display:inline-block; }
@@ -97,9 +104,11 @@ body{
 			left:50%;
 			top:0;
 			height:@modal-head-height;
-			//overflow-y: hidden;
 			float:left;
 			display: block;
+			@media @sm-down{
+				display: none;
+			}
 			img{
 				height:@modal-head-height;
 				width: auto;
@@ -139,8 +148,10 @@ body{
 			hr{
 				border-top-color:@neutral-color-medium;
 			}
-			h1{
-				padding-right:40px;
+			.post-head{
+				.post-title{
+					padding-right:40px;
+				}
 			}
 			.post-head{
 				background:transparent;

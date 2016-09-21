@@ -7,9 +7,9 @@
 	</style>
 	<div
 		class="modal-head"
-		ng-show="pw.options.theme.modals.header.show">
+		ng-if="pw.options.theme.modals.header.show">
 		<div
-			class="pull-left">
+			class="modal-head--left pull-left">
 			<!-- TITLE -->
 			<button
 				class="transparent"
@@ -21,7 +21,6 @@
 				<span class="close-full" ng-bind-html="pw.view.title"></span>
 			</button>
 		</div>
-
 		<!-- MODAL HEADER IMAGE -->
 		<div theme-modal-header-image class="header-image">
 			<img
@@ -29,9 +28,8 @@
 				smart-image-dynamic
 				style="height:64px; float:left;">
 		</div>
-
 		<div
-			class="pull-right">
+			class="modal-head--right pull-right">
 			<!-- PREVIOUS POST -->
 			<button
 				ng-click="previousPost()"
@@ -39,10 +37,10 @@
 				ng-mouseover="uiToggleView('prevPost')"
 				ng-mouseout="uiToggleView('prevPost')">
 				<i
-					ng-show="!uiShowView('prevPost')"
+					ng-if="!uiShowView('prevPost')"
 					class="icon pwi-triangle-left-thin"></i>
 				<i
-					ng-show="uiShowView('prevPost')"
+					ng-if="uiShowView('prevPost')"
 					class="icon pwi-triangle-left-fill"></i>
 			</button>
 			<!-- NEXT POST -->
@@ -52,15 +50,14 @@
 				ng-mouseover="uiToggleView('nextPost')"
 				ng-mouseout="uiToggleView('nextPost')">
 				<i
-					ng-show="!uiShowView('nextPost')"
+					ng-if="!uiShowView('nextPost')"
 					class="icon pwi-triangle-right-thin"></i>
 				<i
-					ng-show="uiShowView('nextPost')"
+					ng-if="uiShowView('nextPost')"
 					class="icon pwi-triangle-right-fill"></i>
 			</button>
 		</div>
 	</div>
-
 	<div
 		pw-post
 		post-required-fields="['gallery(ids,posts)', 'post_content', 'post_meta(all)', 'time_ago', 'edit_post_link']"
@@ -71,28 +68,24 @@
 		pw-timeout="200"
 		timeout-action="addClass('fadein-on')"
 		pw-ui>
-
 		<!-- IMAGE -->
 		<div
 			class="media-viewer post-image"
 			ng-class="imageFormat(post)"
-
 			pw-height="{{::pw.options.theme.posts.images.height.method}}"
 			height-value="{{::pw.options.theme.posts.images.height.value}}"
-
-			ng-show="showView('modalImage')"
+			ng-if="showView('modalImage')"
 			pw-x-scroll-status>
-
 			<div
 				class="view-image"
-				ng-show="imageFormat(post) == 'standard'"
+				ng-if="imageFormat(post) == 'standard'"
 				pw-smart-image="post.image"
 				smart-image-min-height="512"
 				smart-image-dynamic>
 				<div
 					class="nav-hover-area area-left"
 					ng-click="previousPost()"
-					ng-show="::uiBoolean(modalFeed)">
+					ng-if="::uiBoolean(modalFeed)">
 					<button class="btn-previous">
 						<i class="pwi-triangle-left-thin"></i>
 					</button>
@@ -100,13 +93,12 @@
 				<div
 					class="nav-hover-area area-right"
 					ng-click="nextPost()"
-					ng-show="::uiBoolean(modalFeed)">
+					ng-if="::uiBoolean(modalFeed)">
 					<button class="btn-next">
 						<i class="pwi-triangle-right-thin"></i>
 					</button>
 				</div>
 			</div>
-
 			<!-- SCROLL INDICATOR -->
 			<div
 				class="scroll-indicator"
@@ -120,40 +112,33 @@
 					<span class="text">Slide</span>
 				</div>
 			</div>
-
 			<!-- PANORAMA -->
 			<img
-				ng-show="imageFormat(post) == 'panorama'"
+				ng-if="imageFormat(post) == 'panorama'"
 				class="view-image"
 				pw-smart-image="post.image"
 				smart-image-min-width="1200"
 				smart-image-dynamic>
-
 		</div>
-
 		<!-- FRAME GALLERY -->
 		<div
 			pw-include="galleries/gallery-frame"
 			include-post="post"
 			include-vars="{keybind:showView('galleryFrame')}"
-			ng-show="showView('galleryFrame')">
+			ng-if="showView('galleryFrame')">
 		</div>
-
 		<!-- GALLERY : HORIZONTAL -->
 		<!-- HORIZONTAL GALLERY -->
 		<div
 			pw-include="galleries/gallery-horizontal"
 			include-post="post"
 			include-enable="showView('galleryHorizontal')"></div>
-
 		<!-- EMBED -->
 		<div
 			class="media-viewer"
-
 			pw-height="{{::pw.options.theme.posts.embeds.height.method}}"
 			height-value="{{::pw.options.theme.posts.embeds.height.value}}"
-
-			ng-show="showView('modalEmbed')">
+			ng-if="showView('modalEmbed')">
 			<div
 				class="view-embed">
 				<div
@@ -162,142 +147,34 @@
 					embed-autoplay="showView('autoplayEmbed')"
 					embed-run="showView('modalEmbed')">
 				</div>
-
 			</div>
 		</div>
-
 		<div class="post-modal-body page-width">
-
-			<div class="post-head pad-x-lg">
-
-				<div
-					ng-show="!pw.options.theme.modals.header.show"
-					class="modal-controls pull-right">
-					<button
-						class="btn-neutral-color"
-						uib-tooltip="Previous"
-						tooltip-popup-delay="333"
-						ng-click="previousPost()">
-						<i class="pwi-arrow-left-thin"></i>
-					</button>
-					<button
-						class="btn-neutral-color"
-						uib-tooltip="Next"
-						tooltip-popup-delay="333"
-						ng-click="nextPost()">
-						<i class="pwi-arrow-right-thin"></i>
-					</button>
-					<button
-						class="btn-neutral-color"
-						uib-tooltip="Close"
-						tooltip-popup-delay="333"
-						ng-click="close()">
-						<i class="pwi-close"></i>
-					</button>
-				</div>
-
-				<div class="pull-left">
-					<!-- TITLE -->
-					<h1 class="post-title">
-						<a ng-href="{{ post.post_permalink }}">
-							<i ng-show="uiBool(post.post_meta.artdroid_meta.icon.class)" class="icon {{post.post_meta.artdroid_meta.icon.class}}"></i>
-							{{ post.post_title }}
-						</a>
-					</h1>
-					
-					<!-- CATEGORIES -->
-					<div class="taxonomy categories" ng-show="uiBoolean(post.taxonomy.category)">
-						<span ng-repeat="term in post.taxonomy.category">
-						    <a pw-href="term.url" class="term category">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-
-					<!-- TAGS -->
-					<div class="taxonomy tags" ng-show="uiBoolean(post.taxonomy.post_tag)">
-						<i class="icon pwi-tags"></i>
-						<span ng-repeat="term in post.taxonomy.post_tag">
-						    <a pw-href="term.url" class="term tag">
-								<span ng-bind="term.name"></span>
-							</a>
-						</span>
-					</div>
-
-					<!-- TIME -->
-					<div
-						class="time unit pull-left"
-						uib-tooltip="{{ post.post_timestamp*1000 | date:'fullDate' }}"
-						tooltip-popup-delay="333">
-						<time datetime="{{ post.post_date }}">
-							{{ post.time_ago }}
-						</time>
-					</div>
-					
-				</div>
-
-				<div class="pull-right">
-					
-					<!-- POST CONTROLS -->
-					<div
-						pw-include="panels/post-controls"
-						include-post="post"
-						include-eval="isLoggedIn()&&!isDevice(['mobile'])"
-						class="pull-right">
-					</div>
-
-					<!-- SHARE SOCIAL -->
-					<div class="module share-social pull-right">
-						<div class="share-social--buttons" pw-compile-code="getTemplatePartial({ partial:'viewPost.social.shareLinks', vars: post, id: post.ID })"></div>
-					</div>
-
-					<!-- DOWNLOAD -->
-					<div
-						class="download unit pull-right"
-						ng-show="showView('downloadSingleImage')">
-						<a download pw-href="post.image.sizes.full.url">
-							<i class="pwi-arrow-down-thin"></i>
-						</a>
-					</div>
-
-					<!-- LINK -->
-					<div
-						class="link unit"
-						ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
-						ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
-						uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
-						tooltip-popup-delay="333">
-						<a
-							pw-href="post.post_meta.artdroid_link_url"
-							pw-target="post.post_meta.artdroid_meta.link_url.new_target">
-							<i class="pwi-crosshairs"></i>
-							{{ post.post_meta.artdroid_meta.link_url.label.custom }}
-						</a>
-					</div>
-
-				</div>
-
-				<div class="clearfix"></div>
-
+			<div
+				ng-if="post.post_type != 'attachment'"
+				pw-include="panels/modal-post-head"
+				include-post="post">
 			</div>
-
+			<div
+				ng-if="post.post_type == 'attachment'"
+				pw-include="panels/modal-attachment-head"
+				include-post="post">
+			</div>
 			<div class="clearfix"></div>
-
 			<!-- POST CONTENT -->
 			<div
 				class="post-content columns-{{ post.post_meta.artdroid_meta.post_content.columns }} pad-x-lg"
 				ng-hide="!uiBool(post.post_content)&&!uiBool(post.post_excerpt)">
 				<div
-					ng-show="uiBool(post.post_content)"
+					ng-if="uiBool(post.post_content)"
 					pw-compile-code="post.post_content">
 				</div>
 				<!-- SHOW POST EXCERPT IF NO POST CONTENT -->
 				<div
-					ng-show="!uiBool(post.post_content) && uiBool(post.post_excerpt)"
+					ng-if="!uiBool(post.post_content) && uiBool(post.post_excerpt) && post.post_type != 'attachment'"
 					ng-bind="post.post_excerpt">
 				</div>
 			</div>
-
 			<!-- VERTICAL GALLERY -->
 			<div
 				pw-include="galleries/gallery-vertical"
@@ -305,29 +182,22 @@
 				include-enable="showView('galleryVertical')"
 				include-vars="{yScrollContainer:'.modal-view-post'}"
 				class=""></div>
-
 			<!-- WRAPPER (Cloak until loaded) -->
 			<div
 				ng-cloak ng-hide="status=='loading'"
 				class="pw-transition-fadein wrapper"
 				pw-timeout="333"
 				timeout-action="addClass('fadein-on')">
-
 			</div>
 			<!-- END WRAPPER -->
-			
 			<div class="clearfix"></div>
-
 			<!-- SOCIAL WIDGETS -->
 			<div
 				class="social-widgets pad-x-lg"
-				ng-show="post.post_status == 'publish' || post.post_type == 'attachment'">
+				ng-if="post.post_status == 'publish' && post.post_type != 'attachment'">
 				<div pw-compile-code="getTemplatePartial({ partial:'viewPost.social.widgets', vars: { post_id: post.ID }, id: post.ID })"></div>
 			</div>
-
 			<div class="space-8"></div>
-
 		</div>
-
 	</div><!-- END POST -->
 </div>

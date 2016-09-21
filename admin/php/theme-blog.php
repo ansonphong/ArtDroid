@@ -61,15 +61,13 @@
 
 					<input type="number" ng-model="pwOptions.blog.settings.feed.load_increment" class="short">
 					<b>scroll increment</b><small>: Number of {{pwOptions.blog.settings.post_type.name}} posts to load on each infinite scroll.</small>
-					
+				
 				</div>
-
 				<div class="well">
 					<h3>
 						<span class="icon-md"><i class="pwi-image"></i></span>
 						Header Image
 					</h3>
-
 					<?php
 						echo pw_select_setting(array(
 							'setting' => 'height',
@@ -77,15 +75,37 @@
 							'methods' => array('window-percent','pixels','proportion'),
 							));
 						?>
-					
 				</div>
+				<hr class="thin">
+				<div class="well">
+					<h3>
+						<span class="icon-md"><i class="pwi-file"></i></span>
+						Blog Page Template
+					</h3>
 
+					Any page can be set to display the latest blog feed, by setting the <i>Page Template</i> to <b>Blog</b>. These settings adjust what is seen on the Blog Page Template.
+
+					<hr class="thin">
+
+					<label>
+						<input type="number" class="short" ng-model="pwOptions.blog.settings.page_template.query.posts_per_page">
+						<b>maximum number of posts</b>
+					</label>
+
+					<hr class="thin">
+
+					<label>
+						<input type="checkbox" ng-model="pwOptions.blog.settings.page_template.show_more_link">
+						<b>show "more blog posts" link</b>
+					</label>
+
+				</div>
 				<hr class="thin">
 
+
+
 			</div>
-
 		</div>
-
 	</div>
 	<div class="col-lg-6 pad-col-lg">
 		

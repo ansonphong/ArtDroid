@@ -64,14 +64,16 @@
 		}
 
 		h1{
-			font-weight: 800;
+			font-weight: 500;
+			@media @md{
+				font-size: @font-size-xl;
+				font-weight: 400;
+			}
 			@media @lg-up{
-				font-size: @font-size-xxxl;
+				font-size: @font-size-xxl;
 				font-weight: 300;
 			}
 		}
-
-
 
 		h1, h2, h3{
 			text-shadow: 2px 2px 0 @global-background-color;

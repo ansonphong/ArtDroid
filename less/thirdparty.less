@@ -93,6 +93,26 @@
 		margin:0;
 		height:0;
 		display:table;
+		&.instagram-size-thumbnail{
+			li{
+				max-width:25%;
+			}
+		}
+		&.instagram-size-small{
+			li{
+				max-width:33.33%;
+			}
+		}
+		&.instagram-size-large{
+			li{
+				max-width:50%;
+			}
+		}
+		&.instagram-size-original{
+			li{
+				max-width:100%;
+			}
+		}
 		li{
 			display:block;
 			max-width:50%;
@@ -130,9 +150,6 @@
 		marign:0;
 		padding:0;
 		margin-top:64px;
-		li{
-			width:25%;
-		}
 	}
 	a[rel="me"]{
 		display:none;

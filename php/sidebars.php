@@ -35,7 +35,16 @@ function theme_sidebars_init(){
 			'before_title'  => $title_before,
 			'after_title'   => $title_after
 			),
-
+		array(
+			'name'          => "Front Page Footer",
+			'id'            => 'front-page-foot',
+			'description'   => 'At the footer of the front page.',
+			'class'         => '',
+			'before_widget' => '<div class="widget-column"><div id="%1$s" class="sidebar-widget %2$s">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => $title_before,
+			'after_title'   => $title_after
+			),
 		array(
 			'name'          => "Blog Footer",
 			'id'            => 'blog-foot',
