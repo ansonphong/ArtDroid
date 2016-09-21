@@ -51,7 +51,6 @@ function theme_register_field_models(){
  */
 add_filter( 'pw_post_field_model_preview', 'theme_post_field_model_preview' );
 function theme_post_field_model_preview( $fields ){
-
 	return array(
 		'ID',
 		'post_title',
