@@ -13,6 +13,6 @@ function theme_check_for_updates(){
 		);
 	$query_string = http_build_query( $query_vars );
 	$request_url = $update_server_url . '?' . $query_string;
-	//pw_log('request_url', $request_url);
+	//pw_log('update request_url', $request_url);
 	$update_theme = new ThemeUpdateChecker( 'artdroid', $request_url );
 }
