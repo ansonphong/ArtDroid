@@ -117,25 +117,27 @@ postworld.controller( 'artPostCtrl',
 		var isPostType = function( postType ){
 			return ( $_.get(post, 'post_type') === postType );
 		}
+		
+		// Show featured image on inline galleries
+		var galleryInlineShowFeatureImage = function(){
+
+			// Allow the per-post setting to disable the featured image if it's an inline gallery
+			return ( galleryInline && $_.get( post, 'stats.has_gallery' )  ) ? 
+				$_.get( post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
+				true;
+		}
 
 		// Show Single Image
 		var singleImage = function(){
 			return (
-						( hasImageAndNoEmbed && !isGallery ) ||
-						( headerImage && hasImage && !isGallery ) ||
-						isPostType('attachment')
+						(
+							( hasImageAndNoEmbed && !isGallery ) ||
+							( headerImage && hasImage && !isGallery ) ||
+							isPostType('attachment')
+						)
+						&&
+						galleryInlineShowFeatureImage()
 					);
-		}
-
-		// Show featured image on inline galleries
-		var galleryInlineShowFeatureImage = function(){
-			// Enable the image when viewing attachments, such as modal images
-			if( post.post_type === 'attachment' )
-				return true;
-			// Allow the per-post setting to disable the featured image if it's an inline gallery
-			return ( galleryInline ) ? 
-				$_.get( post, 'post_meta.artdroid_meta.gallery.inline.show_featured_image' ) :
-				true;
 		}
 
 		///// SWITCH : VIEWS : LOGIC /////
@@ -146,7 +148,7 @@ postworld.controller( 'artPostCtrl',
 				break;
 
 			case 'singleImage':		// For use in Single Post View
-				if( singleImage() && galleryInlineShowFeatureImage() )
+				if( singleImage() )
 					return true;
 				break;
 
@@ -157,11 +159,6 @@ postworld.controller( 'artPostCtrl',
 
 			case 'fiDisplay--full':		// For use in Blog Full View
 				if( hasImageAndNoEmbed && fiDisplay === 'full' )
-					return true;
-				break;
-
-			case 'modalImage': 		// For use in Modal Viewer
-				if( hasImageAndNoEmbed && !galleryVertical && !galleryHorizontal && !galleryFrame && galleryInlineShowFeatureImage() )
 					return true;
 				break;
 

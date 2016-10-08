@@ -9,7 +9,7 @@ function theme_register_field_models(){
 
 	// FULL
 	pw_register_post_field_model('full', array_merge( $preview_fields, array(
-		'post_content(more)'
+		'post_content(more)',
 	)));
 
 	// LIST
@@ -41,7 +41,8 @@ function theme_register_field_models(){
 	'image(lg,1024,1024,2)',
 	'feed_order',
 	'post_meta(all)',
-	'fields'
+	'fields',
+	'stats'
 	));
 }
 
@@ -83,6 +84,7 @@ function theme_post_field_model_preview( $fields ){
 		'post_meta('.PW_LINK_FORMAT_KEY.')',
 		'post_meta(_thumbnail_id)',
 		'feed_order',
+		'stats',
 		);
 
 }

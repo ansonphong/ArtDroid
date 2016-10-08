@@ -38,6 +38,7 @@ $fields = array(
 	'post_meta(all)',
 	'gallery(ids,posts)',
 	'fields',
+	'stats'
 	);
 
 $pw_post = pw_get_post($post->ID, $fields);

@@ -75,9 +75,8 @@ pw_print_ng_controller(array(
 			</div>
 		<?php endif ?>
 
-
 		<?php if( in_array( $post['post_type'], array('post','attachment') ) ): ?>
-		
+
 			<!-- IMAGE -->
 			<div
 				class="media-viewer post-image full-page-width"
@@ -86,7 +85,7 @@ pw_print_ng_controller(array(
 				pw-height="<?php echo _get($pw,'options.theme.posts.embeds.height.method') ?>"
 				height-value="<?php echo _get($pw,'options.theme.posts.embeds.height.value') ?>"
 
-				ng-show="::showView('singleImage')"
+				ng-if="::showView('singleImage')"
 				pw-x-scroll-status>
 
 				<?php if( $post['post_type'] === 'post' ): ?>
