@@ -38,6 +38,14 @@ body{
 	}	
 }
 
+body.view--fullscreen{
+	.modal{
+		.modal-head{
+			display: none;
+		}
+	}
+}
+
 .modal{
 	color: @modal-foreground-color;
 	.modal-dialog{
@@ -50,6 +58,7 @@ body{
 		border:none;
 	}
 	@modal-head-height: 64px;
+
 	.modal-head{
 		position: relative;
 		height:@modal-head-height;

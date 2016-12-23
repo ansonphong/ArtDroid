@@ -5,7 +5,6 @@ postworld.directive( 'themeTermFeed',
 			$scope.rootTerms = function(){
 				var rootTerms = $_.deepWhere( $scope.termFeed, 'term.parent', '0' );
 				$log.debug( 'ROOT TERMS : ', rootTerms );
-				console.log( 'ROOT TERMS : ', $scope.termFeed );
 				return rootTerms;
 			}
 			$scope.subTerms = function( parentId ){
@@ -66,11 +65,33 @@ postworld.directive( 'artPost', function(){
 });
 
 postworld.controller( 'artPostCtrl',
-	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout ){
+	function( $scope, $log, $_, $pw, $pwData, $pwPosts, $timeout, $rootScope ){
 
 	/**
 	 * @todo Replace artdroid_meta with $pw.define.PW_POSTMETA_KEY
 	 */
+
+	 $scope.getThemeOption = function(path){
+
+	 }
+
+	 $scope.getOption = function(optionName){
+		switch( optionName ){
+			case "pwHeight":
+				return $_.get( $pw, "options.theme.posts.images.height.method" );
+				break;
+			case "heightValue":
+				return $_.get( $pw, "options.theme.posts.images.height.value" );
+				break;
+	 	}
+	 	return false;
+	 }
+
+	 //var isFullscreen = false;
+	$scope.toggleFullscreen = function(){
+		$rootScope.isFullscreen = (!$rootScope.isFullscreen);
+		$log.debug('$rootScope.isFullscreen : ', $rootScope.isFullscreen);
+	}
 
 	//$scope.views = [ 'loading', 'image', 'gallery', 'embed', 'standard' ];
 	$scope.showView = function( view ){
@@ -380,6 +401,33 @@ postworld.directive( 'themePostHeader', function( $timeout ){
 			$scope.$watch( 'themePostHeader', function(settings){
 				init(settings);
 			});
+		}
+	};
+});
+
+
+/**
+ * Adds classes to the body tag.
+ */
+postworld.directive('themeBodyClasses',
+	function ( $pw, $_, $log, $pwData, $rootScope ) {
+	return {
+		restrict: 'A',
+		link: function( $scope, element, attrs ){
+
+			$rootScope.isFullscreen = false;
+			$rootScope.$watch('isFullscreen', function(newVal,oldVal){
+				if( newVal )
+					element.addClass('view--fullscreen');
+				else
+					element.removeClass('view--fullscreen');
+			});			
+			$rootScope.$on('uibModalClose', function(event,data){
+				$log.debug( '$on : uibModalClose' );
+				$rootScope.isFullscreen = false;
+				element.removeClass('view--fullscreen');
+			});
+
 		}
 	};
 });

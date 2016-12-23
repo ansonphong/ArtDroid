@@ -21,6 +21,7 @@ if( in_array( 'search', $pw['view']['context'] ) )
 <body
 	ng-app="postworld"
 	class="<?php echo pw_body_classes(); ?>"
+	theme-body-classes
 	pw-background="primary">
 <?php
 	do_action('theme_preload_templates');

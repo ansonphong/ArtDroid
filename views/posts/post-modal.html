@@ -30,32 +30,32 @@
 		</div>
 		<div
 			class="modal-head--right pull-right">
+			<!-- FULL SCREEN -->
+			<button
+				ng-click="toggleFullscreen()"
+				class="btn-previous transparent icon-only"
+				uib-tooltip="Fullscreen"
+				tooltip-placement="bottom"
+				tooltip-popup-delay="1000">
+				<i class="icon pwi-arrows-alt"></i>
+			</button>
+
 			<!-- PREVIOUS POST -->
 			<button
 				ng-click="previousPost()"
-				class="btn-previous transparent"
-				ng-mouseover="uiToggleView('prevPost')"
-				ng-mouseout="uiToggleView('prevPost')">
+				class="btn-previous transparent">
 				<i
-					ng-if="!uiShowView('prevPost')"
 					class="icon pwi-triangle-left-thin"></i>
-				<i
-					ng-if="uiShowView('prevPost')"
-					class="icon pwi-triangle-left-fill"></i>
 			</button>
+
 			<!-- NEXT POST -->
 			<button
 				ng-click="nextPost()"
-				class="btn-next transparent"
-				ng-mouseover="uiToggleView('nextPost')"
-				ng-mouseout="uiToggleView('nextPost')">
+				class="btn-next transparent">
 				<i
-					ng-if="!uiShowView('nextPost')"
 					class="icon pwi-triangle-right-thin"></i>
-				<i
-					ng-if="uiShowView('nextPost')"
-					class="icon pwi-triangle-right-fill"></i>
 			</button>
+
 		</div>
 	</div>
 	<div
@@ -68,14 +68,25 @@
 		pw-timeout="200"
 		timeout-action="addClass('fadein-on')"
 		pw-ui>
+
+		<div class="fullscreen-controls">
+			<button
+				ng-click="toggleFullscreen()"
+				class="btn-close icon-only">
+				<i class="icon pwi-close-thin"></i>
+			</button>
+		</div>
+
 		<!-- IMAGE -->
 		<div
 			class="media-viewer post-image"
 			ng-class="imageFormat(post)"
-			pw-height="{{::pw.options.theme.posts.images.height.method}}"
-			height-value="{{::pw.options.theme.posts.images.height.value}}"
+			pw-height="{{getOption('pwHeight')}}"
+			height-value="{{getOption('heightValue')}}"
+			height-dynamic
 			ng-if="showView('singleImage')"
 			pw-x-scroll-status>
+
 			<div
 				class="view-image"
 				ng-if="imageFormat(post) == 'standard'"
@@ -136,8 +147,9 @@
 		<!-- EMBED -->
 		<div
 			class="media-viewer"
-			pw-height="{{::pw.options.theme.posts.embeds.height.method}}"
-			height-value="{{::pw.options.theme.posts.embeds.height.value}}"
+			pw-height="{{pw.options.theme.posts.embeds.height.method}}"
+			height-value="{{pw.options.theme.posts.embeds.height.value}}"
+			height-dynamic
 			ng-if="showView('modalEmbed')">
 			<div
 				class="view-embed">

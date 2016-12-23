@@ -24,6 +24,45 @@
 	}
  }
 
+html body.view--fullscreen{
+	#wpadminbar{
+		display: none;
+	}
+	.modal{
+		overflow-y: hidden;
+		margin-top:0px !important;
+	}
+	.media-viewer{
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh !important;
+		width: 100vw !important;
+		z-index: 100;
+
+	}
+	.fullscreen-controls{
+		display: block;
+	}
+}
+
+.fullscreen-controls{
+	display: none;
+	position: fixed;
+	top:10px;
+	right:10px;
+	width: auto;
+	z-index: 101;
+	button{
+		background-color: fade(@media-viewer-background, 50%);
+		width: 48px;
+		height: 48px;
+		border-radius: 48px;
+		font-size: 24px;
+		padding-top: 9px;
+	}
+}
+
 .media-viewer{
 	position:relative;
 	margin:auto;
