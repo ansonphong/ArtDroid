@@ -33,7 +33,10 @@
 					<span class="icon-md"><i class="pwi-link"></i></span>
 					Link Label
 				</h3>
-				<?php echo pw_link_url_options( array( 'context' => 'siteAdmin' ) ); ?>
+				<?php echo pw_link_url_options( array(
+					'context' => 'siteAdmin',
+					'show_options' => array( 'icon', 'label', 'new_target' ),
+					)); ?>
 				<div style="clear:both"></div>
 			</div>
 

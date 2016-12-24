@@ -83,7 +83,10 @@
 					Link Label
 				</th>
 				<td>
-					<?php echo pw_link_url_options( array( 'context' => 'postAdmin' ) ); ?>
+					<?php echo pw_link_url_options( array(
+						'context' => 'postAdmin',
+						'show_options' => array( 'icon', 'label', 'new_target' ),
+						)); ?>
 					<hr class="thin">
 				</td>
 			</tr>

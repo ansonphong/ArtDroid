@@ -273,8 +273,14 @@ postworld.controller( 'artPostCtrl',
 			"color":"{{ hex('dynamic.75') }}"
 		},
 		".share-social .icon, .post .icon, .post a, .modal-head .icon, .post .callout": {
-			"color": "{{ hex('dynamic.75') }} !important",
+			"color": "{{ hex('dynamic.100') }} !important",
 			//background: "{{ rgba('dynamic.0',.8) }} !important",
+		},
+		"#link-url-button a":{
+			"border-color": "{{ hex('dynamic.25') }} !important",
+		},
+		"#link-url-button a:hover":{
+			"background-color": "{{ hex('dynamic.25') }} !important",
 		},
 		".post .post-title a":{
 			"color": "{{ hex('dynamic.100') }} !important",

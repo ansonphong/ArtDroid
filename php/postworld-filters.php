@@ -352,7 +352,7 @@ function theme_postmeta_defaults( $post ){
 	if( $post_obj == false && $site_obj != false ){
 
 		$post = _set( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url', $site_obj );
-
+	
 	} else{
 		$new_obj = $post_obj;
 		switch( $post_obj['label']['show'] ){
@@ -377,7 +377,6 @@ function theme_postmeta_defaults( $post ){
 				// Force show false
 				$new_obj['label']['show'] = false;
 				break;
-
 		}
 
 		///// LABEL : HIGHLIGHT /////
@@ -405,6 +404,11 @@ function theme_postmeta_defaults( $post ){
 					$new_obj['new_target'] = $site_obj['new_target'];
 				}
 				break;
+		}
+
+		///// ICON /////
+		if( empty($post_obj['icon']) ){
+			$new_obj['icon'] = $site_obj['icon'];
 		}
 
 		// Set values into the post

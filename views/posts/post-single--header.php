@@ -2,19 +2,20 @@
 	
 	<div class="post-buttons">
 
-		<?php if( $device['is_desktop'] ): ?>
-			<?php if( $post['post_type'] === 'post' ): ?>
-				<!-- POST CONTROLS -->
-				<div
-					pw-include="panels/post-controls"
-					include-post="post"
-					include-eval="isLoggedIn()&&!isDevice(['mobile'])"
-					class="pull-right">
-				</div>
-			<?php endif ?>
-		<?php endif ?>
-
 		<?php if( in_array( $post['post_type'], array('post','attachment') ) ): ?>
+
+			<!-- LINK -->
+			<div
+				id="link-url-button"
+				class="link unit"
+				ng-show="ngBoolean(post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show) || post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show == 'custom' && post.post_meta.<?php echo PW_LINK_URL_KEY ?> && post.post_meta.<?php echo PW_LINK_FORMAT_KEY ?> == 'link'">
+				<a
+					pw-href="post.post_meta.<?php echo PW_LINK_URL_KEY ?>"
+					pw-target="post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.new_target">
+					<i ng-class="post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.icon"></i>
+					<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.custom' ) ?>
+				</a>
+			</div>
 
 			<?php if( $device['is_desktop'] ): ?>
 				<!-- DOWNLOAD -->
@@ -31,22 +32,6 @@
 					</a>
 				</div>
 			<?php endif ?>
-
-			<!-- LINK -->
-			<div
-				class="link unit"
-				ng-class="{ 'highlight-color': post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.highlight }"
-				ng-show="ngBoolean(post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show) || post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.label.show == 'custom' && post.post_meta.<?php echo PW_LINK_URL_KEY ?> && post.post_meta.<?php echo PW_LINK_FORMAT_KEY ?> == 'link'"
-				uib-tooltip="<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.tooltip.custom' ) ?>"
-				tooltip-placement="bottom"
-				tooltip-popup-delay="333">
-				<a
-					pw-href="post.post_meta.<?php echo PW_LINK_URL_KEY ?>"
-					pw-target="post.post_meta.<?php echo PW_POSTMETA_KEY ?>.link_url.new_target">
-					<i class="pwi-crosshairs"></i>
-					<?php echo _get( $post, 'post_meta.'.PW_POSTMETA_KEY.'.link_url.label.custom' ) ?>
-				</a>
-			</div>
 
 		<?php endif ?>
 

@@ -16,20 +16,20 @@
 				<i class="pwi-arrow-down-thin"></i>
 			</a>
 		</div>
+		
 		<!-- LINK -->
 		<div
+			id="link-url-button"
 			class="link unit"
-			ng-class="{ 'highlight-color': post.post_meta.artdroid_meta.link_url.label.highlight }"
-			ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'"
-			uib-tooltip="{{ post.post_meta.artdroid_meta.link_url.label.tooltip.custom }}"
-			tooltip-popup-delay="333">
+			ng-show="post.post_meta.artdroid_meta.link_url.label.show == true || post.post_meta.artdroid_meta.link_url.label.show == 'custom' && post.post_meta.artdroid_link_url && post.post_meta.artdroid_link_format == 'link'">
 			<a
 				pw-href="post.post_meta.artdroid_link_url"
 				pw-target="post.post_meta.artdroid_meta.link_url.new_target">
-				<i class="pwi-crosshairs"></i>
+				<i ng-class="post.post_meta.artdroid_meta.link_url.icon"></i>
 				{{ post.post_meta.artdroid_meta.link_url.label.custom }}
 			</a>
 		</div>
+
 	</div>
 	<div class="attachment-head--inner">
 		<!-- TITLE -->

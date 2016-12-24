@@ -275,6 +275,11 @@
 		}
 		.unit{
 			margin:0 5px 5px 0;
+			&.download{
+				i{
+					padding: 0;
+				}
+			}
 			i{
 				display:inline-block;
 				padding:0 3px 0 0;	
@@ -285,6 +290,7 @@
 				border:1px solid transparent;
 				color: @global-foreground-color;
 				opacity: .5;
+				border-radius: @border-radius-md;
 				&:hover{
 					opacity:1;
 				}
@@ -300,6 +306,25 @@
 				}
 			}
 		}
+
+
+		#link-url-button{
+			font-size: @font-size-md;
+			a{
+				.transition();
+				border: 1px solid @primary-color-medium;
+				color: #fff !important;
+				opacity: 1;
+				border-radius: @border-radius-md;
+				padding: 10px 20px;
+				&:hover{
+					background: @primary-color-medium;
+				}
+			}
+
+		}
+
+
 	}
 
 

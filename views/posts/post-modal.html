@@ -30,14 +30,16 @@
 		</div>
 		<div
 			class="modal-head--right pull-right">
+
 			<!-- FULL SCREEN -->
 			<button
+				ng-if="post.post_type == 'attachment'"
 				ng-click="toggleFullscreen()"
 				class="btn-previous transparent icon-only"
 				uib-tooltip="Fullscreen"
 				tooltip-placement="bottom"
 				tooltip-popup-delay="1000">
-				<i class="icon pwi-arrows-alt"></i>
+				<i class="icon pwi-fullscreen"></i>
 			</button>
 
 			<!-- PREVIOUS POST -->

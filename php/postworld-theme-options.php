@@ -125,13 +125,10 @@ function pw_theme_options_filter( $options ){
 						'link_url'	=>	array(
 							'label'	=>	array(
 								'show'	=>	'custom',
-								'highlight'	=>	true,
-								'tooltip'	=>	array(
-									'custom' => "Buy this Art",
-									),
 								'custom' => 'Buy Now',
 								),
 							'new_target' => true,
+							'icon' => 'pwi-cart',
 							),
 						'image'	=>	array(
 							'download'	=>	true,
