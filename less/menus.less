@@ -12,6 +12,7 @@
 	height: 100%;
 	font-family: @font-family-menu;
 	padding-left:20px;
+	text-transform: @menu-text-transform;
 	.menu-indicator{
 		.center-vertical();
 		display: none;
@@ -115,7 +116,7 @@
 			margin:0px 5px 0px 0px;
 			.menu-link-inner{
 				padding:8px 18px 8px;
-				font-size:25px;
+				font-size:@menu-font-size-desktop;
 			}
 		} 
 	}
@@ -124,7 +125,7 @@
 			margin:0px 5px 0px 0px;
 			.menu-link-inner{
 				padding:12px 15px 8px;
-				font-size:19px;
+				font-size:@menu-font-size-tablet;
 			}
 		} 
 	}
@@ -133,7 +134,7 @@
 			margin:0px 5px 0px 0px;
 			.menu-link-inner{
 				padding:15px 15px 8px;
-				font-size:16px;
+				font-size:@menu-font-size-mobile;
 			}
 		} 
 	}
@@ -185,7 +186,7 @@
 
 			.menu-link-inner{
 				.center-vertical();
-				height:54px;
+				//height:54px; // XXX
 				//display: inline-block;
 				color: @main-menu-foreground;
 				//background:@main-menu-background;

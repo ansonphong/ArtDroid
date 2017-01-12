@@ -58,6 +58,15 @@ function theme_pw_styles_default( $styles = array() ){
 
 			),
 
+		'typography'	=>	array(
+			'menu'	=>	array(
+				'menu-text-transform' 		=> 'none',
+				'menu-font-size-desktop'	=>	'25px',
+				'menu-font-size-tablet'		=>	'19px',
+				'menu-font-size-mobile'		=>	'16px',
+				),
+			),
+
 		'layout'	=>	array(
 			'header' => array(
 				'header-height-expand'	=>	'96px',
@@ -406,6 +415,50 @@ function theme_pw_styles_structure( $structure = array() ){
 				),
 
 			),
+
+
+		array(
+			"name"	=>	"Typography",
+			"key"	=>	"typography",
+			//"icon"	=>	"pwi-th-large-2",
+			"values"	=>	array(
+
+				///// MENU /////
+				array(
+					'name'	=>	'Menu',
+					'key'	=>	'menu',
+					'icon'	=>	'pwi-nav',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Text Transform",
+							"key"			=>	"menu-text-transform",
+							"input"			=>	"text",
+							"description"	=>	"Text transform property of the menu container."
+							),
+						array( 'line' ),
+						array(
+							"name"			=>	"Font Size - Desktop",
+							"key"			=>	"menu-font-size-desktop",
+							"input"			=>	"text",
+							"description"	=>	"Font size on desktop device."
+							),
+						array(
+							"name"			=>	"Font Size - Tablet",
+							"key"			=>	"menu-font-size-tablet",
+							"input"			=>	"text",
+							"description"	=>	"Font size on tablet device."
+							),
+						array(
+							"name"			=>	"Font Size - Mobile",
+							"key"			=>	"menu-font-size-mobile",
+							"input"			=>	"text",
+							"description"	=>	"Font size on mobile device."
+							),
+						),
+					),
+				),
+			),
+
 
 		array(
 			"name"	=>	"Layout",
