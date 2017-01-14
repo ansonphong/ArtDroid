@@ -163,6 +163,14 @@ postworld.controller( 'artPostCtrl',
 
 		///// SWITCH : VIEWS : LOGIC /////
 		switch( view ){
+			case 'hasPostContent':
+				if(
+					!$_.isEmptyString(post.post_content) ||
+					(!$_.isEmptyString(post.post_excerpt) && post.post_type !== 'attachment')
+					)
+					return true;
+				break;
+
 			case 'loading':
 				if( loading )
 					return true;

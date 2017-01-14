@@ -18,6 +18,7 @@ body{
 	max-width:100%;
 	overflow-x:hidden;
 	.modal{
+		//overflow-y: auto;
 		@media @mobile{
 			overflow-x: hidden;
 		}
@@ -48,6 +49,18 @@ body.view--fullscreen{
 
 .modal{
 	color: @modal-foreground-color;
+	outline: none;
+
+	&.modal-view-post{
+		@media @lg-up { width:@modal-lg-width; }
+		@media @md { width:@modal-md-width; }
+		@media @sm { width:@modal-sm-width; }
+		@media @xs { width:@modal-xs-width; }
+		max-width:@modal-max-width;
+		transition:linear width .33s;
+		margin:auto;
+	}
+
 	.modal-dialog{
 		@media @full{ width:50% };
 		@media @desktop-and-below{ width:66% };

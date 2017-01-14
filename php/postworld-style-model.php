@@ -79,7 +79,14 @@ function theme_pw_styles_default( $styles = array() ){
 				'page-sm-width'		=>	'100%',
 				'page-md-width'		=>	'100%',
 				'page-lg-width'		=>	'100%',
-				'page-max-width'	=>	'3600px',
+				'page-max-width'	=>	'4200px',
+				),
+			'modal'	=>	array(
+				'modal-xs-width'		=>	'100%',
+				'modal-sm-width'		=>	'100%',
+				'modal-md-width'		=>	'100%',
+				'modal-lg-width'		=>	'100%',
+				'modal-max-width'		=>	'4200px',
 				),
 			),
 
@@ -516,7 +523,7 @@ function theme_pw_styles_structure( $structure = array() ){
 							"name"			=>	"Width (Extra Small)",
 							"key"			=>	"page-xs-width",
 							"input"			=>	"text",
-							"description"	=>	"The width of the layout on mobile devices",
+							"description"	=>	"The width of the layout on mobile devices (recommended: 100%)",
 							"icon"			=>	"pwi-mobile"
 							),
 						array(
@@ -545,6 +552,51 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"page-max-width",
 							"input"			=>	"text",
 							"description"	=>	"The maximum width of the page layout",
+							"icon"			=>	"pwi-arrows-h"
+							),
+
+						),
+					),
+
+				///// MODAL /////
+				array(
+					'name'	=>	'Modal Window',
+					'key'	=>	'modal',
+					'icon'	=>	'pwi-stack',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Width (Extra Small)",
+							"key"			=>	"modal-xs-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the modal window on mobile devices (recommended: 100%)",
+							"icon"			=>	"pwi-mobile"
+							),
+						array(
+							"name"			=>	"Width (Small)",
+							"key"			=>	"modal-sm-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the modal window on larger mobile devices",
+							"icon"			=>	"pwi-mobile-wide"
+							),
+						array(
+							"name"			=>	"Width (Medium)",
+							"key"			=>	"modal-md-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the modal window on wide tablets",
+							"icon"			=>	"pwi-tablet"
+							),
+						array(
+							"name"			=>	"Width (Large)",
+							"key"			=>	"modal-lg-width",
+							"input"			=>	"text",
+							"description"	=>	"The width of the modal window on desktop and laptops",
+							"icon"			=>	"pwi-laptop"
+							),
+						array(
+							"name"			=>	"Maximum Width",
+							"key"			=>	"modal-max-width",
+							"input"			=>	"text",
+							"description"	=>	"The maximum width of the modal window",
 							"icon"			=>	"pwi-arrows-h"
 							),
 
