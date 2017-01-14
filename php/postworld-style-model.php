@@ -134,8 +134,10 @@ function theme_pw_styles_default( $styles = array() ){
 			),
 
 		'detailing' => array(
-			'header' => array(
-				'header-gradient-overlay-opacity' => '1'
+			'gradient-overlay' => array(
+				'header-gradient-overlay-opacity' => '1',
+				'pagelist-gradient-overlay-opacity' => '1',
+				'termlist-gradient-overlay-opacity' => '1',
 				),
 			),
 
@@ -813,15 +815,27 @@ function theme_pw_styles_structure( $structure = array() ){
 			//"icon"	=>	"pwi-plugin",
 			"values"	=>	array(
 				array(
-					'name'	=>	'Header',
-					'key'	=>	'header',
-					'icon'	=>	'pwi-arrow-up-circle',
+					'name'	=>	'Gradient Overlays',
+					'key'	=>	'gradient-overlay',
+					'icon'	=>	'pwi-paint-format',
 					'values'	=>	array(
 						array(
 							"name"			=>	"Header Gradient Overlay Opacity",
 							"key"			=>	"header-gradient-overlay-opacity",
 							"input"			=>	"text",
 							"description"	=>	"Opacity of the header's gradient overlay (0-1)"
+							),
+						array(
+							"name"			=>	"Pagelist Overlay Opacity",
+							"key"			=>	"pagelist-gradient-overlay-opacity",
+							"input"			=>	"text",
+							"description"	=>	"Opacity of the pagelist menu's gradient overlay (0-1)"
+							),
+						array(
+							"name"			=>	"Termlist Overlay Opacity",
+							"key"			=>	"termlist-gradient-overlay-opacity",
+							"input"			=>	"text",
+							"description"	=>	"Opacity of the term list's gradient overlay (0-1)"
 							),
 						),
 					),
@@ -835,7 +849,6 @@ function theme_pw_styles_structure( $structure = array() ){
 	return $structure;
 
 }
-
 
 /**
  * STYLE SET : EARTH TONE
