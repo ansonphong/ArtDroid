@@ -2,11 +2,13 @@
 body.admin-bar{
 	.modal{
 		margin-top: @wp-sm-admin-height !important;
+		margin-bottom: (-1*@wp-sm-admin-height) !important;
 		@media @sm{
 			//margin-top: @wp-md-admin-height !important;
 		}
 		@media @md-up{
 			margin-top: @wp-lg-admin-height !important;
+			margin-bottom: (-1*@wp-lg-admin-height) !important;
 		}
 	}
 }
