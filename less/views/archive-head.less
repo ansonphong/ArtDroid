@@ -27,6 +27,7 @@
 		.gradient-overlay{
 			.fill-space();
 			.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 66% );
+			opacity: @header-gradient-overlay-opacity;
 			z-index: 1;
 		}
 	}
@@ -148,6 +149,7 @@
 		.gradient-overlay{
 			.fill-space();
 			.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 100% );
+			opacity: @header-gradient-overlay-opacity;
 			z-index: 1;
 			@media @md-up{
 				.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,0%), 66% );

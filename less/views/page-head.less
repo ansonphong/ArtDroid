@@ -63,6 +63,7 @@
 		.gradient-overlay{
 			.fill-space();
 			.gradient-2-color( 15deg, fade(@global-background-color,90%), 0%, fade(@global-background-color,20%), 100% );
+			opacity: @header-gradient-overlay-opacity;
 			z-index: 1;
 			@media @md-up{
 				.gradient-2-color( 15deg, fade(@global-background-color,90%), 20%, fade(@global-background-color,33%), 66% );

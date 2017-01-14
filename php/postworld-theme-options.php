@@ -79,6 +79,7 @@ function pw_theme_options_filter( $options ){
 			'profiles' => array(
 				),
 			),
+
 		'fonts'	=>	array(
 			'body'			=>	'Roboto',
 			'title'			=>	'Roboto',

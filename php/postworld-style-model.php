@@ -133,6 +133,12 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 			),
 
+		'detailing' => array(
+			'header' => array(
+				'header-gradient-overlay-opacity' => '1'
+				),
+			),
+
 		);
 
 	return array_replace_recursive( $defaults, $styles ); 
@@ -795,6 +801,27 @@ function theme_pw_styles_structure( $structure = array() ){
 							"key"			=>	"wpcf7-primary-color",
 							"input"			=>	"color",
 							"description"	=>	"The main color for WordPress Contact Form 7 Plugin"
+							),
+						),
+					),
+				),
+			),
+
+		array(
+			"name"	=>	"Detailing",
+			"key"	=>	"detailing",
+			//"icon"	=>	"pwi-plugin",
+			"values"	=>	array(
+				array(
+					'name'	=>	'Header',
+					'key'	=>	'header',
+					'icon'	=>	'pwi-arrow-up-circle',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Header Gradient Overlay Opacity",
+							"key"			=>	"header-gradient-overlay-opacity",
+							"input"			=>	"text",
+							"description"	=>	"Opacity of the header's gradient overlay (0-1)"
 							),
 						),
 					),
