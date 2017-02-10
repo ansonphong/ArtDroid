@@ -7,7 +7,9 @@
     <a href="{{ post.post_permalink }}" target="{{post.post_meta.artdroid_link_target}}">
 	    <div
 	    	class="background-image"
-	    	style="background-image:url({{ post.image.sizes.lg.url }});">
+	    	style="background-image:url({{ post.image.sizes.lg.url }});"
+	    	pw-height="{{vars.pagelist.height.method}}"
+	    	height-value="{{vars.pagelist.height.value}}">
 	    	<div class="gradient-overlay"></div>
 			<h2>
 				{% if post.post_meta.artdroid_meta.icon.class %}

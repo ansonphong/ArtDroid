@@ -88,7 +88,12 @@ function pw_theme_options_filter( $options ){
 			'image_title'	=>	'Roboto',
 			),
 		'posts'	=>	array(
-
+			'pagelist' => array(
+				'height' => array(
+					'method' => 'pixels',
+					'value' => 200
+					),
+				),
 			'images'	=>	array(
 				'height' => array(
 					'method' => 'window-base',

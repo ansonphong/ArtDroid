@@ -27,9 +27,12 @@
 						'current' => $vars['feed']['view']
 						),
 					),
-				));
+				)
+			);
 		}
-		else
+		else{
+			$vars['feed']['vars'] = pw_grab_option( PW_OPTIONS_THEME, 'posts' );
 			echo pw_print_feed( $vars['feed'] );	
+		}
 	?>
 </div>

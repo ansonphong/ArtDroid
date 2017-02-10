@@ -183,6 +183,17 @@
 				?>
 			</div>
 
+			<div class="well">
+				<h3>Page List</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.pagelist.height',
+						'methods' => array('window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+
 			<div style="clear:both"></div>
 		</div>
 
