@@ -59,6 +59,25 @@
 
 		</div>
 
+		<!--///// PAGE LIST /////-->
+		<div class="well">
+			<div class="save-right"><?php pw_save_option_button( PW_OPTIONS_THEME, 'pwOptions'); ?></div>
+			<h2>
+				<i class="pwi-file"></i>
+				Page List
+			</h2>
+			<div class="well">
+				<h3>Page Preview Height</h3>
+				<?php
+					echo pw_select_setting(array(
+						'setting' => 'height',
+						'ng_model' => 'pwOptions.posts.pagelist.height',
+						'methods' => array('window-percent','pixels','proportion'),
+						));
+				?>
+			</div>
+		</div>
+
 
 	</div>
 	<div class="col-lg-6 pad-col-lg">
@@ -179,17 +198,6 @@
 						'setting' => 'height',
 						'ng_model' => 'pwOptions.posts.galleries.frame_gallery.height',
 						'methods' => array('window-base','window-percent','pixels','proportion'),
-						));
-				?>
-			</div>
-
-			<div class="well">
-				<h3>Page List</h3>
-				<?php
-					echo pw_select_setting(array(
-						'setting' => 'height',
-						'ng_model' => 'pwOptions.posts.pagelist.height',
-						'methods' => array('window-percent','pixels','proportion'),
 						));
 				?>
 			</div>
