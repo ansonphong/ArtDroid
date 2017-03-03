@@ -193,6 +193,24 @@ function theme_postworld_config(){
 				),
 			'fields'	=>	array(
 				array(
+					'type'				=>	'select-input',
+					'label'				=>	'Page Style',
+					'description'		=>	'Custom Page Style',
+					'meta_key'			=>	THEME_PAGE_STYLE,
+					'icon'				=>	'pwi-file',
+					'post_types'		=>	array( 'page' ),
+					'options'			=>	array(
+						array(
+							'value' => '',
+							'label' => __('Default','postworld')
+							),
+						array(
+							'value' => 'inverted',
+							'label' => __('Inverted','postworld')
+							),
+						),
+					),
+				array(
 					'type'				=>	'image-id',
 					'label'				=>	'Alternative Featured Image',
 					'description'		=>	'Used for the slider',
@@ -220,24 +238,6 @@ function theme_postworld_config(){
 						array(
 							'value' => '_blank',
 							'label' => __('Open in New Tab','postworld')
-							),
-						),
-					),
-				array(
-					'type'				=>	'select-input',
-					'label'				=>	'Page Style',
-					'description'		=>	'Custom Page Style',
-					'meta_key'			=>	THEME_PAGE_STYLE,
-					'icon'				=>	'pwi-file',
-					'post_types'		=>	array( 'page' ),
-					'options'			=>	array(
-						array(
-							'value' => '',
-							'label' => __('Default','postworld')
-							),
-						array(
-							'value' => 'inverted',
-							'label' => __('Inverted','postworld')
 							),
 						),
 					),
