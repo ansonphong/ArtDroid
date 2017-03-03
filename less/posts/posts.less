@@ -3,6 +3,23 @@
 	border-top:none;
 }
 
+/**
+ * INVERTED PAGE STYLE DEFINITIONS
+ */
+article.page.page-style--inverted{
+	.post-head{
+		background-color: @inverted-background-color;
+		h1{
+			color: @inverted-foreground-color;
+		}
+	}
+	.post-content{
+		color: @inverted-foreground-color;
+		background-color: @inverted-background-color;
+	}
+}
+
+
 .post-content{
 	font-size:@font-size-md;
 	line-height:1.66;

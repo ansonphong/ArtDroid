@@ -16,6 +16,8 @@ function theme_postworld_config(){
 	define( 'THEME_REDIRECT_URL', 'artdroid_redirect_url' );
 	define( 'THEME_LINK_TARGET', 'artdroid_link_target' );
 
+	define( 'THEME_PAGE_STYLE', 'artdroid_page_style' );
+
 	/**
 	 * Define prefixed termmeta keys to be used.
 	 */
@@ -218,6 +220,24 @@ function theme_postworld_config(){
 						array(
 							'value' => '_blank',
 							'label' => __('Open in New Tab','postworld')
+							),
+						),
+					),
+				array(
+					'type'				=>	'select-input',
+					'label'				=>	'Page Style',
+					'description'		=>	'Custom Page Style',
+					'meta_key'			=>	THEME_PAGE_STYLE,
+					'icon'				=>	'pwi-file',
+					'post_types'		=>	array( 'page' ),
+					'options'			=>	array(
+						array(
+							'value' => '',
+							'label' => __('Default','postworld')
+							),
+						array(
+							'value' => 'inverted',
+							'label' => __('Inverted','postworld')
 							),
 						),
 					),

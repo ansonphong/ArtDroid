@@ -45,6 +45,15 @@ $pw_post = pw_get_post($post->ID, $fields);
 
 $pw_comment_form_options = array();
 
+
+// Add conditional post classes
+$add_post_classes = array();
+$get_page_style = get_post_meta( $post->ID, THEME_PAGE_STYLE, true );
+pw_log( 'get_page_style', $get_page_style );
+if( $get_page_style == 'inverted' ){
+	$add_post_classes[] = 'page-style--inverted';
+}
+
 $vars = array(
 	'post'					=>	$pw_post,
 	'social_widgets'		=>	pw_social_widgets(),
@@ -56,7 +65,7 @@ $vars = array(
 	'wordpress_comments_enabled' => ($post->post_type !== 'page' && pw_grab_option( PW_OPTIONS_COMMENTS, 'wordpress.enable' )),
 	'pw_comment_form' 		=>	pw_comment_form( $pw_comment_form_options, $post->ID ),
 	'comments_thirdparty'	=>	pw_get_comments_thirdparty( array( 'post_id' => $post->ID ) ),
-	'post_class'			=>	pw_post_class('', $post->ID),
+	'post_class'			=>	pw_post_class( $add_post_classes, $post->ID),
 	'gallery_template'		=>	_get( $pw_post, 'post_meta.'.PW_POSTMETA_KEY.'.gallery.template' ),
 	'post_icon'				=>	_get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.icon.class'),
 	'immersive_gallery'		=>	(_get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.gallery.immersive') && _get($pw_post,'post_meta.'.PW_POSTMETA_KEY.'.gallery.template') !== 'inline'),

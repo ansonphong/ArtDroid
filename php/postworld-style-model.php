@@ -8,6 +8,8 @@ function theme_pw_styles_default( $styles = array() ){
 			'core' =>	array(
 				'global-background-color'		=>	'#191919',
 				'global-foreground-color'		=>	'#e6e6e6',
+				'inverted-background-color'		=>	'@global-foreground-color',
+				'inverted-foreground-color'		=>	'@global-background-color',
 				'primary-color-medium'			=>	'#cc6600',
 				'secondary-color-medium'		=>	'#cc6600',
 				'neutral-color-medium'			=>	'#808080',
@@ -176,13 +178,26 @@ function theme_pw_styles_structure( $structure = array() ){
 							"name"			=>	"Background Color",
 							"key"			=>	"global-background-color",
 							"input"			=>	"color",
-							"description"	=>	"Background"
+							"description"	=>	"Background color"
 							),
 						array(
 							"name"			=>	"Foreground Color",
 							"key"			=>	"global-foreground-color",
 							"input"			=>	"color",
-							"description"	=>	"Text"
+							"description"	=>	"Text color"
+							),
+						array( 'line' ),
+						array(
+							"name"			=>	"Inverted Background Color",
+							"key"			=>	"inverted-background-color",
+							"input"			=>	"color",
+							"description"	=>	"Background color for inverted pages"
+							),
+						array(
+							"name"			=>	"Inverted Foreground Color",
+							"key"			=>	"inverted-foreground-color",
+							"input"			=>	"color",
+							"description"	=>	"Text color for inverted pages"
 							),
 						array( 'line' ),
 						array(
