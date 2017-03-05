@@ -49,7 +49,6 @@ $pw_comment_form_options = array();
 // Add conditional post classes
 $add_post_classes = array();
 $get_page_style = get_post_meta( $post->ID, THEME_PAGE_STYLE, true );
-pw_log( 'get_page_style', $get_page_style );
 if( $get_page_style == 'inverted' ){
 	$add_post_classes[] = 'page-style--inverted';
 }
