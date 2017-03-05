@@ -26,6 +26,28 @@ function theme_options_meta($options_meta){
 
 }
 
+
+/**
+ * If the post is empty
+ */
+add_filter( 'pw_get_post_complete_filter', 'theme_passthrough_featured_image_post' );
+function theme_passthrough_featured_image_post( $post ){
+
+	// Only apply filters to specific post types
+	// If current post type not supported, return early
+	$post_type = _get( $post, 'post_type' );
+	$supported_post_types = array( 'post', 'blog' );
+	if( !in_array( $post_type, $supported_post_types ) )
+		return $post;
+	
+	//pw_log( 'POST', $post );
+
+
+	return $post;
+
+}
+
+
 /**
  * Turn off footer if gallery type is immersive.
  */
