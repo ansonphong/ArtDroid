@@ -28,20 +28,60 @@ function theme_options_meta($options_meta){
 
 
 /**
- * If the post is empty
+ * If the post has specific empty fields
+ * populate the fields with data from the post's featured image
  */
 add_filter( 'pw_get_post_complete_filter', 'theme_passthrough_featured_image_post' );
 function theme_passthrough_featured_image_post( $post ){
 
 	// Only apply filters to specific post types
-	// If current post type not supported, return early
+	// If current post type not supported
+	// Or if no image is specified, return early
 	$post_type = _get( $post, 'post_type' );
 	$supported_post_types = array( 'post', 'blog' );
-	if( !in_array( $post_type, $supported_post_types ) )
+	$image_id = _get( $post, 'image.ID' );
+	if( !in_array( $post_type, $supported_post_types ) || empty($image_id) )
 		return $post;
-	
-	//pw_log( 'POST', $post );
 
+	// Get the image post fields
+	$passthrough_image_fields = array(
+		'post_title',
+		'post_excerpt',
+		'post_content',
+		'post_meta('.PW_LINK_URL_KEY.','.PW_LINK_FORMAT_KEY.')'
+		);
+	$image_post = pw_get_post( $image_id, $passthrough_image_fields );
+
+	/**
+	 * Manually replace the empty fields
+	 */
+	// Replace POST TITLE field
+	$post_title = _get( $post, 'post_title' );
+	if( empty( $post_title ) && in_array( 'post_title', $post['fields'] ) )
+		$post['post_title'] = $image_post['post_title'];
+
+	// Replace POST EXCERPT field
+	$post_excerpt = _get( $post, 'post_excerpt' );
+	if( empty( $post_excerpt ) && in_array( 'post_excerpt', $post['fields'] ) )
+		$post['post_excerpt'] = $image_post['post_excerpt'];
+
+	// Replace POST CONTENT field
+	$post_content = _get( $post, 'post_content' );
+	if( empty( $post_content ) && in_array( 'post_content', $post['fields'] ) )
+		$post['post_content'] = $image_post['post_content'];
+
+	// Replace LINK URL field
+	$field_path = 'post_meta.'.PW_LINK_URL_KEY;
+	$link_url = _get( $post, $field_path );
+	if( empty( $link_url ) && in_array( 'link_url', $post['fields'] ) ){
+		$post = _set( $post, $field_path, _get( $image_post, $field_path ) );
+
+		// Replace LINK FORMAT field
+		$field_path = 'post_meta.'.PW_LINK_FORMAT_KEY;
+		$link_format = _get( $post, $field_path );
+		$post = _set( $post, $field_path, _get( $image_post, $field_path ) );
+
+	}
 
 	return $post;
 
