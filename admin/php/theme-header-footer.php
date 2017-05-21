@@ -68,6 +68,14 @@
 						'width'			=>	'300px',
 					 	));?>
 
+					<hr class="thin">
+
+					<select
+						ng-model="pwOptions.modals.header.image.align">
+						<option value="left">Left</option>
+						<option value="center">Center</option>
+					</select> <b>Logo Align</b>
+
 				</div>
 			</div>
 			<div style="clear:both"></div>

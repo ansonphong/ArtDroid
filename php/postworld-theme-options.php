@@ -16,7 +16,8 @@ function pw_theme_options_filter( $options ){
 						),
 					'height' => array(
 						'method' => 'proportion',
-						'value' => 4
+						'value' => 4,
+						'max' => 0
 						),
 					),
 				),
@@ -32,7 +33,8 @@ function pw_theme_options_filter( $options ){
 					'header' => array(
 						'height' => array(
 							'method' => 'proportion',
-							'value' => 4
+							'value' => 4,
+							'max' => 0
 							),
 						),
 					'cover_image' => array(
@@ -44,7 +46,8 @@ function pw_theme_options_filter( $options ){
 						'header' => array(
 							'height' => array(
 								'method' => 'proportion',
-								'value' => 4
+								'value' => 4,
+								'max' => 0
 								),
 							),
 						),
@@ -208,7 +211,8 @@ function pw_theme_options_filter( $options ){
 				'show'	=>	true,
 				'image' => array(
 					'show_image' => false,
-					'attachment_id' => false
+					'attachment_id' => false,
+					'align' => 'center'
 					),
 				),
 			),

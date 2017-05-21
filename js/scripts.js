@@ -51,6 +51,8 @@ postworld.directive( 'themeHeader',
 	};
 });
 
+
+
 postworld.directive( 'artPost', function(){
 	return {
 		restrict: 'AE',
@@ -445,6 +447,21 @@ postworld.directive('themeBodyClasses',
 				element.removeClass('view--fullscreen');
 			});
 
+		}
+	};
+});
+
+/**
+ * Adds required functionality to the modal header element
+ */
+postworld.directive( 'modalHead',
+	function( $pw, $log, $_ ){
+	return {
+		restrict: 'AE',
+		link: function( $scope, element, attrs ){
+
+			element.addClass('image-align--' + $_.get( $pw, "options.theme.modals.header.image.align" ) );
+		
 		}
 	};
 });
