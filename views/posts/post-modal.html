@@ -85,10 +85,10 @@
 			ng-class="imageFormat(post)"
 			pw-height="{{getOption('pwHeight')}}"
 			height-value="{{getOption('heightValue')}}"
+			height-max="{{getOption('heightMax')}}"
 			height-dynamic
 			ng-if="showView('singleImage')"
 			pw-x-scroll-status>
-
 			<div
 				class="view-image"
 				ng-if="imageFormat(post) == 'standard'"

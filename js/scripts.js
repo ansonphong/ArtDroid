@@ -83,6 +83,9 @@ postworld.controller( 'artPostCtrl',
 			case "heightValue":
 				return $_.get( $pw, "options.theme.posts.images.height.value" );
 				break;
+			case "heightMax":
+				return $_.get( $pw, "options.theme.posts.images.height.max" );
+				break;
 	 	}
 	 	return false;
 	 }

@@ -91,20 +91,23 @@ function pw_theme_options_filter( $options ){
 			'pagelist' => array(
 				'height' => array(
 					'method' => 'pixels',
-					'value' => 200
+					'value' => 200,
+					'max'	=>	0
 					),
 				),
 			'images'	=>	array(
 				'height' => array(
 					'method' => 'window-base',
-					'value'	=>	66
+					'value'	=>	66,
+					'max'	=>	0
 					),
 				),
 
 			'embeds'	=>	array(
 				'height' => array(
 					'method' => 'window-base',
-					'value'	=>	66
+					'value'	=>	66,
+					'max'	=>	0
 					),
 				),
 
@@ -112,13 +115,15 @@ function pw_theme_options_filter( $options ){
 				'x_gallery' => array(
 					'height' => array(
 						'method' => 'window-base',
-						'value'	=>	66
+						'value'	=>	66,
+						'max'	=>	0
 						),
 					),
 				'frame_gallery' => array(
 					'height' => array(
 						'method' => 'window-base',
-						'value'	=>	66
+						'value'	=>	66,
+						'max'	=>	0
 						),
 					),
 				), 
@@ -276,8 +281,6 @@ function pw_theme_options_filter( $options ){
 
 	return $options;
 }
-
-
 
 
 /**

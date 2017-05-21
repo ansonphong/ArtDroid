@@ -84,6 +84,7 @@ pw_print_ng_controller(array(
 
 				pw-height="<?php echo _get($pw,'options.theme.posts.embeds.height.method') ?>"
 				height-value="<?php echo _get($pw,'options.theme.posts.embeds.height.value') ?>"
+				height-max="<?php echo _get($pw,'options.theme.posts.embeds.height.max') ?>"
 
 				ng-if="::showView('singleImage')"
 				pw-x-scroll-status>
