@@ -123,6 +123,12 @@ function theme_pw_styles_default( $styles = array() ){
 				),
 			),
 
+		'images' => array(
+			'single-images' => array(
+				'single-image-max-width' => '100%',
+				),
+			),
+
 		'pages'	=>	array(
 			'single'	=>	array(
 				'page-header-background'	=>	'@neutral-color-dark',
@@ -754,7 +760,6 @@ function theme_pw_styles_structure( $structure = array() ){
 			"key"	=>	"term_feeds",
 			//"icon"	=>	"pwi-th-large",
 			"values"	=>	array(
-
 				///// GRID /////
 				array(
 					'name'	=>	'Grid',
@@ -767,13 +772,34 @@ function theme_pw_styles_structure( $structure = array() ){
 							"input"			=>	"text",
 							"description"	=>	"Space between terms in grid term feed"
 							),
-						
 						),
 					),
-
-
 				),
+			),
 
+
+
+
+		array(
+			"name"	=>	"Images",
+			"key"	=>	"images",
+			//"icon"	=>	"pwi-th-large",
+			"values"	=>	array(
+				///// GRID /////
+				array(
+					'name'	=>	'Single Images',
+					'key'	=>	'single-images',
+					'icon'	=>	'pwi-image',
+					'values'	=>	array(
+						array(
+							"name"			=>	"Max Width",
+							"key"			=>	"single-image-max-width",
+							"input"			=>	"text",
+							"description"	=>	"Maximum viewing width of a single image."
+							),
+						),
+					),
+				),
 			),
 
 		
