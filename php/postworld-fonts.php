@@ -159,6 +159,9 @@ function theme_include_google_fonts( $fonts ){
 	elseif( is_admin() )
 		return $fonts;
 
+	if(!is_array($fonts))
+		$fonts = array();
+
 	///// FRONT END /////
 	// Include only the selected fonts
 
@@ -173,12 +176,13 @@ function theme_include_google_fonts( $fonts ){
 		// If the font hasn't been added yet
 		if( !in_array( _get( $font, 'name' ), $added_fonts ) ){
 			// Add the font
-			$fonts[] = $font;
+			array_push($fonts, $font);
+			//$fonts[] = $font;
 			// And add it's name to the added fonts array, so it doesn't get added twice
-			$added_fonts[] = _get( $font, 'name' );
+			array_push($added_fonts, _get( $font,'name'));
+			//$added_fonts[] = _get( $font, 'name' );
 		}
 	}
-
 	return $fonts;
 
 }
