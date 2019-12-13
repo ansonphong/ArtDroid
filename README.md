@@ -1,2 +1,3 @@
 ArtDroid
 ================
+WordPress for Artists
