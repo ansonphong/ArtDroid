@@ -4,10 +4,10 @@
 - Built with [Postworld](https://github.com/ansonphong/postworld), WordPress theme dev tools
 - Uses Angular.js as a client side framework
 - Examples:
- - [Android Jones](https://androidjones.com)
- - [Xavi](https://xaviart.com)
- - [Chris Dyer](https://positivecreations.ca)
- - [Phong](https://phong.com)
+  - [Android Jones](https://androidjones.com)
+  - [Xavi](https://xaviart.com)
+  - [Chris Dyer](https://positivecreations.ca)
+  - [Phong](https://phong.com)
 
 ### Getting Started
 Just clone this into `/wp-content/themes/artdroid` and you're good to go.
