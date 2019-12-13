@@ -1,6 +1,7 @@
 ArtDroid
 ================
 WordPress for Artists
+Built by Phong for Andrdoid Jones website
 Build with [Postworld](https://github.com/ansonphong/postworld).
 
 #### Getting Started
