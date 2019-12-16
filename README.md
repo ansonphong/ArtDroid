@@ -1,5 +1,5 @@
 # ArtDroid
-### WordPress for Artists
+### WordPress for Artists (and Photographers)
 - Brought to you by Phong & Android Jones
 - Built with [Postworld](https://github.com/ansonphong/postworld), WordPress theme dev tools
 - Uses Angular.js as a client side framework
