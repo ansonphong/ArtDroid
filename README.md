@@ -2,7 +2,7 @@
 ### WordPress for Artists (and Photographers)
 - Brought to you by Phong & Android Jones
 - Built with [Postworld](https://github.com/ansonphong/postworld), WordPress theme dev tools
-- Uses Angular.js as a client side framework
+- Uses Angular.js V1 as a client side framework
 - Examples:
   - [Android Jones](https://androidjones.com)
   - [Xavi](https://xaviart.com)
