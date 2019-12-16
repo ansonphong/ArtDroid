@@ -12,6 +12,8 @@
 ### Getting Started
 Just clone this into `/wp-content/themes/artdroid` and you're good to go.
 
+Visit [artdroid.phong.com](https://artdroid.phong.com/) for the Getting Started guide, which gives a general overview of how to get booted up with the theme.
+
 ### Common gotchas
 - After cloning, make sure to also go into `/artdroid` and run this command to download all the required submodules `git submodule update --init --recursive`
 - Make sure permissions on `/wp-content/uploads` is `777`
