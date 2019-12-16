@@ -16,3 +16,12 @@ Just clone this into `/wp-content/themes/artdroid` and you're good to go.
 - After cloning, make sure to also go into `/artdroid` and run this command to download all the required submodules `git submodule update --init --recursive`
 - Make sure permissions on `/wp-content/uploads` is `777`
 - Make sure permissions on `/wp-content/themes/artdroid/postworld/deploy` are `777`
+
+### CHMOD Commands
+
+Go into the root directory of your WordPress install and run this to set all the permissions.
+
+```
+chmod 777 -R wp-content/uploads; chmod 777 -R wp-content/themes/artdroid/postworld/deploy; chmod 777 -R wp-content/themes/artdroid/postworld/log;
+```
+
