@@ -67,6 +67,10 @@ function theme_postworld_config(){
 		'comments'
 		));
 
+	pw_config('post_cache', array(
+		'omit_post_types' => array('page')
+	));
+
 	pw_config('post_views', array(
 		'supported' => array('list','modal','grid','full'),
 		'options' => array(
