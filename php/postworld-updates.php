@@ -5,7 +5,7 @@
 add_action('init','theme_check_for_updates');
 function theme_check_for_updates(){
 	require_once( get_template_directory().'/lib/theme-updates/theme-update-checker.php');
-	$update_server_url = 'https://artdroid.net/';
+	$update_server_url = 'https://artdroid.phong.com/';
 	$query_vars = array(
 		'update_action' => 'get_metadata',
 		'update_slug' => 'artdroid',

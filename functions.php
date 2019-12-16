@@ -27,18 +27,13 @@ Thanks for using ArtDroid, we hope you
 enjoy using it and if you have any support
 issues, questions, ideas for future features
 or bugs to report, please visit:
-https://artdroid.net
+https://artdroid.phong.com
 
-ArtDroid is spawned by Android Jones
-http://androidjones.com
+ArtDroid is spawned by Phong & Android Jones
+https://phong.com
+https://androidjones.com
 
-Designed, coded, supported and
-maintained by Phong Media Design
-in Vancouver, BC, Canada
-http://phong.com
 
-Distributed by Theme Forest
-http://themeforest.net/?ref=phongmedia
 */
 
 /**
