@@ -404,3 +404,4 @@ add_theme_support( 'title-tag' );
  */
 add_post_type_support( 'post', 'excerpt' );
 add_post_type_support( 'blog', 'excerpt' );
+

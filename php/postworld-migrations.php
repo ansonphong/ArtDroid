@@ -13,8 +13,8 @@ function artdroid_upgrade_routine(){
  * Do theme migrations for versions less than 1.4.32
  */
 add_action( 'artdroid_theme_upgrade', 'theme_migration_one_point_four_point_three_two' );
-function theme_migration_one_point_four_point_three_two( $vars ){
-	if( version_compare( $vars['previous_version'], '1.4.32' ) === -1 ){
+function theme_migration_one_point_four_point_three_two( $vars, $force = false ){
+	if( version_compare( $vars['previous_version'], '1.4.32' ) === -1 || $force == true ){
 		pw_log('RUN MIGRATIONS', 'theme_migration_one_point_four_point_three_two');
 		global $wpdb;
 		$pw_database = new PW_Database();
