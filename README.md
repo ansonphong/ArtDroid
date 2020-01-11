@@ -5,7 +5,7 @@
 - Built with [Postworld](https://github.com/ansonphong/postworld), WordPress theme dev tools
 - Uses Angular.js V1 as a client side framework
 - This is a loosely maintained project, still in steady use
-- Examples:
+- Example websites using ArtDroid:
   - [Android Jones](https://androidjones.com)
   - [Xavi](https://xaviart.com)
   - [Chris Dyer](https://positivecreations.ca)
