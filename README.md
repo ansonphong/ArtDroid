@@ -4,7 +4,7 @@
 - Brought to you by Phong & Android Jones
 - Built with [Postworld](https://github.com/ansonphong/postworld), WordPress theme dev tools
 - Uses Angular.js V1 as a client side framework
-- This is a loosely maintained **LEGACY** project, still in steady use
+- This is a loosely maintained project, still in steady use
 - Examples:
   - [Android Jones](https://androidjones.com)
   - [Xavi](https://xaviart.com)
