@@ -241,9 +241,9 @@ postworld.controller( 'artPostCtrl',
 	};
 
 	$scope.imageFormat = function( post ){
-		var ratio = $_.get( $scope.post, 'image.stats.ratio' );
+		var ratio = $_.get( $scope.post, 'image.stats.ratio' ); // << TODO : This isn't working for some reason
 		if( !ratio )
-			return false;
+			return 'standard';
 		if( Number( ratio ) > 3 )
 			return 'panorama';
 		else
