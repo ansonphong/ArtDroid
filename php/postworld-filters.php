@@ -55,6 +55,11 @@ function theme_passthrough_featured_image_post( $post ){
 	/**
 	 * Manually replace the empty fields
 	 */
+
+	if( !_get($post, "fields") ){
+		$post['fields'] = array();
+	}
+
 	// Replace POST TITLE field
 	$post_title = _get( $post, 'post_title' );
 	if( empty( $post_title ) && in_array( 'post_title', $post['fields'] ) )
