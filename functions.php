@@ -17,6 +17,7 @@ function artdroid_register_theme(){
 		));
 };
 
+
 /**
 ArtDroid is a Premium WordPress theme
 designed with artists, designers,
