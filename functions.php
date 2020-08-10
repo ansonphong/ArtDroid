@@ -71,7 +71,6 @@ function theme_less_cache_location( $location ){
 	return str_replace( 'wp-less-cache', 'artdroid-cache', $location );
 }
 
-
 ////////// ADMIN //////////
 //include_once get_infinite_directory().'/php/options.php';
 
