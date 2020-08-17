@@ -69,6 +69,34 @@ $home_slider_settings = array(
 
 			</div>
 
+
+			<!-- CUSTOM FEED -->
+			<div class="well">
+				<h3>
+					<span class="icon-md"><i class="pwi-th-list"></i></span>
+					Feed
+				</h3>
+
+				<label>
+				<input
+					type="checkbox"
+					ng-model="pwOptions.home.feed.custom.use_custom_feed">
+					Use a custom feed on the home page
+				</label>
+				
+				<div
+					ng-show="pwOptions.home.feed.custom.use_custom_feed">
+					<hr class="thin">
+					<?php
+						echo pw_select_setting(array(
+							'setting' => 'feed',
+							'ng_model' => 'pwOptions.home.feed.custom.custom_feed_id',
+							));
+					?>
+				</div>
+
+			</div>
+
 		</div>
 
 	</div>
@@ -95,6 +123,8 @@ $home_slider_settings = array(
 						));?>
 			</div>
 		</div>
+
+
 
 
 	</div>

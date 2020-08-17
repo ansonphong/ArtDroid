@@ -15,11 +15,22 @@ if( _get( $home_options, 'slider.show_slider' ) ){
 
 $show_on_front = get_option( 'show_on_front' );
 
+
 /**
  * POSTS FEED
  */
 if( $show_on_front == 'posts' || is_home() || $wp_page_template === 'posts.php'  ){
-	$primary_content = pw_ob_include_template('views/archive/feed-posts.php');
+
+	if( _get( $home_options, 'feed.custom.use_custom_feed' ) ){
+		$primary_content = pw_ob_include_template(
+			'views/archive/feed-home-custom.php',
+			_get( $home_options, 'feed.custom' )
+		);
+	}	
+	else{
+		$primary_content = pw_ob_include_template('views/archive/feed-posts.php');
+	}
+
 	pw_print_layout( array( 'content' => $primary_content ) );
 }
 

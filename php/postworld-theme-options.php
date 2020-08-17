@@ -174,6 +174,10 @@ function pw_theme_options_filter( $options ){
 			),
 		'home'	=>	array(
 			'feed'	=>	array(
+				'custom'	=>	array(
+					'use_custom_feed' => false,
+					'custom_feed_id' => false
+				),
 				'blocks'	=>	array(
 					'offset' => 3,
 					'increment' => 6,
