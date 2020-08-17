@@ -8,3 +8,5 @@ if($custom_feed_id !== false){
 		'feed' => pw_get_feed_by_id($custom_feed_id)
 		));
 }
+
+?>
